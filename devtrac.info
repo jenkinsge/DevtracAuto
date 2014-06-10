@@ -1,1 +1,3 @@
-name = Devtrac Distribution
+name = Devtrac
+description = Installation profile for the Devtrac development tracker.
+core = 7.x
