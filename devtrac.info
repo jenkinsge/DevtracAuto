@@ -1,3 +1,5 @@
 name = Devtrac
 description = Installation profile for the Devtrac development tracker.
+version = VERSION
 core = 7.x
+hidden = FALSE

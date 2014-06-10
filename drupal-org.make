@@ -5,6 +5,9 @@ projects[drupal][version] = "7.x"
 
 ; Modules
 projects[acl][version] = "1.0"
+projects[acl][type] = "module"
+projects[acl][subdir] = "contrib"
+
 projects[adaptive_image][version] = "1.4"
 projects[admin_menu][version] = "3.0-rc3"
 projects[advanced_help][version] = "1.0"

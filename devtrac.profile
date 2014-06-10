@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Enables modules and site configuration for a minimal site installation.
+ */
 
 /**
  * Implements hook_form_alter().
