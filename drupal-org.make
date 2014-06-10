@@ -261,7 +261,7 @@ projects[file_entity][version] = "2.0-unstable7"
 projects[file_entity][type] = "module"
 projects[file_entity][subdir] = "contrib"
 
-projects[flot][version] = "1.x"
+projects[flot][version] = "1.x-dev"
 projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
 
@@ -277,7 +277,7 @@ projects[geophp][version] = "1.7"
 projects[geophp][type] = "module"
 projects[geophp][subdir] = "contrib"
 
-projects[hidden_comment][version] = "1.x"
+projects[hidden_comment][version] = "1.x-dev"
 projects[hidden_comment][type] = "module"
 projects[hidden_comment][subdir] = "contrib"
 
@@ -290,7 +290,7 @@ projects[job_scheduler][version] = "2.0-alpha2"
 projects[job_scheduler][type] = "module"
 projects[job_scheduler][subdir] = "contrib"
 
-projects[kml][version] = "1.x"
+projects[kml][version] = "1.x-dev"
 projects[kml][type] = "module"
 projects[kml][subdir] = "contrib"
 
@@ -330,7 +330,7 @@ projects[omega_tools][version] = "3.0-rc3"
 projects[omega_tools][type] = "module"
 projects[omega_tools][subdir] = "contrib"
 
-projects[openlayers][version] = "2.0-beta7"
+projects[openlayers][version] = "2.x-dev"
 projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
 
@@ -468,7 +468,7 @@ projects[views_rss_georss][version] = "1.0-rc1"
 projects[views_rss_georss][type] = "module"
 projects[views_rss_georss][subdir] = "contrib"
 
-projects[views_slideshow][version] = "3.0"
+projects[views_slideshow][version] = "3.x-dev"
 projects[views_slideshow][type] = "module"
 projects[views_slideshow][subdir] = "contrib"
 
