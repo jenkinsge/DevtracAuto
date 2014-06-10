@@ -620,7 +620,7 @@ projects[geocoder_geonames][subdir] = "contrib"
 projects[helpinject][download][type] = ""
 projects[helpinject][download][url] = ""
 projects[helpinject][type] = "module"
-projects[ahelpinjectcl][subdir] = "contrib"
+projects[helpinject][subdir] = "contrib"
 
 projects[helpinject_help][download][type] = ""
 projects[helpinject_help][download][url] = ""
