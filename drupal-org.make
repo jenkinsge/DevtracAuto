@@ -626,6 +626,11 @@ libraries[SolrPhpClient][download][url] = ""
 libraries[SolrPhpClient][directory_name] = "SolrPhpClient"
 libraries[SolrPhpClient][type] = "library"
 
+libraries[spyc][download][type] = ""
+libraries[spyc][download][url] = ""
+libraries[spyc][directory_name] = "spyc"
+libraries[spyc][type] = "library"
+
 libraries[tcpdf][download][type] = ""
 libraries[tcpdf][download][url] = ""
 libraries[tcpdf][directory_name] = "tcpdf"
