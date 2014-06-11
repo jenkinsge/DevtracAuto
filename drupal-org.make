@@ -211,9 +211,9 @@ projects[globalredirect][version] = "1.5"
 projects[globalredirect][type] = "module"
 projects[globalredirect][subdir] = "contrib"
 
-projects[helpinject][version] = "1.0-alpha6"
-projects[helpinject][type] = "module"
-projects[helpinject][subdir] = "contrib"
+;projects[helpinject][version] = "1.0-alpha6"
+;projects[helpinject][type] = "module"
+;projects[helpinject][subdir] = "contrib"
 
 projects[hidden_comment][version] = "1.x-dev"
 projects[hidden_comment][type] = "module"
