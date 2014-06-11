@@ -6,7 +6,9 @@ core = 7.x
 ; does not work with includes. So we patch from within this file
 ;includes[] = drupal-org-core.make
 
+projects[drupal][type] = core
 projects[drupal][version] = 7.x
+
 ; Patches for Core
 ;projects[drupal][patch][] = https://drupal.org/files/1093420-22.patch
 

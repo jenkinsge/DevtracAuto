@@ -26,11 +26,19 @@ projects[autoassignrole][version] = "1.0-beta1"
 projects[autoassignrole][type] = "module"
 projects[autoassignrole][subdir] = "contrib"
 
+projects[behavior_weights][version] = "1.0"
+projects[behavior_weights][type] = "module"
+projects[behavior_weights][subdir] = "contrib"
+
+projects[better_messages][version] = "1.x-dev"
+projects[better_messages][type] = "module"
+projects[better_messages][subdir] = "contrib"
+
 projects[blockify][version] = "1.2"
 projects[blockify][type] = "module"
 projects[blockify][subdir] = "contrib"
 
-projects[ctools][version] = "1.3"
+projects[ctools][version] = "1.4"
 projects[ctools][type] = "module"
 projects[ctools][subdir] = "contrib"
 
@@ -42,9 +50,17 @@ projects[charts_graphs_flot][version] = "1.x-dev"
 projects[charts_graphs_flot][type] = "module"
 projects[charts_graphs_flot][subdir] = "contrib"
 
+projects[chosen][version] = "2.0-beta4"
+projects[chosen][type] = "module"
+projects[chosen][subdir] = "contrib"
+
 projects[ckeditor][version] = "1.14"
 projects[ckeditor][type] = "module"
 projects[ckeditor][subdir] = "contrib"
+
+projects[collapsiblock][version] = "1.0"
+projects[collapsiblock][type] = "module"
+projects[collapsiblock][subdir] = "contrib"
 
 projects[colorbox][version] = "1.6"
 projects[colorbox][type] = "module"
@@ -63,9 +79,13 @@ projects[context][version] = "3.2"
 projects[context][type] = "module"
 projects[context][subdir] = "contrib"
 
-projects[facetapi][version] = "1.3"
-projects[facetapi][type] = "module"
-projects[facetapi][subdir] = "contrib"
+projects[css_browser_selector][version] = "1.1"
+projects[css_browser_selector][type] = "module"
+projects[css_browser_selector][subdir] = "contrib"
+
+projects[custom_breadcrumbs][version] = "1.1"
+projects[custom_breadcrumbs][type] = "module"
+projects[custom_breadcrumbs][subdir] = "contrib"
 
 projects[date][version] = "2.7"
 projects[date][type] = "module"
@@ -75,7 +95,7 @@ projects[delta][version] = "3.0-beta11"
 projects[delta][type] = "module"
 projects[delta][subdir] = "contrib"
 
-projects[devel][version] = "1.2"
+projects[devel][version] = "1.4"
 projects[devel][type] = "module"
 projects[devel][subdir] = "contrib"
 
@@ -106,6 +126,10 @@ projects[entityreference][subdir] = "contrib"
 projects[entityreference_prepopulate][version] = "1.5"
 projects[entityreference_prepopulate][type] = "module"
 projects[entityreference_prepopulate][subdir] = "contrib"
+
+projects[facetapi][version] = "1.3"
+projects[facetapi][type] = "module"
+projects[facetapi][subdir] = "contrib"
 
 projects[facetapi_bonus][version] = "1.1"
 projects[facetapi_bonus][type] = "module"
@@ -139,6 +163,10 @@ projects[field_collection_table][version] = "1.0-beta1"
 projects[field_collection_table][type] = "module"
 projects[field_collection_table][subdir] = "contrib"
 
+projects[field_extrawidgets][version] = "1.1"
+projects[field_extrawidgets][type] = "module"
+projects[field_extrawidgets][subdir] = "contrib"
+
 projects[field_group][version] = "1.4"
 projects[field_group][type] = "module"
 projects[field_group][subdir] = "contrib"
@@ -155,9 +183,21 @@ projects[flot][version] = "1.x-dev"
 projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
 
-;projects[geofield][version] = "2.0"
-;projects[geofield][type] = "module"
-;projects[geofield][subdir] = "contrib"
+projects[footable][version] = "1.0-beta2"
+projects[footable][type] = "module"
+projects[footable][subdir] = "contrib"
+
+projects[geocoder][version] = "1.2"
+projects[geocoder][type] = "module"
+projects[geocoder][subdir] = "contrib"
+
+projects[geocoder_wfs][version] = "1.0"
+projects[geocoder_wfs][type] = "module"
+projects[geocoder_wfs][subdir] = "contrib"
+
+projects[geofield][version] = "2.1"
+projects[geofield][type] = "module"
+projects[geofield][subdir] = "contrib"
 
 projects[geonames][version] = "1.1"
 projects[geonames][type] = "module"
@@ -167,6 +207,14 @@ projects[geophp][version] = "1.7"
 projects[geophp][type] = "module"
 projects[geophp][subdir] = "contrib"
 
+projects[globalredirect][version] = "1.5"
+projects[globalredirect][type] = "module"
+projects[globalredirect][subdir] = "contrib"
+
+projects[helpinject][version] = "1.0-alpha6"
+projects[helpinject][type] = "module"
+projects[helpinject][subdir] = "contrib"
+
 projects[hidden_comment][version] = "1.x-dev"
 projects[hidden_comment][type] = "module"
 projects[hidden_comment][subdir] = "contrib"
@@ -174,6 +222,10 @@ projects[hidden_comment][subdir] = "contrib"
 projects[job_scheduler][version] = "2.0-alpha3"
 projects[job_scheduler][type] = "module"
 projects[job_scheduler][subdir] = "contrib"
+
+projects[jquery_update][version] = "2.x-dev"
+projects[jquery_update][type] = "module"
+projects[jquery_update][subdir] = "contrib"
 
 projects[kml][version] = "1.x-dev"
 projects[kml][type] = "module"
@@ -190,6 +242,10 @@ projects[link][subdir] = "contrib"
 projects[maxlength][version] = "3.0-beta1"
 projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"
+
+projects[me][version] = "1.1"
+projects[me][type] = "module"
+projects[me][subdir] = "contrib"
 
 projects[media][version] = "2.0-alpha3"
 projects[media][type] = "module"
@@ -227,6 +283,14 @@ projects[openlayers_plus][version] = "3.0-beta1"
 projects[openlayers_plus][type] = "module"
 projects[openlayers_plus][subdir] = "contrib"
 
+projects[pane][version] = "2.4"
+projects[pane][type] = "module"
+projects[pane][subdir] = "contrib"
+
+projects[pathauto][version] = "1.2"
+projects[pathauto][type] = "module"
+projects[pathauto][subdir] = "contrib"
+
 projects[piwik][version] = "2.5"
 projects[piwik][type] = "module"
 projects[piwik][subdir] = "contrib"
@@ -243,9 +307,21 @@ projects[proj4js][version] = "1.2"
 projects[proj4js][type] = "module"
 projects[proj4js][subdir] = "contrib"
 
+projects[proxy][version] = "1.0-beta3"
+projects[proxy][type] = "module"
+projects[proxy][subdir] = "contrib"
+
 projects[publishcontent][version] = "1.3"
 projects[publishcontent][type] = "module"
 projects[publishcontent][subdir] = "contrib"
+
+projects[purl][version] = "1.0-beta1"
+projects[purl][type] = "module"
+projects[purl][subdir] = "contrib"
+
+projects[purl_search_api][version] = "1.0-beta1"
+projects[purl_search_api][type] = "module"
+projects[purl_search_api][subdir] = "contrib"
 
 projects[quicktabs][version] = "3.6"
 projects[quicktabs][type] = "module"
@@ -263,10 +339,6 @@ projects[relation_add][version] = "1.2"
 projects[relation_add][type] = "module"
 projects[relation_add][subdir] = "contrib"
 
-projects[services][version] = "3.7"
-projects[services][type] = "module"
-projects[services][subdir] = "contrib"
-
 projects[robotstxt][version] = "1.1"
 projects[robotstxt][type] = "module"
 projects[robotstxt][subdir] = "contrib"
@@ -279,7 +351,11 @@ projects[search_api_autocomplete][version] = "1.1"
 projects[search_api_autocomplete][type] = "module"
 projects[search_api_autocomplete][subdir] = "contrib"
 
-projects[search_api_saved_searches][version] = "1.1"
+projects[search_api_date][version] = "1.0-alpha2"
+projects[search_api_date][type] = "module"
+projects[search_api_date][subdir] = "contrib"
+
+projects[search_api_saved_searches][version] = "1.3"
 projects[search_api_saved_searches][type] = "module"
 projects[search_api_saved_searches][subdir] = "contrib"
 
@@ -291,9 +367,21 @@ projects[search_api_solr_overrides][version] = "1.0-rc1"
 projects[search_api_solr_overrides][type] = "module"
 projects[search_api_solr_overrides][subdir] = "contrib"
 
+projects[search_api_swatches][version] = "1.x-dev"
+projects[search_api_swatches][type] = "module"
+projects[search_api_swatches][subdir] = "contrib"
+
+projects[services][version] = "3.7"
+projects[services][type] = "module"
+projects[services][subdir] = "contrib"
+
 projects[services_views][version] = "1.0"
 projects[services_views][type] = "module"
 projects[services_views][subdir] = "contrib"
+
+projects[stringoverrides][version] = "1.8"
+projects[stringoverrides][type] = "module"
+projects[stringoverrides][subdir] = "contrib"
 
 projects[strongarm][version] = "2.0"
 projects[strongarm][type] = "module"
@@ -311,13 +399,17 @@ projects[token][version] = "1.5"
 projects[token][type] = "module"
 projects[token][subdir] = "contrib"
 
+projects[transliteration][version] = "3.2"
+projects[transliteration][type] = "module"
+projects[transliteration][subdir] = "contrib"
+
+projects[uuid][version] = "1.0-alpha5"
+projects[uuid][type] = "module"
+projects[uuid][subdir] = "contrib"
+
 projects[views][version] = "3.8"
 projects[views][type] = "module"
 projects[views][subdir] = "contrib"
-
-projects[views_hacks][version] = "1.0-alpha2"
-projects[views_hacks][type] = "module"
-projects[views_hacks][subdir] = "contrib"
 
 projects[views_charts][version] = "1.x-dev"
 projects[views_charts][type] = "module"
@@ -330,6 +422,18 @@ projects[views_data_export][subdir] = "contrib"
 projects[views_field_view][version] = "1.1"
 projects[views_field_view][type] = "module"
 projects[views_field_view][subdir] = "contrib"
+
+projects[views_flipped_table][version] = "1.0-alpha2"
+projects[views_flipped_table][type] = "module"
+projects[views_flipped_table][subdir] = "contrib"
+
+projects[views_geojson][version] = "1.x-dev"
+projects[views_geojson][type] = "module"
+projects[views_geojson][subdir] = "contrib"
+
+projects[views_hacks][version] = "1.0-alpha2"
+projects[views_hacks][type] = "module"
+projects[views_hacks][subdir] = "contrib"
 
 projects[views_infinite_scroll][version] = "1.1"
 projects[views_infinite_scroll][type] = "module"
@@ -351,138 +455,38 @@ projects[views_slideshow][version] = "3.x-dev"
 projects[views_slideshow][type] = "module"
 projects[views_slideshow][subdir] = "contrib"
 
+projects[virtual_field][version] = "1.2"
+projects[virtual_field][type] = "module"
+projects[virtual_field][subdir] = "contrib"
+
 projects[wms][version] = "2.0"
 projects[wms][type] = "module"
 projects[wms][subdir] = "contrib"
 
-;Add the OL_lat_long module
+; Sandbox projects
+projects[cancel_button][type] = "module"
+projects[cancel_button][download][type] = "git"
+projects[cancel_button][download][url] = "http://git.drupal.org/sandbox/amuhebwa/2227951.git"
+projects[cancel_button][download][branch] = "master"
+projects[cancel_button][subdir] = "contrib"
+
+projects[facetapi_context][type] = "module"
+projects[facetapi_context][download][type] = "git"
+projects[facetapi_context][download][url] = "http://git.drupal.org/sandbox/ygerasimov/1591872.git"
+projects[facetapi_context][download][branch] = "master"
+projects[facetapi_context][subdir] = "contrib"
+
+projects[facetapi_textfield][type] = "module"
+projects[facetapi_textfield][download][type] = "git"
+projects[facetapi_textfield][download][url] = "http://git.drupal.org/sandbox/janvandiepen/2060337.git"
+projects[facetapi_textfield][download][branch] = "7.x-1.x"
+projects[facetapi_textfield][subdir] = "contrib"
+
 projects[OL_lat_long][type] = "module"
 projects[OL_lat_long][download][type] = "git"
 projects[OL_lat_long][download][url] = "http://git.drupal.org/sandbox/GwenMahe/2055375.git"
 projects[OL_lat_long][download][branch] = "master"
 projects[OL_lat_long][subdir] = "contrib"
-
-;Add the WFS geocoder module
-projects[geocoder_wfs][type] = "module"
-projects[geocoder_wfs][download][type] = "git"
-projects[geocoder_wfs][download][url] = "http://git.drupal.org/project/geocoder_wfs.git"
-projects[geocoder_wfs][download][branch] = "7.x-1.0"
-projects[geocoder_wfs][subdir] = "contrib"
-
-projects[comment_block_d7][download][type] = ""
-projects[comment_block_d7][download][url] = ""
-projects[comment_block_d7][type] = "module"
-projects[comment_block_d7][subdir] = "custom"
-
-projects[custom_breadcrumbs][download][type] = ""
-projects[custom_breadcrumbs][download][url] = ""
-projects[custom_breadcrumbs][type] = "module"
-projects[custom_breadcrumbs][subdir] = "contrib"
-
-projects[custom_breadcrumbs_panels][download][type] = ""
-projects[custom_breadcrumbs_panels][download][url] = ""
-projects[custom_breadcrumbs_panels][type] = "module"
-projects[custom_breadcrumbs_panels][subdir] = "contrib"
-
-projects[custom_breadcrumbs_taxonomy][download][type] = ""
-projects[custom_breadcrumbs_taxonomy][download][url] = ""
-projects[custom_breadcrumbs_taxonomy][type] = "module"
-projects[custom_breadcrumbs_taxonomy][subdir] = "contrib"
-
-projects[custom_breadcrumbsapi][download][type] = ""
-projects[custom_breadcrumbsapi][download][url] = ""
-projects[custom_breadcrumbsapi][type] = "module"
-projects[custom_breadcrumbsapi][subdir] = "contrib"
-
-projects[date_duration_formatter][download][type] = ""
-projects[date_duration_formatter][download][url] = ""
-projects[date_duration_formatter][type] = "module"
-projects[date_duration_formatter][subdir] = "custom"
-
-projects[devtrac7][download][type] = ""
-projects[devtrac7][download][url] = ""
-projects[devtrac7][type] = "module"
-projects[devtrac7][subdir] = "custom"
-
-projects[devtrac7_access][download][type] = ""
-projects[devtrac7_access][download][url] = ""
-projects[devtrac7_access][type] = "module"
-projects[devtrac7_access][subdir] = "custom"
-
-projects[devtrac7_fieldtrip_progress][download][type] = ""
-projects[devtrac7_fieldtrip_progress][download][url] = ""
-projects[devtrac7_fieldtrip_progress][type] = "module"
-projects[devtrac7_fieldtrip_progress][subdir] = "custom"
-
-projects[devtrac7_geosearch][download][type] = ""
-projects[devtrac7_geosearch][download][url] = ""
-projects[devtrac7_geosearch][type] = "module"
-projects[devtrac7_geosearch][subdir] = "custom"
-
-projects[devtrac7_migrate][download][type] = ""
-projects[devtrac7_migrate][download][url] = ""
-projects[devtrac7_migrate][type] = "module"
-projects[devtrac7_migrate][subdir] = "custom"
-
-projects[devtrac7_mymenu][download][type] = ""
-projects[devtrac7_mymenu][download][url] = ""
-projects[devtrac7_mymenu][type] = "module"
-projects[devtrac7_mymenu][subdir] = "custom"
-
-projects[devtrac7_progress_field][download][type] = ""
-projects[devtrac7_progress_field][download][url] = ""
-projects[devtrac7_progress_field][type] = "module"
-projects[devtrac7_progress_field][subdir] = "custom"
-
-projects[devtrac7_purpose_migration][download][type] = ""
-projects[devtrac7_purpose_migration][download][url] = ""
-projects[devtrac7_purpose_migration][type] = "module"
-projects[devtrac7_purpose_migration][subdir] = "custom"
-
-projects[devtrac7_realms][download][type] = ""
-projects[devtrac7_realms][download][url] = ""
-projects[devtrac7_realms][type] = "module"
-projects[devtrac7_realms][subdir] = "custom"
-
-projects[devtrac7_views][download][type] = ""
-projects[devtrac7_views][download][url] = ""
-projects[devtrac7_views][type] = "module"
-projects[devtrac7_views][subdir] = "custom"
-
-projects[devtrac7_wms][download][type] = ""
-projects[devtrac7_wms][download][url] = ""
-projects[devtrac7_wms][type] = "module"
-projects[devtrac7_wms][subdir] = "custom"
-
-projects[devtrac7test][download][type] = ""
-projects[devtrac7test][download][url] = ""
-projects[devtrac7test][type] = "module"
-projects[devtrac7test][subdir] = "custom"
-
-projects[devtrac_saved_search][download][type] = ""
-projects[devtrac_saved_search][download][url] = ""
-projects[devtrac_saved_search][type] = "module"
-projects[devtrac_saved_search][subdir] = "custom"
-
-projects[devtrac_taxonomy][download][type] = ""
-projects[devtrac_taxonomy][download][url] = ""
-projects[devtrac_taxonomy][type] = "module"
-projects[devtrac_taxonomy][subdir] = "custom"
-
-projects[facet_api_context][download][type] = ""
-projects[facet_api_context][download][url] = ""
-projects[facet_api_context][type] = "module"
-projects[facet_api_context][subdir] = "custom"
-
-projects[facetapi_textfield][download][type] = ""
-projects[facetapi_textfield][download][url] = ""
-projects[facetapi_textfield][type] = "module"
-projects[facetapi_textfield][subdir] = "custom"
-
-projects[geocoder][download][type] = ""
-projects[geocoder][download][url] = ""
-projects[geocoder][type] = "module"
-projects[geocoder][subdir] = "contrib"
 
 projects[geocoder_geonames][type] = "module"
 projects[geocoder_geonames][download][type] = "git"
@@ -491,66 +495,11 @@ projects[geocoder_geonames][download][branch] = "7.x-1.x"
 projects[geocoder_geonames][download][revision] = "57417b6bab16585f8d06a06e460e5096d3ba25b0"
 projects[geocoder_geonames][subdir] = "contrib"
 
-projects[helpinject][download][type] = ""
-projects[helpinject][download][url] = ""
-projects[helpinject][type] = "module"
-projects[helpinject][subdir] = "contrib"
-
-projects[helpinject_help][download][type] = ""
-projects[helpinject_help][download][url] = ""
-projects[helpinject_help][type] = "module"
-projects[helpinject_help][subdir] = "contrib"
-
-projects[proxy][download][type] = ""
-projects[proxy][download][url] = ""
-projects[proxy][type] = "module"
-projects[proxy][subdir] = "contrib"
-
-projects[purl][download][type] = ""
-projects[purl][download][url] = ""
-projects[purl][type] = "module"
-projects[purl][subdir] = "contrib"
-
-projects[purl_devtrac][download][type] = ""
-projects[purl_devtrac][download][url] = ""
-projects[purl_devtrac][type] = "module"
-projects[purl_devtrac][subdir] = "custom"
-
-projects[purl_search_api][download][type] = ""
-projects[purl_search_api][download][url] = ""
-projects[purl_search_api][type] = "module"
-projects[purl_search_api][subdir] = "custom"
-
-;projects[tests][download][type] = ""
-;projects[tests][download][url] = ""
-;projects[tests][type] = "module"
-;projects[tests][subdir] = "custom"
-
 projects[questionnaire][type] = "module"
 projects[questionnaire][download][type] = "git"
 projects[questionnaire][download][url] = "http://git.drupal.org/sandbox/batje/1509732.git"
 projects[questionnaire][download][revision] = "c6515a2236d3bae5e602a19a0ef8facfc7fc5987"
 projects[questionnaire][subdir] = "contrib"
-
-projects[search_api_date][download][type] = ""
-projects[search_api_date][download][url] = ""
-projects[search_api_date][type] = "module"
-projects[search_api_date][subdir] = "contrib"
-
-projects[search_api_swatches][download][type] = ""
-projects[search_api_swatches][download][url] = ""
-projects[search_api_swatches][type] = "module"
-projects[search_api_swatches][subdir] = "custom"
-
-projects[views_two_column_table][download][type] = ""
-projects[views_two_column_table][download][url] = ""
-projects[views_two_column_table][type] = "module"
-projects[views_two_column_table][subdir] = "contrib"
-
-projects[virtual_field][download][type] = ""
-projects[virtual_field][download][url] = ""
-projects[virtual_field][type] = "module"
-projects[virtual_field][subdir] = "contrib"
 
 ; Themes
 projects[omega][version] = "3.1"
