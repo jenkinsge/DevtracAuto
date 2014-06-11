@@ -83,7 +83,7 @@ projects[css_browser_selector][version] = "1.1"
 projects[css_browser_selector][type] = "module"
 projects[css_browser_selector][subdir] = "contrib"
 
-projects[custom_breadcrumbs][version] = "1.1"
+projects[custom_breadcrumbs][version] = "2.0-alpha3"
 projects[custom_breadcrumbs][type] = "module"
 projects[custom_breadcrumbs][subdir] = "contrib"
 
