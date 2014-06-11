@@ -1,6 +1,8 @@
 ; Drush Make File
 core = 7.x
 api = 2
+
+projects[drupal][type] = core
 projects[drupal][version] = "7.x"
 
 ; Modules
@@ -77,111 +79,11 @@ projects[devel][version] = "1.2"
 projects[devel][type] = "module"
 projects[devel][subdir] = "contrib"
 
-projects[devtrac7_admin_feature][download][type] = ""
-projects[devtrac7_admin_feature][download][url] = ""
-projects[devtrac7_admin_feature][type] = "module"
-projects[devtrac7_admin_feature][version] = "1.0-beta"
-
-projects[devtrac7_field_permissions_feature][download][type] = ""
-projects[devtrac7_field_permissions_feature][download][url] = ""
-projects[devtrac7_field_permissions_feature][type] = "module"
-projects[devtrac7_field_permissions_feature][version] = "1.0-beta1"
-
-projects[devtrac7_maps][download][type] = ""
-projects[devtrac7_maps][download][url] = ""
-projects[devtrac7_maps][type] = "module"
-projects[devtrac7_maps][version] = "1.0-beta1"
-
-projects[devtrac7_menu][download][type] = ""
-projects[devtrac7_menu][download][url] = ""
-projects[devtrac7_menu][type] = "module"
-projects[devtrac7_menu][version] = "1.0-beta1"
-
-projects[devtrac7_node_types][download][type] = ""
-projects[devtrac7_node_types][download][url] = ""
-projects[devtrac7_node_types][type] = "module"
-projects[devtrac7_node_types][version] = "1.0-beta1"
-
-projects[devtrac7_questionnaire_feature][download][type] = ""
-projects[devtrac7_questionnaire_feature][download][url] = ""
-projects[devtrac7_questionnaire_feature][type] = "module"
-projects[devtrac7_questionnaire_feature][version] = "1.0-beta1"
-
 projects[devtrac7_services_api][download][type] = ""
 projects[devtrac7_services_api][download][url] = ""
 projects[devtrac7_services_api][type] = "module"
 projects[devtrac7_services_api][version] = "1.0-beta"
 projects[devtrac7_services_api][subdir] = "custom"
-
-projects[devtrac7_site_configuration_feature][download][type] = ""
-projects[devtrac7_site_configuration_feature][download][url] = ""
-projects[devtrac7_site_configuration_feature][type] = "module"
-projects[devtrac7_site_configuration_feature][version] = "1.0-beta"
-
-projects[devtrac7_solr_search_act_item_feature][download][type] = ""
-projects[devtrac7_solr_search_act_item_feature][download][url] = ""
-projects[devtrac7_solr_search_act_item_feature][type] = "module"
-projects[devtrac7_solr_search_act_item_feature][version] = "1.0-beta1"
-
-projects[devtrac7_solr_search_activity_feature][download][type] = ""
-projects[devtrac7_solr_search_activity_feature][download][url] = ""
-projects[devtrac7_solr_search_activity_feature][type] = "module"
-projects[devtrac7_solr_search_activity_feature][version] = "1.0-beta"
-
-projects[devtrac7_solr_search_answers_feature][download][type] = ""
-projects[devtrac7_solr_search_answers_feature][download][url] = ""
-projects[devtrac7_solr_search_answers_feature][type] = "module"
-projects[devtrac7_solr_search_answers_feature][version] = "1.0-beta1"
-
-projects[devtrac7_solr_search_district_feature][download][type] = ""
-projects[devtrac7_solr_search_district_feature][download][url] = ""
-projects[devtrac7_solr_search_district_feature][type] = "module"
-projects[devtrac7_solr_search_district_feature][version] = "1.0"
-
-projects[devtrac7_solr_search_feature][download][type] = ""
-projects[devtrac7_solr_search_feature][download][url] = ""
-projects[devtrac7_solr_search_feature][type] = "module"
-projects[devtrac7_solr_search_feature][version] = "1.0-beta"
-
-projects[devtrac7_solr_search_fieldtrip_feature][download][type] = ""
-projects[devtrac7_solr_search_fieldtrip_feature][download][url] = ""
-projects[devtrac7_solr_search_fieldtrip_feature][type] = "module"
-projects[devtrac7_solr_search_fieldtrip_feature][version] = "1.0-beta1"
-
-projects[devtrac7_solr_search_org_feature][download][type] = ""
-projects[devtrac7_solr_search_org_feature][download][url] = ""
-projects[devtrac7_solr_search_org_feature][type] = "module"
-projects[devtrac7_solr_search_org_feature][version] = "1.0-beta"
-
-projects[devtrac7_solr_search_questions_feature][download][type] = ""
-projects[devtrac7_solr_search_questions_feature][download][url] = ""
-projects[devtrac7_solr_search_questions_feature][type] = "module"
-projects[devtrac7_solr_search_questions_feature][version] = "1.0-beta1"
-
-projects[devtrac7_solr_user_feature][download][type] = ""
-projects[devtrac7_solr_user_feature][download][url] = ""
-projects[devtrac7_solr_user_feature][type] = "module"
-projects[devtrac7_solr_user_feature][version] = "1.0-beta"
-
-projects[devtrac7_taxonomy_feature][download][type] = ""
-projects[devtrac7_taxonomy_feature][download][url] = ""
-projects[devtrac7_taxonomy_feature][type] = "module"
-projects[devtrac7_taxonomy_feature][version] = "1.0-beta"
-
-projects[devtrac7_theme_feature][download][type] = ""
-projects[devtrac7_theme_feature][download][url] = ""
-projects[devtrac7_theme_feature][type] = "module"
-projects[devtrac7_theme_feature][version] = "1.0"
-
-projects[devtrac7_users2][download][type] = ""
-projects[devtrac7_users2][download][url] = ""
-projects[devtrac7_users2][type] = "module"
-projects[devtrac7_users2][version] = "1.0-beta1"
-
-projects[devtrac7_views_feature][download][type] = ""
-projects[devtrac7_views_feature][download][url] = ""
-projects[devtrac7_views_feature][type] = "module"
-projects[devtrac7_views_feature][version] = "1.0"
 
 projects[diff][version] = "2.0"
 projects[diff][type] = "module"
@@ -280,11 +182,6 @@ projects[geophp][subdir] = "contrib"
 projects[hidden_comment][version] = "1.x-dev"
 projects[hidden_comment][type] = "module"
 projects[hidden_comment][subdir] = "contrib"
-
-projects[iati_feature][download][type] = ""
-projects[iati_feature][download][url] = ""
-projects[iati_feature][type] = "module"
-projects[iati_feature][version] = "1.0-beta"
 
 projects[job_scheduler][version] = "2.0-alpha2"
 projects[job_scheduler][type] = "module"
@@ -564,10 +461,6 @@ projects[devtrac7_realms][download][type] = ""
 projects[devtrac7_realms][download][url] = ""
 projects[devtrac7_realms][type] = "module"
 projects[devtrac7_realms][subdir] = "custom"
-
-projects[devtrac7_solr_search_location_feature][download][type] = ""
-projects[devtrac7_solr_search_location_feature][download][url] = ""
-projects[devtrac7_solr_search_location_feature][type] = "module"
 
 projects[devtrac7_views][download][type] = ""
 projects[devtrac7_views][download][url] = ""
