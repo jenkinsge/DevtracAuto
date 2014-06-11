@@ -14,11 +14,11 @@ projects[adaptive_image][version] = "1.4"
 projects[adaptive_image][type] = "module"
 projects[adaptive_image][subdir] = "contrib"
 
-projects[admin_menu][version] = "3.0-rc3"
+projects[admin_menu][version] = "3.0-rc4"
 projects[admin_menu][type] = "module"
 projects[admin_menu][subdir] = "contrib"
 
-projects[advanced_help][version] = "1.0"
+projects[advanced_help][version] = "1.1"
 projects[advanced_help][type] = "module"
 projects[advanced_help][subdir] = "contrib"
 
@@ -34,7 +34,7 @@ projects[ctools][version] = "1.3"
 projects[ctools][type] = "module"
 projects[ctools][subdir] = "contrib"
 
-projects[charts_graphs][version] = "1.x-dev"
+projects[charts_graphs][version] = "2.0"
 projects[charts_graphs][type] = "module"
 projects[charts_graphs][subdir] = "contrib"
 
@@ -42,36 +42,36 @@ projects[charts_graphs_flot][version] = "1.x-dev"
 projects[charts_graphs_flot][type] = "module"
 projects[charts_graphs_flot][subdir] = "contrib"
 
-projects[ckeditor][version] = "1.13"
+projects[ckeditor][version] = "1.14"
 projects[ckeditor][type] = "module"
 projects[ckeditor][subdir] = "contrib"
 
-projects[colorbox][version] = "1.3"
+projects[colorbox][version] = "1.6"
 projects[colorbox][type] = "module"
 projects[colorbox][subdir] = "contrib"
 
-projects[content_access][version] = "1.2-beta1"
+projects[content_access][version] = "1.2-beta2"
 projects[content_access][type] = "module"
 projects[content_access][subdir] = "contrib"
 
-projects[content_taxonomy][version] = "1.0-beta1"
+projects[content_taxonomy][version] = "1.0-beta2"
 projects[content_taxonomy][type] = "module"
 projects[content_taxonomy][subdir] = "contrib"
 
-projects[context][version] = "3.0-beta3"
-projects[context][patch][] = "https://drupal.org/files/sitewide_hook_init-1893068-1.patch"
+projects[context][version] = "3.2"
+;projects[context][patch][] = "https://drupal.org/files/sitewide_hook_init-1893068-1.patch"
 projects[context][type] = "module"
 projects[context][subdir] = "contrib"
 
-projects[facetapi][version] = "1.0"
+projects[facetapi][version] = "1.3"
 projects[facetapi][type] = "module"
 projects[facetapi][subdir] = "contrib"
 
-projects[date][version] = "2.5"
+projects[date][version] = "2.7"
 projects[date][type] = "module"
 projects[date][subdir] = "contrib"
 
-projects[delta][version] = "3.0-beta9"
+projects[delta][version] = "3.0-beta11"
 projects[delta][type] = "module"
 projects[delta][subdir] = "contrib"
 
@@ -79,37 +79,31 @@ projects[devel][version] = "1.2"
 projects[devel][type] = "module"
 projects[devel][subdir] = "contrib"
 
-projects[diff][version] = "2.0"
+projects[diff][version] = "3.2"
 projects[diff][type] = "module"
 projects[diff][subdir] = "contrib"
 
-projects[district_wikipedia_import][download][type] = ""
-projects[district_wikipedia_import][download][url] = ""
-projects[district_wikipedia_import][type] = "module"
-projects[district_wikipedia_import][version] = "1.0-beta1"
-projects[district_wikipedia_import][subdir] = "custom"
-
-projects[draggableviews][version] = "2.0-beta1"
+projects[draggableviews][version] = "2.0"
 projects[draggableviews][type] = "module"
 projects[draggableviews][subdir] = "contrib"
 
-projects[ds][version] = "1.8"
+projects[ds][version] = "1.9"
 projects[ds][type] = "module"
 projects[ds][subdir] = "contrib"
 
-projects[email][version] = "1.2"
+projects[email][version] = "1.3"
 projects[email][type] = "module"
 projects[email][subdir] = "contrib"
 
-projects[entity][version] = "1.0-rc3"
+projects[entity][version] = "1.5"
 projects[entity][type] = "module"
 projects[entity][subdir] = "contrib"
 
-projects[entityreference][version] = "1.0-rc3"
+projects[entityreference][version] = "1.1"
 projects[entityreference][type] = "module"
 projects[entityreference][subdir] = "contrib"
 
-projects[entityreference_prepopulate][version] = "1.0"
+projects[entityreference_prepopulate][version] = "1.5"
 projects[entityreference_prepopulate][type] = "module"
 projects[entityreference_prepopulate][subdir] = "contrib"
 
@@ -125,19 +119,19 @@ projects[facetapi_tagcloud][version] = "1.0-beta1"
 projects[facetapi_tagcloud][type] = "module"
 projects[facetapi_tagcloud][subdir] = "contrib"
 
-projects[features][version] = "1.0-rc2"
+projects[features][version] = "2.0"
 projects[features][type] = "module"
 projects[features][subdir] = "contrib"
 
-projects[feeds][version] = "2.0-alpha4"
+projects[feeds][version] = "2.0-alpha8"
 projects[feeds][type] = "module"
 projects[feeds][subdir] = "contrib"
 
-projects[feeds_tamper][version] = "1.0-beta3"
+projects[feeds_tamper][version] = "1.0-beta7"
 projects[feeds_tamper][type] = "module"
 projects[feeds_tamper][subdir] = "contrib"
 
-projects[field_collection][version] = "1.0-beta3"
+projects[field_collection][version] = "1.0-beta7"
 projects[field_collection][type] = "module"
 projects[field_collection][subdir] = "contrib"
 
@@ -145,7 +139,7 @@ projects[field_collection_table][version] = "1.0-beta1"
 projects[field_collection_table][type] = "module"
 projects[field_collection_table][subdir] = "contrib"
 
-projects[field_group][version] = "1.1"
+projects[field_group][version] = "1.4"
 projects[field_group][type] = "module"
 projects[field_group][subdir] = "contrib"
 
@@ -153,7 +147,7 @@ projects[field_permissions][version] = "1.0-beta2"
 projects[field_permissions][type] = "module"
 projects[field_permissions][subdir] = "contrib"
 
-projects[file_entity][version] = "2.0-unstable7"
+projects[file_entity][version] = "2.0-alpha3"
 projects[file_entity][type] = "module"
 projects[file_entity][subdir] = "contrib"
 
@@ -161,9 +155,9 @@ projects[flot][version] = "1.x-dev"
 projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
 
-projects[geofield][version] = "2.0"
-projects[geofield][type] = "module"
-projects[geofield][subdir] = "contrib"
+;projects[geofield][version] = "2.0"
+;projects[geofield][type] = "module"
+;projects[geofield][subdir] = "contrib"
 
 projects[geonames][version] = "1.1"
 projects[geonames][type] = "module"
@@ -177,7 +171,7 @@ projects[hidden_comment][version] = "1.x-dev"
 projects[hidden_comment][type] = "module"
 projects[hidden_comment][subdir] = "contrib"
 
-projects[job_scheduler][version] = "2.0-alpha2"
+projects[job_scheduler][version] = "2.0-alpha3"
 projects[job_scheduler][type] = "module"
 projects[job_scheduler][subdir] = "contrib"
 
@@ -185,11 +179,11 @@ projects[kml][version] = "1.x-dev"
 projects[kml][type] = "module"
 projects[kml][subdir] = "contrib"
 
-projects[libraries][version] = "2.1"
+projects[libraries][version] = "2.2"
 projects[libraries][type] = "module"
 projects[libraries][subdir] = "contrib"
 
-projects[link][version] = "1.0"
+projects[link][version] = "1.2"
 projects[link][type] = "module"
 projects[link][subdir] = "contrib"
 
@@ -197,31 +191,31 @@ projects[maxlength][version] = "3.0-beta1"
 projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"
 
-projects[media][version] = "2.0-unstable7"
+projects[media][version] = "2.0-alpha3"
 projects[media][type] = "module"
 projects[media][subdir] = "contrib"
 
-projects[memcache][version] = "1.0"
+projects[memcache][version] = "1.1"
 projects[memcache][type] = "module"
 projects[memcache][subdir] = "contrib"
 
-projects[menu_token][version] = "1.0-beta1"
+projects[menu_token][version] = "1.0-beta5"
 projects[menu_token][type] = "module"
 projects[menu_token][subdir] = "contrib"
 
-projects[migrate][version] = "2.4"
+projects[migrate][version] = "2.5"
 projects[migrate][type] = "module"
 projects[migrate][subdir] = "contrib"
 
-projects[nice_menus][version] = "2.1"
+projects[nice_menus][version] = "2.5"
 projects[nice_menus][type] = "module"
 projects[nice_menus][subdir] = "contrib"
 
-projects[omega_tools][version] = "3.0-rc3"
+projects[omega_tools][version] = "3.0-rc4"
 projects[omega_tools][type] = "module"
 projects[omega_tools][subdir] = "contrib"
 
-projects[openlayers][version] = "2.x-dev"
+projects[openlayers][version] = "2.0-beta9"
 projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
 
@@ -233,7 +227,7 @@ projects[openlayers_plus][version] = "3.0-beta1"
 projects[openlayers_plus][type] = "module"
 projects[openlayers_plus][subdir] = "contrib"
 
-projects[piwik][version] = "2.4"
+projects[piwik][version] = "2.5"
 projects[piwik][type] = "module"
 projects[piwik][subdir] = "contrib"
 
@@ -249,39 +243,39 @@ projects[proj4js][version] = "1.2"
 projects[proj4js][type] = "module"
 projects[proj4js][subdir] = "contrib"
 
-projects[publishcontent][version] = "1.0"
+projects[publishcontent][version] = "1.3"
 projects[publishcontent][type] = "module"
 projects[publishcontent][subdir] = "contrib"
 
-projects[quicktabs][version] = "3.4"
+projects[quicktabs][version] = "3.6"
 projects[quicktabs][type] = "module"
 projects[quicktabs][subdir] = "contrib"
 
-projects[realname][version] = "1.1"
+projects[realname][version] = "1.2"
 projects[realname][type] = "module"
 projects[realname][subdir] = "contrib"
 
-projects[relation][version] = "1.0-rc4"
+projects[relation][version] = "1.0-rc5"
 projects[relation][type] = "module"
 projects[relation][subdir] = "contrib"
 
-projects[relation_add][version] = "1.0-beta1"
+projects[relation_add][version] = "1.2"
 projects[relation_add][type] = "module"
 projects[relation_add][subdir] = "contrib"
 
-projects[services][version] = "3.1"
+projects[services][version] = "3.7"
 projects[services][type] = "module"
 projects[services][subdir] = "contrib"
 
-projects[robotstxt][version] = "1.0"
+projects[robotstxt][version] = "1.1"
 projects[robotstxt][type] = "module"
 projects[robotstxt][subdir] = "contrib"
 
-projects[search_api][version] = "1.2"
+projects[search_api][version] = "1.12"
 projects[search_api][type] = "module"
 projects[search_api][subdir] = "contrib"
 
-projects[search_api_autocomplete][version] = "1.0"
+projects[search_api_autocomplete][version] = "1.1"
 projects[search_api_autocomplete][type] = "module"
 projects[search_api_autocomplete][subdir] = "contrib"
 
@@ -289,7 +283,7 @@ projects[search_api_saved_searches][version] = "1.1"
 projects[search_api_saved_searches][type] = "module"
 projects[search_api_saved_searches][subdir] = "contrib"
 
-projects[search_api_solr][version] = "1.3"
+projects[search_api_solr][version] = "1.5"
 projects[search_api_solr][type] = "module"
 projects[search_api_solr][subdir] = "contrib"
 
@@ -297,11 +291,11 @@ projects[search_api_solr_overrides][version] = "1.0-rc1"
 projects[search_api_solr_overrides][type] = "module"
 projects[search_api_solr_overrides][subdir] = "contrib"
 
-projects[services_views][version] = "1.x-dev"
+projects[services_views][version] = "1.0"
 projects[services_views][type] = "module"
 projects[services_views][subdir] = "contrib"
 
-projects[strongarm][version] = "2.0-rc1"
+projects[strongarm][version] = "2.0"
 projects[strongarm][type] = "module"
 projects[strongarm][subdir] = "contrib"
 
@@ -313,15 +307,15 @@ projects[tipsy][version] = "1.0-rc1"
 projects[tipsy][type] = "module"
 projects[tipsy][subdir] = "contrib"
 
-projects[token][version] = "1.1"
+projects[token][version] = "1.5"
 projects[token][type] = "module"
 projects[token][subdir] = "contrib"
 
-projects[views][version] = "3.7"
+projects[views][version] = "3.8"
 projects[views][type] = "module"
 projects[views][subdir] = "contrib"
 
-projects[views_hacks][version] = "1.0-alpha1"
+projects[views_hacks][version] = "1.0-alpha2"
 projects[views_hacks][type] = "module"
 projects[views_hacks][subdir] = "contrib"
 
@@ -329,11 +323,11 @@ projects[views_charts][version] = "1.x-dev"
 projects[views_charts][type] = "module"
 projects[views_charts][subdir] = "contrib"
 
-projects[views_data_export][version] = "3.0-beta6"
+projects[views_data_export][version] = "3.0-beta7"
 projects[views_data_export][type] = "module"
 projects[views_data_export][subdir] = "contrib"
 
-projects[views_field_view][version] = "1.0-rc3"
+projects[views_field_view][version] = "1.1"
 projects[views_field_view][type] = "module"
 projects[views_field_view][subdir] = "contrib"
 
@@ -357,7 +351,7 @@ projects[views_slideshow][version] = "3.x-dev"
 projects[views_slideshow][type] = "module"
 projects[views_slideshow][subdir] = "contrib"
 
-projects[wms][version] = "2.x-dev"
+projects[wms][version] = "2.0"
 projects[wms][type] = "module"
 projects[wms][subdir] = "contrib"
 
@@ -522,16 +516,15 @@ projects[purl_devtrac][download][url] = ""
 projects[purl_devtrac][type] = "module"
 projects[purl_devtrac][subdir] = "custom"
 
-
 projects[purl_search_api][download][type] = ""
 projects[purl_search_api][download][url] = ""
 projects[purl_search_api][type] = "module"
 projects[purl_search_api][subdir] = "custom"
 
-projects[tests][download][type] = ""
-projects[tests][download][url] = ""
-projects[tests][type] = "module"
-projects[tests][subdir] = "custom"
+;projects[tests][download][type] = ""
+;projects[tests][download][url] = ""
+;projects[tests][type] = "module"
+;projects[tests][subdir] = "custom"
 
 projects[questionnaire][type] = "module"
 projects[questionnaire][download][type] = "git"
@@ -568,6 +561,26 @@ projects[devtrac7_theme][type] = "theme"
 projects[devtrac7_theme][subdir] = "custom"
 
 ; Libraries
+libraries[autopager][download][type] = ""
+libraries[autopager][download][url] = ""
+libraries[autopager][directory_name] = "autopager"
+libraries[autopager][type] = "library"
+
+libraries[chosen][download][type] = ""
+libraries[chosen][download][url] = ""
+libraries[chosen][directory_name] = "chosen"
+libraries[chosen][type] = "library"
+
+libraries[ckeditor][download][type] = ""
+libraries[ckeditor][download][url] = ""
+libraries[ckeditor][directory_name] = "ckeditor"
+libraries[ckeditor][type] = "library"
+
+libraries[colorbox][download][type] = ""
+libraries[colorbox][download][url] = ""
+libraries[colorbox][directory_name] = "colorbox"
+libraries[colorbox][type] = "library"
+
 libraries[FirePHPCore][download][type] = ""
 libraries[FirePHPCore][download][url] = ""
 libraries[FirePHPCore][directory_name] = "FirePHPCore"
@@ -578,40 +591,40 @@ libraries[flot][download][url] = ""
 libraries[flot][directory_name] = "flot"
 libraries[flot][type] = "library"
 
-libraries[colorbox][download][type] = ""
-libraries[colorbox][download][url] = ""
-libraries[colorbox][directory_name] = "colorbox"
-libraries[colorbox][type] = "library"
-
-libraries[SolrPhpClient][download][type] = ""
-libraries[SolrPhpClient][download][url] = ""
-libraries[SolrPhpClient][directory_name] = "SolrPhpClient"
-libraries[SolrPhpClient][type] = "library"
-
-libraries[json2][download][type] = ""
-libraries[json2][download][url] = ""
-libraries[json2][directory_name] = "json2"
-libraries[json2][type] = "library"
+libraries[FooTable][download][type] = ""
+libraries[FooTable][download][url] = ""
+libraries[FooTable][directory_name] = "FooTable"
+libraries[FooTable][type] = "library"
 
 libraries[jquery.cycle][download][type] = ""
 libraries[jquery.cycle][download][url] = ""
 libraries[jquery.cycle][directory_name] = "jquery.cycle"
 libraries[jquery.cycle][type] = "library"
 
+libraries[jquery-mb-extruder][download][type] = ""
+libraries[jquery-mb-extruder][download][url] = ""
+libraries[jquery-mb-extruder][directory_name] = "jquery-mb-extruder"
+libraries[jquery-mb-extruder][type] = "library"
+
+libraries[json2][download][type] = ""
+libraries[json2][download][url] = ""
+libraries[json2][directory_name] = "json2"
+libraries[json2][type] = "library"
+
 libraries[openlayers][download][type] = ""
 libraries[openlayers][download][url] = ""
 libraries[openlayers][directory_name] = "openlayers"
 libraries[openlayers][type] = "library"
 
-libraries[ckeditor][download][type] = ""
-libraries[ckeditor][download][url] = ""
-libraries[ckeditor][directory_name] = "ckeditor"
-libraries[ckeditor][type] = "library"
+libraries[proj4js][download][type] = ""
+libraries[proj4js][download][url] = ""
+libraries[proj4js][directory_name] = "proj4js"
+libraries[proj4js][type] = "library"
 
-libraries[autopager][download][type] = ""
-libraries[autopager][download][url] = ""
-libraries[autopager][directory_name] = "autopager"
-libraries[autopager][type] = "library"
+libraries[SolrPhpClient][download][type] = ""
+libraries[SolrPhpClient][download][url] = ""
+libraries[SolrPhpClient][directory_name] = "SolrPhpClient"
+libraries[SolrPhpClient][type] = "library"
 
 libraries[tcpdf][download][type] = ""
 libraries[tcpdf][download][url] = ""
