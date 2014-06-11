@@ -1,0 +1,7 @@
+name = Cancel Button
+description = Add a cencel button on all node forms
+core = 7.x
+package = Design and Configuration
+
+files[] = cancel_button.module
+scripts[] = js/cancel_button.js

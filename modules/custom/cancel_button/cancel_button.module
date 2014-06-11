@@ -1,0 +1,30 @@
+<?php
+/**
+ * @filesource
+ * 
+ */
+
+/**
+ * Implement hook_help() function
+ */
+function cancel_button_help($path, $args) {
+  if ($path == 'admin/help#cancel_button') {
+    $output = '<h3>'. t('About') . '</h3>';
+    $output = '<p>'. t('Allows you to add cancel button on node forms') . '</p>';
+    return $output;
+  }
+}
+/**
+ * Implement hook_form_alter() function.
+ * This does the magic (adding the cancel button on every node form)
+ */
+function cancel_button_form_alter(&$form, &$form_state, $form_id) {
+  if (isset($form['#node'])) {
+    $form['actions']['cancel'] = array(
+      '#markup' => l(t('Cancel'), 'admin'),
+      '#weight' => 10000,
+      '#type' => 'submit',
+      '#value' => t('Cancel'),
+    );
+  }
+}
