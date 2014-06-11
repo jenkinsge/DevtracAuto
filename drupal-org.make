@@ -211,10 +211,6 @@ projects[globalredirect][version] = "1.5"
 projects[globalredirect][type] = "module"
 projects[globalredirect][subdir] = "contrib"
 
-;projects[helpinject][version] = "1.0-alpha6"
-;projects[helpinject][type] = "module"
-;projects[helpinject][subdir] = "contrib"
-
 projects[hidden_comment][version] = "1.x-dev"
 projects[hidden_comment][type] = "module"
 projects[hidden_comment][subdir] = "contrib"
@@ -500,6 +496,11 @@ projects[questionnaire][download][type] = "git"
 projects[questionnaire][download][url] = "http://git.drupal.org/sandbox/batje/1509732.git"
 projects[questionnaire][download][revision] = "c6515a2236d3bae5e602a19a0ef8facfc7fc5987"
 projects[questionnaire][subdir] = "contrib"
+
+; Zipped projects
+projects[helpinject][download][type] = "file"
+projects[helpinject][download][url] = "http://drupal.org/files/helpinject_1.zip"
+projects[helpinject][subdir] = "contrib"
 
 ; Themes
 projects[omega][version] = "3.1"
