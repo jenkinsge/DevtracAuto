@@ -3,3 +3,27 @@ description = Installation profile for the Devtrac development tracker.
 version = VERSION
 core = 7.x
 hidden = FALSE
+
+; Install profile
+dependencies[] = block
+dependencies[] = rdf
+dependencies[] = options
+dependencies[] = taxonomy
+dependencies[] = comment
+dependencies[] = file
+dependencies[] = image
+
+; Core
+dependencies[] = book
+dependencies[] = color
+dependencies[] = contact
+dependencies[] = contextual
+dependencies[] = field_ui
+dependencies[] = help
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = path
+dependencies[] = syslog
+dependencies[] = text
+; dependencies[] = update
