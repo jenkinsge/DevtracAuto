@@ -151,10 +151,6 @@ projects[facetapi_tagcloud][version] = "1.0-beta1"
 projects[facetapi_tagcloud][type] = "module"
 projects[facetapi_tagcloud][subdir] = "contrib"
 
-projects[facetapi_search][version] = "1.0-beta3"
-projects[facetapi_search][type] = "module"
-projects[facetapi_search][subdir] = "contrib"
-
 projects[features][version] = "2.0"
 projects[features][type] = "module"
 projects[features][subdir] = "contrib"

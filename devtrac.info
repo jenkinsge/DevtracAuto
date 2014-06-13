@@ -166,7 +166,6 @@ dependencies[] = wms
 dependencies[] = openlayers_geosearch
 dependencies[] = geocoder_wfs
 dependencies[] = search_api_solr_overrides
-dependencies[] = faceted_search
 dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
 dependencies[] = search_api_swatches
