@@ -3,7 +3,7 @@ core = 7.x
 api = 2
 
 projects[drupal][type] = core
-projects[drupal][version] = "7.x"
+projects[drupal][version] = "7"
 
 ; Modules
 projects[acl][version] = "1.0"
@@ -65,6 +65,10 @@ projects[collapsiblock][subdir] = "contrib"
 projects[colorbox][version] = "1.6"
 projects[colorbox][type] = "module"
 projects[colorbox][subdir] = "contrib"
+
+projects[commentblock][version] = "1.0-beta2"
+projects[commentblock][type] = "module"
+projects[commentblock][subdir] = "contrib"
 
 projects[content_access][version] = "1.2-beta2"
 projects[content_access][type] = "module"
@@ -139,6 +143,10 @@ projects[facetapi_bonus][version] = "1.1"
 projects[facetapi_bonus][type] = "module"
 projects[facetapi_bonus][subdir] = "contrib"
 
+projects[facetapi_context][version] = "1.1"
+projects[facetapi_context][type] = "module"
+projects[facetapi_context][subdir] = "contrib"
+
 projects[facetapi_graphs][version] = "1.x-dev"
 projects[facetapi_graphs][type] = "module"
 projects[facetapi_graphs][subdir] = "contrib"
@@ -147,17 +155,21 @@ projects[facetapi_tagcloud][version] = "1.0-beta1"
 projects[facetapi_tagcloud][type] = "module"
 projects[facetapi_tagcloud][subdir] = "contrib"
 
+projects[facetapi_search][version] = "1.0-beta3"
+projects[facetapi_search][type] = "module"
+projects[facetapi_search][subdir] = "contrib"
+
 projects[features][version] = "2.0"
 projects[features][type] = "module"
 projects[features][subdir] = "contrib"
 
-;projects[feeds][version] = "2.0-alpha8"
-;projects[feeds][type] = "module"
-;projects[feeds][subdir] = "contrib"
+projects[feeds][version] = "2.0-alpha8"
+projects[feeds][type] = "module"
+projects[feeds][subdir] = "contrib"
 
-;projects[feeds_tamper][version] = "1.0-beta7"
-;projects[feeds_tamper][type] = "module"
-;projects[feeds_tamper][subdir] = "contrib"
+projects[feeds_tamper][version] = "1.0-beta7"
+projects[feeds_tamper][type] = "module"
+projects[feeds_tamper][subdir] = "contrib"
 
 projects[field_collection][version] = "1.0-beta7"
 projects[field_collection][type] = "module"
@@ -259,13 +271,17 @@ projects[memcache][version] = "1.1"
 projects[memcache][type] = "module"
 projects[memcache][subdir] = "contrib"
 
-;projects[menu_token][version] = "1.0-beta5"
-;projects[menu_token][type] = "module"
-;projects[menu_token][subdir] = "contrib"
+projects[menu_token][version] = "1.0-beta5"
+projects[menu_token][type] = "module"
+projects[menu_token][subdir] = "contrib"
 
 projects[migrate][version] = "2.5"
 projects[migrate][type] = "module"
 projects[migrate][subdir] = "contrib"
+
+projects[migrate_extras][version] = "2.5"
+projects[migrate_extras][type] = "module"
+projects[migrate_extras][subdir] = "contrib"
 
 projects[nice_menus][version] = "2.5"
 projects[nice_menus][type] = "module"
@@ -462,6 +478,10 @@ projects[views_rss_georss][subdir] = "contrib"
 projects[views_slideshow][version] = "3.x-dev"
 projects[views_slideshow][type] = "module"
 projects[views_slideshow][subdir] = "contrib"
+
+projects[views_two_column_table][version] = "1.2"
+projects[views_two_column_table][type] = "module"
+projects[views_two_column_table][subdir] = "contrib"
 
 projects[virtual_field][version] = "1.2"
 projects[virtual_field][type] = "module"
