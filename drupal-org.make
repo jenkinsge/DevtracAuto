@@ -471,9 +471,10 @@ projects[views_slideshow][version] = "3.x-dev"
 projects[views_slideshow][type] = "module"
 projects[views_slideshow][subdir] = "contrib"
 
-projects[views_two_column_table][version] = "1.2"
-projects[views_two_column_table][type] = "module"
-projects[views_two_column_table][subdir] = "contrib"
+;projects[views_two_column_table][version] = "1.2"
+;projects[views_two_column_table][type] = "module"
+;projects[views_two_column_table][patch][] = "https://drupal.org/files/views_two_column_table_d7_upgrade-1273990-5.patch"
+;projects[views_two_column_table][subdir] = "contrib"
 
 projects[virtual_field][version] = "1.2"
 projects[virtual_field][type] = "module"

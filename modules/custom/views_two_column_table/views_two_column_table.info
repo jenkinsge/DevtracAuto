@@ -1,0 +1,7 @@
+name = Views Two Column Table
+description = Provides an alternate table row style for the Views module.
+dependencies[] = views
+package = Views
+core = 7.x
+
+files[] = views_plugin_style_two_column_table.inc
