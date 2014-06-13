@@ -503,11 +503,11 @@ projects[facetapi_context][download][url] = "http://git.drupal.org/sandbox/ygera
 projects[facetapi_context][download][branch] = "master"
 projects[facetapi_context][subdir] = "contrib"
 
-projects[facetapi_textfield][type] = "module"
-projects[facetapi_textfield][download][type] = "git"
-projects[facetapi_textfield][download][url] = "http://git.drupal.org/sandbox/janvandiepen/2060337.git"
-projects[facetapi_textfield][download][branch] = "7.x-1.x"
-projects[facetapi_textfield][subdir] = "contrib"
+projects[facetapi_textfield_widget][type] = "module"
+projects[facetapi_textfield_widget][download][type] = "git"
+projects[facetapi_textfield_widget][download][url] = "http://git.drupal.org/sandbox/janvandiepen/2060337.git"
+projects[facetapi_textfield_widget][download][branch] = "7.x-1.x"
+projects[facetapi_textfield_widget][subdir] = "contrib"
 
 projects[OL_lat_long][type] = "module"
 projects[OL_lat_long][download][type] = "git"
