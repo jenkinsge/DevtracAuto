@@ -66,10 +66,6 @@ projects[colorbox][version] = "1.6"
 projects[colorbox][type] = "module"
 projects[colorbox][subdir] = "contrib"
 
-projects[commentblock][version] = "1.0-beta2"
-projects[commentblock][type] = "module"
-projects[commentblock][subdir] = "contrib"
-
 projects[content_access][version] = "1.2-beta2"
 projects[content_access][type] = "module"
 projects[content_access][subdir] = "contrib"
@@ -497,6 +493,12 @@ projects[cancel_button][download][type] = "git"
 projects[cancel_button][download][url] = "http://git.drupal.org/sandbox/amuhebwa/2227951.git"
 projects[cancel_button][download][branch] = "master"
 projects[cancel_button][subdir] = "contrib"
+
+projects[commentblock][type] = "module"
+projects[commentblock][download][type] = "git"
+projects[commentblock][download][url] = "http://git.drupal.org/sandbox/bc/1447318.git"
+projects[commentblock][download][branch] = "7.x-1.x"
+projects[commentblock][subdir] = "contrib"
 
 projects[facetapi_context][type] = "module"
 projects[facetapi_context][download][type] = "git"
