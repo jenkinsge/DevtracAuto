@@ -528,11 +528,11 @@ projects[questionnaire][download][url] = "http://git.drupal.org/sandbox/batje/15
 projects[questionnaire][download][revision] = "c6515a2236d3bae5e602a19a0ef8facfc7fc5987"
 projects[questionnaire][subdir] = "contrib"
 
-projects[search_api_solr_boundingbox][type] = "module"
-projects[search_api_solr_boundingbox][download][type] = "git"
-projects[search_api_solr_boundingbox][download][url] = "http://git.drupal.org/sandbox/janvandiepen/2183305.git"
-projects[search_api_solr_boundingbox][download][branch] = "master"
-projects[search_api_solr_boundingbox][subdir] = "contrib"
+projects[search_api_solr_boundingbox_search][type] = "module"
+projects[search_api_solr_boundingbox_search][download][type] = "git"
+projects[search_api_solr_boundingbox_search][download][url] = "http://git.drupal.org/sandbox/janvandiepen/2183305.git"
+projects[search_api_solr_boundingbox_search][download][branch] = "master"
+projects[search_api_solr_boundingbox_search][subdir] = "contrib"
 
 ; Themes
 projects[omega][version] = "3.1"
