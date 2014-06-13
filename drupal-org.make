@@ -159,7 +159,7 @@ projects[feeds][version] = "2.0-alpha8"
 projects[feeds][type] = "module"
 projects[feeds][subdir] = "contrib"
 
-projects[feeds_tamper][version] = "1.0-beta7"
+projects[feeds_tamper][version] = "1.0-beta5"
 projects[feeds_tamper][type] = "module"
 projects[feeds_tamper][subdir] = "contrib"
 
