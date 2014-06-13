@@ -1,6 +1,0 @@
-name = Date Duration Formatter
-description = Adds a formatter for date fields that allows duration to be shown.
-package = Date/Time
-core = 7.x
-
-files[] = date_duration_formatter.module
