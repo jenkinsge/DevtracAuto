@@ -537,10 +537,8 @@ projects[search_api_solr_boundingbox_search][subdir] = "contrib"
 ; Themes
 projects[omega][version] = "3.1"
 
-projects[devtrac7_theme][download][type] = ""
-projects[devtrac7_theme][download][url] = ""
+projects[devtrac7_theme][version] = "1.x-dev"
 projects[devtrac7_theme][type] = "theme"
-projects[devtrac7_theme][subdir] = "custom"
 
 ; Libraries
 libraries[autopager][download][type] = ""
