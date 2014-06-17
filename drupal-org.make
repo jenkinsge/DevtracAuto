@@ -480,7 +480,7 @@ projects[virtual_field][version] = "1.2"
 projects[virtual_field][type] = "module"
 projects[virtual_field][subdir] = "contrib"
 
-projects[wms][version] = "2.0"
+projects[wms][version] = "2.x-dev"
 projects[wms][type] = "module"
 projects[wms][subdir] = "contrib"
 
