@@ -6,15 +6,15 @@
 
 /**
  * Implements hook_user_default_roles().
- *
+ */
 function devtrac7_users2_user_default_roles() {
   $roles = array();
 
   // Exported role: administrator.
-  $roles['administrator'] = array(
-    'name' => 'administrator',
-    'weight' => 0,
-  );
+//  $roles['administrator'] = array(
+//    'name' => 'administrator',
+//    'weight' => 0,
+//  );
 
   // Exported role: editor.
   $roles['editor'] = array(
@@ -29,11 +29,10 @@ function devtrac7_users2_user_default_roles() {
   );
 
   // Exported role: unicef user (Mobile).
-  $roles['unicef user (Mobile)'] = array(
-    'name' => 'unicef user (Mobile)',
-    'weight' => 0,
-  );
+//  $roles['unicef user (Mobile)'] = array(
+//    'name' => 'unicef user (Mobile)',
+//    'weight' => 0,
+//  );
 
   return $roles;
 }
-*/
