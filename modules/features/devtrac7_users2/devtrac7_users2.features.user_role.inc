@@ -6,7 +6,7 @@
 
 /**
  * Implements hook_user_default_roles().
- */
+ *
 function devtrac7_users2_user_default_roles() {
   $roles = array();
 
@@ -36,3 +36,4 @@ function devtrac7_users2_user_default_roles() {
 
   return $roles;
 }
+*/
