@@ -17,7 +17,7 @@ function devtrac7_maps_openlayers_styles() {
   $openlayers_styles->title = 'Devtrac Marker Active';
   $openlayers_styles->description = 'Black marker provided by the OpenLayers module.';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'sites/all/modules/openlayers/themes/default_dark/markers/marker-black.png',
+    'externalGraphic' => 'profiles/devtrac/modules/contrib/openlayers/themes/default_dark/markers/marker-black.png',
     'pointRadius' => 6,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',
@@ -42,7 +42,7 @@ function devtrac7_maps_openlayers_styles() {
   $openlayers_styles->title = 'Devtrac Marker Default';
   $openlayers_styles->description = 'Black marker provided by the OpenLayers module.';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'sites/all/modules/openlayers/themes/default_dark/markers/marker-black.png',
+    'externalGraphic' => 'profiles/devtrac/modules/contrib/openlayers/themes/default_dark/markers/marker-black.png',
     'pointRadius' => 6,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',
@@ -67,7 +67,7 @@ function devtrac7_maps_openlayers_styles() {
   $openlayers_styles->title = 'Devtrac Marker Selected';
   $openlayers_styles->description = 'Black marker provided by the OpenLayers module.';
   $openlayers_styles->data = array(
-    'externalGraphic' => 'sites/all/modules/openlayers/themes/default_dark/markers/marker-black.png',
+    'externalGraphic' => 'profiles/devtrac/modules/contrib/openlayers/themes/default_dark/markers/marker-black.png',
     'pointRadius' => 6,
     'fillColor' => '#EE9900',
     'strokeColor' => '#EE9900',

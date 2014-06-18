@@ -313,7 +313,7 @@ function devtrac7_maps_views_default_views() {
   $handler->display->display_options['fields']['term_node_tid']['relationship'] = 'field_ftritem_place_target_id';
   $handler->display->display_options['fields']['term_node_tid']['label'] = 'Icon';
   $handler->display->display_options['fields']['term_node_tid']['alter']['alter_text'] = 1;
-  $handler->display->display_options['fields']['term_node_tid']['alter']['text'] = '/sites/default/themes/devtrac7_theme/icons/[term_node_tid-name]_c.png';
+  $handler->display->display_options['fields']['term_node_tid']['alter']['text'] = '/profiles/devtrac/themes/devtrac7_theme/icons/[term_node_tid-name]_c.png';
   $handler->display->display_options['fields']['term_node_tid']['alter']['make_link'] = 0;
   $handler->display->display_options['fields']['term_node_tid']['alter']['absolute'] = 0;
   $handler->display->display_options['fields']['term_node_tid']['alter']['external'] = 0;
