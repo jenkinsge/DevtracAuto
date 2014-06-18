@@ -561,8 +561,8 @@ libraries[colorbox][download][url] = "http://github.com/jackmoore/colorbox/zipba
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
 
-libraries[FirePHPCore][download][type] = "cvs"
-libraries[FirePHPCore][download][module] = "FirePHPCore"
+libraries[FirePHPCore][download][type] = "file"
+libraries[FirePHPCore][download][url] = "https://github.com/firephp/firephp-core/archive/master.zip"
 libraries[FirePHPCore][directory_name] = "FirePHPCore"
 libraries[FirePHPCore][type] = "library"
 
