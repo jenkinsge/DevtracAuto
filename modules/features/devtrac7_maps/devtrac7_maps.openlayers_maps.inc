@@ -19,7 +19,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '280px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -385,7 +385,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '240px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -756,7 +756,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '240px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -1127,8 +1127,8 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/themes/default_dark/img/',
-    'css_path' => 'sites/default/themes/devtrac7_theme/openlayers/themes/default_dark/style.css',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/themes/default_dark/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -1522,8 +1522,8 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/themes/default_dark/img',
-    'css_path' => 'sites/default/themes/devtrac7_theme/openlayers/themes/default_dark/style.css',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/themes/default_dark/img',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/themes/default_dark/style.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -1908,7 +1908,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => 'sites/default/themes/devtrack_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrack_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -2376,7 +2376,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '280px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -2643,7 +2643,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '500px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -3111,7 +3111,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '280px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -3481,7 +3481,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '280px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 1,
@@ -3847,8 +3847,8 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '500px',
-    'image_path' => 'sites/default/themes/devtrack_theme/openlayers/img/',
-    'css_path' => 'sites/default/themes/devtrac7_theme/css/openlayers_dummy.css',
+    'image_path' => 'profiles/devtrac/themes/devtrack_theme/openlayers/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -4326,7 +4326,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => '282px',
     'height' => '200px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 1,
@@ -4668,7 +4668,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '280px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -5034,7 +5034,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '280px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -5389,7 +5389,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '280px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 1,
@@ -5734,7 +5734,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '100%',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 0,
@@ -6002,7 +6002,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '280px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
     'css_path' => '',
     'proxy_host' => '',
     'hide_empty_map' => 1,

@@ -783,7 +783,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_term_icon']['field'] = 'field_term_icon';
   $handler->display->display_options['fields']['field_term_icon']['group_type'] = 'sum';
   $handler->display->display_options['fields']['field_term_icon']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_term_icon']['alter']['text'] = '<img src="/sites/default/themes/devtrack_theme/icons/[name_1]_c.png" title="[name_1]" />';
+  $handler->display->display_options['fields']['field_term_icon']['alter']['text'] = '<img src="/profiles/devtrac/themes/devtrack_theme/icons/[name_1]_c.png" title="[name_1]" />';
   $handler->display->display_options['fields']['field_term_icon']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_term_icon']['settings'] = array(
     'image_style' => '',
@@ -861,7 +861,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_term_icon']['field'] = 'field_term_icon';
   $handler->display->display_options['fields']['field_term_icon']['group_type'] = 'sum';
   $handler->display->display_options['fields']['field_term_icon']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_term_icon']['alter']['text'] = '<img src="/sites/default/themes/devtrack_theme/icons/[name_1]_c.png" title="[name_1]" />';
+  $handler->display->display_options['fields']['field_term_icon']['alter']['text'] = '<img src="/profiles/devtrac/themes/devtrack_theme/icons/[name_1]_c.png" title="[name_1]" />';
   $handler->display->display_options['fields']['field_term_icon']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_term_icon']['settings'] = array(
     'image_style' => '',
@@ -972,7 +972,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['name_2']['field'] = 'name';
   $handler->display->display_options['fields']['name_2']['label'] = '';
   $handler->display->display_options['fields']['name_2']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name_2']['alter']['text'] = '<img src="http://localhost/dtp4-d7/sites/default/themes/devtrac7_theme/mapicons/[name_1]_c.png" alt="[name_1]"/>';
+  $handler->display->display_options['fields']['name_2']['alter']['text'] = '<img src="/profiles/devtrac/themes/devtrac7_theme/mapicons/[name_1]_c.png" alt="[name_1]"/>';
   $handler->display->display_options['fields']['name_2']['element_type'] = 'div';
   $handler->display->display_options['fields']['name_2']['element_class'] = 'legend-icon';
   $handler->display->display_options['fields']['name_2']['element_label_colon'] = FALSE;
@@ -4532,7 +4532,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['ui_name'] = 'Unicef Logo';
-  $handler->display->display_options['empty']['area']['content'] = '<div class="unicef-logo"><img src="<?php print $GLOBALS[\'base_url\'] ?>/sites/default/themes/devtrac7_theme/unicef_logo.jpg" /></div>';
+  $handler->display->display_options['empty']['area']['content'] = '<div class="unicef-logo"><img src="<?php print $GLOBALS[\'base_url\'] ?>/profiles/devtrac/themes/devtrac7_theme/unicef_logo.jpg" /></div>';
   $handler->display->display_options['empty']['area']['format'] = 'ds_code';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
@@ -5526,7 +5526,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = '';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/sites/default/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/profiles/devtrac/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_term_reference_plain';
@@ -5607,7 +5607,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = '';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/sites/default/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/profiles/devtrac/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_term_reference_plain';
@@ -5702,7 +5702,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['relationship'] = 'field_ftritem_place_target_id';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = '';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/sites/default/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/profiles/devtrac/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_term_reference_plain';
@@ -5772,7 +5772,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = '';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/sites/default/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/profiles/devtrac/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_term_reference_plain';
@@ -5854,7 +5854,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = '';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/sites/default/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/profiles/devtrac/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_term_reference_plain';
@@ -5921,7 +5921,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = '';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/sites/default/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/profiles/devtrac/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_term_reference_plain';
@@ -6010,7 +6010,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = '';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/sites/default/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/profiles/devtrac/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_term_reference_plain';
@@ -8526,7 +8526,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="image-not-available"><img src="[site_info]/sites/default/files/image-not-available.png"></div>';
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="image-not-available"><img src="[site_info]/profiles/devtrac/files/image-not-available.png"></div>';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;

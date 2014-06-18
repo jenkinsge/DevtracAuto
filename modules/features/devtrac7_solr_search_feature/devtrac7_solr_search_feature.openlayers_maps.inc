@@ -19,8 +19,8 @@ function devtrac7_solr_search_feature_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '500px',
-    'image_path' => 'sites/default/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => 'sites/default/themes/devtrac7_theme/css/openlayers_dummy.css',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
