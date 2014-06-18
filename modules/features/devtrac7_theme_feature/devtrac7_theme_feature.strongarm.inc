@@ -191,7 +191,7 @@ system/ajax/*';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'colorbox_path';
-  $strongarm->value = 'sites/all/libraries/colorbox';
+  $strongarm->value = 'profiles/devtrac/libraries/colorbox';
   $export['colorbox_path'] = $strongarm;
 
   $strongarm = new stdClass();
