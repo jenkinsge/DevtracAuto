@@ -247,6 +247,10 @@ projects[link][version] = "1.2"
 projects[link][type] = "module"
 projects[link][subdir] = "contrib"
 
+projects[mapit][version] = "1.0"
+projects[mapit][type] = "module"
+projects[mapit][subdir] = "contrib"
+
 projects[maxlength][version] = "3.0-beta1"
 projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"

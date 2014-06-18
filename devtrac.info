@@ -102,6 +102,7 @@ dependencies[] = strongarm
 dependencies[] = tipsy
 dependencies[] = transliteration
 dependencies[] = globalredirect
+dependencies[] = mapit
 dependencies[] = relation
 dependencies[] = relation_ui
 dependencies[] = relation_endpoint
