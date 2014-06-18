@@ -49,7 +49,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'comment',
   );
@@ -62,7 +61,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'node',
   );
@@ -84,7 +82,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'proxy',
   );
@@ -115,7 +112,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'user',
   );
@@ -174,7 +170,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'hidden_comment',
   );
@@ -223,7 +218,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'node',
   );
@@ -245,7 +239,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -257,7 +250,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -296,7 +288,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -308,7 +299,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -320,7 +310,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -332,7 +321,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -344,7 +332,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -356,7 +343,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -368,7 +354,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -380,7 +365,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -417,7 +401,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -429,7 +412,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -441,7 +423,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -453,7 +434,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -465,7 +445,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -486,7 +465,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -508,7 +486,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -529,7 +506,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -541,7 +517,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -553,7 +528,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -574,7 +548,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -622,7 +595,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -634,7 +606,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -646,7 +617,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -658,7 +628,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -670,7 +639,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -700,7 +668,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -712,7 +679,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -724,7 +690,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'node',
   );
@@ -736,7 +701,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'node',
   );
@@ -785,7 +749,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -798,7 +761,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -820,7 +782,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1034,7 +995,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1046,7 +1006,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1085,7 +1044,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1097,7 +1055,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1109,7 +1066,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1121,7 +1077,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1133,7 +1088,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1145,7 +1099,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1157,7 +1110,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1169,7 +1121,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1206,7 +1157,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1218,7 +1168,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1230,7 +1179,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1242,7 +1190,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1254,7 +1201,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1266,7 +1212,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1278,7 +1223,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1399,7 +1343,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1411,7 +1354,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1423,7 +1365,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1435,7 +1376,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1447,7 +1387,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1477,7 +1416,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1489,7 +1427,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1501,7 +1438,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'node',
   );
@@ -1736,7 +1672,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1748,7 +1683,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1760,7 +1694,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1772,7 +1705,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1784,7 +1716,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1796,7 +1727,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -1808,7 +1738,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2026,7 +1955,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2038,7 +1966,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2059,7 +1986,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2071,7 +1997,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'services',
   );
@@ -2083,7 +2008,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'services',
   );
@@ -2104,7 +2028,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'hidden_comment',
   );
@@ -2125,7 +2048,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'comment',
   );
@@ -2137,7 +2059,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'services',
   );
@@ -2149,7 +2070,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'comment',
   );
@@ -2172,7 +2092,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2184,7 +2103,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2196,7 +2114,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2217,7 +2134,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2229,7 +2145,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2241,7 +2156,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2253,7 +2167,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2265,7 +2178,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2277,7 +2189,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2289,7 +2200,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2301,7 +2211,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2313,7 +2222,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2333,7 +2241,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2346,7 +2253,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2359,7 +2265,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2371,7 +2276,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2383,7 +2287,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2396,7 +2299,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2409,7 +2311,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2421,7 +2322,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2434,7 +2334,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2458,7 +2357,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2471,7 +2369,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2484,7 +2381,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2497,7 +2393,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2509,7 +2404,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2522,7 +2416,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2535,7 +2428,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2584,7 +2476,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2596,7 +2487,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2609,7 +2499,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2621,7 +2510,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2633,7 +2521,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2645,7 +2532,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2657,7 +2543,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2669,7 +2554,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -2681,7 +2565,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -3145,7 +3028,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -3157,7 +3039,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -3170,7 +3051,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
@@ -3183,7 +3063,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-      'unicef user (Mobile)' => 'unicef user (Mobile)',
     ),
     'module' => 'field_permissions',
   );
