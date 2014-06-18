@@ -34,5 +34,11 @@ function devtrac7_users2_user_default_roles() {
 //    'weight' => 0,
 //  );
 
+  // Exported role: unicef user.
+  $roles['usaid editor'] = array(
+    'name' => 'usaid editor',
+    'weight' => 0,
+  );
+
   return $roles;
 }
