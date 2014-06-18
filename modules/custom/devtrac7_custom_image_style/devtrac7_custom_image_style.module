@@ -1,22 +1,31 @@
-<?php 
+<?php
+/**
+ * @file includes an image style that works outside the site /files folder
+ * 
+ * @deprecated deprecated in Devtrac 3.0 Should be removed
+ */
+
 /**
  * Implements hook_theme().
  */
 function devtrac7_custom_image_style_theme($existing, $type, $theme, $path) {
   return array(
     'image_style_outside_files' => array(
-   'variables' => array(
-     'style_name' => NULL,
-     'path' => NULL,
-     'alt' => '',
-     'title' => NULL,
-     'attributes' => array(),
-   ),
- ),
+      'variables' => array(
+        'style_name' => NULL,
+        'path' => NULL,
+        'alt' => '',
+        'title' => NULL,
+        'attributes' => array(),
+      ),
+    ),
   );
 }
 
 /**
+ * 
+ * Implements hook_theme().
+ * 
  * This theme function is designed to deal with the limitation that
  * theme_image_style does not work with images outside the files directory.
  * 
@@ -32,4 +41,3 @@ function theme_image_style_outside_files($variables) {
   $variables['path'] = $styled_path;
   return theme('image', $variables);
 }
-
