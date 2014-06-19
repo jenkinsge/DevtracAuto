@@ -24,6 +24,7 @@ dependencies[] = geofield
 dependencies[] = image
 dependencies[] = link
 dependencies[] = list
+dependencies[] = mapit
 dependencies[] = media
 dependencies[] = number
 dependencies[] = openlayers

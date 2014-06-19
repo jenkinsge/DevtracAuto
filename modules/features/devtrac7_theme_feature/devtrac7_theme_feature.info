@@ -5,7 +5,6 @@ package = Devtrac
 version = 7.x-1.0
 project = devtrac7_theme_feature
 dependencies[] = block
-dependencies[] = book
 dependencies[] = commentblock
 dependencies[] = context
 dependencies[] = ctools

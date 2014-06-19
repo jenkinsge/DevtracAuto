@@ -68,17 +68,17 @@ function devtrac7_solr_search_district_feature_default_search_api_index() {
       "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
-        "tid" : { "type" : "integer" },
-        "name" : { "type" : "text" },
         "description" : { "type" : "text" },
-        "node_count" : { "type" : "string" },
-        "parents_all" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_district_category" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "search_api_language" : { "type" : "string" },
         "field_district_geo:geom" : { "type" : "text" },
         "field_district_geo:lat" : { "type" : "string" },
         "field_district_geo:lon" : { "type" : "string" },
-        "search_api_aggregation_1" : { "type" : "text" }
+        "name" : { "type" : "text" },
+        "node_count" : { "type" : "string" },
+        "parents_all" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "search_api_aggregation_1" : { "type" : "text" },
+        "search_api_language" : { "type" : "string" },
+        "tid" : { "type" : "integer" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {

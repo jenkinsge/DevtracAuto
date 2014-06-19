@@ -455,7 +455,6 @@ system/ajax/*';
   $strongarm->name = 'custom_breadcrumbs_taxonomy_node_types';
   $strongarm->value = array(
     'actionitem' => 0,
-    'book' => 0,
     'fieldtrip' => 0,
     'ftritem' => 0,
     'iati_activity' => 0,
@@ -826,7 +825,6 @@ system/ajax/*';
     ),
     'alpha_exclude' => array(
       'profiles/devtrac/modules/contrib/adaptive_image/css/adaptive-image.css' => 0,
-      'modules/book/book.css' => 0,
       'profiles/devtrac/modules/contrib/collapsiblock/collapsiblock.css' => 0,
       'modules/comment/comment.css' => 0,
       'profiles/devtrac/modules/contrib/date/date_api/date.css' => 0,

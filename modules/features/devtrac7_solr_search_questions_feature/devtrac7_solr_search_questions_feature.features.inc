@@ -47,17 +47,17 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
       "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
-        "nid" : { "type" : "integer" },
-        "title" : { "type" : "text" },
-        "status" : { "type" : "boolean" },
         "author" : { "type" : "integer", "entity_type" : "user" },
+        "field_question_subject" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "nid" : { "type" : "integer" },
+        "questionnaire_question_options" : { "type" : "list\\u003Ctext\\u003E" },
+        "questionnaire_question_type" : { "type" : "string" },
+        "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },
+        "search_api_language" : { "type" : "string" },
+        "status" : { "type" : "boolean" },
         "taxonomy_vocabulary_1" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "questionnaire_question_type" : { "type" : "string" },
-        "questionnaire_question_options" : { "type" : "list\\u003Ctext\\u003E" },
-        "field_question_subject" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "search_api_language" : { "type" : "string" },
-        "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" }
+        "title" : { "type" : "text" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {

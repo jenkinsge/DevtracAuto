@@ -116,16 +116,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'user',
   );
 
-  // Exported permission: 'add content to books'.
-  $permissions['add content to books'] = array(
-    'name' => 'add content to books',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'editor' => 'editor',
-    ),
-    'module' => 'book',
-  );
-
   // Exported permission: 'administer better messages'.
   $permissions['administer better messages'] = array(
     'name' => 'administer better messages',
@@ -133,16 +123,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'better_messages',
-  );
-
-  // Exported permission: 'administer book outlines'.
-  $permissions['administer book outlines'] = array(
-    'name' => 'administer book outlines',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'editor' => 'editor',
-    ),
-    'module' => 'book',
   );
 
   // Exported permission: 'administer contexts'.
@@ -218,16 +198,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create book content'.
-  $permissions['create book content'] = array(
-    'name' => 'create book content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'editor' => 'editor',
     ),
     'module' => 'node',
   );
@@ -795,15 +765,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any book content'.
-  $permissions['delete any book content'] = array(
-    'name' => 'delete any book content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any fieldtrip content'.
   $permissions['delete any fieldtrip content'] = array(
     'name' => 'delete any fieldtrip content',
@@ -854,16 +815,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'delete own actionitem content',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own book content'.
-  $permissions['delete own book content'] = array(
-    'name' => 'delete own book content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'editor' => 'editor',
     ),
     'module' => 'node',
   );
@@ -927,16 +878,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any actionitem content',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any book content'.
-  $permissions['edit any book content'] = array(
-    'name' => 'edit any book content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'editor' => 'editor',
     ),
     'module' => 'node',
   );
@@ -1438,15 +1379,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
       'unicef user' => 'unicef user',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own book content'.
-  $permissions['edit own book content'] = array(
-    'name' => 'edit own book content',
-    'roles' => array(
-      'administrator' => 'administrator',
     ),
     'module' => 'node',
   );

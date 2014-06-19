@@ -78,7 +78,6 @@ function devtrac7_theme_feature_delta_default_templates() {
       ),
       'alpha_exclude' => array(
         'profiles/devtrac/modules/contrib/adaptive_image/css/adaptive-image.css' => 0,
-        'modules/book/book.css' => 0,
         'modules/comment/comment.css' => 0,
         'profiles/devtrac/modules/contrib/date/date_api/date.css' => 0,
         'profiles/devtrac/modules/contrib/date/date_popup/themes/datepicker.1.7.css' => 0,
@@ -605,7 +604,6 @@ function devtrac7_theme_feature_delta_default_templates() {
       ),
       'alpha_exclude' => array(
         'profiles/devtrac/modules/contrib/adaptive_image/css/adaptive-image.css' => 0,
-        'modules/book/book.css' => 0,
         'modules/comment/comment.css' => 0,
         'profiles/devtrac/modules/contrib/date/date_api/date.css' => 0,
         'profiles/devtrac/modules/contrib/date/date_popup/themes/datepicker.1.7.css' => 0,
@@ -1132,7 +1130,6 @@ function devtrac7_theme_feature_delta_default_templates() {
       ),
       'alpha_exclude' => array(
         'profiles/devtrac/modules/contrib/adaptive_image/css/adaptive-image.css' => 0,
-        'modules/book/book.css' => 0,
         'modules/comment/comment.css' => 0,
         'profiles/devtrac/modules/contrib/date/date_api/date.css' => 0,
         'profiles/devtrac/modules/contrib/date/date_popup/themes/datepicker.1.7.css' => 0,
@@ -1684,7 +1681,6 @@ function devtrac7_theme_feature_delta_default_templates() {
       ),
       'alpha_exclude' => array(
         'profiles/devtrac/modules/contrib/adaptive_image/css/adaptive-image.css' => 0,
-        'modules/book/book.css' => 0,
         'profiles/devtrac/modules/contrib/collapsiblock/collapsiblock.css' => 0,
         'modules/comment/comment.css' => 0,
         'profiles/devtrac/modules/contrib/date/date_api/date.css' => 0,
@@ -2214,7 +2210,6 @@ function devtrac7_theme_feature_delta_default_templates() {
       'favicon_path' => '',
       'alpha_exclude' => array(
         'profiles/devtrac/modules/contrib/adaptive_image/css/adaptive-image.css' => 0,
-        'modules/book/book.css' => 0,
         'profiles/devtrac/modules/contrib/collapsiblock/collapsiblock.css' => 0,
         'modules/comment/comment.css' => 0,
         'profiles/devtrac/modules/contrib/date/date_api/date.css' => 0,
