@@ -8,10 +8,14 @@
 /**
  * CKAN Packages class.
  * @todo implements interface
+ * @ingroup devtrac_api_ckan
  */
 class DevtracCustomPackages {
   /**
    * {@inheritdoc}
+   * 
+   * The currently supported packages are 
+   * sitereports, organisations, activities, locations and images
    */
   public function index() {
     return array(
@@ -24,6 +28,8 @@ class DevtracCustomPackages {
   }
 
   /**
+   * @todo replace hardcoded values with site specific ones
+   * @todo replace UUIDs with real UUIDs
    * {@inheritdoc}
    */
   public function retrieve($id) {

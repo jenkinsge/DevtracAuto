@@ -7,6 +7,7 @@
 
 /**
  * Implements hook_ckan_packages_packages().
+ * @ingroup devtrac_api_ckan
  */
 function devtrac_custom_packages_ckan_packages_packages() {
   $path = drupal_get_path('module', 'devtrac_custom_packages') . '/plugins/packages';
