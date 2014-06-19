@@ -52,8 +52,12 @@ function devtrac7_views_views_query_alter(&$view, &$query) {
   
 }
 
-/*
- *  Implementents hook_views_pre_view
+/*  
+ *  Implementents hook_views_pre_view()
+ * 
+ * Provides additional filtering on views that are used in the services api
+ *
+ *  @ingroup devtrac_services_api
  */
 function devtrac7_views_views_pre_view(&$view, &$display_id, &$args){
   global $user;

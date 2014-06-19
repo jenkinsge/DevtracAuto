@@ -2,7 +2,16 @@
 
 /**
  * @file
- * CKAN package REST callbacks.
+ * CKAN package REST callbacks for CKAN API 2.0
+ */
+
+/**
+ * By implementing the @link http://docs.ckan.org/en/latest/api/legacy-api.html CKAN API 2.0@endlink
+ * CKAN is able to harvest Drupal data as datasets. The @link https://github.com/ckan/ckanext-harvest CKAN Harvester @endlink
+ * exention is depending on the legacy V2 of the API.
+ * 
+ * Consecutive data queries into the Devtrac data (what when where etc) can then
+ * be done through the @link http://docs.ckan.org/en/latest/maintaining/datastore.html#the-datastore-api CKAN Datastore API@enlink
  */
 
 /**

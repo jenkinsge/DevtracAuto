@@ -8,7 +8,7 @@
 /**
  * CKAN Packages class.
  * @todo implements interface
- * @ingroup devtrac_api_ckan
+ * @ingroup devtrac_ckan_api
  */
 class DevtracCustomPackages {
   /**
