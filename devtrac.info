@@ -81,7 +81,6 @@ dependencies[] = geocoder
 dependencies[] = geocoder_geonames
 dependencies[] = geophp
 dependencies[] = geofield
-dependencies[] = helpinject
 dependencies[] = hidden_comment
 dependencies[] = job_scheduler
 dependencies[] = libraries
