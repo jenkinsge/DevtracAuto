@@ -68,47 +68,47 @@ function devtrac7_solr_search_activity_feature_default_search_api_index() {
       "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
-        "relation_type" : { "type" : "string" },
-        "field_iati_org_role" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "endpoints_source_node" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
-        "endpoints_target_node" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
-        "search_api_language" : { "type" : "string" },
-        "search_api_aggregation_1" : { "type" : "text" },
-        "endpoints_source_node:title" : { "type" : "list\\u003Ctext\\u003E" },
-        "endpoints_source_node:uuid" : { "type" : "list\\u003Cstring\\u003E" },
+        "endpoints_source_node:field_activity_status" : { "type" : "list\\u003Cstring\\u003E" },
+        "endpoints_source_node:field_iati_activity_aid_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "endpoints_source_node:field_iati_activity_collabo_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "endpoints_source_node:field_iati_activity_description:value" : { "type" : "list\\u003Ctext\\u003E" },
+        "endpoints_source_node:field_iati_activity_finance_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "endpoints_source_node:field_iati_activity_flow_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "endpoints_source_node:field_iati_activity_planned_date:value" : { "type" : "list\\u003Cdate\\u003E" },
+        "endpoints_source_node:field_iati_activity_planned_date:value2" : { "type" : "list\\u003Cdate\\u003E" },
+        "endpoints_source_node:field_iati_activity_status" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "endpoints_source_node:field_iati_activity_website:url" : { "type" : "list\\u003Curi\\u003E" },
+        "endpoints_source_node:field_iati_default_currency" : { "type" : "list\\u003Cstring\\u003E" },
+        "endpoints_source_node:field_iati_identifier" : { "type" : "list\\u003Cstring\\u003E" },
+        "endpoints_source_node:field_iati_owner_name" : { "type" : "list\\u003Ctext\\u003E" },
+        "endpoints_source_node:field_iati_owner_ref" : { "type" : "list\\u003Ctext\\u003E" },
         "endpoints_source_node:taxonomy_vocabulary_6" : {
           "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
+          "entity_type" : "taxonomy_term"
+        },
+        "endpoints_source_node:taxonomy_vocabulary_6:parents_all" : {
+          "type" : "list\\u003Clist\\u003Clist\\u003Cinteger\\u003E\\u003E\\u003E",
           "entity_type" : "taxonomy_term"
         },
         "endpoints_source_node:taxonomy_vocabulary_8" : {
           "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
           "entity_type" : "taxonomy_term"
         },
-        "endpoints_source_node:field_iati_activity_aid_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "endpoints_source_node:field_iati_activity_collabo_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "endpoints_source_node:field_iati_activity_finance_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "endpoints_source_node:field_iati_activity_flow_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "endpoints_source_node:field_iati_activity_status" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "endpoints_source_node:field_iati_default_currency" : { "type" : "list\\u003Cstring\\u003E" },
-        "endpoints_source_node:field_iati_identifier" : { "type" : "list\\u003Cstring\\u003E" },
-        "endpoints_source_node:field_iati_owner_name" : { "type" : "list\\u003Ctext\\u003E" },
-        "endpoints_source_node:field_iati_owner_ref" : { "type" : "list\\u003Ctext\\u003E" },
-        "endpoints_source_node:field_activity_status" : { "type" : "list\\u003Cstring\\u003E" },
-        "endpoints_target_node:uuid" : { "type" : "list\\u003Cstring\\u003E" },
-        "endpoints_source_node:taxonomy_vocabulary_6:parents_all" : {
-          "type" : "list\\u003Clist\\u003Clist\\u003Cinteger\\u003E\\u003E\\u003E",
-          "entity_type" : "taxonomy_term"
-        },
+        "endpoints_source_node:taxonomy_vocabulary_8:field_iati_code" : { "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E" },
         "endpoints_source_node:taxonomy_vocabulary_8:name" : { "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E" },
         "endpoints_source_node:taxonomy_vocabulary_8:parents_all" : {
           "type" : "list\\u003Clist\\u003Clist\\u003Cinteger\\u003E\\u003E\\u003E",
           "entity_type" : "taxonomy_term"
         },
-        "endpoints_source_node:taxonomy_vocabulary_8:field_iati_code" : { "type" : "list\\u003Clist\\u003Cstring\\u003E\\u003E" },
-        "endpoints_source_node:field_iati_activity_description:value" : { "type" : "list\\u003Ctext\\u003E" },
-        "endpoints_source_node:field_iati_activity_planned_date:value" : { "type" : "list\\u003Cdate\\u003E" },
-        "endpoints_source_node:field_iati_activity_planned_date:value2" : { "type" : "list\\u003Cdate\\u003E" },
-        "endpoints_source_node:field_iati_activity_website:url" : { "type" : "list\\u003Curi\\u003E" }
+        "endpoints_source_node:title" : { "type" : "list\\u003Ctext\\u003E" },
+        "endpoints_source_node:uuid" : { "type" : "list\\u003Cstring\\u003E" },
+        "endpoints_target_node" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "endpoints_target_node:uuid" : { "type" : "list\\u003Cstring\\u003E" },
+        "field_iati_org_role" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "relation_type" : { "type" : "string" },
+        "search_api_aggregation_1" : { "type" : "text" },
+        "search_api_language" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {

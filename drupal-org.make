@@ -350,6 +350,7 @@ projects[realname][subdir] = "contrib"
 projects[relation][version] = "1.0-rc5"
 projects[relation][type] = "module"
 projects[relation][subdir] = "contrib"
+projects[relation][patch][] = "https://www.drupal.org/files/relation-entity_property_info-1958298-3.patch"
 
 projects[relation_add][version] = "1.2"
 projects[relation_add][type] = "module"

@@ -63,21 +63,21 @@ function devtrac7_solr_user_feature_default_search_api_index() {
       "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
-        "name" : { "type" : "text" },
-        "mail" : { "type" : "text" },
+        "field_user_firstname" : { "type" : "text" },
+        "field_user_superior" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "user" },
+        "field_user_surname" : { "type" : "text" },
         "last_access" : { "type" : "date" },
+        "mail" : { "type" : "text" },
+        "name" : { "type" : "text" },
         "roles" : { "type" : "list\\u003Cinteger\\u003E" },
+        "search_api_aggregation_1" : { "type" : "text" },
+        "search_api_language" : { "type" : "string" },
         "status" : { "type" : "integer" },
         "taxonomy_vocabulary_4" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_5" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_user_firstname" : { "type" : "text" },
-        "field_user_surname" : { "type" : "text" },
-        "field_user_superior" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "user" },
-        "search_api_language" : { "type" : "string" },
+        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_6:field_district_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "search_api_aggregation_1" : { "type" : "text" }
+        "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_role_filter" : {
