@@ -74,24 +74,15 @@ function devtrac7_solr_search_org_feature_default_search_api_index() {
       "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
-        "nid" : { "type" : "integer" },
-        "type" : { "type" : "string" },
-        "title" : { "type" : "string" },
-        "status" : { "type" : "boolean" },
-        "created" : { "type" : "date" },
         "author" : { "type" : "integer", "entity_type" : "user" },
-        "relation_iati_organisation_role_node_reverse" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
-        "relation_iati_organisation_role_node" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "created" : { "type" : "date" },
         "field_activity_name" : { "type" : "string" },
         "field_iati_org_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_organisation_name" : { "type" : "string" },
-        "search_api_language" : { "type" : "string" },
-        "relation_iati_organisation_role:field_iati_org_role" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "nid" : { "type" : "integer" },
+        "relation_iati_organisation_role_node" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
+        "relation_iati_organisation_role_node_reverse" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "relation_iati_organisation_role_node_reverse:taxonomy_vocabulary_6" : {
-          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
-          "entity_type" : "taxonomy_term"
-        },
-        "relation_iati_organisation_role_node_reverse:taxonomy_vocabulary_8" : {
           "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
           "entity_type" : "taxonomy_term"
         },
@@ -99,12 +90,21 @@ function devtrac7_solr_search_org_feature_default_search_api_index() {
           "type" : "list\\u003Clist\\u003Clist\\u003Cinteger\\u003E\\u003E\\u003E",
           "entity_type" : "taxonomy_term"
         },
+        "relation_iati_organisation_role_node_reverse:taxonomy_vocabulary_8" : {
+          "type" : "list\\u003Clist\\u003Cinteger\\u003E\\u003E",
+          "entity_type" : "taxonomy_term"
+        },
         "relation_iati_organisation_role_node_reverse:taxonomy_vocabulary_8:parents_all" : {
           "type" : "list\\u003Clist\\u003Clist\\u003Cinteger\\u003E\\u003E\\u003E",
           "entity_type" : "taxonomy_term"
         },
+        "relation_iati_organisation_role:field_iati_org_role" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },
         "search_api_aggregation_1" : { "type" : "text" },
-        "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" }
+  		  "search_api_language" : { "type" : "string" },
+        "status" : { "type" : "boolean" },
+        "title" : { "type" : "string" },
+        "type" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {

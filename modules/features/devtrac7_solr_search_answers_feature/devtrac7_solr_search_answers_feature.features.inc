@@ -45,13 +45,13 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
       "cron_limit" : "50",
       "fields" : {
         "created" : { "type" : "date" },
-        "uid" : { "type" : "integer", "entity_type" : "user" },
-        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_1" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "questionnaire_answer_number" : { "type" : "decimal" },
-        "questionnaire_answer_text" : { "type" : "list\\u003Cstring\\u003E" },
         "questionnaire_answer_question" : { "type" : "integer", "entity_type" : "node" },
-        "search_api_language" : { "type" : "string" }
+        "questionnaire_answer_text" : { "type" : "list\\u003Cstring\\u003E" },
+        "search_api_language" : { "type" : "string" },
+        "taxonomy_vocabulary_1" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "uid" : { "type" : "integer", "entity_type" : "user" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_add_hierarchy" : {

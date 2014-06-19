@@ -68,21 +68,21 @@ function devtrac7_solr_search_location_feature_default_search_api_index() {
       "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
-        "type" : { "type" : "string" },
-        "title" : { "type" : "text" },
-        "status" : { "type" : "boolean" },
         "author" : { "type" : "integer", "entity_type" : "user" },
-        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_1" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "search_api_language" : { "type" : "string" },
-        "search_api_aggregation_1" : { "type" : "text" },
-        "taxonomy_vocabulary_6:field_district_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_6:field_oecd_place_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_place_lat_long:geom" : { "type" : "text" },
         "field_place_lat_long:lat" : { "type" : "string" },
-        "field_place_lat_long:lon" : { "type" : "string" },
         "field_place_lat_long:latlon" : { "type" : "string", "real_type" : "location" },
-        "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" }
+        "field_place_lat_long:lon" : { "type" : "string" },
+        "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },
+        "search_api_aggregation_1" : { "type" : "text" },
+        "search_api_language" : { "type" : "string" },
+        "status" : { "type" : "boolean" },
+        "taxonomy_vocabulary_1" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_6:field_district_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_6:field_oecd_place_type" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "title" : { "type" : "text" },
+        "type" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {
