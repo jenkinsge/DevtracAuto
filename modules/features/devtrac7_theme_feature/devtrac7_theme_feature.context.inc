@@ -342,7 +342,6 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->conditions = array(
     'node' => array(
       'values' => array(
-        'book' => 'book',
         'page' => 'page',
       ),
       'options' => array(
@@ -362,12 +361,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'module' => 'system',
           'delta' => 'main',
           'region' => 'content',
-          'weight' => '-10',
-        ),
-        'book-navigation' => array(
-          'module' => 'book',
-          'delta' => 'navigation',
-          'region' => 'sidebar_first',
           'weight' => '-10',
         ),
         'menu-menu-funding-partners' => array(
