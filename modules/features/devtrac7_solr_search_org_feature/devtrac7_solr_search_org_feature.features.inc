@@ -80,6 +80,7 @@ function devtrac7_solr_search_org_feature_default_search_api_index() {
         "field_iati_org_type" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_organisation_name" : { "type" : "string" },
         "nid" : { "type" : "integer" },
+        "relation_iati_organisation_role:field_iati_org_role" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "relation_iati_organisation_role_node" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "relation_iati_organisation_role_node_reverse" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "relation_iati_organisation_role_node_reverse:taxonomy_vocabulary_6" : {
