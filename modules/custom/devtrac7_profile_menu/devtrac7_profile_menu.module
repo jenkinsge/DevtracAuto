@@ -1,0 +1,222 @@
+<?php
+
+/**
+ * Implements hook_menu_default_menu_custom().
+ */
+function devtrac7_profile_menu_menu_default_menu_custom() {
+  $menus = array();
+
+  $menus['devtrac7-profile-menu'] = array(
+    'menu_name' => 'devtrac7-profile-menu',
+    'title' => 'Devtrac7 Profile Menu',
+    'description' => 'The menu in the right part of the toolbar containing links for the logged in user.',
+  );
+
+  return $menus;
+}
+
+/**
+ * Implements hook_menu_default_menu_links().
+ */
+function devtrac7_profile_menu_menu_default_menu_links() {
+  $menu_links = array();
+
+  $menu_links['devtrac7-profile-menu_my-current-field-trip:devtrac/mycurrentfieldtrip'] = array(
+    'menu_name' => 'devtrac7-profile-menu',
+    'link_path' => 'mycurrentfieldtrip',
+    'router_path' => 'mycurrentfieldtrip',
+    'link_title' => 'My Current Field Trip',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'devtrac7-profile-menu_my-current-field-trip:devtrac/mycurrentfieldtrip',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 0,
+  );
+  $menu_links['devtrac7-profile-menu_add-field-trip:node/add/fieldtrip'] = array(
+    'menu_name' => 'devtrac7-profile-menu',
+    'link_path' => 'node/add/fieldtrip',
+    'router_path' => 'node/add/fieldtrip',
+    'link_title' => 'Add Field Trip',
+    'options' => array(
+      'menu_token_link_path' => 'node/add/fieldtrip?field_fieldtrip_user=[current-user:uid]&field_fieldtrip_places=',
+      'menu_token_data' => array(),
+      'menu_token_options' => array(
+        'clear' => 0,
+      ),
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => FALSE,
+      'query' => array(
+        'field_fieldtrip_user' => 3,
+        'field_fieldtrip_places' => '',
+      ),
+      'identifier' => 'devtrac7-profile-menu_add-field-trip:node/add/fieldtrip',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -49,
+    'customized' => 1,
+  );
+  $menu_links['devtrac7-profile-menu_admin:admin'] = array(
+    'menu_name' => 'devtrac7-profile-menu',
+    'link_path' => 'admin',
+    'router_path' => 'admin',
+    'link_title' => 'Admin',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'devtrac7-profile-menu_admin:admin',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -47,
+    'customized' => 0,
+  );
+/*
+  $menu_links['devtrac7-profile-menu_edit-my-profile:user/3/edit'] = array(
+    'menu_name' => 'devtrac7-profile-menu',
+    'link_path' => 'user/3/edit',
+    'router_path' => 'user/%/edit',
+    'link_title' => 'Edit My profile',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => FALSE,
+      'menu_token_link_path' => 'user/[current-user:uid]/edit',
+      'menu_token_data' => array(
+        'user' => array(
+          'type' => 'user',
+          'plugin' => 'user_context',
+          'options' => array(),
+        ),
+      ),
+      'menu_token_options' => array(
+        'clear' => 0,
+      ),
+      'identifier' => 'devtrac7-profile-menu_edit-my-profile:user/3/edit',
+    ),
+    'module' => 'menu',
+    'hidden' => 1,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -50,
+    'customized' => 1,
+  );
+*/
+  $menu_links['devtrac7-profile-menu_welcome'] = array(
+    'menu_name' => 'devtrac7-profile-menu',
+    'link_path' => 'user/%',
+    'router_path' => 'user/%',
+    'link_title' => 'Welcome, [current-user:field_user_firstname]',
+    'options' => array(
+      'menu_token_link_path' => 'user/[current-user:uid]',
+      'menu_token_data' => array(
+        'user' => array(
+          'type' => 'user',
+          'plugin' => 'user_context',
+          'options' => array(),
+        ),
+      ),
+      'menu_token_options' => array(
+        'clear' => 0,
+      ),
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => FALSE,
+      'identifier' => 'devtrac7-profile-menu_welcome',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -48,
+    'customized' => 1,
+  );
+  $menu_links['devtrac7-profile-menu_edit-my-profile:user/%/edit'] = array(
+    'menu_name' => 'devtrac7-profile-menu',
+    'link_path' => 'user/%/edit',
+    'router_path' => 'user/%/edit',
+    'link_title' => 'Edit My profile',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'menu_token_link_path' => '[current-user:edit-url]',
+      'menu_token_data' => array(
+        'user' => array(
+          'type' => 'user',
+          'plugin' => 'user_context',
+          'options' => array(),
+        ),
+      ),
+      'menu_token_options' => array(
+        'clear' => 0,
+      ),
+      'purl' => array(
+        'disabled' => 1,
+      ),
+      'identifier' => 'devtrac7-profile-menu_edit-my-profile:user/%/edit',
+      'menu_token_link_uuid' => 'user/%/edit',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -40,
+    'customized' => 1,
+    'parent_identifier' => 'devtrac7-profile-menu_welcome',
+  );
+
+  return $menu_links;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function devtrac7_profile_menu_menu() {
+/*
+  $items = array();
+
+  $items['node/add/fieldtrip'] = array(
+    'title' => 'Add Field Trip',
+    'page callback' => 'node_add',
+    'page arguments' => array(2),
+    'menu_name' => 'menu-my-profile',
+    'file' => 'node.pages.inc',
+    'weight' => -49,
+  );
+//  $items['user/[current-user:uid]'] = array(
+//    'title' => 'Welcome, [current-user:field_user_firstname]',
+//  );
+//  $items['user/[current-user:uid]/edit'] = array(
+//    'title' => 'Edit My Profile',
+//  );
+//  $items['admin'] = array(
+//    'title' => 'Admin',
+//  );
+
+  return $items;
+*/
+}
