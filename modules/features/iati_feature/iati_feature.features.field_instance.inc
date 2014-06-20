@@ -1490,6 +1490,39 @@ function iati_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'relation-iati_organisation_role-field_iati_org_role'
+  $field_instances['relation-iati_organisation_role-field_iati_org_role'] = array(
+    'bundle' => 'iati_organisation_role',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'The Role the selected organisation has in regards to the Activity',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'relation',
+    'field_name' => 'field_iati_org_role',
+    'label' => 'Organisation Role',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'options_buttons',
+      'weight' => 1,
+    ),
+  );
+
   // Exported field_instance: 'taxonomy_term-activity_aid_type-field_iati_code'
   $field_instances['taxonomy_term-activity_aid_type-field_iati_code'] = array(
     'bundle' => 'activity_aid_type',
@@ -1916,6 +1949,7 @@ function iati_feature_field_default_field_instances() {
   t('Language');
   t('Organisation Logo');
   t('Organisation Name');
+  t('Organisation Role');
   t('Organisation Type');
   t('Owner Name');
   t('Owner Reference');
