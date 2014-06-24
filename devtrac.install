@@ -435,7 +435,7 @@ function devtrac_install_tasks(&$install_state) {
  * commerce_kickstart_install(), which means region assignment can only happen
  * after that.
  */
-function devtrac_install_additional_modules($install_state) {
+function devtrac_install_additional_modules(&$install_state) {
   $modules = array(
     'devtrac7_field_permissions_feature',
   );
