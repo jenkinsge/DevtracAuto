@@ -196,7 +196,7 @@ dependencies[] = devtrac_question_packages
 ; Devtrac features
 dependencies[] = devtrac7_services_api
 dependencies[] = devtrac7_admin_feature
-dependencies[] = devtrac7_field_permissions_feature
+; dependencies[] = devtrac7_field_permissions_feature
 dependencies[] = devtrac7_menu
 dependencies[] = devtrac7_views_feature
 dependencies[] = devtrac7_site_configuration_feature
