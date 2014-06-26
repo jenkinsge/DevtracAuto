@@ -196,6 +196,9 @@ dependencies[] = devtrac_question_packages
 ; Devtrac features
 dependencies[] = devtrac7_services_api
 dependencies[] = devtrac7_admin_feature
+; We'll have to enable the devtrac7_field_permissions feature after
+; rebuilding the features. So even after the site configuration task.
+; So let's comment it out for now and enable it in a new install task.
 ; dependencies[] = devtrac7_field_permissions_feature
 dependencies[] = devtrac7_menu
 dependencies[] = devtrac7_views_feature
