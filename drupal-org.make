@@ -505,7 +505,7 @@ projects[commentblock][subdir] = "contrib"
 projects[facetapi_context][type] = "module"
 projects[facetapi_context][download][type] = "git"
 projects[facetapi_context][download][url] = "http://git.drupal.org/sandbox/ygerasimov/1591872.git"
-projects[facetapi_context][download][branch] = "master"
+projects[facetapi_context][download][branch] = "7.x-1.x"
 projects[facetapi_context][subdir] = "contrib"
 
 projects[facetapi_textfield_widget][type] = "module"
