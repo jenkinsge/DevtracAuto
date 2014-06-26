@@ -99,10 +99,6 @@ projects[delta][version] = "3.0-beta11"
 projects[delta][type] = "module"
 projects[delta][subdir] = "contrib"
 
-projects[devel][version] = "1.4"
-projects[devel][type] = "module"
-projects[devel][subdir] = "contrib"
-
 projects[diff][version] = "3.2"
 projects[diff][type] = "module"
 projects[diff][subdir] = "contrib"
