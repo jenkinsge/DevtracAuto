@@ -2195,20 +2195,25 @@ function devtrac7_is_unfiltered_front_page() {
  * @param unknown_type $account
  */
 function devtrac7_user_login(&$edit, $account) {
-
-  if (!isset($account->field_user_surname['und'][0]['value']) ||
-      !isset($account->field_user_aboutme['und'][0]['value']) ||
-      !isset($account->field_user_firstname['und'][0]['value']) ||
-      !isset($account->taxonomy_vocabulary_4['und']) ||
-      !isset($account->field_user_superior['und'][0]['target_id']) ||
-      !isset($account->taxonomy_vocabulary_5['und']) ||
-      !isset($account->mail) ||
-      !isset($account->name)
-  ) {
-    drupal_set_message("Please finish filling in you full profile byt filling in all mandatory fields.");
-    drupal_goto('user/'.$account->uid.'/edit');
+  global $install_state;
+  // If the Devtrac profile installer is still running,
+  // bail out and don't redirect to the user profile page.
+  if (!isset($install_state)) {
+    // If there is some data missing on the user profile page,
+    // redirect to the user profile page and have the user supply it.
+    if (!isset($account->field_user_surname['und'][0]['value']) ||
+        !isset($account->field_user_aboutme['und'][0]['value']) ||
+        !isset($account->field_user_firstname['und'][0]['value']) ||
+        !isset($account->taxonomy_vocabulary_4['und']) ||
+        !isset($account->field_user_superior['und'][0]['target_id']) ||
+        !isset($account->taxonomy_vocabulary_5['und']) ||
+        !isset($account->mail) ||
+        !isset($account->name)
+    ) {
+      drupal_set_message("Please finish filling in you full profile byt filling in all mandatory fields.");
+      drupal_goto('user/'.$account->uid.'/edit');
+    }
   }
-
 }
 
 /**
