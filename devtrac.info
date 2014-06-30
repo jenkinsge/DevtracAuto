@@ -128,7 +128,6 @@ dependencies[] = delta
 dependencies[] = delta_blocks
 dependencies[] = delta_color
 dependencies[] = delta_ui
-dependencies[] = omega_tools
 dependencies[] = better_messages
 dependencies[] = chosen
 dependencies[] = ckeditor

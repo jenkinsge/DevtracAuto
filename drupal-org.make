@@ -259,10 +259,6 @@ projects[nice_menus][version] = "2.5"
 projects[nice_menus][type] = "module"
 projects[nice_menus][subdir] = "contrib"
 
-projects[omega_tools][version] = "3.0-rc4"
-projects[omega_tools][type] = "module"
-projects[omega_tools][subdir] = "contrib"
-
 projects[openlayers][version] = "2.0-beta9"
 projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
