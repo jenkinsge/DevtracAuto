@@ -413,6 +413,10 @@ function devtrac_install_tasks(&$install_state) {
 
   $tasks = array();
   $current_task = variable_get('install_task', 'done');
+  $tasks['devtrac_solr_configure_form'] = array(
+      'display_name' => st('Configure SOLR'),
+      'type' => 'form',
+  );
   $tasks['devtrac_install_additional_modules'] = array(
     'display_name' => st('Install additional functionality'),
     'type' => 'batch',
@@ -483,4 +487,95 @@ function devtrac_install_additional_modules(&$install_state) {
  */
 function _devtrac_filter_dependencies($dependency) {
 	return !module_exists($dependency);
+}
+
+/**
+ * Inplements devtrac_solr_configure_form()
+ */
+function devtrac_solr_configure_form() {
+  include_once DRUPAL_ROOT . '/includes/iso.inc';
+
+  drupal_set_title(st('Configure Solr Settings'));
+
+  $form['solr'] = array(
+      '#type' => 'fieldset',
+      '#title' => st('Solr Settings'),
+  );
+  $form['solr']['host'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Host'),
+      '#default_value' => 'solr02.mountbatten.net',
+      '#maxlength' => 64,
+      '#description' => t('Add hostname or IP address of ur solr server', array('@overview' => url('admin/structure/block'))),
+      '#required' => FALSE,
+      '#weight' => -18,
+
+  );
+  $form['solr']['port'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Port'),
+      '#default_value' => '8080',
+      '#maxlength' => 64,
+      '#description' => t('Port Number'),
+      '#required' => FALSE,
+      '#weight' => -18,
+
+  );
+  $form['solr']['path'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Path'),
+      '#default_value' => 'solr4/',
+      '#maxlength' => 64,
+      '#description' => t('Path to your solr Instance', array('@overview' => url('admin/structure/block'))),
+      '#required' => FALSE,
+      '#weight' => -18,
+  );
+
+
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array(
+      '#type' => 'submit',
+      '#value' => st('Create and Continue'),
+      '#weight' => 15,
+  );
+  return $form;
+}
+function devtrac_solr_configure_form_submit($form, &$form_state) {
+
+  global $conf, $databases, $drupal_hash_salt;
+
+  $settings=array();
+  $settings['databases']=array( 'value' => $databases);
+  $settings['drupal_hash_salt']=array('value' => $drupal_hash_salt);
+  $settings['conf[\'' .'search_api_solr_overrides' . '\']'] =  array (
+      'value'=> array(
+          'localhost' => array(
+              "name" => "Devtrac Solr Server (Overridden)",
+              "options" => array(
+                  "host" => $form_state['values']['host'],
+                  "port" => $form_state['values']['port'],
+                  "path" => $form_state['values']['path'],
+                  "http_user" => '',
+                  "http_pass" => '',
+                  "excerpt" => 0,
+                  "retrieve_data" => 0,
+                  "highlight_data" => 0,
+                  "http_method" => 'POST',
+
+              )
+          )
+      ),
+      'required' => TRUE
+  );
+
+  //Do the actual write to settings.php.
+  drupal_rewrite_settings($settings);
+
+}
+
+/**
+ * Implements devtrac_solr_configure_form_validate()
+ */
+function devtrac_solr_configure_form_validate(&$form, &$form_state) {
+
 }
