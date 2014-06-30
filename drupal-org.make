@@ -243,10 +243,6 @@ projects[media][version] = "2.0-alpha3"
 projects[media][type] = "module"
 projects[media][subdir] = "contrib"
 
-projects[memcache][version] = "1.1"
-projects[memcache][type] = "module"
-projects[memcache][subdir] = "contrib"
-
 projects[menu_token][version] = "1.0-beta5"
 projects[menu_token][type] = "module"
 projects[menu_token][subdir] = "contrib"
