@@ -49,7 +49,7 @@ dependencies[] = date_all_day
 dependencies[] = date_duration_formatter
 dependencies[] = migrate
 dependencies[] = migrate_ui
-; dependencies[] = migrate_extras
+dependencies[] = migrate_extras
 dependencies[] = ds
 dependencies[] = ds_forms
 dependencies[] = ds_extras
@@ -188,6 +188,7 @@ dependencies[] = devtrac7_views
 dependencies[] = devtrac7_realms
 dependencies[] = devtrac_custom_packages
 dependencies[] = devtrac_question_packages
+dependencies[] = devtrac_imports
 
 ; Devtrac features
 dependencies[] = devtrac7_services_api
