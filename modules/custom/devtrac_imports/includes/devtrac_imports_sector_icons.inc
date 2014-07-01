@@ -19,7 +19,7 @@ class DevtracImportsSectorIcons extends XMLMigration {
     // Source fields available in the XML file.
     $fields = array(
       'code' => t('sector code'),
-    	'filename' => t('Image filename, relative to the source directory'),
+      'filename' => t('Image filename, relative to the source directory'),
       'description' => t('Description of the image'),
     );
 
@@ -55,23 +55,23 @@ class DevtracImportsSectorIcons extends XMLMigration {
     if (module_exists('path')) {
       $this->addUnmigratedDestinations(array('path'));
     }
-    
   }
 
   public function prepareRow($row) {
-  	// Always include this fragment at the beginning of every prepareRow()
-  	// implementation, so parent classes can ignore rows.
-  	if (parent::prepareRow($row) === FALSE) {
-  		return FALSE;
-  	}
-  	  	
-  	$row->filename = $row->code . '.png';
-  	$source_dir = $this->getFieldMappings()['source_dir']->getDefaultvalue();
-  	$file_full_path = DRUPAL_ROOT . '/' . $source_dir . '/' . $row->filename;
-  	if(!file_exists($file_full_path)) {
-  		return FALSE;
-  	}
+    // Always include this fragment at the beginning of every prepareRow()
+    // implementation, so parent classes can ignore rows.
+    if (parent::prepareRow($row) === FALSE) {
+      return FALSE;
+    }
 
-  	return TRUE;
+    $row->filename = $row->code . '.png';
+    $fieldmappings = $this->getFieldMappings();
+    $source_dir = $fieldmappings['source_dir']->getDefaultvalue();
+    $file_full_path = DRUPAL_ROOT . '/' . $source_dir . '/' . $row->filename;
+    if(!file_exists($file_full_path)) {
+      return FALSE;
+    }
+
+    return TRUE;
   }  
 }
