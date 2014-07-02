@@ -544,7 +544,7 @@ function devtrac_solr_configure_form() {
   $form['solr']['path'] = array(
     '#type' => 'textfield',
     '#title' => t('Path'),
-    '#default_value' => 'solr4/devtracd7',
+    '#default_value' => '/solr4/devtracd7',
     '#maxlength' => 64,
     '#description' => t('Path to your solr Instance', array('@overview' => url('admin/structure/block'))),
     '#required' => FALSE,
