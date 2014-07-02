@@ -556,16 +556,24 @@ function devtrac_solr_configure_form() {
 }
 
 function devtrac_solr_configure_form_submit($form, &$form_state) {
+  global $databases, $drupal_hash_salt;
 
-  global $conf, $databases, $drupal_hash_salt;
+  $settings = array();
+  $settings['databases'] = array(
+    'value' => $databases,
+  );
+  $settings['drupal_hash_salt'] = array(
+    'value' => $drupal_hash_salt,
+  );
 
-  $settings=array();
-  $settings['databases']=array( 'value' => $databases);
-  $settings['drupal_hash_salt']=array('value' => $drupal_hash_salt);
-  $settings['conf[\'' .'search_api_solr_overrides' . '\']'] =  array (
-    'value'=> array(
-      'localhost' => array(
-        'name' => st('Devtrac Solr Server (Overridden)'),
+  $settings["conf['search_api_override_mode']"] = array(
+    'value' => 'load',
+    'required' => TRUE,
+  );
+  $settings["conf['search_api_override_servers']"] = array(
+    'value' => array(
+      'devtrac_solr_server' => array(
+        'name' => 'Devtrac Solr Server (Overridden)',
         'options' => array(
           'host' => $form_state['values']['host'],
           'port' => $form_state['values']['port'],
@@ -576,13 +584,12 @@ function devtrac_solr_configure_form_submit($form, &$form_state) {
           'retrieve_data' => 0,
           'highlight_data' => 0,
           'http_method' => 'POST',
-        )
-      )
+        ),
+      ),
     ),
-    'required' => TRUE
+    'required' => TRUE,
   );
 
   //Do the actual write to settings.php.
   drupal_rewrite_settings($settings);
-
 }
