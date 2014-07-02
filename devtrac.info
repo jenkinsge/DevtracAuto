@@ -150,7 +150,6 @@ dependencies[] = views_rss_dc
 dependencies[] = views_rss_georss
 dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle
-dependencies[] = views_two_column_table
 dependencies[] = date_views
 dependencies[] = media
 dependencies[] = kml

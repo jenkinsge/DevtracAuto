@@ -409,7 +409,7 @@ function devtrac_install_tasks(&$install_state) {
   // }
 
   // Remove any status messages that might have been set. They are unneeded.
-//  drupal_get_messages('status', TRUE);
+  //  drupal_get_messages('status', TRUE);
 
   $tasks = array();
   $current_task = variable_get('install_task', 'done');
@@ -417,11 +417,16 @@ function devtrac_install_tasks(&$install_state) {
   $tasks['devtrac_import_codelists'] = array(
     'display_name' => st('Import CodeLists'),
     'type' => 'batch',
-  );  
+  );
   $tasks['devtrac_install_additional_modules'] = array(
     'display_name' => st('Install additional functionality'),
     'type' => 'batch',
   );
+  
+  $tasks['devtrac_date_format_form'] = array(
+  		'display_name' => st('Configure Date Format'),
+  		'type' => 'form',
+  );  
   return $tasks;
 }
 
@@ -592,4 +597,9 @@ function devtrac_solr_configure_form_submit($form, &$form_state) {
 
   //Do the actual write to settings.php.
   drupal_rewrite_settings($settings);
+}
+
+function devtrac_date_format_form() {
+	module_load_include('inc', 'system', 'system.admin');
+	return system_date_time_settings();
 }

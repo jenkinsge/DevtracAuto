@@ -578,11 +578,6 @@ libraries[jquery-mb-extruder][type] = "library"
 ; libraries[proj4js][directory_name] = "proj4js"
 ; libraries[proj4js][type] = "library"
 
-libraries[SolrPhpClient][download][type] = "file"
-libraries[SolrPhpClient][download][url] = "https://solr-php-client.googlecode.com/files/SolrPhpClient.r60.2011-05-04.tgz"
-libraries[SolrPhpClient][directory_name] = "SolrPhpClient"
-libraries[SolrPhpClient][type] = "library"
-
 ; libraries[spyc][download][type] = ""
 ; libraries[spyc][download][url] = ""
 ; libraries[spyc][directory_name] = "spyc"
