@@ -171,6 +171,10 @@ projects[file_entity][version] = "2.0-alpha3"
 projects[file_entity][type] = "module"
 projects[file_entity][subdir] = "contrib"
 
+projects[file_entity_usage][version] = "1.x-dev"
+projects[file_entity_usage][type] = "module"
+projects[file_entity_usage][subdir] = "contrib"
+
 projects[flot][version] = "1.x-dev"
 projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
@@ -198,6 +202,10 @@ projects[geonames][subdir] = "contrib"
 projects[geophp][version] = "1.7"
 projects[geophp][type] = "module"
 projects[geophp][subdir] = "contrib"
+
+projects[google_analytics][version] = "1.4"
+projects[google_analytics][type] = "module"
+projects[google_analytics][subdir] = "contrib"
 
 projects[globalredirect][version] = "1.5"
 projects[globalredirect][type] = "module"

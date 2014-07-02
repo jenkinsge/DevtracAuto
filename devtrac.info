@@ -75,6 +75,7 @@ dependencies[] = commentblock
 dependencies[] = css_browser_selector
 dependencies[] = entity
 dependencies[] = entity_token
+dependencies[] = file_entity_usage
 dependencies[] = field_collection_table
 dependencies[] = field_extrawidgets
 dependencies[] = geocoder
@@ -123,7 +124,12 @@ dependencies[] = facetapi_textfield_widget
 dependencies[] = services
 dependencies[] = ckan_packages
 dependencies[] = rest_server
-dependencies[] = piwik
+; None or one of the following two modules will be enabled later
+; in the installation process. Modules that are not selected will
+; be removed from the code base. Configuration for the selected
+; module will also be done later in a separate install task.
+; dependencies[] = piwik
+; dependencies[] = google_analytics
 dependencies[] = delta
 dependencies[] = delta_blocks
 dependencies[] = delta_color
