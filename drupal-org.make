@@ -279,7 +279,7 @@ projects[openlayers_plus][version] = "3.0-beta1"
 projects[openlayers_plus][type] = "module"
 projects[openlayers_plus][subdir] = "contrib"
 
-projects[pane][version] = "2.4"
+projects[pane][version] = "2.5"
 projects[pane][type] = "module"
 projects[pane][subdir] = "contrib"
 
