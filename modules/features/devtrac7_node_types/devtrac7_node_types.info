@@ -278,5 +278,3 @@ features[variable][] = node_submitted_ftritem
 features[variable][] = node_submitted_page
 features[variable][] = node_submitted_place
 features[variable][] = tipsy
-features_exclude[filter][] = 4
-features_exclude[filter][] = 1

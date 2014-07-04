@@ -2006,17 +2006,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'comment',
   );
 
-  // Exported permission: 'view advanced help popup'.
-  $permissions['view advanced help popup'] = array(
-    'name' => 'view advanced help popup',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-      'unicef user' => 'unicef user',
-    ),
-    'module' => 'advanced_help',
-  );
-
   // Exported permission: 'view field_actionitem_due_date'.
   $permissions['view field_actionitem_due_date'] = array(
     'name' => 'view field_actionitem_due_date',
