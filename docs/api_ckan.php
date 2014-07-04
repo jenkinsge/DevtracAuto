@@ -1,8 +1,6 @@
 <?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+ /** @defgroup devtrac_ckan_api Services API
+ * @{
+ * The CKAN API allows you to harvest Devtrac data into CKAN.
+  * @}
+  */
