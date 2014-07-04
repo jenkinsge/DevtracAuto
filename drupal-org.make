@@ -521,6 +521,7 @@ projects[search_api_solr_boundingbox_search][subdir] = "contrib"
 
 ; Themes
 projects[omega][version] = "3.1"
+projects[shiny][version] = "1.5"
 
 projects[devtrac7_theme][version] = "1.x-dev"
 projects[devtrac7_theme][type] = "theme"

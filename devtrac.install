@@ -380,10 +380,10 @@ function devtrac_install() {
     ->execute();
 
   // Enable the administration theme.
-  $admin_theme = 'seven';
+  $admin_theme = 'shiny';
   theme_enable(array($admin_theme));
   variable_set('admin_theme', $admin_theme);
-  variable_set('node_admin_theme', '1');
+  variable_set('node_admin_theme', '0');
 
   // Set the default theme.
   $default_theme = 'devtrac7_theme';
