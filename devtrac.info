@@ -118,6 +118,7 @@ dependencies[] = search_api_solr_boundingbox_search
 dependencies[] = facetapi
 dependencies[] = current_search
 dependencies[] = facetapi_bonus
+dependencies[] = facetapi_graphs
 ; dependencies[] = facetapi_context
 dependencies[] = facetapi_tagcloud
 dependencies[] = facetapi_textfield_widget
