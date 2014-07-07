@@ -389,7 +389,7 @@ projects[search_api_override][subdir] = "contrib"
 projects[search_api_swatches][version] = "1.x-dev"
 projects[search_api_swatches][type] = "module"
 projects[search_api_swatches][subdir] = "contrib"
-projects[search_api_swatches][patch][] = "https://www.drupal.org/files/1524574_4_imagestyle_and_other_options_.patch"
+; projects[search_api_swatches][patch][] = "https://www.drupal.org/files/1524574_4_imagestyle_and_other_options_.patch"
 
 projects[services][version] = "3.7"
 projects[services][type] = "module"
