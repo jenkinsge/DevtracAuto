@@ -438,7 +438,7 @@ projects[views_charts][subdir] = "contrib"
 projects[views_data_export][version] = "3.0-beta7"
 projects[views_data_export][type] = "module"
 projects[views_data_export][subdir] = "contrib"
-; projects[views_data_export][patch][] = "https://www.drupal.org/files/views_data_export_blockify.patch"
+projects[views_data_export][patch][] = "https://www.drupal.org/files/issues/views_data_export-blockify_3.0-beta7.patch"
 projects[views_data_export][patch][] = "https://www.drupal.org/files/views_data_export-solr_export-1258390-13.patch"
 
 projects[views_field_view][version] = "1.1"
