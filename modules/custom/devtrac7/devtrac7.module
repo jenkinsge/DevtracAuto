@@ -2210,7 +2210,7 @@ function devtrac7_user_login(&$edit, $account) {
         !isset($account->mail) ||
         !isset($account->name)
     ) {
-      drupal_set_message("Please finish filling in you full profile byt filling in all mandatory fields.");
+      drupal_set_message("Please finish filling in you full profile by filling in all mandatory fields.");
       drupal_goto('user/'.$account->uid.'/edit');
     }
   }
