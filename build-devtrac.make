@@ -10,9 +10,18 @@ projects[drupal][type] = core
 projects[drupal][version] = 7.28
 
 ; Patches for Core
-;projects[drupal][patch][] = https://drupal.org/files/1093420-22.patch
+;
+; Enables recursive dependencies in DrupalWebTestCases::setUp() during install.
+; projects[drupal][patch][] = https://drupal.org/files/1093420-22.patch
+;
+; Allow cron to populate serach indexes as user with uid 1 instead of anonymous.
+; Fixes access issues to terms that are not accessible to authenticated users.
+projects[drupal][patch][] = https://www.drupal.org/files/issues/drupal_cron-user.patch
+;
+; Allows uploading of multiple images using the devtrac api.
+projects[drupal][patch][] = https://www.drupal.org/files/issues/programmatically_add_images-1912458-4.patch
 
-; Pull the project from git
+; Pull the devtrac project from git
 projects[devtrac][type] = "profile"
 projects[devtrac][download][type] = "git"
 projects[devtrac][download][branch] = "7.x-1.x"
