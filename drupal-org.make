@@ -278,7 +278,6 @@ projects[openlayers][version] = "2.0-beta9"
 projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
 projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojson_anydisplay_4.patch"
-; projects[openlayers][patch][] = "https://www.drupal.org/files/issues/absolute_urls.patch"
 
 projects[openlayers_geosearch][version] = "1.0-beta1"
 projects[openlayers_geosearch][type] = "module"
