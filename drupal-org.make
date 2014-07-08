@@ -75,7 +75,6 @@ projects[content_taxonomy][type] = "module"
 projects[content_taxonomy][subdir] = "contrib"
 
 projects[context][version] = "3.2"
-;projects[context][patch][] = "https://drupal.org/files/sitewide_hook_init-1893068-1.patch"
 projects[context][type] = "module"
 projects[context][subdir] = "contrib"
 
