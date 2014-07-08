@@ -185,11 +185,10 @@ projects[footable][version] = "1.0-beta2"
 projects[footable][type] = "module"
 projects[footable][subdir] = "contrib"
 
-projects[geocoder][version] = "1.2"
+projects[geocoder][version] = "1.x-dev"
 projects[geocoder][type] = "module"
 projects[geocoder][subdir] = "contrib"
 projects[geocoder][patch][] = "https://www.drupal.org/files/issues/geocoder-fix_nominatim_data-1748412-39.patch"
-; projects[geocoder][patch][] = "https://www.drupal.org/files/issues/geocoder_nomatim_options-2117427-2.patch"
 
 projects[geocoder_wfs][version] = "1.0"
 projects[geocoder_wfs][type] = "module"
@@ -388,7 +387,6 @@ projects[search_api_override][subdir] = "contrib"
 projects[search_api_swatches][version] = "1.x-dev"
 projects[search_api_swatches][type] = "module"
 projects[search_api_swatches][subdir] = "contrib"
-; projects[search_api_swatches][patch][] = "https://www.drupal.org/files/1524574_4_imagestyle_and_other_options_.patch"
 
 projects[services][version] = "3.7"
 projects[services][type] = "module"
@@ -452,10 +450,6 @@ projects[views_geojson][version] = "1.x-dev"
 projects[views_geojson][type] = "module"
 projects[views_geojson][subdir] = "contrib"
 
-; projects[views_hacks][version] = "1.0-alpha2"
-; projects[views_hacks][type] = "module"
-; projects[views_hacks][subdir] = "contrib"
-
 projects[views_infinite_scroll][version] = "1.1"
 projects[views_infinite_scroll][type] = "module"
 projects[views_infinite_scroll][subdir] = "contrib"
@@ -475,11 +469,6 @@ projects[views_rss_georss][subdir] = "contrib"
 projects[views_slideshow][version] = "3.x-dev"
 projects[views_slideshow][type] = "module"
 projects[views_slideshow][subdir] = "contrib"
-
-;projects[views_two_column_table][version] = "1.2"
-;projects[views_two_column_table][type] = "module"
-;projects[views_two_column_table][patch][] = "https://drupal.org/files/views_two_column_table_d7_upgrade-1273990-5.patch"
-;projects[views_two_column_table][subdir] = "contrib"
 
 projects[virtual_field][version] = "1.2"
 projects[virtual_field][type] = "module"
@@ -558,11 +547,6 @@ libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases
 libraries[chosen][directory_name] = "chosen"
 libraries[chosen][type] = "library"
 
-; libraries[ckeditor][download][type] = ""
-; libraries[ckeditor][download][url] = ""
-; libraries[ckeditor][directory_name] = "ckeditor"
-; libraries[ckeditor][type] = "library"
-
 libraries[colorbox][download][type] = "file"
 libraries[colorbox][download][url] = "http://github.com/jackmoore/colorbox/zipball/1.5.9/jackmoore-colorbox-1.5.9-0-g124ec40.zip"
 libraries[colorbox][directory_name] = "colorbox"
@@ -583,37 +567,8 @@ libraries[FooTable][download][url] = "https://github.com/bradvin/FooTable/archiv
 libraries[FooTable][directory_name] = "FooTable"
 libraries[FooTable][type] = "library"
 
-; libraries[jquery.cycle][download][type] = ""
-; libraries[jquery.cycle][download][url] = ""
-; libraries[jquery.cycle][directory_name] = "jquery.cycle"
-; libraries[jquery.cycle][type] = "library"
 
 libraries[jquery-mb-extruder][download][type] = "file"
 libraries[jquery-mb-extruder][download][url] = "https://github.com/pupunzi/jquery.mb.extruder/archive/master.zip"
 libraries[jquery-mb-extruder][directory_name] = "jquery-mb-extruder"
 libraries[jquery-mb-extruder][type] = "library"
-
-; libraries[json2][download][type] = "file"
-; libraries[json2][download][url] = "https://github.com/douglascrockford/JSON-js/blob/master/json2.js"
-; libraries[json2][directory_name] = "json2"
-; libraries[json2][type] = "library"
-
-; libraries[openlayers][download][type] = ""
-; libraries[openlayers][download][url] = ""
-; libraries[openlayers][directory_name] = "openlayers"
-; libraries[openlayers][type] = "library"
-
-; libraries[proj4js][download][type] = ""
-; libraries[proj4js][download][url] = ""
-; libraries[proj4js][directory_name] = "proj4js"
-; libraries[proj4js][type] = "library"
-
-; libraries[spyc][download][type] = ""
-; libraries[spyc][download][url] = ""
-; libraries[spyc][directory_name] = "spyc"
-; libraries[spyc][type] = "library"
-
-; libraries[tcpdf][download][type] = "file"
-; libraries[tcpdf][download][url] = "http://downloads.sourceforge.net/project/tcpdf/OldFiles/tcpdf_6_0_083.zip"
-; libraries[tcpdf][directory_name] = "tcpdf"
-; libraries[tcpdf][type] = "library"
