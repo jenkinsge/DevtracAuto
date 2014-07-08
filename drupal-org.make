@@ -322,7 +322,7 @@ projects[publishcontent][version] = "1.3"
 projects[publishcontent][type] = "module"
 projects[publishcontent][subdir] = "contrib"
 
-projects[purl][version] = "1.0-beta1"
+projects[purl][version] = "1.x-dev"
 projects[purl][type] = "module"
 projects[purl][subdir] = "contrib"
 
