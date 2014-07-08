@@ -261,6 +261,7 @@ projects[media][subdir] = "contrib"
 projects[menu_token][version] = "1.0-beta5"
 projects[menu_token][type] = "module"
 projects[menu_token][subdir] = "contrib"
+projects[menu_token][patch][] = "https://www.drupal.org/files/issues/localized_options-not-set.patch"
 
 projects[migrate][version] = "2.5"
 projects[migrate][type] = "module"
@@ -325,6 +326,7 @@ projects[publishcontent][subdir] = "contrib"
 projects[purl][version] = "1.x-dev"
 projects[purl][type] = "module"
 projects[purl][subdir] = "contrib"
+projects[purl][patch][] = "https://www.drupal.org/files/1511708_5_menu_save.patch"
 
 projects[purl_search_api][version] = "1.0-beta1"
 projects[purl_search_api][type] = "module"
@@ -453,6 +455,7 @@ projects[views_geojson][type] = "module"
 projects[views_geojson][subdir] = "contrib"
 projects[views_geojson][patch][] = "https://www.drupal.org/files/issues/1839554_views_geojson_bbox_argument_handler_fixes_15.patch"
 projects[views_geojson][patch][] = "https://drupal.org/files/bbox_on_all_views.patch"
+projects[views_geojson][patch][] = "https://www.drupal.org/files/views_geojson-description_property-2082143-1.patch"
 
 projects[views_infinite_scroll][version] = "1.1"
 projects[views_infinite_scroll][type] = "module"
@@ -501,6 +504,7 @@ projects[facetapi_context][download][type] = "git"
 projects[facetapi_context][download][url] = "http://git.drupal.org/sandbox/ygerasimov/1591872.git"
 projects[facetapi_context][download][branch] = "7.x-1.x"
 projects[facetapi_context][subdir] = "contrib"
+projects[facetapi_context][patch][] = "https://www.drupal.org/files/moreoptions-1704152-1.patch"
 
 projects[facetapi_textfield_widget][type] = "module"
 projects[facetapi_textfield_widget][download][type] = "git"
@@ -535,6 +539,8 @@ projects[search_api_solr_boundingbox_search][subdir] = "contrib"
 
 ; Themes
 projects[omega][version] = "3.1"
+projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
+
 projects[shiny][version] = "1.5"
 
 projects[devtrac7_theme][version] = "1.x-dev"
