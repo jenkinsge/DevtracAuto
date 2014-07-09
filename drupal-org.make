@@ -143,6 +143,10 @@ projects[facetapi_tagcloud][version] = "1.0-beta1"
 projects[facetapi_tagcloud][type] = "module"
 projects[facetapi_tagcloud][subdir] = "contrib"
 
+projects[facetapi_textfield_widget][version] = "1.x-dev"
+projects[facetapi_textfield_widget][type] = "module"
+projects[facetapi_textfield_widget][subdir] = "contrib"
+
 projects[features][version] = "2.0"
 projects[features][type] = "module"
 projects[features][subdir] = "contrib"
@@ -278,7 +282,6 @@ projects[openlayers][version] = "2.0-beta9"
 projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
 projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojson_anydisplay_4.patch"
-; projects[openlayers][patch][] = "https://www.drupal.org/files/issues/absolute_urls.patch"
 
 projects[openlayers_geosearch][version] = "1.0-beta1"
 projects[openlayers_geosearch][type] = "module"
@@ -380,6 +383,10 @@ projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/iss
 projects[search_api_solr][version] = "1.5"
 projects[search_api_solr][type] = "module"
 projects[search_api_solr][subdir] = "contrib"
+
+projects[search_api_solr_boundingbox_search][version] = "1.x-dev"
+projects[search_api_solr_boundingbox_search][type] = "module"
+projects[search_api_solr_boundingbox_search][subdir] = "contrib"
 
 projects[search_api_solr_dynamic_ranges][version] = "1.x-dev"
 projects[search_api_solr_dynamic_ranges][type] = "module"
@@ -509,12 +516,6 @@ projects[facetapi_context][download][branch] = "7.x-1.x"
 projects[facetapi_context][subdir] = "contrib"
 projects[facetapi_context][patch][] = "https://www.drupal.org/files/moreoptions-1704152-1.patch"
 
-projects[facetapi_textfield_widget][type] = "module"
-projects[facetapi_textfield_widget][download][type] = "git"
-projects[facetapi_textfield_widget][download][url] = "http://git.drupal.org/sandbox/janvandiepen/2060337.git"
-projects[facetapi_textfield_widget][download][branch] = "7.x-1.x"
-projects[facetapi_textfield_widget][subdir] = "contrib"
-
 projects[OL_lat_long][type] = "module"
 projects[OL_lat_long][download][type] = "git"
 projects[OL_lat_long][download][url] = "http://git.drupal.org/sandbox/GwenMahe/2055375.git"
@@ -533,12 +534,6 @@ projects[questionnaire][download][type] = "git"
 projects[questionnaire][download][url] = "http://git.drupal.org/sandbox/batje/1509732.git"
 projects[questionnaire][download][revision] = "c6515a2236d3bae5e602a19a0ef8facfc7fc5987"
 projects[questionnaire][subdir] = "contrib"
-
-projects[search_api_solr_boundingbox_search][type] = "module"
-projects[search_api_solr_boundingbox_search][download][type] = "git"
-projects[search_api_solr_boundingbox_search][download][url] = "http://git.drupal.org/sandbox/janvandiepen/2183305.git"
-projects[search_api_solr_boundingbox_search][download][branch] = "master"
-projects[search_api_solr_boundingbox_search][subdir] = "contrib"
 
 ; Themes
 projects[omega][version] = "3.1"
