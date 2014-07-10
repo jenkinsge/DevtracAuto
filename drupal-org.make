@@ -575,8 +575,12 @@ libraries[FooTable][download][url] = "https://github.com/bradvin/FooTable/archiv
 libraries[FooTable][directory_name] = "FooTable"
 libraries[FooTable][type] = "library"
 
-
 libraries[jquery-mb-extruder][download][type] = "file"
 libraries[jquery-mb-extruder][download][url] = "https://github.com/pupunzi/jquery.mb.extruder/archive/master.zip"
 libraries[jquery-mb-extruder][directory_name] = "jquery-mb-extruder"
 libraries[jquery-mb-extruder][type] = "library"
+
+libraries[openlayers][download][type] = "file"
+libraries[openlayers][download][url] = "https://github.com/janvandiepen/openlayers/archive/master.zip"
+libraries[openlayers][directory_name] = "openlayers"
+libraries[openlayers][destination] = "libraries"
