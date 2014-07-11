@@ -287,7 +287,7 @@ projects[openlayers_geosearch][version] = "1.0-beta1"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
 
-projects[openlayers_plus][version] = "3.0-beta1"
+projects[openlayers_plus][version] = "2.x-dev"
 projects[openlayers_plus][type] = "module"
 projects[openlayers_plus][subdir] = "contrib"
 
