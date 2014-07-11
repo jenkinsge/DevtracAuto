@@ -197,6 +197,9 @@ dependencies[] = devtrac_custom_packages
 dependencies[] = devtrac_question_packages
 dependencies[] = devtrac_imports
 
+; Devtrac theme dependencies
+dependencies[] = devtrac7_theme_settings
+
 ; Devtrac features
 dependencies[] = devtrac7_services_api
 dependencies[] = devtrac7_admin_feature

@@ -509,6 +509,12 @@ projects[commentblock][download][url] = "http://git.drupal.org/sandbox/bc/144731
 projects[commentblock][download][branch] = "7.x-1.x"
 projects[commentblock][subdir] = "contrib"
 
+projects[devtrac7_theme_settings][type] = "module"
+projects[devtrac7_theme_settings][download][type] = "git"
+projects[devtrac7_theme_settings][download][url] = "http://git.drupal.org/sandbox/janvandiepen/2299591.git"
+projects[devtrac7_theme_settings][download][branch] = "7.x-1.x"
+projects[devtrac7_theme_settings][subdir] = "custom"
+
 projects[facetapi_context][type] = "module"
 projects[facetapi_context][download][type] = "git"
 projects[facetapi_context][download][url] = "http://git.drupal.org/sandbox/ygerasimov/1591872.git"
