@@ -576,7 +576,8 @@ libraries[FooTable][directory_name] = "FooTable"
 libraries[FooTable][type] = "library"
 
 libraries[jquery-mb-extruder][download][type] = "file"
-libraries[jquery-mb-extruder][download][url] = "https://github.com/pupunzi/jquery.mb.extruder/archive/master.zip"
+; libraries[jquery-mb-extruder][download][url] = "https://github.com/pupunzi/jquery.mb.extruder/archive/master.zip"
+libraries[jquery-mb-extruder][download][url] = "https://github.com/pupunzi/jquery.mb.extruder/archive/2.5.0.zip"
 libraries[jquery-mb-extruder][directory_name] = "jquery-mb-extruder"
 libraries[jquery-mb-extruder][type] = "library"
 
