@@ -14,7 +14,7 @@
 function devtrac_install() {
   // Add text formats.
   $filtered_html_format = array(
-    'format' => 'filtered_html',
+    'format' => '1',
     'name' => 'Filtered HTML',
     'weight' => 0,
     'filters' => array(
@@ -44,7 +44,7 @@ function devtrac_install() {
   filter_format_save($filtered_html_format);
 
   $full_html_format = array(
-    'format' => 'full_html',
+    'format' => '2',
     'name' => 'Full HTML',
     'weight' => 1,
     'filters' => array(
