@@ -287,7 +287,7 @@ projects[openlayers_geosearch][version] = "1.0-beta1"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
 
-projects[openlayers_plus][version] = "2.x-dev"
+projects[openlayers_plus][version] = "3.x-dev"
 projects[openlayers_plus][type] = "module"
 projects[openlayers_plus][subdir] = "contrib"
 
@@ -333,6 +333,10 @@ projects[purl][patch][] = "https://www.drupal.org/files/1511708_5_menu_save.patc
 projects[purl_search_api][version] = "1.0-beta1"
 projects[purl_search_api][type] = "module"
 projects[purl_search_api][subdir] = "contrib"
+
+projects[questionnaire][version] = "1.x-dev"
+projects[questionnaire][type] = "module"
+projects[questionnaire][subdir] = "contrib"
 
 projects[quicktabs][version] = "3.6"
 projects[quicktabs][type] = "module"
@@ -534,12 +538,6 @@ projects[geocoder_geonames][download][url] = "http://git.drupal.org/sandbox/dmul
 projects[geocoder_geonames][download][branch] = "7.x-1.x"
 projects[geocoder_geonames][download][revision] = "57417b6bab16585f8d06a06e460e5096d3ba25b0"
 projects[geocoder_geonames][subdir] = "contrib"
-
-projects[questionnaire][type] = "module"
-projects[questionnaire][download][type] = "git"
-projects[questionnaire][download][url] = "http://git.drupal.org/sandbox/batje/1509732.git"
-projects[questionnaire][download][revision] = "c6515a2236d3bae5e602a19a0ef8facfc7fc5987"
-projects[questionnaire][subdir] = "contrib"
 
 ; Themes
 projects[omega][version] = "3.1"
