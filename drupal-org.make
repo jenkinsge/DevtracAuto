@@ -3,7 +3,7 @@ core = 7.x
 api = 2
 
 projects[drupal][type] = core
-projects[drupal][version] = "7.28"
+projects[drupal][version] = "7.29"
 
 ; Modules
 projects[acl][version] = "1.0"
@@ -54,7 +54,7 @@ projects[chosen][version] = "2.0-beta4"
 projects[chosen][type] = "module"
 projects[chosen][subdir] = "contrib"
 
-projects[ckeditor][version] = "1.14"
+projects[ckeditor][version] = "1.15"
 projects[ckeditor][type] = "module"
 projects[ckeditor][subdir] = "contrib"
 
@@ -126,7 +126,7 @@ projects[entityreference_prepopulate][version] = "1.5"
 projects[entityreference_prepopulate][type] = "module"
 projects[entityreference_prepopulate][subdir] = "contrib"
 
-projects[facetapi][version] = "1.3"
+projects[facetapi][version] = "1.5"
 projects[facetapi][type] = "module"
 projects[facetapi][subdir] = "contrib"
 
@@ -184,7 +184,7 @@ projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
 projects[flot][patch][] = "https://www.drupal.org/files/flot-pie_options-2088021-3.patch"
 
-projects[footable][version] = "1.0-beta2"
+projects[footable][version] = "1.0-beta3"
 projects[footable][type] = "module"
 projects[footable][subdir] = "contrib"
 
@@ -245,7 +245,7 @@ projects[link][version] = "1.2"
 projects[link][type] = "module"
 projects[link][subdir] = "contrib"
 
-projects[mapit][version] = "1.0"
+projects[mapit][version] = "1.1"
 projects[mapit][type] = "module"
 projects[mapit][subdir] = "contrib"
 
@@ -305,7 +305,7 @@ projects[piwik][version] = "2.5"
 projects[piwik][type] = "module"
 projects[piwik][subdir] = "contrib"
 
-projects[prepopulate][version] = "2.x-dev"
+projects[prepopulate][version] = "2.0"
 projects[prepopulate][type] = "module"
 projects[prepopulate][subdir] = "contrib"
 
@@ -356,7 +356,7 @@ projects[relation_add][version] = "1.2"
 projects[relation_add][type] = "module"
 projects[relation_add][subdir] = "contrib"
 
-projects[robotstxt][version] = "1.1"
+projects[robotstxt][version] = "1.2"
 projects[robotstxt][type] = "module"
 projects[robotstxt][subdir] = "contrib"
 
@@ -460,7 +460,7 @@ projects[views_field_view][version] = "1.1"
 projects[views_field_view][type] = "module"
 projects[views_field_view][subdir] = "contrib"
 
-projects[views_flipped_table][version] = "1.0-alpha2"
+projects[views_flipped_table][version] = "1.0"
 projects[views_flipped_table][type] = "module"
 projects[views_flipped_table][subdir] = "contrib"
 
