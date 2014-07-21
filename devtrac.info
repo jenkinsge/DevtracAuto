@@ -32,6 +32,7 @@ dependencies[] = text
 dependencies[] = acl
 dependencies[] = content_access
 dependencies[] = content_taxonomy
+dependencies[] = taxonomy_access
 dependencies[] = admin_menu
 dependencies[] = admin_menu_toolbar
 dependencies[] = ctools
