@@ -87,6 +87,7 @@ dependencies[] = hidden_comment
 dependencies[] = libraries
 dependencies[] = menu_token
 dependencies[] = nice_menus
+dependencies[] = special_menu_items
 dependencies[] = pane
 dependencies[] = pathauto
 dependencies[] = purl
