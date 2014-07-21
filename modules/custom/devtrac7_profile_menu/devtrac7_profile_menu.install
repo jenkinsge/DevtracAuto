@@ -1,0 +1,123 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function devtrac7_profile_menu_install() {
+  // Create a menu if it does not exist yet.
+  $menus = devtrac7_profile_menu_menu_default_menu_custom();
+  // Save menu group into menu_custom table
+  foreach($menus as $menu_name => $menu) {
+    // Look in the table first if the data does exist
+    $exists = db_query("SELECT menu_name FROM {menu_custom} WHERE menu_name=:menu_name", array(':menu_name' => $menu_name))->fetchField();
+    // Save the record if the data does not exist
+    if(!$exists) {
+      menu_save($menu);
+    }
+  }
+
+  // Add some links to the menu if they do not exist yet.
+  $links = devtrac7_profile_menu_menu_default_menu_links();
+  foreach ($links as $identifier => $link){
+    // Look in the table first if the data does exist
+    $exists = db_query("SELECT mlid from {menu_links} WHERE menu_name=:menu_name AND link_title=:link_title AND link_path=:link_path", array(':menu_name' =>  $link['menu_name'], ':link_title' =>  $link['link_title'], ':link_path' => $link['link_path']))->fetchField();
+    // Save the record if the data does not exist
+    if(!$exists) {
+      menu_link_save($link);
+    }
+  }
+
+  // Make the "Edit My Profile" link the child of the "Welcome, ???" link.
+  $menu_link = db_select('menu_links', 'ml')
+    ->fields('ml')
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', 'user')
+    ->execute()
+    ->fetchAssoc();
+  $mlid = $menu_link['mlid'];
+  db_update('menu_links')
+    ->fields(array(
+      'depth' => 2,
+      'plid' => $mlid,
+    ))
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', 'user/%/edit')
+    ->execute();
+  // Move the existing "My Current Field Trip" link to the
+  // profile menu as a subitem of the "Welcome, ???" link.
+  db_update('menu_links')
+    ->fields(array(
+      'menu_name' => 'menu-my-profile',
+      'depth' => 2,
+      'plid' => $mlid,
+    ))
+    ->condition('router_path', 'devtrac/mycurrentfieldtrip')
+    ->execute();
+  // Make the existing "Add Field Trip" link
+  // a subitem of the "Welcome, ???" link.
+  db_update('menu_links')
+    ->fields(array(
+      'menu_name' => 'menu-my-profile',
+      'depth' => 2,
+      'plid' => $mlid,
+    ))
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', 'node/add/fieldtrip')
+    ->execute();
+  
+  // Let's do the view modes.
+  $links = devtrac7_profile_menu_views_modes_menu_links();
+  foreach ($links as $identifier => $link){
+    // Look in the table first if the data does exist
+    $exists = db_query("SELECT mlid from {menu_links} WHERE menu_name=:menu_name AND link_title=:link_title AND link_path=:link_path", array(':menu_name' =>  $link['menu_name'], ':link_title' =>  $link['link_title'], ':link_path' => $link['link_path']))->fetchField();
+    // Save the record if the data does not exist
+    if(!$exists) {
+      menu_link_save($link);
+    }
+  }
+
+  // Now do the file exports.
+  $links = devtrac7_profile_menu_file_exports_menu_links();
+  foreach ($links as $identifier => $link){
+    // Look in the table first if the data does exist
+    $exists = db_query("SELECT mlid from {menu_links} WHERE menu_name=:menu_name AND link_title=:link_title AND link_path=:link_path", array(':menu_name' =>  $link['menu_name'], ':link_title' =>  $link['link_title'], ':link_path' => $link['link_path']))->fetchField();
+    // Save the record if the data does not exist
+    if(!$exists) {
+      menu_link_save($link);
+    }
+  }
+  // Update the hierarchy of all file exports menu items.
+/*
+  $menu_link = db_select('menu_links', 'ml')
+    ->fields('ml')
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', '<nolink>')
+    ->execute()
+    ->fetchAssoc();
+  $mlid = $menu_link['mlid'];
+  db_update('menu_links')
+    ->fields(array(
+      'depth' => 2,
+      'plid' => $mlid,
+    ))
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', '%analyse%', LIKE)
+    ->execute();
+*/
+
+  // Assign menu menu-my-profile to the second nice menu.
+  variable_set('nice_menus_menu_2', 'menu-my-profile:0');
+  variable_set('nice_menus_name_2', 'Devtrac7 Profile Nice Menu');
+  variable_set('nice_menus_type_2', 'down');
+  variable_set('nice_menus_depth_2', '-1');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function devtrac7_profile_menu_uninstall() {
+  variable_del('nice_menus_menu_2');
+  variable_del('nice_menus_name_2');
+  variable_del('nice_menus_type_2');
+  variable_del('nice_menus_depth_2');
+}
