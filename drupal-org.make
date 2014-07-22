@@ -278,6 +278,10 @@ projects[migrate_extras][version] = "2.5"
 projects[migrate_extras][type] = "module"
 projects[migrate_extras][subdir] = "contrib"
 
+projects[module_filter][version] = "2.0-alpha2"
+projects[module_filter][type] = "module"
+projects[module_filter][subdir] = "contrib"
+
 projects[nice_menus][version] = "2.5"
 projects[nice_menus][type] = "module"
 projects[nice_menus][subdir] = "contrib"

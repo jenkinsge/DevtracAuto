@@ -89,6 +89,7 @@ dependencies[] = libraries
 dependencies[] = menu_token
 dependencies[] = nice_menus
 dependencies[] = special_menu_items
+dependencies[] = module_filter
 dependencies[] = pane
 dependencies[] = pathauto
 dependencies[] = purl
