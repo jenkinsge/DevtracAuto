@@ -4,6 +4,7 @@
  * Implements hook_install().
  */
 function devtrac7_profile_menu_install() {
+watchdog('profile_menu_install', 'Stage 1');
   // Create a menu if it does not exist yet.
   $menus = devtrac7_profile_menu_menu_default_menu_custom();
   // Save menu group into menu_custom table
@@ -15,7 +16,7 @@ function devtrac7_profile_menu_install() {
       menu_save($menu);
     }
   }
-
+watchdog('profile_menu_install', 'Stage 2');
   // Add some links to the menu if they do not exist yet.
   $links = devtrac7_profile_menu_menu_default_menu_links();
   foreach ($links as $identifier => $link){
@@ -26,7 +27,7 @@ function devtrac7_profile_menu_install() {
       menu_link_save($link);
     }
   }
-
+watchdog('profile_menu_install', 'Stage 3');
   // Make the "Edit My Profile" link the child of the "Welcome, ???" link.
   $menu_link = db_select('menu_links', 'ml')
     ->fields('ml')
@@ -64,7 +65,7 @@ function devtrac7_profile_menu_install() {
     ->condition('menu_name', 'menu-my-profile')
     ->condition('router_path', 'node/add/fieldtrip')
     ->execute();
-  
+watchdog('profile_menu_install', 'Stage 4');
   // Let's do the view modes.
   $links = devtrac7_profile_menu_views_modes_menu_links();
   foreach ($links as $identifier => $link){
@@ -75,9 +76,9 @@ function devtrac7_profile_menu_install() {
       menu_link_save($link);
     }
   }
-
+watchdog('profile_menu_install', 'Stage 5');
   // Now do the file exports.
-  $links = devtrac7_profile_menu_file_exports_menu_links();
+  $links = devtrac7_profile_menu_file_exports_menu_links($mlid);
   foreach ($links as $identifier => $link){
     // Look in the table first if the data does exist
     $exists = db_query("SELECT mlid from {menu_links} WHERE menu_name=:menu_name AND link_title=:link_title AND link_path=:link_path", array(':menu_name' =>  $link['menu_name'], ':link_title' =>  $link['link_title'], ':link_path' => $link['link_path']))->fetchField();
@@ -86,6 +87,7 @@ function devtrac7_profile_menu_install() {
       menu_link_save($link);
     }
   }
+watchdog('profile_menu_install', 'Stage 6');
   // Update the hierarchy of all file exports menu items.
 /*
   $menu_link = db_select('menu_links', 'ml')
@@ -126,6 +128,7 @@ function devtrac7_profile_menu_uninstall() {
  * Implements hook_menu_default_menu_custom().
  */
 function devtrac7_profile_menu_menu_default_menu_custom() {
+watchdog('profile_menu_install', 'default menu custom');
   $menus = array();
 
   $menus['menu-my-profile'] = array(
@@ -141,6 +144,7 @@ function devtrac7_profile_menu_menu_default_menu_custom() {
  * Implements hook_menu_default_menu_links().
  */
 function devtrac7_profile_menu_menu_default_menu_links() {
+watchdog('profile_menu_install', 'default menu links');
   $menu_links = array();
 
   $menu_links['menu-my-profile_welcome'] = array(
@@ -287,6 +291,7 @@ function devtrac7_profile_menu_menu_default_menu_links() {
 }
 
 function devtrac7_profile_menu_views_modes_menu_links() {
+watchdog('profile_menu_install', 'views modes menu links');
   // Set the title. We want to reuse it and add something.
   $title = 'Shows reports of Devtrac reporters from the field ';
 
@@ -986,7 +991,8 @@ function devtrac7_profile_menu_views_modes_menu_links() {
   return $menu_items;
 }
 
-function devtrac7_profile_menu_file_exports_menu_links() {
+function devtrac7_profile_menu_file_exports_menu_links($mlid) {
+watchdog('profile_menu_install', 'file exports menu links');
   // Set the title. We want to reuse it and add something.
   $title = 'Export ';
 
