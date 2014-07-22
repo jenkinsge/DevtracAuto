@@ -456,6 +456,9 @@ function devtrac7_access_node_access_records($node) {
 
   $grants = array();
 
+  // Retrieve the rid for role "unicef user".
+  $role = user_role_load_by_name('unicef user');
+  $rid = $role->rid;
   if ($node->type == 'fieldtrip') {
     $fieldtrip = $node;
     if (isset($fieldtrip->field_fieldtrip_status['und'][0]['value'])) {
@@ -474,7 +477,7 @@ function devtrac7_access_node_access_records($node) {
           // Grant view access to role unicef user
           $grants[] = array(
             'realm' => 'devtrac_rid',
-            'gid' => 5,
+            'gid' => $rid,
             'grant_view' => 1,
             'grant_update' => 0,
             'grant_delete' => 0,
@@ -523,7 +526,7 @@ function devtrac7_access_node_access_records($node) {
           // Grant view access to role unicef user
           $grants[] = array(
             'realm' => 'devtrac_rid',
-            'gid' => 5,
+            'gid' => $rid,
             'grant_view' => 1,
             'grant_update' => 0,
             'grant_delete' => 0,
@@ -592,6 +595,8 @@ function devtrac7_access_node_access_records($node) {
     }
     if (isset($fieldtrip->field_fieldtrip_status['und'][0]['value'])) {
       $localuser = user_load($fieldtrip->field_fieldtrip_user['und'][0]['target_id']);
+      $role = user_role_load_by_name('unicef user');
+      $rid = $role->rid;
       switch ($fieldtrip->field_fieldtrip_status['und'][0]['value']) {
         case 'In Progress':
         case 'Submitted':
@@ -607,7 +612,7 @@ function devtrac7_access_node_access_records($node) {
           // Grant view access to role unicef user
           $grants[] = array(
             'realm' => 'devtrac_rid',
-            'gid' => 5,
+            'gid' => $rid,
             'grant_view' => 1,
             'grant_update' => 0,
             'grant_delete' => 0,
@@ -655,7 +660,7 @@ function devtrac7_access_node_access_records($node) {
       // Grant view access to role unicef user
       $grants[] = array(
         'realm' => 'devtrac_rid',
-        'gid' => 5,
+        'gid' => $rid,
         'grant_view' => 1,
         'grant_update' => 0,
         'grant_delete' => 0,
