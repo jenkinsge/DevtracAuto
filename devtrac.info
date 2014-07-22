@@ -140,6 +140,7 @@ dependencies[] = delta_ui
 dependencies[] = better_messages
 dependencies[] = chosen
 dependencies[] = ckeditor
+dependencies[] = hurricane
 dependencies[] = collapsiblock
 dependencies[] = jquery_update
 dependencies[] = uuid
