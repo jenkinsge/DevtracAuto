@@ -1178,10 +1178,10 @@ watchdog('profile_menu_install', 'file exports menu links');
     'parent_identifier' => 'menu-my-profile_export:export',
   );
 
-  $menu_items['menu-my-profile_field-trip-analyse-csv:fieldtripanalysecsv'] = array(
+  $menu_items['menu-my-profile_field-trips-analyse-csv:fieldtripsanalysecsv'] = array(
     'menu_name' => 'menu-my-profile',
-    'link_path' => 'fieldtrip/analyse/csv',
-    'router_path' => 'fieldtrip/analyse/csv',
+    'link_path' => 'fieldtrips/analyse/csv',
+    'router_path' => 'fieldtrips/analyse/csv',
     'link_title' => $title . 'to CSV',
     'options' => array(
       'attributes' => array(
@@ -1191,7 +1191,7 @@ watchdog('profile_menu_install', 'file exports menu links');
       ),
       'alter' => 1,
       'customized' => 1,
-      'identifier' => 'menu-my-profile_field-trip-analyse-csv:fieldtripanalysecsv',
+      'identifier' => 'menu-my-profile_field-trips-analyse-csv:fieldtripsanalysecsv',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -1204,10 +1204,10 @@ watchdog('profile_menu_install', 'file exports menu links');
     'parent_identifier' => 'menu-my-profile_export:export',
   );
 
-  $menu_items['menu-my-profile_field-trip-analyse-kml:fieldtripanalysekml'] = array(
+  $menu_items['menu-my-profile_field-trips-analyse-kml:fieldtripsanalysekml'] = array(
     'menu_name' => 'menu-my-profile',
-    'link_path' => 'fieldtrip/analyse/kml',
-    'router_path' => 'fieldtrip/analyse/kml',
+    'link_path' => 'fieldtrips/analyse/kml',
+    'router_path' => 'fieldtrips/analyse/kml',
     'link_title' => $title . 'to KML',
     'options' => array(
       'attributes' => array(
@@ -1217,7 +1217,7 @@ watchdog('profile_menu_install', 'file exports menu links');
       ),
       'alter' => 1,
       'customized' => 1,
-      'identifier' => 'menu-my-profile_field-trip-analyse-kml:fieldtripanalysekml',
+      'identifier' => 'menu-my-profile_field-trips-analyse-kml:fieldtripsanalysekml',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -1230,10 +1230,10 @@ watchdog('profile_menu_install', 'file exports menu links');
     'parent_identifier' => 'menu-my-profile_export:export',
   );
 
-  $menu_items['menu-my-profile_field-trip-analyse-rss:fieldtripanalyserss'] = array(
+  $menu_items['menu-my-profile_field-trips-analyse-rss:fieldtripsanalyserss'] = array(
     'menu_name' => 'menu-my-profile',
-    'link_path' => 'fieldtrip/analyse/rss',
-    'router_path' => 'fieldtrip/analyse/rss',
+    'link_path' => 'fieldtrips/analyse/rss',
+    'router_path' => 'fieldtrips/analyse/rss',
     'link_title' => 'Subscribe to RSS Feed',
     'options' => array(
       'attributes' => array(
@@ -1243,7 +1243,7 @@ watchdog('profile_menu_install', 'file exports menu links');
       ),
       'alter' => 1,
       'customized' => 1,
-      'identifier' => 'menu-my-profile_field-trip-analyse-rss:fieldtripanalyserss',
+      'identifier' => 'menu-my-profile_field-trips-analyse-rss:fieldtripsanalyserss',
     ),
     'module' => 'menu',
     'hidden' => 0,
