@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * devtrac7_theme_feature.delta.inc
+ * devtrac7_theme_settings.delta.inc
  */
 
 /**
  * Implements hook_delta_default_templates().
  */
-function devtrac7_theme_feature_delta_default_templates() {
+function devtrac7_theme_settings_delta_default_templates() {
   $export = array();
 
   $delta = new stdClass();

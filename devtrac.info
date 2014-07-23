@@ -142,6 +142,8 @@ dependencies[] = better_messages
 dependencies[] = chosen
 dependencies[] = ckeditor
 dependencies[] = hurricane
+dependencies[] = hurricane_integration
+dependencies[] = hurricane_raphael
 dependencies[] = collapsiblock
 dependencies[] = jquery_update
 dependencies[] = uuid
@@ -201,9 +203,6 @@ dependencies[] = devtrac_custom_packages
 dependencies[] = devtrac_question_packages
 dependencies[] = devtrac_imports
 
-; Devtrac theme dependencies
-dependencies[] = devtrac7_theme_settings
-
 ; Devtrac features
 dependencies[] = devtrac7_services_api
 dependencies[] = devtrac7_admin_feature
@@ -223,6 +222,7 @@ dependencies[] = devtrac7_solr_user_feature
 dependencies[] = devtrac7_taxonomy_feature
 dependencies[] = devtrac7_node_types
 dependencies[] = devtrac7_theme_feature
+dependencies[] = devtrac7_theme_settings
 dependencies[] = devtrac7_questionnaire_feature
 dependencies[] = devtrac7_users2
 dependencies[] = devtrac7_maps
