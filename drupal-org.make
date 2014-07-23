@@ -524,6 +524,7 @@ projects[commentblock][download][type] = "git"
 projects[commentblock][download][url] = "http://git.drupal.org/sandbox/bc/1447318.git"
 projects[commentblock][download][branch] = "7.x-1.x"
 projects[commentblock][subdir] = "contrib"
+projects[commentblock][patch][] = "https://www.drupal.org/files/parameter-1-expected-to-be-a-reference.patch"
 
 projects[devtrac7_theme_settings][type] = "module"
 projects[devtrac7_theme_settings][download][type] = "git"
