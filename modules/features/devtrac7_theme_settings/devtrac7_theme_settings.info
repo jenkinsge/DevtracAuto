@@ -1,9 +1,8 @@
 name = Devtrac7 theme settings
-description = "Theme settings to go with the Devtrac7 theme."
-core = "7.x"
+description = Theme settings to go with the Devtrac7 theme.
+core = 7.x
 package = Devtrac
 project = devtrac7_theme_settings
-
 dependencies[] = ctools
 dependencies[] = delta
 dependencies[] = strongarm
@@ -14,4 +13,5 @@ features[delta][] = dashboardpage_layout
 features[delta][] = informationalpage_layout
 features[delta][] = mappage_layout
 features[delta][] = user_page_layout
+features[features_api][] = api:2
 features[variable][] = theme_devtrac7_theme_settings
