@@ -107,7 +107,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
 		$ftr['taxonomy_vocabulary_8[und][]'] = array(323);
 		$ftr['title'] = $this->randomString(12);
 		$ftr['taxonomy_vocabulary_6[und]'] = $formSubmitreports['district'];
-		$ftr['taxonomy_vocabulary_7[und]'] = 210;
+		$ftr['taxonomy_vocabulary_7[und]'] = _devtrac7_site_report_tid('Roadside Observation');
 		$ftr['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac7_theme/images/ws_pandas_in_love_1920x1200.jpg';
 		$this->drupalPost(NULL, $ftr, t('Save'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmit11->nid)));
 	
@@ -166,7 +166,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
 		//
 		// now fill in the Edit Field Trip Report Item Site Visit form
 		$ditnarrative1['title'] = 'YES THAT IS FOR NOW!';
-		$ditnarrative1['taxonomy_vocabulary_7[und]'] = 210;
+		$ditnarrative1['taxonomy_vocabulary_7[und]'] = _devtrac7_site_report_tid('Roadside Observation');
 		$ditnarrative1['taxonomy_vocabulary_6[und]'] = $formSubmitreports1['district'];
 		$ditnarrative1['field_ftritem_narrative[und][0][value]'] = 'dsdvsdsdsdssy89488';
 		//$ditnarrative1['field_ftritem_public_summary[und][0][value]'] = $this->randomName(15);

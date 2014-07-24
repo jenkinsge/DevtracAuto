@@ -131,7 +131,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
    	//$formSubmitreportsozyq['placetype'] = 2;
    	$this->assertNoField('placetype', 'Place Type field is no longer found on on the site report form', 'Devtrac');
    	$this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
-   	//$this->drupalGet('node/add/place/'. $formSubmitreports, array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fullReportSubmit['taxonomy_vocabulary_6[und][]'].'/'. $nodeAddreportfullSubmit11->nid.'/209')));
+   	//$this->drupalGet('node/add/place/'. $formSubmitreports, array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fullReportSubmit['taxonomy_vocabulary_6[und][]'].'/'. $nodeAddreportfullSubmit11->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
    	//name field
    	$this->assertNoLink('Create New Location', 0, 'link Create new location found');
    	//$this->clickLink('Create New Location', 0, 'Link to add location clicked');
@@ -139,7 +139,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
    	$locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 3;
    	$locationAddFullozyq['taxonomy_vocabulary_6[und]'] = 80;
    	$locationAddFullozyq['field_place_lat_long[und][0][geom]'] = 'POINT (31.768699645996 3.228319883347)';
-   	$this->drupalPost(NULL, $locationAddFullozyq, t('Save'), array('query' => array('edit[taxonomy_vocabulary_6][und]' => 80, 'destination' => 'places/' . $locationAddFullozyq['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportfullSubmitozyq->nid.'/211')));
+   	$this->drupalPost(NULL, $locationAddFullozyq, t('Save'), array('query' => array('edit[taxonomy_vocabulary_6][und]' => 80, 'destination' => 'places/' . $locationAddFullozyq['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportfullSubmitozyq->nid.'/' . _devtrac7_site_report_tid('Human Interest Story'))));
    	$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
    	$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
    	$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');

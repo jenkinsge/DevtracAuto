@@ -559,19 +559,19 @@ class FieldTripRejectFeedBackCase extends SimpleTestCloneTestCase {
 		//$formsubmitreport['placetype'] = 1;
 		$this->assertNoField('placetype', 'place type field on add site reports to the fieldtrip is removed');
 		$this->drupalPost('node/'.$nodeAddreportItem->nid.'/addplaceform/ajax/nojs/go', $formsubmitreport, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportItem->nid)));
-		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'].'/'. $nodeAddreportItem->nid.'/209')));
+		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		//name field
 		//
 		$this->assertNoField('taxonomy_vocabulary_6[und][]', 'field is nolonger found on this form');
 		$locationAddFull['title'] = $this->randomName(32);
 		$locationAddFull['taxonomy_vocabulary_1[und]'] = 3;
-		$locationAddFull['taxonomy_vocabulary_7[und]'] = 210;
+		$locationAddFull['taxonomy_vocabulary_7[und]'] = _devtrac7_site_report_tid('Roadside Observation');
 		$locationAddFull['taxonomy_vocabulary_6[und]'] = $formsubmitreport['district'];
 		$locationAddFull['taxonomy_vocabulary_8[und][]'] = array(326);
 		$locationAddFull['field_ftritem_public_summary[und][0][value]'] = $this->randomString(30);
 		$locationAddFull['field_ftritem_narrative[und][0][value]'] = $this->randomString(12);
 		$locationAddFull['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
-		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/81/'. $nodeAddreportItem->nid.'/209')));
+		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/81/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -702,7 +702,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
 	  // now fill in the Edit Field Trip Report Item Site Visit form
 		$this->assertNoLink('Change the narrative of the Site Report.', 0, t('Clicked the change narrative of the site Report '));
 		$this->drupalGet('node/add/ftritem/'.$formSubmitreportsozyq['district'], array('query' => array('destination' => 'node/'.$nodeAddreportfullSubmitozyq->nid)));
-		$ditnarrativeozyq['taxonomy_vocabulary_7[und]'] = 210;
+		$ditnarrativeozyq['taxonomy_vocabulary_7[und]'] = _devtrac7_site_report_tid('Roadside Observation');
 		$ditnarrativeozyq['title'] = 'YES THAT IS IT FOR NOW!';
 		$ditnarrativeozyq['field_ftritem_public_summary[und][0][value]'] = $this->randomString(30);
 		$ditnarrativeozyq['field_ftritem_narrative[und][0][value]'] = 'jhfjkdjkcbxcb';
@@ -882,7 +882,7 @@ class testUserNameDisplayCase extends SimpleTestCloneTestCase {
   	$nodeAddreportfullSubmitozyq = $this->drupalGetNodeByTitle($fullReportSubmitozyq["title"]);
   	$this->assertNotNull($nodeAddreportfullSubmitozyq, t('node loaded'));
   	$this->assertNoLink('Add a location to the Field Trip.', 0, t('link Add Location to fieldtrip is changed to add site reports'));
-  	$this->drupalGet('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid.'/83','edit[taxonomy_vocabulary_6][und]' =>83, 'edit[taxonomy_vocabulary_7][und]' =>210)));
+  	$this->drupalGet('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid.'/83','edit[taxonomy_vocabulary_6][und]' =>83, 'edit[taxonomy_vocabulary_7][und]' =>_devtrac7_site_report_tid('Roadside Observation'))));
   	$formSubmitreportsozyq['reporttype'] = 1;
   	$formSubmitreportsozyq['district'] = 81;
   	//$formSubmitreportsozyq['placetype'] = 1;
@@ -891,7 +891,7 @@ class testUserNameDisplayCase extends SimpleTestCloneTestCase {
   	// now fill in the Edit Field Trip Report Item Site Visit form
   	$this->assertNoLink('Change the narrative of the Site Report.', 0, t('Clicked the change narrative of the site Report '));
   	$this->drupalGet('node/add/ftritem/'.$formSubmitreportsozyq['district'], array('query' => array('destination' => 'node/'.$nodeAddreportfullSubmitozyq->nid)));
-  	$ditnarrativeozyq['taxonomy_vocabulary_7[und]'] = 210;
+  	$ditnarrativeozyq['taxonomy_vocabulary_7[und]'] = _devtrac7_site_report_tid('Roadside Observation');
   	$ditnarrativeozyq['title'] = 'YES THAT IS IT FOR invalid date!';
   	$ditnarrativeozyq['field_ftritem_public_summary[und][0][value]'] = $this->randomString(30);
   	$ditnarrativeozyq['field_ftritem_narrative[und][0][value]'] = 'jhfjkdjkcbxcb';

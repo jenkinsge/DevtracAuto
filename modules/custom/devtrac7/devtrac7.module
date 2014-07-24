@@ -465,7 +465,7 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
  * @param unknown_type $form_state
  */
 function devtrac7_node_validate($node, $form, &$form_state) {
-  if(($node->type == 'ftritem') && ($node->taxonomy_vocabulary_7['und'][0]['tid'] == 210)) {
+  if(($node->type == 'ftritem') && ($node->taxonomy_vocabulary_7['und'][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) {
     if(empty($form_state['values']['field_ftritem_lat_long']['und'][0]['geom'])) {
       form_set_error('field_ftritem_lat_long', t("Please provide the lat/lon for the site report"));
     }
@@ -1681,7 +1681,7 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
   if (!isset($form['#node']->vocabulary_7) ||
       ((isset($form['#node']->vocabulary_7) && (empty($form['#node']->vocabulary_7['und'][0]['tid']))))) {
 
-    if (((isset($form['#node']->vocabulary_7)) && ($form['#node']->vocabulary_7['und'][0]['tid'] == 210)) || // Roadside Observation
+    if (((isset($form['#node']->vocabulary_7)) && ($form['#node']->vocabulary_7['und'][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) || // Roadside Observation
     (!isset($form['#node']->vocabulary_7))) { // new node
       $form['taxonomy_vocabulary_6']['und']['#type'] = "select";
       $form['taxonomy_vocabulary_6']['und']['#multiple'] = FALSE;
@@ -2308,3 +2308,28 @@ function devtrac7_date_format_types() {
 			'date_only' => t('Date Only'),
 	);
 }
+
+/**
+ * Get the tid of the given term in vocabulary site repot
+ * @param $term Term whose tid is required
+ * @return int tid
+ */
+function _devtrac7_site_report_tid($term) {
+	//variables are devtrac7_site_visit, devtrac7_human_interest_story, devtrac7_roadside_observation
+	$return = 0;
+	$varname = 'devtrac7_'.str_replace(' ', '_', strtolower($term));
+	$termvar = variable_get($varname,0);
+		
+	if(empty($termvar)) {
+		$vocabulary = 'vocabulary_7';
+		$termarray = taxonomy_get_term_by_name($term , $vocabulary);
+		if(!empty($termarray)) {
+			$termarray = array_keys($termarray); 			
+			
+			$return = $termarray[0];
+			variable_set($varname, $return);
+		}
+	}
+	return	$return ;
+}
+
