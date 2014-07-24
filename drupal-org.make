@@ -316,6 +316,7 @@ projects[piwik][subdir] = "contrib"
 projects[prepopulate][version] = "2.0"
 projects[prepopulate][type] = "module"
 projects[prepopulate][subdir] = "contrib"
+projects[prepopulate][patch][] = "https://www.drupal.org/files/issues/prepopulate_undefined_index_type-1090930-4.patch"
 
 projects[profile_switcher][version] = "1.0-beta1"
 projects[profile_switcher][type] = "module"
