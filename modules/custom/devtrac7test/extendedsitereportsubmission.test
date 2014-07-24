@@ -108,7 +108,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
 		$formSubmitreportsoz['district'] = 82;
 		//$formSubmitreportsoz['placetype'] = 0;
 		$this->drupalPost('node/'.$nodeAddreportfullSubmitoz->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsoz, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitoz->nid)));
-		//$this->drupalGet('node/add/place/'. $formSubmitreportsoz['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 82, 'destination' => 'places/' .$formSubmitreportsoz['district'] . '/'. $nodeAddreportfullSubmitoz->nid.'/209')));
+		//$this->drupalGet('node/add/place/'. $formSubmitreportsoz['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 82, 'destination' => 'places/' .$formSubmitreportsoz['district'] . '/'. $nodeAddreportfullSubmitoz->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		//name field
 		$this->assertNoLink('Create New Location', 0, 'clicked');
 		//$this->clickLink('Create New Location', 0, 'clicked');
@@ -116,7 +116,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
 		$locationAddFulloz['taxonomy_vocabulary_1[und]'] = 3;
 		$locationAddFulloz['taxonomy_vocabulary_6[und]'] = 82;
 		$locationAddFulloz['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
-		$this->drupalPost(NULL, $locationAddFulloz, t('Save'), array('query' => array('edit[taxonomy_vocabulary_6][und]' => 82, 'destination' => 'places/' . $locationAddFulloz['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportfullSubmitoz->nid.'/211')));
+		$this->drupalPost(NULL, $locationAddFulloz, t('Save'), array('query' => array('edit[taxonomy_vocabulary_6][und]' => 82, 'destination' => 'places/' . $locationAddFulloz['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportfullSubmitoz->nid.'/' . _devtrac7_site_report_tid('Human Interest Story'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User assertive messages are no longer showing'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User assertive messages are removed'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User assertive messages are removed.'), 'Devtrac');
@@ -131,7 +131,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
 		$ditnarrativeoz['title'] = 'YES THAT IS IT FOR NOW!';
 		//$ditnarrativeoz['taxonomy_vocabulary_6[und]'] = 82;
 		$this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field removed from the form');
-		$ditnarrativeoz['taxonomy_vocabulary_7[und]'] = 211;
+		$ditnarrativeoz['taxonomy_vocabulary_7[und]'] = _devtrac7_site_report_tid('Human Interest Story');
 		$ditnarrativeoz['taxonomy_vocabulary_1[und]'] = 3;
 		$ditnarrativeoz['field_ftritem_narrative[und][0][value]'] = $this->randomName(30);
 		$ditnarrativeoz['field_ftritem_public_summary[und][0][value]'] = $this->randomName(15);
@@ -190,7 +190,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
 	  $nodeAddreportfullSubmitozy = $this->drupalGetNodeByTitle($fullReportSubmitozy["title"]);
 	  $this->assertNotNull($nodeAddreportfullSubmitozy, t('node loaded'));
 	  $this->clickLink('Add a Site Report to the Field Trip.', 0, t('link to add site reports to fieldtrip'));
-	  $this->drupalGet('node/'.$nodeAddreportfullSubmitozy->nid.'/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozy->nid.'/82', 'edit[taxonomy_vocabulary_6][und]' =>82, 'edit[taxonomy_vocabulary_7][und]' =>210)));
+	  $this->drupalGet('node/'.$nodeAddreportfullSubmitozy->nid.'/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozy->nid.'/82', 'edit[taxonomy_vocabulary_6][und]' =>82, 'edit[taxonomy_vocabulary_7][und]' =>_devtrac7_site_report_tid('Roadside Observation'))));
 	  $formSubmitreportsozy['reporttype'] = 1;
 	  $formSubmitreportsozy['district'] = 82;
 	  $this->drupalPost(NULL, $formSubmitreportsozy, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozy->nid)));		//name field
@@ -201,7 +201,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
 	  $locationAddFullozy['title'] = $this->randomName(32);
 	  $locationAddFullozy['taxonomy_vocabulary_6[und]'] =  $formSubmitreportsozy['district'];
 	  $locationAddFullozy['taxonomy_vocabulary_8[und][]'] = array(326);
-	  $locationAddFullozy['taxonomy_vocabulary_7[und]'] = 210;
+	  $locationAddFullozy['taxonomy_vocabulary_7[und]'] = _devtrac7_site_report_tid('Roadside Observation');
 	  $locationAddFullozy['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac7_theme/images/ws_pandas_in_love_1920x1200.jpg';
 	  $locationAddFullozy['field_ftritem_narrative[und][0][value]'] = 'hfjkdjkjkj';
 	  //$locationAddFullozy['field_ftritem_public_summary[und][0][value]'] = 'iobklklbkbkuysrui';

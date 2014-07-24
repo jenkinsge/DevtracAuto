@@ -201,7 +201,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
 	// now fill in the Edit Field Trip Report Item Site Visit form
 	$this->assertNoLink('Change the narrative of the Site Report.', 0, t('Clicked the change narrative of the site Report '));
 	$this->drupalGet('node/add/ftritem/'.$formSubmitreportsozyq['district'], array('query' => array('destination' => 'node/'.$nodeAddreportfullSubmitozyq->nid)));
-	$ditnarrativeozyq['taxonomy_vocabulary_7[und]'] = 210;
+	$ditnarrativeozyq['taxonomy_vocabulary_7[und]'] = _devtrac7_site_report_tid('Roadside Observation');
 	$ditnarrativeozyq['title'] = 'YES THAT IS IT FOR NOW!';
 	$ditnarrativeozyq['field_ftritem_public_summary[und][0][value]'] = $this->randomString(30);
 	$ditnarrativeozyq['field_ftritem_narrative[und][0][value]'] = 'jhfjkdjkcbxcb';

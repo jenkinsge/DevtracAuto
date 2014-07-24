@@ -341,7 +341,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
   	$formsubmitreport['district'] = 81;
   	//$formsubmitreport['placetype'] = 0;
   	$this->drupalPost('node/'.$nodeAddreportItem->nid.'/addplaceform/ajax/nojs/go', $formsubmitreport, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportItem->nid)));
-  	//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'][0].'/'. $nodeAddreportItem->nid.'/209')));
+  	//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'][0].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
   	//name field
   	$this->assertNoLink('Create New Location', 0, 'clicked');
   	//$this->clickLink('Create New Location', 0, 'clicked');
@@ -366,7 +366,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
   	//$locationAddFull['field_place_responsible_person[und][0][value]'] = 'jan';
   	$locationAddFull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
   	 //TO BE CONTINUED 
-  	$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+  	$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/'. _devtrac7_site_report_tid('Site Visit'))));
   	$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
   	$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
   	$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -412,7 +412,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		$formsubmitreport['district'] = 81;
 		//$formsubmitreport['placetype'] = 0;
 		$this->drupalPost('node/'.$nodeAddreportItem->nid.'/addplaceform/ajax/nojs/go', $formsubmitreport, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportItem->nid)));
-		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'][0].'/'. $nodeAddreportItem->nid.'/209')));
+		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'][0].'/'. $nodeAddreportItem->nid.'/'._devtrac7_site_report_tid('Site Visit'))));
 		//name field
 		$this->assertNoLink('Create New Location', 0, 'clicked');
 		//$this->clickLink('Create New Location', 0, 'clicked');
@@ -437,7 +437,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$locationAddFull['field_place_responsible_person[und][0][value]'] = 'jan';
 		$locationAddFull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
 		//TO BE CONTINUED
-		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -496,7 +496,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		$formsubmitreport['district'] = 81;
 		//$formsubmitreport['placetype'] = 0;
 		$this->drupalPost('node/'.$nodeAddreportItem->nid.'/addplaceform/ajax/nojs/go', $formsubmitreport, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportItem->nid)));
-		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'][0].'/'. $nodeAddreportItem->nid.'/209')));
+		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'][0].'/'. $nodeAddreportItem->nid.'/' ._devtrac7_site_report_tid('Site Visit'))));
 		//name field
 		$this->assertNoLink('Create New Location', 0, 'clicked');
 		//$this->clickLink('Create New Location', 0, 'clicked');
@@ -521,7 +521,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$locationAddFull['field_place_responsible_person[und][0][value]'] = 'jan';
 		$locationAddFull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
 		//TO BE CONTINUED
-		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -603,7 +603,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$locationAddFull['field_place_responsible_person[und][0][value]'] = 'jan';
 		$locationAddFull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
 		//TO BE CONTINUED
-		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -684,7 +684,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$locationAddFull['field_place_responsible_person[und][0][value]'] = 'jan';
 		$locationAddFull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
 		//TO BE CONTINUED
-		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -744,7 +744,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$formsubmitreport['placetype'] = 1;
 		$this->assertNoField('placetype', 'place type field on add site reports to the fieldtrip is removed');
 		$this->drupalPost('node/'.$nodeAddreportItem->nid.'/addplaceform/ajax/nojs/go', $formsubmitreport, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportItem->nid)));
-		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'][0].'/'. $nodeAddreportItem->nid.'/209')));
+		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'][0].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		//name field
 		$this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
 		$this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
@@ -768,7 +768,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		$locationAddFull['taxonomy_vocabulary_6[und]'] =  $formsubmitreport['district'];
 		$locationAddFull['taxonomy_vocabulary_8[und][]'] = array(326);
 		$locationAddFull['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
-		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+		$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -819,7 +819,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$formsubmitreport['placetype'] = 1;
 		$this->assertNoField('placetype', 'place type field on add site reports to the fieldtrip is removed');
 		$this->drupalPost('node/'.$nodeAddreportItem->nid.'/addplaceform/ajax/nojs/go', $formsubmitreport, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportItem->nid)));
-		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'].'/'. $nodeAddreportItem->nid.'/209')));
+		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		//name field
 		$this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
 		$this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
@@ -849,7 +849,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$locationAddFull['taxonomy_vocabulary_6[und]'] =  $formsubmitreport['district'];
 		//$locationAddFull['taxonomy_vocabulary_8[und][]'] = array(326);
 		//$locationAddFull['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
-		//$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+		//$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -902,7 +902,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$formsubmitreport['placetype'] = 1;
 		$this->assertNoField('placetype', 'place type field on add site reports to the fieldtrip is removed');
 		$this->drupalPost('node/'.$nodeAddreportItem->nid.'/addplaceform/ajax/nojs/go', $formsubmitreport, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportItem->nid)));
-		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'].'/'. $nodeAddreportItem->nid.'/209')));
+		//$this->drupalGet('node/add/place/'. $formsubmitreport['district'], array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$fieldAddreportItem['taxonomy_vocabulary_6[und][]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		//name field
 		$this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
 		$this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
@@ -932,7 +932,7 @@ class testUnicefUserQuestionnaireCase extends SimpleTestCloneTestCase {
 		//$locationAddFull['taxonomy_vocabulary_6[und]'] =  $formsubmitreport['district'];
 		//$locationAddFull['taxonomy_vocabulary_8[und][]'] = array(326);
 		//$locationAddFull['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
-		//$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+		//$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/' . _devtrac7_site_report_tid('Site Visit'))));
 		$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
 		$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
