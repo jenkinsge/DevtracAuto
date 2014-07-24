@@ -5,6 +5,7 @@ package = Devtrac
 version = 7.x-1.0-beta
 project = devtrac7_admin_feature
 dependencies[] = ds
+dependencies[] = views
 dependencies[] = views_infinite_scroll
 features[ctools][] = context:context:3
 features[ctools][] = views:views_default:3.0
