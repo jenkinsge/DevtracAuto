@@ -4,7 +4,9 @@ core = "7.x"
 package = Devtrac
 project = devtrac7_theme_settings
 
+dependencies[] = ctools
 dependencies[] = delta
+dependencies[] = strongarm
 features[ctools][] = delta:delta:3
 features[ctools][] = strongarm:strongarm:1
 features[delta][] = actionitems_page_layout
