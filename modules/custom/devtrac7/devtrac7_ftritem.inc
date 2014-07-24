@@ -565,7 +565,7 @@ function devtrac7_ftritem_updateoecdcodes($node) {
     // There is a place attached so copy it
     $place = node_load($node->field_ftritem_place[$node->language][0]['target_id']);
     $node->taxonomy_vocabulary_1 = $place->taxonomy_vocabulary_1;
-    watchdog('admin_feature', 'Copied Place Type on Site Report: ' . $node->nid);
+    watchdog('admin_feature', 'Copied Location Type from Location to Site Report.');
     // drupal_set_message('Place Type copied.', 'status');
     return TRUE;
   }
