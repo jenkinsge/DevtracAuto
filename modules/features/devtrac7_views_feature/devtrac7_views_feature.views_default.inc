@@ -2482,11 +2482,11 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_title']['field'] = 'field_user_title';
   $handler->display->display_options['fields']['field_user_title']['relationship'] = 'uid';
   $handler->display->display_options['fields']['field_user_title']['element_label_type'] = 'strong';
-  /* Field: Content: TA Number */
-  $handler->display->display_options['fields']['field_fieldtrip_proms_ta_id']['id'] = 'field_fieldtrip_proms_ta_id';
-  $handler->display->display_options['fields']['field_fieldtrip_proms_ta_id']['table'] = 'field_data_field_fieldtrip_proms_ta_id';
-  $handler->display->display_options['fields']['field_fieldtrip_proms_ta_id']['field'] = 'field_fieldtrip_proms_ta_id';
-  $handler->display->display_options['fields']['field_fieldtrip_proms_ta_id']['element_label_type'] = 'strong';
+  /* Field: Content: Internal ID */
+  $handler->display->display_options['fields']['field_fieldtrip_internal_id']['id'] = 'field_fieldtrip_internal_id';
+  $handler->display->display_options['fields']['field_fieldtrip_internal_id']['table'] = 'field_data_field_fieldtrip_internal_id';
+  $handler->display->display_options['fields']['field_fieldtrip_internal_id']['field'] = 'field_fieldtrip_internal_id';
+  $handler->display->display_options['fields']['field_fieldtrip_internal_id']['element_label_type'] = 'strong';
   /* Field: Content: Start and End Date */
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'field_data_field_fieldtrip_start_end_date';

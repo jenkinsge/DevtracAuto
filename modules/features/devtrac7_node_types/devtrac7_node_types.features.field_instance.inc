@@ -1662,12 +1662,12 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-fieldtrip-field_fieldtrip_proms_ta_id'
-  $field_instances['node-fieldtrip-field_fieldtrip_proms_ta_id'] = array(
+  // Exported field_instance: 'node-fieldtrip-field_fieldtrip_internal_id'
+  $field_instances['node-fieldtrip-field_fieldtrip_internal_id'] = array(
     'bundle' => 'fieldtrip',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Add the TA Number (Note; UNICEF users know what this number refers to)',
+    'description' => 'This field can be used to store an internal ID from your project management or accounting system.',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -1698,8 +1698,8 @@ function devtrac7_node_types_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_fieldtrip_proms_ta_id',
-    'label' => 'TA Number',
+    'field_name' => 'field_fieldtrip_internal_id',
+    'label' => 'Internal ID',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -4398,7 +4398,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('A <em>page</em>, similar in form to a <em>story</em>, is a simple method for creating and displaying information that rarely changes, such as an "About us" section of a website. By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site\'s initial home page.');
   t('Add Tags. These will categorize your Field Trip basing on the keywords you add. It will later help you and other users to easily find it. Make sure you use existing tags to avoid duplication. Separate tags with a comma followed by a space.');
   t('Add Tags. These will categorize your action item basing on the keyword you add. It will later help you and other users to easily find your Action Item. Make sure you use an existing tag to avoid duplication. Separate tags with a comma followed by a space.');
-  t('Add the TA Number (Note; UNICEF users know what this number refers to)');
+  t('This field can be used to store an internal ID from your project management or accounting system.');
   t('Add the contact credentials of the main contact person at this location');
   t('Add the email of the main contact person at this location');
   t('Add the phone number of the main contact person at this location');
@@ -4476,7 +4476,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('SoureURI');
   t('Start and End Date');
   t('Status');
-  t('TA Number');
+  t('Internal ID');
   t('Tags');
   t('Telephone');
   t('The location that this action item relates to.');
