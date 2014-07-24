@@ -19,7 +19,7 @@ projects[drupal][version] = 7.29
 projects[drupal][patch][] = https://www.drupal.org/files/issues/drupal_cron-user.patch
 ;
 ; Allows uploading of multiple images using the devtrac api.
-projects[drupal][patch][] = https://www.drupal.org/files/issues/programmatically_add_images-1912458-4.patch
+; projects[drupal][patch][] = https://www.drupal.org/files/issues/programmatically_add_images-1912458-4.patch
 
 ; Pull the devtrac project from git
 projects[devtrac][type] = "profile"
