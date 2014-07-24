@@ -699,7 +699,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
     ),
-    'module' => 'questionnaire_question',
+    'module' => 'node',
   );
 
   // Exported permission: 'create relations'.
