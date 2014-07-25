@@ -614,6 +614,11 @@ libraries[jquery-mb-extruder][download][url] = "https://github.com/pupunzi/jquer
 libraries[jquery-mb-extruder][directory_name] = "jquery-mb-extruder"
 libraries[jquery-mb-extruder][type] = "library"
 
+libraries[masonry][download][type] = "file"
+libraries[masonry][download][url] = "http://desandro.github.io/masonry/jquery.masonry.min.js"
+libraries[masonry][directory_name] = "masonry"
+libraries[masonry][destination] = "libraries"
+
 libraries[openlayers][download][type] = "file"
 libraries[openlayers][download][url] = "https://github.com/janvandiepen/openlayers/archive/master.zip"
 libraries[openlayers][directory_name] = "openlayers"
