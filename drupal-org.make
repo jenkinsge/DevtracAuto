@@ -126,6 +126,10 @@ projects[entityreference_prepopulate][version] = "1.5"
 projects[entityreference_prepopulate][type] = "module"
 projects[entityreference_prepopulate][subdir] = "contrib"
 
+projects[exif][version] = "1.2"
+projects[exif][type] = "module"
+projects[exif][subdir] = "contrib"
+
 projects[facetapi][version] = "1.5"
 projects[facetapi][type] = "module"
 projects[facetapi][subdir] = "contrib"
@@ -253,6 +257,14 @@ projects[mapit][version] = "1.1"
 projects[mapit][type] = "module"
 projects[mapit][subdir] = "contrib"
 
+projects[masonry][version] = "2.0"
+projects[masonry][type] = "module"
+projects[masonry][subdir] = "contrib"
+
+projects[masonry_views][version] = "1.0"
+projects[masonry_views][type] = "module"
+projects[masonry_views][subdir] = "contrib"
+
 projects[maxlength][version] = "3.0-beta1"
 projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"
@@ -368,6 +380,10 @@ projects[relation_add][subdir] = "contrib"
 projects[robotstxt][version] = "1.2"
 projects[robotstxt][type] = "module"
 projects[robotstxt][subdir] = "contrib"
+
+projects[rules][version] = "2.7"
+projects[rules][type] = "module"
+projects[rules][subdir] = "contrib"
 
 projects[search_api][version] = "1.12"
 projects[search_api][type] = "module"
