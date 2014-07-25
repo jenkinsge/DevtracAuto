@@ -62,7 +62,6 @@ class CurrentSearchDevtracGroup extends CurrentSearchItem {
 
         $attributes['class'][] = str_replace("_", "-", $item['facets'][0]);
 
-
         $variables = array(
           'text' => $text,
           'path' => $this->getFacetPath($item, $adapter),
