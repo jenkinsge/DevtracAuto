@@ -8,10 +8,7 @@
 /**
  * Current search item plugin that displays the active facet items in a group.
  *
- * This plugins displays displays active items grouped by field in a horizontal
- * list.
- *
- * The Devtrac
+ * This plugins displays active items grouped by field in a horizontal list.
  */
 class CurrentSearchDevtracGroup extends CurrentSearchItem {
 
