@@ -438,6 +438,11 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Import CodeLists'),
     'type' => 'batch',
   );
+  $tasks['devtrac_initialize_taxonomy_access'] = array(
+    'display_name' => st('Initialize taxonomy access'),
+    'display' => FALSE,
+    'type' => 'normal',
+  );
   $tasks['devtrac_date_format_form'] = array(
     'display_name' => st('Configure Date Format'),
     'type' => 'form',
@@ -654,6 +659,151 @@ function devtrac_import_codelists() {
   $batch = devtrac_imports_batch() ;
   return $batch;
 }
+
+/**
+ * Initialize taxonomy access settings.
+ */
+function devtrac_initialize_taxonomy_access() {
+  // Initialize some default settings.
+  $deny = array(
+    'view' => 0,
+    'update' => 0,
+    'delete' => 0,
+    'create' => 0,
+    'list' => 0,
+  );
+  $list = array(
+    'view' => 0,
+    'update' => 0,
+    'delete' => 0,
+    'create' => 0,
+    'list' => 1,
+  );
+  $view_and_list = array(
+    'view' => 1,
+    'update' => 0,
+    'delete' => 0,
+    'create' => 0,
+    'list' => 1,
+  );
+  $create_and_list = array(
+    'view' => 0,
+    'update' => 0,
+    'delete' => 0,
+    'create' => 1,
+    'list' => 1,
+  );
+
+  // Get the array of all role names, indexed by rid.
+  $roles = _taxonomy_access_user_roles();
+  // Get the array of all vocabulary objects, indexed by vid.
+  $vocabularies = taxonomy_get_vocabularies();
+
+  // Initialize global settings for different roles.
+  foreach ($roles as $rid => $role_name) {
+    switch ($role_name) {
+      case 'anonymous user':
+        $anonymous_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $view_and_list, TRUE);
+        break;
+      case 'authenticated user':
+        $authenticated_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $view_and_list, TRUE);
+        break;
+      case 'editor':
+        $editor_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $list, TRUE);
+        break;
+      case 'unicef user':
+        $unicef_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $list, TRUE);
+        break;
+      default:
+    }
+  }
+
+  // Initialize vocabulary settings for different roles.
+  foreach ($roles as $rid => $role_name) {
+    foreach ($vocabularies as $vid => $vocabulary) {
+      switch ($role_name) {
+        case 'anonymous user':
+          $anonymous_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $list, TRUE);
+          break;
+        case 'authenticated user':
+          $authenticated_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $deny, TRUE);
+          break;
+        case 'editor':
+          $editor_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
+          break;
+        case 'unicef user':
+          $unicef_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
+          break;
+        default:
+      }
+    }
+  }
+
+  // Initialize term settings for different roles.
+  foreach ($roles as $rid => $role_name) {
+    foreach ($vocabularies as $vid => $vocabulary) {
+      $terms = taxonomy_get_tree($vid, 0, NULL, TRUE);
+      foreach ($terms as $term) {
+        switch ($role_name) {
+          case 'editor':
+            $children = taxonomy_get_children($term->tid);
+            if (empty($children)) {
+              $editor_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
+                          }
+            else {
+              $editor_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
+            }
+            break;
+          case 'unicef user':
+            $children = taxonomy_get_children($term->tid);
+            if (empty($children)) {
+              $unicef_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
+            }
+            else {
+              $unicef_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
+            }
+            break;
+          default:
+        }
+      }
+    }
+  }
+
+  // Process each set.
+  if (!empty($anonymous_global_defaults)) {
+    taxonomy_access_set_default_grants($anonymous_global_defaults);
+  }
+  if (!empty($authenticated_global_defaults)) {
+    taxonomy_access_set_default_grants($authenticated_global_defaults);
+  }
+  if (!empty($editor_global_defaults)) {
+    taxonomy_access_set_default_grants($editor_global_defaults);
+  }
+  if (!empty($unicef_global_defaults)) {
+    taxonomy_access_set_default_grants($unicef_global_defaults);
+  }
+
+  if (!empty($anonymous_vocabulary_defaults)) {
+    taxonomy_access_set_default_grants($anonymous_vocabulary_defaults);
+  }
+  if (!empty($authenticated_vocabulary_defaults)) {
+    taxonomy_access_set_default_grants($authenticated_vocabulary_defaults);
+  }
+  if (!empty($editor_vocabulary_defaults)) {
+    taxonomy_access_set_default_grants($editor_vocabulary_defaults);
+  }
+  if (!empty($unicef_vocabulary_defaults)) {
+    taxonomy_access_set_default_grants($unicef_vocabulary_defaults);
+  }
+
+  if (!empty($editor_term_defaults)) {
+    taxonomy_access_set_term_grants($editor_term_defaults);
+  }
+  if (!empty($unicef_term_defaults)) {
+    taxonomy_access_set_term_grants($unicef_term_defaults);
+  }
+}
+
 /**
  * array_filter() callback used to filter out already installed dependencies.
  */
