@@ -693,6 +693,17 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create place content'.
+  $permissions['create place content'] = array(
+    'name' => 'create place content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'unicef user' => 'unicef user',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'create questionnaire_question content'.
   $permissions['create questionnaire_question content'] = array(
     'name' => 'create questionnaire_question content',
@@ -801,6 +812,15 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'delete any place content'.
+  $permissions['delete any place content'] = array(
+    'name' => 'delete any place content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'delete any questionnaire_question content'.
   $permissions['delete any questionnaire_question content'] = array(
     'name' => 'delete any questionnaire_question content',
@@ -849,6 +869,15 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
   // Exported permission: 'delete own iati_organisation content'.
   $permissions['delete own iati_organisation content'] = array(
     'name' => 'delete own iati_organisation content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'delete own place content'.
+  $permissions['delete own place content'] = array(
+    'name' => 'delete own place content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -916,6 +945,17 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'usaid editor' => 'usaid editor',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit any place content'.
+  $permissions['edit any place content'] = array(
+    'name' => 'edit any place content',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'unicef user' => 'unicef user',
     ),
     'module' => 'node',
   );
@@ -1819,6 +1859,15 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
   // Exported permission: 'edit own iati_organisation content'.
   $permissions['edit own iati_organisation content'] = array(
     'name' => 'edit own iati_organisation content',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: 'edit own place content'.
+  $permissions['edit own place content'] = array(
+    'name' => 'edit own place content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
