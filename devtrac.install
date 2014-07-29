@@ -389,9 +389,6 @@ function devtrac_install() {
   $default_theme = 'devtrac7_theme';
   theme_enable(array($default_theme));
   variable_set('theme_default', $default_theme);
-
-  // Set the <nolink> tag for special_menu_items.
-  variable_set('special_menu_items_nolink_tag', '<a href="#">');
 }
 
 /**
