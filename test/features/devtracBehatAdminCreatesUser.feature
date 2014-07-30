@@ -13,7 +13,7 @@ Feature: Devtrac Site Behat Admin Test
   # you have to fill in the remaining details to complete registration
 
   Scenario: Devtrac Complete Admin registation Test
-    Given I am logged in as a user with "administer users, administer permissions, access user profiles, administer site configuration, administer modules, create taxonomy_vocabulary_6, create" permissions
+    Given I am logged in as a user with "administrator" role
     Given I am on "/admin/people/create"
     Then I should see "People"
     Then I should see "Username" field

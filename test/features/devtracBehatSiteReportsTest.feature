@@ -5,7 +5,7 @@ Feature: Devtrac Behat Create Site Report Test
 
   @api
   Scenario: Devtrac Behat create Site Visit Field report
-    Given I am logged in as a user with the "administrator" role
+    Given I am logged in as a user with the "field worker" role
     When I visit "/node/add/fieldtrip"
     Then I should see "Create Field Trip"
     And "fieldtrip" nodes:
@@ -17,7 +17,7 @@ Feature: Devtrac Behat Create Site Report Test
 
   @api @javascript
   Scenario: Devtrac Behat create Site Visit Field report Add Location on Site Visit
-    Given I am logged in as a user with the "administrator" role
+    Given I am logged in as a user with the "field worker" role
     And I am on "/node/15385/addplaceform/ajax/nojs/go?destination=node/15385"
     Then I should see "Select Site Report Type"
     When I select the radio button "Site Visit"
@@ -37,7 +37,7 @@ Feature: Devtrac Behat Create Site Report Test
     
   @api @javascript
   Scenario: Devtrac Behat Site Visit check if the forms are empty
-    Given I am logged in as a user with the "administrator" role
+    Given I am logged in as a user with the "field worker" role
     And I am on "/node/add/place/15385/209?edit%5Btaxonomy_vocabulary_6%5D%5Bund%5D=121&zoom=11&lat=0.318443000317&lon=32.596500396729"
     Then I should see "Create Location"
      And "place" nodes:
@@ -57,7 +57,7 @@ Feature: Devtrac Behat Create Site Report Test
 
  @api
   Scenario: Devtrac Behat create Roadside observation Field report
-    Given I am logged in as a user with the "administrator" role
+    Given I am logged in as a user with the "field worker" role
     When I visit "/node/add/fieldtrip"
     Then I should see "Create Field Trip"
     And "fieldtrip" nodes:
@@ -69,7 +69,7 @@ Feature: Devtrac Behat Create Site Report Test
 
   @api @javascript
   Scenario: Devtrac Behat create Roadside observation Field report Add Location on Site Visit
-    Given I am logged in as a user with the "unicef user" role
+    Given I am logged in as a user with the "field worker" role
     And I am on "/node/15385/addplaceform/ajax/nojs/go?destination=node/15385"
     Then I should see "Select Site Report Type"
     When I select the radio button "Roadside Observation"
@@ -91,7 +91,7 @@ Feature: Devtrac Behat Create Site Report Test
 
   @ap @javascript
   Scenario: Devtrac Behat Roadside observation check for empty fields on the form
-    Given I am logged in as a user with the "unicef user" role
+    Given I am logged in as a user with the "field worker" role
      And I am on "/node/add/ftritem/121?destination=node/15434/121&field_ftritem_field_trip=15434&edit%5Btaxonomy_vocabulary_6%5D%5Bund%5D=121&edit%5Btaxonomy_vocabulary_7%5D%5Bund%5D=210"
     Then I should see "Create Field Trip Report Item"
 
@@ -116,7 +116,7 @@ Feature: Devtrac Behat Create Site Report Test
 
   @api
   Scenario: Devtrac Behat create Roadside Human Interest Story Field report
-    Given I am logged in as a user with the "administrator" role
+    Given I am logged in as a user with the "field worker" role
     When I visit "/node/add/fieldtrip"
     Then I should see "Create Field Trip"
     And "fieldtrip" nodes:
@@ -128,7 +128,7 @@ Feature: Devtrac Behat Create Site Report Test
 
   @api @javascript
   Scenario: Devtrac Behat create Human Interest Story Field report Add Location on Site Visit
-    Given I am logged in as a user with the "administrator" role
+    Given I am logged in as a user with the "field worker" role
     And I am on "/node/15385/addplaceform/ajax/nojs/go?destination=node/15385"
     Then I should see "Select Site Report Type"
     When I select the radio button "Roadside Observation"
@@ -149,7 +149,7 @@ Feature: Devtrac Behat Create Site Report Test
 
   @api @javascript
   Scenario: Devtrac Behat Test for Human Interest Story Empty Fields on the Form
-    Given I am logged in as user with the "unicef user" role
+    Given I am logged in as user with the "field worker" role
     And I am on "/node/add/place/15434/211?edit%5Btaxonomy_vocabulary_6%5D%5Bund%5D=121&zoom=11&lat=0.318443000317&lon=32.596500396729"
    Then I should see "Create Location"
 

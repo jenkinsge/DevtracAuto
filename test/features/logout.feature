@@ -3,7 +3,7 @@ Feature: Logout Devtrac Behat Test
   Background: In order to logout, you have to be logged in as a registered user or as an admin
 
   Scenario: Devtrac Logout user
-    Given I am logged in as a user with "administer users, administer permissions, access user profiles, administer site configuration, administer modules, create taxonomy_vocabulary_6"
+    Given I am logged in with the "field worker" role
     When I press on "Sign Out"
     Then I am on "/"
 
