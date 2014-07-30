@@ -704,6 +704,16 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create questionnaire_question'.
+  $permissions['create questionnaire_question'] = array(
+    'name' => 'create questionnaire_question',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'questionnaire_question',
+  );
+
   // Exported permission: 'create questionnaire_question content'.
   $permissions['create questionnaire_question content'] = array(
     'name' => 'create questionnaire_question content',
@@ -819,6 +829,15 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete any questionnaire_question'.
+  $permissions['delete any questionnaire_question'] = array(
+    'name' => 'delete any questionnaire_question',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'questionnaire_question',
   );
 
   // Exported permission: 'delete any questionnaire_question content'.
@@ -958,6 +977,16 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'unicef user' => 'unicef user',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit any questionnaire_question'.
+  $permissions['edit any questionnaire_question'] = array(
+    'name' => 'edit any questionnaire_question',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'questionnaire_question',
   );
 
   // Exported permission: 'edit any questionnaire_question content'.
@@ -2055,6 +2084,16 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'comment',
   );
 
+  // Exported permission: 'submit questions'.
+  $permissions['submit questions'] = array(
+    'name' => 'submit questions',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'questionnaire_question',
+  );
+
   // Exported permission: 'view field_actionitem_due_date'.
   $permissions['view field_actionitem_due_date'] = array(
     'name' => 'view field_actionitem_due_date',
@@ -2978,6 +3017,25 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'authenticated user' => 'authenticated user',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'view questionnaire answers'.
+  $permissions['view questionnaire answers'] = array(
+    'name' => 'view questionnaire answers',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'questionnaire_answer',
+  );
+
+  // Exported permission: 'view questions'.
+  $permissions['view questions'] = array(
+    'name' => 'view questions',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'questionnaire_question',
   );
 
   // Exported permission: 'view revisions'.
