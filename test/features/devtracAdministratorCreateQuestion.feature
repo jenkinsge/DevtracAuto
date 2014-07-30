@@ -90,7 +90,7 @@ Feature: Devtrac Administrator creates Question Test
     And I follow "Edit" in the "content" region
     And I fill in "Sector" with "9"
     And I press "Save"
-    Then I should see "Question Do you like the standard of primary education in Jinja? has been edited."
+    Then I should see "Question Do you like the standard of primary education in Jinja? has been updated."
 
   Scenario: Administrator User deletes a question
     Given I am logged in as a user with the "administrator" role
