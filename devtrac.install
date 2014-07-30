@@ -708,8 +708,8 @@ function devtrac_initialize_taxonomy_access() {
       case 'editor':
         $editor_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $list, TRUE);
         break;
-      case 'unicef user':
-        $unicef_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $list, TRUE);
+      case 'field worker':
+        $worker_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $list, TRUE);
         break;
       default:
     }
@@ -728,8 +728,8 @@ function devtrac_initialize_taxonomy_access() {
         case 'editor':
           $editor_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
           break;
-        case 'unicef user':
-          $unicef_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
+        case 'field worker':
+          $worker_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
           break;
         default:
       }
@@ -751,13 +751,13 @@ function devtrac_initialize_taxonomy_access() {
               $editor_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
             }
             break;
-          case 'unicef user':
+          case 'field worker':
             $children = taxonomy_get_children($term->tid);
             if (empty($children)) {
-              $unicef_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
+              $worker_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
             }
             else {
-              $unicef_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
+              $worker_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
             }
             break;
           default:
@@ -766,7 +766,7 @@ function devtrac_initialize_taxonomy_access() {
     }
   }
 
-  // Process each set.
+  // Process global default grants.
   if (!empty($anonymous_global_defaults)) {
     taxonomy_access_set_default_grants($anonymous_global_defaults);
   }
@@ -776,10 +776,11 @@ function devtrac_initialize_taxonomy_access() {
   if (!empty($editor_global_defaults)) {
     taxonomy_access_set_default_grants($editor_global_defaults);
   }
-  if (!empty($unicef_global_defaults)) {
-    taxonomy_access_set_default_grants($unicef_global_defaults);
+  if (!empty($worker_global_defaults)) {
+    taxonomy_access_set_default_grants($worker_global_defaults);
   }
 
+  // Process vocabulary default grants.
   if (!empty($anonymous_vocabulary_defaults)) {
     taxonomy_access_set_default_grants($anonymous_vocabulary_defaults);
   }
@@ -789,15 +790,16 @@ function devtrac_initialize_taxonomy_access() {
   if (!empty($editor_vocabulary_defaults)) {
     taxonomy_access_set_default_grants($editor_vocabulary_defaults);
   }
-  if (!empty($unicef_vocabulary_defaults)) {
-    taxonomy_access_set_default_grants($unicef_vocabulary_defaults);
+  if (!empty($worker_vocabulary_defaults)) {
+    taxonomy_access_set_default_grants($worker_vocabulary_defaults);
   }
 
+  // Process term grants.
   if (!empty($editor_term_defaults)) {
     taxonomy_access_set_term_grants($editor_term_defaults);
   }
-  if (!empty($unicef_term_defaults)) {
-    taxonomy_access_set_term_grants($unicef_term_defaults);
+  if (!empty($worker_term_defaults)) {
+    taxonomy_access_set_term_grants($worker_term_defaults);
   }
 }
 
