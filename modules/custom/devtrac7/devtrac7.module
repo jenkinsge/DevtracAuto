@@ -570,8 +570,13 @@ function devtrac7_init() {
    * progressbar not being displayed correctly
    */
   drupal_add_js('misc/jquery.cookie.js');
+}
 
-  /*
+/**
+ * Implements hook_user_view().
+ */
+function devtrac7_user_view($account, $view_mode, $langcode) {
+  /**
    * Let's make sure the user gets a message as soon as he/she gets
    * close to the solr_search request string length on search pages.
    *
@@ -585,19 +590,20 @@ function devtrac7_init() {
    * request string is less than the cut-off length.
    */
   global $user;
-  $threshold = variable_get('devtrac7_solr_search_access_threshold', 75);
-  $query = db_select('acl_user', 'au')
-    ->condition('uid', $user->uid);
-  $count = $query
-    ->countQuery()
-    ->execute()
-    ->fetchField();
-  if ($count > $threshold) {
-    drupal_set_message(t('Dear user, you are advised to process some items from your ') . l(t('inbox'), 'user/' . $user/uid) . '. If you are getting empty searchpages and see the following error message "An error occurred while trying to search with Solr: \'400\' Status: Bad Request." please report this to the appropriate person.');
+  $arg1 = arg(1);
+  if (($account->uid == $user->uid) && (arg(0) == 'user') && (is_numeric($arg1))) {
+    $threshold = variable_get('devtrac7_solr_search_access_threshold', 75);
+    $query = db_select('acl_user', 'au')
+      ->condition('uid', $account->uid);
+    $count = $query
+      ->countQuery()
+      ->execute()
+      ->fetchField();
+    if ($count > $threshold) {
+      drupal_set_message(t('Dear user, you are advised to process some items from your ') . l(t('inbox'), 'user/' . $account->uid) . t('. If you are getting empty search pages and see the following error message "An error occurred while trying to search with Solr: \'400\' Status: Bad Request." please report this to your site administrator.'));
+    }
   }
 }
-
-
 
 function devtrac7_menu_local_tasks_alter(&$data, $router_item, $root_path) {
   if ($root_path == 'node/%') {
