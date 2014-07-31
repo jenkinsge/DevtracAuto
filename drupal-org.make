@@ -86,7 +86,7 @@ projects[custom_breadcrumbs][version] = "2.0-alpha3"
 projects[custom_breadcrumbs][type] = "module"
 projects[custom_breadcrumbs][subdir] = "contrib"
 
-projects[date][version] = "2.7"
+projects[date][version] = "2.8"
 projects[date][type] = "module"
 projects[date][subdir] = "contrib"
 
