@@ -745,8 +745,8 @@ function devtrac_initialize_taxonomy_access() {
           case 'editor':
             $children = taxonomy_get_children($term->tid);
             if (empty($children)) {
-              $editor_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
-                          }
+              // $editor_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
+            }
             else {
               $editor_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
             }
@@ -754,7 +754,7 @@ function devtrac_initialize_taxonomy_access() {
           case 'field worker':
             $children = taxonomy_get_children($term->tid);
             if (empty($children)) {
-              $worker_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
+              // $worker_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
             }
             else {
               $worker_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
