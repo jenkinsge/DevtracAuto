@@ -653,7 +653,9 @@ function devtrac_install_additional_modules(&$install_state) {
  * Import codelists using module devtrac_imports.
  */
 function devtrac_import_codelists() {
-  $batch = devtrac_imports_batch() ;
+  $batch = devtrac_imports_batch();
+  // Remove any status messages that might have been set.
+  drupal_get_messages('status', TRUE);
   return $batch;
 }
 
@@ -898,7 +900,10 @@ function devtrac_solr_configure_form_submit($form, &$form_state) {
 
 function devtrac_date_format_form() {
   module_load_include('inc', 'system', 'system.admin');
-  return system_date_time_settings();
+  $date_time_settings = system_date_time_settings();
+  // Remove any status messages that might have been set.
+  drupal_get_messages('status', TRUE);
+  return $date_time_settings;
 }
 
 /**
