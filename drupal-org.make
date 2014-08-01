@@ -22,7 +22,7 @@ projects[admin_menu][subdir] = "contrib"
 ; projects[advanced_help][type] = "module"
 ; projects[advanced_help][subdir] = "contrib"
 
-projects[autoassignrole][version] = "1.0-beta1"
+projects[autoassignrole][version] = "1.0-beta2"
 projects[autoassignrole][type] = "module"
 projects[autoassignrole][subdir] = "contrib"
 
@@ -151,7 +151,7 @@ projects[facetapi_textfield_widget][version] = "1.x-dev"
 projects[facetapi_textfield_widget][type] = "module"
 projects[facetapi_textfield_widget][subdir] = "contrib"
 
-projects[features][version] = "2.0"
+projects[features][version] = "2.1"
 projects[features][type] = "module"
 projects[features][subdir] = "contrib"
 
@@ -385,7 +385,7 @@ projects[rules][version] = "2.7"
 projects[rules][type] = "module"
 projects[rules][subdir] = "contrib"
 
-projects[search_api][version] = "1.12"
+projects[search_api][version] = "1.13"
 projects[search_api][type] = "module"
 projects[search_api][subdir] = "contrib"
 projects[search_api][patch][] = "https://www.drupal.org/files/issues/search_api-drush-user-do-not-test.patch"
@@ -567,7 +567,7 @@ projects[geocoder_geonames][subdir] = "contrib"
 projects[omega][version] = "3.1"
 projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
 
-projects[shiny][version] = "1.5"
+projects[shiny][version] = "1.6"
 
 projects[devtrac7_theme][version] = "1.x-dev"
 projects[devtrac7_theme][type] = "theme"
