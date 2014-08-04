@@ -25,4 +25,5 @@ projects[drupal][patch][] = https://www.drupal.org/files/issues/drupal_cron-user
 projects[devtrac][type] = "profile"
 projects[devtrac][download][type] = "git"
 projects[devtrac][download][branch] = "7.x-1.x"
+projects[devtrac][download][revision] = fd33496f8d7604966a2c1f71e908b6bd7b9407ae
 projects[devtrac][download][url]  = "http://git.drupal.org/project/devtrac.git"
