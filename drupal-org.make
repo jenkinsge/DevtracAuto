@@ -5,6 +5,12 @@ api = 2
 projects[drupal][type] = core
 projects[drupal][version] = "7.30"
 
+; Mountbatten defaults
+includes[mountbatten_web_analytics] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_web_analytics.make
+includes[mountbatten_seo] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_seo.make
+includes[mountbatten_spam_protection] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_spam_protection.make
+includes[mountbatten_web_media] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_web_media.make
+
 ; Modules
 projects[acl][version] = "1.0"
 projects[acl][type] = "module"
@@ -53,10 +59,6 @@ projects[charts_graphs_flot][subdir] = "contrib"
 projects[chosen][version] = "2.0-beta4"
 projects[chosen][type] = "module"
 projects[chosen][subdir] = "contrib"
-
-projects[ckeditor][version] = "1.15"
-projects[ckeditor][type] = "module"
-projects[ckeditor][subdir] = "contrib"
 
 projects[collapsiblock][version] = "1.0"
 projects[collapsiblock][type] = "module"
@@ -273,10 +275,6 @@ projects[me][version] = "1.1"
 projects[me][type] = "module"
 projects[me][subdir] = "contrib"
 
-projects[media][version] = "2.0-alpha3"
-projects[media][type] = "module"
-projects[media][subdir] = "contrib"
-
 projects[menu_token][version] = "1.0-beta5"
 projects[menu_token][type] = "module"
 projects[menu_token][subdir] = "contrib"
@@ -320,10 +318,6 @@ projects[pathauto][version] = "1.2"
 projects[pathauto][type] = "module"
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][patch][] = "https://www.drupal.org/files/pathauto-add-drush-support-867578-42.patch"
-
-projects[piwik][version] = "2.5"
-projects[piwik][type] = "module"
-projects[piwik][subdir] = "contrib"
 
 projects[prepopulate][version] = "2.0"
 projects[prepopulate][type] = "module"
@@ -577,11 +571,6 @@ libraries[autopager][download][type] = "file"
 libraries[autopager][download][url] = "https://jquery-autopager.googlecode.com/files/jquery.autopager-1.0.0.js"
 libraries[autopager][directory_name] = "autopager"
 libraries[autopager][type] = "library"
-
-libraries[ckeditor][download][type] = "file"
-libraries[ckeditor][download][url] = "http://download.cksource.com/CKEditor%20for%20Drupal/edit/ckeditor_4.4.3_edit.zip"
-libraries[ckeditor][directory_name] = "ckeditor"
-libraries[ckeditor][type] = "library"
 
 libraries[chosen][download][type] = "file"
 libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/v1.1.0/chosen_v1.1.0.zip"
