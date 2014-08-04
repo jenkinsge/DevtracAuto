@@ -253,7 +253,7 @@ projects[link][version] = "1.2"
 projects[link][type] = "module"
 projects[link][subdir] = "contrib"
 
-projects[mapit][version] = "1.1"
+projects[mapit][version] = "1.x-dev"
 projects[mapit][type] = "module"
 projects[mapit][subdir] = "contrib"
 
