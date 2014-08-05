@@ -36,6 +36,7 @@ features[user_permission][] = access site reports
 features[user_permission][] = access user profiles
 features[user_permission][] = administer better messages
 features[user_permission][] = administer contexts
+features[user_permission][] = administer devtrac
 features[user_permission][] = administer hidden comments
 features[user_permission][] = administer own comments
 features[user_permission][] = administer personal comments

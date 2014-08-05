@@ -134,6 +134,16 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'context_ui',
   );
 
+  // Exported permission: 'administer devtrac'.
+  $permissions['administer devtrac'] = array(
+    'name' => 'administer devtrac',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'devtrac7',
+  );
+
   // Exported permission: 'administer hidden comments'.
   $permissions['administer hidden comments'] = array(
     'name' => 'administer hidden comments',
