@@ -1,7 +1,7 @@
 <?php
 
-/*
- *   Implementation of hook_menu
+/**
+ * Implements hook_menu().
  */
 function devtrac7_menu() {
   // This is the mother of all Devtrac7 admin items
@@ -140,6 +140,18 @@ function devtrac7_menu() {
 }
 
 /**
+ * Implements hook_permission().  
+ */
+function hook_permission() {
+  return array(
+    'administer devtrac' => array(
+      'title' => t('Administer Devtrac'),
+      'description' => t('Perform administration tasks for Devtrac.'),
+    ),
+  );
+}
+
+/**
  * Implements hook_menu_alter().
  */
 function devtrac7_menu_alter(&$items) {
@@ -160,7 +172,10 @@ function devtrac7_menu_alter(&$items) {
 function devtrac7_menu_link_alter(&$item) {
   if ($item['link_path'] == 'user') {
     $item['menu_name'] = 'menu-my-profile';
-    $item['link_title'] = 'Welcome, [current-user:field_user_firstname]';
+    $item['link_title'] = 'Home';
+    if (user_is_logged_in()) {
+      'Welcome, [current-user:field_user_firstname]';
+    }
     $item['hidden'] = 0;
     $options = array(
       'menu_token_link_path' => 'user',
@@ -177,7 +192,7 @@ function devtrac7_menu_link_alter(&$item) {
       'attributes' => array(
         'title' => '',
       ),
-      'alter' => FALSE,
+      'alter' => TRUE,
     );
     $item['options'] = $options;
     $item['weigth'] = -48;
@@ -198,6 +213,18 @@ function devtrac7_menu_link_alter(&$item) {
     // and the code in function _menu_navigation_links_rebuild() in includes/menu.inc
     $item['customized'] = 1;
     $item['weigth'] = -50;
+  }
+}
+
+/**
+ * Implements hook_translated_menu_link_alter().
+ */
+function devtrac7_translated_menu_link_alter(&$item, $map) {
+  if ($item['link_path'] == 'user') {
+    $item['link_title'] = 'Home';
+    if (user_is_logged_in()) {
+      'Welcome, [current-user:field_user_firstname]';
+    }
   }
 }
 
