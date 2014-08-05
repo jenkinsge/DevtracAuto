@@ -142,7 +142,7 @@ function devtrac7_menu() {
 /**
  * Implements hook_permission().  
  */
-function hook_permission() {
+function devtrac7_permission() {
   return array(
     'administer devtrac' => array(
       'title' => t('Administer Devtrac'),
