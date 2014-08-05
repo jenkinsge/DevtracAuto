@@ -93,6 +93,28 @@ function devtrac7_taxonomy_feature_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'taxonomy_term|vocabulary_1|sector_code_icon';
+  $ds_layout->entity_type = 'taxonomy_term';
+  $ds_layout->bundle = 'vocabulary_1';
+  $ds_layout->view_mode = 'sector_code_icon';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'hide_empty_regions' => 0,
+    'hide_sidebars' => 0,
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_term_icon',
+      ),
+    ),
+    'fields' => array(
+      'field_term_icon' => 'ds_content',
+    ),
+    'classes' => array(),
+  );
+  $export['taxonomy_term|vocabulary_1|sector_code_icon'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'taxonomy_term|vocabulary_6|district_profile_view_mode';
   $ds_layout->entity_type = 'taxonomy_term';
   $ds_layout->bundle = 'vocabulary_6';
