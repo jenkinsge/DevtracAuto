@@ -1900,9 +1900,9 @@ function devtrac7_getcontext($nid) {
 }
 
 /*
- *  implements hook_getquestions
+ *  Implements hook_questionnaire_getquestions().
  */
-function devtrac7_getquestions($nid) {
+function devtrac7_questionnaire_getquestions($nid) {
   $result = array();
   $place = node_load($nid);
 
