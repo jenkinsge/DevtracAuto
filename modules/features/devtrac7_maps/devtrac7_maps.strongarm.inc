@@ -174,7 +174,7 @@ function devtrac7_maps_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'openlayers_default_map';
-  $strongarm->value = 'geocoder_map';
+  $strongarm->value = 'default';
   $export['openlayers_default_map'] = $strongarm;
 
   $strongarm = new stdClass();
