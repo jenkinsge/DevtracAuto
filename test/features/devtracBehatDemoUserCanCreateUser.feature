@@ -36,17 +36,17 @@ Feature: Devtrac Site Behat Demo User Test
     And I fill in "Password" with "user_demo"
     And I fill in "Confirm Password" with "user_demo"
     And I fill in "Function" with "Evaluator"
-    And I fill in "Manager" with "AdminTest AdminTest Sir (admin)"
+    And I fill in "Manager" with "Admin Jan(1)"
     And I fill in "Department" with "Education"
     And I fill in  "First Name" with "User Demo"
     And I fill in  "Surname" with "User Demo Demo"
     And I fill in  "About" with "Iam a account test account created by demo user"
-    And I press "Create new account"
+    And I press the "Create new account" button
     Then I am on "/admin/people/create"
 
   
    @api
   Scenario: Devtrac Demo User Logout Test
     And I an logged in with the "field worker" role
-    When I press "Sign Out"
+    When I press the "Sign Out" button
     Then I am at "/"
