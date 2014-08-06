@@ -34,7 +34,7 @@ Feature: Devtrac Behat Create Site Report Test
     And I press the "Save" button
     Then I am "/fieldtrips/fieldtripTest"
     
-  @api @javascript
+  @api
   Scenario: Devtrac Behat Site Visit check if the forms are empty
     Given I am logged in as a user with the "field worker" role
     And I am on "/fieldtrip/fieldtripTest"
