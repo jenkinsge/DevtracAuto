@@ -3545,14 +3545,6 @@ function devtrac7_views_feature_views_default_views() {
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Unicef Logo */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['ui_name'] = 'Unicef Logo';
-  $handler->display->display_options['empty']['area']['content'] = '<div class="unicef-logo"><img src="<?php print $GLOBALS[\'base_url\'] ?>/profiles/devtrac/themes/devtrac7_theme/unicef_logo.jpg" /></div>';
-  $handler->display->display_options['empty']['area']['format'] = 'ds_code';
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_fieldtrip_user_target_id']['id'] = 'field_fieldtrip_user_target_id';
   $handler->display->display_options['relationships']['field_fieldtrip_user_target_id']['table'] = 'field_data_field_fieldtrip_user';
