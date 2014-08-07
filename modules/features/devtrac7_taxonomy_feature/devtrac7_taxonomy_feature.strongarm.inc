@@ -17,7 +17,7 @@ function devtrac7_taxonomy_feature_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'sector_code_icon' => array(
-        'custom_settings' => TRUE,
+        'custom_settings' => FALSE,
       ),
       'full' => array(
         'custom_settings' => FALSE,
@@ -30,6 +30,9 @@ function devtrac7_taxonomy_feature_strongarm() {
       ),
       'map_popup_view_mode' => array(
         'custom_settings' => FALSE,
+      ),
+      'location_type_icon' => array(
+        'custom_settings' => TRUE,
       ),
     ),
     'extra_fields' => array(
@@ -50,7 +53,7 @@ function devtrac7_taxonomy_feature_strongarm() {
             'weight' => '0',
             'visible' => TRUE,
           ),
-          'sector_code_icon' => array(
+          'location_type_icon' => array(
             'weight' => '2',
             'visible' => FALSE,
           ),

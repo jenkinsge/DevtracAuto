@@ -26,7 +26,7 @@ function devtrac7_taxonomy_feature_field_default_field_instances() {
         'type' => 'image',
         'weight' => 0,
       ),
-      'sector_code_icon' => array(
+      'location_type_icon' => array(
         'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
