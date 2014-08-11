@@ -1119,26 +1119,14 @@ function devtrac7_node_insert($node) {
       $_GET['destination'] = 'node/' . $fieldtripnid;
       break;
     case 'questionnaire_question':
-      $views = array();
-      // Query the database for entries in the draggableviews_structure table
-      $query = db_select('draggableviews_structure', 'd')
-        ->fields('d', array('dvid', 'view_name'));
-      $results = $query->execute();
-      while ($result = $results->fetchAssoc()) {
-          $views[] = $result['view_name'];
-        }
-      // If there are now views in the draggableviews_structure table, 
-      // insert a view into the table. 
-      if (sizeof($views) == 0) {
-        $first_entry = db_insert('draggableviews_structure')
-            ->fields(array(
-              'view_name' => 'edit_questions',
-              'view_display' => 'edit_questions_page',
-              'entity_id' => $node->nid,
-              'weight' => 0,
-            ))
-            ->execute();
-      }
+      $question_view = db_insert('draggableviews_structure')
+        ->fields(array(
+          'view_name' => 'edit_questions',
+          'view_display' => 'edit_questions_page',
+          'entity_id' => $node->nid,
+          'weight' => 0,
+        ))
+        ->execute();
       break;
   }
 }
