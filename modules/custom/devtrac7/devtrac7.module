@@ -155,12 +155,12 @@ function devtrac7_permission() {
  * Implements hook_menu_alter().
  */
 function devtrac7_menu_alter(&$items) {
-  $items['node/%/addsubmission']['title'] = 'Add Questionnaire';
-  $items['node/%/addsubmission']['weight'] = 3;
-  $items['node/%/editsubmission']['title'] = 'Edit Questionnaire';
-  $items['node/%/editsubmission']['weight'] = 3;
-  $items['node/%/editsubmission/%submissiontoedit']['title'] = 'Edit Questionnaire';
-  $items['node/%/editsubmission/%submissiontoedit']['weight'] = 3;
+  $items['node/%node/addsubmission']['title'] = 'Add Questionnaire';
+  $items['node/%node/addsubmission']['weight'] = 3;
+  $items['node/%node/editsubmission']['title'] = 'Edit Questionnaire';
+  $items['node/%node/editsubmission']['weight'] = 3;
+  $items['node/%node/editsubmission/%submissiontoedit']['title'] = 'Edit Questionnaire';
+  $items['node/%node/editsubmission/%submissiontoedit']['weight'] = 3;
   // The weight of the item in the menu_router table
   // overrides the weight in the menu_link table.
   $items['user']['weight'] = -48;
