@@ -88,16 +88,16 @@ function devtrac7_solr_search_act_item_feature_openlayers_maps() {
       'openlayers_behavior_scaleline' => array(),
       'openlayers_behavior_zoompanel' => array(),
       'openlayers_behavior_zoomtolayer' => array(
-        'zoomtolayer' => array(
-          'uganda_basemap' => 'uganda_basemap',
-          'devtrac_solr_view_actionitems_mapdata' => 0,
-        ),
+        'zoomtolayer' => array(),
         'point_zoom_level' => '7',
         'zoomtolayer_scale' => '1',
       ),
     ),
-    'default_layer' => NULL,
-    'layers' => array(),
+    'default_layer' => 'osm_mapnik',
+    'layers' => array(
+      'osm_mapnik' => 'osm_mapnik',
+      'osm_cycle' => 'osm_cycle',
+    ),
     'layer_weight' => array(
       'dvtrc_maps_openlayers_2' => '0',
       'dvtrc_maps_openlayers_3' => '0',
@@ -266,7 +266,7 @@ function devtrac7_solr_search_act_item_feature_openlayers_maps() {
       'dvtrc_user_openlayers_1' => 0,
       'site_reports_recent_site_reports_data' => 0,
     ),
-    'projection' => 'EPSG:900913',
+    'projection' => 'EPSG:3857',
     'displayProjection' => 'EPSG:4326',
     'styles' => array(
       'default' => 'default_select',
