@@ -136,8 +136,8 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
     'default_true' => TRUE,
     'facet_search_ids' => array(),
     'individual_parent' => 0,
- 	 	'limit_active_items' => 0,
- 	 	'exclude' => 0,
+    'limit_active_items' => 0,
+    'exclude' => 0,
   );
   $export['search_api@devtrac_solr_image_index::taxonomy_vocabulary_1'] = $facet;
 
