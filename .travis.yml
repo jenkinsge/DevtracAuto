@@ -13,6 +13,7 @@ before_install:
 
 before_script:
   # Apache webserver configuration
+  - curl https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.5.0 bash
   - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-curl
   - sudo sed -i -e "s,/var/www,$(pwd)/docroot,g" /etc/apache2/sites-available/default
   - sudo a2enmod rewrite
@@ -23,6 +24,6 @@ before_script:
   # Ant build tool configuration
   - cp build.properties.dist build.properties
   - sed -i -e "s,username:password@host/db,travis@127.0.0.1/devtrac,g" build.properties
-
+  - cp profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac-distro/apache-solr-3.5.0/example/solr/conf/
 script:
   - ant run-tests
