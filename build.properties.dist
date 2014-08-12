@@ -1,8 +1,0 @@
-base.url=http://localhost
-db.url=mysql://username:password@host/db
-
-#sites.subdir=default
-#site.mail=test@example.com
-#account.name=admin
-#account.pass=admin
-#account.mail=test@example.com
