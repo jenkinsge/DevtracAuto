@@ -1912,7 +1912,7 @@ function devtrac7_getcontext($nid) {
 /*
  *  Implements hook_questionnaire_getquestions().
  */
-function devtrac7_questionnaire_getquestions($nid) {
+function devtrac7_questionnaire_getquestions($contexts) {
   $result = array();
   
   foreach ($contexts['node'] as $place) {
