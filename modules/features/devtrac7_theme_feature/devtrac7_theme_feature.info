@@ -21,7 +21,6 @@ dependencies[] = quicktabs
 dependencies[] = relation
 dependencies[] = strongarm
 ; dependencies[] = views_two_column_table
-features[ckeditor_profile][] = CKEditor Global Profile
 features[context][] = all_pages
 features[context][] = districts
 features[context][] = node-view-actionitem
