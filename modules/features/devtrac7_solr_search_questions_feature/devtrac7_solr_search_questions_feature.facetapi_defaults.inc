@@ -25,6 +25,9 @@ function devtrac7_solr_search_questions_feature_facetapi_default_facet_settings(
       'bundle' => 'none',
       'bundle_selected' => array(),
       'roles' => array(),
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
     ),
     'facet_mincount' => '1',
     'facet_missing' => '0',
@@ -32,6 +35,9 @@ function devtrac7_solr_search_questions_feature_facetapi_default_facet_settings(
     'query_type' => 'term',
     'default_true' => '1',
     'facet_search_ids' => array(),
+    'individual_parent' => 0,
+    'limit_active_items' => 0,
+    'exclude' => 0,
   );
   $export['search_api@questions::taxonomy_vocabulary_1'] = $facet;
 
@@ -221,6 +227,8 @@ function devtrac7_solr_search_questions_feature_facetapi_default_facet_settings(
       'format' => '1',
     ),
     'submit_realm' => 'Save and go back to realm settings',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@questions:block:taxonomy_vocabulary_1'] = $facet;
 

@@ -1,49 +1,50 @@
 <?php
-class DevtracImportsPlacetypeIcons extends DevtracImportsCsvBase  {
-  public function __construct($arguments) {
-    $this->arguments = $arguments;
-    parent::__construct($arguments);
-    $this->description = t('Import Departments');
-    $columns = array(
-      0 => array('name', t('name')),
-      1 => array('code', t('code')),
-    );
-    // TIP: delete ", array('header_rows' => 1)" in the next line, if the CSV-file has NO header-line
-    $this->source = new MigrateSourceCSV(DRUPAL_ROOT . '/' . drupal_get_path('module', 'devtrac_imports') . '/data/placetype.csv', $columns, array('header_rows' => 1));
-    //$this->destination = new MigrateDestinationUser();
-    $this->destination = new MigrateDestinationTerm('vocabulary_4');
-    // Instantiate the map.
+class DevtracImportsPlacetypeIcons extends XMLMigration   {
+  public function __construct() {
+    parent::__construct();
+    $this->description = t('Example migration of media images');
+
     $this->map = new MigrateSQLMap($this->machineName,
       array(
-        'code' => array( // this field is used to connect user und profile2
+        'name' => array(
           'type' => 'varchar',
-          'length' => 20,
+          'length' => 255,
           'not null' => TRUE,
-          'description' => t('Image filename') // description never used
+          'description' => 'Image filename',
         )
       ),
       MigrateDestinationMedia::getKeySchema()
     );
 
-    $this->addFieldMapping('name', 'name')
-         ->defaultValue('')
-         ->description(t('Name'));
-    $this->description = t('Example migration of media images');
+    // Source fields available in the XML file.
+    $fields = array(
+      'name' => t('placetype code'),
+      'filename' => t('Image filename, relative to the source directory'),
+      'description' => t('Description of the image'),
+    );
+
+    // Our test data is in an XML file
+    $xml_folder = drupal_get_path('module', 'devtrac_imports');
+    $items_url = $xml_folder . '/data/placetype.xml';
+    $item_xpath = '/placetypes//placetype';
+    $item_ID_xpath = 'name';
+    $items_class = new MigrateItemsXML($items_url, $item_xpath, $item_ID_xpath);
+    $this->source = new MigrateSourceMultiItems($items_class, $fields);
 
     // In the simplest case, just pass the media type.
     $this->destination = new MigrateDestinationMedia('image');
 
     // The source images are in a local directory - specify the parent.
     $this->addFieldMapping('source_dir')
-         ->defaultValue(drupal_get_path('module', 'devtrac_imports') . '/images/oecdicons_png');
+         ->defaultValue(drupal_get_path('theme', 'devtrac7_theme') . '/mapicons');
     // The 'value' of the media destination is mapped to the source field
     // representing the media itself - in this case, a filename relative to
     // source_dir.
     $this->addFieldMapping('value', 'filename');
          //->xpath('code');
     // Fields on the entity can be mapped in the usual way.
-    $this->addFieldMapping('field_image_description', 'description');
-         //->xpath('description');
+    $this->addFieldMapping('field_image_description', 'description')
+         ->xpath('description');
 
     $this->addFieldMapping('uid')
          ->defaultValue(1);
@@ -63,10 +64,12 @@ class DevtracImportsPlacetypeIcons extends DevtracImportsCsvBase  {
       return FALSE;
     }
 
-    $row->filename = $row->code . '.png';
+    $row->filename = $row->name . '_c.png';
+    
     $fieldmappings = $this->getFieldMappings();
     $source_dir = $fieldmappings['source_dir']->getDefaultvalue();
     $file_full_path = DRUPAL_ROOT . '/' . $source_dir . '/' . $row->filename;
+    //watchdog("~~~~~~devtrac_imports", $file_full_path);
     if(!file_exists($file_full_path)) {
       return FALSE;
     }

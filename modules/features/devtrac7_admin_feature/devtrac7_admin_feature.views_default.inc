@@ -1238,11 +1238,23 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['fields']['name_2']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name_2']['field'] = 'name';
   $handler->display->display_options['fields']['name_2']['label'] = '';
+  $handler->display->display_options['fields']['name_2']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_2']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['name_2']['alter']['text'] = '<img src="/profiles/devtrac/themes/devtrac7_theme/mapicons/[name_1]_c.png" alt="[name_1]"/>';
   $handler->display->display_options['fields']['name_2']['element_type'] = 'div';
   $handler->display->display_options['fields']['name_2']['element_class'] = 'legend-icon';
   $handler->display->display_options['fields']['name_2']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: Term Icon */
+  $handler->display->display_options['fields']['field_term_icon']['id'] = 'field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['table'] = 'field_data_field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['field'] = 'field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_term_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_term_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_term_icon']['settings'] = array(
+    'image_style' => '',
+    'image_link' => 'content',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Taxonomy vocabulary: Machine name */

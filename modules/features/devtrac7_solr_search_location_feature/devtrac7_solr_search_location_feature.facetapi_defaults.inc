@@ -65,7 +65,7 @@ function devtrac7_solr_search_location_feature_facetapi_default_facet_settings()
     'facet_search_ids' => array(),
     'exclude' => 0,
     'individual_parent' => 0,
- 	 	'limit_active_items' => 0,
+    'limit_active_items' => 0,
   );
   $export['search_api@devtrac_solr_locations_index::taxonomy_vocabulary_1'] = $facet;
 
@@ -441,7 +441,7 @@ function devtrac7_solr_search_location_feature_facetapi_default_facet_settings()
     ),
     'submit_realm' => 'Save and go back to realm settings',
     'facet_more_text' => 'Show more',
- 	 	'facet_fewer_text' => 'Show fewer',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@devtrac_solr_locations_index:block:taxonomy_vocabulary_1'] = $facet;
 
