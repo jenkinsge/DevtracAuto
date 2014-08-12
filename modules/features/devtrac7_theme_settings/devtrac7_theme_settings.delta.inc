@@ -1585,7 +1585,6 @@ function devtrac7_theme_settings_delta_default_templates() {
       'alpha_region_map_toolbar_css' => '',
       'alpha_region_map_toolbar_equal_height_element' => 0,
       'alpha_region_map_toolbar_equal_height_container' => 0,
-      'favicon_mimetype' => 'image/png',
     ),
     'color_devtrac7_theme_files' => NULL,
     'color_devtrac7_theme_logo' => NULL,
@@ -2161,7 +2160,6 @@ function devtrac7_theme_settings_delta_default_templates() {
       'alpha_region_map_toolbar_css' => '',
       'alpha_region_map_toolbar_equal_height_element' => 0,
       'alpha_region_map_toolbar_equal_height_container' => 0,
-      'favicon_mimetype' => 'image/png',
     ),
     'color_devtrac7_theme_files' => NULL,
     'color_devtrac7_theme_logo' => NULL,
@@ -2182,8 +2180,6 @@ function devtrac7_theme_settings_delta_default_templates() {
   $delta->parent = 'dashboardpage_layout';
   $delta->settings = array(
     'theme_devtrac7_theme_settings' => array(
-      'default_favicon' => 1,
-      'favicon_path' => '',
       'alpha_exclude' => array(
         'profiles/devtrac/modules/contrib/adaptive_image/css/adaptive-image.css' => 0,
         'profiles/devtrac/modules/contrib/collapsiblock/collapsiblock.css' => 0,

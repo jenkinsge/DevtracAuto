@@ -543,7 +543,6 @@ function devtrac7_theme_settings_strongarm() {
     'hurricane_white-space' => '0',
     'hurricane_font-style' => '0',
     'nice_menus_custom_css' => '',
-    'favicon_mimetype' => 'image/png',
   );
   $export['theme_devtrac7_theme_settings'] = $strongarm;
 
