@@ -14,3 +14,10 @@ files[] = includes/devtrac_imports_sectors1.inc
 files[] = includes/devtrac_imports_sector_icons.inc
 files[] = includes/devtrac_imports_placetype_icons.inc
 files[] = includes/devtrac_imports_site_report_type.inc
+
+; Information added by drush on 2014-08-06
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "devtrac"
+datestamp = "1407324725"
+
