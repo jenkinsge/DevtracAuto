@@ -14,7 +14,11 @@ function devtrac_imports_migrate_api() {
 				  'DevtracImportsSectors1' => array('class_name' => 'DevtracImportsSectors1'),
 					'DevtracImportsSectorIcons' => array('class_name' => 'DevtracImportsSectorIcons'),
 					'DevtracImportsPlacetypeIcons' => array('class_name' => 'DevtracImportsPlacetypeIcons'),
-					'DevtracImportsSiteReportType' => array('class_name' => 'DevtracImportsSiteReportType'),					
+					'DevtracImportsSiteReportType' => array('class_name' => 'DevtracImportsSiteReportType'),	
+					'DevtracImportsPlacetype0' => array('class_name' => 'DevtracImportsPlacetype0'),
+					'DevtracImportsPlacetype1' => array('class_name' => 'DevtracImportsPlacetype1'),
+					'DevtracImportsPlacetype2' => array('class_name' => 'DevtracImportsPlacetype2'),
+					
 			),
 	);
 	return $api;
@@ -68,6 +72,9 @@ function devtrac_imports_batch($operation="import") {
 			'DevtracImportsSectors0',
 			'DevtracImportsSectors1',
 			'DevtracImportsSiteReportType',
+			'DevtracImportsPlacetype0',
+			'DevtracImportsPlacetype1',
+			'DevtracImportsPlacetype2',
 	);
 
 	$operations = array();

@@ -122,16 +122,16 @@ function devtrac7_solr_search_image_feature_default_search_api_index() {
         }
       },
       "fields" : {
-        "type" : { "type" : "string" },
-        "title" : { "type" : "text", "boost" : "5.0" },
-        "promote" : { "type" : "boolean" },
-        "sticky" : { "type" : "boolean" },
-        "created" : { "type" : "date" },
-        "changed" : { "type" : "date" },
         "author" : { "type" : "integer", "entity_type" : "user" },
+        "body:value" : { "type" : "text" },
+        "changed" : { "type" : "date" },
         "comment_count" : { "type" : "integer" },
+        "created" : { "type" : "date" },
+        "promote" : { "type" : "boolean" },
         "search_api_language" : { "type" : "string" },
-        "body:value" : { "type" : "text" }
+        "sticky" : { "type" : "boolean" },
+        "title" : { "type" : "text", "boost" : "5.0" },
+        "type" : { "type" : "string" }
       }
     },
     "enabled" : "0",
@@ -148,21 +148,21 @@ function devtrac7_solr_search_image_feature_default_search_api_index() {
       "cron_limit" : "50",
       "fields" : {
         "fid" : { "type" : "integer" },
-        "name" : { "type" : "string" },
-        "url" : { "type" : "text" },
-        "owner" : { "type" : "integer", "entity_type" : "user" },
-        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_1" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "field_ftritem_date_visited" : { "type" : "date" },
         "field_file_image_title_text" : { "type" : "text" },
-        "field_taxonomy_image_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "search_api_language" : { "type" : "string" },
-        "search_api_url" : { "type" : "uri" },
-        "search_api_aggregation_1" : { "type" : "text" },
+        "field_ftritem_date_visited" : { "type" : "date" },
         "field_ftritem_lat_long:geom" : { "type" : "text" },
         "field_ftritem_lat_long:lat" : { "type" : "string" },
-        "field_ftritem_lat_long:lon" : { "type" : "string" }
+        "field_ftritem_lat_long:lon" : { "type" : "string" },
+        "field_taxonomy_image_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "name" : { "type" : "string" },
+        "owner" : { "type" : "integer", "entity_type" : "user" },
+        "search_api_aggregation_1" : { "type" : "text" },
+        "search_api_language" : { "type" : "string" },
+        "search_api_url" : { "type" : "uri" },
+        "taxonomy_vocabulary_1" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "url" : { "type" : "text" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_bundle_filter" : {

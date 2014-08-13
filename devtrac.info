@@ -188,6 +188,7 @@ dependencies[] = search_api_swatches
 dependencies[] = cancel_button
 
 ; Questionnaire
+dependencies[] = questionnaire
 dependencies[] = questionnaire_answer
 dependencies[] = questionnaire_question
 
