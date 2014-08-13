@@ -1,7 +1,7 @@
 base.url=http://localhost
 account-name=admin
 account-pass=admin
-db-url=mysql://travis:@127.0.0.1/devtrac
+db-url=mysql://travis@127.0.0.1/devtrac
 account-mail=ishmael@mountbatten.net
 site.mail=ishmael@mountbatten.net
 install_configure_form.site_default_country=UG
