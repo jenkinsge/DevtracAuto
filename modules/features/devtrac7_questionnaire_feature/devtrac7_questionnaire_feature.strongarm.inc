@@ -101,7 +101,7 @@ function devtrac7_questionnaire_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'questionnaire_question_context_ftritem';
-  $strongarm->value = 'field_ftritem_place';
+  $strongarm->value = '52';
   $export['questionnaire_question_context_ftritem'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -122,7 +122,7 @@ function devtrac7_questionnaire_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'questionnaire_question_vocabulary_ftritem';
-  $strongarm->value = 'vocabulary_1';
+  $strongarm->value = '6';
   $export['questionnaire_question_vocabulary_ftritem'] = $strongarm;
 
   return $export;

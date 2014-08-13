@@ -15,7 +15,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
+      'usaid editor' => 'usaid editor',
     ),
     'module' => 'admin_menu',
   );
@@ -26,7 +26,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'editor' => 'editor',
-      'iati manager' => 'iati manager',
+      'usaid editor' => 'usaid editor',
     ),
     'module' => 'system',
   );
@@ -206,6 +206,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create actionitem content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -667,6 +668,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create fieldtrip content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -677,6 +679,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create ftritem content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -705,6 +708,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create place content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -734,7 +738,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create relations',
     'roles' => array(
       'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
+      'usaid editor' => 'usaid editor',
     ),
     'module' => 'relation',
   );
@@ -959,7 +963,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any iati_activity content',
     'roles' => array(
       'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
+      'usaid editor' => 'usaid editor',
     ),
     'module' => 'node',
   );
@@ -969,7 +973,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any iati_organisation content',
     'roles' => array(
       'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
+      'usaid editor' => 'usaid editor',
     ),
     'module' => 'node',
   );
@@ -979,6 +983,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any place content',
     'roles' => array(
       'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -1958,7 +1963,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit relations',
     'roles' => array(
       'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
+      'usaid editor' => 'usaid editor',
     ),
     'module' => 'relation',
   );
@@ -2094,7 +2099,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'submit questions',
     'roles' => array(
       'administrator' => 'administrator',
-      'field worker' => 'field worker',
+      'authenticated user' => 'authenticated user',
     ),
     'module' => 'questionnaire_question',
   );
@@ -3106,7 +3111,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'editor' => 'editor',
-      'iati manager' => 'iati manager',
+      'usaid editor' => 'usaid editor',
     ),
     'module' => 'system',
   );

@@ -5,7 +5,7 @@ class DevtracImportsPlacetype0 extends XMLMigration {
     $this->arguments = $arguments;
     parent::__construct();
     
-    $this->description = t('Imports placetype level0.');
+    $this->description = t('Imports relations of type Implementing organisation role.');
     $this->dependencies = array(
     	//'DevtracImportsPlacetypeIcons',
     );

@@ -40,12 +40,11 @@ class DevtracImportsSectors0 extends XMLMigration {
 		// Instantiate the field mapping.
 		$this->addFieldMapping('field_oecd_code', 'code')->xpath('@code');
 		$this->addFieldMapping('name', 'name')->xpath('name');
-		
-    $this->addFieldMapping('field_term_icon', 'code')
-      ->xpath('@code')
-      ->sourceMigration('DevtracImportsSectorIcons');
-    $this->addFieldMapping('field_term_icon:file_class')
-      ->defaultValue('MigrateFileFid');
+// 		$this->addFieldMapping('field_term_icon', 'code')
+// 		  ->xpath('@code')
+// 		  ->sourceMigration('DevtracImportsSectorIcons');
+// 		$this->addFieldMapping('field_term_icon:file_class')
+// 		  ->defaultValue('MigrateFileFid');
 	}
 }
 
