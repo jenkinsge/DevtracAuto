@@ -34,8 +34,8 @@
   </target>
 
   <target name="clean-docroot">
-    <chmod dir="${docroot}/sites/${sites.subdir}" perm="755"/>
-    <delete dir="${docroot}"/>
+    <chmod dir="${builddir}/sites/${sites.subdir}" perm="755"/>
+    <delete dir="${builddir}"/>
   </target>
 
   <target name="clean-vendor">
@@ -100,7 +100,7 @@
   </target>
 
   <target name="drush-make" depends="drush-download" unless="drush.nomake" description="Run drush make">
-    <delete dir="${builddir}/docroot"/>
+    <delete dir="${builddir}"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="${drush}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
@@ -139,7 +139,7 @@
   </target>
 
   <target name="uninstall" depends="drush-check" description="Run drush sql-drop">
-    <exec executable="${drush}" dir="${docroot}" taskname="drush">
+    <exec executable="${drush}" dir="${builddir}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="sql-drop"/>
       <arg value="-y"/>
