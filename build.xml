@@ -115,7 +115,7 @@
       <arg value="--delete"/>
       <arg value="--exclude=sites/*/settings*.php"/>
       <arg value="--exclude=sites/*/files"/>
-      <arg value="${builddir}/docroot"/>
+      <arg value="/home/travis/build/TddDoctor/devtrac/build"/>
       <arg value="${docroot}"/>
     </exec>
   </target>
