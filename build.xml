@@ -15,7 +15,7 @@
   <property name="behat.params"     value="extensions[Behat\MinkExtension\Extension][base_url]=${base.url}"/>
   <property name="composer"         value="${builddir}/composer.phar"/>
   <property name="db.url"           value="mysql://username:password@host/db"/>
-  <property name="docroot"          value="${builddir}/"/>
+  <property name="docroot"          value="${builddir}/docroot"/>
   <property name="drush.makefile"   value="build-${drupal.profile}.make"/>
   <property name="drush.args"       value=""/>
   <property name="php"              value="php"/>
@@ -100,14 +100,14 @@
   </target>
 
   <target name="drush-make" depends="drush-download" unless="drush.nomake" description="Run drush make">
-    <delete dir="${builddir}"/>
+    <delete dir="${builddir}/docroot/"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="${drush}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="make"/>
       <arg value="--nocolor"/>
       <arg value="${basedir}/${drush.makefile}"/>
-      <arg value="${builddir}"/>
+      <arg value="${builddir}/docroot/"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
     <exec executable="${rsync}" taskname="rsync">
