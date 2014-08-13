@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="devtracx" default="build">
+<project name="devtrac" default="build">
 
-  <property name="drupal.profile" value="devtracx"/>
+  <property name="drupal.profile" value="devtrac"/>
 
   <property name="builddir" value="${basedir}/build"/>
   <property name="selenium" value="${builddir}/selenium-server-standalone.jar"/>
@@ -23,7 +23,7 @@
   <property name="selenium.version" value="2.37.0"/>
   <property name="selenium.port"    value="4444"/>
   <property name="site.mail"        value="test@example.com"/>
-  <property name="site.name"        value="devtracx"/>
+  <property name="site.name"        value="devtrac"/>
   <property name="sites.subdir"     value="default"/>
 
   <target name="build" depends="install" description="Run drush make and drush site-install"/>
