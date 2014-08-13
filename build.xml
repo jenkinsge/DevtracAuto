@@ -15,7 +15,7 @@
   <property name="behat.params"     value="extensions[Behat\MinkExtension\Extension][base_url]=${base.url}"/>
   <property name="composer"         value="${builddir}/composer.phar"/>
   <property name="db.url"           value="mysql://username:password@host/db"/>
-  <property name="docs"          value="${basedir}/docs"/>
+  <property name="docroot"          value="${basedir}/docs"/>
   <property name="drush.makefile"   value="build-${drupal.profile}.make"/>
   <property name="drush.args"       value=""/>
   <property name="php"              value="php"/>
