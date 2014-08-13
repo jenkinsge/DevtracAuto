@@ -23,7 +23,7 @@
   <property name="selenium.version" value="2.37.0"/>
   <property name="selenium.port"    value="4444"/>
   <property name="site.mail"        value="test@example.com"/>
-  <property name="site.name"        value="devtrac"/>
+  <property name="site.name"        value="devtracx"/>
   <property name="sites.subdir"     value="default"/>
 
   <target name="build" depends="install" description="Run drush make and drush site-install"/>
@@ -121,7 +121,7 @@
   </target>
 
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
-    <exec executable="${drush}" dir="${docroot}" taskname="drush">
+    <exec executable="${drush}" dir="${builddir}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="site-install"/>
       <arg value="-y"/>
