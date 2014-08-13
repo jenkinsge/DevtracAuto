@@ -206,7 +206,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create actionitem content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -668,7 +667,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create fieldtrip content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -679,7 +677,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create ftritem content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -708,7 +705,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create place content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -983,7 +979,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any place content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -2099,7 +2094,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'submit questions',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
+      'field worker' => 'field worker',
     ),
     'module' => 'questionnaire_question',
   );
