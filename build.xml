@@ -100,7 +100,7 @@
   </target>
 
   <target name="drush-make" depends="drush-download" unless="drush.nomake" description="Run drush make">
-    <delete dir="/home/travis/build/TddDoctor/devtrac/docs"/>
+    <delete dir="${builddir}/docroot"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="${drush}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
@@ -121,7 +121,7 @@
   </target>
   
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
-    <exec executable="${drush}" dir="/home/travis/build/TddDoctor/devtrac/build/docroot" taskname="drush">
+    <exec executable="${drush}" dir="${builddir}/docroot" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="site-install"/>
       <arg value="-y"/>
@@ -139,7 +139,7 @@
   </target>
 
   <target name="uninstall" depends="drush-check" description="Run drush sql-drop">
-    <exec executable="${drush}" dir="${builddir}" taskname="drush">
+    <exec executable="${drush}" dir="${builddir}/docroot" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="sql-drop"/>
       <arg value="-y"/>
