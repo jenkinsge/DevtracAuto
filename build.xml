@@ -48,6 +48,7 @@
   <target name="clean-all" depends="clean,clean-src" description="Clean build artifacts and source code"/>
 
   <target name="prepare">
+    <mkdir dir="${builddir}" />
     <mkdir dir="${builddir}/logs" />
   </target>
 
