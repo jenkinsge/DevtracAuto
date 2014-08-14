@@ -131,6 +131,7 @@
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="site-install"/>
       <arg value="-y"/>
+      <arg value="${drupal.profile}"/>
       <arg value="--nocolor"/>
       <arg value="--db-url=${db.url}"/>
       <arg value="--site-name=${site.name}"/>
@@ -147,7 +148,6 @@
       <arg value="devtrac_solr_configure_form.port=8080"/>
       <arg value="devtrac_solr_configure_form.path=/solr"/>
       <arg value="devtrac_username_geonames_form.username=devtrac"/>
-      <arg value="${drupal.profile}"/>
       <arg value="${drupal.args}"/>
     </exec>
   </target>
