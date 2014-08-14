@@ -197,7 +197,7 @@
     <available file="${selenium}" property="selenium.present"/>
   </target>
 -->
-  <target name="selenium-download" depends="selenium-check" unless="selenium.present">
+  <target name="selenium-download" unless="selenium.present">
     <get src="http://selenium.googlecode.com/files/selenium-server-standalone-${selenium.version}.jar" dest="${selenium}"/>
   </target>
 
