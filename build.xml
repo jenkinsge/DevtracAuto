@@ -35,7 +35,7 @@
 
   <target name="clean-docroot">
     <chmod dir="${docroot}/sites/${sites.subdir}" perm="755"/>
-    <delete dir="${builddir}"/>
+    <delete dir="${docroot}"/>
   </target>
 
   <target name="clean-vendor">
