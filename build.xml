@@ -3,7 +3,7 @@
 
   <property name="drupal.profile" value="devtrac"/>
 
-  <property name="builddir" value="${basedir}/build"/>
+  <property name="builddir" value="${basedir}"/>
   <property name="selenium" value="${builddir}/selenium-server-standalone.jar"/>
 
   <property file="build.properties"/>
@@ -99,14 +99,14 @@
   </target>
 
   <target name="drush-make" depends="drush-download" unless="drush.nomake" description="Run drush make">
-    <delete dir="${basedir}/docroot/"/>
+    <delete dir="/home/travis/build/TddDoctor/devtrac/"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="${drush}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="make"/>
       <arg value="--nocolor"/>
       <arg value="${basedir}/${drush.makefile}"/>
-      <arg value="${basedir}/docroot/"/>
+      <arg value="/home/travis/build/TddDoctor/devtrac/"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
     <exec executable="${rsync}" taskname="rsync">
@@ -114,13 +114,13 @@
       <arg value="--delete"/>
       <arg value="--exclude=sites/*/settings*.php"/>
       <arg value="--exclude=sites/*/files"/>
-      <arg value="/home/travis/build/TddDoctor/devtrac/build"/>
+      <arg value="/home/travis/build/TddDoctor/devtrac"/>
       <arg value="${docroot}"/>
     </exec>
   </target>
 
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
-    <exec executable="${drush}" dir="${builddir}" taskname="drush">
+    <exec executable="${drush}" dir="/home/travis/build/TddDoctor/devtrac" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="site-install"/>
       <arg value="-y"/>
