@@ -120,6 +120,10 @@
     </exec>
   </target>
   
+  <copy todir="/home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf">
+    <fileset dir="profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x"></fileset>
+  </copy>
+  
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
     <exec executable="${drush}" dir="${builddir}/docroot" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
