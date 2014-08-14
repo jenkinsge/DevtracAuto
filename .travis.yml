@@ -25,8 +25,8 @@ before_script:
   # Ant build tool configuration
   - cp build.properties.dist build.properties
   - sed -i -e "s,username:password@host/db,travis@127.0.0.1/devtrac,g" build.properties
-  #- cd build 
+  - cd build 
   #- drush --yes make build-devtrac.make build
-  #- cp profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/
+  - cp profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/
 script:
   - ant run-tests
