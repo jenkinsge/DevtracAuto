@@ -34,13 +34,13 @@
   </target>
 
   <target name="clean-docroot">
-    <chmod dir="${builddir}/sites/${sites.subdir}" perm="755"/>
+    <chmod dir="${docroot}/sites/${sites.subdir}" perm="755"/>
     <delete dir="${builddir}"/>
   </target>
 
   <target name="clean-vendor">
     <delete dir="${basedir}/composer.lock"/>
-    <delete dir="${basedir}/vendor"/>
+    <delete dir="${docroot}/vendor"/>
   </target>
 
   <target name="clean-src" depends="clean-docroot,clean-vendor" description="Clean source code"/>
@@ -100,14 +100,14 @@
   </target>
 
   <target name="drush-make" depends="drush-download" unless="drush.nomake" description="Run drush make">
-    <delete dir="${basedir}/docs/"/>
+    <delete dir="${basedir}/docroot/"/>
     <!-- Run drush make into ./build/drupal -->
     <exec executable="${drush}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="make"/>
       <arg value="--nocolor"/>
       <arg value="${basedir}/${drush.makefile}"/>
-      <arg value="${basedir}/docs/"/>
+      <arg value="${basedir}/docroot/"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
     <exec executable="${rsync}" taskname="rsync">
@@ -115,13 +115,13 @@
       <arg value="--delete"/>
       <arg value="--exclude=sites/*/settings*.php"/>
       <arg value="--exclude=sites/*/files"/>
-      <arg value="/home/travis/build/TddDoctor/devtrac/build"/>
-      <arg value="/home/travis/build/TddDoctor/devtrac/build"/>
+      <arg value="/home/travis/build/TddDoctor/devtrac/build/docroot"/>
+      <arg value="${docroot}"/>
     </exec>
   </target>
 
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
-    <exec executable="${drush}" dir="/home/travis/build/TddDoctor/devtrac/build" taskname="drush">
+    <exec executable="${drush}" dir="${docroot}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="site-install"/>
       <arg value="-y"/>
@@ -151,7 +151,7 @@
   <target name="behat-check">
     <condition property="behat.present">
       <or>
-        <available file="${builddir}/vendor/bin/behat"/>
+        <available file="${docroot}/vendor/bin/behat"/>
         <isset property="${behat}"/>
       </or>
     </condition>
