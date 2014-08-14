@@ -192,11 +192,11 @@
     </exec>
     <antcall target="selenium-stop" />
   </target>
-
+<!--
   <target name="selenium-check" depends="prepare">
     <available file="${selenium}" property="selenium.present"/>
   </target>
-
+-->
   <target name="selenium-download" depends="selenium-check" unless="selenium.present">
     <get src="http://selenium.googlecode.com/files/selenium-server-standalone-${selenium.version}.jar" dest="${selenium}"/>
   </target>
