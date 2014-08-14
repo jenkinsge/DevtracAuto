@@ -3,7 +3,7 @@
 
   <property name="drupal.profile" value="devtrac"/>
 
-  <property name="builddir" value="${basedir}"/>
+  <property name="builddir" value="${basedir}/build"/>
   <property name="selenium" value="${builddir}/selenium-server-standalone.jar"/>
 
   <property file="build.properties"/>
@@ -15,7 +15,7 @@
   <property name="behat.params"     value="extensions[Behat\MinkExtension\Extension][base_url]=${base.url}"/>
   <property name="composer"         value="${builddir}/composer.phar"/>
   <property name="db.url"           value="mysql://username:password@host/db"/>
-  <property name="docroot"          value="${builddir}/docroot"/>
+  <property name="docroot"          value="${builddir}/build"/>
   <property name="drush.makefile"   value="build-${drupal.profile}.make"/>
   <property name="drush.args"       value=""/>
   <property name="php"              value="php"/>
@@ -107,7 +107,7 @@
       <arg value="make"/>
       <arg value="--nocolor"/>
       <arg value="${basedir}/${drush.makefile}"/>
-      <arg value="/home/travis/build/TddDoctor/devtrac/"/>
+      <arg value="/home/travis/build/TddDoctor/devtrac/build/"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
     <exec executable="${rsync}" taskname="rsync">
@@ -121,7 +121,7 @@
   </target>
 
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
-    <exec executable="${drush}" dir="/home/travis/build/TddDoctor/devtrac" taskname="drush">
+    <exec executable="${drush}" dir="/home/travis/build/TddDoctor/devtrac/build" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="site-install"/>
       <arg value="-y"/>
