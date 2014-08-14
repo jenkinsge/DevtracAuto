@@ -23,7 +23,7 @@ before_script:
   # MySQL database configuration
   - mysql -e 'CREATE DATABASE devtrac;'
   # Ant build tool configuration
-  #- cp build.properties.dist build.properties
+  - cp build.properties.dist build.properties
   - sed -i -e "s,username:password@host/db,travis@127.0.0.1/devtrac,g" build.properties
   #- cd build 
   #- drush --yes make build-devtrac.make build
