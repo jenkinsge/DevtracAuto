@@ -287,9 +287,11 @@ projects[purl_search_api][version] = "1.0-beta1"
 projects[purl_search_api][type] = "module"
 projects[purl_search_api][subdir] = "contrib"
 
-projects[questionnaire][version] = "1.x-dev"
 projects[questionnaire][type] = "module"
 projects[questionnaire][subdir] = "contrib"
+projects[questionnaire][download][type] = "git"
+projects[questionnaire][download][url] = "http://git.drupal.org/project/questionnaire.git"
+projects[questionnaire][download][branch] = "7.x-1.x"
 
 projects[quicktabs][version] = "3.6"
 projects[quicktabs][type] = "module"

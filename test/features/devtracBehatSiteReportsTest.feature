@@ -170,5 +170,16 @@ Feature: Devtrac Behat Create Site Report Test
     And I press the "Save" button
     Then I should see "ERROR"
 
-
+  @api
+  Scenario: Remove/de-activate the demo user account
+    Given I am logged in with the "administrator" role
+    And I am on "/admin/people"
+    Then I should see "People"
+    And I should see "Update options"
+    When I check "user_demo"
+    And I select "Block the selected users" from "operation"
+    And i press the "Update" button
+    Then I should see "The update has been performed."
+    When I follow "Sign out"
+    Then I am on "/"
     

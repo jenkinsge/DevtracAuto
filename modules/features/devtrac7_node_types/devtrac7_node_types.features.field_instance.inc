@@ -3172,9 +3172,9 @@ function devtrac7_node_types_field_default_field_instances() {
       ),
       'full' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
+        'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_plain',
+        'type' => 'taxonomy_location_type_icon',
         'weight' => 4,
       ),
       'map_popup_view_mode' => array(
@@ -3185,9 +3185,9 @@ function devtrac7_node_types_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_location_type_icon',
         'weight' => 0,
       ),
     ),
@@ -4279,16 +4279,16 @@ The \'Search Address\' box will only help you to do an initial search on a rough
       ),
       'full' => array(
         'label' => 'hidden',
-        'module' => 'taxonomy',
+        'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_plain',
+        'type' => 'taxonomy_location_type_icon',
         'weight' => 2,
       ),
       'map_popup_view_mode' => array(
         'label' => 'hidden',
-        'module' => 'taxonomy',
+        'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_plain',
+        'type' => 'taxonomy_location_type_icon',
         'weight' => 1,
       ),
       'mobile' => array(
@@ -4299,9 +4299,9 @@ The \'Search Address\' box will only help you to do an initial search on a rough
       ),
       'teaser' => array(
         'label' => 'above',
-        'module' => 'taxonomy',
+        'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_location_type_icon',
         'weight' => 0,
       ),
     ),
