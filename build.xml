@@ -139,6 +139,13 @@
       <arg value="--account-pass=${account.pass}"/>
       <arg value="--account-mail=${account.mail}"/>
       <arg value="--sites-subdir=${sites.subdir}"/>
+      <arg value="--install_configure_form.site_default_country=UG"/>
+      <arg value="--install_configure_form.date_default_timezone=Africa/Kampala"/>
+      <arg value="--devtrac_install_statistics_select_form.module=none"/>
+      <arg value="--evtrac_solr_configure_form.host=localhost"/>
+      <arg value="--devtrac_solr_configure_form.port=8080"/>
+      <arg value="--devtrac_solr_configure_form.path=/solr"/>
+      <arg value="--devtrac_username_geonames_form.username=devtrac"/>
       <arg value="${drupal.profile}"/>
       <arg value="${drupal.args}"/>
     </exec>
