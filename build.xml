@@ -107,7 +107,7 @@
       <arg value="make"/>
       <arg value="--nocolor"/>
       <arg value="${basedir}/${drush.makefile}"/>
-      <arg value="/home/travis/build/TddDoctor/devtrac/build/"/>
+      <arg value="/home/travis/build/TddDoctor/devtrac/build/docroot"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
     <exec executable="${rsync}" taskname="rsync">
