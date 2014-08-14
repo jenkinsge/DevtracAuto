@@ -829,9 +829,9 @@ function devtrac_solr_configure_form() {
   $form['solr']['host'] = array(
     '#type' => 'textfield',
     '#title' => t('Host'),
-    '#default_value' => 'solro2.mountbatten.net',
+    '#default_value' => 'localhost',
     '#maxlength' => 64,
-    '#description' => t('Add hostname or IP address of ur solr server', array('@overview' => url('admin/structure/block'))),
+    '#description' => t('Add hostname or IP address of your solr server.'),
     '#required' => FALSE,
     '#weight' => -20,
   );
@@ -840,16 +840,16 @@ function devtrac_solr_configure_form() {
     '#title' => t('Port'),
     '#default_value' => '8080',
     '#maxlength' => 64,
-    '#description' => t('Port Number'),
+    '#description' => t('Port number where your solr server can be reached. 8080 is the default for a solr installation in Tomcat.'),
     '#required' => FALSE,
     '#weight' => -19,
   );
   $form['solr']['path'] = array(
     '#type' => 'textfield',
     '#title' => t('Path'),
-    '#default_value' => '/solr4/devtracd7',
+    '#default_value' => '/solr',
     '#maxlength' => 64,
-    '#description' => t('Path to your solr Instance', array('@overview' => url('admin/structure/block'))),
+    '#description' => t('Path to your solr instance.'),
     '#required' => FALSE,
     '#weight' => -18,
   );
