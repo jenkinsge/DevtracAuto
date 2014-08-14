@@ -115,13 +115,13 @@
       <arg value="--delete"/>
       <arg value="--exclude=sites/*/settings*.php"/>
       <arg value="--exclude=sites/*/files"/>
-      <arg value="/home/travis/build/TddDoctor/devtrac"/>
+      <arg value="/home/travis/build/TddDoctor/devtrac/docroot"/>
       <arg value="${docroot}"/>
     </exec>
   </target>
 
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
-    <exec executable="${drush}" dir="/home/travis/build/TddDoctor/devtrac/build" taskname="drush">
+    <exec executable="${drush}" dir="/home/travis/build/TddDoctor/devtrac/build/docroot" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="site-install"/>
       <arg value="-y"/>
