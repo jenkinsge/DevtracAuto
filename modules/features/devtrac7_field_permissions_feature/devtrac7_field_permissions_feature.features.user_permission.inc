@@ -25,6 +25,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'access administration pages',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
       'usaid editor' => 'usaid editor',
     ),
@@ -70,6 +71,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'access draggableviews',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'draggableviews',
@@ -100,6 +102,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'access site reports',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'system',
@@ -139,6 +142,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'administer devtrac',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'devtrac7',
@@ -187,6 +191,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'administer users',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'user',
@@ -719,6 +724,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create questionnaire_question',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'questionnaire_question',
@@ -994,6 +1000,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any questionnaire_question',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'questionnaire_question',
@@ -3053,6 +3060,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'view revisions',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'node',
@@ -3110,6 +3118,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
       'usaid editor' => 'usaid editor',
     ),

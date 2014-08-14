@@ -50,6 +50,7 @@ features[field_instance][] = user-user-taxonomy_vocabulary_8
 features[taxonomy][] = vocabulary_4
 features[taxonomy][] = vocabulary_5
 ;features[user_role][] = administrator
+features[user_role][] = devtrac admin
 features[user_role][] = editor
 features[user_role][] = field worker
 features[user_role][] = usaid editor
