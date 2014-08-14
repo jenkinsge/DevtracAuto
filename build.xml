@@ -123,6 +123,8 @@
   <target name="copying the solr config" depends="drush-make">
     <exec dir="${builddir}/docroot" executable="cp" >
      <arg line="profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/"/>
+    </exec>
+    
   </target>
   
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
