@@ -40,11 +40,12 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Your search did not return any results. Making your search less specific give you a higher chance of finding what you are looking for.';
   $handler->display->display_options['empty']['area']['format'] = '1';
-  /* Relationship: Broken/missing handler */
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['id'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['table'] = 'field_data_questionnaire_answer_question';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['field'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['required'] = TRUE;
+  /* Relationship: Answer: Question */
+  $handler->display->display_options['relationships']['question']['id'] = 'question';
+  $handler->display->display_options['relationships']['question']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['relationships']['question']['field'] = 'question';
+  $handler->display->display_options['relationships']['question']['label'] = 'Question';
+  $handler->display->display_options['relationships']['question']['required'] = TRUE;
   /* Field: Answer: Answer Text */
   $handler->display->display_options['fields']['answertext_2']['id'] = 'answertext_2';
   $handler->display->display_options['fields']['answertext_2']['table'] = 'questionnaire_answer';
@@ -70,23 +71,27 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['arguments']['question']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['question']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['question']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Broken/missing handler */
-  $handler->display->display_options['arguments']['context']['id'] = 'context';
-  $handler->display->display_options['arguments']['context']['table'] = 'questionnaire_answer';
-  $handler->display->display_options['arguments']['context']['field'] = 'context';
-  $handler->display->display_options['arguments']['context']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['context']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['context']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['context']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['context']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Answer: Context_id */
+  $handler->display->display_options['arguments']['context_id']['id'] = 'context_id';
+  $handler->display->display_options['arguments']['context_id']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['arguments']['context_id']['field'] = 'context_id';
+  $handler->display->display_options['arguments']['context_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['context_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['context_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['context_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['context_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: The type of question. (questionnaire_question_type) */
   $handler->display->display_options['filters']['questionnaire_question_type_value']['id'] = 'questionnaire_question_type_value';
   $handler->display->display_options['filters']['questionnaire_question_type_value']['table'] = 'field_data_questionnaire_question_type';
   $handler->display->display_options['filters']['questionnaire_question_type_value']['field'] = 'questionnaire_question_type_value';
-  $handler->display->display_options['filters']['questionnaire_question_type_value']['relationship'] = 'questionnaire_answer_question_target_id';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['relationship'] = 'question';
   $handler->display->display_options['filters']['questionnaire_question_type_value']['value'] = array(
     'number' => 'number',
   );
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['expose']['operator_id'] = 'questionnaire_question_type_value_op';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['expose']['label'] = 'The type of question. (questionnaire_question_type)';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['expose']['operator'] = 'questionnaire_question_type_value_op';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['expose']['identifier'] = 'questionnaire_question_type_value';
 
   /* Display: Answer Barchart by Context */
   $handler = $view->new_display('block', 'Answer Barchart by Context', 'block');
@@ -133,11 +138,6 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['fields']['answertext_1']['field'] = 'answertext';
   $handler->display->display_options['fields']['answertext_1']['label'] = '';
   $handler->display->display_options['fields']['answertext_1']['element_label_colon'] = FALSE;
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['questionnaire_answer_number']['id'] = 'questionnaire_answer_number';
-  $handler->display->display_options['fields']['questionnaire_answer_number']['table'] = 'field_data_questionnaire_answer_number';
-  $handler->display->display_options['fields']['questionnaire_answer_number']['field'] = 'questionnaire_answer_number';
-  $handler->display->display_options['fields']['questionnaire_answer_number']['label'] = 'Answer';
   $export['devtrac_answers_barcharts'] = $view;
 
   $view = new view();
@@ -189,11 +189,12 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['style_options']['background_colour'] = '';
   $handler->display->display_options['style_options']['series_colours'] = '';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Relationship: Broken/missing handler */
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['id'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['table'] = 'field_data_questionnaire_answer_question';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['field'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['required'] = TRUE;
+  /* Relationship: Answer: Question */
+  $handler->display->display_options['relationships']['question']['id'] = 'question';
+  $handler->display->display_options['relationships']['question']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['relationships']['question']['field'] = 'question';
+  $handler->display->display_options['relationships']['question']['label'] = 'Question';
+  $handler->display->display_options['relationships']['question']['required'] = TRUE;
   /* Field: COUNT(Answer (Count)) */
   $handler->display->display_options['fields']['answertext']['id'] = 'answertext';
   $handler->display->display_options['fields']['answertext']['table'] = 'questionnaire_answer';
@@ -217,15 +218,15 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['arguments']['question']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['question']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['question']['summary_options']['items_per_page'] = '25';
-  /* Contextual filter: Broken/missing handler */
-  $handler->display->display_options['arguments']['context']['id'] = 'context';
-  $handler->display->display_options['arguments']['context']['table'] = 'questionnaire_answer';
-  $handler->display->display_options['arguments']['context']['field'] = 'context';
-  $handler->display->display_options['arguments']['context']['default_action'] = 'not found';
-  $handler->display->display_options['arguments']['context']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['context']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['context']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['context']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Answer: Context_id */
+  $handler->display->display_options['arguments']['context_id']['id'] = 'context_id';
+  $handler->display->display_options['arguments']['context_id']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['arguments']['context_id']['field'] = 'context_id';
+  $handler->display->display_options['arguments']['context_id']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['context_id']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['context_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['context_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['context_id']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: The type of question. (questionnaire_question_type) */
   $handler->display->display_options['filters']['questionnaire_question_type_value']['id'] = 'questionnaire_question_type_value';
   $handler->display->display_options['filters']['questionnaire_question_type_value']['table'] = 'field_data_questionnaire_question_type';
@@ -252,7 +253,7 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['filters']['questionnaire_question_type_value']['id'] = 'questionnaire_question_type_value';
   $handler->display->display_options['filters']['questionnaire_question_type_value']['table'] = 'field_data_questionnaire_question_type';
   $handler->display->display_options['filters']['questionnaire_question_type_value']['field'] = 'questionnaire_question_type_value';
-  $handler->display->display_options['filters']['questionnaire_question_type_value']['relationship'] = 'questionnaire_answer_question_target_id';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['relationship'] = 'question';
   $handler->display->display_options['filters']['questionnaire_question_type_value']['value'] = array(
     'select' => 'select',
     'checkboxes' => 'checkboxes',
@@ -579,7 +580,6 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['text'] = '<h3>[name] </h3>';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
@@ -709,11 +709,12 @@ function devtrac7_questionnaire_feature_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Relationship: Broken/missing handler */
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['id'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['table'] = 'field_data_questionnaire_answer_question';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['field'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['relationships']['questionnaire_answer_question_target_id']['required'] = TRUE;
+  /* Relationship: Answer: Question */
+  $handler->display->display_options['relationships']['question']['id'] = 'question';
+  $handler->display->display_options['relationships']['question']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['relationships']['question']['field'] = 'question';
+  $handler->display->display_options['relationships']['question']['label'] = 'Question';
+  $handler->display->display_options['relationships']['question']['required'] = TRUE;
   /* Field: Answer: Answer ID */
   $handler->display->display_options['fields']['id']['id'] = 'id';
   $handler->display->display_options['fields']['id']['table'] = 'questionnaire_answer';
@@ -736,15 +737,6 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'custom';
   $handler->display->display_options['fields']['created']['custom_date_format'] = 'U';
-  /* Contextual filter: Content: Sub-Category (field_question_subject) */
-  $handler->display->display_options['arguments']['field_question_subject_tid']['id'] = 'field_question_subject_tid';
-  $handler->display->display_options['arguments']['field_question_subject_tid']['table'] = 'field_data_field_question_subject';
-  $handler->display->display_options['arguments']['field_question_subject_tid']['field'] = 'field_question_subject_tid';
-  $handler->display->display_options['arguments']['field_question_subject_tid']['relationship'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['arguments']['field_question_subject_tid']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['field_question_subject_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_question_subject_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_question_subject_tid']['summary_options']['items_per_page'] = '25';
   /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['context']['id'] = 'context';
   $handler->display->display_options['arguments']['context']['table'] = 'questionnaire_answer';
@@ -758,6 +750,24 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['arguments']['context']['validate_options']['types'] = array(
     'place' => 'place',
   );
+  /* Contextual filter: Answer: Context_id */
+  $handler->display->display_options['arguments']['context_id']['id'] = 'context_id';
+  $handler->display->display_options['arguments']['context_id']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['arguments']['context_id']['field'] = 'context_id';
+  $handler->display->display_options['arguments']['context_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['context_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['context_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['context_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['context_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Sub-Category (field_question_subject) */
+  $handler->display->display_options['arguments']['field_question_subject_tid']['id'] = 'field_question_subject_tid';
+  $handler->display->display_options['arguments']['field_question_subject_tid']['table'] = 'field_data_field_question_subject';
+  $handler->display->display_options['arguments']['field_question_subject_tid']['field'] = 'field_question_subject_tid';
+  $handler->display->display_options['arguments']['field_question_subject_tid']['relationship'] = 'question';
+  $handler->display->display_options['arguments']['field_question_subject_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_question_subject_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_question_subject_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_question_subject_tid']['summary_options']['items_per_page'] = '25';
   /* Filter criterion: Content: The type of question. (questionnaire_question_type) */
   $handler->display->display_options['filters']['questionnaire_question_type_value']['id'] = 'questionnaire_question_type_value';
   $handler->display->display_options['filters']['questionnaire_question_type_value']['table'] = 'field_data_questionnaire_question_type';
@@ -801,36 +811,8 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['fields']['view']['view'] = 'devtrac_answers_piecharts';
   $handler->display->display_options['fields']['view']['display'] = 'block';
   $handler->display->display_options['fields']['view']['arguments'] = '[!question]/[!context] ';
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = 'statistics/answers?f[0]=questionnaire_answer_question:[question]';
-  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
-  $handler->display->display_options['fields']['title_1']['table'] = 'node';
-  $handler->display->display_options['fields']['title_1']['field'] = 'title';
-  $handler->display->display_options['fields']['title_1']['relationship'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['fields']['title_1']['group_type'] = 'count_distinct';
-  $handler->display->display_options['fields']['title_1']['label'] = 'Question';
-  $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['title_1']['separator'] = '';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: The type of question. (questionnaire_question_type) */
-  $handler->display->display_options['filters']['questionnaire_question_type_value']['id'] = 'questionnaire_question_type_value';
-  $handler->display->display_options['filters']['questionnaire_question_type_value']['table'] = 'field_data_questionnaire_question_type';
-  $handler->display->display_options['filters']['questionnaire_question_type_value']['field'] = 'questionnaire_question_type_value';
-  $handler->display->display_options['filters']['questionnaire_question_type_value']['relationship'] = 'questionnaire_answer_question_target_id';
-  $handler->display->display_options['filters']['questionnaire_question_type_value']['value'] = array(
-    'select' => 'select',
-    'checkboxes' => 'checkboxes',
-  );
 
   /* Display: Siteviisit Answer Table Block (Select & Checkbox) */
   $handler = $view->new_display('block', 'Siteviisit Answer Table Block (Select & Checkbox)', 'block');
@@ -1256,28 +1238,32 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['fields']['answer']['id'] = 'answer';
   $handler->display->display_options['fields']['answer']['table'] = 'questionnaire_answer';
   $handler->display->display_options['fields']['answer']['field'] = 'answer';
-  /* Field: Broken/missing handler */
-  $handler->display->display_options['fields']['questionnaire_answer_qnnaire']['id'] = 'questionnaire_answer_qnnaire';
-  $handler->display->display_options['fields']['questionnaire_answer_qnnaire']['table'] = 'field_data_questionnaire_answer_qnnaire';
-  $handler->display->display_options['fields']['questionnaire_answer_qnnaire']['field'] = 'questionnaire_answer_qnnaire';
-  $handler->display->display_options['fields']['questionnaire_answer_qnnaire']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['answer']['label'] = 'Answer';
+  /* Field: Answer: Questionnaire */
+  $handler->display->display_options['fields']['questionnaire_id']['id'] = 'questionnaire_id';
+  $handler->display->display_options['fields']['questionnaire_id']['table'] = 'views_entity_questionnaire_answer';
+  $handler->display->display_options['fields']['questionnaire_id']['field'] = 'questionnaire_id';
+  $handler->display->display_options['fields']['questionnaire_id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['questionnaire_id']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['questionnaire_id']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['questionnaire_id']['bypass_access'] = 0;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Broken/missing handler */
-  $handler->display->display_options['arguments']['questionnaire_answer_qnnaire_target_id']['id'] = 'questionnaire_answer_qnnaire_target_id';
-  $handler->display->display_options['arguments']['questionnaire_answer_qnnaire_target_id']['table'] = 'field_data_questionnaire_answer_qnnaire';
-  $handler->display->display_options['arguments']['questionnaire_answer_qnnaire_target_id']['field'] = 'questionnaire_answer_qnnaire_target_id';
-  $handler->display->display_options['arguments']['questionnaire_answer_qnnaire_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['questionnaire_answer_qnnaire_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['questionnaire_answer_qnnaire_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['questionnaire_answer_qnnaire_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['questionnaire_answer_qnnaire_target_id']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Answer: Questionnaire */
+  $handler->display->display_options['arguments']['questionnaire_id']['id'] = 'questionnaire_id';
+  $handler->display->display_options['arguments']['questionnaire_id']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['arguments']['questionnaire_id']['field'] = 'questionnaire_id';
+  $handler->display->display_options['arguments']['questionnaire_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['questionnaire_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['questionnaire_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['questionnaire_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['questionnaire_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
   $handler->display->display_options['filters']['title']['field'] = 'title';
-  $handler->display->display_options['filters']['title']['relationship'] = 'questionnaire_answer_question_target_id';
+  $handler->display->display_options['filters']['title']['relationship'] = 'question';
   $handler->display->display_options['filters']['title']['operator'] = 'not empty';
   $export['devtrac_sitevisit_answers'] = $view;
 
