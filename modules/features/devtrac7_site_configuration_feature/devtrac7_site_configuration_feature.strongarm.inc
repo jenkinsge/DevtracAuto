@@ -22,10 +22,11 @@ function devtrac7_site_configuration_feature_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'autoassignrole_auto_roles';
   $strongarm->value = array(
-    4 => '4',
+    5 => '5',
     3 => 0,
-    5 => 0,
+    4 => 0,
     6 => 0,
+    7 => 0,
   );
   $export['autoassignrole_auto_roles'] = $strongarm;
 
