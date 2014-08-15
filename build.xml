@@ -181,7 +181,7 @@
       <arg value="${composer}"/>
       <arg value="--working-dir=${builddir}"/>
       <arg value="require"/>
-      <arg value="drupal/drupal-extension: "*""/>
+      <arg value="drupal/drupal-extension: * "/>
     </exec>
   </target>
 
