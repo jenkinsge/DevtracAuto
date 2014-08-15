@@ -414,6 +414,14 @@ function devtrac_install_tasks(&$install_state) {
   $tasks = array();
   $current_task = variable_get('install_task', 'done');
 
+  $tasks['devtrac_date_format_form'] = array(
+    'display_name' => st('Configure Date Format'),
+    'type' => 'form',
+  );
+  $tasks['devtrac_username_geonames_form'] = array(
+    'display_name' => st('Configure Geonames Data'),
+    'type' => 'form',
+  );
   $statistics_is_piwik = !empty($install_state['parameters']['stats']) && $install_state['parameters']['stats'] == 'piwik';
   $statistics_is_googleanalytics = !empty($install_state['parameters']['stats']) && $install_state['parameters']['stats'] == 'googleanalytics';
   $tasks['devtrac_install_statistics_select_form'] = array(
@@ -440,16 +448,9 @@ function devtrac_install_tasks(&$install_state) {
     'display' => FALSE,
     'type' => 'normal',
   );
-  $tasks['devtrac_date_format_form'] = array(
-    'display_name' => st('Configure Date Format'),
-    'type' => 'form',
-  );
-  $tasks['devtrac_username_geonames_form'] = array(
-    'display_name' => st('Configure Geonames Data'),
-    'type' => 'form',
-  );
   $tasks['devtrac_enable_custom_currentsearch'] = array(
     'display_name' => st('Enable Custom Current Search Blocks'),
+    'display' => FALSE,
     'type' => 'normal',
   );
   return $tasks;
