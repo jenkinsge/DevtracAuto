@@ -1900,28 +1900,30 @@ function devtrac7_getcontext($nid) {
 function devtrac7_questionnaire_getquestions($contexts) {
   $result = array();
   
-  foreach ($contexts['node'] as $place) {
-    if (isset($place->taxonomy_vocabulary_1['und'][0]['tid']) && (!is_null($place->taxonomy_vocabulary_1['und'][0]['tid']))) {
-      $placetype = $place->taxonomy_vocabulary_1['und'][0]['tid'];
-      $placetypes = taxonomy_get_parents_all($placetype);
-      foreach ($placetypes as $placetype) {
-        $query = db_select('node', 'n');
-        $query->join('field_data_taxonomy_vocabulary_1', 'p', 'n.nid = p.entity_id');
-        $query->join('draggableviews_structure', 'd', 'n.nid = d.entity_id');
-        $query->fields('n', array('nid'));
-        $query->fields('d', array('weight'));
-        $query->condition('p.taxonomy_vocabulary_1_tid', $placetype->tid)
-          ->condition('p.bundle', 'questionnaire_question')
-          ->condition('n.status', 1)
-          ->orderBy('d.weight', 'ASC');
-        $qresult = $query->execute();
-        foreach($qresult as $question) {
-            $result[$question->nid] = array(
-                    'node' => node_load($question->nid),
-                    'context_type' => 'node',
-                    'context_id' => $place->nid,
-                    'questionnaire_id' => $place->nid,
-                  );
+  if (isset($contexts['node'])) {
+    foreach ($contexts['node'] as $place) {
+      if (isset($place->taxonomy_vocabulary_1['und'][0]['tid']) && (!is_null($place->taxonomy_vocabulary_1['und'][0]['tid']))) {
+        $placetype = $place->taxonomy_vocabulary_1['und'][0]['tid'];
+        $placetypes = taxonomy_get_parents_all($placetype);
+        foreach ($placetypes as $placetype) {
+          $query = db_select('node', 'n');
+          $query->join('field_data_taxonomy_vocabulary_1', 'p', 'n.nid = p.entity_id');
+          $query->join('draggableviews_structure', 'd', 'n.nid = d.entity_id');
+          $query->fields('n', array('nid'));
+          $query->fields('d', array('weight'));
+          $query->condition('p.taxonomy_vocabulary_1_tid', $placetype->tid)
+            ->condition('p.bundle', 'questionnaire_question')
+            ->condition('n.status', 1)
+            ->orderBy('d.weight', 'ASC');
+          $qresult = $query->execute();
+          foreach($qresult as $question) {
+              $result[$question->nid] = array(
+                      'node' => node_load($question->nid),
+                      'context_type' => 'node',
+                      'context_id' => $place->nid,
+                      'questionnaire_id' => $place->nid,
+                    );
+          }
         }
       }
     }
