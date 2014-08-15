@@ -30,3 +30,8 @@ before_script:
   #- cp profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/
 script:
   - ant run-tests
+
+
+notifications:
+  irc:
+    - "chat.freenode.net#devtrac"
