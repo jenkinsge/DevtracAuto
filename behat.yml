@@ -5,15 +5,16 @@ default:
     Behat\MinkExtension\Extension:
       goutte: ~
       selenium2: ~
+      base_url: base_url: http://jenkinsge.mountbatten.net/devtracmanual
       default_session: goutte
       javascript_session: selenium2
     Drupal\DrupalExtension\Extension:
       blackbox: ~
       drush:
-        alias: 'seven'
-      api_driver: "drupal"
+        alias: self
+      api_driver: drupal
       drupal:
-        drupal_root: "/home/travis/build/TddDoctor/devtrac"
+        drupal_root: "/home/travis/build/TddDoctor/devtrac/build/docroot"
       text:
         log_out: "Sign out"
         log_in: "Log in"
