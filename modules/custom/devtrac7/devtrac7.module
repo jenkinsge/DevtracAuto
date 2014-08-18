@@ -1879,21 +1879,6 @@ function devtrac7_addplacetofieldtrip_access($fieldtripnid) {
             && node_access('update', $fieldtrip)); // Overlaps with the former conditions, but it won't hurt to check for it
 }
 
-
-/*
- *  implements hook_getcontext
- */
-function devtrac7_getcontext($nid) {
-  $sitevisit = node_load($nid);
-  if (isset($sitevisit->field_ftritem_place['und'][0]['target_id'])) {
-    $placenid = $sitevisit->field_ftritem_place['und'][0]['target_id'];
-    if (is_numeric($placenid)) {
-      return $placenid;
-    }
-  }
-  return FALSE;
-}
-
 /*
  *  Implements hook_questionnaire_getquestions().
  */
