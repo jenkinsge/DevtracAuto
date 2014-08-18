@@ -243,6 +243,7 @@ projects[openlayers][version] = "2.0-beta9"
 projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
 projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojson_anydisplay_4.patch"
+projects[openlayers][patch][] = "http://cgit.drupalcode.org/openlayers/patch/openlayers.make?id=66ca5d62bee0601902ca3dbda171d6a8fea8993d"
 
 projects[openlayers_geosearch][version] = "1.0-beta1"
 projects[openlayers_geosearch][type] = "module"
