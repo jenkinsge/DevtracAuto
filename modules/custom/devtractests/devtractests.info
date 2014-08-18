@@ -1,9 +1,0 @@
-name = devtrac
-description = This test module is intended to enable unit tests for devtrac org. install profile.
-files[] = devtrac_users.test
-files[] = devtrac_facets.test
-files[] = devtrac_actionitem.test
-files[] = devtrac_site_report.test
-files[] = 
-files[] = devtrac.module 
-core = 7.x

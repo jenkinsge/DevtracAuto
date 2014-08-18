@@ -395,13 +395,6 @@ function devtrac_install() {
  * Implements hook_install_tasks().
  */
 function devtrac_install_tasks(&$install_state) {
-  if (!variable_get('install_profile', FALSE) && $install_state['database_tables_exist']) {
-    $profile = drupal_get_profile();
-    if (isset($profile) && !empty($profile)) {
-      variable_set('install_profile', $profile);
-    }
-  }
-
   // Increase maximum function nesting level to prevent install errors.
   // $max_nesting_level = ini_get('xdebug.max_nesting_level');
   // if ($max_nesting_level > 0 && $max_nesting_level <= '200') {
@@ -414,6 +407,14 @@ function devtrac_install_tasks(&$install_state) {
   $tasks = array();
   $current_task = variable_get('install_task', 'done');
 
+  $tasks['devtrac_date_format_form'] = array(
+    'display_name' => st('Configure Date Format'),
+    'type' => 'form',
+  );
+  $tasks['devtrac_username_geonames_form'] = array(
+    'display_name' => st('Configure Geonames Data'),
+    'type' => 'form',
+  );
   $statistics_is_piwik = !empty($install_state['parameters']['stats']) && $install_state['parameters']['stats'] == 'piwik';
   $statistics_is_googleanalytics = !empty($install_state['parameters']['stats']) && $install_state['parameters']['stats'] == 'googleanalytics';
   $tasks['devtrac_install_statistics_select_form'] = array(
@@ -440,16 +441,9 @@ function devtrac_install_tasks(&$install_state) {
     'display' => FALSE,
     'type' => 'normal',
   );
-  $tasks['devtrac_date_format_form'] = array(
-    'display_name' => st('Configure Date Format'),
-    'type' => 'form',
-  );
-  $tasks['devtrac_username_geonames_form'] = array(
-    'display_name' => st('Configure Geonames Data'),
-    'type' => 'form',
-  );
   $tasks['devtrac_enable_custom_currentsearch'] = array(
     'display_name' => st('Enable Custom Current Search Blocks'),
+    'display' => FALSE,
     'type' => 'normal',
   );
   return $tasks;
@@ -459,6 +453,25 @@ function devtrac_install_tasks(&$install_state) {
  * Implements hook_install_tasks_alter().
  */
 function devtrac_install_tasks_alter(&$tasks, $install_state) {
+  $tasks['install_select_profile']['display'] = FALSE;
+  $tasks['install_select_locale']['display'] = FALSE;
+  $tasks['install_select_locale']['run'] = INSTALL_TASK_SKIP;
+
+  // The "Welcome" screen needs to come after the first two steps
+  // (profile and language selection), despite the fact that they are disabled.
+  // We will implement language choice when there is something to choose from
+  $new_task['devtrac_install_welcome'] = array(
+    'display' => TRUE,
+    'display_name' => st('Welcome'),
+    'type' => 'form',
+    'run' => isset($install_state['parameters']['welcome']) ? INSTALL_TASK_SKIP : INSTALL_TASK_RUN_IF_REACHED,
+  );
+  $old_tasks = $tasks;
+  $tasks = array_slice($old_tasks, 0, 2) + $new_task + array_slice($old_tasks, 2);
+
+  // Set the installation theme.
+  _devtrac_set_theme('devtrac7_theme');
+
   // The Solr congiguration screen needs to come after the database
   // setup, enabling the system module and after the full bootstrap.
   $solr_task['devtrac_solr_configure_form'] = array(
@@ -467,6 +480,78 @@ function devtrac_install_tasks_alter(&$tasks, $install_state) {
   );
   $old_tasks = $tasks;
   $tasks = array_slice($old_tasks, 0, 8) + $solr_task + array_slice($old_tasks, 8);
+}
+
+/**
+ * Force-set a theme at any point during the execution of the request.
+ *
+ * Drupal doesn't give us the option to set the theme during the installation
+ * process and forces enable the maintenance theme too early in the request
+ * for us to modify it in a clean way.
+ * 
+ * Copied from Commerce Kickstart
+ */
+function _devtrac_set_theme($target_theme) {
+  if ($GLOBALS['theme'] != $target_theme) {
+    unset($GLOBALS['theme']);
+
+    drupal_static_reset();
+    $GLOBALS['conf']['maintenance_theme'] = $target_theme;
+    _drupal_maintenance_theme();
+  }
+}
+
+/**
+ * Task callback: shows the welcome screen.
+ */
+function devtrac_install_welcome($form, &$form_state, &$install_state) {
+  drupal_set_title(st('Privacy Policy Summary'));
+  $message = '<p>' . st('Thank you for choosing Devtrac, a product offered by Mountbatten.') . '</p>';
+  $eula = '<p>' . st('While we have a rather long, boring Privacy Policy just like any other technology company, here is a short summary of some key items we feel are important:') . '</p>';
+  $items = array();
+  $dfp_link = l("Google's DoubleClick for Publishers (\"DFP\")", "http://www.google.com/dfp/info/sb/index.html", array('attributes' => array('target' => '_blank')));
+  $items[] = st("The Devtrac Installer collects some data about your progress and sends it to one of our own servers.");
+  $items[] = st('We use this to improve the use experience of Devtrac and make it even easier to install it.');
+  $items[] = st('The server where we post the data to is Mountbatten\'s and we do not share your data with any big corporation.');
+  $items[] = st('Devtrac and Mountbattten do not collect any personally identifiable information;');
+  $items[] = st('During your installation you can choose to use your own statistics platform for the use of Devtrac.');
+  $eula .= theme('item_list', array('items' => $items));
+  $eula_link = l('Privacy Policy and User Agreement', 'http://www.mountbatten.net/privacy/devtrac', array('attributes' => array('target' => '_blank')));
+  $eula .= '<p>' . st('That is it for the main points. The full !policy can be viewed on our website.  Thank you again for choosing Devtrac!', array('!policy' => $eula_link)) . '</p>';
+  $form = array();
+  $form['welcome_message'] = array(
+    '#markup' => $message,
+  );
+  $form['eula'] = array(
+    '#prefix' => '<div id="eula-installation-welcome">',
+    '#markup' => $eula,
+  );
+  $form['eula-accept'] = array(
+    '#title' => st('I agree to the Privacy Policy and User Agreement'),
+    '#type' => 'checkbox',
+    '#suffix' => '</div>',
+  );
+  $form['actions'] = array(
+    '#type' => 'actions',
+  );
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st("Install Devtrac"),
+    '#states' => array(
+      'disabled' => array(
+        ':input[name="eula-accept"]' => array('checked' => FALSE),
+      ),
+    ),
+    '#weight' => 10,
+  );
+  return $form;
+}
+
+function devtrac_install_welcome_submit($form, &$form_state) {
+  global $install_state;
+
+  $install_state['parameters']['welcome'] = 'done';
+  $install_state['parameters']['locale'] = 'en';
 }
 
 /**

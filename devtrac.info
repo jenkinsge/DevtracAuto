@@ -1,8 +1,10 @@
 name = Devtrac
 description = Installation profile for the Devtrac development tracker.
 version = VERSION
+distribution_name = Devtrac
 core = 7.x
 hidden = FALSE
+exclusive = 1
 
 ; Install profile
 dependencies[] = block
@@ -195,7 +197,7 @@ dependencies[] = questionnaire_question
 ; Devtrac modules
 dependencies[] = devtrac7
 dependencies[] = devtrac7_access
-dependencies[] = devtrac7_mymenu
+; dependencies[] = devtrac7_mymenu
 dependencies[] = devtrac_saved_search
 dependencies[] = devtrac7_current_search
 dependencies[] = devtrac7_fieldtrip_progress
