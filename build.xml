@@ -8,7 +8,6 @@
 
   <property file="build.properties"/>
 
-  <property name="account.mail"     value="test@example.com"/>
   <property name="account.name"     value="admin"/>
   <property name="account.pass"     value="admin"/>
   <property name="base.url"         value="http://localhost"/>
