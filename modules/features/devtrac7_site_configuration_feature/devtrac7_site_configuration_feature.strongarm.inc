@@ -134,56 +134,56 @@ function devtrac7_site_configuration_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_flag';
-  $strongarm->value = '128';
+  $strongarm->value = 'field_svg_data';
   $export['mapit_flag'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_geofield';
-  $strongarm->value = '64';
+  $strongarm->value = 'field_district_geo';
   $export['mapit_geofield'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_longname';
-  $strongarm->value = '127';
+  $strongarm->value = 'field_long_name';
   $export['mapit_longname'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_osm_id';
-  $strongarm->value = '122';
+  $strongarm->value = 'field_osm_id';
   $export['mapit_osm_id'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_osm_rel';
-  $strongarm->value = '123';
+  $strongarm->value = 'field_osm_relation_id';
   $export['mapit_osm_rel'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_osm_type';
-  $strongarm->value = '124';
+  $strongarm->value = 'field_osm_type';
   $export['mapit_osm_type'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_vocabulary';
-  $strongarm->value = '6';
+  $strongarm->value = 'iati_custom_admin_unit';
   $export['mapit_vocabulary'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_wikipedia';
-  $strongarm->value = '90';
+  $strongarm->value = 'field_wikipedia';
   $export['mapit_wikipedia'] = $strongarm;
 
   $strongarm = new stdClass();
