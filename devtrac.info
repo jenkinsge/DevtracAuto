@@ -4,6 +4,7 @@ version = VERSION
 distribution_name = Devtrac
 core = 7.x
 hidden = FALSE
+exclusive = 1
 
 ; Install profile
 dependencies[] = block
