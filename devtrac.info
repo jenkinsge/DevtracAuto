@@ -196,7 +196,7 @@ dependencies[] = questionnaire_question
 ; Devtrac modules
 dependencies[] = devtrac7
 dependencies[] = devtrac7_access
-dependencies[] = devtrac7_mymenu
+; dependencies[] = devtrac7_mymenu
 dependencies[] = devtrac_saved_search
 dependencies[] = devtrac7_current_search
 dependencies[] = devtrac7_fieldtrip_progress
