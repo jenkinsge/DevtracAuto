@@ -16,7 +16,7 @@ before_install:
 
 before_script:
   # Apache webserver configuration
-  - curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.5.0 bash
+  - curl -sSL https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.5.0 SOLR_PORT=8080 bash
   #- curl https://raw.githubusercontent.com/moliware/travis-solr/master/travis-solr.sh | SOLR_VERSION=3.5.0 bash
   - sudo find / -name "conf" -type d -print
   - sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-mysql php5-curl
