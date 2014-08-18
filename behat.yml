@@ -5,7 +5,7 @@ default:
     Behat\MinkExtension\Extension:
       goutte: ~
       selenium2: ~
-      base_url: base_url: http://localhost/build
+      base_url: base_url: http://localhost
       default_session: goutte
       javascript_session: selenium2
     Drupal\DrupalExtension\Extension:
