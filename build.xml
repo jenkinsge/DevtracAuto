@@ -131,13 +131,13 @@
       <arg value="site-install"/>
       <arg value="-y"/>
       <arg value="${drupal.profile}"/>
-      <arg value="--nocolor"/>
+      <arg value="--color"/>
       <arg value="--db-url=${db.url}"/>
       <arg value="--site-name=${site.name}"/>
       <arg value="--site-mail=${site.mail}"/>
       <arg value="--account-name=${account.name}"/>
       <arg value="--account-pass=${account.pass}"/>
-      <arg value="--account-mail=${account.mail}"/>
+      <arg value="--account-mail=ishmael@mountbatten.net"/>
       <arg value="--sites-subdir=${sites.subdir}"/>
       <arg value="--clean-url"/>
       <arg value="install_configure_form.site_default_country=UG"/>
