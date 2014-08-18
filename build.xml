@@ -131,7 +131,7 @@
       <arg value="site-install"/>
       <arg value="-y"/>
       <arg value="${drupal.profile}"/>
-      <arg value="--color"/>
+      <arg value="--nocolor"/>
       <arg value="--db-url=${db.url}"/>
       <arg value="--site-name=${site.name}"/>
       <arg value="--site-mail=${site.mail}"/>
@@ -144,7 +144,7 @@
       <arg value="install_configure_form.date_default_timezone=Africa/Kampala"/>
       <arg value="devtrac_install_statistics_select_form.module=none"/>
       <arg value="devtrac_solr_configure_form.host=localhost"/>
-      <arg value="devtrac_solr_configure_form.port=8080"/>
+      <arg value="devtrac_solr_configure_form.port=8983"/>
       <arg value="devtrac_solr_configure_form.path=/solr"/>
       <arg value="devtrac_username_geonames_form.username=devtrac"/>
       <arg value="${drupal.args}"/>
