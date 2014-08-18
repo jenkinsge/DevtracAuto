@@ -143,9 +143,9 @@
       <arg value="install_configure_form.site_default_country=UG"/>
       <arg value="install_configure_form.date_default_timezone=Africa/Kampala"/>
       <arg value="devtrac_install_statistics_select_form.module=none"/>
-      <arg value="devtrac_solr_configure_form.host=localhost"/>
+      <arg value="devtrac_solr_configure_form.host=127.0.0.1"/>
       <arg value="devtrac_solr_configure_form.port=8983"/>
-      <arg value="devtrac_solr_configure_form.path=/"/>
+      <arg value="devtrac_solr_configure_form.path="/>
       <arg value="devtrac_username_geonames_form.username=devtrac"/>
       <arg value="${drupal.args}"/>
     </exec>
