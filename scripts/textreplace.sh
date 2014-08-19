@@ -41,17 +41,17 @@
  grep -rl 'vocabulary-5' ../test | xargs sed -i 's/vocabulary-5/function/g'
  grep -rl 'vocabulary-5' ../themes | xargs sed -i 's/vocabulary-5/function/g'
 
- grep -rl 'vocabulary-6' ../modules | xargs sed -i 's/vocabulary-6/iati_custom_admin_unit/g'
- grep -rl 'vocabulary-6' ../test  | xargs sed -i 's/vocabulary-6/iati_custom_admin_unit/g'
- grep -rl 'vocabulary-6' ../themes  | xargs sed -i 's/vocabulary-6/iati_custom_admin_unit/g'
+ grep -rl 'vocabulary-6' ../modules | xargs sed -i 's/vocabulary-6/iati-custom-admin-unit/g'
+ grep -rl 'vocabulary-6' ../test  | xargs sed -i 's/vocabulary-6/iati-custom-admin-unit/g'
+ grep -rl 'vocabulary-6' ../themes  | xargs sed -i 's/vocabulary-6/iati-custom-admin-unit/g'
 
  grep -rl 'vocabulary-7' ../modules | xargs sed -i 's/vocabulary-7/site-report-type/g'
  grep -rl 'vocabulary-7' ../test  | xargs sed -i 's/vocabulary-7/site-report-type/g'
  grep -rl 'vocabulary-7' ../themes  | xargs sed -i 's/vocabulary-7/site-report-type/g'
 
- grep -rl 'vocabulary-8' ../modules | xargs sed -i 's/vocabulary-8/iati_activity_sector/g'
- grep -rl 'vocabulary-8' ../test  | xargs sed -i 's/vocabulary-8/iati_activity_sector/g'
- grep -rl 'vocabulary-8' ../themes  | xargs sed -i 's/vocabulary-8/iati_activity_sector/g'
+ grep -rl 'vocabulary-8' ../modules | xargs sed -i 's/vocabulary-8/iati-activity-sector/g'
+ grep -rl 'vocabulary-8' ../test  | xargs sed -i 's/vocabulary-8/iati-activity-sector/g'
+ grep -rl 'vocabulary-8' ../themes  | xargs sed -i 's/vocabulary-8/iati-activity-sector/g'
 
  grep -rl 'vocabulary-9' ../modules | xargs sed -i 's/vocabulary-9/purpose/g'
  grep -rl 'vocabulary-9' ../test  | xargs sed -i 's/vocabulary-9/purpose/g'
