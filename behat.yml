@@ -16,10 +16,10 @@ default:
       drupal:
         drupal_root: "/home/travis/build/TddDoctor/devtrac/build/docroot"
       text:
-        username_field: "Username"
-        password_field: "pass"
-        log_out: "Sign out"
-        log_in: "Log in"
+        username_field: Username
+        password_field: Pass
+        log_out: Sign out
+        log_in: Log in
       region_map:
         fieldtrip_quicktabs: "#block-quicktabs-fieldtrip-content-first"
         content: "#region-content"
