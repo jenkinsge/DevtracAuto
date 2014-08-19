@@ -35,8 +35,10 @@ before_script:
 script:
   - ant run-tests
   - TEST_EXIT=${PIPESTATUS[0]}
-  - TRAVIS_TEST_RESULT=$(! egrep -i "([0-9]+ fails)|(PHP Fatal error)|([0-9]+ exceptions)" /home/travis/build/TddDoctor/devtrac-distro/test/solrtest/testsuite-1.xml> /dev/null)$?
+  - TRAVIS_TEST_RESULT=$(! egrep -i "([0-9]+ fails)|(PHP Fatal error)|([0-9]+ exceptions)")$?
   - if [ $TEST_EXIT -eq 0 ]; then exit 0; else exit 1; fi
+after_script:
+  - echo TRAVIS_TEST_RESULT
 
 notifications:
   irc:
