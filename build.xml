@@ -118,13 +118,13 @@
       <arg value="${docroot}"/>
     </exec>
   </target>
-  
+  <!--
   <target name="cp" depends="drush-make">
     <exec dir="${builddir}/docroot" executable="cp" >
      <arg line="profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/"/>
     </exec>
  </target>
-  
+  -->
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
     <exec executable="${drush}" dir="${builddir}/docroot" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
@@ -191,11 +191,11 @@
     </exec>
     <antcall target="selenium-stop" />
   </target>
-<!--
+
   <target name="selenium-check" depends="prepare">
     <available file="${selenium}" property="selenium.present"/>
   </target>
--->
+
   <target name="selenium-download" unless="selenium.present">
     <get src="http://selenium.googlecode.com/files/selenium-server-standalone-${selenium.version}.jar" dest="${selenium}"/>
   </target>
