@@ -34,7 +34,9 @@ before_script:
   #- cp profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/
 script:
   - ant run-tests
-
+  - TEST_EXIT=${PIPESTATUS[0]}
+  - TRAVIS_TEST_RESULT=$(! egrep -i "([0-9]+ fails)|(PHP Fatal error)|([0-9]+ exceptions)" /home/travis/build/TddDoctor/devtrac-distro/test/solrtest/testsuite-1.xml> /dev/null)$?
+  - if [ $TEST_EXIT -eq 0 ]; then exit 0; else exit 1; fi
 
 notifications:
   irc:
