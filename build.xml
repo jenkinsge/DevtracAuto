@@ -22,7 +22,7 @@
   <property name="selenium.version" value="2.37.0"/>
   <property name="selenium.port"    value="4444"/>
   <property name="site.mail"        value="test@example.com"/>
-  <property name="site.name"        value="devtracx"/>
+  <property name="site.name"        value="devtrac"/>
   <property name="sites.subdir"     value="default"/>
 
   <target name="build" depends="install" description="Run drush make and drush site-install"/>
@@ -106,7 +106,7 @@
       <arg value="make"/>
       <arg value="--nocolor"/>
       <arg value="${basedir}/${drush.makefile}"/>
-      <arg value="/home/travis/build/TddDoctor/devtrac/build/docroot"/>
+      <arg value="${builddir}/docroot"/>
     </exec>
     <!-- Rsync the build into ./docroot -->
     <exec executable="${rsync}" taskname="rsync">
@@ -114,17 +114,10 @@
       <arg value="--delete"/>
       <arg value="--exclude=sites/*/settings*.php"/>
       <arg value="--exclude=sites/*/files"/>
-      <arg value="/home/travis/build/TddDoctor/devtrac/build/docroot"/>
+      <arg value="${builddir}/docroot/"/>
       <arg value="${docroot}"/>
     </exec>
   </target>
-  <!--
-  <target name="cp" depends="drush-make">
-    <exec dir="${builddir}/docroot" executable="cp" >
-     <arg line="profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/"/>
-    </exec>
- </target>
-  -->
   <target name="install" depends="drush-make" unless="drush.noinstall" description="Run drush site-install">
     <exec executable="${drush}" dir="${builddir}/docroot" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
@@ -135,18 +128,11 @@
       <arg value="--db-url=${db.url}"/>
       <arg value="--site-name=${site.name}"/>
       <arg value="--site-mail=${site.mail}"/>
-      <arg value="--account-name=${account.name}"/>
       <arg value="--account-pass=${account.pass}"/>
-      <arg value="--account-mail=ishmael@mountbatten.net"/>
+      <arg value="--account-mail=${account.mail}"/>
+      <arg value="--account-name=${account.name}"/>
       <arg value="--sites-subdir=${sites.subdir}"/>
-      <arg value="--clean-url"/>
-      <arg value="install_configure_form.site_default_country=UG"/>
-      <arg value="install_configure_form.date_default_timezone=Africa/Kampala"/>
-      <arg value="devtrac_install_statistics_select_form.module=none"/>
-      <arg value="devtrac_solr_configure_form.host=127.0.0.1"/>
-      <arg value="devtrac_solr_configure_form.port=8080"/>
-      <arg value="devtrac_solr_configure_form.path=/solr"/>
-      <arg value="devtrac_username_geonames_form.username=devtrac"/>
+      <arg value="${drupal.profile}"/>
       <arg value="${drupal.args}"/>
     </exec>
   </target>
