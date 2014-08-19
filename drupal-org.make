@@ -39,6 +39,10 @@ projects[charts_graphs_flot][version] = "1.x-dev"
 projects[charts_graphs_flot][type] = "module"
 projects[charts_graphs_flot][subdir] = "contrib"
 
+projects[ckan_packages][version] = "1.x-dev"
+projects[ckan_packages][type] = "module"
+projects[ckan_packages][subdir] = "contrib"
+
 projects[collapsiblock][version] = "1.0"
 projects[collapsiblock][type] = "module"
 projects[collapsiblock][subdir] = "contrib"
