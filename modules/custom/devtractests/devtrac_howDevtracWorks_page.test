@@ -83,7 +83,6 @@ class CustomTestCase extends DrupalWebTestCase {
     $this->assertLink('Mountbatten Ltd', 0, t('Mountbatten Ltd link label is showing'));
      
   }
-
   /**
    * Checking the availability of name field on the contact page.
    * 
@@ -95,7 +94,6 @@ class CustomTestCase extends DrupalWebTestCase {
     $this->assertText(t('Your name'), 'Field lable is showing', 'DevTrac');
     $this->assertText(t('Contact'), 'Contact label is showing ', 'DevTrac'); 
   }
-  
   /**
    * testing the availability of subject field on the contact page
    * 
@@ -106,7 +104,6 @@ class CustomTestCase extends DrupalWebTestCase {
     $this->assertText(t('Subject '), t('Field lable is showing'), 'DevTrac');
     $this->assertText(t('Contact'), t('Contact label is showing '), 'DevTrac');
   }
-
   /**
    * checking the e-mail field on the contact devtrac page
    * 
@@ -118,7 +115,6 @@ class CustomTestCase extends DrupalWebTestCase {
     $this->assertText(t('Your e-mail address'), t('Field lable is showing'), 'DevTrac');
     $this->assertText(t('Contact'), t('Contact label is showing '), 'DevTrac');     
   }
-  
   /**
    * Checking the availability of message field on the contact devtrac page
    * 
@@ -130,9 +126,8 @@ class CustomTestCase extends DrupalWebTestCase {
     $this->assertText(t('Message '), t('Field lable is showing'), 'DevTrac');
     $this->assertText(t('Contact'), t('Contact label is showing '), 'DevTrac'); 
   }
-  
   /**
-   * testing the availability of About devtrac page
+   * Testing the availability of About devtrac page
    * 
    * 
    */
@@ -141,10 +136,9 @@ class CustomTestCase extends DrupalWebTestCase {
     $this->assertText(t('About Devtrac'), t('About us page is found'), 'DevTrac');
     //$this->assertTitle(t(''), t(''), 'DevTrac7');
     $this->assertLink(t('DevTrac Help Pages'), 0 ,t('Link to FAQS'));
-  }
-      
+  }  
   /**
-   * confirming the availability of 'devtrac Help Page'
+   * Confirming the availability of 'devtrac Help Page'
    * 
    * 
    */
@@ -158,6 +152,7 @@ class CustomTestCase extends DrupalWebTestCase {
 
 
 class AnonymousUserContactdevtrac extends DrupalWebTestCase {
+	protected $profile = 'devtrac';
   public static function getInfo() {
     return array(
       'name' => 'Devtrac7 how it works',
@@ -171,8 +166,6 @@ class AnonymousUserContactdevtrac extends DrupalWebTestCase {
    *
    * 1. Create a new User with all permissions of role "Unicef" (rid = 5).
    * 2. Log the user into the system.
-   */
-  /**
    * Log in a user with the internal browser.
    *
    * If a user is already logged in, then the current user is logged out before
@@ -220,67 +213,51 @@ class AnonymousUserContactdevtrac extends DrupalWebTestCase {
   }
   
   public function setUp() {
-  	parent::setUp('devtrac7test');
+  	parent::setUp('devtractests');
   	
   }
-  
  /**
-  * anonymous user sends a empty message to the devtrac team //after reading through FAQS
+  * This test scenario is intended to comfirm the removal of help pages.
   * 
   */
   public function testAnonymousUserContactsDevtractest() {
     $this->drupalGet('content/devtrac-help-pages');
-    $this->clickLink('Contact Us', 0, 'contact us link clicked');
-    $contac1['name'] = '';
-    $contac1['subject'] = '';
-    $contac1['mail'] = '';
-    $contac1['message'] = '';
-    $this->drupalPost('contact', $contac1, 'Send message');
-    $this->assertText('Your e-mail address field is required', 'Your e-mail address field is required', 'DevTrac');    
-    //$this->assertLink(t('Contact Us'), 0 ,t('Link to site reports found'));
-    $this->assertText('Your name field is required.', 'Your name field is required.'); 
-    $this->assertNoText('Your message has been sent.', 'Message is successifuly sent', 'DevTrac');  
-    $this->assertText('Message field is required', 'Message field is required', 'Devtrac');
+    $this->assertResponse('404', 'Page not found was removed to devtrac.org');
+    $this->assertNoText('Your e-mail address field is required', 'message was not found', 'DevTrac');    
+    $this->assertNoLink(t('Contact Us'), 0 ,t('Link to site reports not found'));
+    $this->assertNoText('Your name field is required.', 'message is removed'); 
+    $this->assertNoText('Your message has been sent.', 'Message is not found here', 'DevTrac');  
+    $this->assertNoText('Message field is required', 'Message removed', 'Devtrac');
     }
     
   /**
-   * Ensures that all links are available and accessible.
-   * 
-   * 
+   * Ensures that all links are not available and accessible.
    */
   public function testAboutDevtracAccesstest() {
     $this->drupalGet('node/47');
-    $this->assertText('DevTrac is a Ugandan initiative led by a consortium of government and donor agencies: including the GEO-IS Working group,', 'Anonymous user reads about devtrac project profile', 'DevTrac'); 
-    $this->assertLink('Contact Us', 0 ,'Link to site reports found');
-    $this->assertLink('FAQs', 0 ,'Link to FAQs found'); 
-    $this->assertLink('sblaschke@unicef.org', 0 ,'Link to email sblaschke@unicef.org is found');
-    $this->assertTitle('About Devtrac | DevTrac', 'About devtrac page title is found', 'Devtrac');
+    $this->assertResponse('404', 'Page not found was removed');
+    $this->assertNoText('DevTrac is a Ugandan initiative led by a consortium of government and donor agencies: including the GEO-IS Working group,', 'Message removed ', 'DevTrac'); 
+    $this->assertNoLink('Contact Us', 0 ,'Link to site reports not found');
+    $this->assertNoLink('FAQs', 0 ,'Link to FAQs found'); 
+    $this->assertNoLink('sblaschke@unicef.org', 0 ,'Link to email sblaschke@unicef.org is not found');
+    $this->assertNoTitle('About Devtrac | DevTrac', 'About devtrac page title is not found', 'Devtrac');
   }
- 
   /**
-   * Anonymous user sends a message to devtrac team
-   * 
+   * Anonymous user should not sends a message to,
+   * devtrac team from here. 
    */
   public function testAnonymousUserContactsDevtrac() {
  	  $this->drupalGet('content/devtrac-help-pages');
- 	  $this->clickLink('Contact Us', 0, 'contact us link clicked');
- 	  $name = 'mayambala';
- 	  $subject = 'how to join devtrac7';
- 	  $email = 'osmanbuyondo@yahoo.com';
- 	  $mess = 'i have tried devtrac7 and of late have picked some interest, how can i be part of it?';
- 	  $contac['name'] = $name;
- 	  $contac['subject'] = $subject;
- 	  $contac['mail'] = $email;
- 	  $contac['message'] = $mess;
+ 	  $this->assertResponse('404', 'Page not found was removed');
+ 	  $this->assertNoLink('Contact Us', 0 ,'Link to site reports not found');
+ 	  $this->assertNoField('subject', 'No field found all were removed');
+ 	  $this->assertNoField('mail', 'No field found all were removed');
+ 	  $this->assertNoField('message', 'No field found all were removed');
+ 	  $this->assertNoField('name', 'No field found all were removed');
+ 	  $this->assertNoField('name', 'No field found all were removed');
  	  $this->assertNoText('DevTrac is a Ugandan initiative', 'About us page is found', 'DevTrac7');
- 	  $this->assertLink('Home', 0 ,'Link to Home devtrac7 page');
- 	  $this->drupalPost('contact', $contac, 'Send message');
-   	$this->assertText('Your message has been sent.', 'Message is successifuly sent', 'DevTrac');
+ 	  $this->assertLink('Send message', 0 ,'Link to Home devtrac7 page');
+   	$this->assertNoText('Your message has been sent.', 'Message is successifuly sent', 'DevTrac');
   }
 }
  
- 
- 
- 
- 
-
