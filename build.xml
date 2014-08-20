@@ -105,7 +105,7 @@
     <exec executable="${drush}" taskname="drush">
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="make"/>
-      <!--<arg value="--nocolor"/>-->
+     
       <arg value="${basedir}/${drush.makefile}"/>
       <arg value="${builddir}/docroot"/>
     </exec>
@@ -125,7 +125,7 @@
       <arg value="site-install"/>
       <arg value="-y"/>
       <arg value="${drupal.profile}"/>
-      <!--<arg value="--nocolor"/>-->
+      
       <arg value="--db-url=${db.url}"/>
       <arg value="--site-name=${site.name}"/>
       <arg value="--site-mail=${site.mail}"/>
@@ -143,7 +143,7 @@
       <env key="DRUSH_PHP" value="${php}"/>
       <arg value="sql-drop"/>
       <arg value="-y"/>
-      <!--<arg value="--nocolor"/>-->
+      
       <arg value="--db-url=${db.url}"/>
     </exec>
   </target>
