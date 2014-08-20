@@ -151,6 +151,7 @@ dependencies[] = hurricane
 dependencies[] = hurricane_integration
 dependencies[] = hurricane_raphael
 dependencies[] = collapsiblock
+dependencies[] = image_url_formatter
 dependencies[] = jquery_update
 dependencies[] = uuid
 dependencies[] = views
