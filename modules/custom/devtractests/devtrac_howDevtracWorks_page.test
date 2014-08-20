@@ -7,8 +7,8 @@
 class CustomTestCase extends DrupalWebTestCase {
   public static function getInfo() {
     return array(
-      'name' => 'About devtrac7 test',
-      'description' => t('Anonymous users reads about devtrac.'),
+      'name' => 'About Devtrac test',
+      'description' => t('Anonymous users read about devtrac.'),
       'group' => 'Devtrac',
     );
   }
@@ -66,9 +66,8 @@ class CustomTestCase extends DrupalWebTestCase {
 }
 
   public function setUp() {
-    parent::setUp('devtrac7test');
+    parent::setUp('devtractests');
   }
-
   /**
    * project partners and licence version of devtrac links are available and active
    * 
