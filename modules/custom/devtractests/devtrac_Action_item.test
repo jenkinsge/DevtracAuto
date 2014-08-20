@@ -7,7 +7,7 @@
 **/
 
 class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
-  protected $unicef_user;
+  protected $field_worker;
   public static function getInfo() {
     return array(
       'name' => 'Devtrac fieldtrip creation completion',
@@ -71,11 +71,11 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    
   public function setUp() {
     parent::setUp();
-    $this->unicef_user = $this->drupalCreateUser(array('administer users', 'administer permissions', 'access user profiles', 'administer site configuration', 'administer modules', 'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
-    $this->drupalLogin($this->unicef_user);
+    $this->field_worker = $this->drupalCreateUser(array('administer users', 'administer permissions', 'access user profiles', 'administer site configuration', 'administer modules', 'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
+    $this->drupalLogin($this->field_worker);
     $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
     //
-    $this->drupalPost('user/' . $this->unicef_user->uid . '/edit', array("roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'), t('Save'));
+    $this->drupalPost('user/' . $this->field_worker->uid . '/edit', array("roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'), t('Save'));
     }
     
  /**
@@ -85,7 +85,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
   * 
   */
   public function testFieldtripCreateFieldtripActionItems() {   
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     $this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac'); 
      //
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
@@ -99,7 +99,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
     $actionsub['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $actionsub['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $actionsub['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $this->drupalPost('node/add/fieldtrip', $actionsub, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => ''))); 
+    $this->drupalPost('node/add/fieldtrip', $actionsub, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => ''))); 
     //
     $this->assertText(t('TA Number cannot be longer than 24 characters but is currently 32 characters long.'), t('TA number field exceeds the allowable values'), 'Devtrac');     
   } 
@@ -110,7 +110,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    * 
    */  
   public function testFieldtripCreateFieldtriPercentageNegativetest() {    
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     $this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac'); 
      //
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
@@ -124,7 +124,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
     $actionper['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = -100;
     $actionper['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $actionper['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $this->drupalPost('node/add/fieldtrip', $actionper, t('Save'),array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => ''))); 
+    $this->drupalPost('node/add/fieldtrip', $actionper, t('Save'),array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => ''))); 
     $this->assertText(t('Percentage: the value may be no less than 0.'), t('Percentage is less than the allowable value'), 'Devtrac'); 
     //  
   } 
@@ -133,7 +133,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    * now the user enters more than 100%(over 100 percentage)
    */
   public function testFieldtripCreateFieldtriPercentageOvertest() {    
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     $this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac'); 
      //
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
@@ -148,7 +148,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
     $actionper1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 101;
     $actionper1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $actionper1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $this->drupalPost(NULL, $actionper1, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => ''))); 
+    $this->drupalPost(NULL, $actionper1, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => ''))); 
     $this->assertText(t('Percentage: the value may be no greater than 100.'), t('Percentage exceeds the allowable value'), 'Devtrac'); 
   } 
   
@@ -157,7 +157,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    * 
    */
   public function testAddlocationOnfieldTripCompletiontest() {
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     $this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac'); 
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
     // populating the fieldtrip create form
@@ -170,7 +170,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
     $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAdd['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAdd['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $this->drupalPost(NULL, $fieldAdd, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => ''))); 
+    $this->drupalPost(NULL, $fieldAdd, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => ''))); 
     //
     $this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
     //
@@ -192,7 +192,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    * 
    */
   public function testAddLocationFormFieldstest() {
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     $this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac'); 
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
     // populating the fieldtrip create form
@@ -205,7 +205,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
     $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocation['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocation['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $this->drupalPost(NULL, $fieldAddLocation, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => ''))); 
+    $this->drupalPost(NULL, $fieldAddLocation, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => ''))); 
     //
     $this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
     //
@@ -246,7 +246,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    * 
    */   
   public function testSubmittingAlocationForm1test() {
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     $this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
     // populating the fieldtrip create form
@@ -260,7 +260,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
     $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocationsChange['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocationsChange['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $this->drupalPost(NULL, $fieldAddLocationsChange, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalPost(NULL, $fieldAddLocationsChange, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     //
     $this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
     //
@@ -287,7 +287,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    * 
    */
   public function testSubmittingAlocationFormtest() {
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     
     $this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
     
@@ -302,7 +302,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
     $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocationsChange['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocationsChange['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $this->drupalPost(NULL, $fieldAddLocationsChange, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalPost(NULL, $fieldAddLocationsChange, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     //
     $this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
     //
@@ -325,7 +325,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    * 
    */
   public function testSubmittingAlocationFormSecondTimetest() {
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     $this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
     // populating the fieldtrip create form
     //$fieldAddLocationsChangex['taxonomy_vocabulary_6[und][]'] = 81;
@@ -337,7 +337,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
     $fieldAddLocationsChangex['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocationsChangex['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocationsChangex['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $this->drupalPost(NULL, $fieldAddLocationsChangex, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalPost(NULL, $fieldAddLocationsChangex, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
     	//
     $this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
     	//
@@ -362,7 +362,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    * 
    */
   public function testSubmittingAlocationFormOptiondistricttest() {
-   	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+   	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
    	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
    	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
    	// populating the fieldtrip create form
@@ -375,7 +375,7 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
    	$fieldAddLocationsChangedistrict['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
    	$fieldAddLocationsChangedistrict['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
    	$fieldAddLocationsChangedistrict['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-   	$this->drupalPost(NULL, $fieldAddLocationsChangedistrict, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+   	$this->drupalPost(NULL, $fieldAddLocationsChangedistrict, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
    	//
    	$this->assertText(t('has been created.'), ('field trip is created successfully'), 'Devtrac');
    	//
@@ -414,7 +414,8 @@ class FieltripActionItemsSubmissionsTestCase extends DrupalWebTestCase {
 
 
 class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTestCase {
-  protected $unicef_user;
+	protected $profile = 'devtrac';
+  protected $field_worker;
   public static function getInfo() {
     return array(
       'name' => 'Devtrac User creates Site report ',
@@ -472,11 +473,11 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
 
 	public function setUp() {
 		parent::setUp();
-		$this->unicef_user = $this->drupalCreateUser(array('administer users', 'administer permissions', 'access user profiles', 'administer site configuration', 'administer modules', 'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
-    $this->drupalLogin($this->unicef_user);
+		$this->field_worker = $this->drupalCreateUser(array('administer users', 'administer permissions', 'access user profiles', 'administer site configuration', 'administer modules', 'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
+    $this->drupalLogin($this->field_worker);
     $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
     //
-    $this->drupalPost('user/' . $this->unicef_user->uid . '/edit', array("roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'), t('Save'));
+    $this->drupalPost('user/' . $this->field_worker->uid . '/edit', array("roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'), t('Save'));
 	}
 	
   /**
@@ -485,7 +486,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
    * 
    */
   public function testReportItemFormtest() {
-	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
 	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
 	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
 	// populating the fieldtrip create form
@@ -498,7 +499,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
 	$fieldAddreportItem['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
 	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
 	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
 	//
 	$this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
 	//
@@ -521,7 +522,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
    *
    */
   public function testReportItemFormAccessortest() {
-  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
   	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
   	// populating the fieldtrip create form
@@ -534,7 +535,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$fieldAddreportItem['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
   	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
   	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-  	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	//
   	$this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
   
@@ -575,7 +576,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
    * 
    */
   public function testReportItemFormAccessorFormtest() {
-  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
   	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
   	// populating the fieldtrip create form
@@ -588,7 +589,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$fieldAddLocationSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
   	$fieldAddLocationSubmit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
   	$fieldAddLocationSubmit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-  	$this->drupalPost(NULL, $fieldAddLocationSubmit, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalPost(NULL, $fieldAddLocationSubmit, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	//
   	$this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
   	//
@@ -624,7 +625,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
    * 
    */
   public function testReportItemFullFormSubmittest() {
-  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
   	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
   	// populating the fieldtrip create form
@@ -637,7 +638,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
   	$fullReportSubmit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
   	$fullReportSubmit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-  	$this->drupalPost(NULL, $fullReportSubmit, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalPost(NULL, $fullReportSubmit, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	//
   	$this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
   	//
@@ -675,7 +676,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
    * 
    */
   public function testReportItemFullFormSubmitActionItemstest() {
-  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
   	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
   	// populating the fieldtrip create form
@@ -688,7 +689,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$fieldAddreportItem['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
   	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
   	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-  	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	//
   	$this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
   	//
@@ -749,7 +750,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
    * 
    */
   public function testAddFieldActionitemtest() {
-  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
   	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
   	// populating the fieldtrip create form
@@ -762,7 +763,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$fieldAddreportItem1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
   	$fieldAddreportItem1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
   	$fieldAddreportItem1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-  	$this->drupalPost(NULL, $fieldAddreportItem1, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalPost(NULL, $fieldAddreportItem1, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	//
   	$this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
   	//
@@ -824,16 +825,16 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
    * 
    */
   public function testEditActionItemNarrative() {
-  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
   	$this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
   	//
-  	//$this->drupalPost('user/' . $this->unicef_user->uid . '/edit', array("roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan'), t('Save'));
+  	//$this->drupalPost('user/' . $this->field_worker->uid . '/edit', array("roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan'), t('Save'));
  
   }    
   	
   public function testReportItemFullFormSubmitxstest() {
-    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+    $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
   	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
   	// populating the fieldtrip create form
@@ -846,7 +847,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$fieldAddreportItem['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
   	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
   	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-  	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   		//
   	$this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
   		//
@@ -882,7 +883,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	//$locationAddFull['field_place_responsible_person[und][0][value]'] = 'jan';
   	$locationAddFull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
   	 //TO BE CONTINUED 
-  	$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+  	$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->field_worker->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
   	$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
   	$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
   	$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -896,7 +897,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$ActionItemForm['field_actionitem_followuptask[und][0][value]'] = $this->randomName(23);
   	$ActionItemForm['field_actionitem_severity[und]'] = 2;
   	//$ActionItemForm['field_actionitem_responsible[und][0][target_id]'] = $this-> 1;
-  	$this->drupalPost('node/add/actionitem', $ActionItemForm, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 82, 'destination'=> 'node/'.$nodeAddreportItem->nid)));
+  	$this->drupalPost('node/add/actionitem', $ActionItemForm, t('Save'), array('query' => array('field_actionitem_responsible' => $this->field_worker->uid, 'edit[taxonomy_vocabulary_6][und]' => 82, 'destination'=> 'node/'.$nodeAddreportItem->nid)));
   	//now access the
   	$this->drupalGet('node/'.$nodeAddreportItem->nid.'/edit', array('query' => array('destination' => 'node/9620/edit-field-ftritem-narrative')));
   	$ditnarrative['title'] = 'YES ITS DONE';
@@ -916,7 +917,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
    * 
    */
   public function testCreationactionItemAccess() {
-  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	$this->assertText(t('TA Number'), t('TA number field is found'), 'Devtrac');
   	$percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
   	// populating the fieldtrip create form
@@ -929,7 +930,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$fieldAddreportItem['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
   	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
   	$fieldAddreportItem['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-  	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->unicef_user->uid, 'field_fieldtrip_places' => '')));
+  	$this->drupalPost(NULL, $fieldAddreportItem, t('Save'), array('query' => array('field_fieldtrip_user' => $this->field_worker->uid, 'field_fieldtrip_places' => '')));
   	//
   	$this->assertText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
   	//
@@ -966,7 +967,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$locationAddFull['taxonomy_vocabulary_6[und]'] =  $formsubmitreport['district'];
   	$locationAddFull['taxonomy_vocabulary_8[und][]'] = array(326);
   	$locationAddFull['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
-  	$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
+  	$this->drupalPost(NULL, $locationAddFull, t('Save'), array('query' => array('field_actionitem_responsible' => $this->field_worker->uid, 'edit[taxonomy_vocabulary_6][und]' => 81, 'destination' => 'places/' .$locationAddFull['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportItem->nid.'/209')));
   	$this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
   	$this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
   	$this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -979,7 +980,7 @@ class CustomTestingFileTesCreateFieldTripReportItemtestCase extends DrupalWebTes
   	$ActionItemForm['field_actionitem_followuptask[und][0][value]'] = $this->randomName(23);
   	$ActionItemForm['field_actionitem_severity[und]'] = 2;
   	//$ActionItemForm['field_actionitem_responsible[und][0][target_id]'] = $this-> 1;
-  	$this->drupalPost('node/add/actionitem', $ActionItemForm, t('Save'), array('query' => array('field_actionitem_responsible' => $this->unicef_user->uid, 'edit[taxonomy_vocabulary_6][und]' => 82, 'destination'=> 'node/'.$nodeAddreportItem->nid)));
+  	$this->drupalPost('node/add/actionitem', $ActionItemForm, t('Save'), array('query' => array('field_actionitem_responsible' => $this->field_worker->uid, 'edit[taxonomy_vocabulary_6][und]' => 82, 'destination'=> 'node/'.$nodeAddreportItem->nid)));
   // to be continued on monday
     //$this->drupalGet('');
   }
