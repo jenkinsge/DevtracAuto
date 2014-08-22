@@ -4382,7 +4382,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
       'module' => 'mapit',
       'settings' => array(
         'apply_chosen' => 1,
-        'mapit_setting_geofield' => 40,
+        'mapit_setting_geofield' => 'field_place_lat_long',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         'size' => 60,
       ),
