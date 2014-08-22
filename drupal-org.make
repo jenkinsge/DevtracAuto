@@ -100,6 +100,7 @@ projects[entityreference_prepopulate][subdir] = "contrib"
 projects[exif][version] = "1.2"
 projects[exif][type] = "module"
 projects[exif][subdir] = "contrib"
+projects[exif][patch][] = "https://www.drupal.org/files/issues/exif_xmp_install_patch-2325833-1.patch"
 
 projects[facetapi][version] = "1.5"
 projects[facetapi][type] = "module"
