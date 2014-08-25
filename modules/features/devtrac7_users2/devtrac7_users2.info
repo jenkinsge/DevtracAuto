@@ -34,7 +34,6 @@ features[field_group][] = group_user_filters|user|user|form
 features[field_group][] = group_user_my_profile|user|user|form
 features[field_group][] = group_user_work_information|user|user|form
 features[field_instance][] = user-user-field_fieldtrip_button
-features[field_instance][] = user-user-field_organisation
 features[field_instance][] = user-user-field_user_aboutme
 features[field_instance][] = user-user-field_user_degree
 features[field_instance][] = user-user-field_user_firstname

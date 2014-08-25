@@ -112,6 +112,7 @@ features[field_instance][] = taxonomy_term-iati_organisation_type-field_code
 features[field_instance][] = taxonomy_term-iati_organisation_type-field_iati_code
 features[field_instance][] = taxonomy_term-iati_roles-field_iati_code
 features[field_instance][] = taxonomy_term-languages-field_iati_code
+features[field_instance][] = user-user-field_organisation
 features[image][] = activity_organisation_logo
 features[image][] = sector_icon_smallest
 features[node][] = iati_activity
