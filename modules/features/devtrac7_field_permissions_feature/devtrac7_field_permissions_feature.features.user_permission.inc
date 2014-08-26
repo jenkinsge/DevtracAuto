@@ -353,13 +353,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_field_iati_activity_doc'.
-  $permissions['create field_field_iati_activity_doc'] = array(
-    'name' => 'create field_field_iati_activity_doc',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'create field_fieldtrip_approval_date'.
   $permissions['create field_fieldtrip_approval_date'] = array(
     'name' => 'create field_fieldtrip_approval_date',
@@ -545,23 +538,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_iati_activity_website'.
-  $permissions['create field_iati_activity_website'] = array(
-    'name' => 'create field_iati_activity_website',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'create field_iati_org_role'.
-  $permissions['create field_iati_org_role'] = array(
-    'name' => 'create field_iati_org_role',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'create field_organisation'.
   $permissions['create field_organisation'] = array(
     'name' => 'create field_organisation',
@@ -687,24 +663,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create iati_activity content'.
-  $permissions['create iati_activity content'] = array(
-    'name' => 'create iati_activity content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'create iati_organisation content'.
-  $permissions['create iati_organisation content'] = array(
-    'name' => 'create iati_organisation content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'create place content'.
   $permissions['create place content'] = array(
     'name' => 'create place content',
@@ -816,24 +774,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'delete any iati_activity content'.
-  $permissions['delete any iati_activity content'] = array(
-    'name' => 'delete any iati_activity content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete any iati_organisation content'.
-  $permissions['delete any iati_organisation content'] = array(
-    'name' => 'delete any iati_organisation content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
   // Exported permission: 'delete any place content'.
   $permissions['delete any place content'] = array(
     'name' => 'delete any place content',
@@ -882,24 +822,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
   // Exported permission: 'delete own ftritem content'.
   $permissions['delete own ftritem content'] = array(
     'name' => 'delete own ftritem content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own iati_activity content'.
-  $permissions['delete own iati_activity content'] = array(
-    'name' => 'delete own iati_activity content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'delete own iati_organisation content'.
-  $permissions['delete own iati_organisation content'] = array(
-    'name' => 'delete own iati_organisation content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -956,26 +878,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any ftritem content',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any iati_activity content'.
-  $permissions['edit any iati_activity content'] = array(
-    'name' => 'edit any iati_activity content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit any iati_organisation content'.
-  $permissions['edit any iati_organisation content'] = array(
-    'name' => 'edit any iati_organisation content',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
     ),
     'module' => 'node',
   );
@@ -1144,13 +1046,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_field_iati_activity_doc'.
-  $permissions['edit field_field_iati_activity_doc'] = array(
-    'name' => 'edit field_field_iati_activity_doc',
-    'roles' => array(),
     'module' => 'field_permissions',
   );
 
@@ -1327,23 +1222,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit field_ftritem_status',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_iati_activity_website'.
-  $permissions['edit field_iati_activity_website'] = array(
-    'name' => 'edit field_iati_activity_website',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_iati_org_role'.
-  $permissions['edit field_iati_org_role'] = array(
-    'name' => 'edit field_iati_org_role',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
@@ -1581,13 +1459,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_field_iati_activity_doc'.
-  $permissions['edit own field_field_iati_activity_doc'] = array(
-    'name' => 'edit own field_field_iati_activity_doc',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit own field_fieldtrip_approval_date'.
   $permissions['edit own field_fieldtrip_approval_date'] = array(
     'name' => 'edit own field_fieldtrip_approval_date',
@@ -1764,22 +1635,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_iati_activity_website'.
-  $permissions['edit own field_iati_activity_website'] = array(
-    'name' => 'edit own field_iati_activity_website',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_iati_org_role'.
-  $permissions['edit own field_iati_org_role'] = array(
-    'name' => 'edit own field_iati_org_role',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'edit own field_organisation'.
   $permissions['edit own field_organisation'] = array(
     'name' => 'edit own field_organisation',
@@ -1882,24 +1737,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
   // Exported permission: 'edit own ftritem content'.
   $permissions['edit own ftritem content'] = array(
     'name' => 'edit own ftritem content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own iati_activity content'.
-  $permissions['edit own iati_activity content'] = array(
-    'name' => 'edit own iati_activity content',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'node',
-  );
-
-  // Exported permission: 'edit own iati_organisation content'.
-  $permissions['edit own iati_organisation content'] = array(
-    'name' => 'edit own iati_organisation content',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -2247,13 +2084,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_field_iati_activity_doc'.
-  $permissions['view field_field_iati_activity_doc'] = array(
-    'name' => 'view field_field_iati_activity_doc',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view field_fieldtrip_approval_date'.
   $permissions['view field_fieldtrip_approval_date'] = array(
     'name' => 'view field_fieldtrip_approval_date',
@@ -2458,23 +2288,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'view field_ftritem_status',
     'roles' => array(
       'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_iati_activity_website'.
-  $permissions['view field_iati_activity_website'] = array(
-    'name' => 'view field_iati_activity_website',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_iati_org_role'.
-  $permissions['view field_iati_org_role'] = array(
-    'name' => 'view field_iati_org_role',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
     ),
     'module' => 'field_permissions',
   );
@@ -2709,13 +2522,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_field_iati_activity_doc'.
-  $permissions['view own field_field_iati_activity_doc'] = array(
-    'name' => 'view own field_field_iati_activity_doc',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
   // Exported permission: 'view own field_fieldtrip_approval_date'.
   $permissions['view own field_fieldtrip_approval_date'] = array(
     'name' => 'view own field_fieldtrip_approval_date',
@@ -2872,22 +2678,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
   // Exported permission: 'view own field_ftritem_status'.
   $permissions['view own field_ftritem_status'] = array(
     'name' => 'view own field_ftritem_status',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_iati_activity_website'.
-  $permissions['view own field_iati_activity_website'] = array(
-    'name' => 'view own field_iati_activity_website',
-    'roles' => array(),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_iati_org_role'.
-  $permissions['view own field_iati_org_role'] = array(
-    'name' => 'view own field_iati_org_role',
     'roles' => array(
       'administrator' => 'administrator',
     ),

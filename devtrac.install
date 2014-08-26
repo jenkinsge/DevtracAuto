@@ -402,7 +402,7 @@ function devtrac_install_tasks(&$install_state) {
   // }
 
   // Remove any status messages that might have been set. They are unneeded.
-  //  drupal_get_messages('status', TRUE);
+  drupal_get_messages('status', TRUE);
 
   $tasks = array();
   $current_task = variable_get('install_task', 'done');
@@ -744,7 +744,8 @@ function devtrac_install_additional_modules(&$install_state) {
 function devtrac_import_codelists() {
   $batch = devtrac_imports_batch();
   // Remove any status messages that might have been set.
-  drupal_get_messages('status', TRUE);
+  // Migrate adds its messages under the wrong type, see #1659150.
+  drupal_get_messages('ok', TRUE);
   return $batch;
 }
 
@@ -990,8 +991,6 @@ function devtrac_solr_configure_form_submit($form, &$form_state) {
 function devtrac_date_format_form() {
   module_load_include('inc', 'system', 'system.admin');
   $date_time_settings = system_date_time_settings();
-  // Remove any status messages that might have been set.
-  drupal_get_messages('status', TRUE);
   return $date_time_settings;
 }
 
