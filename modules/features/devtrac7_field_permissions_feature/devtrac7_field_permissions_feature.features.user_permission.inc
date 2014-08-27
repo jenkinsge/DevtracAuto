@@ -15,7 +15,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'access administration menu',
     'roles' => array(
       'administrator' => 'administrator',
-      'usaid editor' => 'usaid editor',
+      'iati manager' => 'iati manager',
     ),
     'module' => 'admin_menu',
   );
@@ -25,8 +25,9 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'access administration pages',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
-      'usaid editor' => 'usaid editor',
+      'iati manager' => 'iati manager',
     ),
     'module' => 'system',
   );
@@ -70,6 +71,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'access draggableviews',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'draggableviews',
@@ -100,6 +102,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'access site reports',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'system',
@@ -139,6 +142,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'administer devtrac',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'devtrac7',
@@ -187,6 +191,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'administer users',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'user',
@@ -206,7 +211,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create actionitem content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -668,7 +672,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create fieldtrip content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -679,7 +682,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create ftritem content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -708,7 +710,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create place content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -719,6 +720,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create questionnaire_question',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'questionnaire_question',
@@ -738,7 +740,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create relations',
     'roles' => array(
       'administrator' => 'administrator',
-      'usaid editor' => 'usaid editor',
+      'iati manager' => 'iati manager',
     ),
     'module' => 'relation',
   );
@@ -963,7 +965,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any iati_activity content',
     'roles' => array(
       'administrator' => 'administrator',
-      'usaid editor' => 'usaid editor',
+      'iati manager' => 'iati manager',
     ),
     'module' => 'node',
   );
@@ -973,7 +975,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any iati_organisation content',
     'roles' => array(
       'administrator' => 'administrator',
-      'usaid editor' => 'usaid editor',
+      'iati manager' => 'iati manager',
     ),
     'module' => 'node',
   );
@@ -983,7 +985,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any place content',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
     'module' => 'node',
@@ -994,6 +995,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit any questionnaire_question',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'questionnaire_question',
@@ -1963,7 +1965,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'edit relations',
     'roles' => array(
       'administrator' => 'administrator',
-      'usaid editor' => 'usaid editor',
+      'iati manager' => 'iati manager',
     ),
     'module' => 'relation',
   );
@@ -2099,7 +2101,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'submit questions',
     'roles' => array(
       'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
+      'field worker' => 'field worker',
     ),
     'module' => 'questionnaire_question',
   );
@@ -3053,6 +3055,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'view revisions',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'node',
@@ -3110,8 +3113,9 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'view the administration theme',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
-      'usaid editor' => 'usaid editor',
+      'iati manager' => 'iati manager',
     ),
     'module' => 'system',
   );

@@ -50,12 +50,14 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'footer_second',
           'weight' => '-10',
         ),
+        /*
         'devtrac7_mymenu-my_menu_block' => array(
           'module' => 'devtrac7_mymenu',
           'delta' => 'my_menu_block',
           'region' => 'my_items_menu',
           'weight' => '10',
         ),
+         */
         'nice_menus-3' => array(
           'module' => 'nice_menus',
           'delta' => 3,

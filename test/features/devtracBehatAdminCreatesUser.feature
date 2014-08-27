@@ -3,17 +3,14 @@ Feature: Devtrac Site Behat Admin Test
   Background: In order to login, you must be on the login page, to create a demo user, you must have admin rights, in order to log out, you must be logged in
 
   Scenario: Devtrac Login Test
-    Given Iam on "/http://jenkinsge.mountbatten.net/devtraccloud/user"
+    Given Iam on "/user"
     When I fill in name with "admin"
     And I fill in password with "admin"
     And I press "Login"
-    Then I am at "http://jenkinsge.mountbatten.net/devtraccloud/users/admin"
-
-  #The first time you login as an admin(admin account is created during installation),
-  # you have to fill in the remaining details to complete registration
+    Then I am at "/users/admin"
 
   Scenario: Devtrac Complete Admin registation Test
-    Given I am logged in as a user with "administrator" role
+    Given I am logged in as a user with the "administrator" role
     Given I am on "/admin/people/create"
     Then I should see "People"
     Then I should see "Username" field
@@ -30,6 +27,7 @@ Feature: Devtrac Site Behat Admin Test
     
   Scenario: Devtrac Admin Fill add the remaining details
     Given I am on "/admin/people/create"
+    And I am logged in as a user with the "administrator" role
     When I fill in "Username" with "user_demo"
     And I fill in "E-mail address" with "user_demo@mountbatten.net"
     And I fill in "Password" with "user_demo"
@@ -47,8 +45,8 @@ Feature: Devtrac Site Behat Admin Test
   # An admin has the rights to create a demo user
    
   Scenario: Devtrac check if form for creating demo user exists
-    Given I am logged in as a user with "administer users, administer permissions, access user profiles, administer site configuration, administer modules, create taxonomy_vocabulary_6" permissions
     Given I am on "/admin/people/create"
+    And I am logged in as a user with the "administrator" role
     Then I should see "People"
     Then I should see "Username" field
     Then I should see "E-mail address" field
@@ -64,6 +62,7 @@ Feature: Devtrac Site Behat Admin Test
 
   Scenario: Devtrac Demo User Creation Test
     Given I am on "/admin/people/create"
+    And I am logged in as a user with the "administrator" role
     When I fill in "Username" with "user_demo"
     And I fill in "E-mail address" with "user_demo@mountbatten.net"
     And I fill in "Password" with "user_demo"
@@ -74,12 +73,12 @@ Feature: Devtrac Site Behat Admin Test
     And I fill in "First Name" with "User Demo"
     And I fill in "Surname" with "User Demo Demo"
     And I fill in "About Me" with "Iam a hoax user demo test account"
-    And I press "Create new account"
+    And I press the "Create new account" button
     Then I am at  "/admin/people/create"
 
    
   Scenario: Devtrac Logout Test
-    Given I am logged in as a user with "administer users, administer permissions, access user profiles, administer site configuration, administer modules, create taxonomy_vocabulary_6"
-    When I press "Sign Out"
+    Given I am logged in as a user with the "administrator" role
+    And I press the "Sign Out" button
     Then I am at "/"
 

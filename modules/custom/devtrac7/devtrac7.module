@@ -155,15 +155,15 @@ function devtrac7_permission() {
  * Implements hook_menu_alter().
  */
 function devtrac7_menu_alter(&$items) {
-  $items['node/%/addsubmission']['title'] = 'Add Questionnaire';
-  $items['node/%/addsubmission']['weight'] = 3;
-  $items['node/%/editsubmission']['title'] = 'Edit Questionnaire';
-  $items['node/%/editsubmission']['weight'] = 3;
-  $items['node/%/editsubmission/%submissiontoedit']['title'] = 'Edit Questionnaire';
-  $items['node/%/editsubmission/%submissiontoedit']['weight'] = 3;
+  $items['node/%node/addsubmission']['title'] = 'Add Questionnaire';
+  $items['node/%node/addsubmission']['weight'] = 3;
+  $items['node/%node/editsubmission']['title'] = 'Edit Questionnaire';
+  $items['node/%node/editsubmission']['weight'] = 3;
+  $items['node/%node/editsubmission/%submissiontoedit']['title'] = 'Edit Questionnaire';
+  $items['node/%node/editsubmission/%submissiontoedit']['weight'] = 3;
   // The weight of the item in the menu_router table
   // overrides the weight in the menu_link table.
-  $items['user']['weight'] = -48;
+  $items['user']['weight'] = -30;
 }
 
 /**
@@ -172,10 +172,7 @@ function devtrac7_menu_alter(&$items) {
 function devtrac7_menu_link_alter(&$item) {
   if ($item['link_path'] == 'user') {
     $item['menu_name'] = 'menu-my-profile';
-    $item['link_title'] = 'Home';
-    if (user_is_logged_in()) {
-      'Welcome, [current-user:field_user_firstname]';
-    }
+    $item['link_title'] = 'Welcome, [current-user:field_user_firstname]';
     $item['hidden'] = 0;
     $options = array(
       'menu_token_link_path' => 'user',
@@ -195,7 +192,7 @@ function devtrac7_menu_link_alter(&$item) {
       'alter' => TRUE,
     );
     $item['options'] = $options;
-    $item['weigth'] = -48;
+    $item['weigth'] = -30;
   }
   if ($item['link_path'] == 'user/%/edit') {
     $item['menu_name'] = 'menu-my-profile';
@@ -213,18 +210,6 @@ function devtrac7_menu_link_alter(&$item) {
     // and the code in function _menu_navigation_links_rebuild() in includes/menu.inc
     $item['customized'] = 1;
     $item['weigth'] = -50;
-  }
-}
-
-/**
- * Implements hook_translated_menu_link_alter().
- */
-function devtrac7_translated_menu_link_alter(&$item, $map) {
-  if ($item['link_path'] == 'user') {
-    $item['link_title'] = 'Home';
-    if (user_is_logged_in()) {
-      'Welcome, [current-user:field_user_firstname]';
-    }
   }
 }
 
@@ -1118,6 +1103,16 @@ function devtrac7_node_insert($node) {
       devtrac7_ftritem_create($node->nid, $fieldtripnid, $reporttype);
       $_GET['destination'] = 'node/' . $fieldtripnid;
       break;
+    case 'questionnaire_question':
+      $question_view = db_insert('draggableviews_structure')
+        ->fields(array(
+          'view_name' => 'edit_questions',
+          'view_display' => 'edit_questions_page',
+          'entity_id' => $node->nid,
+          'weight' => 0,
+        ))
+        ->execute();
+      break;
   }
 }
 
@@ -1902,26 +1897,34 @@ function devtrac7_getcontext($nid) {
 /*
  *  Implements hook_questionnaire_getquestions().
  */
-function devtrac7_questionnaire_getquestions($nid) {
+function devtrac7_questionnaire_getquestions($contexts) {
   $result = array();
-  $place = node_load($nid);
-
-  if (isset($place->taxonomy_vocabulary_1['und'][0]['tid']) && (!is_null($place->taxonomy_vocabulary_1['und'][0]['tid']))) {
-    $placetype = $place->taxonomy_vocabulary_1['und'][0]['tid'];
-    $placetypes = taxonomy_get_parents_all($placetype);
-    foreach ($placetypes as $placetype) {
-      $query = db_select('node', 'n');
-      $query->join('field_data_taxonomy_vocabulary_1', 'p', 'n.nid = p.entity_id');
-      $query->join('draggableviews_structure', 'd', 'n.nid = d.entity_id');
-      $query->fields('n', array('nid'));
-      $query->fields('d', array('weight'));
-      $query->condition('p.taxonomy_vocabulary_1_tid', $placetype->tid)
-        ->condition('p.bundle', 'questionnaire_question')
-        ->condition('n.status', 1)
-        ->orderBy('d.weight', 'ASC');
-      $qresult = $query->execute();
-      foreach($qresult as $question) {
-        $result[$question->nid] = node_load($question->nid);
+  
+  if (isset($contexts['node'])) {
+    foreach ($contexts['node'] as $place) {
+      if (isset($place->taxonomy_vocabulary_1['und'][0]['tid']) && (!is_null($place->taxonomy_vocabulary_1['und'][0]['tid']))) {
+        $placetype = $place->taxonomy_vocabulary_1['und'][0]['tid'];
+        $placetypes = taxonomy_get_parents_all($placetype);
+        foreach ($placetypes as $placetype) {
+          $query = db_select('node', 'n');
+          $query->join('field_data_taxonomy_vocabulary_1', 'p', 'n.nid = p.entity_id');
+          $query->join('draggableviews_structure', 'd', 'n.nid = d.entity_id');
+          $query->fields('n', array('nid'));
+          $query->fields('d', array('weight'));
+          $query->condition('p.taxonomy_vocabulary_1_tid', $placetype->tid)
+            ->condition('p.bundle', 'questionnaire_question')
+            ->condition('n.status', 1)
+            ->orderBy('d.weight', 'ASC');
+          $qresult = $query->execute();
+          foreach($qresult as $question) {
+              $result[$question->nid] = array(
+                      'node' => node_load($question->nid),
+                      'context_type' => 'node',
+                      'context_id' => $place->nid,
+                      'questionnaire_id' => $place->nid,
+                    );
+          }
+        }
       }
     }
   }
