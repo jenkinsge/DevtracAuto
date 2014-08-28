@@ -20,7 +20,6 @@ dependencies[] = pane
 dependencies[] = quicktabs
 dependencies[] = relation
 dependencies[] = strongarm
-; dependencies[] = views_two_column_table
 features[context][] = all_pages
 features[context][] = districts
 features[context][] = node-view-actionitem
