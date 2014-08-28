@@ -798,6 +798,9 @@ function devtrac_initialize_taxonomy_access() {
       case 'authenticated user':
         $authenticated_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $view_and_list, TRUE);
         break;
+      case 'devtrac admin':
+        $admin_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $list, TRUE);
+        break;
       case 'editor':
         $editor_global_defaults[0] = _taxonomy_access_format_grant_record(0, $rid, $list, TRUE);
         break;
@@ -818,6 +821,9 @@ function devtrac_initialize_taxonomy_access() {
         case 'authenticated user':
           $authenticated_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $deny, TRUE);
           break;
+        case 'devtrac admin':
+          $admin_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
+          break;
         case 'editor':
           $editor_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
           break;
@@ -835,21 +841,21 @@ function devtrac_initialize_taxonomy_access() {
       $terms = taxonomy_get_tree($vid, 0, NULL, TRUE);
       foreach ($terms as $term) {
         switch ($role_name) {
+          case 'devtrac admin':
+            $children = taxonomy_get_children($term->tid);
+            if (!empty($children)) {
+              $admin_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
+            }
+            break;
           case 'editor':
             $children = taxonomy_get_children($term->tid);
-            if (empty($children)) {
-              // $editor_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
-            }
-            else {
+            if (!empty($children)) {
               $editor_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
             }
             break;
           case 'field worker':
             $children = taxonomy_get_children($term->tid);
-            if (empty($children)) {
-              // $worker_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $create_and_list);
-            }
-            else {
+            if (!empty($children)) {
               $worker_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $list);
             }
             break;
@@ -866,6 +872,9 @@ function devtrac_initialize_taxonomy_access() {
   if (!empty($authenticated_global_defaults)) {
     taxonomy_access_set_default_grants($authenticated_global_defaults);
   }
+  if (!empty($admin_global_defaults)) {
+    taxonomy_access_set_default_grants($admin_global_defaults);
+  }
   if (!empty($editor_global_defaults)) {
     taxonomy_access_set_default_grants($editor_global_defaults);
   }
@@ -880,6 +889,9 @@ function devtrac_initialize_taxonomy_access() {
   if (!empty($authenticated_vocabulary_defaults)) {
     taxonomy_access_set_default_grants($authenticated_vocabulary_defaults);
   }
+  if (!empty($admin_vocabulary_defaults)) {
+    taxonomy_access_set_default_grants($admin_vocabulary_defaults);
+  }
   if (!empty($editor_vocabulary_defaults)) {
     taxonomy_access_set_default_grants($editor_vocabulary_defaults);
   }
@@ -888,6 +900,9 @@ function devtrac_initialize_taxonomy_access() {
   }
 
   // Process term grants.
+  if (!empty($admin_term_defaults)) {
+    taxonomy_access_set_term_grants($admin_term_defaults);
+  }
   if (!empty($editor_term_defaults)) {
     taxonomy_access_set_term_grants($editor_term_defaults);
   }
