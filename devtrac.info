@@ -59,6 +59,7 @@ dependencies[] = ds_extras
 dependencies[] = ds_search
 dependencies[] = exif
 dependencies[] = features
+dependencies[] = features_override
 dependencies[] = email
 dependencies[] = field_permissions
 dependencies[] = field_group

@@ -123,6 +123,10 @@ projects[facetapi_textfield_widget][version] = "1.x-dev"
 projects[facetapi_textfield_widget][type] = "module"
 projects[facetapi_textfield_widget][subdir] = "contrib"
 
+projects[features_override][version] = "2.0-rc2"
+projects[features_override][type] = "module"
+projects[features_override][subdir] = "contrib"
+
 projects[field_collection][version] = "1.0-beta7"
 projects[field_collection][type] = "module"
 projects[field_collection][subdir] = "contrib"
