@@ -1,7 +1,7 @@
 default:
   formatter:
     name: pretty
-      parameters:
+    parameters:
       passed: [ white, green ]
       passed_param: [ white, green, [ bold ]]
       failed: [ white, red ]
