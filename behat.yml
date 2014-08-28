@@ -1,4 +1,11 @@
 default:
+  formatter:
+    name: pretty
+    parameters: 
+      decorated: true
+      verbose: false
+      time: true
+      language: eng
   paths:
     features: test/features
   extensions:
