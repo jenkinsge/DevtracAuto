@@ -2,11 +2,11 @@ default:
   formatter:
     name: pretty
     parameters:
-      passed:                       [ white, green ]
-      passed_param:                 [ white, green, [ bold ]]
-      failed:                       [ white, red ]
+      passed: [ white, green ]
+      passed_param: [ white, green, [ bold ]]
+      failed: [ white, red ]
       decorated: true
-      verbose: false
+      verbose: true
       time: true
       language: eng
   paths:
