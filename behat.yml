@@ -1,7 +1,8 @@
 default:
   formatter:
     name: pretty
-    parameters: 
+    parameters:
+      output_styles: comment: [ green, red, [ underscore ] ]
       decorated: true
       verbose: false
       time: true
