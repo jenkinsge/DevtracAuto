@@ -31,7 +31,6 @@ before_script:
   - sed -i -e "s,username:password@host/db,travis@127.0.0.1/devtrac,g" build.properties
   #- cd build 
   #- drush --yes make build-devtrac.make build
-  #- cp profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/
 script:
   - export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
   - ant run-tests
