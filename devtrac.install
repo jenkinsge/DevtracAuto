@@ -386,7 +386,7 @@ function devtrac_install() {
   variable_set('node_admin_theme', '0');
 
   // Set the default theme.
-  $default_theme = 'devtrac7_theme';
+  $default_theme = 'devtrac_classic';
   theme_enable(array($default_theme));
   variable_set('theme_default', $default_theme);
 }
@@ -471,7 +471,7 @@ function devtrac_install_tasks_alter(&$tasks, $install_state) {
   $tasks = array_slice($old_tasks, 0, 2) + $new_task + array_slice($old_tasks, 2);
 
   // Set the installation theme.
-  _devtrac_set_theme('devtrac7_theme');
+  _devtrac_set_theme('devtrac_classic');
 
   // The Solr congiguration screen needs to come after the database
   // setup, enabling the system module and after the full bootstrap.
@@ -723,7 +723,7 @@ function devtrac_install_additional_modules(&$install_state) {
 
   $operations = array();
   // Enable and set as default the correct theme.
-  $theme = 'devtrac7_theme';
+  $theme = 'devtrac_classic';
   $operations[] = array('_devtrac_enable_theme', array($theme));
   // Enable the selected modules.
   foreach ($modules_sorted as $module => $weight) {

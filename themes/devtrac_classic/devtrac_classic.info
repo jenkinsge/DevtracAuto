@@ -1,0 +1,77 @@
+name = 'Devtrac Classic'
+description = 'Default theme for Devtrac Installation profile'
+core = '7.x'
+engine = 'phptemplate'
+screenshot = 'screenshot.png'
+base theme = 'devtrac7_theme'
+
+;Stylesheets
+stylesheets[all][] = css/newstyles.css
+;stylesheets[print][] = css/style-print.css
+
+
+
+regions[page_top] = 'Page Top'
+regions[page_bottom] = 'Page Bottom'
+; Changed this
+regions[content] = 'Content First'
+regions[help] = 'Help'
+regions[user_first] = 'User Bar First'
+regions[user_second] = 'User Bar Second'
+
+; Changed this
+regions[branding] = 'Logo & slogan'
+regions[menu] = 'Menu'
+regions[sidebar_first] = 'Sidebar First'
+; Changed this
+regions[sidebar_second] = 'Content Second'
+; Changed this
+regions[header_first] = 'Dashboard'
+regions[header_second] = 'Header Second'
+regions[preface_first] = 'Preface First'
+regions[preface_second] = 'Preface Second'
+regions[preface_third] = 'Preface Third'
+regions[postscript_first] = 'Postscript First'
+regions[postscript_second] = 'Postscript Second'
+regions[postscript_third] = 'Postscript Third'
+regions[postscript_fourth] = 'Postscript Fourth'
+regions[footer_first] = 'Footer First'
+regions[footer_second] = 'Footer Second'
+; Added this
+regions[my_items_menu] = 'My Items Menu'
+
+
+; Added this
+regions[my_tool_menu] = 'My Tool menu'
+; Added this
+regions[categories] = 'Categories'
+; Added this
+regions[breadcrumb] = 'Breadcrumb'
+; Added this
+regions[filter] = 'Filter'
+; Added this
+regions[questions] = 'Questions'
+; Added this
+regions[map_toolbar] = 'Map Toolbar'
+; Changed this
+zones[header] = 'Dashboard'
+zones[content] = 'Content'
+zones[footer] = 'Footer'
+zones[user] = 'User'
+; Added these
+zones[categories] = 'Categories'
+zones[filter_and_switcher] = 'Filter + Display Switcher'
+zones[breadcrumbsx] = 'Breadcrumbs'
+zones[branding] = 'Logo and Menu'
+zones[menu] = 'Menu'
+zones[preface] = 'Preface'
+zones[postscript] = 'Postscript'
+
+
+breakpoints[narrow] = (min-width: 740px) and (min-device-width: 740px)
+breakpoints[narrow_landscape] = (max-device-width: 800px) and (min-width: 740px)
+breakpoints[normal] = (min-width: 980px) and (min-device-width: 980px)
+breakpoints[normal_desktop] = (max-device-width: 1024px) and (min-width: 1024px)
+breakpoints[wide] = (min-width: 1220px) 
+
+
