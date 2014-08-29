@@ -13,7 +13,6 @@ default:
     features: test/features
   extensions:
     Behat\MinkExtension\Extension:
-      behat="behat --ansi"
       goutte: ~
       selenium2: ~
       base_url: base_url: http://localhost/docroot
