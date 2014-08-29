@@ -33,7 +33,9 @@ before_script:
   #- drush --yes make build-devtrac.make build
   #- cp profiles/devtrac/modules/contrib/search_api_solr/solr-conf/3.x/* /home/travis/build/TddDoctor/devtrac/apache-solr-3.5.0/example/solr/conf/
 script:
-  - ant run-tests -i
+  - export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+  - ant run-tests
+  
 after_script:
   - TEST_EXIT=${PIPESTATUS[0]}
   #- TRAVIS_TEST_RESULT=$(! egrep -i "([0-9]+ fails)|(PHP Fatal error)|([0-9]+ exceptions)")$?
