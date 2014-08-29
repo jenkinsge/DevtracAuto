@@ -32,7 +32,6 @@ before_script:
   #- drush --yes make build-devtrac.make build
 script:
   - export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-  - export ANT_ARGS='AnsiColorLogger.*=Attribute;Foreground;Background'
   - ant run-tests
   
 after_script:
