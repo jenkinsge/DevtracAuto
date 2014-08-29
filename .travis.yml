@@ -31,7 +31,8 @@ before_script:
   #- cd build 
   #- drush --yes make build-devtrac.make build
 script:
-  - export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+  - export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger.ERROR_COLOR=2;31'
+  - export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger.WARNING_COLOR=2;35'
   - ant run-tests
   
 after_script:
