@@ -511,11 +511,11 @@ function devtrac_install_welcome($form, &$form_state, &$install_state) {
   $eula = '<p>' . st('While we have a rather long, boring Privacy Policy just like any other technology company, here is a short summary of some key items we feel are important:') . '</p>';
   $items = array();
   $dfp_link = l("Google's DoubleClick for Publishers (\"DFP\")", "http://www.google.com/dfp/info/sb/index.html", array('attributes' => array('target' => '_blank')));
-  $items[] = st("The Devtrac Installer collects some data about your progress and sends it to one of our own servers.");
-  $items[] = st('We use this to improve the use experience of Devtrac and make it even easier to install it.');
-  $items[] = st('The server where we post the data to is Mountbatten\'s and we do not share your data with any big corporation.');
-  $items[] = st('Devtrac and Mountbattten do not collect any personally identifiable information;');
-  $items[] = st('During your installation you can choose to use your own statistics platform for the use of Devtrac.');
+  $items[] = st("The Devtrac Installer collects some data about your progress and sends it to one of our servers.");
+  $items[] = st('We use this to improve the user experience of Devtrac and make it even easier to install.');
+  $items[] = st('The server to which we post the data belongs to Mountbatten and we do not share your data with any corporation.');
+  $items[] = st('Devtrac and Mountbattten do not collect any personally identifiable information.');
+  $items[] = st('During your installation, you can choose to use your own statistics platform alongside Devtrac.');
   $eula .= theme('item_list', array('items' => $items));
   $eula_link = l('Privacy Policy and User Agreement', 'http://www.mountbatten.net/privacy/devtrac', array('attributes' => array('target' => '_blank')));
   $eula .= '<p>' . st('That is it for the main points. The full !policy can be viewed on our website.  Thank you again for choosing Devtrac!', array('!policy' => $eula_link)) . '</p>';
