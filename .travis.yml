@@ -33,7 +33,7 @@ before_script:
 script:
   - export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
   - export ANT_ARGS='AnsiColorLogger.*=Attribute;Foreground;Background'
-  - ant run-tests export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+  - ant run-tests
   
 after_script:
   - TEST_EXIT=${PIPESTATUS[0]}
