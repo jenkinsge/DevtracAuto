@@ -50,9 +50,7 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
         "created" : { "type" : "date" },
         "question" : { "type" : "integer", "entity_type" : "node" },
         "questionnaire_id" : { "type" : "integer", "entity_type" : "node" },
-        "search_api_language" : { "type" : "string" },
-        "taxonomy_vocabulary_1" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
+        "search_api_language" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_add_hierarchy" : {
