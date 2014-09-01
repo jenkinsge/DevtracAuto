@@ -65,10 +65,6 @@ projects[css_browser_selector][version] = "1.1"
 projects[css_browser_selector][type] = "module"
 projects[css_browser_selector][subdir] = "contrib"
 
-projects[custom_breadcrumbs][version] = "2.0-alpha3"
-projects[custom_breadcrumbs][type] = "module"
-projects[custom_breadcrumbs][subdir] = "contrib"
-
 projects[date_duration_formatter][version] = "1.x-dev"
 projects[date_duration_formatter][type] = "module"
 projects[date_duration_formatter][subdir] = "contrib"
@@ -160,6 +156,10 @@ projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
 projects[flot][patch][] = "https://www.drupal.org/files/flot-pie_options-2088021-3.patch"
 projects[flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects_fix-2264691-0.patch"
+
+projects[fontyourface][version] = "7.x-2.8"
+projects[fontyourface][type] = "module"
+projects[fontyourface][subdir] = "contrib"
 
 projects[footable][version] = "1.0-beta3"
 projects[footable][type] = "module"
