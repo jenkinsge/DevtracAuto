@@ -173,8 +173,9 @@
 
   <target name="behat" depends="build,behat-download">
     <antcall target="selenium-start" />
-    <exec executable="${behat} --ansi" taskname="behat">
+    <exec executable="${behat}" taskname="behat">
       <env key="BEHAT_PARAMS" value="${behat.params}"/>
+      <env key="BEHAT_PARAMS" value="--ansi"/>
     </exec>
     <antcall target="selenium-stop" />
   </target>
