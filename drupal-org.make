@@ -157,10 +157,6 @@ projects[flot][subdir] = "contrib"
 projects[flot][patch][] = "https://www.drupal.org/files/flot-pie_options-2088021-3.patch"
 projects[flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects_fix-2264691-0.patch"
 
-projects[fontyourface][version] = "7.x-2.8"
-projects[fontyourface][type] = "module"
-projects[fontyourface][subdir] = "contrib"
-
 projects[footable][version] = "1.0-beta3"
 projects[footable][type] = "module"
 projects[footable][subdir] = "contrib"
