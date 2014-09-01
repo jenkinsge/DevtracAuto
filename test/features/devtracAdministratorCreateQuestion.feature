@@ -9,7 +9,7 @@ Feature: Devtrac Administrator creates Question Test
     And print current URL
     And I am on "/node/add/questionnaire-question"
     Then I should see "Create Question"
-  @api
+  @api @javascript
   Scenario: Administrator User adds a Select Question
     Given I am logged in as a user with the "administrator" role
     And print current URL
