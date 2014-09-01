@@ -838,6 +838,9 @@ function devtrac_initialize_taxonomy_access() {
   // Initialize term settings for different roles.
   foreach ($roles as $rid => $role_name) {
     foreach ($vocabularies as $vid => $vocabulary) {
+      if ($vocabulary->machine_name == 'taxonomy_vocabulary_6') {
+        continue;
+      }
       $terms = taxonomy_get_tree($vid, 0, NULL, TRUE);
       foreach ($terms as $term) {
         switch ($role_name) {
