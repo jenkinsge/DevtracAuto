@@ -9,9 +9,6 @@ version = '1.x'
 ;Stylesheets
 stylesheets[all][] = css/newstyles.css
 
-;JavaScript
-
-
 
 
 regions[page_top] = 'Page Top'
@@ -77,11 +74,11 @@ breakpoints[normal] = (min-width: 980px) and (min-device-width: 980px)
 breakpoints[normal_desktop] = (max-device-width: 1024px) and (min-width: 1024px)
 breakpoints[wide] = (min-width: 1220px) 
 
-settings[alpha_grid] = 'alpha_default'
+settings[alpha_grid] = 'alpha_fluid'
 settings[alpha_primary_alpha_default] = 'normal'
 settings[alpha_responsive] = '1'
 settings[alpha_layouts_alpha_fluid_primary] = 'normal'
-settings[alpha_layouts_alpha_fluid_normal_responsive] = '0'
+settings[alpha_layouts_alpha_fluid_normal_responsive] = '1'
 settings[alpha_layouts_alpha_fluid_normal_media] = 'all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)'
 settings[alpha_layouts_alpha_default_primary] = 'normal'
 settings[alpha_layouts_alpha_default_fluid_responsive] = '0'
@@ -120,7 +117,7 @@ settings[alpha_debug_grid_active] = '0'
 settings[alpha_toggle_messages] = '1'
 settings[alpha_toggle_action_links] = '1'
 settings[alpha_toggle_tabs] = '1'
-settings[alpha_toggle_breadcrumb] = '1'
+settings[alpha_toggle_breadcrumb] = '0'
 settings[alpha_toggle_page_title] = '1'
 settings[alpha_toggle_feed_icons] = '1'
 settings[alpha_hidden_title] = ''
