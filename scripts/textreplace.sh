@@ -57,6 +57,8 @@
  grep -rl 'vocabulary-9' ../test  | xargs sed -i 's/vocabulary-9/purpose/g'
  grep -rl 'vocabulary-9' ../themes  | xargs sed -i 's/vocabulary-9/purpose/g'
  
+ grep -rl 'iteviisit' ../modules | xargs sed -i 's/iteviisit/itevisit/g'
+ 
  
  
  
