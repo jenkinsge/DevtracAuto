@@ -422,7 +422,7 @@ ul.nice-menu-down li.menuparent.over > a:hover {
 
 .block.collapsiblock-processed {}
 
-.zone-header section.block.collapsiblock-processed {
+.zone-header .block-pane  {
   width: 27px;
   height: 27px;
   position: relative;
@@ -430,78 +430,80 @@ ul.nice-menu-down li.menuparent.over > a:hover {
   float: right;
 }
 
-.zone-header section.block.collapsiblock-processed h2.block-title.collapsiblock {
+.zone-header .block-pane h2 {
   display: block;
 }
 
-.zone-header section.block.collapsiblock-processed .block-inner ,
-.zone-header section.block.collapsiblock-processed h2.block-title.collapsiblock ,
-.zone-header section.block.collapsiblock-processed h2.block-title.collapsiblock a {
+.zone-header .block-pane .block-inner ,
+.zone-header .block-pane h2.block-title ,
+.zone-header .block-pane h2.block-title a {
   display: inline-block;
   width: 27px;
   height: 27px;
 }
 
-.zone-header section.block.collapsiblock-processed h2.block-title.collapsiblock.collapsiblockCollapsed:hover ,
-.zone-header section.block.collapsiblock-processed h2.block-title.collapsiblock {
+.zone-header .block-pane h2.block-title:hover ,
+.zone-header .block-pane h2.block-title {
   background-color: #222222;
 }
 
-.zone-header section.block.collapsiblock-processed h2.block-title.collapsiblock.collapsiblockCollapsed {
+.zone-header .block-pane h2.block-title {
   background-color: transparent;
 }
 
-.zone-header section.block.collapsiblock-processed h2.block-title.collapsiblock a {
+.zone-header .block-pane h2.block-title a {
   background: url(../images/info-icon.png) 50% 50% no-repeat;
   background-size: 21px 21px;
 }
 
-.zone-header section.block.collapsiblock-processed.block-search-api-saved-searches h2.block-title.collapsiblock a {
+.zone-header .block-search-api-saved-searches h2.block-title.collapsiblock a {
   background: url(../images/email-icon.png) no-repeat 50% 50%;
   background-size: 16px auto;
 }
 
-.zone-header section.block.collapsiblock-processed .content.clearfix {
+.zone-header .block-pane .content {
   position: absolute;
   width: 300px;
   z-index: 99999;
-  background: url(../images/alpha-black-bg.png);
+  background-color: black;
+  opacity: 80%;
+/*  background: url(../images/alpha-black-bg.png);*/
   color: #FFFFFF;
   font-size: 0.9em;
   top: 27px;
 }
 
-.zone-header section.block.collapsiblock-processed .content[style="display: block;"] {
+.zone-header .block-pane .content[style="display: block;"] {
   padding: 0;
 }
 
-.zone-header section.block.collapsiblock-processed .content ul {
+.zone-header .block-pane .content ul {
   margin: 10px;
 }
 
-.zone-header section.block.collapsiblock-processed .content ul li {
+.zone-header .block-pane .content ul li {
   list-style: none;
   margin-bottom: 5px;
   padding: 5px;
   padding-left: 30px; 
 }
 
-.zone-header section.block.collapsiblock-processed .content ul li.health {
+.zone-header .block-pane .content ul li.health {
   background: url('../images/about-health-icon.png') no-repeat 0% 50%;
   background-size: 20px 20px;
 }
 
-.zone-header section.block.collapsiblock-processed .content ul li.schools {
+.zone-header .block-pane .content ul li.schools {
   background: url('../images/about-educ-icon.png') no-repeat 0% 50%;
   background-size: 20px 20px;
 }
 
-.zone-header section.block.collapsiblock-processed .content ul li.water {
+.zone-header .block-pane .content ul li.water {
   background: url('../images/about-water-icon.png') no-repeat 0% 50%;
   background-size: 20px 20px;
 }
 
-.zone-header section.block.collapsiblock-processed .content h4 {
+.zone-header .block-pane .content h4 {
   color: #FFFFFF;
   margin: 0;
   padding: 10px 10px 5px 10px;
@@ -509,13 +511,13 @@ ul.nice-menu-down li.menuparent.over > a:hover {
   line-height: 10px;
 }
 
-.zone-header section.block.collapsiblock-processed .content p {
+.zone-header .block-pane .content p {
   color: #FFFFFF;
   padding: 10px;
   font-size: 1.0em;
 }
 
-.zone-header section.block.collapsiblock-processed .content {
+.zone-header .block-pane .content {
   right: 0;
 }
 
@@ -2190,7 +2192,7 @@ html .block-commentblock .form-item {
 .region-sidebar-second {
   margin: 0; 
   margin-bottom: 20px; 
-  background-color: #000;
+  /*background-color: #000;*/
   color: #fff;
 }
 
@@ -4829,61 +4831,6 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
   width: 100%;
 }
 
-/*===================================================================================*\
- * Better Messages Styles
-\*===================================================================================*/
-
-#better-messages-default {}
-
-#better-messages-default td.body {
-  background: url(../images/alpha-black-bg.png);
-  width: 380px !important;
-}
-
-#better-messages-default td.body .content h2.messages-label.status {
-  background: #0FA707;
-}
-
-#better-messages-default td.body .content h2.messages-label.error {
-  background: #EA0001;
-}
-
-#better-messages-default td.body .content .messages {
-  color: #FFFFFF;
-  border: none;
-  line-height: 20px;
-  padding-left: 60px;
-  width: 290px;
-}
-
-#better-messages-default td.body .content .messages.status {
-  background: url(../images/status-icon.png) no-repeat 10px 50%;
-}
-
-#better-messages-default td.body .content .messages.error {
-  background: url(../images/error-icon.png) no-repeat 10px 50%;
-}
-
-#better-messages-default td.body .content .messages a {
-  color: #FFFFFF;
-  text-decoration: underline;
-}
-
-#better-messages-default td.body .footer a.message-close {
-  margin: 5px;
-  background: transparent;
-  color: #FFFFFF;
-}
-
-#better-messages-default td.body .footer a.message-close:before {
-  content: 'Close';
-  font-size: 0.9em;
-  background: none;
-}
-
-#better-messages-default span.message-timer {
-  color: #FFFFFF;
-}
 
 /*=====================================================================================
  * Temporary Styles
