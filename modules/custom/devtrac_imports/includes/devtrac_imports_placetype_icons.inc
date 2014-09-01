@@ -48,6 +48,8 @@ class DevtracImportsPlacetypeIcons extends XMLMigration   {
 
     $this->addFieldMapping('uid')
          ->defaultValue(1);
+    $this->addFieldMapping('field_migrate_example_image:alt', 'name');
+    $this->addFieldMapping('field_migrate_example_image:title', 'name');
 
     $this->addUnmigratedDestinations(array('field_image_description:format',
       'field_image_description:language', 'destination_dir', 'destination_file',
