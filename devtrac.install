@@ -205,9 +205,9 @@ function devtrac_install() {
   $types = array(
     array(
       'type' => 'page',
-      'name' => st('Page'),
+      'name' => st('Basic page'),
       'base' => 'node_content',
-      'description' => st("A <em>page</em>, similar in form to a <em>story</em>, is a simple method for creating and displaying information that rarely changes, such as an \"About us\" section of a website. By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site\'s initial home page."),
+      'description' => st('A <em>page</em>, similar in form to a <em>story</em>, is a simple method for creating and displaying information that rarely changes, such as an"About us" section of a website. By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site\'s initial home page.'),
       'custom' => 1,
       'modified' => 1,
       'locked' => 0,
@@ -838,6 +838,9 @@ function devtrac_initialize_taxonomy_access() {
   // Initialize term settings for different roles.
   foreach ($roles as $rid => $role_name) {
     foreach ($vocabularies as $vid => $vocabulary) {
+      if ($vocabulary->machine_name == 'taxonomy_vocabulary_6') {
+        continue;
+      }
       $terms = taxonomy_get_tree($vid, 0, NULL, TRUE);
       foreach ($terms as $term) {
         switch ($role_name) {
