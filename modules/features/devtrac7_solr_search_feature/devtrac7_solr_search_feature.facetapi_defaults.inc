@@ -2138,7 +2138,7 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
       'format' => '1',
     ),
     'submit_realm' => 'Save and go back to realm settings',
-    'exclude' => 'Uganda,UNICEF',
+    'exclude' => '',
     'regex' => 0,
     'show_minimum_items' => 2,
     'inaccessible' => 1,
