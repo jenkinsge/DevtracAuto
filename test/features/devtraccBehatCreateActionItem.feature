@@ -7,7 +7,7 @@ Feature: Devtrac Behat Test if the field trip is being created
     And I follow "Add Field Trip" in the "userprofile_menu" region 
     And I should see "Create Field Trip"
     And I fill in "Title" with "fieldtripTest"
-    And I fill in "Purpose" with "1"
+    # And I fill in "Purpose" with "1"
     And I fill in "Percentage" with "100"
     And I fill in "field_fieldtrip_start_end_date[und][0][value][date]" with "14/7/2012"
     And I fill in "field_fieldtrip_start_end_date[und][0][value2][date]" with "14/7/2017"
@@ -24,7 +24,7 @@ Feature: Devtrac Behat Test if the field trip is being created
     And I fill in "Name" with "Site Visit sample"
     And I fill in "Unique ID" with "12345678"
     And I fill hidden longitude and latitude field with "32.57240281174459" and "0.3536203279726586" for the "Site Visit"
-    And I select "- - Primary Private School" from "Location Types"
+    # And I select "- - Primary Private School" from "Location Types"
     And I press the "Save" button
     And I should see "Location Site Visit sample has been created"
     And I follow "Site Visit at Site Visit sample" in the "site_visits" region
