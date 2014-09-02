@@ -29,7 +29,6 @@ before_script:
   # Ant build tool configuration
   - cp build.properties.dist build.properties
   - sed -i -e "s,username:password@host/db,travis@127.0.0.1/devtrac,g" build.properties
-  #- drush --yes make build-devtrac.make build
 script:
   - ant run-tests
   - TEST_EXIT=${PIPESTATUS[0]}
