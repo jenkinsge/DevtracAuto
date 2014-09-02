@@ -184,15 +184,23 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-    'title' => 'title',
-    'field_actionitem_due_date' => 'field_actionitem_due_date',
-    'field_actionitem_resp_place' => 'field_actionitem_resp_place',
-    'field_actionitem_responsible' => 'field_actionitem_responsible',
-    'virtual_field' => 'virtual_field',
-    'virtual_field_1' => 'virtual_field_1',
+  'nid' => 'nid',
+  'title' => 'title',
+  'field_actionitem_due_date' => 'field_actionitem_due_date',
+  'field_actionitem_resp_place' => 'field_actionitem_resp_place',
+  'field_actionitem_responsible' => 'field_actionitem_responsible',
+  'view' => 'view',
+  'view_1' => 'view_1',
   );
   $handler->display->display_options['style_options']['default'] = 'field_actionitem_due_date';
   $handler->display->display_options['style_options']['info'] = array(
+    'nid' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'title' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
@@ -219,15 +227,15 @@ function devtrac7_views_feature_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'virtual_field' => array(
+    'view' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
-    'virtual_field_1' => array(
+    'view_1' => array(
       'align' => '',
       'separator' => '',
-      'empty_column' => 1,
+      'empty_column' => 0,
     ),
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -291,20 +299,6 @@ function devtrac7_views_feature_views_default_views() {
     'link' => 1,
   );
   $handler->display->display_options['fields']['field_actionitem_responsible']['delta_offset'] = '0';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_progress_bar';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field_1']['id'] = 'virtual_field_1';
-  $handler->display->display_options['fields']['virtual_field_1']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['label'] = 'Actions';
-  $handler->display->display_options['fields']['virtual_field_1']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['virtual_field_1']['virtual_field'] = 'field_fieldtrip_button';
   /* Field: Global: View */
   $handler->display->display_options['fields']['view']['id'] = 'view';
   $handler->display->display_options['fields']['view']['table'] = 'views';
