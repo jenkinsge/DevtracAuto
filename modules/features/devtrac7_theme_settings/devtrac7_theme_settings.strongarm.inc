@@ -9,11 +9,11 @@
  */
 function devtrac7_theme_settings_strongarm() {
   $export = array();
-  return $export;
+
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'theme_devtrac7_theme_settings';
+  $strongarm->name = 'theme_devtrac_classic_settings';
   $strongarm->value = array(
     'toggle_logo' => 1,
     'toggle_name' => 0,
@@ -550,7 +550,28 @@ function devtrac7_theme_settings_strongarm() {
     'hurricane_font-style' => '0',
     'nice_menus_custom_css' => '',
   );
-  $export['theme_devtrac7_theme_settings'] = $strongarm;
+  $export['theme_devtrac_classic_settings'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_settings';
+  $strongarm->value = array(
+    'toggle_logo' => 1,
+    'toggle_name' => 1,
+    'toggle_slogan' => 0,
+    'toggle_node_user_picture' => 1,
+    'toggle_comment_user_picture' => 1,
+    'toggle_comment_user_verification' => 1,
+    'toggle_favicon' => 1,
+    'toggle_main_menu' => 1,
+    'toggle_secondary_menu' => 0,
+    'collapsiblock_block' => 'section.block',
+    'collapsiblock_title' => 'h2.block-title',
+    'collapsiblock_content' => 'div.content',
+    'nice_menus_custom_css' => '',
+  );
+  $export['theme_settings'] = $strongarm;
 
   return $export;
 }

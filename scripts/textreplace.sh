@@ -59,8 +59,13 @@
  
  grep -rl 'iteviisit' ../modules | xargs sed -i 's/iteviisit/itevisit/g'
  
- 
- 
+ grep -rl 'district_category' ../modules | xargs sed -i 's/district_category/field_district_tags/g'
+ grep -rl 'district_category' ../test  | xargs sed -i 's/district_category/field_district_tags/g'
+ grep -rl 'district_category' ../themes  | xargs sed -i 's/district_category/field_district_tags/g'
+
+ grep -rl 'district-category' ../modules | xargs sed -i 's/district-category/field-district-tags/g'
+ grep -rl 'district-category' ../test  | xargs sed -i 's/district-category/field-district-tags/g'
+ grep -rl 'district-category' ../themes  | xargs sed -i 's/district-category/field-district-tags/g'
  
  
  

@@ -3537,13 +3537,6 @@ function devtrac7_views_feature_views_default_views() {
   );
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Unicef Logo */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['ui_name'] = 'Unicef Logo';
-  $handler->display->display_options['empty']['area']['content'] = '<div class="unicef-logo"><img src="<?php print $GLOBALS[\'base_url\'] ?>/sites/default/themes/devtrac7_theme/unicef_logo.jpg" /></div>';
-  $handler->display->display_options['empty']['area']['format'] = 'ds_code';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_fieldtrip_user_target_id']['id'] = 'field_fieldtrip_user_target_id';
@@ -7424,11 +7417,11 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['filters']['delta']['field'] = 'delta';
   $handler->display->display_options['filters']['delta']['operator'] = 'not empty';
 
-  /* Display: Latest report By UNICEF */
-  $handler = $view->new_display('block', 'Latest report By UNICEF', 'block_18');
+  /* Display: Latest report */
+  $handler = $view->new_display('block', 'Latest report', 'block_18');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Latest report by UNICEF';
-  $handler->display->display_options['display_description'] = 'Latest report By UNICEF';
+  $handler->display->display_options['title'] = 'Latest report';
+  $handler->display->display_options['display_description'] = 'Latest report';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -7444,7 +7437,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = 'No SiteVisits by UNICEF yet';
+  $handler->display->display_options['empty']['area']['content'] = 'No Site Reports yet';
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -7453,7 +7446,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_images']['table'] = 'field_data_field_ftritem_images';
   $handler->display->display_options['fields']['field_ftritem_images']['field'] = 'field_ftritem_images';
   $handler->display->display_options['fields']['field_ftritem_images']['label'] = '';
-  $handler->display->display_options['fields']['field_ftritem_images']['element_class'] = 'latest-report-by-UNICEF-image';
+  $handler->display->display_options['fields']['field_ftritem_images']['element_class'] = 'latest-report-image';
   $handler->display->display_options['fields']['field_ftritem_images']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_images']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_ftritem_images']['settings'] = array(
@@ -7474,7 +7467,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['label'] = 'Post Date';
-  $handler->display->display_options['fields']['field_ftritem_date_visited']['element_label_class'] = 'field-content.latest-report-by-UNICEF-post-date';
+  $handler->display->display_options['fields']['field_ftritem_date_visited']['element_label_class'] = 'field-content.latest-report-post-date';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
     'format_type' => 'devtrac_format',
     'fromto' => 'both',
@@ -7486,13 +7479,13 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_public_summary']['id'] = 'field_ftritem_public_summary';
   $handler->display->display_options['fields']['field_ftritem_public_summary']['table'] = 'field_data_field_ftritem_public_summary';
   $handler->display->display_options['fields']['field_ftritem_public_summary']['field'] = 'field_ftritem_public_summary';
-  $handler->display->display_options['fields']['field_ftritem_public_summary']['element_wrapper_class'] = 'field-content.latest-report-by-UNICEF-public-summary';
+  $handler->display->display_options['fields']['field_ftritem_public_summary']['element_wrapper_class'] = 'field-content.latest-report-public-summary';
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="dv-seeall">See all Site Reports by UNICEF</div>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="dv-seeall">See all Site Reports</div>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'sitereports?display=default&f[0]=taxonomy_vocabulary_6%3A243';
   $handler->display->display_options['fields']['nothing']['alter']['link_class'] = 'dv-seeall';
@@ -8905,7 +8898,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<span class="user-name-map">[name]</span> is responsible for monitoring UNICEF programs in these districts';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<span class="user-name-map">[name]</span> is responsible for reporting Site Reports in these districts';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: User: Uid */

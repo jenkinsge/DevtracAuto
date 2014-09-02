@@ -332,7 +332,7 @@ function devtrac7_ftritem_updatelatlon($node) {
     // There was a Lat-Lon
     if (isset($node->field_ftritem_lat_long[$node->language]) && (count($node->field_ftritem_lat_long[$node->language]) > 0)) {
       // There still is a Lat-Lon
-      if ($node->original->field_ftritem_lat_long[$node->language][0]['wkt'] == $node->field_ftritem_lat_long[$node->language][0]['wkt']) {
+      if ($node->original->field_ftritem_lat_long[$node->language][0]['geom'] == $node->field_ftritem_lat_long[$node->language][0]['geom']) {
         // It did not change so do nothing
         watchdog('admin_feature', 'Lat-Lon did not change on Site Report: ' . $node->nid);
         return FALSE;
