@@ -107,7 +107,7 @@ Feature: Field Worker filters site reports
     Given I go to the homepage
     And I follow "Site Reports"
     And I follow "List" in the "userprofile_menu" region
-    When I follow "Undefined Area " in the "first_sidebar" region
+    When I follow "(none) " in the "first_sidebar" region
     Then I should see the link "Human Interest Story at behatLocation1"
     And I should see the link "Site Visit at behatLocation2"
     And I should see the link "Site Visit at behatLocation3"
