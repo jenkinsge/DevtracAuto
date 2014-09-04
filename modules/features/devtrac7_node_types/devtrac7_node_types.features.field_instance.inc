@@ -4398,6 +4398,75 @@ The \'Search Address\' box will only help you to do an initial search on a rough
     ),
   );
 
+  // Exported field_instance: 'comment-comment_node_actionitem-field_actionitem_status'
+  $field_instances['comment-comment_node_actionitem-field_actionitem_status'] = array(
+     'bundle' => 'comment_node_actionitem',
+     'default_value' => NULL,
+     'default_value_function' => 'devtrac7_comment_change_status_default_value',
+     'default_value_php' => '',
+     'deleted' => 0,
+     'description' => '',
+         'default' => array(
+         'label' => 'inline',
+         'module' => 'list',
+         'settings' => array(),
+         'type' => 'list_default',
+         'weight' => 0,
+       ),
+     ),
+     'entity_type' => 'comment',
+     'field_name' => 'field_actionitem_status',
+     'label' => 'Status',
+     'required' => 1,
+     'settings' => array(
+       'user_register_form' => FALSE,
+     ),
+     'widget' => array(
+       'active' => 1,
+       'module' => 'options',
+       'settings' => array(
+        'apply_chosen' => '',
+         'content_taxonomy_opt_groups' => FALSE,
+       ),
+      'type' => 'options_select',
+       'weight' => 0,
+     ),
+   );
+ 
+   // Exported field_instance: 'comment-comment_node_actionitem-taxonomy_vocabulary_8'
+   $field_instances['comment-comment_node_actionitem-taxonomy_vocabulary_8'] = array(
+     'bundle' => 'comment_node_actionitem',
+     'default_value' => NULL,
+     'deleted' => 0,
+     'description' => '',
+     'display' => array(
+       'default' => array(
+         'label' => 'inline',
+         'module' => 'taxonomy',
+         'settings' => array(),
+         'type' => 'taxonomy_term_reference_link',
+         'weight' => 1,
+       ),
+     ),
+     'entity_type' => 'comment',
+     'field_name' => 'taxonomy_vocabulary_8',
+     'label' => 'Subject',
+     'required' => 1,
+     'settings' => array(
+       'user_register_form' => FALSE,
+     ),
+     'widget' => array(
+       'active' => 1,
+       'module' => 'options',
+       'settings' => array(
+         'apply_chosen' => '',
+         'content_taxonomy_opt_groups' => FALSE,
+       ),
+       'type' => 'options_select',
+       'weight' => 1,
+     ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t(' Hold the \'Control\' key on your keyboard to select multiple districts.');
