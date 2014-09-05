@@ -1105,6 +1105,18 @@ function devtrac_install_finished(&$install_state) {
   variable_set('install_profile', drupal_get_profile());
   variable_set('install_task', 'done');
 
+  $instances = field_info_instances('node', 'place');
+  
+  $instance = $instances['taxonomy_vocabulary_6'];
+  $instance['entity_type'] = 'questionnaire_answer';
+  $instance['bundle'] = 'questionnaire_answer';
+  field_create_instance($instance);
+  
+  $instance = $instances['taxonomy_vocabulary_8'];
+  $instance['entity_type'] = 'questionnaire_answer';
+  $instance['bundle'] = 'questionnaire_answer';
+  field_create_instance($instance);
+    
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
   // registered by the install profile are registered correctly.
