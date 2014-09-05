@@ -65,7 +65,7 @@ Feature: Field Worker filters fieldtrips
   Scenario: Filter By Admin Unit
     Given I go to the homepage
     And I follow "Field trips"
-    When I follow "Undefined Area " in the "first_sidebar" region
+    When I follow "(none) " in the "first_sidebar" region
     Then I should see the link "BehatFieldTrip1"
     And I should see the link "BehatFieldTrip2"
     And I should see the link "BehatFieldTrip3"
