@@ -1107,12 +1107,12 @@ function devtrac_install_finished(&$install_state) {
 
   $instances = field_info_instances('node', 'place');
   
-  $instance = $instances['taxonomy_vocabulary_6'];
+  $instance = $instances['iati_custom_admin_unit'];
   $instance['entity_type'] = 'questionnaire_answer';
   $instance['bundle'] = 'questionnaire_answer';
   field_create_instance($instance);
   
-  $instance = $instances['taxonomy_vocabulary_8'];
+  $instance = $instances['iati_activity_sector'];
   $instance['entity_type'] = 'questionnaire_answer';
   $instance['bundle'] = 'questionnaire_answer';
   field_create_instance($instance);
