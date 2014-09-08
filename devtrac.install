@@ -1106,16 +1106,51 @@ function devtrac_install_finished(&$install_state) {
   variable_set('install_task', 'done');
 
   $instances = field_info_instances('node', 'place');
-  
-  $instance = $instances['iati_custom_admin_unit'];
-  $instance['entity_type'] = 'questionnaire_answer';
-  $instance['bundle'] = 'questionnaire_answer';
-  field_create_instance($instance);
-  
-  $instance = $instances['iati_activity_sector'];
-  $instance['entity_type'] = 'questionnaire_answer';
-  $instance['bundle'] = 'questionnaire_answer';
-  field_create_instance($instance);
+  if (isset($instances['taxonomy_vocabulary_6'])) {
+    $instance = $instances['taxonomy_vocabulary_6'];
+    $instance['entity_type'] = 'questionnaire_answer';
+    $instance['bundle'] = 'questionnaire_answer';
+    field_create_instance($instance);
+  }
+  if (isset($instances['taxonomy_iati_custom_admin_unit'])) {
+    $instance = $instances['taxonomy_iati_custom_admin_unit'];
+    $instance['entity_type'] = 'questionnaire_answer';
+    $instance['bundle'] = 'questionnaire_answer';
+    field_create_instance($instance);
+  }
+
+  // Temporary fix until the loaction type is available on content type place.
+  $instances = field_info_instances('node', 'questionnaire_question');
+  if(isset($instances['taxonomy_vocabulary_1'])) {
+    $instance = $instances['taxonomy_vocabulary_1'];
+
+    $instance['entity_type'] = 'questionnaire_answer';
+    $instance['bundle'] = 'questionnaire_answer';
+    field_create_instance($instance);
+
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = 'ftritem';
+    field_create_instance($instance);
+
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = 'place';
+    field_create_instance($instance);
+  }
+  if(isset($instances['taxonomy_location_type'])) {
+    $instance = $instances['taxonomy_location_type'];
+
+    $instance['entity_type'] = 'questionnaire_answer';
+    $instance['bundle'] = 'questionnaire_answer';
+    field_create_instance($instance);
+
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = 'ftritem';
+    field_create_instance($instance);
+
+    $instance['entity_type'] = 'node';
+    $instance['bundle'] = 'place';
+    field_create_instance($instance);
+  }
     
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
