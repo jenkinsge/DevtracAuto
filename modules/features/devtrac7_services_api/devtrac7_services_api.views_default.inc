@@ -744,7 +744,6 @@ function devtrac7_services_api_views_default_views() {
     'vocabulary_7' => 'vocabulary_7',
   );
   $handler->display->display_options['path'] = 'api/views/vocabulary/reporttypes';
-  $export['api_vocabularies'] = $view;
 
   return $export;
 }
