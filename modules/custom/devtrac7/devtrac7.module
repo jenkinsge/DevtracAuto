@@ -157,6 +157,8 @@ function devtrac7_permission() {
 function devtrac7_menu_alter(&$items) {
   $items['node/%node/addsubmission']['title'] = 'Add Questionnaire';
   $items['node/%node/addsubmission']['weight'] = 3;
+  $items['node/%node/addsubmission']['access callback'] = 'devtrac7_addsubmission_access';
+  $items['node/%node/addsubmission']['access arguments'] = array(1);
   $items['node/%node/editsubmission']['title'] = 'Edit Questionnaire';
   $items['node/%node/editsubmission']['weight'] = 3;
   $items['node/%node/editsubmission/%submissiontoedit']['title'] = 'Edit Questionnaire';
@@ -164,6 +166,29 @@ function devtrac7_menu_alter(&$items) {
   // The weight of the item in the menu_router table
   // overrides the weight in the menu_link table.
   $items['user']['weight'] = -30;
+}
+
+/**
+ * Devtrac7 override of menu access callback for adding a submission to a
+ * questionnaire.
+ * We need to restict access to Site visits and Human interest stories only.
+ *
+ * @param object $node
+ *  The questionnaire entity for which the user is trying to add a submission.
+ *
+ * @return boolean
+ *  A boolean indicating whether or not the user can add a submission to the
+ *  questionnaire.
+ */
+function devtrac7_addsubmission_access($node) {
+  if ($node->type != 'ftritem') {
+    return FALSE;
+  }
+  $tid = _devtrac7_site_report_tid('Roadside Observation');
+  if ($node->taxonomy_vocabulary_7[LANGUAGE_NONE][0]['tid'] == $tid) {
+    return FALSE;
+  }
+  return questionnaire_question_addsubmission_access($node);
 }
 
 /**
@@ -2341,25 +2366,20 @@ function devtrac7_date_format_types() {
 
 /**
  * Get the tid of the given term in vocabulary site repot
- * @param $term Term whose tid is required
- * @return int tid
+ * @param $termname Name of the term whose tid is required
+ * @return $tid The tid of the named term
  */
-function _devtrac7_site_report_tid($term) {
-	//variables are devtrac7_site_visit, devtrac7_human_interest_story, devtrac7_roadside_observation
-	$return = 0;
-	$varname = 'devtrac7_'.str_replace(' ', '_', strtolower($term));
-	$termvar = variable_get($varname,0);
-		
-	if(empty($termvar)) {
-		$vocabulary = 'vocabulary_7';
-		$termarray = taxonomy_get_term_by_name($term , $vocabulary);
-		if(!empty($termarray)) {
-			$termarray = array_keys($termarray); 			
-			
-			$return = $termarray[0];
-			variable_set($varname, $return);
-		}
-	}
-	return	$return ;
+function _devtrac7_site_report_tid($termname) {
+  //variables are devtrac7_site_visit, devtrac7_human_interest_story, devtrac7_roadside_observation
+  $varname = 'devtrac7_' . str_replace(' ', '_', strtolower($termname));
+  $tid = variable_get($varname, 0);
+  if(empty($tid)) {
+    $vocabulary = 'vocabulary_7';
+    $terms = taxonomy_get_term_by_name($termname , $vocabulary);
+    if(!empty($terms)) {
+      $term = array_shift($terms); 			
+      variable_set($varname, $$term->tid);
+    }
+  }
+  return $tid;
 }
-
