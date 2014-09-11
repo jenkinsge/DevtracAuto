@@ -157,8 +157,6 @@ function devtrac7_permission() {
 function devtrac7_menu_alter(&$items) {
   $items['node/%node/addsubmission']['title'] = 'Add Questionnaire';
   $items['node/%node/addsubmission']['weight'] = 3;
-  $items['node/%node/addsubmission']['access callback'] = 'devtrac7_addsubmission_access';
-  $items['node/%node/addsubmission']['access arguments'] = array(1);
   $items['node/%node/editsubmission']['title'] = 'Edit Questionnaire';
   $items['node/%node/editsubmission']['weight'] = 3;
   $items['node/%node/editsubmission/%submissiontoedit']['title'] = 'Edit Questionnaire';
@@ -166,29 +164,6 @@ function devtrac7_menu_alter(&$items) {
   // The weight of the item in the menu_router table
   // overrides the weight in the menu_link table.
   $items['user']['weight'] = -30;
-}
-
-/**
- * Devtrac7 override of menu access callback for adding a submission to a
- * questionnaire.
- * We need to restict access to Site visits and Human interest stories only.
- *
- * @param object $node
- *  The questionnaire entity for which the user is trying to add a submission.
- *
- * @return boolean
- *  A boolean indicating whether or not the user can add a submission to the
- *  questionnaire.
- */
-function devtrac7_addsubmission_access($node) {
-  if ($node->type != 'ftritem') {
-    return FALSE;
-  }
-  $tid = _devtrac7_site_report_tid('Roadside Observation');
-  if ($node->taxonomy_vocabulary_7[LANGUAGE_NONE][0]['tid'] == $tid) {
-    return FALSE;
-  }
-  return questionnaire_question_addsubmission_access($node);
 }
 
 /**
