@@ -436,11 +436,18 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Import CodeLists'),
     'type' => 'batch',
   );
+  // We're not going to initialize the taxonomy access settings now. Instead we
+  // put a marker in the database to do it after the site install has finished.
+  // (See: devtrac_init() in devtrac.profile.)
+  // We have to do this because we cannot set them when the system is in
+  // maintenance mode, which is the case during site install.
+/*
   $tasks['devtrac_initialize_taxonomy_access'] = array(
     'display_name' => st('Initialize taxonomy access'),
     'display' => FALSE,
     'type' => 'normal',
   );
+*/
   $tasks['devtrac_enable_custom_currentsearch'] = array(
     'display_name' => st('Enable Custom Current Search Blocks'),
     'display' => FALSE,
@@ -694,8 +701,11 @@ function devtrac_install_statistics_config_google_analytics_form_submit($form, &
  * additional functionality to the base install.
  */
 function devtrac_install_additional_modules(&$install_state) {
+  // Do not enable devtrac7_profile_menu module now. Instead put a marker in
+  // the database to do a menu rebuild later and enable the module later.
+  variable_set('devtrac_menu_rebuild_needed', TRUE);
   $modules = array(
-    'devtrac7_profile_menu',
+    // 'devtrac7_profile_menu',
     'devtrac7_field_permissions_feature',
   );
   if (isset($install_state['parameters']['stats'])) {

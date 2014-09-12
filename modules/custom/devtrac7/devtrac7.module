@@ -2340,26 +2340,21 @@ function devtrac7_date_format_types() {
 }
 
 /**
- * Get the tid of the given term in vocabulary site repot
- * @param $term Term whose tid is required
- * @return int tid
+ * Get the tid of the given term in vocabulary site report.
+ * @param $termname Name of the term whose tid is required
+ * @return $tid The tid of the named term
  */
-function _devtrac7_site_report_tid($term) {
-	//variables are devtrac7_site_visit, devtrac7_human_interest_story, devtrac7_roadside_observation
-	$return = 0;
-	$varname = 'devtrac7_'.str_replace(' ', '_', strtolower($term));
-	$termvar = variable_get($varname,0);
-		
-	if(empty($termvar)) {
-		$vocabulary = 'vocabulary_7';
-		$termarray = taxonomy_get_term_by_name($term , $vocabulary);
-		if(!empty($termarray)) {
-			$termarray = array_keys($termarray); 			
-			
-			$return = $termarray[0];
-			variable_set($varname, $return);
-		}
-	}
-	return	$return ;
+function _devtrac7_site_report_tid($termname) {
+  //variables are devtrac7_site_visit, devtrac7_human_interest_story, devtrac7_roadside_observation
+  $varname = 'devtrac7_' . str_replace(' ', '_', strtolower($termname));
+  $tid = variable_get($varname, 0);
+  if(empty($tid)) {
+    $vocabulary = 'vocabulary_7';
+    $terms = taxonomy_get_term_by_name($termname , $vocabulary);
+    if(!empty($terms)) {
+      $term = array_shift($terms);
+      variable_set($varname, $term->tid);
+    }
+  }
+  return $tid;
 }
-
