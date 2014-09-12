@@ -2353,7 +2353,7 @@ function _devtrac7_site_report_tid($termname) {
     $terms = taxonomy_get_term_by_name($termname , $vocabulary);
     if(!empty($terms)) {
       $term = array_shift($terms);
-      variable_set($varname, $$term->tid);
+      variable_set($varname, $term->tid);
     }
   }
   return $tid;
