@@ -54,20 +54,20 @@ function devtrac7_theme_feature_context_default_contexts() {
         'devtrac7_mymenu-my_menu_block' => array(
           'module' => 'devtrac7_mymenu',
           'delta' => 'my_menu_block',
-          'region' => 'my_items_menu',
+          'region' => 'featured',
           'weight' => '10',
         ),
          */
         'nice_menus-3' => array(
           'module' => 'nice_menus',
           'delta' => 3,
-          'region' => 'my_items_menu',
+          'region' => 'featured',
           'weight' => '-9',
         ),
         'nice_menus-2' => array(
           'module' => 'nice_menus',
           'delta' => 2,
-          'region' => 'my_tool_menu',
+          'region' => 'featured',
           'weight' => '-71',
         ),
       ),
@@ -144,7 +144,7 @@ function devtrac7_theme_feature_context_default_contexts() {
         'pane-devtrac_solr_map_info' => array(
           'module' => 'pane',
           'delta' => 'devtrac_solr_map_info',
-          'region' => 'my_tool_menu',
+          'region' => 'featured',
           'weight' => '-80',
         ),
         'delta_blocks-breadcrumb' => array(
@@ -219,7 +219,7 @@ function devtrac7_theme_feature_context_default_contexts() {
         'pane-action_items_info' => array(
           'module' => 'pane',
           'delta' => 'action_items_info',
-          'region' => 'my_tool_menu',
+          'region' => 'featured',
           'weight' => '-80',
         ),
         'delta_blocks-breadcrumb' => array(
@@ -306,7 +306,7 @@ $context->reactions = array(
       'pane-front_about_information' => array(
         'module' => 'pane',
         'delta' => 'front_about_information',
-        'region' => 'my_tool_menu',
+        'region' => 'featured',
         'weight' => '-80',
       ),
       'delta_blocks-messages' => array(
@@ -425,7 +425,7 @@ $context->reactions = array(
       'pane-locations_info' => array(
         'module' => 'pane',
         'delta' => 'locations_info',
-        'region' => 'my_tool_menu',
+        'region' => 'featured',
         'weight' => '-80',
       ),
       'delta_blocks-messages' => array(
@@ -500,7 +500,7 @@ $context->reactions = array(
       'pane-field_trips_info' => array(
         'module' => 'pane',
         'delta' => 'field_trips_info',
-        'region' => 'my_tool_menu',
+        'region' => 'featured',
         'weight' => '-80',
       ),
       'delta_blocks-messages' => array(
@@ -656,7 +656,7 @@ $context->reactions = array(
       'pane-user_info' => array(
         'module' => 'pane',
         'delta' => 'user_info',
-        'region' => 'my_tool_menu',
+        'region' => 'featured',
         'weight' => '-80',
       ),
       'delta_blocks-messages' => array(
