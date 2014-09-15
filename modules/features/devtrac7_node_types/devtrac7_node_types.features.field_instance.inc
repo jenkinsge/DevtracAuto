@@ -1588,6 +1588,64 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-fieldtrip-field_fieldtrip_internal_id'
+  $field_instances['node-fieldtrip-field_fieldtrip_internal_id'] = array(
+    'bundle' => 'fieldtrip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'This field can be used to store an internal ID from your project management or accounting system.',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'full' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 4,
+      ),
+      'rss' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => -4,
+      ),
+      'teaser' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_fieldtrip_internal_id',
+    'label' => 'Internal ID',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'weight' => -4,
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 30,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+    'widget_type' => 'geofield_wkt',
+  );
+
   // Exported field_instance: 'node-fieldtrip-field_fieldtrip_narrative'
   $field_instances['node-fieldtrip-field_fieldtrip_narrative'] = array(
     'bundle' => 'fieldtrip',
@@ -1730,64 +1788,6 @@ function devtrac7_node_types_field_default_field_instances() {
       'type' => 'entityreference_autocomplete',
       'weight' => 5,
     ),
-  );
-
-  // Exported field_instance: 'node-fieldtrip-field_fieldtrip_internal_id'
-  $field_instances['node-fieldtrip-field_fieldtrip_internal_id'] = array(
-    'bundle' => 'fieldtrip',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'This field can be used to store an internal ID from your project management or accounting system.',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'full' => array(
-        'label' => 'inline',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 4,
-      ),
-      'rss' => array(
-        'label' => 'inline',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => -4,
-      ),
-      'teaser' => array(
-        'label' => 'inline',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_fieldtrip_internal_id',
-    'label' => 'Internal ID',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'weight' => -4,
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'maxlength_js' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 30,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 1,
-    ),
-    'widget_type' => 'geofield_wkt',
   );
 
   // Exported field_instance: 'node-fieldtrip-field_fieldtrip_public_summary'
@@ -2664,6 +2664,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'allowed_types' => array(
           0 => 'image',
         ),
+        'browser_plugins' => array(),
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
@@ -4468,75 +4469,6 @@ The \'Search Address\' box will only help you to do an initial search on a rough
     ),
   );
 
-  // Exported field_instance: 'comment-comment_node_actionitem-field_actionitem_status'
-  $field_instances['comment-comment_node_actionitem-field_actionitem_status'] = array(
-     'bundle' => 'comment_node_actionitem',
-     'default_value' => NULL,
-     'default_value_function' => 'devtrac7_comment_change_status_default_value',
-     'default_value_php' => '',
-     'deleted' => 0,
-     'description' => '',
-         'default' => array(
-         'label' => 'inline',
-         'module' => 'list',
-         'settings' => array(),
-         'type' => 'list_default',
-         'weight' => 0,
-       ),
-     ),
-     'entity_type' => 'comment',
-     'field_name' => 'field_actionitem_status',
-     'label' => 'Status',
-     'required' => 1,
-     'settings' => array(
-       'user_register_form' => FALSE,
-     ),
-     'widget' => array(
-       'active' => 1,
-       'module' => 'options',
-       'settings' => array(
-        'apply_chosen' => '',
-         'content_taxonomy_opt_groups' => FALSE,
-       ),
-      'type' => 'options_select',
-       'weight' => 0,
-     ),
-   );
- 
-   // Exported field_instance: 'comment-comment_node_actionitem-taxonomy_vocabulary_8'
-   $field_instances['comment-comment_node_actionitem-taxonomy_vocabulary_8'] = array(
-     'bundle' => 'comment_node_actionitem',
-     'default_value' => NULL,
-     'deleted' => 0,
-     'description' => '',
-     'display' => array(
-       'default' => array(
-         'label' => 'inline',
-         'module' => 'taxonomy',
-         'settings' => array(),
-         'type' => 'taxonomy_term_reference_link',
-         'weight' => 1,
-       ),
-     ),
-     'entity_type' => 'comment',
-     'field_name' => 'taxonomy_vocabulary_8',
-     'label' => 'Subject',
-     'required' => 1,
-     'settings' => array(
-       'user_register_form' => FALSE,
-     ),
-     'widget' => array(
-       'active' => 1,
-       'module' => 'options',
-       'settings' => array(
-         'apply_chosen' => '',
-         'content_taxonomy_opt_groups' => FALSE,
-       ),
-       'type' => 'options_select',
-       'weight' => 1,
-     ),
-  );
-
   // Translatables
   // Included for use with string extractors like potx.
   t(' Hold the \'Control\' key on your keyboard to select multiple districts.');
@@ -4544,7 +4476,6 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('A <em>page</em>, similar in form to a <em>story</em>, is a simple method for creating and displaying information that rarely changes, such as an "About us" section of a website. By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site\'s initial home page.');
   t('Add Tags. These will categorize your Field Trip basing on the keywords you add. It will later help you and other users to easily find it. Make sure you use existing tags to avoid duplication. Separate tags with a comma followed by a space.');
   t('Add Tags. These will categorize your action item basing on the keyword you add. It will later help you and other users to easily find your Action Item. Make sure you use an existing tag to avoid duplication. Separate tags with a comma followed by a space.');
-  t('This field can be used to store an internal ID from your project management or accounting system.');
   t('Add the contact credentials of the main contact person at this location');
   t('Add the email of the main contact person at this location');
   t('Add the phone number of the main contact person at this location');
@@ -4577,6 +4508,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('Indicate the mailing address of the contact person. This may be a street address or a P.O. Box. You can add more than one mailing address by pressing the \'Add another mailing address\' button below.');
   t('Indicate the names of this person');
   t('Indicate the phone number of the contact person. You can add more than one mailing address by pressing the \'Add another phone number\' button below.');
+  t('Internal ID');
   t('Lat-Long');
   t('Location');
   t('Location Type');
@@ -4622,12 +4554,13 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('SoureURI');
   t('Start and End Date');
   t('Status');
-  t('Internal ID');
+  t('Subject');
   t('Tags');
   t('Telephone');
   t('The location that this action item relates to.');
   t('The person who approves the Field Trip. (Normally the manager)');
   t('The status field determines if an Action Item is still active. ');
+  t('This field can be used to store an internal ID from your project management or accounting system.');
   t('This is the Site Report where this Action Item is based on.');
   t('This is the source URI of the origin of the location. This points to the server or service where the original layer where the point was imported from resides. If you are not sure, please insert http://www.devtrac.ug/places');
   t('Unique ID');
