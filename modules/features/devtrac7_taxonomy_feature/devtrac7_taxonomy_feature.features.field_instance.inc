@@ -665,6 +665,7 @@ function devtrac7_taxonomy_feature_field_default_field_instances() {
   t('OSM Relation Id');
   t('OSM Type');
   t('SVG Data');
+  t('Tags');
   t('Term Icon');
   t('Wikipedia');
 
