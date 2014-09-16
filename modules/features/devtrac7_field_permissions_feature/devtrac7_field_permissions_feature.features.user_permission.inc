@@ -243,6 +243,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create field_actionitem_ftreportitem',
     'roles' => array(
       'administrator' => 'administrator',
+      'field worker' => 'field worker',
     ),
     'module' => 'field_permissions',
   );
@@ -261,6 +262,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create field_actionitem_resp_place',
     'roles' => array(
       'administrator' => 'administrator',
+      'field worker' => 'field worker',
     ),
     'module' => 'field_permissions',
   );
@@ -367,6 +369,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create field_fieldtrip_approved_by',
     'roles' => array(
       'administrator' => 'administrator',
+      'field worker' => 'field worker',
     ),
     'module' => 'field_permissions',
   );
