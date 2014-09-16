@@ -472,6 +472,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create field_ftritem_field_trip',
     'roles' => array(
       'administrator' => 'administrator',
+      'field worker' => 'field worker',
     ),
     'module' => 'field_permissions',
   );
@@ -514,6 +515,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'create field_ftritem_place',
     'roles' => array(
       'administrator' => 'administrator',
+      'field worker' => 'field worker',
     ),
     'module' => 'field_permissions',
   );
