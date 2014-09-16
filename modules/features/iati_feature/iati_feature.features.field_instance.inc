@@ -1959,7 +1959,7 @@ function iati_feature_field_default_field_instances() {
         'prepopulate' => array(
           'action' => 'hide',
           'fallback' => 'none',
-          'skip_perm' => 'access administration menu',
+          'skip_perm' => 'create field_organisation',
           'status' => 0,
         ),
       ),

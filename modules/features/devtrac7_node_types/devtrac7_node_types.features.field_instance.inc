@@ -642,7 +642,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'prepopulate' => array(
           'action' => 'hide',
           'fallback' => 'hide',
-          'skip_perm' => 'access administration menu',
+          'skip_perm' => 'create field_actionitem_ftreportitem',
           'status' => 1,
         ),
       ),
@@ -761,7 +761,7 @@ function devtrac7_node_types_field_default_field_instances() {
             'og_context' => FALSE,
             'url' => 1,
           ),
-          'skip_perm' => 'access administration menu',
+          'skip_perm' => 'create field_actionitem_resp_place',
           'status' => 1,
         ),
       ),
@@ -818,7 +818,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'prepopulate' => array(
           'action' => 'show',
           'fallback' => 'none',
-          'skip_perm' => 'access administration menu',
+          'skip_perm' => 'create field_actionitem_responsible',
           'status' => 1,
         ),
       ),
@@ -1480,7 +1480,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'prepopulate' => array(
           'action' => 'hide',
           'fallback' => 'hide',
-          'skip_perm' => 'access administration menu',
+          'skip_perm' => 'create field_fieldtrip_approved_by',
           'status' => 1,
         ),
       ),
@@ -1770,7 +1770,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'prepopulate' => array(
           'action' => 'hide',
           'fallback' => 'hide',
-          'skip_perm' => 'access administration menu',
+          'skip_perm' => 'create field_fieldtrip_places',
           'status' => 1,
         ),
       ),
@@ -2081,7 +2081,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'prepopulate' => array(
           'action' => 'hide',
           'fallback' => 'hide',
-          'skip_perm' => 'access administration menu',
+          'skip_perm' => 'create field_fieldtrip_user',
           'status' => 1,
         ),
       ),
