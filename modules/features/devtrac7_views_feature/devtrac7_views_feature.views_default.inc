@@ -184,13 +184,13 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
-  'nid' => 'nid',
-  'title' => 'title',
-  'field_actionitem_due_date' => 'field_actionitem_due_date',
-  'field_actionitem_resp_place' => 'field_actionitem_resp_place',
-  'field_actionitem_responsible' => 'field_actionitem_responsible',
-  'view' => 'view',
-  'view_1' => 'view_1',
+    'nid' => 'nid',
+    'title' => 'title',
+    'field_actionitem_due_date' => 'field_actionitem_due_date',
+    'field_actionitem_resp_place' => 'field_actionitem_resp_place',
+    'field_actionitem_responsible' => 'field_actionitem_responsible',
+    'view' => 'view',
+    'view_1' => 'view_1',
   );
   $handler->display->display_options['style_options']['default'] = 'field_actionitem_due_date';
   $handler->display->display_options['style_options']['info'] = array(
@@ -308,7 +308,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['view']['view'] = 'dvtrc_action_items';
   $handler->display->display_options['fields']['view']['display'] = 'block_13';
   $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
-  $handler->display->display_options['fields']['view']['query_aggregation'] = 0;
   /* Field: Global: View */
   $handler->display->display_options['fields']['view_1']['id'] = 'view_1';
   $handler->display->display_options['fields']['view_1']['table'] = 'views';
@@ -317,7 +316,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['view_1']['view'] = 'dvtrc_action_items';
   $handler->display->display_options['fields']['view_1']['display'] = 'block_14';
   $handler->display->display_options['fields']['view_1']['arguments'] = '[!nid]';
-  $handler->display->display_options['fields']['view_1']['query_aggregation'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -2165,63 +2163,19 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'slideshow';
-  $handler->display->display_options['style_options']['slideshow_type'] = 'views_slideshow_cycle';
-  $handler->display->display_options['style_options']['slideshow_skin'] = 'default';
-  $handler->display->display_options['style_options']['skin_info'] = array(
-    'class' => 'default',
-    'name' => 'Default',
-    'module' => 'views_slideshow',
-    'path' => '',
-    'stylesheets' => array(),
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images_1' => 'field_ftritem_images_1',
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_2' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['enable'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['hide_on_single_slide'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images_1' => 'field_ftritem_images_1',
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_2' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_hover'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['timeout'] = '5000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['speed'] = '700';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['delay'] = '0';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['action_advanced'] = 1;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['start_paused'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['remember_slide_days'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['items_per_slide'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['wait_for_image_load_timeout'] = '10000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartype'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartypenobg'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['advanced_options'] = '{"fit":"1","width":"\'auto\'"}';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: View area */
-  $handler->display->display_options['empty']['view']['id'] = 'view';
-  $handler->display->display_options['empty']['view']['table'] = 'views';
-  $handler->display->display_options['empty']['view']['field'] = 'view';
-  $handler->display->display_options['empty']['view']['empty'] = TRUE;
-  $handler->display->display_options['empty']['view']['view_to_insert'] = 'dvtrc_site_visits:block_20';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No images yet';
+  $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_ftritem_field_trip_target_id']['id'] = 'field_ftritem_field_trip_target_id';
@@ -2476,7 +2430,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_title']['field'] = 'field_user_title';
   $handler->display->display_options['fields']['field_user_title']['relationship'] = 'uid';
   $handler->display->display_options['fields']['field_user_title']['element_label_type'] = 'strong';
-  /* Field: Content: TA Number */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['field_fieldtrip_proms_ta_id']['id'] = 'field_fieldtrip_proms_ta_id';
   $handler->display->display_options['fields']['field_fieldtrip_proms_ta_id']['table'] = 'field_data_field_fieldtrip_proms_ta_id';
   $handler->display->display_options['fields']['field_fieldtrip_proms_ta_id']['field'] = 'field_fieldtrip_proms_ta_id';
@@ -2568,7 +2522,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -2839,7 +2793,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['view']['view'] = 'dvtrc_field_trip';
   $handler->display->display_options['fields']['view']['display'] = 'block_13';
   $handler->display->display_options['fields']['view']['arguments'] = '[%nid]';
-  $handler->display->display_options['fields']['view']['query_aggregation'] = 0;
   /* Field: Questionnaire */
   $handler->display->display_options['fields']['view_1']['id'] = 'view_1';
   $handler->display->display_options['fields']['view_1']['table'] = 'views';
@@ -2850,7 +2803,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['view_1']['view'] = 'dvtrc_field_trip';
   $handler->display->display_options['fields']['view_1']['display'] = 'block_12';
   $handler->display->display_options['fields']['view_1']['arguments'] = '[%taxonomy_vocabulary_1]';
-  $handler->display->display_options['fields']['view_1']['query_aggregation'] = 0;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -3639,7 +3591,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_ftritem_place_node';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -3758,7 +3710,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -3879,7 +3831,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'strong';
   $handler->display->display_options['fields']['title']['element_label_type'] = 'strong';
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -4097,19 +4049,19 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['id'] = 'taxonomy_vocabulary_1_tid';
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['field'] = 'taxonomy_vocabulary_1_tid';
-  /* Relationship: Entity Reference: Referencing entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['reverse_questionnaire_answer_question_questionnaire_answer']['id'] = 'reverse_questionnaire_answer_question_questionnaire_answer';
   $handler->display->display_options['relationships']['reverse_questionnaire_answer_question_questionnaire_answer']['table'] = 'node';
   $handler->display->display_options['relationships']['reverse_questionnaire_answer_question_questionnaire_answer']['field'] = 'reverse_questionnaire_answer_question_questionnaire_answer';
   $handler->display->display_options['relationships']['reverse_questionnaire_answer_question_questionnaire_answer']['label'] = 'Question';
   $handler->display->display_options['relationships']['reverse_questionnaire_answer_question_questionnaire_answer']['required'] = TRUE;
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['questionnaire_answer_context_target_id']['id'] = 'questionnaire_answer_context_target_id';
   $handler->display->display_options['relationships']['questionnaire_answer_context_target_id']['table'] = 'field_data_questionnaire_answer_context';
   $handler->display->display_options['relationships']['questionnaire_answer_context_target_id']['field'] = 'questionnaire_answer_context_target_id';
   $handler->display->display_options['relationships']['questionnaire_answer_context_target_id']['relationship'] = 'reverse_questionnaire_answer_question_questionnaire_answer';
   $handler->display->display_options['relationships']['questionnaire_answer_context_target_id']['label'] = 'Context';
-  /* Relationship: Entity Reference: Referenced Entity */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['questionnaire_answer_qnnaire_target_id']['id'] = 'questionnaire_answer_qnnaire_target_id';
   $handler->display->display_options['relationships']['questionnaire_answer_qnnaire_target_id']['table'] = 'field_data_questionnaire_answer_qnnaire';
   $handler->display->display_options['relationships']['questionnaire_answer_qnnaire_target_id']['field'] = 'questionnaire_answer_qnnaire_target_id';
@@ -4131,27 +4083,24 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Answer: Context */
+  /* Field: Broken/missing handler */
   $handler->display->display_options['fields']['questionnaire_answer_context']['id'] = 'questionnaire_answer_context';
   $handler->display->display_options['fields']['questionnaire_answer_context']['table'] = 'field_data_questionnaire_answer_context';
   $handler->display->display_options['fields']['questionnaire_answer_context']['field'] = 'questionnaire_answer_context';
   $handler->display->display_options['fields']['questionnaire_answer_context']['relationship'] = 'reverse_questionnaire_answer_question_questionnaire_answer';
   $handler->display->display_options['fields']['questionnaire_answer_context']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['questionnaire_answer_context']['settings'] = array(
-    'link' => 1,
-  );
   /* Field: Field: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_location_type_icon';
-  /* Field: Answer: Answer */
+  /* Field: Answer: Answer All */
   $handler->display->display_options['fields']['answer']['id'] = 'answer';
   $handler->display->display_options['fields']['answer']['table'] = 'questionnaire_answer';
   $handler->display->display_options['fields']['answer']['field'] = 'answer';
   $handler->display->display_options['fields']['answer']['relationship'] = 'reverse_questionnaire_answer_question_questionnaire_answer';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Answer: Context */
+  /* Contextual filter: Broken/missing handler */
   $handler->display->display_options['arguments']['context']['id'] = 'context';
   $handler->display->display_options['arguments']['context']['table'] = 'questionnaire_answer';
   $handler->display->display_options['arguments']['context']['field'] = 'context';
@@ -4346,7 +4295,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['view']['view'] = 'dvtrc_site_visits';
   $handler->display->display_options['fields']['view']['display'] = 'block_18';
   $handler->display->display_options['fields']['view']['arguments'] = '[!tid_1]';
-  $handler->display->display_options['fields']['view']['query_aggregation'] = 0;
   /* Field: Recent Location */
   $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
   $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
@@ -4548,7 +4496,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -4633,7 +4581,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -4744,7 +4692,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['relationships']['field_ftritem_place_target_id']['table'] = 'field_data_field_ftritem_place';
   $handler->display->display_options['relationships']['field_ftritem_place_target_id']['field'] = 'field_ftritem_place_target_id';
   $handler->display->display_options['relationships']['field_ftritem_place_target_id']['relationship'] = 'reverse_field_ftritem_field_trip_node';
-  $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Relationship: Field: Location Type (taxonomy_vocabulary_1) */
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['id'] = 'taxonomy_vocabulary_1_tid';
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['table'] = 'field_data_taxonomy_vocabulary_1';
@@ -5078,7 +5025,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -5375,11 +5322,10 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['relationships']['taxonomy_vocabulary_6_tid']['table'] = 'field_data_taxonomy_vocabulary_6';
   $handler->display->display_options['relationships']['taxonomy_vocabulary_6_tid']['field'] = 'taxonomy_vocabulary_6_tid';
   $handler->display->display_options['relationships']['taxonomy_vocabulary_6_tid']['label'] = 'District';
-  /* Relationship: Content: Relation: IATI Organisation Role (node → node) */
+  /* Relationship: Broken/missing handler */
   $handler->display->display_options['relationships']['relation_iati_organisation_role_node']['id'] = 'relation_iati_organisation_role_node';
   $handler->display->display_options['relationships']['relation_iati_organisation_role_node']['table'] = 'node';
   $handler->display->display_options['relationships']['relation_iati_organisation_role_node']['field'] = 'relation_iati_organisation_role_node';
-  $handler->display->display_options['relationships']['relation_iati_organisation_role_node']['r_index'] = '1';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -5547,7 +5493,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -5664,63 +5610,19 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'slideshow';
-  $handler->display->display_options['style_options']['slideshow_type'] = 'views_slideshow_cycle';
-  $handler->display->display_options['style_options']['slideshow_skin'] = 'default';
-  $handler->display->display_options['style_options']['skin_info'] = array(
-    'class' => 'default',
-    'name' => 'Default',
-    'module' => 'views_slideshow',
-    'path' => '',
-    'stylesheets' => array(),
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_2' => 0,
-    'field_ftritem_images_1' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['enable'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['hide_on_single_slide'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images_1' => 'field_ftritem_images_1',
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_2' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_hover'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['hide_on_single_slide'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['timeout'] = '5000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['speed'] = '700';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['delay'] = '0';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['action_advanced'] = 1;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['start_paused'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['remember_slide_days'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['items_per_slide'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['wait_for_image_load_timeout'] = '10000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartype'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartypenobg'] = 0;
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: View area */
-  $handler->display->display_options['empty']['view']['id'] = 'view';
-  $handler->display->display_options['empty']['view']['table'] = 'views';
-  $handler->display->display_options['empty']['view']['field'] = 'view';
-  $handler->display->display_options['empty']['view']['empty'] = TRUE;
-  $handler->display->display_options['empty']['view']['view_to_insert'] = 'dvtrc_site_visits:block_20';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No images yet.';
+  $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: Site information */
@@ -6017,7 +5919,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6206,62 +6108,19 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'slideshow';
-  $handler->display->display_options['style_options']['slideshow_type'] = 'views_slideshow_cycle';
-  $handler->display->display_options['style_options']['slideshow_skin'] = 'default';
-  $handler->display->display_options['style_options']['skin_info'] = array(
-    'class' => 'default',
-    'name' => 'Default',
-    'module' => 'views_slideshow',
-    'path' => '',
-    'stylesheets' => array(),
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_2' => 0,
-    'field_ftritem_images_1' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['enable'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['hide_on_single_slide'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images_1' => 'field_ftritem_images_1',
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_2' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_hover'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['timeout'] = '5000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['speed'] = '700';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['delay'] = '0';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['action_advanced'] = 1;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['start_paused'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['remember_slide_days'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['items_per_slide'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['wait_for_image_load_timeout'] = '10000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartype'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartypenobg'] = 0;
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: View area */
-  $handler->display->display_options['empty']['view']['id'] = 'view';
-  $handler->display->display_options['empty']['view']['table'] = 'views';
-  $handler->display->display_options['empty']['view']['field'] = 'view';
-  $handler->display->display_options['empty']['view']['empty'] = TRUE;
-  $handler->display->display_options['empty']['view']['view_to_insert'] = 'dvtrc_site_visits:block_20';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No images yet';
+  $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Field: Admin Unit (taxonomy_vocabulary_6) */
   $handler->display->display_options['relationships']['taxonomy_vocabulary_6_tid']['id'] = 'taxonomy_vocabulary_6_tid';
@@ -6490,7 +6349,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'field_data_taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['delta_offset'] = '0';
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6615,7 +6474,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6734,7 +6593,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6874,7 +6733,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6933,62 +6792,19 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'slideshow';
-  $handler->display->display_options['style_options']['slideshow_type'] = 'views_slideshow_cycle';
-  $handler->display->display_options['style_options']['slideshow_skin'] = 'default';
-  $handler->display->display_options['style_options']['skin_info'] = array(
-    'class' => 'default',
-    'name' => 'Default',
-    'module' => 'views_slideshow',
-    'path' => '',
-    'stylesheets' => array(),
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_1' => 0,
-    'field_ftritem_images_2' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['enable'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['hide_on_single_slide'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images_2' => 'field_ftritem_images_2',
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_1' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_hover'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['timeout'] = '5000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['speed'] = '700';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['delay'] = '0';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['action_advanced'] = 1;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['start_paused'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['remember_slide_days'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['items_per_slide'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['wait_for_image_load_timeout'] = '10000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartype'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartypenobg'] = 0;
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: View area */
-  $handler->display->display_options['empty']['view']['id'] = 'view';
-  $handler->display->display_options['empty']['view']['table'] = 'views';
-  $handler->display->display_options['empty']['view']['field'] = 'view';
-  $handler->display->display_options['empty']['view']['empty'] = TRUE;
-  $handler->display->display_options['empty']['view']['view_to_insert'] = 'dvtrc_site_visits:block_20';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No images yet';
+  $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_ftritem_place_target_id']['id'] = 'field_ftritem_place_target_id';
@@ -7188,7 +7004,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -7253,57 +7069,19 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'slideshow';
-  $handler->display->display_options['style_options']['slideshow_type'] = 'views_slideshow_cycle';
-  $handler->display->display_options['style_options']['slideshow_skin'] = 'default';
-  $handler->display->display_options['style_options']['skin_info'] = array(
-    'class' => 'default',
-    'name' => 'Default',
-    'module' => 'views_slideshow',
-    'path' => '',
-    'stylesheets' => array(),
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_2' => 0,
-    'field_ftritem_images_1' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['enable'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['hide_on_single_slide'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
-    'field_ftritem_images_1' => 'field_ftritem_images_1',
-    'field_ftritem_images' => 0,
-    'field_ftritem_images_3' => 0,
-    'field_ftritem_images_2' => 0,
-  );
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_hover'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['weight'] = '1';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['hide_on_single_slide'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_slide_counter']['weight'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['timeout'] = '5000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['speed'] = '700';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['delay'] = '0';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['action_advanced'] = 1;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['start_paused'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['remember_slide_days'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['items_per_slide'] = '1';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['wait_for_image_load_timeout'] = '10000';
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartype'] = 0;
-  $handler->display->display_options['style_options']['views_slideshow_cycle']['cleartypenobg'] = 0;
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No images yet';
+  $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Gallery Image */
@@ -7462,7 +7240,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Report';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
