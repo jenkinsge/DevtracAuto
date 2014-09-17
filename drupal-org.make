@@ -40,7 +40,6 @@ projects[charts_graphs_flot][type] = "module"
 projects[charts_graphs_flot][subdir] = "contrib"
 projects[charts_graphs_flot][patch][] = "https://www.drupal.org/files/issues/charts_graphs_flot-fixes-getChart-warning-at-line-232-2324399-0.patch"
 projects[charts_graphs_flot][patch][] = "https://www.drupal.org/files/issues/charts_graphs_flot-fix-for-xaxis-warning-2324451-0.patch"
-projects[charts_graphs_flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects_fix-2264691-0.patch"
 
 projects[ckan_packages][version] = "1.x-dev"
 projects[ckan_packages][type] = "module"
