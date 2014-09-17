@@ -1515,7 +1515,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'weight' => 12,
       ),
       'full' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'devtrac7_progress_field',
         'settings' => array(),
         'type' => 'devtrac7_progress_field_field_formatter',
@@ -3548,7 +3548,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'weight' => 11,
       ),
       'full' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'devtrac7_progress_field',
         'settings' => array(),
         'type' => 'devtrac7_progress_field_field_formatter',

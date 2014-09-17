@@ -189,9 +189,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_fieldtrip_narrative'.
-  $permissions['create field_fieldtrip_narrative'] = array(
-    'name' => 'create field_fieldtrip_narrative',
+  // Exported permission: 'create field_fieldtrip_internal_id'.
+  $permissions['create field_fieldtrip_internal_id'] = array(
+    'name' => 'create field_fieldtrip_internal_id',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -200,9 +200,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_fieldtrip_internal_id'.
-  $permissions['create field_fieldtrip_internal_id'] = array(
-    'name' => 'create field_fieldtrip_internal_id',
+  // Exported permission: 'create field_fieldtrip_narrative'.
+  $permissions['create field_fieldtrip_narrative'] = array(
+    'name' => 'create field_fieldtrip_narrative',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -779,9 +779,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit field_fieldtrip_narrative'.
-  $permissions['edit field_fieldtrip_narrative'] = array(
-    'name' => 'edit field_fieldtrip_narrative',
+  // Exported permission: 'edit field_fieldtrip_internal_id'.
+  $permissions['edit field_fieldtrip_internal_id'] = array(
+    'name' => 'edit field_fieldtrip_internal_id',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -790,9 +790,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit field_fieldtrip_internal_id'.
-  $permissions['edit field_fieldtrip_internal_id'] = array(
-    'name' => 'edit field_fieldtrip_internal_id',
+  // Exported permission: 'edit field_fieldtrip_narrative'.
+  $permissions['edit field_fieldtrip_narrative'] = array(
+    'name' => 'edit field_fieldtrip_narrative',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -1177,18 +1177,18 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_fieldtrip_narrative'.
-  $permissions['edit own field_fieldtrip_narrative'] = array(
-    'name' => 'edit own field_fieldtrip_narrative',
+  // Exported permission: 'edit own field_fieldtrip_internal_id'.
+  $permissions['edit own field_fieldtrip_internal_id'] = array(
+    'name' => 'edit own field_fieldtrip_internal_id',
     'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_fieldtrip_internal_id'.
-  $permissions['edit own field_fieldtrip_internal_id'] = array(
-    'name' => 'edit own field_fieldtrip_internal_id',
+  // Exported permission: 'edit own field_fieldtrip_narrative'.
+  $permissions['edit own field_fieldtrip_narrative'] = array(
+    'name' => 'edit own field_fieldtrip_narrative',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -1669,9 +1669,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_fieldtrip_narrative'.
-  $permissions['view field_fieldtrip_narrative'] = array(
-    'name' => 'view field_fieldtrip_narrative',
+  // Exported permission: 'view field_fieldtrip_internal_id'.
+  $permissions['view field_fieldtrip_internal_id'] = array(
+    'name' => 'view field_fieldtrip_internal_id',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -1680,9 +1680,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_fieldtrip_internal_id'.
-  $permissions['view field_fieldtrip_internal_id'] = array(
-    'name' => 'view field_fieldtrip_internal_id',
+  // Exported permission: 'view field_fieldtrip_narrative'.
+  $permissions['view field_fieldtrip_narrative'] = array(
+    'name' => 'view field_fieldtrip_narrative',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -2087,18 +2087,18 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_fieldtrip_narrative'.
-  $permissions['view own field_fieldtrip_narrative'] = array(
-    'name' => 'view own field_fieldtrip_narrative',
+  // Exported permission: 'view own field_fieldtrip_internal_id'.
+  $permissions['view own field_fieldtrip_internal_id'] = array(
+    'name' => 'view own field_fieldtrip_internal_id',
     'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_fieldtrip_internal_id'.
-  $permissions['view own field_fieldtrip_internal_id'] = array(
-    'name' => 'view own field_fieldtrip_internal_id',
+  // Exported permission: 'view own field_fieldtrip_narrative'.
+  $permissions['view own field_fieldtrip_narrative'] = array(
+    'name' => 'view own field_fieldtrip_narrative',
     'roles' => array(
       'administrator' => 'administrator',
     ),
