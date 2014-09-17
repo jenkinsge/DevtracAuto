@@ -472,9 +472,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create taxonomy_vocabulary_1'.
-  $permissions['create taxonomy_vocabulary_1'] = array(
-    'name' => 'create taxonomy_vocabulary_1',
+  // Exported permission: 'create taxonomy_vocabulary_6'.
+  $permissions['create taxonomy_vocabulary_6'] = array(
+    'name' => 'create taxonomy_vocabulary_6',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -489,6 +489,17 @@ function devtrac7_node_types_user_default_permissions() {
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'create taxonomy_vocabulary_8'.
+  $permissions['create taxonomy_vocabulary_8'] = array(
+    'name' => 'create taxonomy_vocabulary_8',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'field worker' => 'field worker',
     ),
     'module' => 'field_permissions',
   );
@@ -1423,9 +1434,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'edit own taxonomy_vocabulary_1'.
-  $permissions['edit own taxonomy_vocabulary_1'] = array(
-    'name' => 'edit own taxonomy_vocabulary_1',
+  // Exported permission: 'edit own taxonomy_vocabulary_6'.
+  $permissions['edit own taxonomy_vocabulary_6'] = array(
+    'name' => 'edit own taxonomy_vocabulary_6',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -1441,9 +1452,18 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit taxonomy_vocabulary_1'.
-  $permissions['edit taxonomy_vocabulary_1'] = array(
-    'name' => 'edit taxonomy_vocabulary_1',
+  // Exported permission: 'edit own taxonomy_vocabulary_8'.
+  $permissions['edit own taxonomy_vocabulary_8'] = array(
+    'name' => 'edit own taxonomy_vocabulary_8',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit taxonomy_vocabulary_6'.
+  $permissions['edit taxonomy_vocabulary_6'] = array(
+    'name' => 'edit taxonomy_vocabulary_6',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -1457,6 +1477,17 @@ function devtrac7_node_types_user_default_permissions() {
     'name' => 'edit taxonomy_vocabulary_7',
     'roles' => array(
       'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit taxonomy_vocabulary_8'.
+  $permissions['edit taxonomy_vocabulary_8'] = array(
+    'name' => 'edit taxonomy_vocabulary_8',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+      'field worker' => 'field worker',
     ),
     'module' => 'field_permissions',
   );
@@ -2272,9 +2303,9 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own taxonomy_vocabulary_1'.
-  $permissions['view own taxonomy_vocabulary_1'] = array(
-    'name' => 'view own taxonomy_vocabulary_1',
+  // Exported permission: 'view own taxonomy_vocabulary_6'.
+  $permissions['view own taxonomy_vocabulary_6'] = array(
+    'name' => 'view own taxonomy_vocabulary_6',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -2290,9 +2321,18 @@ function devtrac7_node_types_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view taxonomy_vocabulary_1'.
-  $permissions['view taxonomy_vocabulary_1'] = array(
-    'name' => 'view taxonomy_vocabulary_1',
+  // Exported permission: 'view own taxonomy_vocabulary_8'.
+  $permissions['view own taxonomy_vocabulary_8'] = array(
+    'name' => 'view own taxonomy_vocabulary_8',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view taxonomy_vocabulary_6'.
+  $permissions['view taxonomy_vocabulary_6'] = array(
+    'name' => 'view taxonomy_vocabulary_6',
     'roles' => array(
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
@@ -2305,6 +2345,18 @@ function devtrac7_node_types_user_default_permissions() {
   // Exported permission: 'view taxonomy_vocabulary_7'.
   $permissions['view taxonomy_vocabulary_7'] = array(
     'name' => 'view taxonomy_vocabulary_7',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+      'field worker' => 'field worker',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view taxonomy_vocabulary_8'.
+  $permissions['view taxonomy_vocabulary_8'] = array(
+    'name' => 'view taxonomy_vocabulary_8',
     'roles' => array(
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
