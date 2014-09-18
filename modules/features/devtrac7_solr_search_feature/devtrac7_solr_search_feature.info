@@ -13,7 +13,6 @@ dependencies[] = search_api_solr
 dependencies[] = search_api_solr_boundingbox_search
 dependencies[] = views_geojson
 dependencies[] = virtual_field
-features[context][] = all_solr_pages
 features[context][] = devtrac_solr_not_map_views_admin
 features[context][] = devtrac_solr_sitereports_graphs
 features[context][] = devtrac_solr_sitereports_main
