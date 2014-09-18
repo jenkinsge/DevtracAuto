@@ -40,18 +40,126 @@ tr:hover td a:visited {
   background: #333333;
   color: #FFFFFF;
   height: 27px;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
+.zone-featured .nice-menu {
+  float: right;
+}
 
+.zone-featured .nice-menu ,
+.zone-featured .nice-menu li ,
+.zone-featured .nice-menu li ul {
+  border: none;
+}
+
+.zone-featured .nice-menu li {
+  background-color: #333333;
+}
+
+.zone-featured .nice-menu li.menuparent {
+  position: relative;
+}
+
+.zone-featured .nice-menu li.menuparent.menu-path-nolink {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-left: thin solid #555555;
+  border-right: thin solid #555555;
+}
+
+.zone-featured .nice-menu li.menuparent.menu-path-nolink > a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.zone-featured .nice-menu li.menuparent:hover ,
+.zone-featured .nice-menu li.menuparent:hover ul li {
+  background-color: #222222;
+}
+
+.zone-featured .nice-menu li.menuparent ul {
+  position: absolute;
+  top: 27px;
+  left: auto;
+  right: 0px;
+}
+
+.zone-featured .nice-menu li a {
+  padding: 5px 5px;
+  color: #FFFFFF;
+}
+
+.zone-featured .nice-menu li a:hover {
+  text-decoration: none;
+  background-color: #000000;
+}
+
+.zone-featured .nice-menu li a.map ,
+.zone-featured .nice-menu li a.list ,
+.zone-featured .nice-menu li a.graphs {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: auto 16px;
+  height: 17px;
+  width: 21px;
+  overflow: hidden;
+  color: transparent;
+}
+
+.zone-featured .nice-menu li a.map {
+  background-image: url(../images/user-menu-icon-map.png);
+}
+
+.zone-featured .nice-menu li a.list {
+  background-image: url(../images/user-menu-icon-list.png);
+}
+
+.zone-featured .nice-menu li a.graphs {
+  background-image: url(../images/user-menu-icon-graph.png);
+  margin-right: 5px;
+}
+
+.zone-featured .nice-menu li.menuparent.menu-path-nolink li a {
+  padding-left: 27px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: 5px 5px;
+  background-size: auto 14px;
+}
+
+.zone-featured .nice-menu li.menuparent.menu-path-nolink li a.csv {
+  background-image: url(../images/user-menu-icon-csv.png);
+}
+
+.zone-featured .nice-menu li.menuparent.menu-path-nolink li a.kml {
+  background-image: url(../images/user-menu-icon-kml.png);
+}
+
+.zone-featured .nice-menu li.menuparent.menu-path-nolink li a.rss {
+  background-image: url(../images/user-menu-icon-rss.png);
+}
 
 /*=============================================================================
  * Content Styles
  * ==========================================================================*/
 
-
 .zone-content .region-inner {
   padding: 20px;
+}
+
+.page-images .zone-content .grid-12 ,
+.page-locations .zone-content .grid-12 ,
+.page-adminunits .zone-content .grid-12 ,
+.page-sitereports .zone-content .grid-12 ,
+.page-images .zone-content .grid-12 .region-inner ,
+.page-locations .zone-content .grid-12 .region-inner ,
+.page-adminunits .zone-content .grid-12 .region-inner ,
+.page-sitereports .zone-content .grid-12 .region-inner {
+  padding: 0px;
+  margin: 0px;
 }
 
 .zone-content .grid-8 .region-inner {
@@ -106,12 +214,6 @@ tr:hover td a:visited {
 .field-name-field-ftritem-field-trip .field-label {
   background-image: url(../images/summary-icon-report.png);
 }
-
-
-
-
-
-
 
 .field-name-field-fieldtrip-status .field-label {
   background-image: url(../images/summary-icon-progress.png);
@@ -811,6 +913,15 @@ div.olControlAttribution {
 }
 
 /*=================================== Popup =================================*/
+
+.openlayers-popupbox h2.popup-title a:link ,
+.openlayers-popupbox h2.popup-title a:visited {
+  color: #FFFFFF;
+}
+
+.openlayers-popupbox h2.popup-title a:hover {
+  text-decoration: underline;
+}
 
 .olMapViewport .olControlMaptext .node-ftritem.node-unpublished.contextual-links-region.view-mode-map_popup {
   background: none;
