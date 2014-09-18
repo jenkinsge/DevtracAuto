@@ -218,8 +218,8 @@ function devtrac7_node_types_ds_layout_settings_info() {
     'hide_sidebars' => 0,
     'regions' => array(
       'ds_content' => array(
-        0 => 'taxonomy_vocabulary_7',
-        1 => 'field_fieldtrip_button',
+        0 => 'field_fieldtrip_button',
+        1 => 'taxonomy_vocabulary_7',
         2 => 'field_ftritem_place',
         3 => 'taxonomy_vocabulary_1',
         4 => 'field_ftritem_status',
@@ -229,8 +229,8 @@ function devtrac7_node_types_ds_layout_settings_info() {
       ),
     ),
     'fields' => array(
-      'taxonomy_vocabulary_7' => 'ds_content',
       'field_fieldtrip_button' => 'ds_content',
+      'taxonomy_vocabulary_7' => 'ds_content',
       'field_ftritem_place' => 'ds_content',
       'taxonomy_vocabulary_1' => 'ds_content',
       'field_ftritem_status' => 'ds_content',

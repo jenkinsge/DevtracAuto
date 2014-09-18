@@ -2301,7 +2301,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'module' => 'devtrac7_progress_field',
         'settings' => array(),
         'type' => 'devtrac7_progress_field_field_formatter',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
@@ -2362,7 +2362,7 @@ function devtrac7_node_types_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 6,
+        'weight' => 5,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
@@ -2530,7 +2530,7 @@ function devtrac7_node_types_field_default_field_instances() {
           'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 7,
+        'weight' => 6,
       ),
       'map_popup_view_mode' => array(
         'label' => 'inline',
@@ -2594,7 +2594,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 20,
       ),
       'map_popup_view_mode' => array(
         'label' => 'hidden',
@@ -2692,7 +2692,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'label' => 'inline',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 21,
       ),
       'map_popup_view_mode' => array(
         'label' => 'inline',
@@ -2804,7 +2804,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 18,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
@@ -2897,7 +2897,7 @@ function devtrac7_node_types_field_default_field_instances() {
           'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
@@ -2962,7 +2962,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 17,
       ),
       'map_popup_view_mode' => array(
         'label' => 'hidden',
@@ -3057,7 +3057,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'map_popup_view_mode' => array(
         'label' => 'hidden',
@@ -3155,7 +3155,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 15,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
@@ -3204,7 +3204,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 19,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
@@ -3253,7 +3253,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'module' => 'ds',
         'settings' => array(),
         'type' => 'taxonomy_location_type_icon',
-        'weight' => 4,
+        'weight' => 3,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
@@ -3307,7 +3307,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 16,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
@@ -3414,7 +3414,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'module' => 'ds',
         'settings' => array(),
         'type' => 'taxonomy_sector_code_icon',
-        'weight' => 8,
+        'weight' => 7,
       ),
       'map_popup_view_mode' => array(
         'label' => 'above',
