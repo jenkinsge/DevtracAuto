@@ -305,10 +305,10 @@ projects[questionnaire][subdir] = "contrib"
 ;projects[questionnaire][download][url] = "http://git.drupal.org/project/questionnaire.git"
 ;projects[questionnaire][download][branch] = "7.x-1.x"
 
-projects[quicktabs][version] = "3.6"
+projects[quicktabs][version] = "3.6-dev"
 projects[quicktabs][type] = "module"
 projects[quicktabs][subdir] = "contrib"
-projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs.user-interface.2108935-3.patch"
+;projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs.user-interface.2108935-3.patch"
 
 projects[realname][version] = "1.2"
 projects[realname][type] = "module"
