@@ -11,6 +11,7 @@
   margin-bottom: 10px;
 }
 
+.page-title ,
 #page-title {
   margin: 10px 0px 0px 0px;
   padding: 0px 10px;
@@ -18,6 +19,12 @@
 
 th {
   white-space: nowrap;
+}
+
+tr:hover td a:link ,
+tr:hover td a:visited {
+  color: #FFFFFF;
+  text-decoration: underline;
 }
 
 /*=============================================================================
@@ -121,6 +128,21 @@ th {
 .field-name-taxonomy-vocabulary-6 .field-label {
   background-image: url(../images/summary-icon-adminunit.png);
 }
+
+
+/*======================= Quicktab Recent Locations ============================*/
+
+.view-dvtrc-locations {
+
+}
+
+.view-dvtrc-locations span.views-label {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+
+}
+
+
 
 
 /*============================== image gallary ================================*/
@@ -468,6 +490,20 @@ form.comment-form .form-item.form-type-item {
   margin: 10px;
 }
 
+.quicktabs-wrapper ul.quicktabs-tabs {
+  float: none;
+  margin-left: 10px;
+}
+
+.quicktabs-wrapper ul.quicktabs-tabs li {
+  margin-right: 0px;
+}
+
+.quicktabs-wrapper ul.quicktabs-tabs li.active a ,
+.quicktabs-wrapper ul.quicktabs-tabs li.active a:hover {
+  background-color: #FFFFFF;
+  border-bottom: thin solid #FFFFFF;
+}
 
 /*=====================================================================================
  * Ctools Buttons
@@ -476,6 +512,14 @@ form.comment-form .form-item.form-type-item {
 .ctools-button {
   background-color: #555555;
   border: none;
+}
+
+.grid-4 .ctools-button {
+  right: 20px;
+  position: absolute;
+}
+
+td .ctools-button {
 }
 
 .ctools-button-processed .ctools-content {
@@ -500,10 +544,14 @@ form.comment-form .form-item.form-type-item {
   height: 28px;
 }
 
-.ctools-button li a:link {
+.ctools-button li a:link ,
+.ctools-button li a:visited ,
+tr:hover .ctools-button li a:link ,
+tr:hover .ctools-button li a:visited {
   color: #FFFFFF;
   padding: 5px 10px;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .ctools-button li a:hover ,
