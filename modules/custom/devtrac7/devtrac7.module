@@ -1392,7 +1392,7 @@ function devtrac7_block_view_alter(&$data, $block) {
          * This is to cater for the collapsiblock + background icon in the user toolbar
          * for info panes and search_api_saved_searches
          */
-        if ($block->region == "my_tool_menu") {
+        if ($block->region == "featured") {
           $data['subject'] = ' ';
         }
         break;
@@ -2124,7 +2124,7 @@ function devtrac7_js_alter(&$javascript) {
     if (module_exists('context')) {
       $reaction = context_get_plugin('reaction', 'block');
       $panelblocks = $reaction->block_list("olblockpanel");
-      $toolbarblocks = $reaction->block_list("my_tool_menu");
+      $toolbarblocks = $reaction->block_list("featured");
       foreach($toolbarblocks as $block) {
         if (($block->module != 'pane') && ($block->module != 'search_api_saved_searches')) {
           // Only replace the first occurance of - which is the seperator between module name and block id
