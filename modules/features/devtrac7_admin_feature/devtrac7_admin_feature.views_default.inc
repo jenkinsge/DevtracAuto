@@ -1240,7 +1240,7 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['fields']['name_2']['label'] = '';
   $handler->display->display_options['fields']['name_2']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_2']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name_2']['alter']['text'] = '<img src="/profiles/devtrac/themes/devtrac7_theme/mapicons/[name_1]_c.png" alt="[name_1]"/>';
+ // $handler->display->display_options['fields']['name_2']['alter']['text'] = '<img src="/profiles/devtrac/themes/devtrac7_theme/mapicons/[name_1]_c.png" alt="[name_1]"/>';
   $handler->display->display_options['fields']['name_2']['element_type'] = 'div';
   $handler->display->display_options['fields']['name_2']['element_class'] = 'legend-icon';
   $handler->display->display_options['fields']['name_2']['element_label_colon'] = FALSE;
