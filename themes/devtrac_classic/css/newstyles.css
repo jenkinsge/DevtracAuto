@@ -231,6 +231,20 @@ tr:hover td a:visited {
   background-image: url(../images/summary-icon-adminunit.png);
 }
 
+.region-content .block-system-main {
+  margin-bottom: 10px;
+}
+
+.region-content .block-views.contextual-links-region {
+  padding-top: 10px;
+  border-top: thin solid #CCCCCC; 
+}
+
+.region-content .block-views.contextual-links-region .views-label {
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
 /*======================= Quicktab Recent Locations ============================*/
 
@@ -238,13 +252,105 @@ tr:hover td a:visited {
 
 }
 
-.view-dvtrc-locations span.views-label {
+.view-dvtrc-locations .views-field-view {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: thin solid #CCCCCC;
+}
+
+.view-dvtrc-locations .views-field-view span.views-label-view ,
+.view-dvtrc-locations .views-field-nothing-1 {
   margin-bottom: 10px;
-  font-size: 1.2em;
+  font-size: 1.5em;
+}
+
+.view-dvtrc-locations .views-field-field-ftritem-images ,
+.view-dvtrc-locations .views-field-nothing-1 .latest-report-image {
+  display: inline-block;
+}
+
+.view-dvtrc-locations .views-field-field-ftritem-images {
+  float: left;
+  margin-right: 10px;
+}
+
+.view-dvtrc-locations .views-field-field-ftritem-date-visited {
 
 }
 
+.view-dvtrc-locations .views-label-title ,
+.view-dvtrc-locations .views-label-field-ftritem-date-visited {
+  padding-left: 20px;
+  padding-bottom: 5px;
+  background-size: auto 14px;
+  background-repeat: no-repeat;
+  background-position: left top;
+}
 
+.view-dvtrc-locations .views-label-title {
+  background-image: url(../images/summary-icon-report.png);
+}
+
+.view-dvtrc-locations .views-label-field-ftritem-date-visited {
+  background-image: url(../images/summary-icon-date.png);
+}
+
+.view-dvtrc-locations .views-field-field-ftritem-date-visited .field-content {
+  display: inline-block;
+}
+
+.view-dvtrc-locations .views-label-field-ftritem-public-summary {
+  display: none;
+}
+
+.view-dvtrc-locations .views-field .views-field-field-ftritem-public-summary {
+  margin-top: 10px;
+}
+
+.view-dvtrc-locations .views-field-nothing {
+  clear: both;
+  margin-top: 20px;
+}
+
+.views-field-taxonomy-vocabulary-1 .views-label-taxonomy-vocabulary-1 ,
+.views-field-taxonomy-vocabulary-1 .field-content {
+  display: inline-block;
+}
+
+.view-dvtrc-locations a {
+  display: inline-block;
+}
+
+.view-dvtrc-locations a .dv-seeall {
+  color: #FFFFFF;
+  background-color: #777777;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 8px 10px;
+}
+
+.view-dvtrc-locations a:hover .dv-seeall {
+  background-color: #555555;
+}
+
+.quicktabs-tabpage .item-list ul li ,
+.quicktabs-tabpage ul.links {
+  margin: 0px;
+  padding: 0px;
+}
+
+.quicktabs-tabpage ul.links li {
+  list-style-image: url(../images/bullet.png);
+  list-style-position: inside;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 5px;
+}
+
+.quicktabs-tabpage ul.links li.level-1 {
+  list-style: none;
+  padding: 0px;
+}
 
 
 /*============================== image gallary ================================*/
@@ -362,7 +468,6 @@ article.comment .comment-submitted-main p {
 }
 
 article.comment .comment-submitted {
-  margin-bottom: 10px;
   font-weight: bold;
 }
 
@@ -675,6 +780,7 @@ tr:hover .ctools-button li a:visited {
 .devtrac7-progress-bar {
   position: relative;
   margin-top: 10px;
+  margin-bottom: 20px;
   border-radius: 0;
 }
 
