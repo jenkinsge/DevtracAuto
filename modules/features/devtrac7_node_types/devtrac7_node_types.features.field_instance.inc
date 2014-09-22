@@ -2098,6 +2098,12 @@ function devtrac7_node_types_field_default_field_instances() {
       'type' => 'entityreference_autocomplete',
       'weight' => 6,
     ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 2,
+    ),
   );
 
   // Exported field_instance: 'node-fieldtrip-field_fieldtriptags'
