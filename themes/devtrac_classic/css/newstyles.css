@@ -1466,3 +1466,167 @@ div.olControlAttribution {
 }
 
 
+
+/*====================================================================
+ *  Maintenance Page Styles
+ ====================================================================*/
+
+.maintenance-page #page {
+  width: 900px;
+  margin: 10px auto;
+}
+
+.maintenance-page #page li {
+  list-style-position: outside;
+}
+
+.maintenance-page #branding {
+  width: 900px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+.maintenance-page #branding .logo-wrapper {
+  width: 300px;
+  float: left;
+  display: inline-block;
+}
+
+.maintenance-page #branding .logo-wrapper img {
+  margin: 20px;
+}
+
+.maintenance-page #branding .page-title {
+  display: inline-block;
+  font-weight: normal;
+  margin-left: 25px;
+}
+
+.maintenance-page #sidebar-first {
+  width: 300px;
+  display: inline-block;
+  float: left;
+}
+
+.maintenance-page #sidebar-first .task-list {
+  margin-left: 10px;
+  padding: 0;
+}
+
+.maintenance-page #sidebar-first .task-list li {
+  margin: 0;
+  padding: 10px;
+  padding-left: 40px;
+  background: url(../images/task-list-icon.png) no-repeat 5px 50%;
+  background-size: 25px 25px;
+  list-style: none;
+  list-style-position: inside;
+}
+
+.maintenance-page #sidebar-first .task-list li.done {
+  background: url(../images/task-list-done.png) no-repeat 5px 50%;
+  background-size: 25px 25px;
+  color: #44AA00;
+}
+
+.maintenance-page #sidebar-first .task-list li.active {
+  background: url(../images/task-list-active.png) no-repeat 5px 50%;
+  background-size: 25px 25px;
+  color: #2CA089;
+  font-weight: normal;
+}
+
+.maintenance-page #content {
+  width: 590px;
+  display: inline-block;
+  float: right;
+  padding-bottom: 20px;
+}
+
+.maintenance-page #content #console {
+  margin: 0 20px;
+}
+
+.maintenance-page #content #progress {
+  width: 95%;
+}
+
+.maintenance-page #content form {
+  padding: 0px 20px;
+}
+
+.maintenance-page #content form .form-required {
+  color: #FF0000;
+}
+
+.maintenance-page #content form .item-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.maintenance-page #content form fieldset {
+  padding: 20px 0;
+  border: none;
+  margin: 20px 0;
+}
+
+.maintenance-page #content form fieldset legend  {
+  padding: 0;
+  margin: 0;
+}
+
+.maintenance-page #content form fieldset legend .fieldset-legend {
+  margin: 2px;
+  font-size: 1.5em;
+}
+
+.maintenance-page #content form fieldset legend .fieldset-legend a.fieldset-title {
+  font-size: 14px;
+}
+
+.maintenance-page #content table.system-status-report {
+  width: 95%;
+}
+
+.maintenance-page #content form #system-date-types tr {
+  border: none;
+  background-color: transparent;
+}
+
+.maintenance-page #content form #system-date-types tr:hover {
+  background: transparent;
+}
+
+.maintenance-page #content form #system-date-types tr:hover a {
+  color: inherit;
+}
+
+.maintenance-page #content form #system-date-types th {
+  padding-bottom: 20px;
+  font-weight: normal;
+  font-size: 1.4em;
+}
+
+.maintenance-page #content form #system-date-types td {
+  padding: 10px 5px;
+}
+
+.maintenance-page #content td.status-description {
+  line-height: normal;
+}
+
+.maintenance-page.devtrac-installation-complete #content a {
+  display: inline-block;
+  padding: 10px 20px;
+  padding-right: 60px;
+  color: #FFFFFF;
+  background-color: #44AA00;
+  border-radius: 2px;
+  font-size: 1.5em;
+  margin-top: 20px;
+  background-image: url(/html/dtone/profiles/devtrac/themes/devtrac7_theme/images/go-icon.png);
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  background-size: 25px;
+}
+
