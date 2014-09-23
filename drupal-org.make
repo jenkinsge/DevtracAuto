@@ -162,7 +162,7 @@ projects[fontyourface][version] = "2.8"
 projects[fontyourface][type] = "module"
 projects[fontyourface][subdir] = "contrib"
 
-projects[footable][version] = "1.0-beta3"
+projects[footable][version] = "1.0-rc1"
 projects[footable][type] = "module"
 projects[footable][subdir] = "contrib"
 
