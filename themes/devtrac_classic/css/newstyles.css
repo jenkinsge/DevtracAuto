@@ -102,7 +102,7 @@ tr:hover td a:visited {
 .zone-featured .nice-menu li a.graphs {
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: auto 16px;
+  background-size: auto 13px;
   height: 17px;
   width: 21px;
   overflow: hidden;
@@ -122,11 +122,16 @@ tr:hover td a:visited {
   margin-right: 5px;
 }
 
-.zone-featured .nice-menu li.menuparent.menu-path-nolink li a {
-  padding-left: 27px;
+.zone-featured .nice-menu li.menuparent li {
+  border-top: thin solid #555555;
+  width: 200px;
+}
+
+.zone-featured .nice-menu li.menuparent li a {
+  padding: 10px 5px 10px 33px;
   height: 20px;
   background-repeat: no-repeat;
-  background-position: 5px 5px;
+  background-position: 10px 50%;
   background-size: auto 14px;
 }
 
@@ -142,6 +147,14 @@ tr:hover td a:visited {
   background-image: url(../images/user-menu-icon-rss.png);
 }
 
+.zone-featured .nice-menu li.menuparent.menu-path-user li.menu-path-node-add-fieldtrip a {
+  background-image: url(../images/user-menu-icon-add.png);
+}
+
+.zone-featured .nice-menu li.menuparent.menu-path-user li.menu-path-user-me-edit a {
+  background-image: url(../images/user-menu-icon-edit.png);
+}
+
 /*=============================================================================
  * Content Styles
  * ==========================================================================*/
@@ -150,6 +163,12 @@ tr:hover td a:visited {
   padding: 20px;
 }
 
+
+
+.page-images .zone-content-wrapper ,
+.page-locations .zone-content-wrapper ,
+.page-adminunits .zone-content-wrapper ,
+.page-sitereports .zone-content-wrapper ,
 .page-images .zone-content .grid-12 ,
 .page-locations .zone-content .grid-12 ,
 .page-adminunits .zone-content .grid-12 ,
@@ -859,6 +878,76 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
   border-radius: 0;
 }
 
+/*=====================================================================================
+ * Block Facetapi Styles
+ * ==================================================================================*/
+
+.block-facetapi.contextual-links-region {}
+
+.block-facetapi.contextual-links-region a {
+  color: #FFFFFF;
+}
+
+
+
+/*=====================================================================================
+ * Extruderolblockpanel Styles
+ * ==================================================================================*/
+
+#Extruderolblockpanel.olControlblockpanel.extruder {
+  background: transparent;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.ext_wrapper {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.extruder.left .content {
+  border: none;
+  background: transparent;
+}
+
+.extruder .text {
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  padding: 10px;
+  border: none;
+  text-shadow: none;
+}
+
+#Extruderolblockpanel .flapLabel {
+  display: none;
+}
+
+#Extruderolblockpanel.olControlblockpanel.extruder .flap {
+  top: 50px;
+  padding: 0;
+  margin: 0;
+  background: url(../images/flapTabSprite.png) no-repeat;
+  background-position: 0 -60px;
+  width: 30px;
+  height: 60px;
+  position: absolute;
+  right: -30px;
+  border-radius: 0;
+  box-shadow: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+#Extruderolblockpanel.olControlblockpanel.extruder .flap:hover {
+  cursor: pointer;
+}
+
+#Extruderolblockpanel.olControlblockpanel.extruder.isOpened .flap {
+  background-position: 0 0;
+}
 
 /*=====================================================================================
  * General Openlayers Styles
@@ -876,8 +965,8 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
   left: auto !important;
   right: 20px;
   top: 20px;
-  width: 30px;
-  height: 66px;
+  width: 40px;
+  height: 75px;
 }
 
 .olControlZoomToMaxExtentItemInactive {
@@ -1375,4 +1464,5 @@ div.olControlAttribution {
 .olMapViewport .olControlMaptext #openlayersgeosearchresults  ul.openlayers-geosearch-result-struct.panels.openlayers-geosearch-result-struct-processed li a:hover {
   text-decoration: underline;
 }
+
 
