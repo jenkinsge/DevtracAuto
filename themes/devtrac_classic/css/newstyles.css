@@ -1466,7 +1466,6 @@ div.olControlAttribution {
 }
 
 
-
 /*====================================================================
  *  Maintenance Page Styles
  ====================================================================*/
@@ -1630,3 +1629,15 @@ div.olControlAttribution {
   background-size: 25px;
 }
 
+
+/*====================================================================
+ *  Form Page Styles
+ ====================================================================*/
+
+.page-user-me-edit .container-12 ,
+.page-node-add .container-12 ,
+.page-node-edit .container-12 {
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
