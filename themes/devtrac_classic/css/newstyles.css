@@ -280,6 +280,12 @@ table tbody tr.even td.active {
 
 /*======================= Quicktab Recent Locations ============================*/
 
+
+
+
+
+/*======================= Quicktab Recent Locations ============================*/
+
 .view-dvtrc-locations {
 
 }
@@ -905,12 +911,59 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
  * Block Facetapi Styles
  * ==================================================================================*/
 
+div .collapsiblock a ,
+div .collapsiblockCollapsed a {
+  background-image: none;
+}
+
 .block-facetapi.contextual-links-region {}
 
 .block-facetapi.contextual-links-region a {
   color: #FFFFFF;
+  display: block;
 }
 
+.block-facetapi.contextual-links-region a:hover {
+  text-decoration: none;
+}
+
+.block-facetapi {
+  margin: 0px 0px 5px 0px;
+}
+
+
+.block-facetapi h2.block-title {
+  font-weight: normal;
+  background: rgba(0, 0, 0, 0.5) url(../images/collapse-icon.png) no-repeat 95% 50%;
+  padding: 5px 5px 5px 15px;
+  border-top: thin solid #999999;
+  border-bottom: thin solid #999999;
+  font-size: 1.0em;
+  color: #EEEEEE;
+}
+
+.block-facetapi h2.block-title.collapsiblockCollapsed {
+  background: rgba(0, 0, 0, 0.5) url(../images/collapse-icon-2.png) no-repeat 95% 50%;
+}
+
+.block-facetapi ul ,
+.block-facetapi ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.block-facetapi ul li {
+  list-style: none;
+  border-bottom: thin solid #999999;
+}
+
+.block-facetapi ul li a {
+  padding: 5px 5px 5px 15px;
+}
+
+.block-facetapi ul li a:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
 
 
 /*=====================================================================================
@@ -931,6 +984,7 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
 .extruder.left .content {
   border: none;
   background: transparent;
+  width: auto !important;
 }
 
 .extruder .text {
