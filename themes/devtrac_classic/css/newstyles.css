@@ -31,6 +31,15 @@ tr:hover td a:visited {
   text-decoration: underline;
 }
 
+table tbody tr td, 
+table tbody tr td, 
+table tbody tr.odd td, 
+table tbody tr.even td, 
+table tbody tr.odd td.active, 
+table tbody tr.even td.active {
+  vertical-align: top;
+}
+
 /*=============================================================================
  * Header Sytles
  * ==========================================================================*/
@@ -749,7 +758,17 @@ form.comment-form .form-item.form-type-item {
   position: absolute;
 }
 
-td .ctools-button {
+td .ctools-wrapper {
+  width: 125px;
+  position: relative;
+}
+
+td .ctools-wrapper .ctools-button {
+  position: absolute;
+}
+
+td .ctools-wrapper .ctools-button li {
+  width: 106px;
 }
 
 .ctools-button-processed .ctools-content {
@@ -771,7 +790,7 @@ td .ctools-button {
 
 .ctools-link:hover {
   background-color: #333333;
-  height: 28px;
+  height: 27px;
 }
 
 .ctools-button li a:link ,
