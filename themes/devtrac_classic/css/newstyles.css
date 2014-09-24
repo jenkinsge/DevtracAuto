@@ -4,7 +4,7 @@
  * ==========================================================================*/
 
  #section-header {
-  background: #333333;
+  background: #3E3E3E;
  }
 
 .zone-highlighted,
@@ -50,7 +50,7 @@ table tbody tr.even td.active {
 /*================================ zone-featured ============================*/
 
 .zone-featured {
-  background: #333333;
+  background: #3E3E3E;
   color: #FFFFFF;
   height: 27px;
   /*overflow: hidden;*/
@@ -67,7 +67,7 @@ table tbody tr.even td.active {
 }
 
 .zone-featured .nice-menu li {
-  background-color: #333333;
+  background-color: #3E3E3E;
 }
 
 .zone-featured .nice-menu li.menuparent {
@@ -1206,7 +1206,7 @@ div.olControlAttribution {
   padding: 5px 10px;
 }
 
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base h2.layers-title {
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher h2.layers-title {
   color: #FFFFFF !important;
   font-size: 1.2em !important;
   margin-bottom: 5px;
@@ -1257,6 +1257,41 @@ div.olControlAttribution {
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.data .form-option.checkbox input.form-checkbox {
   margin-right: 5px;
+}
+
+/*================================= about devtrac ===============================*/
+#pane_front_about_information_content {
+  padding: 5px 10px;
+  font-size: 0.95em;
+}
+
+#pane_front_about_information_content ul {
+  margin: 0 0 10px 0;
+}
+
+#pane_front_about_information_content ul li {
+  list-style: none;
+  font-size: 1.2em;
+  padding: 5px 5px 5px 30px;
+}
+
+#pane_front_about_information_content ul li.health {
+  background: url('../images/about-health-icon.png') no-repeat 0% 50%;
+  background-size: 20px 20px;
+}
+
+#pane_front_about_information_content ul li.schools {
+  background: url('../images/about-educ-icon.png') no-repeat 0% 50%;
+  background-size: 20px 20px;
+}
+
+#pane_front_about_information_content ul li.water {
+  background: url('../images/about-water-icon.png') no-repeat 0% 50%;
+  background-size: 20px 20px;
+}
+
+#block-pane-front-about-information h4 {
+  margin-bottom: 5px;
 }
 
 /*================================= geosearch ===============================*/
