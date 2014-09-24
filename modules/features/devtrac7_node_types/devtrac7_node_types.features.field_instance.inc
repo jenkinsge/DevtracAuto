@@ -2098,6 +2098,12 @@ function devtrac7_node_types_field_default_field_instances() {
       'type' => 'entityreference_autocomplete',
       'weight' => 6,
     ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'field_extrawidgets',
+      'type' => 'field_extrawidgets_read_only',
+      'weight' => 2,
+    ),
   );
 
   // Exported field_instance: 'node-fieldtrip-field_fieldtriptags'
@@ -3331,13 +3337,14 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'mapit',
       'settings' => array(
         'apply_chosen' => 1,
-        'content_taxonomy_opt_groups' => 0,
+        'mapit_setting_geofield' => 'field_ftritem_lat_long',
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'size' => 60,
       ),
-      'type' => 'options_select',
+      'type' => 'mapit',
       'weight' => 2,
     ),
   );

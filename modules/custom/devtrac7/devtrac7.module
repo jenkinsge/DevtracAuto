@@ -2258,7 +2258,7 @@ function devtrac7_resave_geolayer_attributes() {
     'Admin Units' => 'devtrac_solr_view_districts_json',
     'Locations' => 'devtrac_solr_view_locations_json',
     'Site Reports' => 'devtrac_solr_view_sitevisits_json',
-    // 'Images'=> 'devtrac_solr_view_images_json',
+    'Images'=> 'devtrac_solr_view_images_json',
   );
   foreach ($layers as $title => $layername) {
     $layer = openlayers_layer_load($layername);
