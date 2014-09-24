@@ -3,6 +3,10 @@
  * General Sytles
  * ==========================================================================*/
 
+ #section-header {
+  background: #333333;
+ }
+
 .zone-highlighted,
 .zone-content-wrapper ,
 .zone-postscript-wrapper ,
@@ -246,7 +250,7 @@ tr:hover td a:visited {
   background-image: url(../images/summary-icon-user.png);
 }
 
-.field-name-taxonomy-vocabulary-6 .field-label {
+.field-name-taxonomy-vocabulary-6.field-label-inline .field-label {
   background-image: url(../images/summary-icon-adminunit.png);
 }
 
@@ -977,6 +981,7 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
 .olControlZoomPanel .olControlZoomOutItemInactive {
   width: 30px;
   height: 30px;
+  margin: 5px;
   background: url(../images/map-controls-sprite.png) no-repeat !important;
 }
 
@@ -1640,4 +1645,172 @@ div.olControlAttribution {
   width: 92%;
   margin-left: 4%;
   margin-right: 4%;
+}
+
+.page-user-me-edit form ,
+.page-node-add form ,
+.page-node-edit form {
+  border: thick solid #CCCCCC;
+  padding: 50px;
+}
+
+.form-required {
+  font-weight: bold;
+  color: #A52A2A;
+  font-size: 1.3em;
+  vertical-align: middle;
+}
+
+.page-user-me-edit label ,
+.page-node-add label ,
+.page-node-edit label ,
+.page-user-me-edit legend ,
+.page-node-add legend ,
+.page-node-edit legend ,
+.page-user-me-edit div.field-label ,
+.page-node-add div.field-label ,
+.page-node-edit div.field-label {
+  display: block;
+  font-weight: normal;
+  font-size: 1.2em;
+  padding-bottom: 5px;
+  background: transparent;
+}
+
+label.option {
+  display: inline;
+  font-weight: normal;
+  font-size: inherit;
+}
+
+.page-user-me-edit table tr ,
+.page-node-add table tr ,
+.page-node-edit table tr ,
+.page-user-me-edit table tr.even ,
+.page-node-add table tr.even ,
+.page-node-edit table tr.even ,
+.page-user-me-edit table tr:hover ,
+.page-node-add table tr:hover ,
+.page-node-edit table tr:hover {
+  background: transparent;
+  color: inherit;
+}
+
+.page-user-me-edit table thead ,
+.page-node-add table thead ,
+.page-node-edit table thead {
+  border: none;
+}
+
+.page-user-me-edit table thead tr th ,
+.page-node-add table thead tr th ,
+.page-node-edit table thead tr th {
+  background: transparent;
+  color: inherit;
+}
+
+.container-inline-date .date-padding {
+  padding-left: 0;
+}
+
+.chosen-container .chosen-results li.highlighted {
+  background: #555555;
+}
+
+.page-user-me-edit a.helpinject-link,
+.page-node-add a.helpinject-link,
+.page-node-edit a.helpinject-link {
+  display: none;
+}
+
+.page-node-add .vertical-tabs, 
+.page-node-edit .vertical-tabs {
+  display: none;
+}
+
+.page-node-edit .grid-12.region-content form.node-form .olControlZoomPanel.olControlNoSelect ,
+.page-node-add .grid-12.region-content form.node-form .olControlZoomPanel.olControlNoSelect {
+  left: auto;
+  right: 20px;
+  top: 30px;
+  width: 40px;
+  height: 75px;
+}
+
+.page-node-edit .grid-12.region-content form.node-form .Devtrac.sticky-enabled.sticky-table ,
+.page-node-add .grid-12.region-content form.node-form .Devtrac.sticky-enabled.sticky-table {
+  display: none;
+}
+
+
+.page-node-edit .grid-12.region-content form.node-form #cboxOverlay .Devtrac.sticky-enabled.sticky-table ,
+.page-node-add .grid-12.region-content form.node-form #cboxOverlay .Devtrac.sticky-enabled.sticky-table {
+  display: block;
+}
+
+.node-form .form-item .description {
+  font-style: italic;
+}
+
+
+.collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper .form-item {
+  width: 600px;
+}
+
+.collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper td .form-item {
+  width: 570px;
+}
+
+.collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper .form-item .description {
+  white-space: normal;
+  line-height: 20px;
+}
+
+.olControlNoSelect.olControlEditingToolbar {
+  top: 210px;
+  right: 20px;
+  margin: 0;
+  width: 40px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton {
+  float: none;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("../images/map-tools-sprite.png");
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlNavigationItemActive {
+  background-position: -30px -60px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlNavigationItemInactive {
+  background-position: 0px -60px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlDrawFeaturePointItemActive {
+  background-position: -30px 0px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlDrawFeaturePointItemInactive {
+  background-position: 0px 0px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlDrupalWMSItemActive {
+  background-position: -30px -30px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlDrupalWMSItemInactive {
+  background-position: 0px -30px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlModifyFeatureItemActive ,
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlItemActive {
+  background-position: -30px -30px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlModifyFeatureItemInactive ,
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlItemInactive {
+  background-position: 0px -30px;
 }
