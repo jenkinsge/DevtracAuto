@@ -1019,9 +1019,6 @@ function devtrac_install_finished(&$install_state) {
 //  drupal_cron_run();
   devtrac_install_index_immediately();
 
-  // Rename the layers so the look nice in the layer switcher.
-  devtrac7_resave_geolayer_attributes();
-
   if (isset($messages['error'])) {
     $output = '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
     return $output;
