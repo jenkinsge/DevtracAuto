@@ -62,6 +62,12 @@ function devtrac7_profile_menu_install() {
     ->condition('menu_name', 'menu-my-profile')
     ->condition('router_path', 'node/add/fieldtrip')
     ->execute();
+  db_update('menu_links')
+    ->expression('p1', 'plid')
+    ->expression('p2', 'mlid')
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', 'node/add/fieldtrip')
+    ->execute();
   // Let's do the view modes.
   $links = devtrac7_profile_menu_views_modes_menu_links();
   foreach ($links as $identifier => $link){
