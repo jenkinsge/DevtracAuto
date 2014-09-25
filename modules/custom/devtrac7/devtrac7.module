@@ -370,7 +370,7 @@ function devtrac7_addactionitem_access($nid) {
  */
 function devtrac7_update_fieldtrip_access($nid = NULL) {
   global $user;
-  $result = FALSE;
+  $result = TRUE;
   $fieldtrip = node_load($nid);
 //  if (isset($fieldtrip)) {
   if ($fieldtrip) {
