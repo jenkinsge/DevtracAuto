@@ -370,18 +370,19 @@ function devtrac7_addactionitem_access($nid) {
  */
 function devtrac7_update_fieldtrip_access($nid = NULL) {
   global $user;
+  $result = FALSE;
   $fieldtrip = node_load($nid);
-  if (isset($fieldtrip)) {
-  $result = ($fieldtrip->type == "fieldtrip");
-  $result = $result && isset($fieldtrip->field_fieldtrip_status[$fieldtrip->language][0]['value']);
-  $result = $result && ($fieldtrip->field_fieldtrip_status[$fieldtrip->language][0]['value'] != 'Approved');
-  $result = $result && isset($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id']);
-  // $result = $result && ($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'] == $user->uid);
-  $result = $result && node_access("update", $fieldtrip);
+//  if (isset($fieldtrip)) {
+  if ($fieldtrip) {
+    $result = ($fieldtrip->type == "fieldtrip");
+    $result = $result && isset($fieldtrip->field_fieldtrip_status[$fieldtrip->language][0]['value']);
+    $result = $result && ($fieldtrip->field_fieldtrip_status[$fieldtrip->language][0]['value'] != 'Approved');
+    $result = $result && isset($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id']);
+    // $result = $result && ($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'] == $user->uid);
+    $result = $result && node_access("update", $fieldtrip);
   }
   return $result;
 }
-
 
 /**
  * @todo Please document this function.
