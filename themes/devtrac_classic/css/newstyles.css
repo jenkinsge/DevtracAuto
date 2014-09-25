@@ -927,10 +927,47 @@ div .collapsiblockCollapsed a {
   text-decoration: none;
 }
 
+.block-current-search .current-search-item .item-list {
+  display: inline-block;
+}
+
+.block-current-search .current-search-item li {
+  display: inline-block;
+  margin: 0px 0px 5px 5px;
+  font-size: 0.9em;
+  border: none;
+}
+
+.block-current-search .current-search-item li a {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.block-current-search .current-search-item li a:hover {
+  padding: 4px 9px;
+  border: thin solid #999999;
+  text-decoration: none;
+}
+
 .block-facetapi {
   margin: 0px 0px 5px 0px;
 }
 
+.block-facetapi form {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.block-facetapi form input[type='textfield'] {
+  margin: 0;
+  padding: 5px;
+}
+
+.block-facetapi form input[type='submit'] {
+  margin: 0;
+}
 
 .block-facetapi h2.block-title {
   font-weight: normal;
@@ -952,9 +989,14 @@ div .collapsiblockCollapsed a {
   padding: 0;
 }
 
+.block-facetapi ul li li {
+  padding-left: 10px;
+}
+
 .block-facetapi ul li {
   list-style: none;
   border-bottom: thin solid #999999;
+  font-size: 0.9em;
 }
 
 .block-facetapi ul li a {
