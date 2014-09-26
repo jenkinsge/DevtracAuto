@@ -1964,3 +1964,44 @@ label.option {
 .olControlNoSelect.olControlEditingToolbar div.olButton.olControlItemInactive {
   background-position: 0px -30px;
 }
+
+/*===================================================================================*\
+ * User Login Styles
+\*===================================================================================*/
+
+html .not-logged-in.page-user.context-user {}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner {
+  width: 450px;
+  margin: 20px auto !important;
+  border: thin solid #CCCCCC;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #DDDDDD;
+}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner h1#page-title {
+  /*color: #989898;*/
+  color: #555555;
+  font-size: 2.0em;
+  font-weight: normal;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner .tabs.primary {
+  margin: 0;
+  border-bottom: none;
+}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner #block-system-main {
+  padding: 10px;
+  background-color: #FAFAFA;
+  border-radius: 3px;
+  border: thin solid #CCCCCC;
+}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner #block-system-main input.form-text {
+  width: 100%;
+}
