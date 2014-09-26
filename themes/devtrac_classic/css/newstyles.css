@@ -3,6 +3,10 @@
  * General Sytles
  * ==========================================================================*/
 
+ #section-header {
+  background: #3E3E3E;
+ }
+
 .zone-highlighted,
 .zone-content-wrapper ,
 .zone-postscript-wrapper ,
@@ -27,6 +31,15 @@ tr:hover td a:visited {
   text-decoration: underline;
 }
 
+table tbody tr td, 
+table tbody tr td, 
+table tbody tr.odd td, 
+table tbody tr.even td, 
+table tbody tr.odd td.active, 
+table tbody tr.even td.active {
+  vertical-align: top;
+}
+
 /*=============================================================================
  * Header Sytles
  * ==========================================================================*/
@@ -37,7 +50,7 @@ tr:hover td a:visited {
 /*================================ zone-featured ============================*/
 
 .zone-featured {
-  background: #333333;
+  background: #3E3E3E;
   color: #FFFFFF;
   height: 27px;
   /*overflow: hidden;*/
@@ -54,7 +67,7 @@ tr:hover td a:visited {
 }
 
 .zone-featured .nice-menu li {
-  background-color: #333333;
+  background-color: #3E3E3E;
 }
 
 .zone-featured .nice-menu li.menuparent {
@@ -246,7 +259,7 @@ tr:hover td a:visited {
   background-image: url(../images/summary-icon-user.png);
 }
 
-.field-name-taxonomy-vocabulary-6 .field-label {
+.field-name-taxonomy-vocabulary-6.field-label-inline .field-label {
   background-image: url(../images/summary-icon-adminunit.png);
 }
 
@@ -264,6 +277,12 @@ tr:hover td a:visited {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+/*======================= Quicktab Recent Locations ============================*/
+
+
+
+
 
 /*======================= Quicktab Recent Locations ============================*/
 
@@ -745,7 +764,17 @@ form.comment-form .form-item.form-type-item {
   position: absolute;
 }
 
-td .ctools-button {
+td .ctools-wrapper {
+  width: 125px;
+  position: relative;
+}
+
+td .ctools-wrapper .ctools-button {
+  position: absolute;
+}
+
+td .ctools-wrapper .ctools-button li {
+  width: 106px;
 }
 
 .ctools-button-processed .ctools-content {
@@ -767,7 +796,7 @@ td .ctools-button {
 
 .ctools-link:hover {
   background-color: #333333;
-  height: 28px;
+  height: 27px;
 }
 
 .ctools-button li a:link ,
@@ -882,12 +911,101 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
  * Block Facetapi Styles
  * ==================================================================================*/
 
+div .collapsiblock a ,
+div .collapsiblockCollapsed a {
+  background-image: none;
+}
+
 .block-facetapi.contextual-links-region {}
 
 .block-facetapi.contextual-links-region a {
   color: #FFFFFF;
+  display: block;
 }
 
+.block-facetapi.contextual-links-region a:hover {
+  text-decoration: none;
+}
+
+.block-current-search .current-search-item .item-list {
+  display: inline-block;
+}
+
+.block-current-search .current-search-item li {
+  display: inline-block;
+  margin: 0px 0px 5px 5px;
+  font-size: 0.9em;
+  border: none;
+}
+
+.block-current-search .current-search-item li a {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.block-current-search .current-search-item li a:hover {
+  padding: 4px 9px;
+  border: thin solid #999999;
+  text-decoration: none;
+}
+
+.block-facetapi {
+  margin: 0px 0px 5px 0px;
+}
+
+.block-facetapi form {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.block-facetapi form input[type='textfield'] {
+  margin: 0;
+  padding: 5px;
+}
+
+.block-facetapi form input[type='submit'] {
+  margin: 0;
+}
+
+.block-facetapi h2.block-title {
+  font-weight: normal;
+  background: rgba(0, 0, 0, 0.5) url(../images/collapse-icon.png) no-repeat 95% 50%;
+  padding: 5px 5px 5px 15px;
+  border-top: thin solid #999999;
+  border-bottom: thin solid #999999;
+  font-size: 1.0em;
+  color: #EEEEEE;
+}
+
+.block-facetapi h2.block-title.collapsiblockCollapsed {
+  background: rgba(0, 0, 0, 0.5) url(../images/collapse-icon-2.png) no-repeat 95% 50%;
+}
+
+.block-facetapi ul ,
+.block-facetapi ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.block-facetapi ul li li {
+  padding-left: 10px;
+}
+
+.block-facetapi ul li {
+  list-style: none;
+  border-bottom: thin solid #999999;
+  font-size: 0.9em;
+}
+
+.block-facetapi ul li a {
+  padding: 5px 5px 5px 15px;
+}
+
+.block-facetapi ul li a:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
 
 
 /*=====================================================================================
@@ -908,6 +1026,7 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
 .extruder.left .content {
   border: none;
   background: transparent;
+  width: auto !important;
 }
 
 .extruder .text {
@@ -977,6 +1096,7 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
 .olControlZoomPanel .olControlZoomOutItemInactive {
   width: 30px;
   height: 30px;
+  margin: 5px;
   background: url(../images/map-controls-sprite.png) no-repeat !important;
 }
 
@@ -1182,7 +1302,7 @@ div.olControlAttribution {
   padding: 5px 10px;
 }
 
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base h2.layers-title {
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher h2.layers-title {
   color: #FFFFFF !important;
   font-size: 1.2em !important;
   margin-bottom: 5px;
@@ -1233,6 +1353,41 @@ div.olControlAttribution {
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.data .form-option.checkbox input.form-checkbox {
   margin-right: 5px;
+}
+
+/*================================= about devtrac ===============================*/
+#pane_front_about_information_content {
+  padding: 5px 10px;
+  font-size: 0.95em;
+}
+
+#pane_front_about_information_content ul {
+  margin: 0 0 10px 0;
+}
+
+#pane_front_about_information_content ul li {
+  list-style: none;
+  font-size: 1.2em;
+  padding: 5px 5px 5px 30px;
+}
+
+#pane_front_about_information_content ul li.health {
+  background: url('../images/about-health-icon.png') no-repeat 0% 50%;
+  background-size: 20px 20px;
+}
+
+#pane_front_about_information_content ul li.schools {
+  background: url('../images/about-educ-icon.png') no-repeat 0% 50%;
+  background-size: 20px 20px;
+}
+
+#pane_front_about_information_content ul li.water {
+  background: url('../images/about-water-icon.png') no-repeat 0% 50%;
+  background-size: 20px 20px;
+}
+
+#block-pane-front-about-information h4 {
+  margin-bottom: 5px;
 }
 
 /*================================= geosearch ===============================*/
@@ -1466,7 +1621,6 @@ div.olControlAttribution {
 }
 
 
-
 /*====================================================================
  *  Maintenance Page Styles
  ====================================================================*/
@@ -1630,3 +1784,224 @@ div.olControlAttribution {
   background-size: 25px;
 }
 
+
+/*====================================================================
+ *  Form Page Styles
+ ====================================================================*/
+
+.page-user-me-edit .container-12 ,
+.page-node-add .container-12 ,
+.page-node-edit .container-12 {
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.page-user-me-edit form ,
+.page-node-add form ,
+.page-node-edit form {
+  border: thick solid #CCCCCC;
+  padding: 50px;
+}
+
+.form-required {
+  font-weight: bold;
+  color: #A52A2A;
+  font-size: 1.3em;
+  vertical-align: middle;
+}
+
+.page-user-me-edit label ,
+.page-node-add label ,
+.page-node-edit label ,
+.page-user-me-edit legend ,
+.page-node-add legend ,
+.page-node-edit legend ,
+.page-user-me-edit div.field-label ,
+.page-node-add div.field-label ,
+.page-node-edit div.field-label {
+  display: block;
+  font-weight: normal;
+  font-size: 1.2em;
+  padding-bottom: 5px;
+  background: transparent;
+}
+
+label.option {
+  display: inline;
+  font-weight: normal;
+  font-size: inherit;
+}
+
+.page-user-me-edit table tr ,
+.page-node-add table tr ,
+.page-node-edit table tr ,
+.page-user-me-edit table tr.even ,
+.page-node-add table tr.even ,
+.page-node-edit table tr.even ,
+.page-user-me-edit table tr:hover ,
+.page-node-add table tr:hover ,
+.page-node-edit table tr:hover {
+  background: transparent;
+  color: inherit;
+}
+
+.page-user-me-edit table thead ,
+.page-node-add table thead ,
+.page-node-edit table thead {
+  border: none;
+}
+
+.page-user-me-edit table thead tr th ,
+.page-node-add table thead tr th ,
+.page-node-edit table thead tr th {
+  background: transparent;
+  color: inherit;
+}
+
+.container-inline-date .date-padding {
+  padding-left: 0;
+}
+
+.chosen-container .chosen-results li.highlighted {
+  background: #555555;
+}
+
+.page-user-me-edit a.helpinject-link,
+.page-node-add a.helpinject-link,
+.page-node-edit a.helpinject-link {
+  display: none;
+}
+
+.page-node-add .vertical-tabs, 
+.page-node-edit .vertical-tabs {
+  display: none;
+}
+
+.page-node-edit .grid-12.region-content form.node-form .olControlZoomPanel.olControlNoSelect ,
+.page-node-add .grid-12.region-content form.node-form .olControlZoomPanel.olControlNoSelect {
+  left: auto;
+  right: 20px;
+  top: 30px;
+  width: 40px;
+  height: 75px;
+}
+
+.page-node-edit .grid-12.region-content form.node-form .Devtrac.sticky-enabled.sticky-table ,
+.page-node-add .grid-12.region-content form.node-form .Devtrac.sticky-enabled.sticky-table {
+  display: none;
+}
+
+
+.page-node-edit .grid-12.region-content form.node-form #cboxOverlay .Devtrac.sticky-enabled.sticky-table ,
+.page-node-add .grid-12.region-content form.node-form #cboxOverlay .Devtrac.sticky-enabled.sticky-table {
+  display: block;
+}
+
+.node-form .form-item .description {
+  font-style: italic;
+}
+
+
+.collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper .form-item {
+  width: 600px;
+}
+
+.collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper td .form-item {
+  width: 570px;
+}
+
+.collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper .form-item .description {
+  white-space: normal;
+  line-height: 20px;
+}
+
+.olControlNoSelect.olControlEditingToolbar {
+  top: 210px;
+  right: 20px;
+  margin: 0;
+  width: 40px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton {
+  float: none;
+  margin: 5px;
+  width: 30px;
+  height: 30px;
+  background-image: url("../images/map-tools-sprite.png");
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlNavigationItemActive {
+  background-position: -30px -60px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlNavigationItemInactive {
+  background-position: 0px -60px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlDrawFeaturePointItemActive {
+  background-position: -30px 0px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlDrawFeaturePointItemInactive {
+  background-position: 0px 0px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlDrupalWMSItemActive {
+  background-position: -30px -30px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlDrupalWMSItemInactive {
+  background-position: 0px -30px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlModifyFeatureItemActive ,
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlItemActive {
+  background-position: -30px -30px;
+}
+
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlModifyFeatureItemInactive ,
+.olControlNoSelect.olControlEditingToolbar div.olButton.olControlItemInactive {
+  background-position: 0px -30px;
+}
+
+/*===================================================================================*\
+ * User Login Styles
+\*===================================================================================*/
+
+html .not-logged-in.page-user.context-user {}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner {
+  width: 450px;
+  margin: 20px auto !important;
+  border: thin solid #CCCCCC;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #DDDDDD;
+}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner h1#page-title {
+  /*color: #989898;*/
+  color: #555555;
+  font-size: 2.0em;
+  font-weight: normal;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner .tabs.primary {
+  margin: 0;
+  border-bottom: none;
+}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner #block-system-main {
+  padding: 10px;
+  background-color: #FAFAFA;
+  border-radius: 3px;
+  border: thin solid #CCCCCC;
+}
+
+html .not-logged-in.page-user.context-user .zone-content .region-content-inner #block-system-main input.form-text {
+  width: 100%;
+}
