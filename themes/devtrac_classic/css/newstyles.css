@@ -49,11 +49,14 @@ table tbody tr.even td.active {
 
 /*================================ zone-featured ============================*/
 
+.block-nice-menus {
+  z-index: inherit;
+}
+
 .zone-featured {
   background: #3E3E3E;
   color: #FFFFFF;
   height: 27px;
-  /*overflow: hidden;*/
 }
 
 .zone-featured .nice-menu {
