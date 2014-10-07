@@ -171,6 +171,21 @@ table tbody tr.even td.active {
   background-image: url(../images/user-menu-icon-edit.png);
 }
 
+.region-featured-inner {
+  position: relative;
+}
+
+.zone-featured .block-current-search {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+}
+
+.zone-featured .block-current-search h3 {
+  margin: 0;
+  font-size: 1em;
+}
+
 /*=============================================================================
  * Content Styles
  * ==========================================================================*/
@@ -207,6 +222,46 @@ table tbody tr.even td.active {
 
 .zone-content .grid-4.region-content {
   background: #EBEBEB;
+}
+
+
+@media screen and (min-width: 845px) {
+
+.page-images .zone-content ,
+.page-locations .zone-content ,
+.page-adminunits .zone-content ,
+.page-sitereports .zone-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-images aside.grid-3 ,
+.page-locations aside.grid-3 ,
+.page-adminunits aside.grid-3 ,
+.page-sitereports aside.grid-3 {
+  margin: 0;
+  float: left;
+  width: 310px;
+}
+
+.page-images .grid-9.region-content ,
+.page-locations .grid-9.region-content ,
+.page-adminunits .grid-9.region-content ,
+.page-sitereports .grid-9.region-content {
+  float: left;
+  width: 100%;
+  margin-right: 0;
+  margin-left: -310px
+}
+
+.page-images .grid-9.region-content .region-content-inner ,
+.page-locations .grid-9.region-content .region-content-inner ,
+.page-adminunits .grid-9.region-content .region-content-inner ,
+.page-sitereports .grid-9.region-content .region-content-inner {
+  margin-left: 310px;
+}
+
 }
 
 
@@ -612,7 +667,6 @@ form.comment-form .form-item.form-type-item {
 
 /*================================ list-page =================================*/
 
-
 .zone-content-wrapper .grid-9.region-content .region-content-inner .view-empty p {
   font-size: 1.1em;
   color: #555555;
@@ -623,7 +677,6 @@ form.comment-form .form-item.form-type-item {
   background: #CCCCCC url(../images/search-results-bg.png) no-repeat 50% 20px;
   background-size: 70px auto;
 }
-
 
 /*================================ page-user =================================*/
 
@@ -965,7 +1018,13 @@ div .collapsiblockCollapsed a {
 
 .block-facetapi form input[type='textfield'] {
   margin: 0;
-  padding: 5px;
+  padding: 5px 1px;
+  float: left;
+}
+
+.block-facetapi #edit-actions {
+  float: left;
+  margin-left: 5px;
 }
 
 .block-facetapi form input[type='submit'] {
@@ -1034,6 +1093,7 @@ div .collapsiblockCollapsed a {
 
 .extruder .text {
   background: transparent;
+  height: 95% !important;
   font: inherit;
   color: inherit;
   padding: 10px;
