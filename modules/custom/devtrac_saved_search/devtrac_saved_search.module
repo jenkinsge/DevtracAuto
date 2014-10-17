@@ -176,7 +176,7 @@ function devtrac_saved_search_manager_weekly_reminder_fieldtrip_submited($uid) {
   if (!$ret) {
     drupal_set_message(t('An error occurred while trying to save the search. Please contact the site administrator.'), 'error');
   } else {
-    drupal_set_message(t('Yours saved search was successfully created. You will soon receive an e-mail with a confirmation link to activate it.' ));
+    drupal_set_message(t('Saved search for a managers weekly reminder that fieldtrip is submited was successfully created.'));
 
   }
 
@@ -311,7 +311,7 @@ function devtrac_saved_search_manager_notify_fieldtrip_submited($uid) {
   if (!$ret) {
     drupal_set_message(t('An error occurred while trying to save the search. Please contact the site administrator.'), 'error');
   } else {
-    drupal_set_message(t('Yours saved search was successfully created. You will soon receive an e-mail with a confirmation link to activate it.' ));
+    drupal_set_message(t('Saved search to notify manager about a new fieldtrip was successfully created.' ));
 
   }
 
@@ -443,7 +443,7 @@ function devtrac_saved_search_user_notify_fieldtrip_rejected($uid) {
   if (!$ret) {
     drupal_set_message(t('An error occurred while trying to save the search. Please contact the site administrator.'), 'error');
   } else {
-    drupal_set_message(t('Yours saved search was successfully created. You will soon receive an e-mail with a confirmation link to activate it.' ));
+    drupal_set_message(t('Saved search to notify user when fieldtrip is rejected was successfully created.' ));
 
   }
 
@@ -791,7 +791,7 @@ function devtrac_saved_search_notify_tagged_user_actionitem($uid) {
   if (!$ret) {
     drupal_set_message(t('An error occurred while trying to save the search. Please contact the site administrator.'), 'error');
   } else {
-    drupal_set_message(t('Yours saved search was successfully created. You will soon receive an e-mail with a confirmation link to activate it.' ));
+    drupal_set_message(t('Saved search to notify user when they are tagged into an actionitem was successfully created.' ));
 
   }
 
@@ -982,7 +982,7 @@ function devtrac_saved_search_weekly_reminder_tagged_user_actionitem($uid) {
   if (!$ret) {
     drupal_set_message(t('An error occurred while trying to save the search. Please contact the site administrator.'), 'error');
   } else {
-    drupal_set_message(t('Yours saved search was successfully created. You will soon receive an e-mail with a confirmation link to activate it.' ));
+    drupal_set_message(t('Yours saved to send a weekly reminder to user that has been tagged in an actionitem was successfully create.' ));
 
   }
 
