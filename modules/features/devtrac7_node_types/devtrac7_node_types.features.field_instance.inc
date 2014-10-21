@@ -1157,7 +1157,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'bundle' => 'actionitem',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Provide the correct sectors. You may select more than one sector. You can read more about the codes we use on the <a href="/node/6184">OECD Sector Codes</a> page.',
+    'description' => 'Provide the correct sectors. You may select more than one sector. You can read more about the codes we use on the <a href="http://www.devtrac.org/node/51">OECD Sector Codes</a> page.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -4541,7 +4541,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
 <li>Time Bound</li>
 </ul>');
   t('Provide the correct Locations');
-  t('Provide the correct sectors. You may select more than one sector. You can read more about the codes we use on the <a href="/node/6184">OECD Sector Codes</a> page.');
+  t('Provide the correct sectors. You may select more than one sector. You can read more about the codes we use on the <a href="http://www.devtrac.org/node/51">OECD Sector Codes</a> page.');
   t('Public Summary');
   t('Purpose');
   t('Purpose(s) of the Fieldtrip');

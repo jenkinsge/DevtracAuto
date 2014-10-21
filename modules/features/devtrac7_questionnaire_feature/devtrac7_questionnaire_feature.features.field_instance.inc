@@ -202,7 +202,7 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
     'bundle' => 'questionnaire_question',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Provide the correct sector. You may select more than one sector. You can read more about the codes we use on the <a href="/node/6184">OECD Sector Codes</a> page.',
+    'description' => 'Provide the correct sector. You may select more than one sector. You can read more about the codes we use on the <a href="http://www.devtrac.org/node/51">OECD Sector Codes</a> page.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -249,7 +249,7 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
   t('Choose the type of the Question. This is going to determin how this Question will look like.');
   t('Location Type');
   t('Options');
-  t('Provide the correct sector. You may select more than one sector. You can read more about the codes we use on the <a href="/node/6184">OECD Sector Codes</a> page.');
+  t('Provide the correct sector. You may select more than one sector. You can read more about the codes we use on the <a href="http://www.devtrac.org/node/51">OECD Sector Codes</a> page.');
   t('Sector');
   t('Select the appropriate Location Type.');
   t('Sub-Category');
