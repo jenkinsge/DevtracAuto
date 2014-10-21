@@ -10,6 +10,7 @@
 .zone-highlighted,
 .zone-content-wrapper ,
 .zone-postscript-wrapper ,
+.zone-preface-wrapper ,
 .region-postscript-first ,
 .region-postscript-second {
   margin-bottom: 10px;
@@ -49,11 +50,14 @@ table tbody tr.even td.active {
 
 /*================================ zone-featured ============================*/
 
+.block-nice-menus {
+  z-index: inherit;
+}
+
 .zone-featured {
   background: #3E3E3E;
   color: #FFFFFF;
   height: 27px;
-  /*overflow: hidden;*/
 }
 
 .zone-featured .nice-menu {
@@ -168,15 +172,35 @@ table tbody tr.even td.active {
   background-image: url(../images/user-menu-icon-edit.png);
 }
 
+.region-featured-inner {
+  position: relative;
+}
+
+.zone-featured .block-current-search {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+}
+
+.zone-featured .block-current-search h3 {
+  margin: 0;
+  font-size: 1em;
+}
+
 /*=============================================================================
  * Content Styles
  * ==========================================================================*/
 
+
+
+.zone-preface .region-inner ,
 .zone-content .region-inner {
   padding: 20px;
 }
 
-
+.region-preface-third-inner {
+  border: thin solid #CCCCCC;
+}
 
 .page-images .zone-content-wrapper ,
 .page-locations .zone-content-wrapper ,
@@ -202,8 +226,49 @@ table tbody tr.even td.active {
   display: none;
 }
 
+.zone-preface .grid-4.region-content ,
 .zone-content .grid-4.region-content {
   background: #EBEBEB;
+}
+
+
+@media screen and (min-width: 845px) {
+
+.page-images .zone-content ,
+.page-locations .zone-content ,
+.page-adminunits .zone-content ,
+.page-sitereports .zone-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-images aside.grid-3 ,
+.page-locations aside.grid-3 ,
+.page-adminunits aside.grid-3 ,
+.page-sitereports aside.grid-3 {
+  margin: 0;
+  float: left;
+  width: 310px;
+}
+
+.page-images .grid-9.region-content ,
+.page-locations .grid-9.region-content ,
+.page-adminunits .grid-9.region-content ,
+.page-sitereports .grid-9.region-content {
+  float: left;
+  width: 100%;
+  margin-right: 0;
+  margin-left: -310px
+}
+
+.page-images .grid-9.region-content .region-content-inner ,
+.page-locations .grid-9.region-content .region-content-inner ,
+.page-adminunits .grid-9.region-content .region-content-inner ,
+.page-sitereports .grid-9.region-content .region-content-inner {
+  margin-left: 310px;
+}
+
 }
 
 
@@ -278,11 +343,24 @@ table tbody tr.even td.active {
   margin-bottom: 10px;
 }
 
-/*======================= Quicktab Recent Locations ============================*/
+/*========================= Follow Up Task Section =============================*/
 
+#block-views-dvtrc-action-items-block-2 .content {
+  max-height: 300px;
+  overflow-y: auto;
+}
 
+.region-preface-third .views-field-field-actionitem-responsible {
+  margin-bottom: 20px;
+}
 
+.region-preface-third .views-field-field-actionitem-responsible .field-content {
+  display: inline-block;
+}
 
+.views-label-field-actionitem-followuptask {
+  display: none;
+}
 
 /*======================= Quicktab Recent Locations ============================*/
 
@@ -388,6 +466,9 @@ table tbody tr.even td.active {
 .quicktabs-tabpage ul.links li.level-1 {
   list-style: none;
   padding: 0px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  border-top: thin solid #DDDDDD;
 }
 
 
@@ -498,7 +579,10 @@ article.comment .user-picture a img {
 
 article.comment .comment-submitted-main {
   display: inline-block;
-  padding: 10px 10px 5px 10px;
+  padding: 5px 0 5px 0;
+  float: left;
+  width: 100%;
+  margin-left: -70px;
 }
 
 article.comment .comment-submitted-main p {
@@ -507,6 +591,11 @@ article.comment .comment-submitted-main p {
 
 article.comment .comment-submitted {
   font-weight: bold;
+  margin-left: 70px;
+}
+
+article.comment .comment-submitted-main > div {
+  margin-left: 70px;
 }
 
 article.comment nav {
@@ -606,9 +695,26 @@ form.comment-form .form-item.form-type-item {
   display: none;
 }
 
+.form-disabled {
+  display: none;
+}
+
+.zone-content .grid-8.region-preface-first .region-preface-first-inner {
+  padding: 10px 20px;
+  border: thin solid #CCCCCC;
+}
+
+.zone-content .grid-4.region-sidebar-second .region-sidebar-second-inner {
+  padding: 0;
+}
+
+.zone-content .grid-8.region-preface-first #edit-field-actionitem-status--2 ,
+.zone-content .grid-8.region-preface-first #edit-taxonomy-vocabulary-8--2 {
+  display: inline-block;
+  margin-right: 20px;
+}
 
 /*================================ list-page =================================*/
-
 
 .zone-content-wrapper .grid-9.region-content .region-content-inner .view-empty p {
   font-size: 1.1em;
@@ -620,7 +726,6 @@ form.comment-form .form-item.form-type-item {
   background: #CCCCCC url(../images/search-results-bg.png) no-repeat 50% 20px;
   background-size: 70px auto;
 }
-
 
 /*================================ page-user =================================*/
 
@@ -727,7 +832,9 @@ form.comment-form .form-item.form-type-item {
   color: inherit;
 }
 
-
+.page-user .quicktabs-tabpage table .views-align-right {
+  text-align: left;
+}
 
 /*================================= Custom Quicktab ================================*/
 
@@ -962,7 +1069,13 @@ div .collapsiblockCollapsed a {
 
 .block-facetapi form input[type='textfield'] {
   margin: 0;
-  padding: 5px;
+  padding: 5px 1px;
+  float: left;
+}
+
+.block-facetapi #edit-actions {
+  float: left;
+  margin-left: 5px;
 }
 
 .block-facetapi form input[type='submit'] {
@@ -1031,6 +1144,7 @@ div .collapsiblockCollapsed a {
 
 .extruder .text {
   background: transparent;
+  height: 95% !important;
   font: inherit;
   color: inherit;
   padding: 10px;
