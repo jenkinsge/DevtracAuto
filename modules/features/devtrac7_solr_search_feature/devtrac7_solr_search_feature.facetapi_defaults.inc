@@ -1168,7 +1168,7 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
         'weight' => '-49',
       ),
       'exclude_items' => array(
-        'status' => 1,
+        'status' => 0,
         'weight' => '-48',
       ),
       'rewrite_items' => array(
@@ -1257,7 +1257,7 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'swatch_shownoimage' => 1,
     'swatch_imagestyle_select' => 'map_icon',
     'graphsflot' => 'point',
-    'exclude' => 'Other Locations, 49, Pabolo, 235',
+    'exclude' => '',
     'regex' => 0,
     'show_minimum_items' => 2,
     'yfacet' => '',
