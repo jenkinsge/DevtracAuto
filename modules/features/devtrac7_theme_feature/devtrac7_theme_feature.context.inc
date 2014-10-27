@@ -283,12 +283,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'postscript_second',
           'weight' => '-10',
         ),
-        'pane-front_about_information' => array(
-          'module' => 'pane',
-          'delta' => 'front_about_information',
-          'region' => 'featured',
-          'weight' => '-80',
-        ),
         'delta_blocks-messages' => array(
           'module' => 'delta_blocks',
           'delta' => 'messages',
