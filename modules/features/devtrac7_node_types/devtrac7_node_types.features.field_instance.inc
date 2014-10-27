@@ -3421,43 +3421,6 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_fieldtrip_button'
-  $field_instances['node-page-field_fieldtrip_button'] = array(
-    'bundle' => 'page',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'devtrac7_progress_field',
-        'settings' => array(),
-        'type' => 'devtrac7_progress_field_field_formatter',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_fieldtrip_button',
-    'label' => 'Button',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'virtual_field',
-      'settings' => array(),
-      'type' => 'hidden',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-place-field_fieldtrip_button'
   $field_instances['node-place-field_fieldtrip_button'] = array(
     'bundle' => 'place',
