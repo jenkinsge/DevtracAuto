@@ -90,7 +90,7 @@ class FacetsVisibilityTestCase extends DrupalWebTestCase {
     /**
      * Functional tests for authenticated (permitted) Fieldtrip multiple district creation.
      */
-class FieldtripFeedbackCase extends DrupalWebTestCase {
+class FieldtripAutheFeedbackCase extends DrupalWebTestCase {
     protected $profile = 'devtrac';
     protected $administrator;
     public static function getInfo() {
