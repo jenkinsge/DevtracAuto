@@ -1,0 +1,14 @@
+name = devtractests
+files[] = devtrac_aboutdevtrac_edits.test
+files[] = devtrac_anony_actions.test
+files[] = devtrac_createUser_formElements.test
+files[] = devtrac_howDevtracWorks_page.test
+files[] = devtrac_user_create.test
+files[] = devtrac_user_login.test
+files[] = devtrac_user_menu.test
+files[] = devtractests.module
+
+
+
+
+core = 7.x
