@@ -200,11 +200,11 @@ function devtrac7_node_types_field_default_field_instances() {
     'description' => 'Indicate the email address of the contact person. You can add more than one email address by pressing the \'Add another email address\' button below.',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
-        'module' => 'text',
+        'label' => 'hidden',
+        'module' => 'email',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 3,
+        'type' => 'email_default',
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -212,56 +212,71 @@ function devtrac7_node_types_field_default_field_instances() {
     'label' => 'Email',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'email',
       'settings' => array(
-        'maxlength_js' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
         'size' => 60,
       ),
-      'type' => 'text_textfield',
-      'weight' => 4,
+      'type' => 'email_textfield',
+      'weight' => 3,
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_place_contact_info-field_contact_mailing_address'
-  $field_instances['field_collection_item-field_place_contact_info-field_contact_mailing_address'] = array(
+  // Exported field_instance: 'field_collection_item-field_place_contact_info-field_contact_mailing_addr'
+  $field_instances['field_collection_item-field_place_contact_info-field_contact_mailing_addr'] = array(
     'bundle' => 'field_place_contact_info',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+        'element_key' => 'field_collection_item|field_place_contact_info|field_contact_mailing_addr|und|0',
+        'thoroughfare' => '',
+        'premise' => '',
+        'locality' => '',
+        'country' => 'AF',
+        'organisation_name' => '',
+      ),
+    ),
     'deleted' => 0,
     'description' => 'Indicate the mailing address of the contact person. This may be a street address or a P.O. Box. You can add more than one mailing address by pressing the \'Add another mailing address\' button below.',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 4,
+        'module' => 'addressfield',
+        'settings' => array(
+          'format_handlers' => array(
+            0 => 'address',
+          ),
+          'use_widget_handlers' => 1,
+        ),
+        'type' => 'addressfield_default',
+        'weight' => 8,
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_contact_mailing_address',
+    'field_name' => 'field_contact_mailing_addr',
     'label' => 'Mailing Address',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'addressfield',
       'settings' => array(
-        'maxlength_js' => '',
-        'maxlength_js_enforce' => 0,
+        'available_countries' => array(),
+        'format_handlers' => array(
+          'address' => 'address',
+          'address-hide-country' => 'address-hide-country',
+          'organisation' => 0,
+          'name-full' => 0,
+          'name-oneline' => 0,
+        ),
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 0,
-        'rows' => 3,
       ),
-      'type' => 'text_textarea',
+      'type' => 'addressfield_standard',
       'weight' => 5,
     ),
   );
@@ -298,7 +313,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 0,
     ),
   );
 
@@ -334,7 +349,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 1,
     ),
   );
 
@@ -343,14 +358,14 @@ function devtrac7_node_types_field_default_field_instances() {
     'bundle' => 'field_place_contact_info',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Indicate the phone number of the contact person. You can add more than one mailing address by pressing the \'Add another phone number\' button below.',
+    'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'inline',
+        'label' => 'above',
         'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
+        'type' => 'text_plain',
+        'weight' => 5,
       ),
     ),
     'entity_type' => 'field_collection_item',
@@ -358,19 +373,74 @@ function devtrac7_node_types_field_default_field_instances() {
     'label' => 'Telephone',
     'required' => 0,
     'settings' => array(
-      'text_processing' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'text',
+      'module' => 'telephone',
       'settings' => array(
-        'maxlength_js' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 20,
+        'placeholder' => '',
       ),
-      'type' => 'text_textfield',
-      'weight' => 3,
+      'type' => 'telephone_default',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance: 'field_collection_item-field_place_contact_info-field_contact_website'
+  $field_instances['field_collection_item-field_place_contact_info-field_contact_website'] = array(
+    'bundle' => 'field_place_contact_info',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'link_favicon_formatter',
+        'settings' => array(
+          'format' => 'link_default',
+          'restrict_size' => 1,
+          'service' => 'local_PHP_based_icon_scrapper',
+        ),
+        'type' => 'link_favicon',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_contact_website',
+    'label' => 'Website',
+    'required' => 0,
+    'settings' => array(
+      'absolute_url' => 1,
+      'attributes' => array(
+        'class' => '',
+        'configurable_class' => 0,
+        'configurable_title' => 0,
+        'rel' => '',
+        'target' => '_blank',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'rel_remove' => 'default',
+      'title' => 'none',
+      'title_label_use_field_label' => 0,
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'link_field',
+      'weight' => 4,
     ),
   );
 
@@ -2007,18 +2077,12 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'entityreference',
-      'settings' => array(
-        'match_operator' => 'CONTAINS',
-        'path' => '',
-        'size' => 60,
-      ),
-      'type' => 'entityreference_autocomplete',
-      'weight' => 6,
-    ),
-    'widget' => array(
-      'active' => 1,
       'module' => 'field_extrawidgets',
+      'settings' => array(
+        'display_empty' => 0,
+        'formatter' => '',
+        'formatter_settings' => array(),
+      ),
       'type' => 'field_extrawidgets_read_only',
       'weight' => 2,
     ),
@@ -4201,6 +4265,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
     'label' => 'Website',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
@@ -4213,6 +4278,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
       ),
       'enable_tokens' => 1,
       'title' => 'none',
+      'title_label_use_field_label' => FALSE,
       'title_maxlength' => 128,
       'title_value' => '',
       'url' => 0,
@@ -4391,10 +4457,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('If you can not find a location, just navigate the map towards the location and click the pencil, and then the map to indicate the right location. You can search the map using the magnifying glass on the right side of the map.');
   t('Images');
   t('In case of more contact persons, use this group of fields to add more contacts.');
-  t('Indicate the email address of the contact person. You can add more than one email address by pressing the \'Add another email address\' button below.');
-  t('Indicate the mailing address of the contact person. This may be a street address or a P.O. Box. You can add more than one mailing address by pressing the \'Add another mailing address\' button below.');
   t('Indicate the names of this person');
-  t('Indicate the phone number of the contact person. You can add more than one mailing address by pressing the \'Add another phone number\' button below.');
   t('Internal ID');
   t('Lat-Long');
   t('Location');
