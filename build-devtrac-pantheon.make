@@ -8,6 +8,9 @@ core = 7.x
 
 projects[drupal][type] = core
 projects[drupal][version] = 7.32
+projects[drupal][download][type] = "git"
+projects[drupal][download][branch] = "master"
+projects[drupal][download][url]  = "git://github.com/pantheon-systems/drops-7.git"
 
 ; Patches for Core
 ;
