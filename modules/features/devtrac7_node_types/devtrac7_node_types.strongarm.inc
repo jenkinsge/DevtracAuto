@@ -27,13 +27,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_anonymous_book';
-  $strongarm->value = 0;
-  $export['comment_anonymous_book'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_anonymous_fieldtrip';
   $strongarm->value = 0;
   $export['comment_anonymous_fieldtrip'] = $strongarm;
@@ -62,23 +55,9 @@ function devtrac7_node_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_book';
-  $strongarm->value = '1';
-  $export['comment_book'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_default_mode_actionitem';
   $strongarm->value = 1;
   $export['comment_default_mode_actionitem'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_mode_book';
-  $strongarm->value = 1;
-  $export['comment_default_mode_book'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -114,13 +93,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm->name = 'comment_default_per_page_actionitem';
   $strongarm->value = '50';
   $export['comment_default_per_page_actionitem'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_default_per_page_book';
-  $strongarm->value = '50';
-  $export['comment_default_per_page_book'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -163,13 +135,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm->name = 'comment_form_location_actionitem';
   $strongarm->value = 1;
   $export['comment_form_location_actionitem'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_form_location_book';
-  $strongarm->value = 1;
-  $export['comment_form_location_book'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -230,13 +195,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'comment_preview_book';
-  $strongarm->value = '0';
-  $export['comment_preview_book'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'comment_preview_fieldtrip';
   $strongarm->value = '0';
   $export['comment_preview_fieldtrip'] = $strongarm;
@@ -275,13 +233,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm->name = 'comment_subject_field_actionitem';
   $strongarm->value = 0;
   $export['comment_subject_field_actionitem'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'comment_subject_field_book';
-  $strongarm->value = 1;
-  $export['comment_subject_field_book'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -398,45 +349,6 @@ function devtrac7_node_types_strongarm() {
           ),
           'teaser' => array(
             'custom_settings' => TRUE,
-          ),
-          'rss' => array(
-            'custom_settings' => FALSE,
-          ),
-          'search_index' => array(
-            'custom_settings' => FALSE,
-          ),
-          'search_result' => array(
-            'custom_settings' => FALSE,
-          ),
-          'print' => array(
-            'custom_settings' => FALSE,
-          ),
-          'mobile' => array(
-            'custom_settings' => FALSE,
-          ),
-          'token' => array(
-            'custom_settings' => FALSE,
-          ),
-        ),
-      ),
-      'book' => array(
-        'extra_fields' => array(
-          'form' => array(
-            'body' => array(
-              'weight' => 0,
-            ),
-            'title' => array(
-              'weight' => '-5',
-            ),
-          ),
-          'display' => array(),
-        ),
-        'view_modes' => array(
-          'teaser' => array(
-            'custom_settings' => TRUE,
-          ),
-          'full' => array(
-            'custom_settings' => FALSE,
           ),
           'rss' => array(
             'custom_settings' => FALSE,
@@ -1089,13 +1001,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'menu_options_book';
-  $strongarm->value = array();
-  $export['menu_options_book'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_fieldtrip';
   $strongarm->value = array();
   $export['menu_options_fieldtrip'] = $strongarm;
@@ -1127,13 +1032,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm->name = 'menu_parent_actionitem';
   $strongarm->value = 'main-menu:0';
   $export['menu_parent_actionitem'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'menu_parent_book';
-  $strongarm->value = 'main-menu:0';
-  $export['menu_parent_book'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1172,16 +1070,6 @@ function devtrac7_node_types_strongarm() {
     1 => 'revision',
   );
   $export['node_options_actionitem'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'node_options_book';
-  $strongarm->value = array(
-    0 => 'status',
-    1 => 'revision',
-  );
-  $export['node_options_book'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -1233,13 +1121,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'node_preview_book';
-  $strongarm->value = '0';
-  $export['node_preview_book'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'node_preview_fieldtrip';
   $strongarm->value = '0';
   $export['node_preview_fieldtrip'] = $strongarm;
@@ -1271,13 +1152,6 @@ function devtrac7_node_types_strongarm() {
   $strongarm->name = 'node_submitted_actionitem';
   $strongarm->value = 0;
   $export['node_submitted_actionitem'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'node_submitted_book';
-  $strongarm->value = 0;
-  $export['node_submitted_book'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

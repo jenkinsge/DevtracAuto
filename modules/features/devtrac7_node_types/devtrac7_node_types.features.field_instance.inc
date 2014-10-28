@@ -1157,7 +1157,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'bundle' => 'actionitem',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Provide the correct sectors. You may select more than one sector. You can read more about the codes we use on the <a href="/node/6184">OECD Sector Codes</a> page.',
+    'description' => 'Provide the correct sectors. You may select more than one sector. You can read more about the codes we use on the <a href="http://www.devtrac.org/node/51">OECD Sector Codes</a> page.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -1197,88 +1197,6 @@ function devtrac7_node_types_field_default_field_instances() {
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_select',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance: 'node-book-body'
-  $field_instances['node-book-body'] = array(
-    'bundle' => 'book',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'A <em>book page</em> is a page of content, organized into a collection of related entries collectively known as a <em>book</em>. A <em>book page</em> automatically displays links to adjacent pages, providing a simple navigation system for organizing and reviewing structured content.',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'trim_length' => 600,
-        'type' => 'text_summary_or_trimmed',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Body',
-    'required' => 0,
-    'settings' => array(
-      'display_summary' => TRUE,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 20,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 0,
-    ),
-  );
-
-  // Exported field_instance: 'node-book-field_fieldtrip_button'
-  $field_instances['node-book-field_fieldtrip_button'] = array(
-    'bundle' => 'book',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'devtrac7_progress_field',
-        'settings' => array(),
-        'type' => 'devtrac7_progress_field_field_formatter',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_fieldtrip_button',
-    'label' => 'Button',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'virtual_field',
-      'settings' => array(),
-      'type' => 'hidden',
       'weight' => 2,
     ),
   );
@@ -3503,43 +3421,6 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-page-field_fieldtrip_button'
-  $field_instances['node-page-field_fieldtrip_button'] = array(
-    'bundle' => 'page',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'devtrac7_progress_field',
-        'settings' => array(),
-        'type' => 'devtrac7_progress_field_field_formatter',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_fieldtrip_button',
-    'label' => 'Button',
-    'required' => FALSE,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'virtual_field',
-      'settings' => array(),
-      'type' => 'hidden',
-      'weight' => 2,
-    ),
-  );
-
   // Exported field_instance: 'node-place-field_fieldtrip_button'
   $field_instances['node-place-field_fieldtrip_button'] = array(
     'bundle' => 'place',
@@ -4479,7 +4360,6 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   // Translatables
   // Included for use with string extractors like potx.
   t(' Hold the \'Control\' key on your keyboard to select multiple districts.');
-  t('A <em>book page</em> is a page of content, organized into a collection of related entries collectively known as a <em>book</em>. A <em>book page</em> automatically displays links to adjacent pages, providing a simple navigation system for organizing and reviewing structured content.');
   t('A <em>page</em>, similar in form to a <em>story</em>, is a simple method for creating and displaying information that rarely changes, such as an "About us" section of a website. By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site\'s initial home page.');
   t('Add Tags. These will categorize your Field Trip basing on the keywords you add. It will later help you and other users to easily find it. Make sure you use existing tags to avoid duplication. Separate tags with a comma followed by a space.');
   t('Add Tags. These will categorize your action item basing on the keyword you add. It will later help you and other users to easily find your Action Item. Make sure you use an existing tag to avoid duplication. Separate tags with a comma followed by a space.');
@@ -4541,7 +4421,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
 <li>Time Bound</li>
 </ul>');
   t('Provide the correct Locations');
-  t('Provide the correct sectors. You may select more than one sector. You can read more about the codes we use on the <a href="/node/6184">OECD Sector Codes</a> page.');
+  t('Provide the correct sectors. You may select more than one sector. You can read more about the codes we use on the <a href="http://www.devtrac.org/node/51">OECD Sector Codes</a> page.');
   t('Public Summary');
   t('Purpose');
   t('Purpose(s) of the Fieldtrip');
