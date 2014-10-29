@@ -191,6 +191,10 @@ dependencies[] = cancel_button
 dependencies[] = fontyourface
 dependencies[] = local_fonts
 dependencies[] = fontyourface_wysiwyg
+dependencies[] = elements
+dependencies[] = telephone
+dependencies[] = addressfield
+dependencies[] = link_favicon_formatter	
 
 ; Questionnaire
 dependencies[] = questionnaire
