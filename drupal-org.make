@@ -260,7 +260,7 @@ projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojs
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/zoomtolayer-only-when-there-are-features-%232344127-1.patch"
 
-projects[openlayers_geosearch][version] = "1.0-beta1"
+projects[openlayers_geosearch][version] = "1.0-beta2"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
 
