@@ -8,7 +8,7 @@ files[] = devtrac_user_login.test
 files[] = devtrac_user_menu.test
 files[] = devtractests.module
 files[] = devtrac_user_roles.test
-
+files[] = devtrac_superioruser_response.test
 
 
 core = 7.x
