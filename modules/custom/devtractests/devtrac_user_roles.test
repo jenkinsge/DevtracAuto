@@ -208,7 +208,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
     $this->drupalGet('user/' . $this->managerUser->uid);
-    $this->assertLink('Jan van Diepen', 0, 'manager Jan van Diepen');
+    $this->assertLink('admin admin', 0, 'manager admin link found');
     $this->drupalPost('user/' . $this->adminUser->uid . '/edit', array(
     "roles[3]" => 3,
     'field_user_firstname[und][0][value]' => 'ozzx',
