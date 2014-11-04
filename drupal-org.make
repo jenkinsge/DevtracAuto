@@ -472,6 +472,22 @@ projects[wms][version] = "2.x-dev"
 projects[wms][type] = "module"
 projects[wms][subdir] = "contrib"
 
+projects[addressfield][version] = "1.0-beta5"
+projects[addressfield][type] = "module"
+projects[addressfield][subdir] = "contrib"
+
+projects[elements][version] = "1.4"
+projects[elements][type] = "module"
+projects[elements][subdir] = "contrib"
+
+projects[link_favicon_formatter][version] = "1.6"
+projects[link_favicon_formatter][type] = "module"
+projects[link_favicon_formatter][subdir] = "contrib"
+
+projects[telephone][version] = "1.0-alpha1"
+projects[telephone][type] = "module"
+projects[telephone][subdir] = "contrib"
+
 ; Sandbox projects
 projects[cancel_button][type] = "module"
 projects[cancel_button][download][type] = "git"

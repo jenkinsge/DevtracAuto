@@ -1,0 +1,9 @@
+name = Devtrac Import New Data Feature
+description = imports all devtrac data into a new devtrac instance
+core = 7.x
+package = Devtrac
+version = 7.x-1.0-beta1
+project = devtrac_import_new_data_feature
+dependencies[] = features
+dependencies[] = feeds
+features[features_api][] = api:2
