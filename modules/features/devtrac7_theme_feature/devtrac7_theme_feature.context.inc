@@ -97,6 +97,12 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'branding',
+          'weight' => '-9',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -133,12 +139,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'breadcrumb',
           'weight' => '-10',
         ),
-        'delta_blocks-messages' => array(
-          'module' => 'delta_blocks',
-          'delta' => 'messages',
-          'region' => 'breadcrumb',
-          'weight' => '-9',
-        ),
       ),
     ),
     'delta' => array(
@@ -172,6 +172,12 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'branding',
+          'weight' => '-9',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -207,12 +213,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'delta' => 'field_trips_info',
           'region' => 'featured',
           'weight' => '-80',
-        ),
-        'delta_blocks-messages' => array(
-          'module' => 'delta_blocks',
-          'delta' => 'messages',
-          'region' => 'breadcrumb',
-          'weight' => '-9',
         ),
       ),
     ),
