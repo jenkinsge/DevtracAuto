@@ -1961,7 +1961,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = 'No Fieldtrips found';
+  $handler->display->display_options['empty']['area']['content'] = '';
   $handler->display->display_options['empty']['area']['format'] = '1';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
