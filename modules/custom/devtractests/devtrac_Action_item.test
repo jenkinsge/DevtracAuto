@@ -786,7 +786,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
     $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
-    $this->assertNoText(t('Location Types'), t('location  Place Types is found on the form'), 'Devtrac');
+    $this->assertText(t('Location Type'), t('location  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Contact'), t('Label Contact Types is found on the form'), 'Devtrac');
@@ -820,7 +820,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertText(t('Responsible'), t('Responsible field label is found'), 'Devtrac');
     $this->assertText(t('Follow-up Task'), t('Follow-up Task field label is found'), 'Devtrac');
     $this->assertNoTitle('Create Action Item | DevTrac', t('Action Item title is showing'), 'Devtrac');
-    $this->assertTitle('Create Action Item | Devtrac Test The Tests', t('Action Item title is showing'), 'Devtrac');
+    $this->assertTitle('Create Action Item', t('Action Item title is showing'), 'Devtrac');
   }
   /**
    * Checking the fields on.
@@ -868,7 +868,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
     $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
-    $this->assertNoText(t('Location Types'), t('Label  Place Types is m not found on the form'), 'Devtrac');
+    $this->assertText(t('Location Type'), t('Label  Place Types is m not found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Contact'), t('Label Contact Types is found on the form'), 'Devtrac');
@@ -960,7 +960,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
     $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
-    $this->assertNoText(t('Location Types'), t('Label  Place Types is not found on the form'), 'Devtrac');
+    $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Contact'), t('Label Contact Types is found on the form'), 'Devtrac');

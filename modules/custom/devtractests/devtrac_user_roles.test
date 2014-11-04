@@ -2,7 +2,8 @@
 /**
  * Functional tests for users inter role coalition.
  */
-class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
+module_load_include('test', 'simpletest_clone');
+class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
   protected $profile = 'devtrac';
   protected $adminUser;
   protected $managerUser;
@@ -10,8 +11,8 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
   protected $editUser;
   public static function getInfo() {
     return array(
-      'name' => 'Create user coalition district',
-      'description' => "Unicef User create coalition district",
+      'name' => 'Create user for multiple Site Report Type',
+      'description' => "Field User creates multiple Site Report Types",
       'group' => 'Devtrac',
     );
   }
@@ -66,6 +67,7 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
    */
   public function setUp() {
     parent::setUp('devtractests', 'devtrac7');
+    $this->public_files_directory = variable_get('file_public_path');
     $this->adminUser = $this->drupalCreateUser(array(
     'administer users',
     'administer permissions',
@@ -108,45 +110,42 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
   /**
    * This tests multiple districts, there was a change in the requirements.
    */
-  public function testUserMultiDistrictsSelectiontest() {
+  public function testUserMultiSiteReportTypeSelectiontest() {
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->managerUser->uid, 'field_fieldtrip_places' => '')));
-    $this->assertText(t('TA Number'), t('TA number field is found'), 'DevTrac');
+    $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
-    // $fullreportsubmitozyq['taxonomy_vocabulary_6[und][]']
-    // = array(80, 81, 82);
     $this->assertNoField('taxonomy_vocabulary_6[und][', 'District field is nolonger found on add field trip form');
     $fullreportsubmitozyq['title'] = 'YES WE CAN';
     $fullreportsubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
-    $fullreportsubmitozyq['field_fieldtrip_proms_ta_id[und][0][value]'] = 76;
-    $fullreportsubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 236;
+    $fullreportsubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(7);
+    $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms TA id field was renamed');
+    $fullreportsubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
     $fullreportsubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullreportsubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullreportsubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullreportsubmitozyq, t('Save'), array('query' => array('field_fieldtrip_user' => $this->managerUser->uid, 'field_fieldtrip_places' => '')));
-    $this->assertText(t('has been created.'), ('field trip is created successifuly'), 'DevTrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'DevTrac');
     $nodeaddreportfullsubmitozyq = $this->drupalGetNodeByTitle($fullreportsubmitozyq["title"]);
     $this->assertNotNull($nodeaddreportfullsubmitozyq, t('node loaded'));
     $this->assertNoLink('Add a location to the Field Trip.', 0, t('link to add Location to fieldtrip is no longer showing'));
     $this->drupalGet('node/' . $nodeaddreportfullsubmitozyq->nid . '/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     $formsubmitreportsozyq['reporttype'] = 2;
-    $formsubmitreportsozyq['district'] = 80;
+    $this->assertNoField('district', 'district field on add place form');
+    $this->assertNoField('placetype', 'placetype field on add place form');
     // $formsubmitreportsozyq['placetype'] = 2;
     $this->assertNoField('placetype', 'Place Type field is no longer found on on the site report form', 'Devtrac');
-    $this->drupalPost('node/' . $nodeaddreportfullsubmitozyq->nid . '/addplaceform/ajax/nojs/go', $formsubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
-    // $this->drupalGet('node/add/place/'. $formSubmitreports,
-    // array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81,
-    // 'destination' => 'places/'
-    // .$fullReportSubmit['taxonomy_vocabulary_6[und][]'].'/'.
-    // $nodeAddreportfullSubmit11->nid.'/209')));
-    // Name field.
+    $this->drupalPost('node/' . $nodeaddreportfullsubmitozyq->nid . '/addplaceform/ajax/nojs/go', $formsubmitreportsozyq, t('Submit'), array(
+    'query' => array(
+    'destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     $this->assertNoLink('Create New Location', 0, 'link Create new location found');
     // $this->clickLink('Create New Location', 0, 'Link to add location');
     $locationaddfullozyq['title'] = $this->randomName(32);
-    $locationaddfullozyq['taxonomy_vocabulary_1[und]'] = 3;
-    $locationaddfullozyq['taxonomy_vocabulary_6[und]'] = 80;
+    $locationaddfullozyq['taxonomy_vocabulary_1[und]'] = 26;
+    $this->assertNoField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $locationaddfullozyq['field_place_lat_long[und][0][geom]'] = 'POINT (31.768699645996 3.228319883347)';
-    $this->drupalPost(NULL, $locationaddfullozyq, t('Save'), array('query' => array('edit[taxonomy_vocabulary_6][und]' => 80, 'destination' => 'places/' . $locationaddfullozyq['taxonomy_vocabulary_6[und]'] . '/' . $nodeaddreportfullsubmitozyq->nid . '/211')));
+    $this->drupalPost(NULL, $locationaddfullozyq, t('Save'), array('query' => array(
+    'destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -155,14 +154,18 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip.'), 'Devtrac');
     // Now we access edit the site report submission form,
     // And fill in the Edit Field Trip Report Item Site Visit form.
-    $this->drupalGet('node/add/ftritem/' . $locationaddfullozyq['taxonomy_vocabulary_6[und]'], array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid . '/fieldtrip_content_first/fieldtrip_content_first/edit-field-ftritem-narrative')));
+    $this->drupalGet('node/add/ftritem/', array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid . '/fieldtrip_content_first/fieldtrip_content_first/edit-field-ftritem-narrative')));
     $ditnarrativeozyq['title'] = 'YES THAT IS IT FOR NOW!';
-    $ditnarrativeozyq['taxonomy_vocabulary_6[und]'] = array(80, 81, 82);
+    //$ditnarrativeozyq['taxonomy_vocabulary_6[und]'] = array(80, 81, 82);
+    $this->assertNoField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $ditnarrativeozyq['field_ftritem_narrative[und][0][value]'] = $this->randomName(30);
     $ditnarrativeozyq['field_ftritem_public_summary[und][0][value]'] = $this->randomName(15);
     $ditnarrativeozyq['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
-    $ditnarrativeozyq['taxonomy_vocabulary_8[und][]'] = array(326);
-    $ditnarrativeozyq['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac7_theme/images/ws_pandas_in_love_1920x1200.jpg';
+    $this->assertNoField('taxonomy_vocabulary_8[und][]', 'Taxonomy vocabulary 8 was renamed');
+    $ditnarrativeozyq['taxonomy_vocabulary_8[und]'] = array(12,14);
+    
+    $this->assertNoField('files[field_ftritem_images_und_0]', 'Image field was renamed');
+    $ditnarrativeozyq['media[field_ftritem_images_und_0]'] = '/sites/default/files/Technical School_c.png';
     $this->drupalPost(NULL, $ditnarrativeozyq, t('Save'), array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid . '/fieldtrip_content_first/fieldtrip_content_first/edit-field-ftritem-narrative')));
     $this->assertNoText(t('Public Summary cannot be longer than 600 characters but is currently 650 characters long.'), t('Public Summarycannot be longer than 600 characters but is currently 650 characters long.'), 'Devtrac');
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('Copied Lat-Lon to the Site Report.'), 'Devtrac');
@@ -186,29 +189,26 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
     $this->drupalPost('node/' . $nodeaddreportfullsubmitozyq->nid . '/approve/fieldtripcommentform/ajax/nojs/go?', $commentq, t('Save'), array(
     'query' => array(
       'destination' => '/user/' . $this->managerUser->uid)));
-    $this->assertText(t('Your comment has been posted.'), t('manager message is posted successifuly'), 'DevTrac');
+    $this->assertText(t('Your comment has been posted.'), t('manager message is posted successifully'), 'DevTrac');
   }
   /**
    * Creating an editor user to edit users.
    */
   public function testEditUser() {
-    /*if ($this->loggedInUser) {
-      $this->drupalLogout();
-    }*/
     $this->drupalLogin($this->managerUser);
     $this->unicefUser = $this->drupalCreateUser(array('create field_fieldtrip_user', 'edit field_fieldtrip_user'));
     $this->drupalLogin($this->managerUser);
     $this->drupalPost('user/' . $this->managerUser->uid . '/edit', array(
     "roles[5]" => 5,
-    'taxonomy_vocabulary_5[und]' => 30,
-    'taxonomy_vocabulary_4[und]' => '26',
+    'taxonomy_vocabulary_5[und]' => 3,
+    'taxonomy_vocabulary_4[und]' => 8,
     'field_user_firstname[und][0][value]' => 'firstname',
     'field_user_surname[und][0][value]' => 'lname',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
     'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
     $this->drupalGet('user/' . $this->managerUser->uid);
-    $this->assertLink('Jan van Diepen', 0, 'manager Jan van Diepen');
+    $this->assertLink('admin admin', 0, 'manager admin link found');
     $this->drupalPost('user/' . $this->adminUser->uid . '/edit', array(
     "roles[3]" => 3,
     'field_user_firstname[und][0][value]' => 'ozzx',
@@ -230,8 +230,8 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 30,
-    'taxonomy_vocabulary_4[und]' => 26,
+    'taxonomy_vocabulary_5[und]' => 3,
+    'taxonomy_vocabulary_4[und]' => 7,
     'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
@@ -253,15 +253,15 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 30,
-    'taxonomy_vocabulary_4[und]' => 26,
+    'taxonomy_vocabulary_5[und]' => 4,
+    'taxonomy_vocabulary_4[und]' => 6,
     'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
     $this->drupalGet('node/add/questionnaire-question');
-    $this->assertResponse(403, 'access is not denied to editor user');
-    $this->assertNoResponse(200, 'quesstionnaire page returned');
+    $this->assertNoResponse(403, 'access is not denied to editor user');
+    $this->assertResponse(200, 'quesstionnaire page returned');
   }
   /**
    * Unicef user logins and can not access add questionnaire.
@@ -276,8 +276,8 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 30,
-    'taxonomy_vocabulary_4[und]' => 26,
+    'taxonomy_vocabulary_5[und]' => 5,
+    'taxonomy_vocabulary_4[und]' => 7,
     'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
@@ -299,18 +299,19 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 30,
-    'taxonomy_vocabulary_4[und]' => 26,
+    'taxonomy_vocabulary_5[und]' => 3,
+    'taxonomy_vocabulary_4[und]' => 6,
     'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
-    $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
+    $this->assertNoText('Welcome, unicefEditor', 'Welcome, unicefEditor Text not found');
     $this->drupalGet('actionitems/2013/6/snv-programme-management');
     $this->assertResponse(200, 'No quesstionnaire page returned');
-    $this->assertText('Follow Up Task', 'Follow Up Task section is found');
-    $this->assertText('Responsible Person:', 'Responsible Person: section is found');
-    $this->assertText('SNV Programme management', 'SNV Programme management section is found');
-    $this->assertText('Add new comment', 'Add new comment section is found');
+    $this->assertNoResponse(404, 'page not found');
+    $this->assertNoText('Follow Up Task', 'Follow Up Task section is found');
+    $this->assertNoText('Responsible Person:', 'Responsible Person: section is found');
+    $this->assertNoText('SNV Programme management', 'SNV Programme management section is found');
+    $this->assertNoText('Add new comment', 'Add new comment section is found');
   }
   /**
    * Unicef editor should access the action items.
@@ -325,17 +326,18 @@ class FieldtripUserDistrictsTest1Case extends DrupalWebTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 30,
-    'taxonomy_vocabulary_4[und]' => 26,
+    'taxonomy_vocabulary_5[und]' => 5,
+    'taxonomy_vocabulary_4[und]' => 7,
     'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
-    $this->drupalGet('actionitems/2013/6/snv-programme-management');
+    $this->drupalGet('actionitems/2011/6/snv-programme-management');
     $this->assertResponse(200, 'No quesstionnaire page returned');
-    $this->assertText('Follow Up Task', 'Follow Up Task section is found');
-    $this->assertText('Responsible Person:', 'Responsible Person: section is found');
-    $this->assertText('SNV Programme management', 'SNV Programme management section is found');
-    $this->assertText('Add new comment', 'Add new comment section is found');
+    $this->assertNoResponse(404, 'Questionnaire page is found');
+    $this->assertNoText('Follow Up Task', 'Follow Up Task section is found');
+    $this->assertNoText('Responsible Person:', 'Responsible Person: section is found');
+    $this->assertNoText('SNV Programme management', 'SNV Programme management section is found');
+    $this->assertNoText('Add new comment', 'Add new comment section is found');
   }
 }
