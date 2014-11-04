@@ -997,7 +997,10 @@ function devtrac_install_finished(&$install_state) {
     $instance['bundle'] = 'place';
     field_create_instance($instance);
   }
-    
+
+  // Rebuild the node access permissions.
+  node_access_rebuild();
+
   // Flush all caches to ensure that any full bootstraps during the installer
   // do not leave stale cached data, and that any content types or other items
   // registered by the install profile are registered correctly.
