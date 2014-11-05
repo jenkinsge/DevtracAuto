@@ -56,12 +56,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'footer_first',
           'weight' => '-10',
         ),
-        'menu-menu-footermenu-right' => array(
-          'module' => 'menu',
-          'delta' => 'menu-footermenu-right',
-          'region' => 'footer_second',
-          'weight' => '-10',
-        ),
         'nice_menus-3' => array(
           'module' => 'nice_menus',
           'delta' => '3',
