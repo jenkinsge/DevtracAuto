@@ -84,7 +84,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertNoText(t('Overview'), t('User is successifully logged in'), 'Devtrac');
     $this->drupalPost('user/' . $this->fieldWorker->uid . '/edit', array(
     "roles[3]" => 3,
     'roles[8]' => '',
@@ -176,7 +176,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->assertText('Percentage: the value may be no greater than 100.', 'Percentage exceeds the allowable value', 'Devtrac'); 
   } 
   /**
-   * Finally user successifuly creates a fieldtrip with the required Ta number length.
+   * Finally user successifully creates a fieldtrip with the required Ta number length.
    */
   public function testAddlocationOnfieldTripCompletiontest() {
     $this->drupalGet('node/add/fieldtrip', array(
@@ -202,7 +202,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => ''
     )));
-    $this->assertNoText(t('has been created.'), 'field trip is created successifuly', 'Devtrac');
+    $this->assertText(t('has been created.'), 'field trip is created successifully', 'Devtrac');
     $nodeAdd = $this->drupalGetNodeByTitle($fieldAdd["title"]);
     $this->assertNotNull($nodeAdd, t('nodeloaded'));
     // Getting the Add placesees form.
@@ -240,7 +240,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => ''
     )));
-    $this->assertNoText(t('has been created.'), 'field trip is created successifuly', 'Devtrac');
+    $this->assertText(t('has been created.'), 'field trip is created successifully', 'Devtrac');
     $nodeAddlocate = $this->drupalGetNodeByTitle($fieldAddLocation["title"]);
     $this->assertNotNull($nodeAddlocate, t('nodeloaded'));
     $this->drupalGet('node/'.$nodeAddlocate->nid.'/addplaceform/ajax/jan/go', array(
@@ -293,7 +293,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->drupalPost(NULL, $fieldAddLocationsChange, t('Save'), array(
       'query' => array('field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $nodeAddlocates = $this->drupalGetNodeByTitle($fieldAddLocationsChange["title"]);
     $this->assertNotNull($nodeAddlocates, t('node loaded'));
     $this->drupalGet('node/'.$nodeAddlocates->nid.'/addplaceform/ajax/jan/go', array(
@@ -339,7 +339,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => ''
     )));
-    $this->assertNoText(t('has been created.'), 'field trip is created successifuly', 'Devtrac');
+    $this->assertText(t('has been created.'), 'field trip is created successifully', 'Devtrac');
     $nodeAddlocates0 = $this->drupalGetNodeByTitle($fieldAddLocationsChange["title"]);
     $this->assertNotNull($nodeAddlocates0, t('node loaded'));
     $this->drupalGet('node/'.$nodeAddlocates0->nid.'/addplaceform/ajax/jan/go', array(
@@ -373,7 +373,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $fieldAddLocationsChangex['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocationsChangex['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fieldAddLocationsChangex, t('Save'), array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $nodeAddlocatesx = $this->drupalGetNodeByTitle($fieldAddLocationsChangex["title"]);
     $this->assertNotNull($nodeAddlocatesx, t('node loaded'));
     $this->drupalGet('node/'.$nodeAddlocatesx->nid.'/addplaceform/ajax/jan/go', array('query' => array('destination' => 'node/' . $nodeAddlocatesx->nid)));
@@ -409,7 +409,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
       'query' => array(
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successfully'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successfully'), 'Devtrac');
     $nodeAddlocatesdistrict = $this->drupalGetNodeByTitle($fieldAddLocationsChangedistrict["title"]);
     $this->assertNotNull($nodeAddlocatesdistrict, t('node loaded'));
     $this->drupalGet('node/'.$nodeAddlocatesdistrict->nid.'/addplaceform/ajax/jan/go', array(
@@ -539,7 +539,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $edit['field_user_superior[und][0][target_id]'] = 'admin (1)';
     $this->drupalPost('user/' . $this->fieldWorker->uid . '/edit', $edit, t('Save'));*/
     
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertNoText(t('Overview'), t('User is successifully logged in'), 'Devtrac');
   
   }
   /**
@@ -565,7 +565,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $node_add_report_item = $this->drupalGetNodeByTitle($field_add_report_item["title"]);
     $this->assertNotNull($node_add_report_item, t('node loaded'));
     $this->drupalGet('node/' . $node_add_report_item->nid . '/addplaceform/ajax/nojs/go', array(
@@ -604,7 +604,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $node_add_report_item = $this->drupalGetNodeByTitle($field_add_report_item["title"]);
     $this->assertNotNull($node_add_report_item, t('node loaded'));
     $this->drupalGet('node/' . $node_add_report_item->nid . '/addplaceform/ajax/nojs/go', array(
@@ -661,7 +661,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $node_addreport_submit = $this->drupalGetNodeByTitle($field_add_location_submit["title"]);
     $this->assertNotNull($node_addreport_submit, t('node loaded'));
     $this->drupalGet('node/' . $node_addreport_submit->nid . '/addplaceform/ajax/nojs/go',
@@ -687,7 +687,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
-    $this->assertNoText(t('has been created.'), t('Place has been created.'), 'Devtrac');
+    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText('An illegal choice has been detected. Please contact the site administrator.', 'An illegal choice has been detected. Please contact the site administrator.');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Default Date Visited to Start Date of Field Trip. no longer showing'), 'Devtrac');
   }
@@ -714,7 +714,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $nodeadd_reportfull_submit = $this->drupalGetNodeByTitle($full_report_submit["title"]);
     $this->assertNotNull($nodeadd_reportfull_submit, t('node loaded'));
     $this->drupalGet('node/' . $nodeadd_reportfull_submit->nid . '/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeadd_reportfull_submit->nid)));
@@ -738,7 +738,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText('Copied Lat-Lon to the Site Report.', 'User Added the location on the map', 'Devtrac');
     $this->assertNoText('Copied District on the Site Report.', 'User Added the location on the map', 'Devtrac');
     $this->assertNoText('Copied Place Type to Site Report.', 'User Copied Place Type to Site Report.', 'Devtrac');
-    $this->assertNoText('has been created.', 'Place has been created.', 'Devtrac');
+    $this->assertText('has been created.', 'Place has been created.', 'Devtrac');
     $this->assertNoText('An illegal choice has been detected. Please contact the site administrator.', 'An illegal choice has been detected. Please contact the site administrator.');
     $this->assertNoText('Defaulted Date Visited to Start Date of Field Trip.', 'Defaulted Date Visited to Start Date of Field Trip no longer showing.', 'Devtrac');
   }
@@ -765,7 +765,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $node_add_report_item = $this->drupalGetNodeByTitle($field_add_report_item["title"]);
     $this->assertNotNull($node_add_report_item, t('node loaded'));
     $this->drupalGet('node/' . $node_add_report_item->nid . '/addplaceform/ajax/nojs/go', array(
@@ -804,7 +804,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
-    $this->assertNoText(t('has been created.'), t('Place has been created.'), 'Devtrac');
+    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText('An illegal choice has been detected. Please contact the site administrator.');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip no longer showing.'), 'Devtrac');
     $this->drupalGet('node/add/actionitem', array(
@@ -848,7 +848,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $node_add_report_item1 = $this->drupalGetNodeByTitle($field_add_report_item1["title"]);
     $this->assertNotNull($node_add_report_item1, t('node loaded'));
     $this->drupalGet('node/' . $node_add_report_item1->nid . '/addplaceform/ajax/nojs/go', array(
@@ -886,7 +886,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
-    $this->assertNoText(t('has been created.'), t('Place has been created.'), 'Devtrac');
+    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText('An illegal choice has been detected. Please contact the site administrator.');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip no longer showing.'), 'Devtrac');
     $this->drupalGet('node/add/actionitem', array(
@@ -912,7 +912,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
     $this->assertNoText('TA Number', 'TA number field is removedfound', 'Devtrac');
-    $this->assertNoText('Overview', 'User is successifuly logged in', 'Devtrac');
+    $this->assertNoText('Overview', 'User is successifully logged in', 'Devtrac');
   }
   /**
    * Submiting a full report item.
@@ -939,7 +939,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $node_add_report_item = $this->drupalGetNodeByTitle($field_add_report_item["title"]);
     $this->assertNotNull($node_add_report_item, t('node loaded'));
     $this->drupalGet('node/' . $node_add_report_item->nid . '/addplaceform/ajax/nojs/go',
@@ -982,7 +982,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
-    $this->assertNoText(t('has been created.'), t('Place has been created.'), 'Devtrac');
+    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip.'), 'Devtrac');
     $this->assertNoText('An illegal choice has been detected. Please contact the site administrator.');
     $this->drupalGet('node/add/actionitem', array(
@@ -1012,7 +1012,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       array(
         'query' => array(
           'destination' => 'node/1/edit-field-ftritem-narrative')));
-    $this->assertNoText('has been updated.', t('Field Trip YES ITS DONE has been updated.'), 'Devtrac');
+    $this->assertText('has been updated.', t('Field Trip YES ITS DONE has been updated.'), 'Devtrac');
   }
   /**
    * Follow up on the action item created.
@@ -1041,7 +1041,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'Devtrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'Devtrac');
     $node_add_report_item = $this->drupalGetNodeByTitle($field_add_report_item["title"]);
     $this->assertNotNull($node_add_report_item, t('node loaded'));
     $this->drupalGet('node/' . $node_add_report_item->nid . '/addplaceform/ajax/nojs/go', array(
@@ -1082,7 +1082,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
-    $this->assertNoText(t('has been created.'), t('Place has been created.'), 'Devtrac');
+    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip no longer showing.'), 'Devtrac');
     $this->drupalGet('node/add/actionitem', array(
       'query' => array(
