@@ -352,11 +352,13 @@ projects[search_api_file_usage][version] = "1.x-dev"
 projects[search_api_file_usage][type] = "module"
 projects[search_api_file_usage][subdir] = "contrib"
 
-projects[search_api_saved_searches][version] = "1.3"
+projects[search_api_saved_searches][version] = "1.x-dev"
 projects[search_api_saved_searches][type] = "module"
 projects[search_api_saved_searches][subdir] = "contrib"
 projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-7.x-1.2-reminders-3.patch"
-projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-last_excuted-field-7.x-1.x-2142063_9.patch"
+; projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-last_excuted-field-7.x-1.x-2142063_9.patch"
+projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_search-Show-Enabled-Disabled-state-in-the-UI-2346679-2.patch"
+projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/2346677-2--user_ban_disable_searches.patch"
 
 projects[search_api_solr][version] = "1.5"
 projects[search_api_solr][type] = "module"
@@ -469,6 +471,22 @@ projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_
 projects[wms][version] = "2.x-dev"
 projects[wms][type] = "module"
 projects[wms][subdir] = "contrib"
+
+projects[addressfield][version] = "1.0-beta5"
+projects[addressfield][type] = "module"
+projects[addressfield][subdir] = "contrib"
+
+projects[elements][version] = "1.4"
+projects[elements][type] = "module"
+projects[elements][subdir] = "contrib"
+
+projects[link_favicon_formatter][version] = "1.6"
+projects[link_favicon_formatter][type] = "module"
+projects[link_favicon_formatter][subdir] = "contrib"
+
+projects[telephone][version] = "1.0-alpha1"
+projects[telephone][type] = "module"
+projects[telephone][subdir] = "contrib"
 
 ; Sandbox projects
 projects[cancel_button][type] = "module"

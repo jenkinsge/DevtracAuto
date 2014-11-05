@@ -97,6 +97,12 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'branding',
+          'weight' => '-9',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -133,12 +139,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'breadcrumb',
           'weight' => '-10',
         ),
-        'delta_blocks-messages' => array(
-          'module' => 'delta_blocks',
-          'delta' => 'messages',
-          'region' => 'breadcrumb',
-          'weight' => '-9',
-        ),
       ),
     ),
     'delta' => array(
@@ -172,6 +172,12 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'branding',
+          'weight' => '-9',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -207,12 +213,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'delta' => 'field_trips_info',
           'region' => 'featured',
           'weight' => '-80',
-        ),
-        'delta_blocks-messages' => array(
-          'module' => 'delta_blocks',
-          'delta' => 'messages',
-          'region' => 'breadcrumb',
-          'weight' => '-9',
         ),
       ),
     ),
@@ -609,23 +609,17 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'featured',
           'weight' => '-80',
         ),
-        'views-dvtrc_field_trip-block_10' => array(
+        'views-dvtrc_user-block_3' => array(
           'module' => 'views',
-          'delta' => 'dvtrc_field_trip-block_10',
+          'delta' => 'dvtrc_user-block_3',
           'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
-        'views-dvtrc_field_trip-block_11' => array(
-          'module' => 'views',
-          'delta' => 'dvtrc_field_trip-block_11',
-          'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'views-dvtrc_user-block_7' => array(
           'module' => 'views',
           'delta' => 'dvtrc_user-block_7',
           'region' => 'sidebar_first',
-          'weight' => '-8',
+          'weight' => '-7',
         ),
         'system-main' => array(
           'module' => 'system',
@@ -724,24 +718,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'page_bottom' => 0,
           'sidebar_first' => 0,
           'footer' => 0,
-          'olmaptext_rightuppercorner' => 0,
-          'olblockpanel' => 0,
-          'olmaptext_1' => 0,
-        ),
-      ),
-      'zen' => array(
-        'disable' => array(
-          'header' => 0,
-          'navigation' => 0,
-          'highlighted' => 0,
-          'help' => 0,
-          'content' => 0,
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'footer' => 0,
-          'bottom' => 0,
-          'page_top' => 0,
-          'page_bottom' => 0,
           'olmaptext_rightuppercorner' => 0,
           'olblockpanel' => 0,
           'olmaptext_1' => 0,
