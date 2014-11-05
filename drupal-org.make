@@ -381,7 +381,7 @@ projects[search_api_swatches][version] = "1.x-dev"
 projects[search_api_swatches][type] = "module"
 projects[search_api_swatches][subdir] = "contrib"
 
-projects[services][version] = "3.10"
+projects[services][version] = "3.x-dev"
 projects[services][type] = "module"
 projects[services][subdir] = "contrib"
 
