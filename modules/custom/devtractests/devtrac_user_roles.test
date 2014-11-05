@@ -236,7 +236,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
-    $this->drupalGet('users/users/firstname', array('query' => array('search_api_aggregation_1' => 'firstname')));
+    $this->drupalGet('users/firstname', array('query' => array('search_api_aggregation_1' => 'firstname')));
     $this->assertLink('Edit', 0, 'edit link is found');
     $this->clickLink('Edit', 0, 'edit user link is clicked');
   }
