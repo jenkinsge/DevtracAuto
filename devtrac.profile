@@ -13,7 +13,40 @@ function devtrac_form_install_configure_form_alter(&$form, $form_state, $form_id
   if($form_id == 'install_configure_form'){
     //set default for site name field
     $form['site_information']['site_name']['#default_value'] = $_SERVER['SERVER_NAME'];
+
+    //alter country    install_settings_form
+    $form['server_settings']['site_default_country']['#required'] = TRUE; 
+    $form['#submit'][] = 'devtrac_install_configure_form_submit_country';
+
   }
+}
+
+/**
+ * Form submit handler to add taxonomy term to districts.
+ * @param type $form
+ * @param type $form_state
+ */
+function devtrac_install_configure_form_submit_country(&$form, $form_state) {
+  //check whether vocabulary exists
+  $vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_6');
+  if(empty($vocabulary)) {
+    $vocabulary = taxonomy_vocabulary_machine_name_load('iati_custom_admin_unit');
+  }
+  $countries = country_get_list();
+  $country_code = $form_state['values']['site_default_country'];
+  
+  $country = $countries[$country_code];
+  if(empty($country)) {
+    drupal_set_message("Country code provided in default country can not be identified.", 'error');
+    return ;    
+  }
+  else {
+    $term = new stdClass();
+    $term->name = $country;
+    $term->description = "Default country";
+    $term->vid = $vocabulary->vid;
+    taxonomy_term_save($term);  
+  }  
 }
 
 /**
