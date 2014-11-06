@@ -233,3 +233,21 @@ function devtrac_initialize_taxonomy_access() {
     taxonomy_access_set_term_grants($worker_term_defaults);
   }
 }
+
+/**
+ * Implements hook_appstore_stores_info
+ */
+function devtrac_apps_servers_info() {
+ $info =  drupal_parse_info_file(dirname(__file__) . '/devtrac.info');
+ return array(
+   'devtrac' => array(
+     'title' => 'Devtrac',
+     'description' => "Apps for Devtrac",
+     'manifest' => 'http://www.devtrac.org/app/query/Devtrac',
+     'profile' => 'devtrac',
+     'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
+     'server_name' => isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost',
+     'server_ip' => isset($_SERVER['SERVER_ADDR'])? $_SERVER['SERVER_ADDR'] : '127.0.0.1',
+   ),
+ );
+}

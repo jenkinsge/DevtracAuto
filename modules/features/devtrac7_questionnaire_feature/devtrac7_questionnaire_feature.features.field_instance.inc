@@ -109,7 +109,7 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
     'bundle' => 'questionnaire_question',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Choose the type of the Question. This is going to determin how this Question will look like.',
+    'description' => 'Choose the type of the Question. This is going to determine how this Question will look like.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -246,7 +246,7 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Choose the type of the Question. This is going to determin how this Question will look like.');
+  t('Choose the type of the Question. This is going to determine how this Question will look like.');
   t('Location Type');
   t('Options');
   t('Provide the correct sector. You may select more than one sector. You can read more about the codes we use on the <a href="http://www.devtrac.org/node/51">OECD Sector Codes</a> page.');
