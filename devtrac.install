@@ -362,9 +362,8 @@ function devtrac_install() {
   field_create_instance($instance);
 
   // Enable default permissions for system roles.
-  $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval'));
 
   // Create a default role for site administrators, with all available permissions assigned.
   $admin_role = new stdClass();
@@ -998,6 +997,12 @@ function devtrac_install_finished(&$install_state) {
     $instance['bundle'] = 'place';
     field_create_instance($instance);
   }
+
+  // filtered_html format is in a feature so we have to set the access rights very late. here
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array($filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array($filtered_html_permission));
+
 
   // Rebuild the node access permissions.
   node_access_rebuild();
