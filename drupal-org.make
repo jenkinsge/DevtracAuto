@@ -123,6 +123,18 @@ projects[features_override][version] = "2.0-rc2"
 projects[features_override][type] = "module"
 projects[features_override][subdir] = "contrib"
 
+projects[feeds][version] = "2.0-alpha8"
+projects[feeds][type] = "module"
+projects[feeds][subdir] = "contrib"
+
+projects[feeds_entityreference][version] = "1.x-dev"
+projects[feeds_entityreference][type] = "module"
+projects[feeds_entityreference][subdir] = "contrib"
+
+projects[field_collection_feeds][version] = "1.0-alpha3"
+projects[field_collection_feeds][type] = "module"
+projects[field_collection_feeds][subdir] = "contrib"
+
 projects[field_collection][version] = "1.0-beta7"
 projects[field_collection][type] = "module"
 projects[field_collection][subdir] = "contrib"
@@ -206,6 +218,10 @@ projects[image_url_formatter][version] = "1.4"
 projects[image_url_formatter][type] = "module"
 projects[image_url_formatter][subdir] = "contrib"
 
+projects[job_scheduler][version] = "2.0-alpha3"
+projects[job_scheduler][type] = "module"
+projects[job_scheduler][subdir] = "contrib"
+
 projects[jquery_update][version] = "2.x-dev"
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
@@ -258,8 +274,10 @@ projects[openlayers][subdir] = "contrib"
 projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojson_anydisplay_4.patch"
 ; projects[openlayers][patch][] = "http://cgit.drupalcode.org/openlayers/patch/openlayers.make?id=66ca5d62bee0601902ca3dbda171d6a8fea8993d"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch"
+projects[openlayers][patch][] = "https://www.drupal.org/files/issues/zoomtolayer-only-when-there-are-features-%232344127-1.patch"
+projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetapi.patch"
 
-projects[openlayers_geosearch][version] = "1.0-beta1"
+projects[openlayers_geosearch][version] = "1.0-beta2"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
 
@@ -351,11 +369,13 @@ projects[search_api_file_usage][version] = "1.x-dev"
 projects[search_api_file_usage][type] = "module"
 projects[search_api_file_usage][subdir] = "contrib"
 
-projects[search_api_saved_searches][version] = "1.3"
+projects[search_api_saved_searches][version] = "1.x-dev"
 projects[search_api_saved_searches][type] = "module"
 projects[search_api_saved_searches][subdir] = "contrib"
 projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-7.x-1.2-reminders-3.patch"
-projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-last_excuted-field-7.x-1.x-2142063_9.patch"
+; projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-last_excuted-field-7.x-1.x-2142063_9.patch"
+projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_search-Show-Enabled-Disabled-state-in-the-UI-2346679-2.patch"
+projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/2346677-2--user_ban_disable_searches.patch"
 
 projects[search_api_solr][version] = "1.5"
 projects[search_api_solr][type] = "module"
@@ -377,7 +397,7 @@ projects[search_api_swatches][version] = "1.x-dev"
 projects[search_api_swatches][type] = "module"
 projects[search_api_swatches][subdir] = "contrib"
 
-projects[services][version] = "3.7"
+projects[services][version] = "3.x-dev"
 projects[services][type] = "module"
 projects[services][subdir] = "contrib"
 
@@ -469,6 +489,22 @@ projects[wms][version] = "2.x-dev"
 projects[wms][type] = "module"
 projects[wms][subdir] = "contrib"
 
+projects[addressfield][version] = "1.0-beta5"
+projects[addressfield][type] = "module"
+projects[addressfield][subdir] = "contrib"
+
+projects[elements][version] = "1.4"
+projects[elements][type] = "module"
+projects[elements][subdir] = "contrib"
+
+projects[link_favicon_formatter][version] = "1.6"
+projects[link_favicon_formatter][type] = "module"
+projects[link_favicon_formatter][subdir] = "contrib"
+
+projects[telephone][version] = "1.0-alpha1"
+projects[telephone][type] = "module"
+projects[telephone][subdir] = "contrib"
+
 ; Sandbox projects
 projects[cancel_button][type] = "module"
 projects[cancel_button][download][type] = "git"
@@ -502,6 +538,10 @@ projects[geocoder_geonames][download][url] = "http://git.drupal.org/sandbox/dmul
 projects[geocoder_geonames][download][branch] = "7.x-1.x"
 projects[geocoder_geonames][download][revision] = "57417b6bab16585f8d06a06e460e5096d3ba25b0"
 projects[geocoder_geonames][subdir] = "contrib"
+
+projects[apps][version] = "1.0-beta18"
+projects[apps][type] = "module"
+projects[apps][subdir] = "contrib"
 
 ; Themes
 projects[omega][version] = "3.1"

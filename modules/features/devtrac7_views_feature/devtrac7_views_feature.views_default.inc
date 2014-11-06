@@ -27,7 +27,8 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['link_display'] = 'page';
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    2 => '2',
+    3 => '3',
+    4 => '4',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1858,6 +1859,71 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
+
+  /* Display: My Team Actionitems Number */
+  $handler = $view->new_display('block', 'My Team Actionitems Number', 'block_15');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'My Team Action Items';
+  $handler->display->display_options['display_description'] = 'Actionitems for my team';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'mini';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['id'] = 'field_actionitem_responsible_target_id';
+  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['table'] = 'field_data_field_actionitem_responsible';
+  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['field'] = 'field_actionitem_responsible_target_id';
+  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['label'] = 'Responsible users';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['id'] = 'field_user_superior_target_id';
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['table'] = 'field_data_field_user_superior';
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['field'] = 'field_user_superior_target_id';
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['relationship'] = 'field_actionitem_responsible_target_id';
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['label'] = 'Manager';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['group_type'] = 'count_distinct';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: User: Uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'users';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['relationship'] = 'field_user_superior_target_id';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   $export['dvtrc_action_items'] = $view;
 
   $view = new view();
@@ -1895,7 +1961,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = 'No Fieldtrips found';
   $handler->display->display_options['empty']['area']['format'] = '1';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -2158,10 +2223,13 @@ function devtrac7_views_feature_views_default_views() {
   $handler = $view->new_display('block', 'Fieldtrip Slideshow', 'block_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'This slideshow shows on the fieldtrip page with images from all the sitevisits referenced';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -2174,7 +2242,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No images yet';
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
@@ -4419,6 +4486,118 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+
+  /* Display: Location Action Items */
+  $handler = $view->new_display('block', 'Location Action Items', 'block_5');
+  $handler->display->display_options['display_description'] = 'Action items from a given location';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'field_actionitem_due_date' => 'field_actionitem_due_date',
+    'field_actionitem_responsible' => 'field_actionitem_responsible',
+    'field_actionitem_status' => 'field_actionitem_status',
+    'virtual_field' => 'virtual_field',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_actionitem_due_date' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_actionitem_responsible' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_actionitem_status' => array(
+      'sortable' => 1,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'virtual_field' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_actionitem_resp_place_target_id']['id'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['relationships']['field_actionitem_resp_place_target_id']['table'] = 'field_data_field_actionitem_resp_place';
+  $handler->display->display_options['relationships']['field_actionitem_resp_place_target_id']['field'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['relationships']['field_actionitem_resp_place_target_id']['label'] = 'Location';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = 'Task';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  /* Field: Content: Due Date */
+  $handler->display->display_options['fields']['field_actionitem_due_date']['id'] = 'field_actionitem_due_date';
+  $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'field_data_field_actionitem_due_date';
+  $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
+  $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
+    'format_type' => 'date_only',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Field: Status */
+  $handler->display->display_options['fields']['field_actionitem_status']['id'] = 'field_actionitem_status';
+  $handler->display->display_options['fields']['field_actionitem_status']['table'] = 'field_data_field_actionitem_status';
+  $handler->display->display_options['fields']['field_actionitem_status']['field'] = 'field_actionitem_status';
+  /* Field: Content: Responsible */
+  $handler->display->display_options['fields']['field_actionitem_responsible']['id'] = 'field_actionitem_responsible';
+  $handler->display->display_options['fields']['field_actionitem_responsible']['table'] = 'field_data_field_actionitem_responsible';
+  $handler->display->display_options['fields']['field_actionitem_responsible']['field'] = 'field_actionitem_responsible';
+  $handler->display->display_options['fields']['field_actionitem_responsible']['settings'] = array(
+    'link' => 1,
+  );
+  $handler->display->display_options['fields']['field_actionitem_responsible']['delta_offset'] = '0';
+  /* Field: Virtual Field: virtual_field */
+  $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field']['label'] = 'Progress';
+  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_progress_bar';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
   $export['dvtrc_locations'] = $view;
 
   $view = new view();
@@ -5578,6 +5757,16 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: SiteVisit P-THIRD */
   $handler = $view->new_display('block', 'SiteVisit P-THIRD', 'block_3');
   $handler->display->display_options['display_description'] = 'SiteVisit PREFACE SECOND';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    7 => '7',
+    2 => '2',
+    3 => '3',
+    4 => '4',
+    5 => '5',
+    6 => '6',
+  );
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -5605,10 +5794,13 @@ function devtrac7_views_feature_views_default_views() {
   $handler = $view->new_display('block', 'sitevisit-slideshow', 'block_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Gallery on the sitevisits';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -5621,7 +5813,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No images yet.';
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -5646,7 +5837,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_images']['settings'] = array(
     'colorbox_node_style' => 'gallery',
     'colorbox_image_style' => 'gallery_popup_images',
-    'colorbox_gallery' => 'page',
+    'colorbox_gallery' => 'field_post',
     'colorbox_gallery_custom' => '',
     'colorbox_caption' => 'title',
     'colorbox_caption_custom' => '',
@@ -6103,10 +6294,13 @@ function devtrac7_views_feature_views_default_views() {
   $handler = $view->new_display('block', 'District-slideshow', 'block_10');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Gallery on the locations';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -6119,7 +6313,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No images yet';
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Field: Admin Unit (taxonomy_vocabulary_6) */
@@ -6787,10 +6980,13 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: Slideshow-Location */
   $handler = $view->new_display('block', 'Slideshow-Location', 'block_15');
   $handler->display->display_options['display_description'] = 'Slideshow on the location\'s page';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -6803,7 +6999,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No images yet';
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
@@ -7064,10 +7259,13 @@ function devtrac7_views_feature_views_default_views() {
   $handler = $view->new_display('block', 'OECD-slideshow', 'block_17');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Gallery on the sector pages';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -7080,7 +7278,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No images yet';
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
@@ -7535,6 +7732,38 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+
+  /* Display: Public Summary */
+  $handler = $view->new_display('block', 'Public Summary', 'block_21');
+  $handler->display->display_options['display_description'] = 'Public Summary on the site report';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Public Summary */
+  $handler->display->display_options['fields']['field_ftritem_public_summary']['id'] = 'field_ftritem_public_summary';
+  $handler->display->display_options['fields']['field_ftritem_public_summary']['table'] = 'field_data_field_ftritem_public_summary';
+  $handler->display->display_options['fields']['field_ftritem_public_summary']['field'] = 'field_ftritem_public_summary';
+  $handler->display->display_options['fields']['field_ftritem_public_summary']['element_label_type'] = 'h3';
+  $handler->display->display_options['fields']['field_ftritem_public_summary']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $export['dvtrc_site_visits'] = $view;
 
   $view = new view();
@@ -8897,6 +9126,155 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+
+  /* Display: NumbrTeamsActionItems */
+  $handler = $view->new_display('attachment', 'NumbrTeamsActionItems', 'attachment_6');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['display_description'] = 'Action Items';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    4 => '4',
+  );
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'name' => 'name',
+    'title' => 'title',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['content'] = 'You do not have any ActionItems yet';
+  $handler->display->display_options['empty']['area']['format'] = '1';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_actionitem_responsible_node']['id'] = 'reverse_field_actionitem_responsible_node';
+  $handler->display->display_options['relationships']['reverse_field_actionitem_responsible_node']['table'] = 'users';
+  $handler->display->display_options['relationships']['reverse_field_actionitem_responsible_node']['field'] = 'reverse_field_actionitem_responsible_node';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['id'] = 'field_actionitem_responsible_target_id';
+  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['table'] = 'field_data_field_actionitem_responsible';
+  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['field'] = 'field_actionitem_responsible_target_id';
+  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['relationship'] = 'reverse_field_actionitem_responsible_node';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['id'] = 'field_user_superior_target_id';
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['table'] = 'field_data_field_user_superior';
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['field'] = 'field_user_superior_target_id';
+  $handler->display->display_options['relationships']['field_user_superior_target_id']['label'] = 'Manager';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: Uid */
+  $handler->display->display_options['fields']['uid']['id'] = 'uid';
+  $handler->display->display_options['fields']['uid']['table'] = 'users';
+  $handler->display->display_options['fields']['uid']['field'] = 'uid';
+  $handler->display->display_options['fields']['uid']['label'] = '';
+  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
+  /* Field: User: Manager */
+  $handler->display->display_options['fields']['field_user_superior']['id'] = 'field_user_superior';
+  $handler->display->display_options['fields']['field_user_superior']['table'] = 'field_data_field_user_superior';
+  $handler->display->display_options['fields']['field_user_superior']['field'] = 'field_user_superior';
+  $handler->display->display_options['fields']['field_user_superior']['label'] = '';
+  $handler->display->display_options['fields']['field_user_superior']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_user_superior']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_superior']['type'] = 'entityreference_entity_id';
+  $handler->display->display_options['fields']['field_user_superior']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: User: Manager */
+  $handler->display->display_options['fields']['field_user_superior_1']['id'] = 'field_user_superior_1';
+  $handler->display->display_options['fields']['field_user_superior_1']['table'] = 'field_data_field_user_superior';
+  $handler->display->display_options['fields']['field_user_superior_1']['field'] = 'field_user_superior';
+  $handler->display->display_options['fields']['field_user_superior_1']['relationship'] = 'field_actionitem_responsible_target_id';
+  $handler->display->display_options['fields']['field_user_superior_1']['label'] = '';
+  $handler->display->display_options['fields']['field_user_superior_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_user_superior_1']['alter']['text'] = 'My Team\'s Open Action Items';
+  $handler->display->display_options['fields']['field_user_superior_1']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_user_superior_1']['alter']['path'] = 'actionitems?display=list&f[0]=field_actionitem_responsible%[uid]3Afield_user_superior%3A[field_user_superior_1-target_id]';
+  $handler->display->display_options['fields']['field_user_superior_1']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['field_user_superior_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_superior_1']['settings'] = array(
+    'link' => 0,
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_actionitem_responsible_node';
+  $handler->display->display_options['fields']['title']['group_type'] = 'count_distinct';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = 'actionitems?display=list&f[0]=field_actionitem_responsible%[uid]3Afield_user_superior%3A[field_user_superior_1-target_id]';
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: User: Uid */
+  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['table'] = 'users';
+  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
+  $handler->display->display_options['arguments']['uid']['relationship'] = 'field_user_superior_target_id';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
+  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Field: Status (field_actionitem_status) */
+  $handler->display->display_options['filters']['field_actionitem_status_value']['id'] = 'field_actionitem_status_value';
+  $handler->display->display_options['filters']['field_actionitem_status_value']['table'] = 'field_data_field_actionitem_status';
+  $handler->display->display_options['filters']['field_actionitem_status_value']['field'] = 'field_actionitem_status_value';
+  $handler->display->display_options['filters']['field_actionitem_status_value']['relationship'] = 'reverse_field_actionitem_responsible_node';
+  $handler->display->display_options['filters']['field_actionitem_status_value']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['displays'] = array(
+    'block_3' => 'block_3',
+    'default' => 0,
+    'page_1' => 0,
+    'block' => 0,
+    'block_1' => 0,
+    'block_2' => 0,
+    'page_5' => 0,
+    'page_6' => 0,
+    'block_4' => 0,
+  );
+  $handler->display->display_options['attachment_position'] = 'after';
   $export['dvtrc_user'] = $view;
 
   $view = new view();

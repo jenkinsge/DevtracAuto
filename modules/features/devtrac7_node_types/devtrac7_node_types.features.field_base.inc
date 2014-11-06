@@ -163,7 +163,14 @@ function devtrac7_node_types_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'node' => array(
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -258,7 +265,14 @@ function devtrac7_node_types_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'node' => array(
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -299,7 +313,14 @@ function devtrac7_node_types_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'users' => array(
+        'columns' => array(
+          'target_id' => 'uid',
+        ),
+        'table' => 'users',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',

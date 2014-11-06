@@ -164,6 +164,23 @@ function devtrac7_menu_alter(&$items) {
   // The weight of the item in the menu_router table
   // overrides the weight in the menu_link table.
   $items['user']['weight'] = -30;
+  // Change the title of user profile pages to 'Welcome, <the user's name>.
+  $items['user/%user']['title callback'] = 'devtrac7_user_page_title';
+  $items['user']['title callback'] = 'devtrac7_user_page_title';
+
+}
+
+/**
+ * Implements the new title callback defined in hook_menu_alter().
+ */
+function devtrac7_user_page_title($account = NULL) {
+  if (!user_is_logged_in()) {
+    return t('Welcome');
+  }
+  global $user;
+  $user = user_load($user->uid);
+  $name = empty($user->field_user_firstname) ? $user->name : $user->field_user_firstname[LANGUAGE_NONE][0]['safe_value'];
+  return t('Welcome, ') . $name;
 }
 
 /**
@@ -172,20 +189,8 @@ function devtrac7_menu_alter(&$items) {
 function devtrac7_menu_link_alter(&$item) {
   if ($item['link_path'] == 'user') {
     $item['menu_name'] = 'menu-my-profile';
-    $item['link_title'] = 'Welcome, [current-user:field_user_firstname]';
     $item['hidden'] = 0;
     $options = array(
-      'menu_token_link_path' => 'user',
-      'menu_token_data' => array(
-        'user' => array(
-          'type' => 'user',
-          'plugin' => 'user_context',
-          'options' => array(),
-        ),
-      ),
-      'menu_token_options' => array(
-        'clear' => 0,
-      ),
       'attributes' => array(
         'title' => '',
       ),
@@ -370,18 +375,19 @@ function devtrac7_addactionitem_access($nid) {
  */
 function devtrac7_update_fieldtrip_access($nid = NULL) {
   global $user;
+  $result = FALSE;
   $fieldtrip = node_load($nid);
-  if (isset($fieldtrip)) {
-  $result = ($fieldtrip->type == "fieldtrip");
-  $result = $result && isset($fieldtrip->field_fieldtrip_status[$fieldtrip->language][0]['value']);
-  $result = $result && ($fieldtrip->field_fieldtrip_status[$fieldtrip->language][0]['value'] != 'Approved');
-  $result = $result && isset($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id']);
-  // $result = $result && ($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'] == $user->uid);
-  $result = $result && node_access("update", $fieldtrip);
+//  if (isset($fieldtrip)) {
+  if ($fieldtrip) {
+    $result = ($fieldtrip->type == "fieldtrip");
+    $result = $result && isset($fieldtrip->field_fieldtrip_status[$fieldtrip->language][0]['value']);
+    $result = $result && ($fieldtrip->field_fieldtrip_status[$fieldtrip->language][0]['value'] != 'Approved');
+    $result = $result && isset($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id']);
+    // $result = $result && ($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'] == $user->uid);
+    $result = $result && node_access("update", $fieldtrip);
   }
   return $result;
 }
-
 
 /**
  * @todo Please document this function.

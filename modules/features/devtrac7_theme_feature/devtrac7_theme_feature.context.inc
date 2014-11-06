@@ -56,12 +56,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'footer_first',
           'weight' => '-10',
         ),
-        'menu-menu-footermenu-right' => array(
-          'module' => 'menu',
-          'delta' => 'menu-footermenu-right',
-          'region' => 'footer_second',
-          'weight' => '-10',
-        ),
         'nice_menus-3' => array(
           'module' => 'nice_menus',
           'delta' => '3',
@@ -97,6 +91,12 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'branding',
+          'weight' => '-9',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -133,12 +133,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'breadcrumb',
           'weight' => '-10',
         ),
-        'delta_blocks-messages' => array(
-          'module' => 'delta_blocks',
-          'delta' => 'messages',
-          'region' => 'breadcrumb',
-          'weight' => '-9',
-        ),
       ),
     ),
     'delta' => array(
@@ -172,6 +166,12 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'branding',
+          'weight' => '-9',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -208,12 +208,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'featured',
           'weight' => '-80',
         ),
-        'delta_blocks-messages' => array(
-          'module' => 'delta_blocks',
-          'delta' => 'messages',
-          'region' => 'breadcrumb',
-          'weight' => '-9',
-        ),
       ),
     ),
     'delta' => array(
@@ -241,6 +235,16 @@ function devtrac7_theme_feature_context_default_contexts() {
       ),
       'options' => array(
         'node_form' => '0',
+      ),
+    ),
+    'user' => array(
+      'values' => array(
+        'administrator' => 'administrator',
+        'authenticated user' => 'authenticated user',
+        'devtrac admin' => 'devtrac admin',
+        'editor' => 'editor',
+        'field worker' => 'field worker',
+        'iati manager' => 'iati manager',
       ),
     ),
   );
@@ -283,11 +287,91 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'postscript_second',
           'weight' => '-10',
         ),
-        'pane-front_about_information' => array(
-          'module' => 'pane',
-          'delta' => 'front_about_information',
-          'region' => 'featured',
-          'weight' => '-80',
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'breadcrumb',
+          'weight' => '-9',
+        ),
+      ),
+    ),
+    'delta' => array(
+      'delta_template' => 'delta_node_page_layout',
+    ),
+  );
+  $context->condition_mode = 1;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Show on Field Site Report Items');
+  t('nodetype');
+  $export['context_node_view_ftritem'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'context_node_view_ftritem_anonymous';
+  $context->description = 'Show on Field Site Report Items for anonymous  users';
+  $context->tag = 'nodetype';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'ftritem' => 'ftritem',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+    'user' => array(
+      'values' => array(
+        'anonymous user' => 'anonymous user',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'system-main' => array(
+          'module' => 'system',
+          'delta' => 'main',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'views-dvtrc_site_visits-block_3' => array(
+          'module' => 'views',
+          'delta' => 'dvtrc_site_visits-block_3',
+          'region' => 'content',
+          'weight' => '-8',
+        ),
+        'views-dvtrc_site_visits-block_21' => array(
+          'module' => 'views',
+          'delta' => 'dvtrc_site_visits-block_21',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'quicktabs-site_visit_quicktabs' => array(
+          'module' => 'quicktabs',
+          'delta' => 'site_visit_quicktabs',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'commentblock-commentblock' => array(
+          'module' => 'commentblock',
+          'delta' => 'commentblock',
+          'region' => 'sidebar_second',
+          'weight' => '-9',
+        ),
+        'views-dvtrc_site_visits-block_2' => array(
+          'module' => 'views',
+          'delta' => 'dvtrc_site_visits-block_2',
+          'region' => 'postscript_first',
+          'weight' => '-10',
+        ),
+        'views-dvtrc_site_visits-block_4' => array(
+          'module' => 'views',
+          'delta' => 'dvtrc_site_visits-block_4',
+          'region' => 'postscript_second',
+          'weight' => '-10',
         ),
         'delta_blocks-messages' => array(
           'module' => 'delta_blocks',
@@ -301,13 +385,13 @@ function devtrac7_theme_feature_context_default_contexts() {
       'delta_template' => 'delta_node_page_layout',
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
-  t('Show on Field Site Report Items');
+  t('Show on Field Site Report Items for anonymous  users');
   t('nodetype');
-  $export['context_node_view_ftritem'] = $context;
+  $export['context_node_view_ftritem_anonymous'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
@@ -615,23 +699,17 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'featured',
           'weight' => '-80',
         ),
-        'views-dvtrc_field_trip-block_10' => array(
+        'views-dvtrc_user-block_3' => array(
           'module' => 'views',
-          'delta' => 'dvtrc_field_trip-block_10',
+          'delta' => 'dvtrc_user-block_3',
           'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
-        'views-dvtrc_field_trip-block_11' => array(
-          'module' => 'views',
-          'delta' => 'dvtrc_field_trip-block_11',
-          'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'views-dvtrc_user-block_7' => array(
           'module' => 'views',
           'delta' => 'dvtrc_user-block_7',
           'region' => 'sidebar_first',
-          'weight' => '-8',
+          'weight' => '-7',
         ),
         'system-main' => array(
           'module' => 'system',
@@ -730,24 +808,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'page_bottom' => 0,
           'sidebar_first' => 0,
           'footer' => 0,
-          'olmaptext_rightuppercorner' => 0,
-          'olblockpanel' => 0,
-          'olmaptext_1' => 0,
-        ),
-      ),
-      'zen' => array(
-        'disable' => array(
-          'header' => 0,
-          'navigation' => 0,
-          'highlighted' => 0,
-          'help' => 0,
-          'content' => 0,
-          'sidebar_first' => 0,
-          'sidebar_second' => 0,
-          'footer' => 0,
-          'bottom' => 0,
-          'page_top' => 0,
-          'page_bottom' => 0,
           'olmaptext_rightuppercorner' => 0,
           'olblockpanel' => 0,
           'olmaptext_1' => 0,
