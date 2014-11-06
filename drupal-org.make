@@ -539,6 +539,10 @@ projects[geocoder_geonames][download][branch] = "7.x-1.x"
 projects[geocoder_geonames][download][revision] = "57417b6bab16585f8d06a06e460e5096d3ba25b0"
 projects[geocoder_geonames][subdir] = "contrib"
 
+projects[apps][version] = "1.0-beta18"
+projects[apps][type] = "module"
+projects[apps][subdir] = "contrib"
+
 ; Themes
 projects[omega][version] = "3.1"
 projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
