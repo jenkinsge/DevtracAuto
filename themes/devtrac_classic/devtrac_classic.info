@@ -9,6 +9,9 @@ version = '1.x'
 ;Stylesheets
 stylesheets[all][] = css/newstyles.css
 
+;Scripts
+scripts[]=js/menuResize.js
+
 regions[branding] = 'Branding'
 regions[menu] = 'Menu'
 regions[featured] = 'Featured'
