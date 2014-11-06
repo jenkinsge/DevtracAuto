@@ -66,8 +66,9 @@ function devtrac_install() {
       ),
     ),
   );
-  $full_html_format = (object) $full_html_format;
-  filter_format_save($full_html_format);
+//  $full_html_format = (object) $full_html_format;
+//  filter_format_save($full_html_format);
+
 /*
   // Enable some devtrac blocks.
   $default_theme = variable_get('theme_default', 'bartik');
