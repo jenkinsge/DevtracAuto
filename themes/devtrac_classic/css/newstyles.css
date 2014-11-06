@@ -73,6 +73,7 @@ table tbody tr.even td.active {
 .region-menu ,
 .region-branding {
   display: inline-block;
+  width: auto;
 }
 
 .region-branding {
@@ -88,7 +89,11 @@ table tbody tr.even td.active {
 
 }
 
-
+#region-branding {
+  width: 265px;
+  float: left;
+  margin-right: 0;
+}
 
 
 /*================================ zone-featured ============================*/
@@ -404,9 +409,11 @@ table tbody tr.even td.active {
   margin-bottom: 10px;
 }
 
-.page-locations .region-content .block-system-main ,
+/*.page-locations .region-content .block-system-main ,
 .page-adminunits .region-content .block-system-main ,
-.page-sitereports .region-content .block-system-main {
+.page-sitereports .region-content .block-system-main */
+
+.view-modes-default .region-content .block-system-main {
   margin-bottom: 0;
 }
 
