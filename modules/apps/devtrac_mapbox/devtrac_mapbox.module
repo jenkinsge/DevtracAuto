@@ -91,10 +91,11 @@ function devtrac_mapbox_openlayers_map_preprocess_alter(&$map = array()) {
   $layers = getlayers();
 
   // Look for key for default layer, then remove the layer from the layers array
-  // for the map.
+  // for the map. Remove the osm cycling map as well.
   $key = array_search($current_map['default_layer'], $current_map['layers']);
   unset($current_map['default_layer']);
   unset($current_map['layers'][$key]);
+  unset($current_map['layers']['osm_cycle']);
 
   $layer_names = array();
   $temp = array();
