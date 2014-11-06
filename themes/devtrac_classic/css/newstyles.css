@@ -2161,6 +2161,21 @@ div.olControlAttribution a:link {
   padding: 20px;
 }
 
+.page-user-me-edit .user-picture {
+  display: inline-block;
+  margin-right: 20px;
+  float: left;
+}
+
+.page-user-me-edit .form-item-files-picture-upload {
+  display: inline-block;
+}
+
+.page-user-me-edit .user-picture img {
+  border: 3px solid #CCCCCC;
+  padding: 1px 5px;
+}
+
 label.option {
   display: inline;
   font-weight: normal;
