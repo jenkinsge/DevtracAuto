@@ -40,9 +40,10 @@ function devtrac_install() {
       ),
     ),
   );
-// This format is provided by our Mountbatten WYSIWYG feature
-//  $filtered_html_format = (object) $filtered_html_format;
-//  filter_format_save($filtered_html_format);
+// This format is provided by our Mountbatten WYSIWYG feature but its not finished there yet
+// once that feature is done, this needs to be removed
+  $filtered_html_format = (object) $filtered_html_format;
+  filter_format_save($filtered_html_format);
 
   $full_html_format = array(
     'format' => '2',
@@ -66,8 +67,10 @@ function devtrac_install() {
       ),
     ),
   );
-//  $full_html_format = (object) $full_html_format;
-//  filter_format_save($full_html_format);
+// This format is provided by our Mountbatten WYSIWYG feature but its not finished there yet
+// once that feature is done, this needs to be removed
+  $full_html_format = (object) $full_html_format;
+  filter_format_save($full_html_format);
 
 /*
   // Enable some devtrac blocks.
@@ -708,7 +711,6 @@ function devtrac_install_additional_modules(&$install_state) {
   $modules = array(
     // 'devtrac7_profile_menu',
     'devtrac7_field_permissions_feature',
-    'mountbatten_web_media'
   );
   if (isset($install_state['parameters']['stats'])) {
     $modules[] = $install_state['parameters']['stats'];
