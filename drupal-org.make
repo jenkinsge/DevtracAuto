@@ -259,6 +259,7 @@ projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojs
 ; projects[openlayers][patch][] = "http://cgit.drupalcode.org/openlayers/patch/openlayers.make?id=66ca5d62bee0601902ca3dbda171d6a8fea8993d"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/zoomtolayer-only-when-there-are-features-%232344127-1.patch"
+projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetapi.patch"
 
 projects[openlayers_geosearch][version] = "1.0-beta2"
 projects[openlayers_geosearch][type] = "module"
@@ -380,7 +381,7 @@ projects[search_api_swatches][version] = "1.x-dev"
 projects[search_api_swatches][type] = "module"
 projects[search_api_swatches][subdir] = "contrib"
 
-projects[services][version] = "3.10"
+projects[services][version] = "3.x-dev"
 projects[services][type] = "module"
 projects[services][subdir] = "contrib"
 
