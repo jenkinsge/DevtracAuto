@@ -123,6 +123,18 @@ projects[features_override][version] = "2.0-rc2"
 projects[features_override][type] = "module"
 projects[features_override][subdir] = "contrib"
 
+projects[feeds][version] = "2.0-alpha8"
+projects[feeds][type] = "module"
+projects[feeds][subdir] = "contrib"
+
+projects[feeds_entityreference][version] = "1.x-dev"
+projects[feeds_entityreference][type] = "module"
+projects[feeds_entityreference][subdir] = "contrib"
+
+projects[field_collection_feeds][version] = "1.0-alpha3"
+projects[field_collection_feeds][type] = "module"
+projects[field_collection_feeds][subdir] = "contrib"
+
 projects[field_collection][version] = "1.0-beta7"
 projects[field_collection][type] = "module"
 projects[field_collection][subdir] = "contrib"
@@ -205,6 +217,10 @@ projects[hurricane][subdir] = "contrib"
 projects[image_url_formatter][version] = "1.4"
 projects[image_url_formatter][type] = "module"
 projects[image_url_formatter][subdir] = "contrib"
+
+projects[job_scheduler][version] = "2.0-alpha3"
+projects[job_scheduler][type] = "module"
+projects[job_scheduler][subdir] = "contrib"
 
 projects[jquery_update][version] = "2.x-dev"
 projects[jquery_update][type] = "module"
