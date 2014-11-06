@@ -284,6 +284,7 @@ projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetap
 projects[openlayers_geosearch][version] = "1.0-beta2"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
+projects[openlayers_geosearch][patch][] = "https://www.drupal.org/files/issues/openlayers_geosearch-JS_errors_aggregation_enabled-2280537-1.patch"
 
 projects[openlayers_plus][version] = "3.x-dev"
 projects[openlayers_plus][type] = "module"
