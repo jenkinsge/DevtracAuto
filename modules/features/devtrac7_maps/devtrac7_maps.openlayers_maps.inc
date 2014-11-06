@@ -797,6 +797,7 @@ function devtrac7_maps_openlayers_maps() {
     'default_layer' => 'osm_mapnik',
     'layers' => array(
       'osm_mapnik' => 'osm_mapnik',
+      'osm_cycle' => 'osm_cycle',
       'devtrac_solr_view_locations_json' => 'devtrac_solr_view_locations_json',
       'geofield_formatter' => 'geofield_formatter',
       'openlayers_searchresult_layer' => 'openlayers_searchresult_layer',
@@ -1879,6 +1880,7 @@ function devtrac7_maps_openlayers_maps() {
     'default_layer' => 'osm_mapnik',
     'layers' => array(
       'osm_mapnik' => 'osm_mapnik',
+      'osm_cycle' => 'osm_cycle',
       'openlayers_searchresult_layer' => 'openlayers_searchresult_layer',
       'devtrac_solr_view_districts_json' => 'devtrac_solr_view_districts_json',
       'devtrac_solr_view_districts_openlayers_1' => 'devtrac_solr_view_districts_openlayers_1',
