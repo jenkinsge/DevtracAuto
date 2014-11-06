@@ -194,7 +194,13 @@ dependencies[] = fontyourface_wysiwyg
 dependencies[] = elements
 dependencies[] = telephone
 dependencies[] = addressfield
-dependencies[] = link_favicon_formatter	
+dependencies[] = link_favicon_formatter
+dependencies[] = job_scheduler
+dependencies[] = feeds
+dependencies[] = feeds_ui
+dependencies[] = feeds_import
+dependencies[] = feeds_entityreference
+dependencies[] = field_collection_feeds
 
 ; Questionnaire
 dependencies[] = questionnaire
@@ -248,4 +254,5 @@ dependencies[] = devtrac7_solr_search_questions_feature
 dependencies[] = devtrac7_solr_search_answers_feature
 ; dependencies[] = iati_field_permissions_feature
 ; dependencies[] = iati_feature
-
+dependencies[] = devtrac_all_data_importers_feature
+dependencies[] = devtrac_health_centres_data_importer_feature
