@@ -27,12 +27,6 @@ function devtrac7_profile_menu_translated_menu_link_alter(&$item, $map) {
           }
         }
       }
-      if ($item['link_path'] == 'user') {
-        $item['link_title'] = 'Sign in';
-        if (user_is_logged_in()) {
-          $item['link_title'] = 'Welcome, [current-user:field_user_firstname]';
-        }
-      }
     }
   }
 }
