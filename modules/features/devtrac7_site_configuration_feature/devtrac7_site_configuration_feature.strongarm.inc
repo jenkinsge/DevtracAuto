@@ -176,7 +176,7 @@ function devtrac7_site_configuration_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'mapit_vocabulary';
-  $strongarm->value = 'iati_custom_admin_unit';
+  $strongarm->value = 'vocabulary_6';
   $export['mapit_vocabulary'] = $strongarm;
 
   $strongarm = new stdClass();
