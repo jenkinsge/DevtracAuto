@@ -196,7 +196,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmitozyq, t('Save'), array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
-    $this->assertNoText(t('has been created.'), ('field trip is created successifuly'), 'DevTrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifuly'), 'DevTrac');
     $nodeaddreportfullsubmitozyq = $this->drupalGetNodeByTitle($fullReportSubmitozyq["title"]);
     $this->assertNotNull($nodeaddreportfullsubmitozyq, t('node loaded'));
     $this->assertNoLink('Add a location to the Field Trip.', 0, t('link Add Location to fieldtrip is changed to add site reports'));
@@ -225,7 +225,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
-    $this->assertNoText(t('has been created.'), t('Place has been created.'), 'Devtrac');
+    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip.'), 'Devtrac');
     $this->assertNoLink('Add a Site Report to the Field Trip.', 0, 'Link to Add a Site Report to the Field Trip.is found');
     $this->assertNoField('district', 'district filed is removed');
@@ -270,7 +270,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     // Commenting on the submitted fieldtrip.
     $this->drupalPost(NULL, $commentq, t('Save'), array('query' => array('destination' => 'user/' . $this->fieldWorker->uid)));
     
-    $this->assertNoText(t('Your comment has been posted.'), t('manager message is posted successifuly'), 'DevTrac');
+    $this->assertText(t('Your comment has been posted.'), t('manager message is posted successifuly'), 'DevTrac');
     $this->drupalLogout($this->fieldWorker);
     $this->drupalGet('user/login');
     $this->assertResponse(200, 'Page loaded successfully');
