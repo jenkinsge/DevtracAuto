@@ -163,7 +163,14 @@ function devtrac7_node_types_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'node' => array(
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -258,7 +265,14 @@ function devtrac7_node_types_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'node' => array(
+        'columns' => array(
+          'target_id' => 'nid',
+        ),
+        'table' => 'node',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -299,7 +313,14 @@ function devtrac7_node_types_field_default_field_bases() {
     'field_permissions' => array(
       'type' => 2,
     ),
-    'foreign keys' => array(),
+    'foreign keys' => array(
+      'users' => array(
+        'columns' => array(
+          'target_id' => 'uid',
+        ),
+        'table' => 'users',
+      ),
+    ),
     'indexes' => array(
       'target_id' => array(
         0 => 'target_id',
@@ -410,34 +431,58 @@ function devtrac7_node_types_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_contact_email',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
-    'foreign keys' => array(),
-    'indexes' => array(),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
     'locked' => 0,
-    'module' => 'email',
-    'settings' => array(),
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 64,
+    ),
     'translatable' => 0,
-    'type' => 'email',
+    'type' => 'text',
   );
 
-  // Exported field_base: 'field_contact_mailing_addr'
-  $field_bases['field_contact_mailing_addr'] = array(
+  // Exported field_base: 'field_contact_mailing_address'
+  $field_bases['field_contact_mailing_address'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_contact_mailing_addr',
+    'field_name' => 'field_contact_mailing_address',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
-    'foreign keys' => array(),
-    'indexes' => array(),
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
+    ),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
     'locked' => 0,
-    'module' => 'addressfield',
+    'module' => 'text',
     'settings' => array(),
     'translatable' => 0,
-    'type' => 'addressfield',
+    'type' => 'text_long',
   );
 
   // Exported field_base: 'field_contact_organisation'
@@ -512,48 +557,28 @@ function devtrac7_node_types_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_contact_telephone',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
-    'foreign keys' => array(),
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'telephone',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'telephone',
-  );
-
-  // Exported field_base: 'field_contact_website'
-  $field_bases['field_contact_website'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_contact_website',
-    'field_permissions' => array(
-      'type' => 0,
+    'foreign keys' => array(
+      'format' => array(
+        'columns' => array(
+          'format' => 'format',
+        ),
+        'table' => 'filter_format',
+      ),
     ),
-    'foreign keys' => array(),
-    'indexes' => array(),
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
     'locked' => 0,
-    'module' => 'link',
+    'module' => 'text',
     'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'rel' => '',
-        'target' => 'default',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
+      'max_length' => 20,
     ),
     'translatable' => 0,
-    'type' => 'link_field',
+    'type' => 'text',
   );
 
   // Exported field_base: 'field_fieldtrip_approval_date'
