@@ -2,7 +2,7 @@ CONTENTS OF THIS FILE
 ---------------------
  * Introduction
  * Maintainers
- 
+
 INTRODUCTION
 ------------
 Devtrac Mapbox is a Drupal 7 module that adds a mapbox settings form to Devtrac
