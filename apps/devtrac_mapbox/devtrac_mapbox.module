@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @file 
+ * @file
  * Creates Devtrac Mapbox settings form.
- * 
+ *
  * The setttings form allows users to add their own mapbox layers to devtrac.
  */
 
@@ -39,8 +39,8 @@ function devtrac_mapbox_settings_form() {
   $form['devtrac_mapbox_layers'] = array(
     '#type' => 'textarea',
     '#title' => t('Your layers'),
-    '#description' => t('Put in all your layers in the format: <b> mapboxid|title|description|class </b>,  
-                          where class is the class of the base layer e.g. natural, satellite or street. 
+    '#description' => t('Put in all your layers in the format: <b> mapboxid|title|description|class </b>,
+                          where class is the class of the base layer e.g. natural, satellite or street.
                           Incase you wish to leave a certain value empty, leave  the space between the vertical bars(|) empty
                           e.g in case you wish description to be empty, your input should have the format id|title||class'),
     '#default_value' => variable_get("devtrac_mapbox_layers", ""),
@@ -61,7 +61,7 @@ function devtrac_mapbox_settings_form_validate($form, &$form_state) {
     foreach ($input_strings as $row) {
       // Split the string into an array of strings again.
       $input_elements = explode ("|", $row);
-      
+
       // The input elements array cannot have less than 4 strings.
       if (sizeof($input_elements) < 4) {
         form_set_error('Layer string ' . $input_elements[0] . ' missing some elements',
@@ -77,7 +77,6 @@ function devtrac_mapbox_settings_form_validate($form, &$form_state) {
         form_set_error('Layer string ' . $input_elements[1] . ' missing',
             t('Please enter a value for the title for each layer.'));
       }
-    
     }
   }
 }
@@ -138,9 +137,9 @@ function devtrac_mapbox_openlayers_layers() {
 
 /**
  * Function that extracts id, title, name, descriptions and class for each layer
- * 
+ *
  * @return array $layers
- *   An associative array of associative arrays that represent the additional 
+ *   An associative array of associative arrays that represent the additional
  *   layers the user wishes to add. Each layer array has the format:
  *     $layer = array (
  *                'id' => The mapboxid of the layer,
@@ -151,14 +150,14 @@ function devtrac_mapbox_openlayers_layers() {
  *              );
  */
 function getLayers() {
-  
+
   $layers = array();
   $layer_elements = array();
-  $layer = array();  
-  
+  $layer = array();
+
   // Get the value of the devtrac_mapbox_layers variable.
   $layer_string = variable_get("devtrac_mapbox_layers", FALSE);
-  
+
   if($layer_string){
     // Remove any carraige returns from the string.
     $layer_string = str_replace("\r" , "", $layer_string);
@@ -168,15 +167,15 @@ function getLayers() {
     foreach ($layer_strings as $row) {
       // Split the string into an array of strings again.
       $layer_elements = explode ("|", $row);
-      
+
       // Assign each element to a key.
       $layer['id'] = $layer_elements[0];
       $layer['title'] = $layer_elements[1];
-      
+
       // Derive the machine name of the layer from its mapbox id.
       $machine_name = strtolower($layer['id']);
       $machine_name = preg_replace('@[^a-z0-9_]+@','_',$machine_name);
-      
+
       $layer['name'] = $machine_name;
       $layer['description'] = $layer_elements[2];
       $layer['class'] = $layer_elements[3];
@@ -190,23 +189,23 @@ function getLayers() {
 }
 
 /**
- * Function that adds an icon for each additional layer to the Layer Switcher. 
+ * Function that adds an icon for each additional layer to the Layer Switcher.
  */
 function addLayerIcons() {
   global $base_path;
   $path = $base_path . path_to_theme();
   // Extract the layers data from the string.
   $layers = getlayers();
-  if(!is_null($layers)) {  
+  if(!is_null($layers)) {
     foreach($layers as $layer) {
       if($layer['class'] != "") {
-        
+
         // Add a radio button icon for the layer to the layer switcher according
         // to its class.
-        drupal_add_css('.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.' 
-            . $layer['name'] . ' {background-image: url(' 
-            . $path . '/images/' 
-            . $layer['class'] . '.png); background-repeat: no-repeat; background-position-x: 5px; background-position-y: 50%; }', 
+        drupal_add_css('.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.'
+            . $layer['name'] . ' {background-image: url('
+            . $path . '/images/'
+            . $layer['class'] . '.png); background-repeat: no-repeat; background-position-x: 5px; background-position-y: 50%; }',
             array( 'group' => CSS_THEME, 'type' => 'inline',));
       }
     }
