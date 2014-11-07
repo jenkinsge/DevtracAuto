@@ -49,7 +49,7 @@ projects[collapsiblock][version] = "1.0"
 projects[collapsiblock][type] = "module"
 projects[collapsiblock][subdir] = "contrib"
 
-projects[colorbox][version] = "1.6"
+projects[colorbox][version] = "2.8"
 projects[colorbox][type] = "module"
 projects[colorbox][subdir] = "contrib"
 
@@ -268,6 +268,10 @@ projects[nice_menus][version] = "2.5"
 projects[nice_menus][type] = "module"
 projects[nice_menus][subdir] = "contrib"
 
+projects[modal_forms][version] = "1.2"
+projects[modal_forms][type] = "module"
+projects[modal_forms][subdir] = "contrib"
+
 projects[openlayers][version] = "2.0-beta9"
 projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
@@ -277,7 +281,7 @@ projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/zoomtolayer-only-when-there-are-features-%232344127-1.patch"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetapi.patch"
 
-projects[openlayers_geosearch][version] = "1.0-beta2"
+projects[openlayers_geosearch][version] = "1.0-beta3"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
 
@@ -560,7 +564,7 @@ libraries[autopager][directory_name] = "autopager"
 libraries[autopager][type] = "library"
 
 libraries[colorbox][download][type] = "file"
-libraries[colorbox][download][url] = "http://github.com/jackmoore/colorbox/zipball/1.5.9/jackmoore-colorbox-1.5.9-0-g124ec40.zip"
+libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/archive/1.5.14.zip"
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
 

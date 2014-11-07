@@ -15,7 +15,7 @@ function devtrac_all_data_importers_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_new_action_items_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac New  Action Items Importer',
+    'name' => '4. Devtrac to Devtrac Action Items Importer',
     'description' => 'Imports Action Items into a devtrac Instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -113,7 +113,7 @@ function devtrac_all_data_importers_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_new_fieldtrip_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac New  FieldTrip Importer',
+    'name' => '2. Devtrac to Devtrac FieldTrip Importer',
     'description' => 'Imports field trips into a devtrac instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -222,7 +222,7 @@ function devtrac_all_data_importers_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_new_locations_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac New Locations Importer',
+    'name' => '1. Devtrac to Devtrac Locations Importer',
     'description' => 'Imports Location information into a devtrac instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -302,7 +302,7 @@ function devtrac_all_data_importers_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_new_site_reports_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac New  Site Reports Importer',
+    'name' => '3. Devtrac to Devtrac Site Reports Importer',
     'description' => 'imports site reports into a new devtrac instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -413,7 +413,7 @@ function devtrac_all_data_importers_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_new_users_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac New Users Importer',
+    'name' => 'Devtrac to Devtrac Users Importer',
     'description' => 'imports users into a devtrac instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
