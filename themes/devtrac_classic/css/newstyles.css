@@ -22,6 +22,29 @@
   padding: 0px 10px;
 }
 
+#page-title {
+  margin: 10px 0px 0px 0px;
+  padding: 0px 10px 0px 50px;
+  background: url(../images/title-icon.png) no-repeat 10px 0;
+  background-size: auto 40px;
+}
+
+.page-node-add-ftritem #page-title ,
+.context-sitereport #page-title {
+  background-image: url(../images/title-icon-sitereport.png);
+}
+
+.page-node-add-actionitem #page-title ,
+.context-actionitems #page-title {
+  background-image: url(../images/title-icon-actionitem.png);
+}
+
+.page-node-add-fieldtrip #page-title ,
+.context-fieldtrip #page-title {
+  background-image: url(../images/title-icon-fieldtrip.png);
+  padding-left: 55px;
+}
+
 th {
   white-space: nowrap;
 }
@@ -46,6 +69,31 @@ table tbody tr.even td.active {
  * ==========================================================================*/
 
 /*================================ zone-branding ============================*/
+
+.region-menu ,
+.region-branding {
+  display: inline-block;
+  width: auto;
+}
+
+.region-branding {
+  float: left;
+}
+
+.region-menu {
+  float: right;
+}
+
+.region-menu {
+  margin-left: 0 !important;
+
+}
+
+#region-branding {
+  width: 265px;
+  float: left;
+  margin-right: 0;
+}
 
 
 /*================================ zone-featured ============================*/
@@ -164,6 +212,10 @@ table tbody tr.even td.active {
   background-image: url(../images/user-menu-icon-rss.png);
 }
 
+.zone-featured .nice-menu li.menuparent.menu-path-user li.menu-path-devtrac-mycurrentfieldtrip a {
+  background-image: url(../images/user-menu-icon-current-fieldtrip.png);
+}
+
 .zone-featured .nice-menu li.menuparent.menu-path-user li.menu-path-node-add-fieldtrip a {
   background-image: url(../images/user-menu-icon-add.png);
 }
@@ -218,6 +270,10 @@ table tbody tr.even td.active {
   margin: 0px;
 }
 
+.page-user-login #page-title {
+  display: none;
+}
+
 .zone-content .grid-8 .region-inner {
   padding: 0px 5px;
 }
@@ -231,13 +287,23 @@ table tbody tr.even td.active {
   background: #EBEBEB;
 }
 
+.context-sitereport .zone-content .grid-4.region-content .action-links {
+  display: none;
+}
+
 
 @media screen and (min-width: 845px) {
 
 .page-images .zone-content ,
 .page-locations .zone-content ,
 .page-adminunits .zone-content ,
-.page-sitereports .zone-content {
+.page-sitereports .zone-content ,
+.page-actionitems .zone-content ,
+.page-fieldtrips .zone-content ,
+.page-statistics .zone-content ,
+.page-users .zone-content 
+
+/*.view-modes-list .zone-content*/ {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -246,16 +312,29 @@ table tbody tr.even td.active {
 .page-images aside.grid-3 ,
 .page-locations aside.grid-3 ,
 .page-adminunits aside.grid-3 ,
-.page-sitereports aside.grid-3 {
+.page-sitereports aside.grid-3 ,
+.page-actionitems aside.grid-3 ,
+.page-fieldtrips aside.grid-3 ,
+.page-statistics aside.grid-3 ,
+.page-users aside.grid-3 
+
+/*.view-modes-list aside.grid-3*/ {
   margin: 0;
   float: left;
   width: 310px;
+  z-index: 1;
 }
 
 .page-images .grid-9.region-content ,
 .page-locations .grid-9.region-content ,
 .page-adminunits .grid-9.region-content ,
-.page-sitereports .grid-9.region-content {
+.page-sitereports .grid-9.region-content ,
+.page-actionitems .grid-9.region-content ,
+.page-fieldtrips .grid-9.region-content ,
+.page-statistics .grid-9.region-content ,
+.page-users .grid-9.region-content 
+
+/*.view-modes-list .grid-9.region-content*/ {
   float: left;
   width: 100%;
   margin-right: 0;
@@ -265,7 +344,13 @@ table tbody tr.even td.active {
 .page-images .grid-9.region-content .region-content-inner ,
 .page-locations .grid-9.region-content .region-content-inner ,
 .page-adminunits .grid-9.region-content .region-content-inner ,
-.page-sitereports .grid-9.region-content .region-content-inner {
+.page-sitereports .grid-9.region-content .region-content-inner ,
+.page-actionitems .grid-9.region-content .region-content-inner ,
+.page-fieldtrips .grid-9.region-content .region-content-inner ,
+.page-statistics .grid-9.region-content .region-content-inner ,
+.page-users .grid-9.region-content .region-content-inner 
+
+/*.view-modes-list .grid-9.region-content .region-content-inner*/ {
   margin-left: 310px;
 }
 
@@ -274,22 +359,26 @@ table tbody tr.even td.active {
 
 /*============================== summary icons ==============================*/
 
+.page-node .field-label ,
 .node-place .field-label ,
 .node-ftritem .field-label ,
-.node-fieldtrip .field-label {
+.node-fieldtrip .field-label ,
+.node-actionitem .field-label {
   padding-left: 20px;
   background-size: auto 14px;
   background-repeat: no-repeat;
   background-position: left top;
+
+  color: transparent;
+  width: 20px;
+  height: 21px;
+  overflow: hidden;
+  padding: 0;
 }
 
 .node-ftritem .field ,
 .node-fieldtrip .field {
   padding-bottom: 5px;
-}
-
-.field-name-taxonomy-vocabulary-7 .field-label {
-  background-image: url(../images/summary-icon-report.png);
 }
 
 .field-name-field-ftritem-place .field-label {
@@ -300,22 +389,22 @@ table tbody tr.even td.active {
   background-image: url(../images/summary-icon-placetype.png);
 }
 
-.field-name-field-ftritem-status .field-label {
-  background-image: url(../images/summary-icon-progress.png);
-}
-
-.field-name-field-ftritem-date-visited .field-label {
-  background-image: url(../images/summary-icon-date.png);
-}
-
 .field-name-field-ftritem-field-trip .field-label {
-  background-image: url(../images/summary-icon-report.png);
+  background-image: url(../images/summary-icon-report-fieldtrip.png);
 }
 
+.field-name-taxonomy-vocabulary-7 .field-label ,
+.field-name-field-actionitem-ftreportitem .field-label {
+  background-image: url(../images/summary-icon-report-sitevisit.png);
+}
+
+.field-name-field-ftritem-status .field-label ,
 .field-name-field-fieldtrip-status .field-label {
   background-image: url(../images/summary-icon-progress.png);
 }
 
+.field-name-field-actionitem-due-date .field-label ,
+.field-name-field-ftritem-date-visited .field-label ,
 .field-name-field-fieldtrip-start-end-date .field-label {
   background-image: url(../images/summary-icon-date.png);
 }
@@ -328,8 +417,28 @@ table tbody tr.even td.active {
   background-image: url(../images/summary-icon-adminunit.png);
 }
 
+.field-name-field-actionitem-resp-place .field-label {
+  background-image: url(../images/summary-icon-location.png);
+}
+
+.field-name-field-actionitem-status .field-label {
+  background-image: url(../images/summary-icon-status.png);
+}
+
+.field-name-field-actionitem-severity .field-label {
+  background-image: url(../images/summary-icon-priority.png);
+}
+
 .region-content .block-system-main {
   margin-bottom: 10px;
+}
+
+/*.page-locations .region-content .block-system-main ,
+.page-adminunits .region-content .block-system-main ,
+.page-sitereports .region-content .block-system-main */
+
+.view-modes-default .region-content .block-system-main {
+  margin-bottom: 0;
 }
 
 .region-content .block-views.contextual-links-region {
@@ -396,15 +505,19 @@ table tbody tr.even td.active {
 
 .view-dvtrc-locations .views-label-title ,
 .view-dvtrc-locations .views-label-field-ftritem-date-visited {
-  padding-left: 20px;
-  padding-bottom: 5px;
   background-size: auto 14px;
   background-repeat: no-repeat;
-  background-position: left top;
+  background-position: left 50%;
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  overflow: hidden;
+  display: inline-block;
+  float: left;
 }
 
 .view-dvtrc-locations .views-label-title {
-  background-image: url(../images/summary-icon-report.png);
+  background-image: url(../images/summary-icon-report-sitevisit.png);
 }
 
 .view-dvtrc-locations .views-label-field-ftritem-date-visited {
@@ -449,6 +562,12 @@ table tbody tr.even td.active {
   background-color: #555555;
 }
 
+/*.view-dvtrc-locations .views-row-1 > div.views-field-title > .field-content {
+  padding-left: 20px;
+  background: url(../images/summary-icon-location.png) no-repeat 0 50%;
+  background-size: auto 14px;
+}*/
+
 .quicktabs-tabpage .item-list ul li ,
 .quicktabs-tabpage ul.links {
   margin: 0px;
@@ -463,12 +582,57 @@ table tbody tr.even td.active {
   padding-bottom: 5px;
 }
 
-.quicktabs-tabpage ul.links li.level-1 {
+.quicktabs-tabpage ul.links li.level-1 ,
+.quicktabs-tabpage ul.links li.level-2 ,
+.quicktabs-tabpage ul.links li.level-3 ,
+.quicktabs-tabpage ul.links li.level-4 {
   list-style: none;
   padding: 0px;
   padding-top: 10px;
   margin-bottom: 10px;
+}
+
+.quicktabs-tabpage ul.links li.level-1 {
   border-top: thin solid #DDDDDD;
+}
+
+li.level-1 ul.links {
+  padding-left: 20px;
+}
+
+li.level-2 ul.links {
+  padding-left: 40px;
+}
+
+li.level-3 ul.links {
+  padding-left: 620px;
+}
+
+li.level-4 ul.links {
+  padding-left: 80px;
+}
+
+.quicktabs-tabpage ul.links li.devtrac7-progress-field-style-button ,
+.quicktabs-tabpage ul.links li.ctools-use-modal {
+  margin-bottom: 10px;
+  list-style: none;
+  display: inline-block;
+}
+
+.quicktabs-tabpage li.devtrac7-progress-field-style-button a ,
+.quicktabs-tabpage ul.links li.ctools-use-modal a.ctools-use-modal {
+  color: #FFFFFF;
+  background-color: #777777;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+.quicktabs-tabpage li.devtrac7-progress-field-style-button a:hover ,
+.quicktabs-tabpage ul.links li.ctools-use-modal a.ctools-use-modal:hover {
+  background-color: #333333;
+  text-decoration: none;
 }
 
 
@@ -858,6 +1022,31 @@ form.comment-form .form-item.form-type-item {
 }
 
 /*=====================================================================================
+ * Footer Styles
+ * ==================================================================================*/
+
+.zone-footer .region-footer-first ,
+.zone-footer .region-footer-second {
+  margin: 0;
+  width: 50%;
+  display: inline-block;
+  float: left;
+}
+
+.zone-footer .region-inner {
+  padding: 0px 10px;
+}
+
+.zone-footer .region-footer-second .menu {
+  float: right;
+}
+
+.zone-footer .region-footer-second .menu li {
+  list-style: none;
+  display: inline-block;
+}
+
+/*=====================================================================================
  * Ctools Buttons
  * ==================================================================================*/
 
@@ -1021,6 +1210,7 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
 div .collapsiblock a ,
 div .collapsiblockCollapsed a {
   background-image: none;
+  color: inherit !important;
 }
 
 .block-facetapi.contextual-links-region {}
@@ -1114,6 +1304,7 @@ div .collapsiblockCollapsed a {
 
 .block-facetapi ul li a {
   padding: 5px 5px 5px 15px;
+  color: inherit;
 }
 
 .block-facetapi ul li a:hover {
@@ -1269,7 +1460,7 @@ div .collapsiblockCollapsed a {
 
 .olControlScaleLine.olControlNoSelect {
   top: auto;
-  bottom: 18px;
+  bottom: 40px;
   right: 20px;
 }
 .olControlPermalinkPlus.olControlNoSelect {
@@ -1290,8 +1481,17 @@ div .collapsiblockCollapsed a {
 }
 
 div.olControlAttribution {
-  right: 20px;
+  right: 0px;
   bottom: 0px;
+  font-size: 0.7em;
+  padding: 0px 8px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333333;
+}
+
+div.olControlAttribution a:link {
+  color: inherit;
+  text-decoration: underline;
 }
 
 /*===========================================================================*\
@@ -1434,26 +1634,22 @@ div.olControlAttribution {
   cursor: pointer;
 }
 
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_4 {
-  background: url(../images/devtrac-maplayer-001.png) no-repeat 5px 50% !important;
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_8 ,
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_6 {
+  background: url(../images/map-layer-natural.png) no-repeat 5px 50% !important;
 }
 
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_6 {
-  background: url(../images/devtrac-maplayer-002.png) no-repeat 5px 50% !important;
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_4 {
+  background: url(../images/map-layer-osm-mapnik.png) no-repeat 5px 50%;
+}
+
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_6 ,
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_8 {
+  background: url(../images/map-layer-cycling-map.png) no-repeat 5px 50%;
 }
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.activated {
-  background: none;
-  opacity: 0.9;
-}
-
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_4.activated {
-  background: #000000 url(../images/devtrac-maplayer-001.png) no-repeat 5px 50%;
-  
-}
-
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_6.activated {
-  background: #000000 url(../images/devtrac-maplayer-002.png) no-repeat 5px 50%;
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.data {
@@ -1903,6 +2099,7 @@ div.olControlAttribution {
  *  Form Page Styles
  ====================================================================*/
 
+.page-import .container-12 ,
 .page-user-me-edit .container-12 ,
 .page-node-add .container-12 ,
 .page-node-edit .container-12 {
@@ -1911,11 +2108,23 @@ div.olControlAttribution {
   margin-right: 4%;
 }
 
+.page-import .zone-content .region-inner ,
+.page-node-add .zone-content .region-inner ,
+.page-node-edit .zone-content .region-inner{
+  padding: 20px;
+  background: #DDDDDD;
+  border: thin solid #CCCCCC; 
+}
+
+.page-import form ,
 .page-user-me-edit form ,
 .page-node-add form ,
 .page-node-edit form {
-  border: thick solid #CCCCCC;
+/*  border: thick solid #CCCCCC;
+  padding: 50px;*/
+  border: thin solid #CCCCCC;
   padding: 50px;
+  background: #FFFFFF;  
 }
 
 .form-required {
@@ -1925,6 +2134,7 @@ div.olControlAttribution {
   vertical-align: middle;
 }
 
+.page-import .fieldset-legend ,
 .page-user-me-edit label ,
 .page-node-add label ,
 .page-node-edit label ,
@@ -1941,10 +2151,173 @@ div.olControlAttribution {
   background: transparent;
 }
 
+.page-import .fieldset-legend {
+  font-size: 1.5em;
+}
+
+.page-import #edit-feeds .fieldset-wrapper {
+  border: thin solid #CCCCCC;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.page-user-me-edit .user-picture {
+  display: inline-block;
+  margin-right: 20px;
+  float: left;
+}
+
+.page-user-me-edit .form-item-files-picture-upload {
+  display: inline-block;
+}
+
+.page-user-me-edit .user-picture img {
+  border: 3px solid #CCCCCC;
+  padding: 1px 5px;
+}
+
 label.option {
   display: inline;
   font-weight: normal;
   font-size: inherit;
+}
+
+html.js fieldset.collapsible .fieldset-legend {
+  padding: 0;
+  margin: 0;
+  background: transparent;
+}
+
+html.js fieldset.collapsible .fieldset-legend:hover {
+  padding: 0;
+  margin: 0;
+}
+
+html.js fieldset.collapsible .fieldset-legend .fieldset-title {
+  margin: 10px 5px;
+  padding: 4px 10px;
+  display: inline-block;
+  background-color: #777777;
+  border: none;
+  border-radius: 3px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-shadow: none;
+  transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+}
+
+html.js fieldset.collapsible .fieldset-legend .fieldset-title:hover {
+  background-color: #333333;
+  text-decoration: none;  
+}
+
+html.js fieldset.collapsible .fieldset-legend .fieldset-title .drop-arrow {
+  background-image: url(../images/icon-collapsible-open.png);
+}
+
+html.js fieldset.collapsible.collapsed .fieldset-legend .fieldset-title .drop-arrow {
+  background-image: url(../images/icon-collapsible-close.png);
+}
+
+html.js fieldset.collapsed {
+  height: auto;
+}
+
+html.js fieldset.collapsible div.fieldset-wrapper {
+  border: thin solid #CCC;
+  padding: 20px;
+  border-radius: 3px;
+}
+
+form .field-multiple-table td.field-multiple-drag {
+  /*width: auto;*/
+}
+
+td.delta-order select.form-select {
+  padding-right: 20px;
+}
+
+/*=======================================================*/
+
+.collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper tr.draggable td .form-item {
+  width: auto;
+}
+
+.draggable table tbody {
+  border: none;
+}
+
+#field-place-contact-info-und-0-field-contact-telephone-add-more-wrapper > .form-item {
+  width: auto;
+}
+
+table.tabledrag-processed thead tr {
+  /*background: #CCCCCC;*/
+}
+
+table.tabledrag-processed thead tr label {
+  color: #333333;
+}
+
+.collapsible .fieldset-wrapper .fieldset-wrapper {
+  background: #EEEEEE;
+}
+
+.collapsible .fieldset-wrapper .fieldset-wrapper table ,
+.collapsible .fieldset-wrapper .fieldset-wrapper table tbody {
+  border: none;
+}
+
+.collapsible .fieldset-wrapper .fieldset-wrapper table {
+  border: thin solid #CCCCCC;
+}
+
+.collapsible .fieldset-wrapper .fieldset-wrapper table th {
+  border: none;
+  padding: 10px;
+}
+
+.collapsible .fieldset-wrapper .fieldset-wrapper td .field-type-text .form-item {
+  width: auto;
+}
+
+.tabledrag-toggle-weight:link ,
+.tabledrag-toggle-weight:visited {
+  margin: 10px 5px;
+  padding: 4px 10px;
+  display: inline-block;
+  background-color: #777777;
+  border: none;
+  border-radius: 3px;
+  font-weight: normal;
+  color: #FFFFFF;
+  text-shadow: none;
+  transition: background-color 0.3s;
+  -webkit-transition: background-color 0.3s;
+}
+
+tr:hover .tabledrag-toggle-weight:link ,
+tr:hover .tabledrag-toggle-weight:visited {
+  text-decoration: none;
+}
+
+tr:hover .tabledrag-toggle-weight:hover {
+  background-color: #333333;
+  text-decoration: none;
+}
+
+
+
+
+
+
+/*=======================================================*/
+
+.page-import #block-system-main {
+  padding: 20px;
+  background: #FFFFFF;
+  border: thin solid #CCCCCC;
 }
 
 .page-user-me-edit table tr ,
@@ -2016,7 +2389,7 @@ label.option {
   font-style: italic;
 }
 
-
+/*
 .collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper .form-item {
   width: 600px;
 }
@@ -2024,7 +2397,7 @@ label.option {
 .collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper td .form-item {
   width: 570px;
 }
-
+*/
 .collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper .form-item .description {
   white-space: normal;
   line-height: 20px;
@@ -2078,6 +2451,38 @@ label.option {
 .olControlNoSelect.olControlEditingToolbar div.olButton.olControlItemInactive {
   background-position: 0px -30px;
 }
+
+/*===================================================================================*\
+ * Footable Table Styles
+\*===================================================================================*/
+
+table tr.footable-row-detail {
+  border-bottom: thin solid #CCCCCC;
+}
+
+table tr.footable-row-detail:hover {
+  color: inherit;
+  border-bottom: thin solid #CCCCCC;
+  background: transparent;
+}
+
+table tr.footable-row-detail:hover td {
+  background: transparent;
+}
+
+table tr.footable-row-detail td {
+  padding-left: 30px;
+}
+
+table tr.footable-row-detail:hover a {
+  color: #A52A2A;
+  text-decoration: none;
+}
+
+table tr.footable-row-detail:hover a:hover {
+  text-decoration: underline;
+}
+
 
 /*===================================================================================*\
  * User Login Styles

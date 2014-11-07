@@ -13,7 +13,40 @@ function devtrac_form_install_configure_form_alter(&$form, $form_state, $form_id
   if($form_id == 'install_configure_form'){
     //set default for site name field
     $form['site_information']['site_name']['#default_value'] = $_SERVER['SERVER_NAME'];
+
+    //alter country    install_settings_form
+    $form['server_settings']['site_default_country']['#required'] = TRUE; 
+    $form['#submit'][] = 'devtrac_install_configure_form_submit_country';
+
   }
+}
+
+/**
+ * Form submit handler to add taxonomy term to districts.
+ * @param type $form
+ * @param type $form_state
+ */
+function devtrac_install_configure_form_submit_country(&$form, $form_state) {
+  //check whether vocabulary exists
+  $vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_6');
+  if(empty($vocabulary)) {
+    $vocabulary = taxonomy_vocabulary_machine_name_load('iati_custom_admin_unit');
+  }
+  $countries = country_get_list();
+  $country_code = $form_state['values']['site_default_country'];
+  
+  $country = $countries[$country_code];
+  if(empty($country)) {
+    drupal_set_message("Country code provided in default country can not be identified.", 'error');
+    return ;    
+  }
+  else {
+    $term = new stdClass();
+    $term->name = $country;
+    $term->description = "Default country";
+    $term->vid = $vocabulary->vid;
+    taxonomy_term_save($term);  
+  }  
 }
 
 /**
@@ -199,4 +232,22 @@ function devtrac_initialize_taxonomy_access() {
   if (!empty($worker_term_defaults)) {
     taxonomy_access_set_term_grants($worker_term_defaults);
   }
+}
+
+/**
+ * Implements hook_appstore_stores_info
+ */
+function devtrac_apps_servers_info() {
+ $info =  drupal_parse_info_file(dirname(__file__) . '/devtrac.info');
+ return array(
+   'devtrac' => array(
+     'title' => 'Devtrac',
+     'description' => "Apps for Devtrac",
+     'manifest' => 'http://www.devtrac.org/app/query/Devtrac',
+     'profile' => 'devtrac',
+     'profile_version' => isset($info['version']) ? $info['version'] : '7.x-1.x',
+     'server_name' => isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'localhost',
+     'server_ip' => isset($_SERVER['SERVER_ADDR'])? $_SERVER['SERVER_ADDR'] : '127.0.0.1',
+   ),
+ );
 }

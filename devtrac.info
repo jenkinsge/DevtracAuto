@@ -194,7 +194,7 @@ dependencies[] = fontyourface_wysiwyg
 dependencies[] = elements
 dependencies[] = telephone
 dependencies[] = addressfield
-dependencies[] = link_favicon_formatter	
+dependencies[] = link_favicon_formatter
 
 ; Questionnaire
 dependencies[] = questionnaire
@@ -249,3 +249,5 @@ dependencies[] = devtrac7_solr_search_answers_feature
 ; dependencies[] = iati_field_permissions_feature
 ; dependencies[] = iati_feature
 
+; Devtrac apps
+dependencies[] = apps

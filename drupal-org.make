@@ -49,7 +49,7 @@ projects[collapsiblock][version] = "1.0"
 projects[collapsiblock][type] = "module"
 projects[collapsiblock][subdir] = "contrib"
 
-projects[colorbox][version] = "1.6"
+projects[colorbox][version] = "2.8"
 projects[colorbox][type] = "module"
 projects[colorbox][subdir] = "contrib"
 
@@ -122,6 +122,18 @@ projects[facetapi_textfield_widget][subdir] = "contrib"
 projects[features_override][version] = "2.0-rc2"
 projects[features_override][type] = "module"
 projects[features_override][subdir] = "contrib"
+
+projects[feeds][version] = "2.0-alpha8"
+projects[feeds][type] = "module"
+projects[feeds][subdir] = "contrib"
+
+projects[feeds_entityreference][version] = "1.x-dev"
+projects[feeds_entityreference][type] = "module"
+projects[feeds_entityreference][subdir] = "contrib"
+
+projects[field_collection_feeds][version] = "1.0-alpha3"
+projects[field_collection_feeds][type] = "module"
+projects[field_collection_feeds][subdir] = "contrib"
 
 projects[field_collection][version] = "1.0-beta7"
 projects[field_collection][type] = "module"
@@ -206,6 +218,10 @@ projects[image_url_formatter][version] = "1.4"
 projects[image_url_formatter][type] = "module"
 projects[image_url_formatter][subdir] = "contrib"
 
+projects[job_scheduler][version] = "2.0-alpha3"
+projects[job_scheduler][type] = "module"
+projects[job_scheduler][subdir] = "contrib"
+
 projects[jquery_update][version] = "2.x-dev"
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
@@ -252,6 +268,10 @@ projects[nice_menus][version] = "2.5"
 projects[nice_menus][type] = "module"
 projects[nice_menus][subdir] = "contrib"
 
+projects[modal_forms][version] = "1.2"
+projects[modal_forms][type] = "module"
+projects[modal_forms][subdir] = "contrib"
+
 projects[openlayers][version] = "2.0-beta9"
 projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
@@ -259,8 +279,9 @@ projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojs
 ; projects[openlayers][patch][] = "http://cgit.drupalcode.org/openlayers/patch/openlayers.make?id=66ca5d62bee0601902ca3dbda171d6a8fea8993d"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/zoomtolayer-only-when-there-are-features-%232344127-1.patch"
+projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetapi.patch"
 
-projects[openlayers_geosearch][version] = "1.0-beta1"
+projects[openlayers_geosearch][version] = "1.0-beta3"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
 
@@ -310,6 +331,7 @@ projects[quicktabs][version] = "3.x-dev"
 projects[quicktabs][type] = "module"
 projects[quicktabs][subdir] = "contrib"
 ;projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs.user-interface.2108935-3.patch"
+projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs--machine_name-7.x-3.6.patch"
 
 projects[realname][version] = "1.2"
 projects[realname][type] = "module"
@@ -380,7 +402,7 @@ projects[search_api_swatches][version] = "1.x-dev"
 projects[search_api_swatches][type] = "module"
 projects[search_api_swatches][subdir] = "contrib"
 
-projects[services][version] = "3.10"
+projects[services][version] = "3.x-dev"
 projects[services][type] = "module"
 projects[services][subdir] = "contrib"
 
@@ -522,6 +544,10 @@ projects[geocoder_geonames][download][branch] = "7.x-1.x"
 projects[geocoder_geonames][download][revision] = "57417b6bab16585f8d06a06e460e5096d3ba25b0"
 projects[geocoder_geonames][subdir] = "contrib"
 
+projects[apps][version] = "1.0-beta18"
+projects[apps][type] = "module"
+projects[apps][subdir] = "contrib"
+
 ; Themes
 projects[omega][version] = "3.1"
 projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
@@ -538,7 +564,7 @@ libraries[autopager][directory_name] = "autopager"
 libraries[autopager][type] = "library"
 
 libraries[colorbox][download][type] = "file"
-libraries[colorbox][download][url] = "http://github.com/jackmoore/colorbox/zipball/1.5.9/jackmoore-colorbox-1.5.9-0-g124ec40.zip"
+libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/archive/1.5.14.zip"
 libraries[colorbox][directory_name] = "colorbox"
 libraries[colorbox][type] = "library"
 

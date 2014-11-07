@@ -40,8 +40,21 @@ function devtrac_install() {
       ),
     ),
   );
+// This format is provided by our Mountbatten WYSIWYG feature but its not finished there yet
+// once that feature is done, this needs to be removed
   $filtered_html_format = (object) $filtered_html_format;
   filter_format_save($filtered_html_format);
+
+  // This code (the permission bit at least, should be moved to the end of the installer
+  // after the mountbatten web feature stuff is enabled
+  // NOTE: the filter_permission_name function is then not the correct way to find the
+  // permission, as the input array is not available. So we need to find a (hardcoded?)
+  // alternative for it.
+  // filtered_html format is in a feature so we have to set the access rights very late. here
+  $filtered_html_permission = filter_permission_name($filtered_html_format);
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array($filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array($filtered_html_permission));
+
 
   $full_html_format = array(
     'format' => '2',
@@ -65,8 +78,11 @@ function devtrac_install() {
       ),
     ),
   );
+// This format is provided by our Mountbatten WYSIWYG feature but its not finished there yet
+// once that feature is done, this needs to be removed
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
+
 /*
   // Enable some devtrac blocks.
   $default_theme = variable_get('theme_default', 'bartik');
@@ -361,9 +377,8 @@ function devtrac_install() {
   field_create_instance($instance);
 
   // Enable default permissions for system roles.
-  $filtered_html_permission = filter_permission_name($filtered_html_format);
-  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments', $filtered_html_permission));
-  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval', $filtered_html_permission));
+  user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content', 'access comments'));
+  user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content', 'access comments', 'post comments', 'skip comment approval'));
 
   // Create a default role for site administrators, with all available permissions assigned.
   $admin_role = new stdClass();
