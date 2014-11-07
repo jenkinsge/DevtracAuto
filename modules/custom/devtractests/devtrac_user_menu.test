@@ -198,7 +198,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fullReportSubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = 76;
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms ta was renamed');
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
