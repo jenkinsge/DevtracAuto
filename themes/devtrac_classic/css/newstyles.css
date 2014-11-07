@@ -73,6 +73,7 @@ table tbody tr.even td.active {
 .region-menu ,
 .region-branding {
   display: inline-block;
+  width: auto;
 }
 
 .region-branding {
@@ -88,7 +89,11 @@ table tbody tr.even td.active {
 
 }
 
-
+#region-branding {
+  width: 265px;
+  float: left;
+  margin-right: 0;
+}
 
 
 /*================================ zone-featured ============================*/
@@ -292,7 +297,13 @@ table tbody tr.even td.active {
 .page-images .zone-content ,
 .page-locations .zone-content ,
 .page-adminunits .zone-content ,
-.page-sitereports .zone-content {
+.page-sitereports .zone-content ,
+.page-actionitems .zone-content ,
+.page-fieldtrips .zone-content ,
+.page-statistics .zone-content ,
+.page-users .zone-content 
+
+/*.view-modes-list .zone-content*/ {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -301,7 +312,13 @@ table tbody tr.even td.active {
 .page-images aside.grid-3 ,
 .page-locations aside.grid-3 ,
 .page-adminunits aside.grid-3 ,
-.page-sitereports aside.grid-3 {
+.page-sitereports aside.grid-3 ,
+.page-actionitems aside.grid-3 ,
+.page-fieldtrips aside.grid-3 ,
+.page-statistics aside.grid-3 ,
+.page-users aside.grid-3 
+
+/*.view-modes-list aside.grid-3*/ {
   margin: 0;
   float: left;
   width: 310px;
@@ -311,7 +328,13 @@ table tbody tr.even td.active {
 .page-images .grid-9.region-content ,
 .page-locations .grid-9.region-content ,
 .page-adminunits .grid-9.region-content ,
-.page-sitereports .grid-9.region-content {
+.page-sitereports .grid-9.region-content ,
+.page-actionitems .grid-9.region-content ,
+.page-fieldtrips .grid-9.region-content ,
+.page-statistics .grid-9.region-content ,
+.page-users .grid-9.region-content 
+
+/*.view-modes-list .grid-9.region-content*/ {
   float: left;
   width: 100%;
   margin-right: 0;
@@ -321,7 +344,13 @@ table tbody tr.even td.active {
 .page-images .grid-9.region-content .region-content-inner ,
 .page-locations .grid-9.region-content .region-content-inner ,
 .page-adminunits .grid-9.region-content .region-content-inner ,
-.page-sitereports .grid-9.region-content .region-content-inner {
+.page-sitereports .grid-9.region-content .region-content-inner ,
+.page-actionitems .grid-9.region-content .region-content-inner ,
+.page-fieldtrips .grid-9.region-content .region-content-inner ,
+.page-statistics .grid-9.region-content .region-content-inner ,
+.page-users .grid-9.region-content .region-content-inner 
+
+/*.view-modes-list .grid-9.region-content .region-content-inner*/ {
   margin-left: 310px;
 }
 
@@ -404,9 +433,11 @@ table tbody tr.even td.active {
   margin-bottom: 10px;
 }
 
-.page-locations .region-content .block-system-main ,
+/*.page-locations .region-content .block-system-main ,
 .page-adminunits .region-content .block-system-main ,
-.page-sitereports .region-content .block-system-main {
+.page-sitereports .region-content .block-system-main */
+
+.view-modes-default .region-content .block-system-main {
   margin-bottom: 0;
 }
 
@@ -2128,6 +2159,21 @@ div.olControlAttribution a:link {
   border: thin solid #CCCCCC;
   border-radius: 3px;
   padding: 20px;
+}
+
+.page-user-me-edit .user-picture {
+  display: inline-block;
+  margin-right: 20px;
+  float: left;
+}
+
+.page-user-me-edit .form-item-files-picture-upload {
+  display: inline-block;
+}
+
+.page-user-me-edit .user-picture img {
+  border: 3px solid #CCCCCC;
+  padding: 1px 5px;
 }
 
 label.option {
