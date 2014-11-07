@@ -15,7 +15,7 @@ function devtrac_health_centres_data_importer_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_data_action_centres_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac Data Action Centres Importer',
+    'name' => '4. mTrac Action Centres (Users) Importer',
     'description' => 'Imports information related to action centres',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -110,7 +110,7 @@ function devtrac_health_centres_data_importer_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_data_action_items_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac Data Action Items Importer',
+    'name' => '5. mTrac Action Items Importer',
     'description' => 'Imports data related to action items into a devtrac instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -220,7 +220,7 @@ function devtrac_health_centres_data_importer_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_data_districts_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac Data Districts Importer',
+    'name' => '1. mTrac Districts Importer',
     'description' => 'Imports districts into a devtrac instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -276,7 +276,7 @@ function devtrac_health_centres_data_importer_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_data_location_types_health_centres_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac Data Location Types(Health Centres) Importer',
+    'name' => '2. mTrac Location Types(Health Centres) Importer',
     'description' => 'Imports Location types for health centers into a devtrac instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -327,7 +327,7 @@ function devtrac_health_centres_data_importer_feature_feeds_importer_default() {
   $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_data_locations_importer';
   $feeds_importer->config = array(
-    'name' => 'Devtrac Data Locations Importer',
+    'name' => '3. mTrac Locations Importer',
     'description' => 'Imports Location information into a devtrac instance',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',

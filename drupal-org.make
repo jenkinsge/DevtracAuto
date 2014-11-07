@@ -281,7 +281,7 @@ projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/zoomtolayer-only-when-there-are-features-%232344127-1.patch"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetapi.patch"
 
-projects[openlayers_geosearch][version] = "1.0-beta2"
+projects[openlayers_geosearch][version] = "1.0-beta3"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
 
@@ -331,6 +331,7 @@ projects[quicktabs][version] = "3.x-dev"
 projects[quicktabs][type] = "module"
 projects[quicktabs][subdir] = "contrib"
 ;projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs.user-interface.2108935-3.patch"
+projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs--machine_name-7.x-3.6.patch"
 
 projects[realname][version] = "1.2"
 projects[realname][type] = "module"
