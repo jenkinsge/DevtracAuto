@@ -41,7 +41,12 @@ class DevtracImportsSectors1 extends XMLMigration {
     $this->addFieldMapping('name', 'name')->xpath('name');
     $this->addFieldMapping('description', 'description')->xpath('description');
     $this->addFieldMapping('parent', 'parent');
-    // $this->addFieldMapping('category', 'category')->xpath('category');
+    
+    $this->addFieldMapping('field_term_icon', 'code')
+      ->xpath('code')
+      ->sourceMigration('DevtracImportsSectorIcons');
+    $this->addFieldMapping('field_term_icon:file_class')
+      ->defaultValue('MigrateFileFid');
   }
   /**
    * Construct the machine name from the source file name.
