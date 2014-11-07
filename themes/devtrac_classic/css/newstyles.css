@@ -95,6 +95,13 @@ table tbody tr.even td.active {
   margin-right: 0;
 }
 
+.zone-branding {
+  margin: 0;
+  width: 100%;
+}
+
+
+
 
 /*================================ zone-featured ============================*/
 
@@ -106,6 +113,20 @@ table tbody tr.even td.active {
   background: #3E3E3E;
   color: #FFFFFF;
   height: 27px;
+}
+
+.zone-featured .current-search-item h3 {
+  color: #EB8005;
+  background: #111111;
+  height: 27px;
+  border-right: 5px solid;
+  padding-left: 15px;
+  padding-right: 20px;
+  width: 250px;
+  line-height: 20px;
+  font-size: 1.0em;
+  font-weight: normal;
+  margin: 0px;
 }
 
 .zone-featured .nice-menu {
