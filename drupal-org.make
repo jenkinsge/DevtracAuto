@@ -327,6 +327,7 @@ projects[quicktabs][version] = "3.x-dev"
 projects[quicktabs][type] = "module"
 projects[quicktabs][subdir] = "contrib"
 ;projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs.user-interface.2108935-3.patch"
+projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs--machine_name-7.x-3.6.patch"
 
 projects[realname][version] = "1.2"
 projects[realname][type] = "module"
