@@ -203,7 +203,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $this->drupalGet('node/'.$nodeaddreportfullsubmitozyq->nid.'/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     $formsubmitreportsozyq['reporttype'] = 1;
     //$formsubmitreportsozyq['district'] = 81;
-    $this->assertNoField('district', 'district filed is removed');
+    $this->assertField('district', 'district filed is removed');
     // $formsubmitreportsozyq['placetype'] = 1;
     $this->assertNoField('placetype', 'placetype field is removed');
     $this->drupalPost(NULL, $formsubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
@@ -228,7 +228,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip.'), 'Devtrac');
     $this->assertNoLink('Add a Site Report to the Field Trip.', 0, 'Link to Add a Site Report to the Field Trip.is found');
-    $this->assertNoField('district', 'district filed is removed');
+    $this->assertField('district', 'district filed is removed');
     $this->drupalGet('node/add/actionitem', array(
       'query' => array(
     	'destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));

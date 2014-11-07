@@ -86,7 +86,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
     // Populating the fieldtrip create form.
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back');
     $fullReportSubmitozyq['title'] = 'YES WE CAN';
     $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fullReportSubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = 76;
@@ -102,7 +102,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $nodeAddreportfullSubmitozyq = $this->drupalGetNodeByTitle($fullReportSubmitozyq["title"]);	
     $this->assertNotNull($nodeAddreportfullSubmitozyq, t('node loaded'));
     $this->clickLink('Add a Site Report to the Field Trip.', 0, t('link to add site reports to fieldtrip'));
-    $this->assertNoField('district', 'district filed is renamed');
+    $this->assertField('district', 'district filed is renamed');
     $formSubmitreportsozyq['reporttype'] = 1;
     $this->assertNoField('placetype', 'Place type field is removed');
     $this->assertNoField('placetype', 'place type field is no longer found');
@@ -138,7 +138,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->clickLink('Add a Site Report to the Field Trip.', 0, t('link to add site reports to fieldtrip'));
     $formSubmitreportsozyq['reporttype'] = 1;
     $this->assertField('reporttype', 'Report type filed found');
-    $this->assertNoField('district', 'District field is removed');
+    $this->assertField('district', 'district field is placed back');
     // $formSubmitreportsozyq['placetype'] = 1;
     $this->assertNoField('placetype', 'place type is removed from the add site report form');
     $this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
@@ -172,7 +172,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNotNull($nodeAddreportfullSubmitozyq, t('node loaded'));
     $this->clickLink('Add a Site Report to the Field Trip.', 0, t('link to add site reports to fieldtrip'));
     $formSubmitreportsozyq['reporttype'] = 1;
-    $this->assertNoField('district', 'District field was renamed');
+    $this->assertField('district', 'District field was renamed');
     $this->assertnoField('placetype', 'place type field is renamed');
     $this->assertNoField('placetype', 'place type field is no longer found on the add site report form');
     $this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
@@ -208,7 +208,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNotNull($nodeAddreportfullSubmitozyq, t('node loaded'));
     $this->clickLink('Add a Site Report to the Field Trip.', 0, t('link to add site reports to fieldtrip'));
     $formSubmitreportsozyq['reporttype'] = 1;
-    $this->assertNoField('district', 'district');
+    $this->assertField('district', 'district');
     $this->assertNoField('placetype', 'placetype');
     //$formSubmitreportsozyq['placetype'] = 1;
     $this->assertNoField('placetype', 'place type field is removed from the add site report form');
@@ -246,7 +246,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNotNull($nodeAddreportfullSubmitozyq, t('node loaded'));
     $this->clickLink('Add a Site Report to the Field Trip.', 0, t('link to add site reports to fieldtrip'));
     $formSubmitreportsozyq['reporttype'] = 1;
-    $this->assertNoField('district', 'district field on add place form');
+    $this->assertField('district', 'district field on add place form');
     $this->assertNoField('placetype', 'place type is removed from the add site report visit form');
     $this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array(
       'query' => array(

@@ -131,7 +131,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $this->assertNoLink('Add a location to the Field Trip.', 0, t('link to add Location to fieldtrip is no longer showing'));
     $this->drupalGet('node/' . $nodeaddreportfullsubmitozyq->nid . '/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     $formsubmitreportsozyq['reporttype'] = 2;
-    $this->assertNoField('district', 'district field on add place form');
+    $this->assertField('district', 'district field on add place form');
     $this->assertNoField('placetype', 'placetype field on add place form');
     // $formsubmitreportsozyq['placetype'] = 2;
     $this->assertNoField('placetype', 'Place Type field is no longer found on on the site report form', 'Devtrac');
