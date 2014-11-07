@@ -681,7 +681,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $location_add['title'] = $this->randomName(32);
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'field was removed');
-    $location_add['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add['taxonomy_vocabulary_1[und]'] = 245;
     $location_add['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add, t('Save'));
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
@@ -731,7 +731,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     // $this->clickLink('Create New Location', 0, 'clicked');
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $location_add_full['title'] = $this->randomName(32);
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Taxonomy vocaburary 6 field was removed');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add_full, t('Save'));
@@ -798,7 +798,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Field found');
     $location_add_full['title'] = $this->randomName(32);
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add_full, t('Save'));
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
@@ -878,7 +878,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $location_add_full1['title'] = $this->randomName(32);
-    $location_add_full1['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add_full1['taxonomy_vocabulary_1[und]'] = 245;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Field found');
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $location_add_full1['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
@@ -970,7 +970,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $location_add_full['title'] = $this->randomName(32);
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
     
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'district field was removed');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
