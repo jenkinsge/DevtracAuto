@@ -168,7 +168,7 @@ projects[flot][version] = "1.x-dev"
 projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
 projects[flot][patch][] = "https://www.drupal.org/files/flot-pie_options-2088021-3.patch"
-projects[flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects_fix-2264691-0.patch"
+projects[flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects-2264691-4.patch"
 
 projects[fontyourface][version] = "2.8"
 projects[fontyourface][type] = "module"
@@ -554,8 +554,11 @@ projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-182855
 
 projects[shiny][version] = "1.6"
 
-projects[devtrac7_theme][version] = "1.x-dev"
+; projects[devtrac7_theme][version] = "1.x-dev"
 projects[devtrac7_theme][type] = "theme"
+projects[devtrac7_theme][download][type] = "git"
+projects[devtrac7_theme][download][url] = "git://git.drupal.org/project/devtrac7_theme.git"
+projects[devtrac7_theme][download][branch] = "7.x-1.x"
 
 ; Libraries
 libraries[autopager][download][type] = "file"
