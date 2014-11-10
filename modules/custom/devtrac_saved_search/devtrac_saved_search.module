@@ -24,7 +24,7 @@ function devtrac_saved_search_menu() {
 function devtrac_saved_search_has_roles(array $roles) {
   global $user;
   $check = array_intersect($roles, array_values($user->roles));
-  return empty($check) ? FALSE : TRUE;}
+  return empty($check) ? FALSE : TRUE;
 }
 
 function devtrac_saved_search_test_cron() {
