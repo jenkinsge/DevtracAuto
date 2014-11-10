@@ -15,8 +15,6 @@ function devtrac_saved_search_menu() {
       'access arguments' => array(1, array('Devtrac Admin', 'Administrator')),
       'type' => MENU_NORMAL_ITEM, // This is the highest level an Editor has
   );
-  
- 
   return $items;
 }
 
@@ -25,7 +23,8 @@ function devtrac_saved_search_menu() {
 */
 function devtrac_saved_search_has_roles(array $roles) {
   global $user;
-  return empty(array_intersect($roles, array_values($user->roles))) ? FALSE : TRUE;
+  $check = array_intersect($roles, array_values($user->roles));
+  return empty($check) ? FALSE : TRUE;}
 }
 
 function devtrac_saved_search_test_cron() {
