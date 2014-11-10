@@ -1120,6 +1120,7 @@ tr:hover .ctools-button li a:visited {
   padding: 5px 10px;
   white-space: nowrap;
   text-decoration: none;
+  display: inline-block;
 }
 
 .ctools-button li a:hover ,
