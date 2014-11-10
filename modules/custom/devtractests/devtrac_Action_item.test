@@ -100,8 +100,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
   */
   public function testFieldtripCreateFieldtripActionItems() {
     $this->drupalGet('node/add/fieldtrip');
-    $this->clickLink('Add content', 0, 'clicked Add content link');
-    $this->clickLink('Field Trip', 0, 'clicked Field Trip link');
+    $this->assertNoLink('Add content', 0, 'Add content link not found');
     $this->assertNoText('TA Number', 'TA number field is found', 'Devtrac');
     $percentage = array(
       'field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
@@ -1070,7 +1069,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertNoText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $location_add_full['title'] = $this->randomName(32);
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 30;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 254;
     $location_add_full['field_ftritem_narrative[und][0][value]'] = 'jhfjkdjkcbxcb';
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'District field was removed');
     //$location_add_full['taxonomy_vocabulary_6[und]'] = $form_submit_report['district'];

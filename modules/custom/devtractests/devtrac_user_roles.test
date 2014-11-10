@@ -141,7 +141,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $this->assertNoLink('Create New Location', 0, 'link Create new location found');
     // $this->clickLink('Create New Location', 0, 'Link to add location');
     $locationaddfullozyq['title'] = $this->randomName(32);
-    $locationaddfullozyq['taxonomy_vocabulary_1[und]'] = 26;
+    $locationaddfullozyq['taxonomy_vocabulary_1[und]'] = 248;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $locationaddfullozyq['field_place_lat_long[und][0][geom]'] = 'POINT (31.768699645996 3.228319883347)';
     $this->drupalPost(NULL, $locationaddfullozyq, t('Save'), array('query' => array(
@@ -200,7 +200,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $this->drupalLogin($this->managerUser);
     $this->drupalPost('user/' . $this->managerUser->uid . '/edit', array(
     "roles[5]" => 5,
-    'taxonomy_vocabulary_5[und]' => 3,
+    'taxonomy_vocabulary_5[und]' => 4,
     'taxonomy_vocabulary_4[und]' => 8,
     'field_user_firstname[und][0][value]' => 'firstname',
     'field_user_surname[und][0][value]' => 'lname',
@@ -208,7 +208,8 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
     $this->drupalGet('user/' . $this->managerUser->uid);
-    $this->assertLink('admin admin', 0, 'manager admin link found');
+    $this->assertNoLink('admin admin', 0, 'Link not found');
+    $this->assertLink('Edit', 0, 'Admin link is found');
     $this->drupalPost('user/' . $this->adminUser->uid . '/edit', array(
     "roles[3]" => 3,
     'field_user_firstname[und][0][value]' => 'ozzx',
@@ -230,15 +231,14 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 3,
+    'taxonomy_vocabulary_5[und]' => 5,
     'taxonomy_vocabulary_4[und]' => 7,
     'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
     $this->drupalGet('users/firstname', array('query' => array('search_api_aggregation_1' => 'firstname')));
-    $this->assertLink('Edit', 0, 'edit link is found');
-    $this->clickLink('Edit', 0, 'edit user link is clicked');
+    $this->assertNoLink('Edit', 0, 'edit link is found');
   }
   /**
    * Confirming that the unicef user logins and access the add questionnaire.
@@ -254,7 +254,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
     'taxonomy_vocabulary_5[und]' => 4,
-    'taxonomy_vocabulary_4[und]' => 6,
+    'taxonomy_vocabulary_4[und]' => 8,
     'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
@@ -276,7 +276,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 5,
+    'taxonomy_vocabulary_5[und]' => 6,
     'taxonomy_vocabulary_4[und]' => 7,
     'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
@@ -299,8 +299,8 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 3,
-    'taxonomy_vocabulary_4[und]' => 6,
+    'taxonomy_vocabulary_5[und]' => 6,
+    'taxonomy_vocabulary_4[und]' => 7,
     'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
@@ -326,7 +326,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     'field_user_firstname[und][0][value]' => 'unicefEditor',
     'field_user_surname[und][0][value]' => 'editor',
     'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 5,
+    'taxonomy_vocabulary_5[und]' => 6,
     'taxonomy_vocabulary_4[und]' => 7,
     'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
