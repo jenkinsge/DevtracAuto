@@ -110,7 +110,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $locationAddFullozyq['title'] = $this->randomName(32);
     $locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 245;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'Taxonomy vocabulary term 6 is removed');
-    $this->drupalGet('node/add/place/', array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81)));
+    $this->drupalGet('node/add/place/');
     $this->assertNoText('Uganda Basemap', t('Uganda Basemap option is found'), 'Devtrac');
     $this->assertNoText('Layer Switcher', t('Layer Switcher section is found'), 'Devtrac');
     $this->assertNoText('Base layers', t('Base layers label is found on add places'), 'Devtrac');
@@ -248,7 +248,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $formSubmitreportsozyq['reporttype'] = 1;
     $this->assertField('district', 'district field on add place form');
     $this->assertNoField('placetype', 'place type is removed from the add site report visit form');
-    $this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array(
+    $this->drupalPost('node/' . $nodeAddreportfullSubmitozyq->nid . '/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array(
       'query' => array(
       'destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
     $locationAddFullozyq['title'] = $this->randomName(32);
