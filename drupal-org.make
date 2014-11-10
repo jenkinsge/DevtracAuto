@@ -168,7 +168,7 @@ projects[flot][version] = "1.x-dev"
 projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
 projects[flot][patch][] = "https://www.drupal.org/files/flot-pie_options-2088021-3.patch"
-projects[flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects_fix-2264691-0.patch"
+projects[flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects_fix-2264691-4.patch"
 
 projects[fontyourface][version] = "2.8"
 projects[fontyourface][type] = "module"
