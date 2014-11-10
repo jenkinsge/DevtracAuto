@@ -86,7 +86,6 @@ table tbody tr.even td.active {
 
 .region-menu {
   margin-left: 0 !important;
-
 }
 
 #region-branding {
@@ -99,9 +98,6 @@ table tbody tr.even td.active {
   margin: 0;
   width: 100%;
 }
-
-
-
 
 /*================================ zone-featured ============================*/
 
@@ -124,7 +120,7 @@ table tbody tr.even td.active {
   padding-right: 20px;
   width: 250px;
   line-height: 20px;
-  font-size: 1.0em;
+  font-size: 1.3em !important;
   font-weight: normal;
   margin: 0px;
 }
