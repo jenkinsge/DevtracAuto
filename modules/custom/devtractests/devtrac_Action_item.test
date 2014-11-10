@@ -110,7 +110,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is no longer found on the add filed trip form');
     $actionsub['title'] = 'My future fieldtrip';
     $actionsub['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $actionsub['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $actionsub['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $actionsub['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $actionsub['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $actionsub['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -133,7 +133,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     //
     $rn1='Schools performance';
     //$actionper['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
     $actionper['title'] = 'My future fieldtrip';
     $actionper['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
     $actionper['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2; 
@@ -164,7 +164,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $actionper1['title'] = 'My future fieldtrip';
     // Try to add multi purposes(1.2.3).
     $actionper1['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $actionper1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1; 
+    $actionper1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3; 
     $actionper1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 101;
     $actionper1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $actionper1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -188,11 +188,11 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     // $fieldAdd['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip add form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip add form');
     $fieldAdd['title'] = 'YES WE CAN';
     $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAdd['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1; 
+    $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3; 
     $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAdd['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAdd['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -227,11 +227,11 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     // $fieldAddLocation['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add fieldtrip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add fieldtrip form');
     $fieldAddLocation['title'] = 'YES WE CAN';
     $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocation['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1; 
+    $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3; 
     $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocation['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocation['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -282,7 +282,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     // Populating the fieldtrip create form.
     // Try to add multiple districts as random(upper&lower)????
     // $fieldAddLocationsChange['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
     $fieldAddLocationsChange['title'] = 'YES WE CAN';
     $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocationsChange['field_fieldtrip_internal_id[und][0][value]'] = 76;
@@ -301,7 +301,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
       'destination' => 'node/' . $nodeAddlocates->nid
     )));
     $formsubmitChange['reporttype'] = 0;
-    $this->assertNoField('district', t('district field is removed'));
+    $this->assertField('district', t('district field is placed back'));
     //$formsubmitChange['district'] = 81;
     //pick any number from the districts on the fieldtrip?????/
     //$formsubmitChange['placetype'] = 0;
@@ -326,7 +326,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
     // Populating the fieldtrip create form
     // $fieldAddLocationsChange['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
     $fieldAddLocationsChange['title'] = 'YES WE CAN';
     $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocationsChange['field_fieldtrip_internal_id[und][0][value]'] = 76;
@@ -364,11 +364,11 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('TA Number'), t('TA number field is removed'), 'Devtrac');
     // populating the fieldtrip create form
     //$fieldAddLocationsChangex['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from add field trip form');
     $fieldAddLocationsChangex['title'] = 'YES You CAN';
     $fieldAddLocationsChangex['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocationsChangex['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fieldAddLocationsChangex['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $fieldAddLocationsChangex['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $fieldAddLocationsChangex['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocationsChangex['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocationsChangex['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -397,7 +397,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
     // populating the fieldtrip create form.
      // $fieldAddLocationsChangedistrict['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('District field is removed from add field trip form');
+    $this->assertNoField('district field is placed back from add field trip form');
     $fieldAddLocationsChangedistrict['title'] = 'YES WE CAN';
     $fieldAddLocationsChangedistrict['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocationsChangedistrict['field_fieldtrip_internal_id[und][0][value]'] = 76;
@@ -552,7 +552,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('TA Number'), t('TA number field is removedfound'), 'Devtrac');
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
-    // District field is removed.
+    // district field is placed back.
     // $field_add_report_item['taxonomy_vocabulary_6[und][]'] = 81;
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
@@ -596,7 +596,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -611,7 +611,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'destination' => 'node/' . $node_add_report_item->nid)));
     $form_submit_report['reporttype'] = 1;
-    $this->assertNoField('district', 'district field is removed');
+    $this->assertField('district', 'district field is placed back');
     //$form_submit_report['district'] = 81;
     // $form_submit_report['placetype'] = 1;
     $this->assertNoField('placetype', 'place type field on add site reports to the fieldtrip is removed');
@@ -653,7 +653,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $field_add_location_submit['title'] = 'YES WE CAN';
     $field_add_location_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_location_submit['field_fieldtrip_internal_id[und][0][value]'] = 7;
-    $field_add_location_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $field_add_location_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $field_add_location_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_location_submit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_location_submit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -681,7 +681,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $location_add['title'] = $this->randomName(32);
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'field was removed');
-    $location_add['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add['taxonomy_vocabulary_1[und]'] = 245;
     $location_add['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add, t('Save'));
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
@@ -706,7 +706,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $full_report_submit['title'] = 'YES WE CAN';
     $full_report_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $full_report_submit['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $full_report_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $full_report_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $full_report_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $full_report_submit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $full_report_submit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -731,7 +731,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     // $this->clickLink('Create New Location', 0, 'clicked');
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $location_add_full['title'] = $this->randomName(32);
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Taxonomy vocaburary 6 field was removed');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add_full, t('Save'));
@@ -753,11 +753,11 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 100);
     // Populating the fieldtrip create form.
     // $field_add_report_item['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from field trip add form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from field trip add form');
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -772,7 +772,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'destination' => 'node/' . $node_add_report_item->nid)));
     $form_submit_report['reporttype'] = 2;
-    $this->assertNoField('district', ' District Field not found');
+    $this->assertField('district', ' District Field not found');
     //$form_submit_report['district'] = 81;
     $this->assertNoField('placetype', 'Place type Field not found');
     // $form_submit_report['placetype'] = 1;
@@ -798,7 +798,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Field found');
     $location_add_full['title'] = $this->randomName(32);
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add_full, t('Save'));
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
@@ -836,10 +836,10 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 90);
     // Populating the fieldtrip create form.
     // $field_add_report_item1['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
     $field_add_report_item1['title'] = 'YES WE CAN';
     $field_add_report_item1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
-    $field_add_report_item1['field_fieldtrip_internal_id[und][0][value]'] = 76;
+    $field_add_report_item1['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(2);
     $field_add_report_item1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
     $field_add_report_item1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
@@ -854,7 +854,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->drupalGet('node/' . $node_add_report_item1->nid . '/addplaceform/ajax/nojs/go', array(
       'query' => array(
         'destination' => 'node/' . $node_add_report_item1->nid)));
-    $this->assertNoField('District', 'Field not found');
+    $this->assertField('district', 'Field not found');
     $form_submit_report1['reporttype'] = 2;
     $this->assertNoField('placetype', 'District Field found');
     // $form_submit_report1['placetype'] = 2;
@@ -878,7 +878,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $location_add_full1['title'] = $this->randomName(32);
-    $location_add_full1['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add_full1['taxonomy_vocabulary_1[und]'] = 245;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Field found');
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $location_add_full1['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
@@ -927,11 +927,11 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     // $field_add_report_item['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -948,7 +948,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
           'destination' => 'node/' . $node_add_report_item->nid)));
     $form_submit_report['reporttype'] = 2;
     //$form_submit_report['district'] = 81;
-    $this->assertNoField('district', 'district filed is removed');
+    $this->assertField('district', 'district filed is removed');
     // $form_submit_report['placetype'] = 0;
     $this->assertNoField('placetype', 'placetype field is removed');
     $this->drupalPost('node/' . $node_add_report_item->nid . '/addplaceform/ajax/nojs/go', $form_submit_report, t('Submit'),
@@ -970,7 +970,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $location_add_full['title'] = $this->randomName(32);
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 25;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
     
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'district field was removed');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
@@ -1005,7 +1005,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $ditnarrative['title'] = 'YES ITS DONE';
     // $ditnarrative['taxonomy_vocabulary_6[und][]'] = 81;
     $ditnarrative['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
-    $ditnarrative['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 1;
+    $ditnarrative['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
     $ditnarrative['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $ditnarrative['field_fieldtrip_internal_id[und][0][value]'] = 1000000;
     $this->drupalPost('node/' . $node_add_report_item->nid . '/edit', $ditnarrative, t('Save'),
@@ -1029,9 +1029,10 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     // $field_add_report_item['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field tri form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field tri form');
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
@@ -1049,9 +1050,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
         'destination' => 'node/' . $node_add_report_item->nid)));
     $form_submit_report['reporttype'] = 1;
     //$form_submit_report['district'] = 81;
-    $this->assertNoField('district', 'district filed is removed');
-    // $form_submit_report['placetype'] = 1;
-    $this->assertNoField('placetype', 'placetype field is removed');
+    $this->assertField('district', 'district filed is removed');
     $this->assertNoField('placetype', 'place type field on add site reports to the fieldtrip is removed');
     $this->drupalPost('node/' . $node_add_report_item->nid . '/addplaceform/ajax/nojs/go',
     $form_submit_report, t('Submit'), array(
