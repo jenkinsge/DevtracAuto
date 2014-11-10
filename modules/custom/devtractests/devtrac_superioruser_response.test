@@ -219,7 +219,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und', 'taxonomy vocabulary 6 is not showing');
     $this->assertNofield('taxonomy_vocabulary_8[und][]', 'Field Sector code and name is renamed');  
     $ditnarrativeozyq['taxonomy_vocabulary_8[und]'] = 17;
-    //$ditnarrativeozyq['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac7_theme/images/ws_pandas_in_love_1920x1200.jpg';
+    //$ditnarrativeozyq['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac_classic/images/ws_pandas_in_love_1920x1200.jpg';
     $this->drupalPost(NULL, $ditnarrativeozyq, t('Save'), array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     // Changed the flow of the structure.
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
