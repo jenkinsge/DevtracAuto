@@ -196,7 +196,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmitozyq, t('Save'), array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
-    $this->assertText(t('has been created.'), ('field trip is created successifuly'), 'DevTrac');
+    $this->assertText(t('has been created.'), ('field trip is created successifully'), 'DevTrac');
     $nodeaddreportfullsubmitozyq = $this->drupalGetNodeByTitle($fullReportSubmitozyq["title"]);
     $this->assertNotNull($nodeaddreportfullsubmitozyq, t('node loaded'));
     $this->assertNoLink('Add a location to the Field Trip.', 0, t('link Add Location to fieldtrip is changed to add site reports'));
@@ -211,15 +211,16 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     // Now fill in the Edit Field Trip Report Item Site Visit form.
     $this->assertNoLink('Change the narrative of the Site Report.', 0, t('Clicked the change narrative of the site Report'));
     $this->drupalGet('node/add/ftritem/', array('query' => array('destination' => 'node/'.$nodeaddreportfullsubmitozyq->nid)));
-    $ditnarrativeozyq['taxonomy_vocabulary_7[und]'] = 20;
+    $ditnarrativeozyq['taxonomy_vocabulary_7[und]'] = 242;
     $ditnarrativeozyq['title'] = 'YES THAT IS IT FOR NOW!';
     $ditnarrativeozyq['field_ftritem_public_summary[und][0][value]'] = $this->randomString(30);
     $ditnarrativeozyq['field_ftritem_narrative[und][0][value]'] = $this->randomString(210);
     $ditnarrativeozyq['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->assertNoField('taxonomy_vocabulary_6[und', 'taxonomy vocabulary 6 is not showing');
     $this->assertNofield('taxonomy_vocabulary_8[und][]', 'Field Sector code and name is renamed');  
-    $ditnarrativeozyq['taxonomy_vocabulary_8[und]'] = 17;
-    //$ditnarrativeozyq['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac_classic/images/ws_pandas_in_love_1920x1200.jpg';
+    $ditnarrativeozyq['taxonomy_vocabulary_8[und]'] = 48;
+    $ditnarrativeozyq['taxonomy_vocabulary_1[und]'] = 248;
+    //$ditnarrativeozyq['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac7_theme/images/ws_pandas_in_love_1920x1200.jpg';
     $this->drupalPost(NULL, $ditnarrativeozyq, t('Save'), array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     // Changed the flow of the structure.
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
@@ -269,7 +270,6 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $commentq['comment_body[und][0][value]'] = $this->randomName(12);
     // Commenting on the submitted fieldtrip.
     $this->drupalPost(NULL, $commentq, t('Save'), array('query' => array('destination' => 'user/' . $this->fieldWorker->uid)));
-    
     $this->assertText(t('Your comment has been posted.'), t('manager message is posted successifuly'), 'DevTrac');
     $this->drupalLogout($this->fieldWorker);
     $this->drupalGet('user/login');
