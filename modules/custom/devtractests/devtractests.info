@@ -1,5 +1,4 @@
 name = devtractests
-files[] = devtrac_aboutdevtrac_edits.test
 files[] = devtrac_anony_actions.test
 files[] = devtrac_createUser_formElements.test
 files[] = devtrac_howDevtracWorks_page.test
