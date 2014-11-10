@@ -1064,6 +1064,22 @@ form.comment-form .form-item.form-type-item {
 }
 
 /*=====================================================================================
+ * Crazy Table Styles
+ * ==================================================================================*/
+
+.view-devtrac-solr-view-questions .view-grouping-content table tbody {
+  border: none;
+}
+
+.view-devtrac-solr-view-questions .view-grouping-content table tr:hover {
+  color: #333333;
+}
+
+.view-devtrac-solr-view-questions .view-grouping-content table tr:hover a {
+  color: #A52A2A;
+}
+
+/*=====================================================================================
  * Ctools Buttons
  * ==================================================================================*/
 
@@ -1120,6 +1136,7 @@ tr:hover .ctools-button li a:visited {
   padding: 5px 10px;
   white-space: nowrap;
   text-decoration: none;
+  display: inline-block;
 }
 
 .ctools-button li a:hover ,
