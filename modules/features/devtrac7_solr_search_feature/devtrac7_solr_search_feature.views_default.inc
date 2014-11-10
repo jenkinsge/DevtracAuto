@@ -867,10 +867,15 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Indexed Node: Location Type */
+  /* Relationship: Indexed Node: Location */
+  $handler->display->display_options['relationships']['field_ftritem_place']['id'] = 'field_ftritem_place';
+  $handler->display->display_options['relationships']['field_ftritem_place']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['relationships']['field_ftritem_place']['field'] = 'field_ftritem_place';
+  /* Relationship: Node: Location Type */
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
-  $handler->display->display_options['relationships']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_1']['table'] = 'entity_node';
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_1']['relationship'] = 'field_ftritem_place';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Indexed Node: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';

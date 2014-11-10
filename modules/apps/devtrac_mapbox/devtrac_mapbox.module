@@ -59,6 +59,9 @@ function devtrac_mapbox_settings_form_validate($form, &$form_state) {
     $input_strings = explode("\n", $input_string);
     // For each string,
     foreach ($input_strings as $row) {
+      if (empty($row)) {
+        continue;
+      }
       // Split the string into an array of strings again.
       $input_elements = explode ("|", $row);
 
@@ -66,16 +69,19 @@ function devtrac_mapbox_settings_form_validate($form, &$form_state) {
       if (sizeof($input_elements) < 4) {
         form_set_error('Layer string ' . $input_elements[0] . ' missing some elements',
             t('Please enter a value for all the elements of the layer string with id ' . $input_elements[0] .  '.'));
+        return;
       }
       // The mapbox id has to have a value.
       if ($input_elements[0]  == "") {
         form_set_error('Layer string ' . $input_elements[0] . ' missing',
-            t('Please enter a value for the mapbox id for each layer.'));
+            t('Please enter a mapbox id for the layer with title ' . $input_elements[1] . '.'));
+        return;
       }
       // The title has to have a value.
       if ($input_elements[1]  == "") {
         form_set_error('Layer string ' . $input_elements[1] . ' missing',
-            t('Please enter a value for the title for each layer.'));
+            t('Please enter a title for the layer with id ' . $input_elements[0] .  '.'));
+        return;
       }
     }
   }
@@ -166,6 +172,9 @@ function getLayers() {
     $layer_strings = explode("\n", $layer_string);
     // For each string
     foreach ($layer_strings as $row) {
+      if (empty($row)) {
+        continue;
+      }
       // Split the string into an array of strings again.
       $layer_elements = explode ("|", $row);
 
