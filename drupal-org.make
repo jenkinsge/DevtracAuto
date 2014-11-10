@@ -131,6 +131,10 @@ projects[feeds_entityreference][version] = "1.x-dev"
 projects[feeds_entityreference][type] = "module"
 projects[feeds_entityreference][subdir] = "contrib"
 
+projects[feeds_tamper][version] = "1.0"
+projects[feeds_tamper][type] = "module"
+projects[feeds_tamper][subdir] = "contrib"
+
 projects[field_collection_feeds][version] = "1.0-alpha3"
 projects[field_collection_feeds][type] = "module"
 projects[field_collection_feeds][subdir] = "contrib"
