@@ -29,6 +29,10 @@
   background-size: auto 40px;
 }
 
+.node-type-questionnaire-question #page-title {
+  background-image: url(../images/title-icon-question.png);
+}
+
 .page-node-add-ftritem #page-title ,
 .context-sitereport #page-title {
   background-image: url(../images/title-icon-sitereport.png);
