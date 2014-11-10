@@ -131,7 +131,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $this->assertNoLink('Add a location to the Field Trip.', 0, t('link to add Location to fieldtrip is no longer showing'));
     $this->drupalGet('node/' . $nodeaddreportfullsubmitozyq->nid . '/addplaceform/ajax/nojs/go', array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     $formsubmitreportsozyq['reporttype'] = 2;
-    $this->assertNoField('district', 'district field on add place form');
+    $this->assertField('district', 'district field on add place form');
     $this->assertNoField('placetype', 'placetype field on add place form');
     // $formsubmitreportsozyq['placetype'] = 2;
     $this->assertNoField('placetype', 'Place Type field is no longer found on on the site report form', 'Devtrac');
@@ -236,7 +236,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
-    $this->drupalGet('users/users/firstname', array('query' => array('search_api_aggregation_1' => 'firstname')));
+    $this->drupalGet('users/firstname', array('query' => array('search_api_aggregation_1' => 'firstname')));
     $this->assertLink('Edit', 0, 'edit link is found');
     $this->clickLink('Edit', 0, 'edit user link is clicked');
   }
