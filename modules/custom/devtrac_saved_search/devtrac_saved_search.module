@@ -7,11 +7,12 @@
 function devtrac_saved_search_menu() {
   // This is the mother of all Devtrac7 admin items
   // It just navigates to a page with other Devtrac admin options (eg. Edit Questions)
-  $items['devtrac7/add_saved_search'] = array(
+  $items['admin/devtrac7/add_saved_search'] = array(
       'title' => 'Users saved searchs',
       'description' => 'Add Saved search for all users',
       'page callback' => 'devtrac_saved_search_test_cron',
-      'access callback' => TRUE,
+      'access callback' => 'devtrac_saved_search_user_has_role',
+      'access arguments' => array(1, array('Devtrac Admin', 'Administrator')),
       'type' => MENU_NORMAL_ITEM, // This is the highest level an Editor has
   );
   
@@ -19,6 +20,13 @@ function devtrac_saved_search_menu() {
   return $items;
 }
 
+/**
+*  Function checks if the current user has a given role
+*/
+function devtrac_saved_search_has_roles(array $roles) {
+  global $user;
+  return empty(array_intersect($roles, array_values($user->roles))) ? FALSE : TRUE;
+}
 
 function devtrac_saved_search_test_cron() {
 
