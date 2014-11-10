@@ -554,8 +554,11 @@ projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-182855
 
 projects[shiny][version] = "1.6"
 
-projects[devtrac7_theme][version] = "1.x-dev"
+; projects[devtrac7_theme][version] = "1.x-dev"
 projects[devtrac7_theme][type] = "theme"
+projects[devtrac7_theme][download][type] = "git"
+projects[devtrac7_theme][download][url] = "git://git.drupal.org/project/devtrac7_theme.git"
+projects[devtrac7_theme][download][branch] = "7.x-1.x"
 
 ; Libraries
 libraries[autopager][download][type] = "file"
