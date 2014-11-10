@@ -434,7 +434,7 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['fields']['title_2']['table'] = 'node';
   $handler->display->display_options['fields']['title_2']['field'] = 'title';
   $handler->display->display_options['fields']['title_2']['relationship'] = 'reverse_field_ftritem_place_node';
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -1240,7 +1240,6 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['fields']['name_2']['label'] = '';
   $handler->display->display_options['fields']['name_2']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name_2']['alter']['alter_text'] = TRUE;
- // $handler->display->display_options['fields']['name_2']['alter']['text'] = '';
   $handler->display->display_options['fields']['name_2']['element_type'] = 'div';
   $handler->display->display_options['fields']['name_2']['element_class'] = 'legend-icon';
   $handler->display->display_options['fields']['name_2']['element_label_colon'] = FALSE;
@@ -1270,7 +1269,7 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['expose']['identifier'] = 'machine_name';
   $handler->display->display_options['block_description'] = 'MapIcon Legend';
   $export['devtrac_admin_taxonomy'] = $view;
-  
+
   $view = new view();
   $view->name = 'district_check';
   $view->description = '';
