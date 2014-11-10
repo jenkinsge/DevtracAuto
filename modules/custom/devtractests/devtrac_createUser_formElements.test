@@ -271,8 +271,8 @@ class CreatePermittedUserCreateUserFormTestCase extends SimpleTestCloneTestCase 
     $this->assertResponse(200, 'request responded to');
     $this->assertNoField(t('taxonomy_vocabulary_6[und][]'), t('district field does not  exist'), 'DevTrac');
     $this->assertText(t('Filters'), t('Filters label is showing'), 'DevTrac');
-    $this->assertNoText(t('Districts'), t('Districts field filter is not showing'), 'DevTrac');
-    $this->assertNoText(t('Select all the districts you are interested in. To select more than 1 district, press the CTRL key and click them 1 by 1.'), 'Select all the districts you are interested in. To select more than 1 district, press the CTRL key and click them 1 by 1.field label is not showing', 'DevTrac');
+    $this->assertText(t('Districts'), t('Districts field filter is showing'), 'DevTrac');
+    $this->assertText(t('Select all the districts you are interested in. To select more than 1 district, press the CTRL key and click them 1 by 1.'), 'Select all the districts you are interested in. To select more than 1 district, press the CTRL key and click them 1 by 1.field label is showing', 'DevTrac');
   }
  /**
   * Field Edit-submit with it's equivalent text label is showing. 

@@ -44,11 +44,10 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
     "server" : "devtrac_solr_server",
     "item_type" : "node",
     "options" : {
-      "index_directly" : 0,
+      "index_directly" : true,
       "cron_limit" : "50",
       "fields" : {
         "author" : { "type" : "integer", "entity_type" : "user" },
-        "field_question_subject" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "nid" : { "type" : "integer" },
         "questionnaire_question_options" : { "type" : "list\\u003Ctext\\u003E" },
         "questionnaire_question_type" : { "type" : "string" },
