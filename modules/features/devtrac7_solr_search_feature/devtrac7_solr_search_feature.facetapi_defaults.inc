@@ -76,6 +76,8 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
+    'individual_parent' => 0,
+    'limit_active_items' => 0,
   );
   $export['search_api@devtrac_solr_site_visits_index::author'] = $facet;
 
@@ -246,7 +248,7 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'default_true' => '1',
     'facet_search_ids' => array(),
     'exclude' => 0,
-    'individual_parent' => 0,
+    'individual_parent' => '0',
     'limit_active_items' => 0,
   );
   $export['search_api@devtrac_solr_site_visits_index::taxonomy_vocabulary_1'] = $facet;
@@ -519,7 +521,7 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
       'natural' => '4',
       'indexed' => '4',
     ),
-    'empty_behavior' => 'text',
+    'empty_behavior' => 'none',
     'soft_limit' => '5',
     'nofollow' => 1,
     'show_expanded' => 0,
@@ -563,6 +565,8 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'swatch_shownoimage' => 1,
     'swatch_imagestyle_select' => 'devtrac_oecd_icons_bw',
     'graphsflot' => 'point',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@devtrac_solr_site_visits_index:block:author'] = $facet;
 
@@ -2406,7 +2410,7 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'search_api_swatches',
     'filters' => array(),
     'active_sorts' => array(
       'active' => 'active',
@@ -2460,17 +2464,19 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'graphsseries_colours' => '',
     'graphsshowlegend' => 1,
     'tagcloud_levels' => '6',
-    'swatch_field' => '',
-    'swatch_imagestyle' => 'devtrac_oecd_icons_bw',
-    'swatch_showtext' => 0,
+    'swatch_field' => 'field_term_icon',
+    'swatch_imagestyle' => 'devtrac_oecd_icons_color_small',
+    'swatch_showtext' => 1,
     'swatch_shownoimage' => 1,
-    'swatch_imagestyle_select' => 'devtrac_oecd_icons_bw',
+    'swatch_imagestyle_select' => 'devtrac_oecd_icons_bw_small',
     'graphsflot' => 'point',
     'empty_text' => array(
       'value' => '',
       'format' => '1',
     ),
     'submit_realm' => 'Save and go back to realm settings',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@devtrac_solr_site_visits_index:devtrac7_graph_combo_2:taxonomy_vocabulary_1'] = $facet;
 
