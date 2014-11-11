@@ -1556,7 +1556,7 @@ function devtrac7_node_types_field_default_field_instances() {
       'settings' => array(
         'maxlength_js' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'size' => 30,
+        'size' => 24,
       ),
       'type' => 'text_textfield',
       'weight' => 1,
