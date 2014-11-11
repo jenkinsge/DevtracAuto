@@ -590,6 +590,13 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['fields']['view_1']['id'] = 'view_1';
   $handler->display->display_options['fields']['view_1']['table'] = 'views';
   $handler->display->display_options['fields']['view_1']['field'] = 'view';
+  /* Filter criterion: Taxonomy vocabulary: Machine name */
+  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
+  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
+  $handler->display->display_options['filters']['machine_name']['value'] = array(
+    'vocabulary_8' => 'vocabulary_8',
+  );
 
   /* Display: Siteviisit Answer Sector Block */
   $handler = $view->new_display('block', 'Siteviisit Answer Sector Block', 'block');

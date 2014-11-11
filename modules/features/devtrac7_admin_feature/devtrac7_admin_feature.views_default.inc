@@ -26,6 +26,8 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
+    7 => '7',
+    3 => '3',
     4 => '4',
   );
   $handler->display->display_options['cache']['type'] = 'none';
@@ -45,10 +47,10 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
 
-  /* Display: OECD Codes */
-  $handler = $view->new_display('page', 'OECD Codes', 'page');
+  /* Display: Edit Sector Codes */
+  $handler = $view->new_display('page', 'Edit Sector Codes', 'page_sector_codes');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Sectors';
+  $handler->display->display_options['title'] = 'Sector Codes';
   $handler->display->display_options['display_description'] = 'A view that will display all the oecd codes (sectors) with their respective icons';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
@@ -69,16 +71,36 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['empty'] = 'Missing Description';
+  /* Field: Taxonomy term: Code */
+  $handler->display->display_options['fields']['field_oecd_code']['id'] = 'field_oecd_code';
+  $handler->display->display_options['fields']['field_oecd_code']['table'] = 'field_data_field_oecd_code';
+  $handler->display->display_options['fields']['field_oecd_code']['field'] = 'field_oecd_code';
+  $handler->display->display_options['fields']['field_oecd_code']['label'] = 'OECD Code';
+  $handler->display->display_options['fields']['field_oecd_code']['empty'] = 'Missing OECD Code';
   /* Field: Taxonomy term: Term Icon */
   $handler->display->display_options['fields']['field_term_icon']['id'] = 'field_term_icon';
   $handler->display->display_options['fields']['field_term_icon']['table'] = 'field_data_field_term_icon';
   $handler->display->display_options['fields']['field_term_icon']['field'] = 'field_term_icon';
-  $handler->display->display_options['fields']['field_term_icon']['label'] = 'Icon';
+  $handler->display->display_options['fields']['field_term_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_term_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_term_icon']['empty'] = 'Missing Icon';
   $handler->display->display_options['fields']['field_term_icon']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_term_icon']['settings'] = array(
     'image_style' => '',
     'image_link' => '',
   );
+  /* Field: Taxonomy term: Term edit link */
+  $handler->display->display_options['fields']['edit_term']['id'] = 'edit_term';
+  $handler->display->display_options['fields']['edit_term']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['edit_term']['field'] = 'edit_term';
+  $handler->display->display_options['fields']['edit_term']['label'] = '';
+  $handler->display->display_options['fields']['edit_term']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_term']['text'] = 'Edit';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Taxonomy term: Term Icon (field_term_icon:fid) */
   $handler->display->display_options['sorts']['field_term_icon_fid']['id'] = 'field_term_icon_fid';
@@ -97,61 +119,62 @@ function devtrac7_admin_feature_views_default_views() {
   );
   $handler->display->display_options['path'] = 'admin/devtrac7/dq/oecd-code-icons';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'OECD codes Icons';
+  $handler->display->display_options['menu']['title'] = 'Edit Sector Codes';
   $handler->display->display_options['menu']['description'] = 'This view tells the progress of the OECD code icons';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
-  /* Display: PlaceTypes */
-  $handler = $view->new_display('page', 'PlaceTypes', 'page_1');
+  /* Display: Edit Location Types */
+  $handler = $view->new_display('page', 'Edit Location Types', 'page_location_types');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'PT';
-  $handler->display->display_options['enabled'] = FALSE;
-  $handler->display->display_options['display_description'] = 'A view that will display all the PlaceTypes with their respective icons';
+  $handler->display->display_options['title'] = 'Location Types';
+  $handler->display->display_options['display_description'] = 'A view that will display all the Location Types with their respective icons';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'title' => 'title',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'title' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-  );
+  $handler->display->display_options['style_plugin'] = 'grid';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: Taxonomy term: Content using Location Type */
-  $handler->display->display_options['relationships']['reverse_taxonomy_vocabulary_1_node']['id'] = 'reverse_taxonomy_vocabulary_1_node';
-  $handler->display->display_options['relationships']['reverse_taxonomy_vocabulary_1_node']['table'] = 'taxonomy_term_data';
-  $handler->display->display_options['relationships']['reverse_taxonomy_vocabulary_1_node']['field'] = 'reverse_taxonomy_vocabulary_1_node';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['relationship'] = 'reverse_taxonomy_vocabulary_1_node';
-  /* Field: Content: Nid */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'node';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['relationship'] = 'reverse_taxonomy_vocabulary_1_node';
-  /* Field: Field: Location Type */
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['relationship'] = 'reverse_taxonomy_vocabulary_1_node';
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_taxonomy'] = TRUE;
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = 'Description';
+  $handler->display->display_options['fields']['description']['empty'] = 'Missing Description';
+  /* Field: Taxonomy term: Term Icon */
+  $handler->display->display_options['fields']['field_term_icon']['id'] = 'field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['table'] = 'field_data_field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['field'] = 'field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_term_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_term_icon']['empty'] = 'Missing Icon';
+  $handler->display->display_options['fields']['field_term_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_term_icon']['settings'] = array(
+    'image_style' => 'devtrac_oecd_icons_color',
+    'image_link' => '',
+  );
+  /* Field: Taxonomy term: Term edit link */
+  $handler->display->display_options['fields']['edit_term']['id'] = 'edit_term';
+  $handler->display->display_options['fields']['edit_term']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['edit_term']['field'] = 'edit_term';
+  $handler->display->display_options['fields']['edit_term']['label'] = '';
+  $handler->display->display_options['fields']['edit_term']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_term']['text'] = 'Edit';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Taxonomy term: Term Icon (field_term_icon:fid) */
   $handler->display->display_options['sorts']['field_term_icon_fid']['id'] = 'field_term_icon_fid';
@@ -161,34 +184,27 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Taxonomy vocabulary: Machine name */
-  $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
-  $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
-  $handler->display->display_options['filters']['machine_name']['value'] = array(
-    'vocabulary_1' => 'vocabulary_1',
+  /* Filter criterion: Taxonomy term: Vocabulary */
+  $handler->display->display_options['filters']['vid']['id'] = 'vid';
+  $handler->display->display_options['filters']['vid']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['filters']['vid']['field'] = 'vid';
+  $handler->display->display_options['filters']['vid']['value'] = array(
+    6 => '6',
   );
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['relationship'] = 'reverse_taxonomy_vocabulary_1_node';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'place' => 'place',
-  );
-  $handler->display->display_options['path'] = 'admin/devtrac7/dq/pacetype';
+  $handler->display->display_options['path'] = 'admin/devtrac7/dq/locationtypes';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Location Type Icons';
-  $handler->display->display_options['menu']['description'] = 'Shows the Placetypes with their respective icons';
+  $handler->display->display_options['menu']['title'] = 'Edit Location Types';
+  $handler->display->display_options['menu']['description'] = 'Shows the Location Types with their respective Icons';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
 
-  /* Display: Edit districts */
-  $handler = $view->new_display('page', 'Edit districts', 'page_2');
+  /* Display: Edit Admin Units */
+  $handler = $view->new_display('page', 'Edit Admin Units', 'page_admin_units');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Edit Districts';
-  $handler->display->display_options['display_description'] = 'A view that will help editors to easily find and edit districts esp add categories';
+  $handler->display->display_options['title'] = 'Admin Units';
+  $handler->display->display_options['display_description'] = 'A view that will help editors to easily find and edit Admin Units esp add categories';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'infinite_scroll';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
@@ -239,6 +255,30 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['fields']['field_district_category']['id'] = 'field_district_category';
   $handler->display->display_options['fields']['field_district_category']['table'] = 'field_data_field_district_category';
   $handler->display->display_options['fields']['field_district_category']['field'] = 'field_district_category';
+  /* Field: Taxonomy term: Geo */
+  $handler->display->display_options['fields']['field_district_geo']['id'] = 'field_district_geo';
+  $handler->display->display_options['fields']['field_district_geo']['table'] = 'field_data_field_district_geo';
+  $handler->display->display_options['fields']['field_district_geo']['field'] = 'field_district_geo';
+  $handler->display->display_options['fields']['field_district_geo']['empty'] = 'Missing Geographical Information';
+  $handler->display->display_options['fields']['field_district_geo']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_district_geo']['type'] = 'geofield_latlon';
+  $handler->display->display_options['fields']['field_district_geo']['settings'] = array(
+    'data' => 'centroid',
+    'format' => 'decimal_degrees',
+    'labels' => 1,
+  );
+  /* Field: Taxonomy term: Long Name */
+  $handler->display->display_options['fields']['field_long_name']['id'] = 'field_long_name';
+  $handler->display->display_options['fields']['field_long_name']['table'] = 'field_data_field_long_name';
+  $handler->display->display_options['fields']['field_long_name']['field'] = 'field_long_name';
+  $handler->display->display_options['fields']['field_long_name']['empty'] = 'Missing Long Name';
+  /* Field: Taxonomy term: Wikipedia */
+  $handler->display->display_options['fields']['field_wikipedia']['id'] = 'field_wikipedia';
+  $handler->display->display_options['fields']['field_wikipedia']['table'] = 'field_data_field_wikipedia';
+  $handler->display->display_options['fields']['field_wikipedia']['field'] = 'field_wikipedia';
+  $handler->display->display_options['fields']['field_wikipedia']['empty'] = 'Missing Wikipedia Link';
+  $handler->display->display_options['fields']['field_wikipedia']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_wikipedia']['type'] = 'link_url';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Taxonomy term: Term Icon (field_term_icon:fid) */
   $handler->display->display_options['sorts']['field_term_icon_fid']['id'] = 'field_term_icon_fid';
@@ -975,7 +1015,11 @@ function devtrac7_admin_feature_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'devtrac_admin_taxonomy';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    7 => '7',
+    3 => '3',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;

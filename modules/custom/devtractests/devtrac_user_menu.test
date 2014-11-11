@@ -214,7 +214,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('placetype', 'place type field is removed from the add site report form');
     $this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
     $locationAddFullozyq['title'] = $this->randomName(32);
-    $locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 26;
+    $locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 248;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $locationAddFullozyq['field_place_lat_long[und][0][geom]'] = 'POINT (33.256301879883 2.269829988480)';
     $this->drupalGet('node/add/place/'.array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81)));
