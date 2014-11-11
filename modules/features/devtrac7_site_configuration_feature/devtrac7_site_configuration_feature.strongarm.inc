@@ -1013,7 +1013,7 @@ user/*/*';
   $export['piwik_roles'] = $strongarm;
 
   $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->disabled = TRUE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'piwik_site_id';
   $strongarm->value = '11';
@@ -1041,7 +1041,7 @@ user/*/*';
   $export['piwik_trackfiles_extensions'] = $strongarm;
 
   $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->disabled = TRUE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'piwik_url_http';
   $strongarm->value = 'http://piwik.mountbatten.net/';
