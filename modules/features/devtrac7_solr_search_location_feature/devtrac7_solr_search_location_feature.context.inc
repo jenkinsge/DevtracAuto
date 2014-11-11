@@ -87,9 +87,9 @@ function devtrac7_solr_search_location_feature_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-8',
         ),
-        'facetapi-yrHGqhyXRYKXSWKKKaoMRC02tJ2YJUjb' => array(
+        'facetapi-F1uLPOlCDXrjeUarLsG1atIlmE6kphRD' => array(
           'module' => 'facetapi',
-          'delta' => 'yrHGqhyXRYKXSWKKKaoMRC02tJ2YJUjb',
+          'delta' => 'F1uLPOlCDXrjeUarLsG1atIlmE6kphRD',
           'region' => 'sidebar_first',
           'weight' => '-7',
         ),
@@ -193,9 +193,9 @@ function devtrac7_solr_search_location_feature_context_default_contexts() {
           'region' => 'olblockpanel',
           'weight' => '-7',
         ),
-        'facetapi-yrHGqhyXRYKXSWKKKaoMRC02tJ2YJUjb' => array(
+        'facetapi-F1uLPOlCDXrjeUarLsG1atIlmE6kphRD' => array(
           'module' => 'facetapi',
-          'delta' => 'yrHGqhyXRYKXSWKKKaoMRC02tJ2YJUjb',
+          'delta' => 'F1uLPOlCDXrjeUarLsG1atIlmE6kphRD',
           'region' => 'olblockpanel',
           'weight' => '-6',
         ),
