@@ -377,7 +377,7 @@ function devtrac7_solr_search_location_feature_facetapi_default_facet_settings()
   $facet->searcher = 'search_api@devtrac_solr_locations_index';
   $facet->realm = 'block';
   $facet->facet = 'taxonomy_vocabulary_1';
-  $facet->enabled = TRUE;
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'search_api_swatches',
