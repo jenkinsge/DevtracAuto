@@ -225,6 +225,72 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_site_visits_index::field_ftritem_status';
+  $facet->searcher = 'search_api@devtrac_solr_site_visits_index';
+  $facet->realm = '';
+  $facet->facet = 'field_ftritem_status';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => 50,
+    'dependencies' => array(
+      'roles' => array(
+        5 => '5',
+        1 => 0,
+        3 => 0,
+        4 => 0,
+        6 => 0,
+        2 => 0,
+        7 => 0,
+      ),
+      'bundle' => 'none',
+      'bundle_selected' => array(
+        'actionitem' => 0,
+        'article' => 0,
+        'page' => 0,
+        'fieldtrip' => 0,
+        'ftritem' => 0,
+        'place' => 0,
+        'questionnaire_question' => 0,
+        'questionnaire' => 0,
+      ),
+      'facets' => array(
+        'taxonomy_vocabulary_6:field_district_category' => 0,
+        'author:field_user_superior' => 0,
+        'search_api_aggregation_1' => 0,
+        'taxonomy_vocabulary_8' => 0,
+        'author' => 0,
+        'status' => 0,
+        'taxonomy_vocabulary_1' => 0,
+        'taxonomy_vocabulary_6' => 0,
+        'taxonomy_vocabulary_7' => 0,
+        'field_ftritem_date_visited' => 0,
+      ),
+      'force_deactivation' => 1,
+      'regex' => 0,
+      'facet_items_taxonomy_vocabulary_6:field_district_category' => '',
+      'facet_items_author:field_user_superior' => '',
+      'facet_items_search_api_aggregation_1' => '',
+      'facet_items_taxonomy_vocabulary_8' => '',
+      'facet_items_author' => '',
+      'facet_items_status' => '',
+      'facet_items_taxonomy_vocabulary_1' => '',
+      'facet_items_taxonomy_vocabulary_6' => '',
+      'facet_items_taxonomy_vocabulary_7' => '',
+      'facet_items_field_ftritem_date_visited' => '',
+    ),
+    'facet_mincount' => 1,
+    'facet_missing' => 0,
+    'flatten' => 0,
+    'individual_parent' => 0,
+    'query_type' => 'term',
+    'limit_active_items' => 0,
+  );
+  $export['search_api@devtrac_solr_site_visits_index::field_ftritem_status'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
   $facet->name = 'search_api@devtrac_solr_site_visits_index::taxonomy_vocabulary_1';
   $facet->searcher = 'search_api@devtrac_solr_site_visits_index';
   $facet->realm = '';
