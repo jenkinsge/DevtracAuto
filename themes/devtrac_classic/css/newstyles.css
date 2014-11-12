@@ -2033,20 +2033,17 @@ div.olControlAttribution a:link {
   padding: 10px;
   padding-left: 40px;
   background: url(../images/task-list-icon.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   list-style: none;
   list-style-position: inside;
 }
 
 .maintenance-page #sidebar-first .task-list li.done {
   background: url(../images/task-list-done.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   color: #44AA00;
 }
 
 .maintenance-page #sidebar-first .task-list li.active {
   background: url(../images/task-list-active.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   color: #2CA089;
   font-weight: normal;
 }
@@ -2164,8 +2161,9 @@ div.olControlAttribution a:link {
 }
 
 .page-import .zone-content .region-inner ,
+.page-user-me-edit .zone-content .region-inner ,
 .page-node-add .zone-content .region-inner ,
-.page-node-edit .zone-content .region-inner{
+.page-node-edit .zone-content .region-inner {
   padding: 20px;
   background: #DDDDDD;
   border: thin solid #CCCCCC; 
@@ -2291,6 +2289,12 @@ form .field-multiple-table td.field-multiple-drag {
 
 td.delta-order select.form-select {
   padding-right: 20px;
+}
+
+.date-no-float.container-inline-date {
+  display: inline-block;
+  width: auto;
+  margin-right: 40px;
 }
 
 /*=======================================================*/
@@ -2505,6 +2509,23 @@ tr:hover .tabledrag-toggle-weight:hover {
 .olControlNoSelect.olControlEditingToolbar div.olButton.olControlModifyFeatureItemInactive ,
 .olControlNoSelect.olControlEditingToolbar div.olButton.olControlItemInactive {
   background-position: 0px -30px;
+}
+
+
+
+/*===================================================================================*\
+ * Hidden Form Elements
+\*===================================================================================*/
+
+#field-fieldtrip-start-end-date-add-more-wrapper label ,
+#edit-field-actionitem-due-date label {
+  display: none;
+}
+
+#field-fieldtrip-start-end-date-add-more-wrapper label[for="edit-field-fieldtrip-start-end-date-und-0-value2"] {
+  display: inline-block;
+  float: left;
+  margin-right: 40px;
 }
 
 /*===================================================================================*\
