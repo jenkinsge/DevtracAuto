@@ -2538,6 +2538,36 @@ table tr.footable-row-detail:hover a:hover {
   text-decoration: underline;
 }
 
+/*===================================================================================*\
+ * Ctools Modal Content Styles
+\*===================================================================================*/
+
+#modalContent div.ctools-modal-content .modal-header {
+  background: #333333;
+  color: #FFFFFF;
+  font-weight: normal;
+  font-family: inherit;
+  text-shadow: none;
+  padding: 5px;
+  border-bottom: 5px solid #EA0001;
+}
+
+#modalContent div.ctools-modal-content a.close {
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  background: url(../images/closer.png) no-repeat 50% 50%;
+  background-size: 20px;
+}
+
+#modalContent div.ctools-modal-content a.close img {
+  display: none;    
+}
+
+#modalContent div.ctools-modal-content .modal-title {
+  font-size: 1.1em;
+  margin-left: 10px;
+}
 
 /*===================================================================================*\
  * User Login Styles
