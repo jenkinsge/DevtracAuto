@@ -993,13 +993,13 @@ function devtrac_install_finished(&$install_state) {
     $instance['bundle'] = 'questionnaire_answer';
     field_create_instance($instance);
 
-    $instance['entity_type'] = 'node';
+/*    $instance['entity_type'] = 'node';
     $instance['bundle'] = 'ftritem';
     field_create_instance($instance);
 
     $instance['entity_type'] = 'node';
     $instance['bundle'] = 'place';
-    field_create_instance($instance);
+    field_create_instance($instance);*/
   }
   if(isset($instances['taxonomy_location_type'])) {
     $instance = $instances['taxonomy_location_type'];
@@ -1008,13 +1008,13 @@ function devtrac_install_finished(&$install_state) {
     $instance['bundle'] = 'questionnaire_answer';
     field_create_instance($instance);
 
-    $instance['entity_type'] = 'node';
+/*    $instance['entity_type'] = 'node';
     $instance['bundle'] = 'ftritem';
     field_create_instance($instance);
 
     $instance['entity_type'] = 'node';
     $instance['bundle'] = 'place';
-    field_create_instance($instance);
+    field_create_instance($instance);*/
   }
 
   // Rebuild the node access permissions.
