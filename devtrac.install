@@ -1027,7 +1027,10 @@ function devtrac_install_finished(&$install_state) {
     ->condition('type', 'module')
     ->condition('name', drupal_get_profile())
     ->execute();
-
+  
+  // Set performance parameters
+  devtrac_performance_settings();
+  
   // Cache a fully-built schema.
   drupal_get_schema(NULL, TRUE);
 
@@ -1052,15 +1055,23 @@ function devtrac_install_finished(&$install_state) {
     // If we don't install drupal using Drush, redirect the user to the front
     // page.
     if (!drupal_is_cli()) {
-//      if (module_exists('overlay')) {
-//        // Special case when no clean urls.
-//        $fragment = empty($GLOBALS['conf']['clean_url']) ? urlencode('?q=') : '';
-//        drupal_goto('', array('fragment' => 'overlay=' . $fragment));
-//      }
-//      else {
         drupal_goto('');
-//      }
     }
   }
 }
 
+/**
+* Set up base config
+*/
+function devtrac_performance_settings() {
+  // Set default performance variables
+  // Taken from getpantheon
+  variable_set('cache', 1);
+  variable_set('block_cache', 1);
+  variable_set('cache_lifetime', '0');
+  variable_set('page_cache_maximum_age', '900');
+  // Some installs might want to set this to 1 depending on your caching
+  variable_set('page_compression', 0);
+  variable_set('preprocess_css', 1);
+  variable_set('preprocess_js', 1);
+}
