@@ -722,6 +722,10 @@ function devtrac_install_additional_modules(&$install_state) {
   $modules = array(
     // 'devtrac7_profile_menu',
     'devtrac7_field_permissions_feature',
+    'hurricane',
+    'hurricane_integration',
+    'hurricane_raphael',
+
   );
   if (isset($install_state['parameters']['stats'])) {
     $modules[] = $install_state['parameters']['stats'];
