@@ -2294,6 +2294,12 @@ td.delta-order select.form-select {
   padding-right: 20px;
 }
 
+.date-no-float.container-inline-date {
+  display: inline-block;
+  width: auto;
+  margin-right: 40px;
+}
+
 /*=======================================================*/
 
 .collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper tr.draggable td .form-item {
@@ -2506,6 +2512,23 @@ tr:hover .tabledrag-toggle-weight:hover {
 .olControlNoSelect.olControlEditingToolbar div.olButton.olControlModifyFeatureItemInactive ,
 .olControlNoSelect.olControlEditingToolbar div.olButton.olControlItemInactive {
   background-position: 0px -30px;
+}
+
+
+
+/*===================================================================================*\
+ * Hidden Form Elements
+\*===================================================================================*/
+
+#field-fieldtrip-start-end-date-add-more-wrapper label ,
+#edit-field-actionitem-due-date label {
+  display: none;
+}
+
+#field-fieldtrip-start-end-date-add-more-wrapper label[for="edit-field-fieldtrip-start-end-date-und-0-value2"] {
+  display: inline-block;
+  float: left;
+  margin-right: 40px;
 }
 
 /*===================================================================================*\
