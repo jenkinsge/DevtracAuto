@@ -20,7 +20,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '280px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -247,8 +247,8 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '240px',
-    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img',
-    'css_path' => '',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -479,8 +479,8 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '240px',
-    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img',
-    'css_path' => '',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -711,8 +711,8 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/themes/default_dark/img/',
-    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/themes/default_dark/style.css',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -989,8 +989,8 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/themes/default_dark/img',
-    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/themes/default_dark/style.css',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -1257,8 +1257,8 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',
-    'image_path' => 'profiles/devtrac/themes/devtrack_theme/openlayers/img/',
-    'css_path' => '',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -1552,7 +1552,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '280px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -1780,7 +1780,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '500px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -1938,7 +1938,7 @@ function devtrac7_maps_openlayers_maps() {
       'dvtrc_user_openlayers_1' => '0',
       'site_reports_recent_site_reports_data' => '0',
       'openlayers_searchresult_layer' => 'devtrac_mapstyle_search_default',
-      'devtrac_solr_view_districts_json' => 'default_marker_blue',
+      'devtrac_solr_view_districts_json' => 'devtrac_mapstyle_search_default',
       'devtrac_solr_view_districts_openlayers_1' => 'invisible',
     ),
     'layer_styles_select' => array(
@@ -2073,7 +2073,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '280px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -2305,7 +2305,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '280px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 1,
     'center' => array(
@@ -2822,7 +2822,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => '282px',
     'height' => '200px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 1,
     'center' => array(
@@ -3038,7 +3038,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '280px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -3266,7 +3266,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '280px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -3494,7 +3494,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '280px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 1,
     'center' => array(
@@ -3725,7 +3725,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '100%',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 0,
     'center' => array(
@@ -3951,7 +3951,7 @@ function devtrac7_maps_openlayers_maps() {
     'width' => 'auto',
     'height' => '280px',
     'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
-    'css_path' => '',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
     'proxy_host' => '',
     'hide_empty_map' => 1,
     'center' => array(

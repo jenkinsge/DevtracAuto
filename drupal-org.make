@@ -5,7 +5,7 @@ api = 2
 ; Mountbatten defaults
 includes[mountbatten_web_analytics] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_web_analytics.make
 includes[mountbatten_seo] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_seo.make
-includes[mountbatten_spam_protection] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_spam_protection.make
+; includes[mountbatten_spam_protection] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_spam_protection.make
 includes[mountbatten_web_media] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_web_media.make
 includes[mountbatten_sitewide] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_sitewide.make
 
@@ -130,6 +130,10 @@ projects[feeds][subdir] = "contrib"
 projects[feeds_entityreference][version] = "1.x-dev"
 projects[feeds_entityreference][type] = "module"
 projects[feeds_entityreference][subdir] = "contrib"
+
+projects[feeds_tamper][version] = "1.0"
+projects[feeds_tamper][type] = "module"
+projects[feeds_tamper][subdir] = "contrib"
 
 projects[field_collection_feeds][version] = "1.0-alpha3"
 projects[field_collection_feeds][type] = "module"
