@@ -29,6 +29,10 @@
   background-size: auto 40px;
 }
 
+.node-type-questionnaire-question #page-title {
+  background-image: url(../images/title-icon-question.png);
+}
+
 .page-node-add-ftritem #page-title ,
 .context-sitereport #page-title {
   background-image: url(../images/title-icon-sitereport.png);
@@ -101,6 +105,12 @@ table tbody tr.even td.active {
 
 /*================================ zone-featured ============================*/
 
+.zone-featured ,
+#region-featured {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
 .block-nice-menus {
   z-index: inherit;
 }
@@ -114,19 +124,25 @@ table tbody tr.even td.active {
 .zone-featured .current-search-item h3 {
   color: #EB8005;
   background: #111111;
-  height: 27px;
+  height: 22px;
   border-right: 5px solid;
   padding-left: 15px;
   padding-right: 20px;
-  width: 250px;
+  padding-top: 5px;
+  width: 275px;
   line-height: 20px;
   font-size: 1.3em !important;
   font-weight: normal;
   margin: 0px;
 }
 
+.view-modes-map .zone-featured .current-search-item h3 {
+  width: 250px;
+}
+
 .zone-featured .nice-menu {
   float: right;
+  margin-right: 20px;
 }
 
 .zone-featured .nice-menu ,
@@ -1064,6 +1080,22 @@ form.comment-form .form-item.form-type-item {
 }
 
 /*=====================================================================================
+ * Crazy Table Styles
+ * ==================================================================================*/
+
+.view-devtrac-solr-view-questions .view-grouping-content table tbody {
+  border: none;
+}
+
+.view-devtrac-solr-view-questions .view-grouping-content table tr:hover {
+  color: #333333;
+}
+
+.view-devtrac-solr-view-questions .view-grouping-content table tr:hover a {
+  color: #A52A2A;
+}
+
+/*=====================================================================================
  * Ctools Buttons
  * ==================================================================================*/
 
@@ -1120,6 +1152,7 @@ tr:hover .ctools-button li a:visited {
   padding: 5px 10px;
   white-space: nowrap;
   text-decoration: none;
+  display: inline-block;
 }
 
 .ctools-button li a:hover ,
