@@ -2033,20 +2033,17 @@ div.olControlAttribution a:link {
   padding: 10px;
   padding-left: 40px;
   background: url(../images/task-list-icon.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   list-style: none;
   list-style-position: inside;
 }
 
 .maintenance-page #sidebar-first .task-list li.done {
   background: url(../images/task-list-done.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   color: #44AA00;
 }
 
 .maintenance-page #sidebar-first .task-list li.active {
   background: url(../images/task-list-active.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   color: #2CA089;
   font-weight: normal;
 }
