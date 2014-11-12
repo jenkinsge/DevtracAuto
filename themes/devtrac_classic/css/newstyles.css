@@ -2164,8 +2164,9 @@ div.olControlAttribution a:link {
 }
 
 .page-import .zone-content .region-inner ,
+.page-user-me-edit .zone-content .region-inner ,
 .page-node-add .zone-content .region-inner ,
-.page-node-edit .zone-content .region-inner{
+.page-node-edit .zone-content .region-inner {
   padding: 20px;
   background: #DDDDDD;
   border: thin solid #CCCCCC; 
