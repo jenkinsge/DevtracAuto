@@ -73,25 +73,25 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     parent::setUp('devtractests');
     $this->public_files_directory = variable_get('file_public_path');
     $this->fieldWorker = $this->drupalCreateUser(array(
-    'bypass node access',
-    'access content',
-    'create fieldtrip content',
-    'administer nodes',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules'));
+      'bypass node access',
+      'access content',
+      'create fieldtrip content',
+      'administer nodes',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules'));
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
     $this->assertNoText(t('Overview'), t('User is successifully logged in'), 'Devtrac');
     $this->drupalPost('user/' . $this->fieldWorker->uid . '/edit', array(
-    "roles[3]" => 3,
-    'roles[8]' => '',
-    'field_user_firstname[und][0][value]' => 'ozzx',
-    'field_user_surname[und][0][value]' => 'xzzo',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'field_user_superior[und][0][target_id]' => 'admin (1)'),
+      "roles[3]" => 3,
+      'roles[8]' => '',
+      'field_user_firstname[und][0][value]' => 'ozzx',
+      'field_user_surname[und][0][value]' => 'xzzo',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
   } 
  /**
@@ -207,7 +207,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     // Getting the Add placesees form.
     $this->drupalGet('node/'.$nodeAdd->nid.'/addplaceform/ajax/jan/go', array('query' => array('destination' => 'node/' . $nodeAdd->nid)));
     $this->assertText(t('Site Report Type'), t('site reports type options are showing'), 'Devtrac');
-    $this->assertNoText(t('District'), t('District section is showing on the page'), 'Devtrac');
+    $this->assertText(t('District'), t('District section is showing on the page'), 'Devtrac');
     $this->assertNoText(t('Location Type'), t('Place Location Type  options are showing'), 'Devtrac');
     // changed Location Type. 
   }
@@ -229,7 +229,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add fieldtrip form');
     $fieldAddLocation['title'] = 'YES WE CAN';
     $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
-    $fieldAddLocation['field_fieldtrip_internal_id[und][0][value]'] = 76;
+    $fieldAddLocation['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(2);
     $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3; 
     $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocation['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
@@ -253,8 +253,8 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->assertField('edit-reporttype-2', 'Human Interest Story type radio button is showing', 'Devtrac');
     $this->assertText('Human Interest Story', 'Human Interest Story label is showing on the radio button', 'Devtrac');
     // Now to the district section selection section.
-    $this->assertNoField('edit-district', 'District radio button is showing', 'Devtrac');
-    $this->assertNoText('District', 'Destrict label is showing on the radio button', 'Devtrac');
+    $this->assertField('edit-district', 'District select field is showing', 'Devtrac');
+    $this->assertText('District', 'District label is showing on the select field', 'Devtrac');
     // Fields and text description.
     $this->assertNoText('Location Type', 'Location Type section is not showing', 'Devtrac');
     $this->assertNoField('edit-placetype-0', 'School field of  Place type radio button is not showing', 'Devtrac');
@@ -502,30 +502,22 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     parent::setUp('devtractests', 'devtrac7');
     $this->public_files_directory = variable_get('file_public_path');
     $this->fieldWorker = $this->drupalCreateUser(array(
-    /*'access content',
-    'create fieldtrip content',
-    'administer nodes',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules',
-    'edit taxonomy_vocabulary_1',*/
-    		'get any binary files',
-    		'get own binary files',
-    		'hide own comments',
-    		'post comments',
-    		'save file information',
-    		'skip comment approval',
-    		'submit questions',
-    		'view taxonomy_vocabulary_1',
-    		'access comments',
-    		'access content',
-    		'access proxy router',
-    		'access user profiles',
-    		'administer own comments',
-    		'create taxonomy_vocabulary_1',
-    		'create fieldtrip content',
-    		));
+      'get any binary files',
+      'get own binary files',
+      'hide own comments',
+      'post comments',
+      'save file information',
+      'skip comment approval',
+      'submit questions',
+      'view taxonomy_vocabulary_1',
+      'access comments',
+      'access content',
+      'access proxy router',
+      'access user profiles',
+      'administer own comments',
+      'create taxonomy_vocabulary_1',
+      'create fieldtrip content',
+      ));
     // Loading a user by role name 
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
@@ -680,9 +672,10 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $location_add['title'] = $this->randomName(32);
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'field was removed');
-    $location_add['taxonomy_vocabulary_1[und]'] = 245;
+    $location_add['taxonomy_vocabulary_1[und]'] = 252;
     $location_add['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add, t('Save'));
+    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
@@ -730,7 +723,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     // $this->clickLink('Create New Location', 0, 'clicked');
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $location_add_full['title'] = $this->randomName(32);
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 253;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Taxonomy vocaburary 6 field was removed');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add_full, t('Save'));
@@ -797,7 +790,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Field found');
     $location_add_full['title'] = $this->randomName(32);
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 251;
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add_full, t('Save'));
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
@@ -818,8 +811,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertText(t('Priority'), t('Priority field label is showing'), 'Devtrac');
     $this->assertText(t('Responsible'), t('Responsible field label is found'), 'Devtrac');
     $this->assertText(t('Follow-up Task'), t('Follow-up Task field label is found'), 'Devtrac');
-    $this->assertNoTitle('Create Action Item | DevTrac', t('Action Item title is showing'), 'Devtrac');
-    $this->assertTitle('Create Action Item', t('Action Item title is showing'), 'Devtrac');
+    $this->assertNoTitle('Create Action Item', t('Action Item title is showing'), 'Devtrac');
   }
   /**
    * Checking the fields on.
@@ -877,7 +869,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $location_add_full1['title'] = $this->randomName(32);
-    $location_add_full1['taxonomy_vocabulary_1[und]'] = 245;
+    $location_add_full1['taxonomy_vocabulary_1[und]'] = 253;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Field found');
     $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
     $location_add_full1['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
@@ -892,8 +884,8 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
         'destination' => 'node/' . $node_add_report_item1->nid)));
     $this->assertField(t('title'), t('title field is found'), 'Detrac');
-    $this->assertNoField(t('taxonomy_vocabulary_8[und][]'), t('subject field was renamed'), 'Detrac');
-    $this->assertField('taxonomy_vocabulary_8[und]', t('subject field was renamed'), 'Devtrac');
+    $this->assertNoField(t('taxonomy_vocabulary_8[und]'), t('subject field was renamed'), 'Detrac');
+    $this->assertField('taxonomy_vocabulary_8[und][]', t('subject field was renamed'), 'Devtrac');
     $this->assertField(t('field_actionitem_severity[und]'), t('Priority field is showing'), 'Detrac');
     $this->assertField(t('field_actionitem_status[und]'), t('Status field is showing'), 'Detrac');
     $this->assertField(t('field_actionitem_responsible[und][0][target_id]'), t('Responsible field is showing'), 'Detrac');
@@ -969,7 +961,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $location_add_full['title'] = $this->randomName(32);
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 249;
     
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'district field was removed');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
@@ -988,8 +980,8 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'query' => array(
       'destination' => 'node/' . $node_add_report_item->nid)));
     $action_item_form['title'] = $this->randomName(23);
-    $this->assertNoField('taxonomy_vocabulary_8[und][]', 'taxonomy vocabulry 8 name changed');
-    $action_item_form['taxonomy_vocabulary_8[und]'] = 14;
+    $this->assertField('taxonomy_vocabulary_8[und][]', 'taxonomy vocabulry 8 name changed');
+    $action_item_form['taxonomy_vocabulary_8[und][]'] = 62;
     $action_item_form['field_actionitem_followuptask[und][0][value]'] = $this->randomName(23);
     $action_item_form['field_actionitem_severity[und]'] = 2;
     $this->drupalPost('node/add/actionitem', $action_item_form, t('Save'),
@@ -1073,21 +1065,22 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $location_add_full['field_ftritem_narrative[und][0][value]'] = 'jhfjkdjkcbxcb';
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'District field was removed');
     //$location_add_full['taxonomy_vocabulary_6[und]'] = $form_submit_report['district'];
-    $this->assertNoField('taxonomy_vocabulary_8[und][]', 'Sector field was rename');
-    $location_add_full['taxonomy_vocabulary_8[und]'] = array(14,13,15);
+    $this->assertNoField('taxonomy_vocabulary_8[und]', 'Sector field was rename');
+    $location_add_full['taxonomy_vocabulary_8[und][]'] = array(51,53,52);
+    $location_add_full['field_ftritem_public_summary[und][0][value]'] = $this->randomString(40);
     $location_add_full['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add_full, t('Save'));
+    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
-    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip no longer showing.'), 'Devtrac');
     $this->drupalGet('node/add/actionitem', array(
       'query' => array(
         'destination' => 'node/' . $node_add_report_item->nid)));
     $action_item_form['title'] = $this->randomName(23);
-    $this->assertNoField('taxonomy_vocabulary_8[und][]', 'taxonomy vocabulary 8 was renamed');
-    $action_item_form['taxonomy_vocabulary_8[und]'] = 15;
+    $this->assertNoField('taxonomy_vocabulary_8[und]', 'taxonomy vocabulary 8 was renamed');
+    $action_item_form['taxonomy_vocabulary_8[und][]'] = 50;
     $action_item_form['field_actionitem_followuptask[und][0][value]'] = $this->randomName(23);
     $action_item_form['field_actionitem_severity[und]'] = 2;
     $this->drupalPost('node/add/actionitem', $action_item_form, t('Save'), array('

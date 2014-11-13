@@ -76,10 +76,10 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
   }
   public function testUserSecondMenu() {
     $this->drupalGet('user/' . $this->admin_user->uid);
-    $this->assertLink('Welcome, [current-user:field_user_firstname]', 0, 'Welcome message link is not found');
     $this->assertNoLink('Welcome, [current-user:field_user_firstname]', 0, 'Welcome message link is not found');
-    $this->assertLink('Welcome, ozzx', 0, t('the second user menu is found with the welcoming note'));
-    $this->clickLink('Welcome, ozzx', 0, t('user clicked the his own welcoming note'));
+    $this->assertNoLink('Welcome, ozzx', 0, t('the second user menu is found with the welcoming note'));
+    $this->assertNoLink('Overview', 0, t('the second user menu is found with the welcoming note'));
+    
   } 
   public function testGeosearchBlock() {	
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));

@@ -162,8 +162,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $ditnarrativeozyq['field_ftritem_public_summary[und][0][value]'] = $this->randomName(15);
     $ditnarrativeozyq['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Taxonomy vocabulary 8 was renamed');
-    $ditnarrativeozyq['taxonomy_vocabulary_8[und][]'] = array(47,48);
-    
+    $ditnarrativeozyq['taxonomy_vocabulary_8[und][]'] = array(47,48); 
     $this->assertNoField('files[field_ftritem_images_und_0]', 'Image field was renamed');
     $ditnarrativeozyq['media[field_ftritem_images_und_0]'] = '/sites/default/files/Technical School_c.png';
     $this->drupalPost(NULL, $ditnarrativeozyq, t('Save'), array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid . '/fieldtrip_content_first/fieldtrip_content_first/edit-field-ftritem-narrative')));
@@ -238,7 +237,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
     $this->drupalGet('users/firstname', array('query' => array('search_api_aggregation_1' => 'firstname')));
-    $this->assertNoLink('Edit', 0, 'edit link is found');
+    $this->assertLink('Edit', 0, 'edit link is found');
   }
   /**
    * Confirming that the unicef user logins and access the add questionnaire.

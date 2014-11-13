@@ -217,8 +217,8 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $ditnarrativeozyq['field_ftritem_narrative[und][0][value]'] = $this->randomString(210);
     $ditnarrativeozyq['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     $this->assertNoField('taxonomy_vocabulary_6[und', 'taxonomy vocabulary 6 is not showing');
-    $this->assertNofield('taxonomy_vocabulary_8[und][]', 'Field Sector code and name is renamed');  
-    $ditnarrativeozyq['taxonomy_vocabulary_8[und]'] = 48;
+    $this->assertNofield('taxonomy_vocabulary_8[und]', 'Field Sector code and name is renamed');  
+    $ditnarrativeozyq['taxonomy_vocabulary_8[und][]'] = 48;
     $ditnarrativeozyq['taxonomy_vocabulary_1[und]'] = 248;
     //$ditnarrativeozyq['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac7_theme/images/ws_pandas_in_love_1920x1200.jpg';
     $this->drupalPost(NULL, $ditnarrativeozyq, t('Save'), array('query' => array('destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
@@ -226,16 +226,16 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied District on the Site Report.'), t('User Added the location on the map'), 'Devtrac');
     $this->assertNoText(t('Copied Place Type to Site Report.'), t('User Copied Place Type to Site Report.'), 'Devtrac');
-    $this->assertText(t('has been created.'), t('Place has been created.'), 'Devtrac');
+    $this->assertNoText(t('has been created.'), t('Place has been created.'), 'Devtrac');
     $this->assertNoText(t('Defaulted Date Visited to Start Date of Field Trip.'), t('Defaulted Date Visited to Start Date of Field Trip.'), 'Devtrac');
     $this->assertNoLink('Add a Site Report to the Field Trip.', 0, 'Link to Add a Site Report to the Field Trip.is found');
-    $this->assertField('district', 'district filed is removed');
+    $this->assertNoField('district', 'district filed is removed');
     $this->drupalGet('node/add/actionitem', array(
       'query' => array(
     	'destination' => 'node/' . $nodeaddreportfullsubmitozyq->nid)));
     // Now adding the field trip site report.
     $sitereportadd['title'] = 'this is for testing';
-    $sitereportadd['taxonomy_vocabulary_8[und]'] = 15;
+    $sitereportadd['taxonomy_vocabulary_8[und][]'] = 56;
     $sitereportadd['field_actionitem_followuptask[und][0][value]'] = $this->randomString(100);
     $sitereportadd['field_actionitem_severity[und]'] = 2;
     $this->drupalPost('node/add/actionitem', $sitereportadd, t('Save'), array('

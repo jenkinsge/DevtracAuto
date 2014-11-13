@@ -42,6 +42,7 @@ class FieldtripCreateAnonymousTestCase extends DrupalWebTestCase {
   public function testFieldtripCreateNotPermitted() {
     $this->drupalGet('node/add/fieldtrip');
     // We should get an "Access denied".
+    $this->assertNoResponse(200, 'Access denied');
     $this->assertText(t('Access denied'), t('Authenticated user not permitted to create a fieldtrip.'), 'Devtrac');
     $this->assertNoLink(t('SITE REPORTS'), 0 ,t('Link to site report devtrac page'));
   }
@@ -62,4 +63,13 @@ class FieldtripCreateAnonymousTestCase extends DrupalWebTestCase {
     $this->drupalGet('node/add/fieldtrip');
     $this->assertResponse(403, 'The server says that you are not authorised to access the requested page Access denied');
   }
+  /**
+   * Anonymous user zooms into a map.
+   */
+  public function testMapZoom() {
+    $this->drupalGet('sitereports', array('zoom' => 7, 'lat' => 2.02107, 'lon' => 32.18994, 'layers' => 'Site Reports', 'baseLayers' => 'OSM Mapnik'));
+    $this->assertResponse(200, 'map zoomed in');
+    $this->drupalGet('#', array('zoom' => 10, 'lat' => 2.02107, 'lon' => 32.18994, 'layers' => 'Site Reports', 'baseLayers' => 'OSM Mapnik'));
+  }
+  
 }
