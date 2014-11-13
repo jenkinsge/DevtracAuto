@@ -1398,6 +1398,7 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
+    7 => '7',
     3 => '3',
     4 => '4',
   );
@@ -1533,13 +1534,14 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler = $view->new_display('page', 'Edit Questions Page', 'edit_questions_page');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Edit Questions';
-  $handler->display->display_options['path'] = 'admin/devtrac7/edit_questions';
+  $handler->display->display_options['path'] = 'admin/devtrac7/questions/edit';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'Edit Questions';
   $handler->display->display_options['menu']['description'] = 'Allows you to edit, add, order and (un)publish questions';
-  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['weight'] = '-100';
   $handler->display->display_options['menu']['name'] = 'management';
   $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['edit_questions'] = $view;
 
   return $export;
