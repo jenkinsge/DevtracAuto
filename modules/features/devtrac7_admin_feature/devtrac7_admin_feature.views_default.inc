@@ -15,6 +15,7 @@ function devtrac7_admin_feature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'taxonomy_term_data';
+  $view->base_field = 'tid',
   $view->human_name = 'Admin Taxonomy View';
   $view->core = 7;
   $view->api_version = '3.0';
@@ -1059,6 +1060,7 @@ function devtrac7_admin_feature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'taxonomy_term_data';
+  $view->base_field = 'tid',
   $view->human_name = 'devtrac_admin_taxonomy';
   $view->core = 7;
   $view->api_version = '3.0';
@@ -1314,6 +1316,7 @@ function devtrac7_admin_feature_views_default_views() {
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'taxonomy_term_data';
+  $view->base_field = 'tid',
   $view->human_name = 'District Check';
   $view->core = 7;
   $view->api_version = '3.0';

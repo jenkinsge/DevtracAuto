@@ -722,6 +722,10 @@ function devtrac_install_additional_modules(&$install_state) {
   $modules = array(
     // 'devtrac7_profile_menu',
     'devtrac7_field_permissions_feature',
+    'hurricane',
+    'hurricane_integration',
+    'hurricane_raphael',
+
   );
   if (isset($install_state['parameters']['stats'])) {
     $modules[] = $install_state['parameters']['stats'];
@@ -989,13 +993,13 @@ function devtrac_install_finished(&$install_state) {
     $instance['bundle'] = 'questionnaire_answer';
     field_create_instance($instance);
 
-    $instance['entity_type'] = 'node';
+/*    $instance['entity_type'] = 'node';
     $instance['bundle'] = 'ftritem';
     field_create_instance($instance);
 
     $instance['entity_type'] = 'node';
     $instance['bundle'] = 'place';
-    field_create_instance($instance);
+    field_create_instance($instance);*/
   }
   if(isset($instances['taxonomy_location_type'])) {
     $instance = $instances['taxonomy_location_type'];
@@ -1004,13 +1008,13 @@ function devtrac_install_finished(&$install_state) {
     $instance['bundle'] = 'questionnaire_answer';
     field_create_instance($instance);
 
-    $instance['entity_type'] = 'node';
+/*    $instance['entity_type'] = 'node';
     $instance['bundle'] = 'ftritem';
     field_create_instance($instance);
 
     $instance['entity_type'] = 'node';
     $instance['bundle'] = 'place';
-    field_create_instance($instance);
+    field_create_instance($instance);*/
   }
 
   // Rebuild the node access permissions.
