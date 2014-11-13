@@ -29,6 +29,10 @@
   background-size: auto 40px;
 }
 
+.node-type-questionnaire-question #page-title {
+  background-image: url(../images/title-icon-question.png);
+}
+
 .page-node-add-ftritem #page-title ,
 .context-sitereport #page-title {
   background-image: url(../images/title-icon-sitereport.png);
@@ -101,6 +105,12 @@ table tbody tr.even td.active {
 
 /*================================ zone-featured ============================*/
 
+.zone-featured ,
+#region-featured {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
 .block-nice-menus {
   z-index: inherit;
 }
@@ -114,19 +124,25 @@ table tbody tr.even td.active {
 .zone-featured .current-search-item h3 {
   color: #EB8005;
   background: #111111;
-  height: 27px;
+  height: 22px;
   border-right: 5px solid;
   padding-left: 15px;
   padding-right: 20px;
-  width: 250px;
+  padding-top: 5px;
+  width: 275px;
   line-height: 20px;
   font-size: 1.3em !important;
   font-weight: normal;
   margin: 0px;
 }
 
+.view-modes-map .zone-featured .current-search-item h3 {
+  width: 250px;
+}
+
 .zone-featured .nice-menu {
   float: right;
+  margin-right: 20px;
 }
 
 .zone-featured .nice-menu ,
@@ -1064,6 +1080,22 @@ form.comment-form .form-item.form-type-item {
 }
 
 /*=====================================================================================
+ * Crazy Table Styles
+ * ==================================================================================*/
+
+.view-devtrac-solr-view-questions .view-grouping-content table tbody {
+  border: none;
+}
+
+.view-devtrac-solr-view-questions .view-grouping-content table tr:hover {
+  color: #333333;
+}
+
+.view-devtrac-solr-view-questions .view-grouping-content table tr:hover a {
+  color: #A52A2A;
+}
+
+/*=====================================================================================
  * Ctools Buttons
  * ==================================================================================*/
 
@@ -1120,6 +1152,7 @@ tr:hover .ctools-button li a:visited {
   padding: 5px 10px;
   white-space: nowrap;
   text-decoration: none;
+  display: inline-block;
 }
 
 .ctools-button li a:hover ,
@@ -1981,6 +2014,7 @@ div.olControlAttribution a:link {
   display: inline-block;
   font-weight: normal;
   margin-left: 25px;
+  margin-top: 20px;
 }
 
 .maintenance-page #sidebar-first {
@@ -1999,20 +2033,17 @@ div.olControlAttribution a:link {
   padding: 10px;
   padding-left: 40px;
   background: url(../images/task-list-icon.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   list-style: none;
   list-style-position: inside;
 }
 
 .maintenance-page #sidebar-first .task-list li.done {
   background: url(../images/task-list-done.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   color: #44AA00;
 }
 
 .maintenance-page #sidebar-first .task-list li.active {
   background: url(../images/task-list-active.png) no-repeat 5px 50%;
-  background-size: 25px 25px;
   color: #2CA089;
   font-weight: normal;
 }
@@ -2069,6 +2100,10 @@ div.olControlAttribution a:link {
   width: 95%;
 }
 
+.maintenance-page #content form #system-date-types thead {
+  background: #777777;
+}
+
 .maintenance-page #content form #system-date-types tr {
   border: none;
   background-color: transparent;
@@ -2076,20 +2111,21 @@ div.olControlAttribution a:link {
 
 .maintenance-page #content form #system-date-types tr:hover {
   background: transparent;
+  color: #333333;
 }
 
 .maintenance-page #content form #system-date-types tr:hover a {
-  color: inherit;
+  color: #333333 !important;
 }
 
 .maintenance-page #content form #system-date-types th {
-  padding-bottom: 20px;
   font-weight: normal;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  border: none;
 }
 
 .maintenance-page #content form #system-date-types td {
-  padding: 10px 5px;
+  padding: 10px;
 }
 
 .maintenance-page #content td.status-description {
@@ -2111,7 +2147,6 @@ div.olControlAttribution a:link {
   background-size: 25px;
 }
 
-
 /*====================================================================
  *  Form Page Styles
  ====================================================================*/
@@ -2126,8 +2161,9 @@ div.olControlAttribution a:link {
 }
 
 .page-import .zone-content .region-inner ,
+.page-user-me-edit .zone-content .region-inner ,
 .page-node-add .zone-content .region-inner ,
-.page-node-edit .zone-content .region-inner{
+.page-node-edit .zone-content .region-inner {
   padding: 20px;
   background: #DDDDDD;
   border: thin solid #CCCCCC; 
@@ -2253,6 +2289,12 @@ form .field-multiple-table td.field-multiple-drag {
 
 td.delta-order select.form-select {
   padding-right: 20px;
+}
+
+.date-no-float.container-inline-date {
+  display: inline-block;
+  width: auto;
+  margin-right: 40px;
 }
 
 /*=======================================================*/
@@ -2469,6 +2511,23 @@ tr:hover .tabledrag-toggle-weight:hover {
   background-position: 0px -30px;
 }
 
+
+
+/*===================================================================================*\
+ * Hidden Form Elements
+\*===================================================================================*/
+
+#field-fieldtrip-start-end-date-add-more-wrapper label ,
+#edit-field-actionitem-due-date label {
+  display: none;
+}
+
+#field-fieldtrip-start-end-date-add-more-wrapper label[for="edit-field-fieldtrip-start-end-date-und-0-value2"] {
+  display: inline-block;
+  float: left;
+  margin-right: 40px;
+}
+
 /*===================================================================================*\
  * Footable Table Styles
 \*===================================================================================*/
@@ -2500,6 +2559,36 @@ table tr.footable-row-detail:hover a:hover {
   text-decoration: underline;
 }
 
+/*===================================================================================*\
+ * Ctools Modal Content Styles
+\*===================================================================================*/
+
+#modalContent div.ctools-modal-content .modal-header {
+  background: #333333;
+  color: #FFFFFF;
+  font-weight: normal;
+  font-family: inherit;
+  text-shadow: none;
+  padding: 5px;
+  border-bottom: 5px solid #EA0001;
+}
+
+#modalContent div.ctools-modal-content a.close {
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  background: url(../images/closer.png) no-repeat 50% 50%;
+  background-size: 20px;
+}
+
+#modalContent div.ctools-modal-content a.close img {
+  display: none;    
+}
+
+#modalContent div.ctools-modal-content .modal-title {
+  font-size: 1.1em;
+  margin-left: 10px;
+}
 
 /*===================================================================================*\
  * User Login Styles

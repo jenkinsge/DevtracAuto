@@ -612,40 +612,40 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-oecd_sector_code-block' => array(
+        'views-oecd_sector_code-block_5' => array(
           'module' => 'views',
-          'delta' => 'oecd_sector_code-block',
-          'region' => 'content',
-          'weight' => '-8',
-        ),
-        'views-oecd_sector_code-block_3' => array(
-          'module' => 'views',
-          'delta' => 'oecd_sector_code-block_3',
-          'region' => 'content',
-          'weight' => '8',
-        ),
-        'views-dvtrc_site_visits-block_17' => array(
-          'module' => 'views',
-          'delta' => 'dvtrc_site_visits-block_17',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
-        'quicktabs-sector' => array(
-          'module' => 'quicktabs',
-          'delta' => 'sector',
-          'region' => 'preface_first',
-          'weight' => '-10',
-        ),
-        'views-oecd_sector_code-block_2' => array(
-          'module' => 'views',
-          'delta' => 'oecd_sector_code-block_2',
-          'region' => 'preface_second',
+          'delta' => 'oecd_sector_code-block_5',
+          'region' => 'highlighted',
           'weight' => '-10',
         ),
         'views-oecd_sector_code-block_1' => array(
           'module' => 'views',
           'delta' => 'oecd_sector_code-block_1',
-          'region' => 'preface_third',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'views-oecd_sector_code-block_3' => array(
+          'module' => 'views',
+          'delta' => 'oecd_sector_code-block_3',
+          'region' => 'content',
+          'weight' => '-7',
+        ),
+        'quicktabs-sector' => array(
+          'module' => 'quicktabs',
+          'delta' => 'sector',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'views-oecd_sector_code-block_2' => array(
+          'module' => 'views',
+          'delta' => 'oecd_sector_code-block_2',
+          'region' => 'postscript_first',
+          'weight' => '-10',
+        ),
+        'views-dvtrc_site_visits-block_17' => array(
+          'module' => 'views',
+          'delta' => 'dvtrc_site_visits-block_17',
+          'region' => 'postscript_second',
           'weight' => '-10',
         ),
         'delta_blocks-breadcrumb' => array(
@@ -663,7 +663,7 @@ function devtrac7_theme_feature_context_default_contexts() {
       ),
     ),
     'delta' => array(
-      'delta_template' => 'dashboardpage_layout',
+      'delta_template' => 'delta_node_page_layout',
     ),
   );
   $context->condition_mode = 0;

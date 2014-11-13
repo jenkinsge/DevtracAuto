@@ -7,8 +7,8 @@ function devtrac7_menu() {
   // This is the mother of all Devtrac7 admin items
   // It just navigates to a page with other Devtrac admin options (eg. Edit Questions)
   $items['admin/devtrac7'] = array(
-    'title' => 'Devtrac 7',
-    'description' => 'Configure Devtrac specific settings. (eg. Edit Questions)',
+    'title' => 'Devtrac',
+    'description' => 'Configure Devtrac specific settings.',
     'page callback' => 'system_admin_menu_block_page',
     'access callback' => TRUE,
     'access arguments' => array('Use the administration pages and help'), // This is the highest level an Editor has
@@ -16,8 +16,48 @@ function devtrac7_menu() {
     'file path' => drupal_get_path('module', 'system'),
     'weight' => -3,
   );
+   $items['admin/devtrac7/quality'] = array(
+    'title' => t('Quality'),
+    'description' => t("Reports that show data consistency checks on your Devtrac database"),
+    'position' => 'right',
+    'weight' => -7,
+    'access arguments' => array('Use the administration pages and help'),
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/devtrac7/statistics'] = array(
+    'title' => t('Statistics'),
+    'description' => t("Site Statistics"),
+    'position' => 'right',
+    'weight' => -6,
+    'access arguments' => array('Use the administration pages and help'),
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/devtrac7/taxonomy'] = array(
+    'title' => t('Lists'),
+    'description' => t("Management of Lists"),
+    'position' => 'left',
+    'weight' => -5,
+    'access arguments' => array('Use the administration pages and help'),
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/devtrac7/questions'] = array(
+    'title' => t('Questionnaire'),
+    'description' => t("Management of the Questionnaire module."),
+    'position' => 'left',
+    'weight' => -4,
+    'access arguments' => array('Use the administration pages and help'),
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
   // Menu item on the Question order page to add Questions.
-  $items['admin/devtrac7/edit_questions/add'] = array (
+  $items['admin/devtrac7/questions/edit/add'] = array (
     'title' => t('Add New Question'),
     'title callback' => 'check_plain',
     'page callback' => 'node_add',
@@ -31,8 +71,18 @@ function devtrac7_menu() {
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 4,
   );
+  $items['admin/devtrac7/solr'] = array(
+    'title' => "Solr Settings",
+    'description' => t("This is the page for various Solr settings"),
+    'position' => 'right',
+    'weight' => -3,
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
   // Menu item for setting solr search access settings.
-  $items['admin/devtrac7/solr_search_access_settings'] = array (
+  $items['admin/devtrac7/solr/solr_search_access_settings'] = array (
     'title' => t('Solr search access settings'),
     'title callback' => 'check_plain',
     'page callback' => 'drupal_get_form',
@@ -167,7 +217,17 @@ function devtrac7_menu_alter(&$items) {
   // Change the title of user profile pages to 'Welcome, <the user's name>.
   $items['user/%user']['title callback'] = 'devtrac7_user_page_title';
   $items['user']['title callback'] = 'devtrac7_user_page_title';
-
+  // Create a new access callback to disallow all roles access to
+  // specific configuration pages, except the administrator role.
+  $items['admin/config/people/accounts']['access callback'] = 'devtrac7_limit_user_configuration_access';
+  // The following two restrictions are needed because the "devtrac admin" role
+  // needs access to the roles field on the user registration/edit form. That
+  // can only be achieved by granting that role the "administer permissions"
+  // permission. For the why? see line 1140 of user.module.
+  // So these are added to disallow role devtrac admin access
+  // to the taxonomy access and the user permissions pages.
+  $items['admin/config/people/taxonomy_access']['access callback'] = 'devtrac7_limit_user_configuration_access';
+  $items['admin/people/permissions']['access callback'] = 'devtrac7_limit_user_configuration_access';
 }
 
 /**
@@ -181,6 +241,21 @@ function devtrac7_user_page_title($account = NULL) {
   $user = user_load($user->uid);
   $name = empty($user->field_user_firstname) ? $user->name : $user->field_user_firstname[LANGUAGE_NONE][0]['safe_value'];
   return t('Welcome, ') . $name;
+}
+
+/**
+ * Implements the new access callback defined in hook_menu_alter().
+ */
+function devtrac7_limit_user_configuration_access($permission) {
+  global $user;
+  // Only allow user #1 and users with role administrator.
+  if (($user->uid == 1) || (in_array('administrator', $user->roles))) {
+    // Perform original user access check so user
+    // configured permission settings don't fail.
+    return user_access($permission);
+  }
+  // Disallow access for all other users.
+  return FALSE;
 }
 
 /**
@@ -1508,10 +1583,14 @@ function devtrac7_block_view_alter(&$data, $block) {
           case 'Filter by district category:':
           case 'Filter by unicef category:':
           case 'Filter by admin unit » unicef category:':
-            $data['subject'] = 'UNICEF Categories';
+          case 'Filter by admin unit » tags:':  
+            $data['subject'] = 'Tags';
             break;
           case 'Filter by node (target endpoint):':
             $data['subject'] = 'Organisations';
+            break;
+          case 'Filter by admin unit » tags:':
+            $data['subject'] = 'Admin Unit Tag';
             break;
           case 'Filter by title:':
             $data['subject'] = 'Organisations';
