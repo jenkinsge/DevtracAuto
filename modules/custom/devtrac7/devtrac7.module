@@ -217,7 +217,9 @@ function devtrac7_menu_alter(&$items) {
   // Change the title of user profile pages to 'Welcome, <the user's name>.
   $items['user/%user']['title callback'] = 'devtrac7_user_page_title';
   $items['user']['title callback'] = 'devtrac7_user_page_title';
-
+  // Create a new access callback to disallow all roles access to the
+  // Account Settings page, except the administrator role.
+  $items['admin/config/people/accounts']['access callback'] = 'devtrac7_account_settings_access';
 }
 
 /**
@@ -231,6 +233,21 @@ function devtrac7_user_page_title($account = NULL) {
   $user = user_load($user->uid);
   $name = empty($user->field_user_firstname) ? $user->name : $user->field_user_firstname[LANGUAGE_NONE][0]['safe_value'];
   return t('Welcome, ') . $name;
+}
+
+/**
+ * Implements the new access callback defined in hook_menu_alter().
+ */
+function devtrac7_account_settings_access($permission) {
+  global $user;
+  // Only allow user #1 and users with role administrator.
+  if (($user->uid == 1) || (in_array('administrator', $user->roles))) {
+    // Perform original user access check so user
+    // configured permission settings don't fail.
+    return user_access($permission);
+  }
+  // Disallow access for all other users.
+  return FALSE;
 }
 
 /**
