@@ -217,9 +217,17 @@ function devtrac7_menu_alter(&$items) {
   // Change the title of user profile pages to 'Welcome, <the user's name>.
   $items['user/%user']['title callback'] = 'devtrac7_user_page_title';
   $items['user']['title callback'] = 'devtrac7_user_page_title';
-  // Create a new access callback to disallow all roles access to the
-  // Account Settings page, except the administrator role.
-  $items['admin/config/people/accounts']['access callback'] = 'devtrac7_account_settings_access';
+  // Create a new access callback to disallow all roles access to
+  // specific configuration pages, except the administrator role.
+  $items['admin/config/people/accounts']['access callback'] = 'devtrac7_limit_user_configuration_access';
+  // The following two restrictions are needed because the "devtrac admin" role
+  // needs access to the roles field on the user registration/edit form. That
+  // can only be achieved by granting that role the "administer permissions"
+  // permission. For the why? see line 1140 of user.module.
+  // So these are added to disallow role devtrac admin access
+  // to the taxonomy access and the user permissions pages.
+  $items['admin/config/people/taxonomy_access']['access callback'] = 'devtrac7_limit_user_configuration_access';
+  $items['admin/people/permissions']['access callback'] = 'devtrac7_limit_user_configuration_access';
 }
 
 /**
@@ -238,7 +246,7 @@ function devtrac7_user_page_title($account = NULL) {
 /**
  * Implements the new access callback defined in hook_menu_alter().
  */
-function devtrac7_account_settings_access($permission) {
+function devtrac7_limit_user_configuration_access($permission) {
   global $user;
   // Only allow user #1 and users with role administrator.
   if (($user->uid == 1) || (in_array('administrator', $user->roles))) {

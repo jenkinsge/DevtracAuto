@@ -168,6 +168,16 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'hidden_comment',
   );
 
+  // Exported permission: 'administer permissions'.
+  $permissions['administer permissions'] = array(
+    'name' => 'administer permissions',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
+    ),
+    'module' => 'user',
+  );
+
   // Exported permission: 'administer personal comments'.
   $permissions['administer personal comments'] = array(
     'name' => 'administer personal comments',

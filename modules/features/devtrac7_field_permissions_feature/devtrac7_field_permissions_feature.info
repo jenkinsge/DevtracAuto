@@ -34,6 +34,7 @@ features[user_permission][] = administer contexts
 features[user_permission][] = administer devtrac
 features[user_permission][] = administer hidden comments
 features[user_permission][] = administer own comments
+features[user_permission][] = administer permissions
 features[user_permission][] = administer personal comments
 features[user_permission][] = administer relations
 features[user_permission][] = administer users
