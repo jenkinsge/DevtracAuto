@@ -961,7 +961,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $location_add_full['title'] = $this->randomName(32);
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 249;
+    $location_add_full['taxonomy_vocabulary_1[und]'] = 283;
     
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'district field was removed');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
