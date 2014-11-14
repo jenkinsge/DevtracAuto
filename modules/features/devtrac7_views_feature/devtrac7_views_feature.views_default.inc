@@ -6034,7 +6034,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
-    'taxonomy_vocabulary_1' => 'taxonomy_vocabulary_1',
     'taxonomy_vocabulary_8' => 'taxonomy_vocabulary_8',
     'field_ftritem_date_visited' => 'field_ftritem_date_visited',
     'field_ftritem_place' => 'field_ftritem_place',
@@ -6043,13 +6042,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['style_options']['default'] = 'field_ftritem_date_visited';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'taxonomy_vocabulary_1' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => 'views-align-left',
@@ -6097,12 +6089,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Site Reports';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Field: Location Type */
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = 'Type';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_location_type_icon';
   /* Field: Field: Sector */
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['id'] = 'taxonomy_vocabulary_8';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['table'] = 'field_data_taxonomy_vocabulary_8';
