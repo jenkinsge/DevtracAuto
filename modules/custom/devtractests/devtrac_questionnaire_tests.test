@@ -133,7 +133,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
   public function testQuestionnaireSubmit() {
     $this->drupalGet('node/add/questionnaire-question');
     $qsubmit['title'] = $this->randomString(35);
-    $qsubmit['taxonomy_vocabulary_1[und]'] = 249;
+    $qsubmit['taxonomy_vocabulary_1[und]'] = 282;
     $this->assertNoField('field_question_subject[und]', 'Question Sub-Category field is not found');
     $qsubmit['questionnaire_question_type[und]'] = 'select';
     $qsubmit['taxonomy_vocabulary_8[und][]'] = 47;
@@ -144,8 +144,10 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertNoLink('Child Protection', 0, 'Child Protection link is found');
     $this->assertText('The type of question', 'The type of question section is found');
     $this->assertText('Sector:', 'Sector section is found');
+    $this->assertNoLink('Secondary Community School', 0, 'Secondary Community School link is created');
+    $this->clinkLink('Secondary Community School', 0, 'Secondary Community School link is clicked');
     $this->assertNoLink('Public Community School', 0, 'Public Community School link is not created');
-    $this->assertLink('Public Government School', 0, 'Public Government School link is created');
+    $this->assertLink('Public Government School', 0, 'Public Government School link is not created');
     $this->assertNoLink('Cotton', 0, 'Cotton link is not created');
     $this->assertLink('Education policy and administrative management', 0, 'Education policy and administrative management is created');
     
@@ -291,6 +293,21 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertNoLink('Government Office', 0, 'Government Office link is not found');
     $this->assertNoLink('Child Protection', 0, 'Child Protection link is not found');
 	}
+	
+	/**
+	 * Editor user submits questionnaire-qustion with top level location type selection.
+	 */
+	public function testEditorQuestionnaireSubCatSelectSubmit() {
+		$this->drupalGet('node/add/questionnaire-question');
+		$qsubmit['title'] = $this->randomString(35);
+		$qsubmit['taxonomy_vocabulary_1[und]'] = 253;
+		$qsubmit['taxonomy_vocabulary_8[und][]'] = 226;
+		$qsubmit['questionnaire_question_type[und]'] = 'select';
+		$this->drupalPost(NULL, $qsubmit, t('Save'));
+		$this->assertText('has been created.', 'questionnaire is created');
+		$this->assertNoLink('Government Office', 0, 'Government Office link is not found');
+		$this->assertNoLink('Child Protection', 0, 'Child Protection link is not found');
+	}
 }
 
 class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
@@ -421,7 +438,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField('field_place_website[und][0][url]', 'Field Contact is found on the add location form', 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = $this->randomName(32);
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 250;
+    $locationaddfull['taxonomy_vocabulary_1[und]'] = 284;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary 6 was removed');
     $locationaddfull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     // TO BE CONTINUED.
@@ -598,7 +615,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = $this->randomName(32);
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 249;
+    $locationaddfull['taxonomy_vocabulary_1[und]'] = 281;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $locationaddfull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     // TO BE CONTINUED.
@@ -694,7 +711,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = 'this is meant for questionnaires';
     $this->assertNoField('taxonomy_vocabulary_8[und][]', 'Sector field was rename');
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 250;
+    $locationaddfull['taxonomy_vocabulary_1[und]'] = 284;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     // $locationaddfull['field_place_responsible_person[und][0][value]']='jan';
     $locationaddfull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
@@ -778,7 +795,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = 'this is meant for questionnaires';
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 250;
+    $locationaddfull['taxonomy_vocabulary_1[und]'] = 284;
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Sector field was rename');
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     //$location_add_full['taxonomy_vocabulary_8[und]'] = array(14,13,15);
@@ -862,7 +879,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertNoField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertNoText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = $this->randomName(32);
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 248;
+    $locationaddfull['taxonomy_vocabulary_1[und]'] = 278;
     $locationaddfull['title'] = $this->randomString(7);
     $locationaddfull['field_ftritem_narrative[und][0][value]'] = $this->randomString(50);
     $locationaddfull['taxonomy_vocabulary_7[und]'] = 242;

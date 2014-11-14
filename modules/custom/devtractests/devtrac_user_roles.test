@@ -141,7 +141,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $this->assertNoLink('Create New Location', 0, 'link Create new location found');
     // $this->clickLink('Create New Location', 0, 'Link to add location');
     $locationaddfullozyq['title'] = $this->randomName(32);
-    $locationaddfullozyq['taxonomy_vocabulary_1[und]'] = 248;
+    $locationaddfullozyq['taxonomy_vocabulary_1[und]'] = 278;
     $this->assertNoField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $locationaddfullozyq['field_place_lat_long[und][0][geom]'] = 'POINT (31.768699645996 3.228319883347)';
     $this->drupalPost(NULL, $locationaddfullozyq, t('Save'), array('query' => array(
