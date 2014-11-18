@@ -1,6 +1,16 @@
 <?php
+/**
+ * @file
+ * 
+ * Functions that manage the ftritem. Called from various places
+ */
 
 function devtrac7_ftritem_addplacetofieldtrip($node) {
+  if (!isset($node->field_ftritem_field_trip)) {
+    // this happens when there is no fieldtrip.
+    // for example when we load ftritems via feeds
+    return;
+  }
   if (isset($node->field_ftritem_place[$node->language]) && (count($node->field_ftritem_place[$node->language]) > 0)) {
     $fieldtrip = node_load($node->field_ftritem_field_trip[$node->language][0]['target_id']);
     if (isset($node->original->field_ftritem_place[$node->language]) && (count($node->original->field_ftritem_place[$node->language]) > 0)) {
@@ -509,7 +519,14 @@ function devtrac7_ftritem_updateplacetype($node) {
   // There was no Place Type
   if (isset($node->taxonomy_vocabulary_1[$node->language]) && (count($node->taxonomy_vocabulary_1[$node->language]) > 0)) {
     // There is a Place Type now so save it
-    watchdog('admin_feature', 'Set Place Type on Site Report: ' . $node->nid);
+    // ->nid might not be set during creation of the node
+    // for example when we load ftritems through feeds
+    if (isset($node->nid)) {
+      watchdog('admin_feature', 'Set Place Type on Site Report: ' . $node->nid);
+    }
+    else {
+      watchdog('admin_feature', 'Set Place Type on new Site Report ');
+    }
     // drupal_set_message('Set Place Type on Site Report.', 'status');
     return TRUE;
   }
@@ -639,7 +656,14 @@ function devtrac7_ftritem_updatedatevisited($node) {
   // There was no Date Visited
   if (isset($node->field_ftritem_date_visited[$node->language]) && (count($node->field_ftritem_date_visited[$node->language]) > 0)) {
     // There is a Date Visited now so save it
-    watchdog('admin_feature', 'Set Date Visited on Site Report: ' . $node->nid);
+    // This might fire on node creation when ftritems are loaded using feeds
+    // This means there might not be a ->nid yet
+    if (!isset($node->nid)) {
+      watchdog('admin_feature', 'Set Date Visited on Site Report: ' . $node->nid);
+    }
+    else {
+      watchdog('admin_feature', 'Set Date Visited on a new Site Report.');
+    }
     // drupal_set_message('Set Date Visited on Site Report.', 'status');
     return TRUE;
   }
