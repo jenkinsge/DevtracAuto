@@ -29,6 +29,13 @@
   background-size: auto 40px;
 }
 
+.page-title img {
+  height: 40px;
+  width: auto;
+  float: left;
+  margin-right: 5px;
+}
+
 .node-type-questionnaire-question #page-title {
   background-image: url(../images/title-icon-question.png);
 }
@@ -334,9 +341,7 @@ table tbody tr.even td.active {
 .page-actionitems .zone-content ,
 .page-fieldtrips .zone-content ,
 .page-statistics .zone-content ,
-.page-users .zone-content 
-
-/*.view-modes-list .zone-content*/ {
+.page-users .zone-content {
   width: 100%;
   margin: 0;
   padding: 0;
@@ -349,9 +354,7 @@ table tbody tr.even td.active {
 .page-actionitems aside.grid-3 ,
 .page-fieldtrips aside.grid-3 ,
 .page-statistics aside.grid-3 ,
-.page-users aside.grid-3 
-
-/*.view-modes-list aside.grid-3*/ {
+.page-users aside.grid-3 {
   margin: 0;
   float: left;
   width: 310px;
@@ -365,9 +368,7 @@ table tbody tr.even td.active {
 .page-actionitems .grid-9.region-content ,
 .page-fieldtrips .grid-9.region-content ,
 .page-statistics .grid-9.region-content ,
-.page-users .grid-9.region-content 
-
-/*.view-modes-list .grid-9.region-content*/ {
+.page-users .grid-9.region-content {
   float: left;
   width: 100%;
   margin-right: 0;
@@ -381,9 +382,7 @@ table tbody tr.even td.active {
 .page-actionitems .grid-9.region-content .region-content-inner ,
 .page-fieldtrips .grid-9.region-content .region-content-inner ,
 .page-statistics .grid-9.region-content .region-content-inner ,
-.page-users .grid-9.region-content .region-content-inner 
-
-/*.view-modes-list .grid-9.region-content .region-content-inner*/ {
+.page-users .grid-9.region-content .region-content-inner {
   margin-left: 310px;
 }
 
