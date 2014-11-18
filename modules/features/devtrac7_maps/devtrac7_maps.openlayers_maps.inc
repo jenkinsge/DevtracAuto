@@ -3295,7 +3295,7 @@ function devtrac7_maps_openlayers_maps() {
       'openlayers_behavior_zoomtolayer' => array(
         'zoomtolayer' => array(
           'osm_mapnik' => 0,
-          'dvtrc_maps_openlayers_5' => 0,
+          'dvtrc_maps_openlayers_5' => 'dvtrc_maps_openlayers_5',
         ),
         'point_zoom_level' => '8',
         'zoomtolayer_scale' => '1',
