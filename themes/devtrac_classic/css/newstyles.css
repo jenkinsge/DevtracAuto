@@ -2208,7 +2208,44 @@ div.olControlAttribution a:link {
 }
 
 .maintenance-page #content table.system-status-report {
-  width: 95%;
+  margin-bottom: 20px;
+}
+
+.maintenance-page #content table.system-status-report tbody {
+  border: none;
+}
+
+.maintenance-page #content table.system-status-report tr:hover {
+  color: #333333;
+  background: transparent;
+}
+
+.maintenance-page #content table.system-status-report tr a {
+  text-decoration: underline
+}
+
+.maintenance-page #content table.system-status-report tr:hover a {
+  color: inherit;
+}
+
+.maintenance-page #content table.system-status-report tr {
+  border: thin solid #CCCCCC;
+}
+
+.maintenance-page #content table.system-status-report tr td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.maintenance-page #content table.system-status-report .error.merge-down:hover ,
+.maintenance-page #content table.system-status-report .error.merge-up:hover {
+  background: #fef5f1;
+  color: #8c2e0b;
+}
+
+.maintenance-page #content table.system-status-report .ok:hover {
+  background: #f8fff0;
+  color: #234600;
 }
 
 .maintenance-page #content form #system-date-types thead {
