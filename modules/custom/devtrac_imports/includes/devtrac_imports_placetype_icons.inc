@@ -43,13 +43,13 @@ class DevtracImportsPlacetypeIcons extends XMLMigration   {
     $this->addFieldMapping('value', 'filename');
          //->xpath('code');
     // Fields on the entity can be mapped in the usual way.
-    $this->addFieldMapping('field_image_description', 'description')
-         ->xpath('description');
+//    $this->addFieldMapping('field_image_description', 'description')
+//         ->xpath('description');
 
     $this->addFieldMapping('uid')
          ->defaultValue(1);
-    $this->addFieldMapping('field_migrate_example_image:alt', 'name');
-    $this->addFieldMapping('field_migrate_example_image:title', 'name');
+    $this->addFieldMapping('field_file_image_title_text', 'name');
+    $this->addFieldMapping('field_file_image_alt_text', 'name');
 
     $this->addUnmigratedDestinations(array('field_image_description:format',
       'field_image_description:language', 'destination_dir', 'destination_file',
