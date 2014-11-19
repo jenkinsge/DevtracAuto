@@ -1575,6 +1575,8 @@ div .collapsiblockCollapsed a {
 }
 
 .olControlPanel.olControlNoSelect .olButton[original-title='Site reports'] ,
+.olControlPanel.olControlNoSelect .olButton[original-title='Admin Units'] ,
+.olControlPanel.olControlNoSelect .olButton[original-title='Locations'] ,
 .olControlPanel.olControlNoSelect .olButton[original-title='About DevTrac'] {
   background-position: 0 -120px !important;
 }
@@ -1768,6 +1770,16 @@ div.olControlAttribution a:link {
   background: url(../images/map-layer-natural.png) no-repeat 5px 50% !important;
 }
 
+
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.osm_cycle {
+  background: url(../images/map-layer-cycling-map.png) no-repeat 5px 50%;
+}
+
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.osm_mapnik {
+  background: url(../images/map-layer-osm-mapnik.png) no-repeat 5px 50%;
+}
+
+/*
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_4 {
   background: url(../images/map-layer-osm-mapnik.png) no-repeat 5px 50%;
 }
@@ -1775,7 +1787,7 @@ div.olControlAttribution a:link {
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_6 ,
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_8 {
   background: url(../images/map-layer-cycling-map.png) no-repeat 5px 50%;
-}
+}*/
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.activated {
   background-color: rgba(0, 0, 0, 0.9) !important;
