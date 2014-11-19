@@ -2064,9 +2064,8 @@ div.olControlAttribution a:link {
  *  Maintenance Page Styles
  ====================================================================*/
 
-.maintenance-page #page {
-  width: 900px;
-  margin: 10px auto;
+.maintenance-page {
+  margin: 0;
 }
 
 .maintenance-page #page li {
@@ -2074,36 +2073,56 @@ div.olControlAttribution a:link {
 }
 
 .maintenance-page #branding {
-  width: 900px;
-  margin: 10px auto;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 5px solid #EA0001;
+}
+
+.maintenance-page #branding .branding-inner {
+  width: 70%;
+  min-width: 900px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
 .maintenance-page #branding .logo-wrapper {
-  width: 300px;
+  width: 33.3%;
   float: left;
   display: inline-block;
 }
 
 .maintenance-page #branding .logo-wrapper img {
   margin: 20px;
+  height: 25px;
+}
+
+.maintenance-page #branding .page-title-wrapper {
+  width: 66.6%;
+  float: left;
+  display: inline-block;
 }
 
 .maintenance-page #branding .page-title {
-  display: inline-block;
   font-weight: normal;
-  margin-left: 25px;
+  margin: 0;
   margin-top: 20px;
+  padding: 0;
+}
+
+.maintenance-page .page-wrapper {
+  width: 70%;
+  min-width: 900px;
+  margin: 0 auto;
 }
 
 .maintenance-page #sidebar-first {
-  width: 300px;
+  width: 33.3%;
   display: inline-block;
   float: left;
 }
 
 .maintenance-page #sidebar-first .task-list {
-  margin-left: 10px;
+  margin: 10px;
   padding: 0;
 }
 
@@ -2128,9 +2147,10 @@ div.olControlAttribution a:link {
 }
 
 .maintenance-page #content {
-  width: 590px;
+  width: 66.6%;
   display: inline-block;
   float: right;
+  padding-top: 10px;
   padding-bottom: 20px;
 }
 
@@ -2139,11 +2159,23 @@ div.olControlAttribution a:link {
 }
 
 .maintenance-page #content #progress {
+  margin-top: 20px;
   width: 95%;
 }
 
-.maintenance-page #content form {
-  padding: 0px 20px;
+.maintenance-page #content #progress .percentage {
+  float: none;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.maintenance-page #content #progress .message {
+  margin-top: 20px;
+  line-height: 25px;
+}
+
+.maintenance-page #content form input[type=submit] {
+  cursor: pointer;
 }
 
 .maintenance-page #content form .form-required {
@@ -2158,12 +2190,12 @@ div.olControlAttribution a:link {
 .maintenance-page #content form fieldset {
   padding: 20px 0;
   border: none;
-  margin: 20px 0;
 }
 
 .maintenance-page #content form fieldset legend  {
   padding: 0;
   margin: 0;
+  font-size: 1.2em;
 }
 
 .maintenance-page #content form fieldset legend .fieldset-legend {
