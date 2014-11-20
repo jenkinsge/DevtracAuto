@@ -2440,3 +2440,15 @@ function _devtrac7_site_report_tid($termname) {
   }
   return $tid;
 }
+
+/**
+ * Implements hook_query_alter().
+ *
+ * This will change the order of mapit processing.
+ * It processes locations followed by site reports.
+ */
+function devtrac7_query_alter($query) {
+  if ($query->hasTag('mapit_processing')) {
+    $query->orderBy('id', 'DESC');
+  }
+}
