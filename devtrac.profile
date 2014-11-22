@@ -77,7 +77,7 @@ function devtrac_country_point_data($code, $langcode = "en") {
 
   $data = array();
 
-  $url = drupal_get_path(). "http://localhost/test/country.xml";
+  $url = drupal_get_path('profile', 'devtrac'). '/data/countrycenter.xml';
 
   $xml = simplexml_load_file($url);
   //$country = new SimpleXMLElement();
