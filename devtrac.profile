@@ -15,8 +15,8 @@ function devtrac_form_install_configure_form_alter(&$form, $form_state, $form_id
     $form['site_information']['site_name']['#default_value'] = $_SERVER['SERVER_NAME'];
 
     //alter country    install_settings_form
-    $form['server_settings']['site_default_country']['#required'] = TRUE; 
-    $form['#submit'][] = 'devtrac_install_configure_form_submit_country';
+ // $form['server_settings']['site_default_country']['#required'] = TRUE;
+ // $form['#submit'][] = 'devtrac_install_configure_form_submit_country';
 
   }
 }
@@ -35,18 +35,66 @@ function devtrac_install_configure_form_submit_country(&$form, $form_state) {
   $countries = country_get_list();
   $country_code = $form_state['values']['site_default_country'];
   
-  $country = $countries[$country_code];
-  if(empty($country)) {
+  if(empty($countries[$country_code])) {
     drupal_set_message("Country code provided in default country can not be identified.", 'error');
     return ;    
   }
   else {
+    if(!module_exists("mapit")) {
+      return ;
+    }
+
+    $bundle = $vocabulary->machine_name;
+    $entity = 'taxonomy_term';
+    $geofield_field = field_info_instance($entity, variable_get('mapit_geofield', "0"), $bundle);
+    $osm_wiki_field = field_info_instance($entity, variable_get('mapit_wikipedia', "0"), $bundle);
+    $osm_long_field = field_info_instance($entity, variable_get('mapit_longname', "0"), $bundle);
+    $langcode = LANGUAGE_NONE;
+    $lcode = 'en';
+    $metadata = devtrac_country_point_data($country_code ,$lcode);
+    debug($metadata);
     $term = new stdClass();
-    $term->name = $country;
-    $term->description = "Default country";
+    $term->name = $metadata['name'];
+    $term->description = "Default country center point";
+    $term->{$osm_long_field['field_name']}[$langcode][0]['value'] = $metadata['long_name'];
+    $term->{$geofield_field['field_name']}[$langcode][0]['geom'] = 'POINT(' .$metadata['lon'] . ' ' . $metadata['lat'] . ')';
+    $term->{$osm_wiki_field['field_name']}[$langcode][0] = array(
+      'title' => $metadata['name'],
+      'url' => "http://" . $lcode . ":wikipedia.org/wiki/" . $metadata['wikipedia'],
+    );
     $term->vid = $vocabulary->vid;
-    taxonomy_term_save($term);  
+    taxonomy_term_save($term);
   }  
+}
+
+/**
+ * Gets the center point of a country
+ * @param type $code
+ * @param type $langcode
+ * @return array
+ */
+function devtrac_country_point_data($code, $langcode = "en") {
+
+  $data = array();
+
+  $url = drupal_get_path('profile', 'devtrac'). '/data/countrycenter.xml';
+
+  $xml = simplexml_load_file($url);
+  //$country = new SimpleXMLElement();
+  $country = $xml->xpath("/osm/node/tag[@k='country_code_iso3166_1_alpha_2' and @v='". $code . "']/..");
+  $data['id'] = (string) $country[0]['id'];
+  $data['lat'] = (string) $country[0]['lat'];
+  $data['lon'] = (string) $country[0]['lon'];
+  // $data[''] = (string) $country[0]['lon'];
+  $long_name = $country[0]->xpath("tag[@k='official_name']");
+  $data['long_name'] = (string) $long_name[0]['v'];
+  
+  $wikipedia = $country[0]->xpath("tag[@k='wikipedia']");
+  $data['wikipedia'] = (string) $wikipedia[0]['v'];
+  
+  $name = $country[0]->xpath("tag[@k='name:" . $langcode . "']");
+  $data['name'] = (string) $name[0]['v'];
+  return $data;
 }
 
 /**
