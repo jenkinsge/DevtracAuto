@@ -71,7 +71,6 @@ class DevtracImportsPlacetypeIcons extends XMLMigration   {
     $fieldmappings = $this->getFieldMappings();
     $source_dir = $fieldmappings['source_dir']->getDefaultvalue();
     $file_full_path = DRUPAL_ROOT . '/' . $source_dir . '/' . $row->filename;
-    watchdog("~~~~~~devtrac_imports", $file_full_path);
     if(!file_exists($file_full_path)) {
       return FALSE;
     }
