@@ -1211,6 +1211,8 @@ function devtrac7_node_update($node) {
     case 'fieldtrip':
       break;
     case 'place':
+      module_load_include('inc', 'devtrac7', 'devtrac7_place');
+      devtrac7_place_updatedistrict($node);
       break;
   }
 }
@@ -2443,12 +2445,10 @@ function _devtrac7_site_report_tid($termname) {
 
 /**
  * Implements hook_query_alter().
- *
- * This will change the order of mapit processing.
- * It processes locations followed by site reports.
  */
 function devtrac7_query_alter($query) {
   if ($query->hasTag('mapit_processing')) {
     $query->orderBy('id', 'DESC');
   }
 }
+
