@@ -111,6 +111,52 @@ function devtrac7_place_addtofieldtrip($node) {
 }
 
 /**
+ * This function copies the District from the referenced location
+ * to the ftritem for performance reasons
+ */
+function devtrac7_place_updatedistrict($node) {
+  // Only copy Admin Unit from Location when the Admin Unit on the Location was
+  // changed from "Undefined Area" to something else by mapit and the District
+  // on the Site Report is "Undefined Area".
+  if (isset($node->original->taxonomy_vocabulary_6[$node->language]) && (count($node->original->taxonomy_vocabulary_6[$node->language]) > 0)) {
+    // There was a District
+    $oldterm = taxonomy_term_load($node->original->taxonomy_vocabulary_6[$node->language][0]['tid']);
+    if ($oldterm->name != "Undefined Area") {
+      // The Admin Unit was not updated by mapit.
+      // Do nothing.
+    }
+    else {
+      if (isset($node->taxonomy_vocabulary_6[$node->language]) && (count($node->taxonomy_vocabulary_6[$node->language]) > 0)) {
+        $newterm = taxonomy_term_load($node->taxonomy_vocabulary_6[$node->language][0]['tid']);
+        if ($newterm->name == "Undefined Area") {
+          // Nothing changed. Do nothing.
+        }
+        else {
+          // The Admin Unit was (most probably) updated by mapit.
+          // Propagate the change to all Site Reports that reference this
+          // Location and have their Admin Unit set to "Undefined Area".
+          $terms = taxonomy_get_term_by_name('Undefined Area', 'vocabulary_6');
+          $term = array_shift($terms);
+          $site_reports = db_select('field_data_taxonomy_vocabulary_6', 'fdtv6')
+            ->fields('fdtv6', array('entity_id'))
+            ->condition('entity_type', 'node')
+            ->condition('bundle', 'ftritem')
+            ->condition('taxonomy_vocabulary_6_tid', $term->tid)
+            ->execute();
+          while ($site_report = $site_reports->fetchAssoc()) {
+            $report = node_load($site_report['entity_id']);
+            if ($report->field_ftritem_place[$report->language][0]['target_id'] == $node->nid) {
+              $report->taxonomy_vocabulary_6[$report->language][0]['tid'] = $newterm->tid;
+              node_save($report);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
  * Define all progress checks provided by the module.
  *
  * @return array
