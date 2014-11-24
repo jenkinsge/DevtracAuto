@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * A module file is mandatory.
  */
 
 // Making Devtrac to Devtrac Importer an app.
