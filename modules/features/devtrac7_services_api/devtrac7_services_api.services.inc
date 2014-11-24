@@ -13,7 +13,7 @@ function devtrac7_services_api_default_services_endpoint() {
   $endpoint = new stdClass();
   $endpoint->disabled = FALSE; /* Edit this to true to make a default endpoint disabled initially */
   $endpoint->api_version = 3;
-  $endpoint->name = 'blackberry';
+  $endpoint->name = 'api';
   $endpoint->server = 'rest_server';
   $endpoint->path = 'api';
   $endpoint->authentication = array(
@@ -128,7 +128,7 @@ function devtrac7_services_api_default_services_endpoint() {
     ),
   );
   $endpoint->debug = 1;
-  $export['blackberry'] = $endpoint;
+  $export['api'] = $endpoint;
 
   return $export;
 }
