@@ -1,24 +1,31 @@
 <?php
+/**
+ * @file
+ * Main file of Devtrac module. Here a lot of Devtrac magic happens like
+ * keeping referential integrity between different nodetypes
+ */
 
 /**
  * Implements hook_menu().
  */
 function devtrac7_menu() {
   // This is the mother of all Devtrac7 admin items
-  // It just navigates to a page with other Devtrac admin options (eg. Edit Questions)
+  // It just navigates to a page with other Devtrac admin options
+  // (eg. Edit Questions).
   $items['admin/devtrac7'] = array(
     'title' => 'Devtrac',
     'description' => 'Configure Devtrac specific settings.',
     'page callback' => 'system_admin_menu_block_page',
     'access callback' => TRUE,
-    'access arguments' => array('Use the administration pages and help'), // This is the highest level an Editor has
+    // This is the highest level an Editor has.
+    'access arguments' => array('Use the administration pages and help'),
     'file' => 'system.admin.inc',
     'file path' => drupal_get_path('module', 'system'),
     'weight' => -3,
   );
-   $items['admin/devtrac7/quality'] = array(
-    'title' => t('Quality'),
-    'description' => t("Reports that show data consistency checks on your Devtrac database"),
+  $items['admin/devtrac7/quality'] = array(
+    'title' => 'Quality',
+    'description' => "Reports that show data consistency checks on your Devtrac database.",
     'position' => 'right',
     'weight' => -7,
     'access arguments' => array('Use the administration pages and help'),
@@ -27,8 +34,8 @@ function devtrac7_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
   $items['admin/devtrac7/statistics'] = array(
-    'title' => t('Statistics'),
-    'description' => t("Site Statistics"),
+    'title' => 'Statistics',
+    'description' => 'Site Statistics',
     'position' => 'right',
     'weight' => -6,
     'access arguments' => array('Use the administration pages and help'),
@@ -37,8 +44,8 @@ function devtrac7_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
   $items['admin/devtrac7/taxonomy'] = array(
-    'title' => t('Lists'),
-    'description' => t("Management of Lists"),
+    'title' => 'Lists',
+    'description' => 'Management of Lists',
     'position' => 'left',
     'weight' => -5,
     'access arguments' => array('Use the administration pages and help'),
@@ -47,8 +54,8 @@ function devtrac7_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
   $items['admin/devtrac7/questions'] = array(
-    'title' => t('Questionnaire'),
-    'description' => t("Management of the Questionnaire module."),
+    'title' => 'Questionnaire',
+    'description' => 'Management of the Questionnaire module.',
     'position' => 'left',
     'weight' => -4,
     'access arguments' => array('Use the administration pages and help'),
@@ -57,14 +64,14 @@ function devtrac7_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
   // Menu item on the Question order page to add Questions.
-  $items['admin/devtrac7/questions/edit/add'] = array (
-    'title' => t('Add New Question'),
+  $items['admin/devtrac7/questions/edit/add'] = array(
+    'title' => 'Add New Question',
+    'description' => 'Add a new Question',
     'title callback' => 'check_plain',
     'page callback' => 'node_add',
     'page arguments' => array('questionnaire_question'),
     'access callback' => 'node_access',
     'access arguments' => array('create', 'questionnaire_question'),
-    'description' => t('Add a new Question'),
     'file' => 'node.pages.inc',
     'file path' => drupal_get_path('module', 'node'),
     'type' => MENU_LOCAL_ACTION,
@@ -73,7 +80,7 @@ function devtrac7_menu() {
   );
   $items['admin/devtrac7/solr'] = array(
     'title' => "Solr Settings",
-    'description' => t("This is the page for various Solr settings"),
+    'description' => 'This is the page for various Solr settings',
     'position' => 'right',
     'weight' => -3,
     'access arguments' => array('administer site configuration'),
@@ -82,18 +89,17 @@ function devtrac7_menu() {
     'file path' => drupal_get_path('module', 'system'),
   );
   // Menu item for setting solr search access settings.
-  $items['admin/devtrac7/solr/solr_search_access_settings'] = array (
-    'title' => t('Solr search access settings'),
+  $items['admin/devtrac7/solr/solr_search_access_settings'] = array(
+    'title' => 'Solr search access settings',
     'title callback' => 'check_plain',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('devtrac7_solr_search_access_settings_form'),
     'access callback' => 'user_access',
     'access arguments' => array('administer site configuration'),
-    'description' => t('Set the threshold for the number of user access items in the system.'),
+    'description' => 'Set the threshold for the number of user access items in the system.',
     'type' => MENU_NORMAL_ITEM,
     'weight' => 5,
   );
-
   $items['devtrac/mycurrentfieldtrip'] = array(
     'title' => 'My Current Fieldtrip',
     'page callback' => 'devtrac7_gotofieldtrip',
@@ -111,7 +117,8 @@ function devtrac7_menu() {
     'title' => 'Set Status',
     'page callback' => 'devtrac7_fieldtrip_setstatus',
     'page arguments' => array(1, 3),
-    'access callback' => TRUE, // array('devtrac7_fieldtrip_setstatus_access'),
+    'access callback' => TRUE,
+    // array('devtrac7_fieldtrip_setstatus_access'),
     // 'access arguments' => array(1, 3),
     // 'type' => MENU_LOCAL_ACTION,
     // 'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
@@ -125,7 +132,7 @@ function devtrac7_menu() {
     'type' => MENU_CALLBACK,
   );
   $items['node/%/addplaceform/ajax/%ctools_js/go'] = array(
-    'title' => t('Add Location Modal'),
+    'title' => 'Add Location Modal',
     'page callback' => 'devtrac7_pageaddplaceform_modal',
     'page arguments' => array(1, 4),
     'access callback' => array('devtrac7_update_fieldtrip_access'),
@@ -156,25 +163,25 @@ function devtrac7_menu() {
   //    'weight' => 4,
   // );
   $items['node/%/addactionitem'] = array(
-    'title' => t('Add Actionitem'),
+    'title' => 'Add Actionitem',
+    'description' => 'Create a new Actionitem',
     'title callback' => 'check_plain',
     'page callback' => 'devtrac7_drupal_goto',
     'page arguments' => array(1, 'actionitem'),
     'access callback' => array('devtrac7_addactionitem_access'),
     'access arguments' => array(1),
-    'description' => t('Create a new Actionitem'),
     'type' => MENU_LOCAL_ACTION,
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 4,
   );
-  $items['user/%/addfieldtrip'] = array (
-    'title' => t('Add New Fieldtrip'),
+  $items['user/%/addfieldtrip'] = array(
+    'title' => 'Add New Fieldtrip',
+    'description' => 'Create a new Field Trip',
     'title callback' => 'check_plain',
     'page callback' => 'devtrac7_drupal_goto',
     'page arguments' => array(1, 'fieldtrip'),
     'access callback' => 'devtrac7_addfieldtrip_access',
     // 'access arguments' => array(),
-    'description' => t('Create a new Field Trip'),
     'type' => MENU_CALLBACK, // MENU_LOCAL_ACTION,
     // 'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 4,
@@ -240,6 +247,7 @@ function devtrac7_user_page_title($account = NULL) {
   global $user;
   $user = user_load($user->uid);
   $name = empty($user->field_user_firstname) ? $user->name : $user->field_user_firstname[LANGUAGE_NONE][0]['safe_value'];
+  $name = check_plain($name);
   return t('Welcome, ') . $name;
 }
 
@@ -260,6 +268,8 @@ function devtrac7_limit_user_configuration_access($permission) {
 
 /**
  * Implements hook_menu_link_alter().
+ * 
+ * @ref _menu_navigation_links_rebuild().
  */
 function devtrac7_menu_link_alter(&$item) {
   if ($item['link_path'] == 'user') {
@@ -286,13 +296,18 @@ function devtrac7_menu_link_alter(&$item) {
     $item['link_title'] = 'Edit My Profile';
     $item['hidden'] = 0;
     // Make sure this record will not be rewritten on a menu rebuild.
-    // Also see: https://api.drupal.org/api/drupal/includes%21menu.inc/function/menu_link_save/7
-    // and the code in function _menu_navigation_links_rebuild() in includes/menu.inc
+    // Also see: 
+    // https://api.drupal.org/api/drupal/includes%21menu.inc/function/menu_link_save/7
+    // and the code in function _menu_navigation_links_rebuild() 
+    // in includes/menu.inc
     $item['customized'] = 1;
     $item['weigth'] = -50;
   }
 }
 
+/**
+ * Implements hook_menu_contextual_links_alter().
+ */
 function devtrac7_menu_contextual_links_alter(&$links, $router_item, $root_path) {
   if (isset($links['devtrac7_progress_field-fullreport'])) {
     $links['devtrac7_progress_field-fullreport']['options'] = array('query' => array('print' => ''));
@@ -304,6 +319,9 @@ function devtrac7_menu_contextual_links_alter(&$links, $router_item, $root_path)
   }
 }
 
+/**
+ * Set the title of a fieldtrip.
+ */
 function devtrac7_fieldtripcommentform_title($method) {
   return t('@method Fieldtrip', array('@method' => ucfirst($method)));
 }
@@ -316,16 +334,16 @@ function devtrac7_drupal_goto($id, $type) {
   global $user;
   switch ($type) {
     case 'fieldtrip':
-      // Prepopulate
+      // Prepopulate.
       $prepopulate = array(
         'field_fieldtrip_user' => $id,
       );
-      // Do no redirect after submitting the new fieldtrip form
+      // Do no redirect after submitting the new fieldtrip form.
       unset($_GET['destination']);
       drupal_goto('node/add/fieldtrip', array('query' => $prepopulate));
       break;
     case 'actionitem':
-      // Prepopulate
+      // Prepopulate.
       $ftritem = node_load($id);
       $prepopulate = array(
         'field_actionitem_responsible' => $user->uid,
@@ -333,14 +351,13 @@ function devtrac7_drupal_goto($id, $type) {
         'field_actionitem_ftreportitem' => $id,
         'edit[taxonomy_vocabulary_6][und]' => $ftritem->taxonomy_vocabulary_6[$ftritem->language]['0']['tid'],
       );
-      // Redirect to the original redirect after submitting the form
+      // Redirect to the original redirect after submitting the form.
       $destination = drupal_get_destination();
       unset($_GET['destination']);
       drupal_goto('node/add/actionitem', array('query' => array_merge($destination, $prepopulate)));
       break;
   }
 }
-
 
 /*
  * Navigates user to his current fieldtrip, if he has one
@@ -701,7 +718,6 @@ function devtrac7_user_view($account, $view_mode, $langcode) {
 function devtrac7_menu_local_tasks_alter(&$data, $router_item, $root_path) {
   if ($root_path == 'node/%') {
     foreach ($data['actions']['output'] as $key=>$item) {
-      watchdog("devtrac7", "checking action item" . $data['actions']['output'][$key]['#link']['path']);
       if ($data['actions']['output'][$key]['#link']['path'] == 'node/%/addplaceform/ajax/%/go') {
         $data['actions']['output'][$key]['#link']['options']['attributes']['class'] = Array('ctools-use-modal');
         $data['actions']['output'][$key]['#link']['localized_options']['attributes']['class'] = Array('ctools-use-modal');
@@ -728,7 +744,7 @@ function devtrac7_menu_local_tasks_alter(&$data, $router_item, $root_path) {
 }
 
 /**
- * Modal callback for Add Place to Field Trip form
+ * Modal callback for Add Place to Field Trip form.
  */
 function devtrac7_pageaddplaceform_modal($fieldtrip, $js = FALSE) {
   module_load_include('inc', 'node', 'node.pages');
@@ -1489,6 +1505,7 @@ function devtrac7_block_view_alter(&$data, $block) {
             break;
           case 'Filter by location type:':
           case 'Filter by location types:':
+          case 'Filter by location type » all parent terms:':
             $data['subject'] = t('Location');
             switch ($block->delta) {
               case '19dqfDK2pFqdJCRH9C971eH0QN9IVhvV':
@@ -1710,7 +1727,7 @@ function devtrac7_form_place_node_form_alter(&$form, &$form_state, $form_id) {
  * Pivotal Story: https://www.pivotaltracker.com/story/show/24135227
  */
 function devtrac7_form_fieldtrip_node_form_alter(&$form, &$form_state, $form_id) {
-
+  global $user;
   if (!isset($form['#node']->field_fieldtrip_narrative) ||
       ((isset($form['#node']->field_fieldtrip_narrative) && (empty($form['#node']->field_fieldtrip_narrative['und'][0]['value']))))) {
     $form['field_fieldtrip_narrative']['#type'] = "hidden";
@@ -1721,7 +1738,9 @@ function devtrac7_form_fieldtrip_node_form_alter(&$form, &$form_state, $form_id)
      */
     $form['field_fieldtrip_narrative']['#after_build'][] = 'devtrac7_removeformat_form';
   }
-
+  
+  // In Devtrac Uganda there are Field Trips that have a description
+  // in which case we show the field. Default is we do not show it.
   if (!isset($form['#node']->field_fieldtrip_public_summary) ||
       ((isset($form['#node']->field_fieldtrip_public_summary) && (empty($form['#node']->field_fieldtrip_public_summary['und'][0]['value']))))) {
     $form['field_fieldtrip_public_summary']['#type'] = "hidden";
@@ -1742,13 +1761,9 @@ function devtrac7_form_fieldtrip_node_form_alter(&$form, &$form_state, $form_id)
   }
   $form['field_fieldtrip_status']['#type'] = "hidden";
   $form['field_fieldtrip_approved_by']['#type'] = "hidden";
-  unset($form['field_fieldtrip_approval_date']);//['#type'] = "hidden";
-  // Hide the book vertical tab (finally)
-  $form['book']['#type'] = "hidden";
-  $form['revision_information']['#type'] = "hidden";
-  // wow, this doesnt work at all. It actually forgets the default status of the Published field!!! (
-  // We ended up fixing this using CSS (display: none)
-  // $form['options']['#type'] = "hidden";
+  unset($form['field_fieldtrip_approval_date']);
+  // Hide the book vertical tab for anyone but admin and administrators
+  $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
 }
 
 /* implement hook_form_alter for ftritem
@@ -1774,7 +1789,7 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
    *     - Add new file > Add new Image
    *     - Hide Status
    */
-
+  global$user;
   // Remove option "- None -" from Subject/Sector multi-select field.
   unset($form['taxonomy_vocabulary_8'][LANGUAGE_NONE]['#options']['_none']);
 
@@ -1825,14 +1840,12 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
   if (isset($form['#node']->field_ftritem_place['und'][0]['target_id'])) {
     $form['field_ftritem_lat_long']['#type'] = "hidden";
   }
-  // Hide the book vertical tab (finally)
-  $form['book']['#type'] = "hidden";
-  $form['revision_information']['#type'] = "hidden";
+  // Hide the book vertical tab for anyone but admin
+    $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
 
-  // Declare a new validation function.
-  // Following line commented out for testing purposes.
-  // Please re-enable when testing is done.
-  // $form['#validate'][] = 'devtrac7_ftritem_datevisited_validate';
+  // Declare a new validation function to see if Date visited is between 
+  // start and end date of fieldtrip
+  $form['#validate'][] = 'devtrac7_ftritem_datevisited_validate';
 }
 
 /**
@@ -1857,7 +1870,8 @@ function devtrac7_ftritem_datevisited_validate($form, &$form_state){
   else {
     // The Sitereport is not attached to a Fieldtrip.
     // This should not be happening at all.
-    form_set_error('field_ftritem_field_trip][und][0][target_id', 'The sitereport has to be attached to a fieldtrip.');
+    //form_set_error('field_ftritem_field_trip][und][0][target_id', 'The sitereport has to be attached to a fieldtrip.');
+    // This is not the case anymore and this is not the place to complain about it.
   }
 }
 
@@ -1871,10 +1885,8 @@ function devtrac7_form_actionitem_node_form_alter(&$form, &$form_state, $form_id
    * Remove the Formatter options from the textarea
    */
   $form['field_actionitem_followuptask']['#after_build'][] = 'devtrac7_removeformat_form';
-  // Hide the book vertical tab (finally)
-  $form['book']['#type'] = "hidden";
-  $form['revision_information']['#type'] = "hidden";
-  // $form['options']['#type'] = "hidden";
+  // Hide the book vertical tab for anyone but admin
+  $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
 
   // Hide map (location picker) if resp_place is given
   if (isset($form['#node']->field_actionitem_resp_place['und'][0]['target_id'])) {
@@ -1935,6 +1947,10 @@ function devtrac7_removeformat_form($form) {
 function devtrac7_admin_paths_alter(&$paths) {
   // Treat all user pages as not administrative.
   $paths['user/*'] = FALSE;
+  $paths['import'] = FALSE;
+  $paths['import/*'] = FALSE;
+  $paths['admin'] = FALSE;
+  $paths['admin/devtrac*'] = FALSE;
 }
 
 /**
@@ -1951,7 +1967,7 @@ function devtrac7_addplacetofieldtrip($placenid, $fieldtripnid, $reporttype) {
 }
 
 /*
- *  implements hook_access
+ *  Implements hook_access().
  */
 function devtrac7_addplacetofieldtrip_access($fieldtripnid) {
   global $user;
