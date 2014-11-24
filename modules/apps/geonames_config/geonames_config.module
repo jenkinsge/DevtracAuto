@@ -31,9 +31,9 @@ function geonames_config_app_configure_form() {
  * Implements hooks_app_post_install()
  */
 function geonames_config_app_post_install() {
-    $geo_settings = array();
-    //$geo_settings = variable_get("openlayers_geosearch_geocoders", array());
-    $geo_settings = variable_get('openlayers_geosearch_geocoders', array('geocode_geonames',));
-    variable_set($geo_settings[checked], "checked");
-    
+    $geo_settings = variable_get("openlayers_geosearch_geocoders", array());
+    if (module_exists("openlayers_geosearch")) {
+        $geo_settings['geonames'] = "geonames";
+        variable_set("openlayers_geosearch_geocoders", $geo_settings);
+    }
 }
