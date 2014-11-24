@@ -1381,7 +1381,7 @@ div .collapsiblockCollapsed a {
   margin: 0px 0px 5px 0px;
 }
 
-.block-facetapi form {
+/*.block-facetapi form {
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -1401,6 +1401,44 @@ div .collapsiblockCollapsed a {
   margin: 0;
 }
 
+*/
+
+.block-facetapi form {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 2px solid #333333;
+  background: #FFFFFF;
+  overflow: hidden;
+  height: 25px;
+}
+
+.block-facetapi form input[type='textfield'] {
+  display: inline-block;
+  padding: 5px;
+  width: 80%;
+  margin: 0;
+  border: none;
+}
+
+.block-facetapi form input[type='submit'] {
+  margin: 0;
+  display: inline-block;
+  float: right;
+  height: 26px;
+  width: 30px;
+  background: #151515 url(../images/search-icon.png) no-repeat 50% 50%;
+  background-size: 16px 16px;
+  color: transparent;
+  border-radius: 0;
+}
+
+.block-facetapi form input[type='submit']:hover {
+  background: #151515 url(../images/search-icon.png) no-repeat 50% 50%;
+}
+/*
+
+
+*/
 .block-facetapi h2.block-title {
   font-weight: normal;
   background: rgba(0, 0, 0, 0.5) url(../images/collapse-icon.png) no-repeat 95% 50%;
@@ -2292,7 +2330,7 @@ div.olControlAttribution a:link {
   line-height: normal;
 }
 
-.maintenance-page.devtrac-installation-complete #content a {
+/*.maintenance-page.devtrac-installation-complete #content a {
   display: inline-block;
   padding: 10px 20px;
   padding-right: 60px;
@@ -2305,7 +2343,7 @@ div.olControlAttribution a:link {
   background-repeat: no-repeat;
   background-position: 90% 50%;
   background-size: 25px;
-}
+}*/
 
 /*====================================================================
  *  Form Page Styles
