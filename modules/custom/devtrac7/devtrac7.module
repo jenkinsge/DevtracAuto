@@ -2289,6 +2289,18 @@ function devtrac7_openlayers_map_alter(&$map = array()) {
   if (devtrac7_is_unfiltered_front_page()) {
     $map['behaviors']['openlayers_behavior_zoomtolayer']['zoomtolayer']['devtrac_solr_view_sitevisits_json'] = '0';
   }
+  
+  //Center default country.
+  $country_code = variable_get('site_default_country');
+  module_load_include('inc', 'content', 'includes/locale');
+  $countries = country_get_list();
+  $langcode = LANGUAGE_NONE;
+  $term = taxonomy_get_term_by_name($countries[$country_code],'vocabulary_6');
+  if(!empty($term)) {
+    $term = array_shift ($term);
+    $point = $term->field_district_geo[$langcode][0]; 
+    $map['center']['initial']['centerpoint'] = $point['lon'] . ', ' . $point['lat'] ;
+  }  
 }
 
 /**
