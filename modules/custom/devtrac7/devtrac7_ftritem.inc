@@ -9,8 +9,31 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
        */
       if ($node->field_ftritem_place == $node->original->field_ftritem_place) {
         /*
-         * Nothing Changed
+         * Location attached to the Site Report did not change.
+         * However, something on the Site Report changed.
          */
+        if ($node->taxonomy_vocabulary_6 == $node->original->taxonomy_vocabulary_6) {
+          // The Admin Unit did not change.
+          return TRUE;
+        }
+        // The Admin Unit changed.
+        // Mitigate the change to the Fieldtrip.
+        unset($fieldtrip->taxonomy_vocabulary_6);
+        $alldistricts = array();
+        foreach($fieldtrip->field_fieldtrip_places[$fieldtrip->language] as $key => $placeid) {
+          if ($node->field_ftritem_place[$node->language][0]['target_id'] == $placeid['target_id']) {
+            $alldistricts[] = $node->taxonomy_vocabulary_6[$node->language][0]['tid'];
+          }
+          else {
+            $place = node_load($placeid['target_id']);
+            $alldistricts[] = $place->taxonomy_vocabulary_6[$place->language][0]['tid'];
+          }
+        }
+        $districts = array_unique($alldistricts);
+        foreach ($districts as $key => $tid) {
+          $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][$key]['tid'] = $tid;
+        }
+        node_save($fieldtrip);
         return TRUE;
       }
 
@@ -18,6 +41,7 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
       // Since the field is hidden on the site report edit form this will never be the case.
       // WARNING: The following code has never been tested.
       unset($fieldtrip->taxonomy_vocabulary_6);
+      $districts = array();
       foreach($fieldtrip->field_fieldtrip_places[$fieldtrip->language] as $key=>$place) {
         if ($place['target_id'] == $node->original->field_ftritem_place[$node->language][0]['target_id']) {
           unset ($fieldtrip->field_fieldtrip_places[$fieldtrip->language][$key]);
