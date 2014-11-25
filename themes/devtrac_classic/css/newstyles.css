@@ -914,6 +914,7 @@ article.comment nav ul li a {
   background-repeat: no-repeat;
   background-size: auto 16px;
   color: #777777;
+  font-size: inherit;
 }
 
 article.comment nav ul li a:hover {
@@ -922,6 +923,9 @@ article.comment nav ul li a:hover {
   background-size: auto 18px;
   background-color: transparent;
   color: #A52A2A;
+  margin: 0;
+  padding-left: 28px;
+  font-size: inherit;
 }
 
 article.comment nav ul li.comment-delete a {
