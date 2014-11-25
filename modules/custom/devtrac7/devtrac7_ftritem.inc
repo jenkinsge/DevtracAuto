@@ -1028,6 +1028,7 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
     'required' => TRUE,
     'required_function' => '',
   );
+/*
   $progress_checks['devtrac7_ftritem_districtset'] = array(
     'name' => t('devtrac7_ftritem_districtset'),
     'label' => t('devtrac7_ftritem_districtset'),
@@ -1052,6 +1053,7 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
     'required' => FALSE,
     'required_function' => 'devtrac7_ftritem_district_required',
   );
+ */
   $progress_checks['devtrac7_ftritem_placetypeset'] = array(
     'name' => t('devtrac7_ftritem_placetypeset'),
     'label' => t('devtrac7_ftritem_placetypeset'),

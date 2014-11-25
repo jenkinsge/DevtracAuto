@@ -519,6 +519,7 @@ function devtrac7_actionitem_devtrac7_progress_field_checks_info() {
     'required' => TRUE,
     'required_function' => '',
   );
+/*
   $progress_checks['devtrac7_actionitem_districtset'] = array(
     'name' => t('devtrac7_actionitem_districtset'),
     'label' => t('devtrac7_actionitem_districtset'),
@@ -543,7 +544,6 @@ function devtrac7_actionitem_devtrac7_progress_field_checks_info() {
     'required' => TRUE,
     'required_function' => '',
   );
-/*
   $progress_checks['devtrac7_actionitem_buttonset'] = array(
     'name' => t('devtrac7_actionitem_buttonset'),
     'label' => t('devtrac7_actionitem_buttonset'),

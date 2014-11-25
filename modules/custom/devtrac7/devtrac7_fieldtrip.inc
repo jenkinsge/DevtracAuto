@@ -634,7 +634,6 @@ function devtrac7_fieldtrip_devtrac7_progress_field_checks_info() {
     'required' => TRUE,
     'required_function' => '',
   );
- */
   $progress_checks['devtrac7_fieldtrip_districtsset'] = array(
     'name' => t('devtrac7_fieldtrip_districtsset'),
     'label' => t('devtrac7_fieldtrip_districtsset'),
@@ -659,6 +658,7 @@ function devtrac7_fieldtrip_devtrac7_progress_field_checks_info() {
     'required' => TRUE,
     'required_function' => '',
   );
+ */
   $progress_checks['devtrac7_fieldtrip_promstaidset'] = array(
     'name' => t('devtrac7_fieldtrip_promstaidset'),
     'label' => t('devtrac7_fieldtrip_promstaidset'),
