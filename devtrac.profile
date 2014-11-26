@@ -108,7 +108,7 @@ function devtrac_init() {
     module_enable(array('devtrac7_profile_menu'));
     devtrac_initialize_taxonomy_access();
     // Rename the layers so they look nice in the layer switcher.
-    devtrac7_resave_geolayer_attributes();\
+    devtrac7_resave_geolayer_attributes();
     variable_del('devtrac_menu_rebuild_needed');
   }
 }
