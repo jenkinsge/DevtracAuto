@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * 
+ * Creates configuration form for piwik, which is an alternative to Google analytics
+ */
+
+/**
+ * Implements hook_apps_app_info
+ */
+function piwik_configuration_apps_app_info() {
+    return array(
+        'configure form' => 'piwik_configuration_app_configure_form',
+        );
+}
+
+/**
+ * Implements hook_app_configure_form
+ */
+function piwik_configuration_app_configure_form() {
+  $form['piwik_info'] = array(
+    '#title' => t('Information'),
+    '#prefix' => '<div>',
+    '#markup' => '<a href="www.piwik.org">Piwik - Web analytics</a> is an open source (GPL license) web analytics software. It gives interesting reports on your website visitors, your popular pages, the search engines keywords they used, the language they speak... and so much more. Piwik aims to be an open source alternative to Google Analytics.<br /><br />Please fill out the general settings. Piwik has many more settings. After enabling the app, you can go to <a href="admin/config/system/piwik">admin/config/system/piwik</a> to change any of these settings.',
+    '#suffix' => '</div>',
+  );
+  $form['piwik_site_id'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Piwik site ID'),
+    '#default_value' => '',
+    '#required' => TRUE,
+    '#description' => t('The user account number is unique to the websites domain. Click the <strong>Settings</strong> link in your Piwik account, then the <strong>Websites</strong> tab and enter the appropriate site <strong>ID</strong> into this field.'),
+  );
+  $form['piwik_url_http'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Piwik HTTP URL'),
+    '#default_value' => '',
+    '#required' => TRUE,
+    '#description' => t('The URL to your Piwik base directory. Example: "http://www.example.com/piwik/".'),
+  );
+  $form['piwik_url_https'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Piwik HTTPS URL'),
+    '#default_value' => '',
+    '#description' => t('The URL to your Piwik base directory with SSL certificate installed. Required if you track a SSL enabled website. Example: "https://www.example.com/piwik/".'),
+  );
+
+  $form['actions'] = array('#type' => 'actions');
+  $form['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => st('Save Configurations'),
+    '#weight' => 15,
+  );
+  return $form;
+}
+
+/**
+ * Implements hook_app_configure_form_submit.
+ */
+function piwik_configuration_app_configure_form_submit($form, &$form_state) {
+  global $install_state;
+  $install_state['statistics']['piwik']['piwik_site_id'] = $form_state['values']['piwik_site_id'];
+  variable_set('piwik_site_id', $form_state['values']['piwik_site_id']);
+  $install_state['statistics']['piwik']['piwik_url_http'] = $form_state['values']['piwik_url_http'];
+  variable_set('piwik_url_http', $form_state['values']['piwik_url_http']);
+  if (isset($form_state['values']['piwik_url_https'])) {
+    $install_state['statistics']['piwik']['piwik_url_https'] = $form_state['values']['piwik_url_https'];
+    variable_set('piwik_url_https', $form_state['values']['piwik_url_https']);
+  }
+}
