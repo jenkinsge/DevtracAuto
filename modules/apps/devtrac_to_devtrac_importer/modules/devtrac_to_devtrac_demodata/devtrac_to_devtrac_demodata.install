@@ -12,6 +12,7 @@ function devtrac_to_devtrac_demodata_enable() {
   devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_location_import', 'devtrac_solr_view_locations.csv');
   devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_field_trip_import', 'devtrac_solr_view_fieldtrips.csv');
   devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_site_reports_import', 'devtrac_solr_view_sitevisits.csv');
+  devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_action_item_import', 'devtrac_solr_view_actionitems.csv');
   drupal_set_message("All Data has been imported. It will take a little while before the data will appear on the overview pages.");
 }
 
@@ -19,6 +20,8 @@ function devtrac_to_devtrac_demodata_enable() {
  * Implements hook_disable().
  */
 function devtrac_to_devtrac_demodata_disable() {
+  $myfeed = feeds_source('devtrac_2_devtrac_action_item_import');
+  $myfeed->startClear();
   $myfeed = feeds_source('devtrac_2_devtrac_location_import');
   $myfeed->startClear();
   $myfeed = feeds_source('devtrac_2_devtrac_field_trip_import');
