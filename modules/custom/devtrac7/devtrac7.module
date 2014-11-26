@@ -1702,28 +1702,9 @@ function _devtrac7_isinternetexplorer() {
  *  Implements hook_form_alter()
  */
 function devtrac7_form_place_node_form_alter(&$form, &$form_state, $form_id) {
-  $form['taxonomy_vocabulary_6'][LANGUAGE_NONE]['#multiple'] = FALSE;
-  $form['taxonomy_vocabulary_6'][LANGUAGE_NONE]['#description'] = 'Select the country or district this location is in.';
-  /*
-   * This field will hold the scrobbler when we do a getfeatureinfo request on the map
-   * (though it will show in a colorbox
-   */
-  $form['getfeatureinfo'] = Array (
-    '#type' => "markup",
-    '#markup' => '<div id="getfeatureinfo"></div>',
-    '#weight' => 0,
-  );
+  global $user;
   // Hide the book vertical tab for anyone but admin and administrators
   $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
-  /*
-   * this isnt working yet.
-   * Lets do this when we have a X&Y field
-   */
-  // $form['title']['#states'] = array (
-  //   'visible' => array(
-  //     ':input[class="geofield_wkt"]' => array('!value' => ''),
-  //   ),
-  // );
 }
 
 /* Implements hook_form_alter()
@@ -1885,6 +1866,7 @@ function devtrac7_ftritem_datevisited_validate($form, &$form_state){
  *
 */
 function devtrac7_form_actionitem_node_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
   /*
    * Remove the Formatter options from the textarea
    */
