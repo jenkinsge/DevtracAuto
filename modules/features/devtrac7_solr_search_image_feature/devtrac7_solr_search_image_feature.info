@@ -20,6 +20,7 @@ dependencies[] = openlayers
 dependencies[] = openlayers_geosearch
 dependencies[] = openlayers_plus
 dependencies[] = openlayers_views
+dependencies[] = pane
 dependencies[] = quicktabs
 dependencies[] = search_api
 dependencies[] = search_api_autocomplete
