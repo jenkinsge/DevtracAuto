@@ -2617,11 +2617,6 @@ tr:hover .tabledrag-toggle-weight:hover {
   display: none;
 }
 
-.page-node-add .vertical-tabs, 
-.page-node-edit .vertical-tabs {
-  display: none;
-}
-
 .page-node-edit .grid-12.region-content form.node-form .olControlZoomPanel.olControlNoSelect ,
 .page-node-add .grid-12.region-content form.node-form .olControlZoomPanel.olControlNoSelect {
   left: auto;

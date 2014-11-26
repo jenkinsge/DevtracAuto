@@ -1,6 +1,6 @@
-name = "Devtrac to Devtrac Importer Module"
-description = "Adds capability to import data from another devtrac installation."
+name = "Devtrac to Devtrac Demo Data Module"
+description = "Adds Demo Data when enabled and removes it when disabled."
 core = "7.x"
 package = "Devtrac"
 
-files[] = devtrac_to_devtrac_importer.module
+

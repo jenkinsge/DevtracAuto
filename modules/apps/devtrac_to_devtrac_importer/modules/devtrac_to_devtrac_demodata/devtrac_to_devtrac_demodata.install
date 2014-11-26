@@ -2,21 +2,49 @@
 
 /**
  * @file
+ * Imports and Removes data for the Devtrac 2 Devtrac Demo.
  */
-
-// Making Devtrac to Devtrac Importer an app.
 
 /**
- * Implements hook_apps_app_info()
+ * Implements hook_enable().
  */
-function devtrac_to_devtrac_importer_apps_app_info() {
-  return array(
-    'demo content description' => 'This is the Devtrac to Devtrac Importer app.',
-    // This form will be rendered on the app config page:
-    'post install callback' => 'devtrac_to_devtrac_importer_app_post_install',
-  );
+function devtrac_to_devtrac_demodata_enable() {
+  devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_location_import', 'devtrac_solr_view_locations.csv');
+  devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_field_trip_import', 'devtrac_solr_view_fieldtrips.csv');
+  devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_site_reports_import', 'devtrac_solr_view_sitevisits.csv');
+  devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_action_item_import', 'devtrac_solr_view_actionitems.csv');
+  node_access_needs_rebuild(TRUE);
+  drupal_set_message("All Data has been imported. It will take a little while before the data will appear on the overview pages.");
 }
 
-function devtrac_to_devtrac_importer_app_post_install() {
-  drupal_set_message(t("We are happy to tell you that the Devtrac to Devtrac Importer App is successfully installed."));
+/**
+ * Implements hook_disable().
+ */
+function devtrac_to_devtrac_demodata_disable() {
+  $myfeed = feeds_source('devtrac_2_devtrac_action_item_import');
+  $myfeed->startClear();
+  $myfeed = feeds_source('devtrac_2_devtrac_location_import');
+  $myfeed->startClear();
+  $myfeed = feeds_source('devtrac_2_devtrac_field_trip_import');
+  $myfeed->startClear();
+  $myfeed = feeds_source('devtrac_2_devtrac_site_reports_import');
+  $myfeed->startClear();
+  drupal_set_message(t("Deleted all Sample data."));
+}
+
+/**
+ * Helper function for importing.
+ */
+function devtrac_to_devtrac_demodata_import($importer, $file) {
+  $dir = drupal_get_path('module', 'devtrac_to_devtrac_demodata') . '/data/';
+  $myfeed = feeds_source($importer);
+  $config = array('FeedsFileFetcher' => array('source' => $dir . $file));
+  $myfeed->addConfig($config);
+  $myfeed->save();
+  try {
+    $myfeed->startImport();
+  }
+  catch (Exception $exept) {
+    drupal_set_message("error", $except->getMessage(), "error");
+  }
 }

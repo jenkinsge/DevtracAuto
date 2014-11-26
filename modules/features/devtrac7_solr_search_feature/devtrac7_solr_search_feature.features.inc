@@ -82,6 +82,7 @@ function devtrac7_solr_search_feature_default_search_api_index() {
         "field_fieldtrip_places" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "node" },
         "field_fieldtrip_places:url" : { "type" : "list\\u003Curi\\u003E" },
         "field_ftritem_date_visited" : { "type" : "date" },
+        "field_ftritem_field_trip:uuid" : { "type" : "string" },
         "field_ftritem_lat_long:geom" : { "type" : "text" },
         "field_ftritem_lat_long:lat" : { "type" : "string" },
         "field_ftritem_lat_long:latlon" : { "type" : "string", "real_type" : "location" },
@@ -96,7 +97,7 @@ function devtrac7_solr_search_feature_default_search_api_index() {
         "search_api_language" : { "type" : "string" },
         "status" : { "type" : "integer" },
         "taxonomy_vocabulary_1" : { "type" : "integer", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_1:parents_all" : { "type" : "list\u003Cinteger\u003E", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_1:parents_all" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_6:field_district_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_7" : { "type" : "integer", "entity_type" : "taxonomy_term" },
@@ -211,8 +212,7 @@ function devtrac7_solr_search_feature_default_search_api_index() {
             "highlight" : "always"
           }
         }
-      },
-      "additional fields" : { "field_fieldtrip_public_summary" : "field_fieldtrip_public_summary" }
+      }
     },
     "enabled" : "1",
     "read_only" : "0"

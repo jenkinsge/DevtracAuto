@@ -1014,6 +1014,32 @@ function devtrac7_profile_menu_file_exports_menu_links($mlid) {
     'parent_identifier' => 'menu-my-profile_export:export',
   );
 
+  $menu_items['menu-my-profile_site-reports-analyse-csv:sitereportsanalysecsvadmin'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'sitereports/analyse/csvadmin',
+    'router_path' => 'sitereports/analyse/csvadmin',
+    'link_title' => $title . 'to CSV',
+    'options' => array(
+      'attributes' => array(
+        'title' => $title . 'to CSV',
+        'orginal-title' => 'csv',
+        'class' => array('csv'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_site-reports-analyse-csv:sitereportsanalysecsv',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -39,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+
   $menu_items['menu-my-profile_site-reports-analyse-kml:sitereportsanalysekml'] = array(
     'menu_name' => 'menu-my-profile',
     'link_path' => 'sitereports/analyse/kml',

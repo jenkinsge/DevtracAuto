@@ -598,9 +598,15 @@ function devtrac7_access_node_access_records($node) {
       $fieldtrip = node_load($node->field_ftritem_field_trip['und'][0]['target_id'], NULL, TRUE);
     }
     if (isset($fieldtrip->field_fieldtrip_status['und'][0]['value'])) {
+     if ((!isset($fieldtrip->field_fieldtrip_user)) || (!isset($fieldtrip->field_fieldtrip_user['und']))) {
+       // This may happen when field trips are anonymously imported using feeds
+       return;
+     }
+
       $localuser = user_load($fieldtrip->field_fieldtrip_user['und'][0]['target_id']);
       $role = user_role_load_by_name('field worker');
       $rid = $role->rid;
+
       switch ($fieldtrip->field_fieldtrip_status['und'][0]['value']) {
         case 'In Progress':
         case 'Submitted':
