@@ -526,7 +526,9 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
   $tree = taxonomy_get_tree($vocabulary);
   $districts = array();
   foreach ($tree as $term) {
-    $districts[$term->tid] = str_repeat ( '-' , $term->depth) . ' ' .$term->name;
+    if (($term->name != 'Undefined Area') && ($term->name != 'Unknown Area')) {
+      $districts[$term->tid] = str_repeat ( '-' , $term->depth) . ' ' .$term->name;
+    }
   }
 
   $element = array(
@@ -1874,6 +1876,9 @@ function devtrac7_form_actionitem_node_form_alter(&$form, &$form_state, $form_id
   // Hide the book vertical tab for anyone but admin
   $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
 
+  // Hide Admin Unit field.
+  $form['taxonomy_vocabulary_6']['#type'] = 'hidden';
+
   // Hide map (location picker) if resp_place is given
   if (isset($form['#node']->field_actionitem_resp_place['und'][0]['target_id'])) {
     $form['field_actionitem_lat_long']['#type'] = "hidden";
@@ -1890,6 +1895,11 @@ function devtrac7_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
    * Remove the Formatter options from the textarea
    */
   $form['field_user_aboutme']['#after_build'][] = 'devtrac7_removeformat_form';
+  foreach ($form['taxonomy_vocabulary_6'][$form['taxonomy_vocabulary_6']['#language']]['#options'] as $tid => $name) {
+    if (($name == 'Undefined Area') || ($name == 'Unknown Area')) {
+      unset($form['taxonomy_vocabulary_6'][$form['taxonomy_vocabulary_6']['#language']]['#options'][$tid]);
+    }
+  }
   $form['#submit'][] = 'devtrac7_form_user_rebuild_menu';
 
 }

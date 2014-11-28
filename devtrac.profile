@@ -17,7 +17,6 @@ function devtrac_form_install_configure_form_alter(&$form, $form_state, $form_id
     // Alter country install_settings_form.
     // $form['server_settings']['site_default_country']['#required'] = TRUE;
     $form['#submit'][] = 'devtrac_install_configure_form_submit_country';
-
   }
 }
 
@@ -27,32 +26,38 @@ function devtrac_form_install_configure_form_alter(&$form, $form_state, $form_id
  * @param type $form_state
  */
 function devtrac_install_configure_form_submit_country(&$form, $form_state) {
-  //check whether vocabulary exists
-  $vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_6');
-  if(empty($vocabulary)) {
-    $vocabulary = taxonomy_vocabulary_machine_name_load('iati_custom_admin_unit');
-  }
   $countries = country_get_list();
   $country_code = $form_state['values']['site_default_country'];
-  
   if(empty($countries[$country_code])) {
     drupal_set_message("Country code provided in default country can not be identified.", 'error');
-    return ;    
+    return;
   }
-  else {
-    if(!module_exists("mapit")) {
-      return ;
-    }
-    
-    $lcode = 'en';
-    $data = devtrac_country_point_data($country_code ,$lcode);
 
-    $term = mapit_point_taxonomy_term($data['lat'], $data['lon']); 
-    
-    if(empty($term)) {
-      drupal_set_message("Can not create default country taxonomy", 'error');
-    }
-  }   
+  if(!module_exists("mapit")) {
+    return;
+  }
+  // Create Undefined Area and Unknown Area terms in the mapit_vocabulary.
+  $vocabulary_name = variable_get('mapit_vocabulary', 'vocabulary_6');
+  $vocabulary = taxonomy_vocabulary_machine_name_load($vocabulary_name);
+
+  $undefined_area = new stdClass();
+  $undefined_area->name = 'Undefined Area';
+  $undefined_area->description = "Waiting for a value from the Mapit widget.";
+  $undefined_area->vid = $vocabulary->vid;
+  taxonomy_term_save($undefined_area);
+
+  $unknown_area = new stdClass();
+  $unknown_area->name = 'Unknown Area';
+  $unknown_area->description = "No matching areas found for coordinates supplied.";
+  $unknown_area->vid = $vocabulary->vid;
+  taxonomy_term_save($unknown_area);
+
+  $lcode = 'en';
+  $data = devtrac_country_point_data($country_code ,$lcode);
+  $term = mapit_point_taxonomy_term($data['lat'], $data['lon']);
+  if(empty($term)) {
+    drupal_set_message("Can not create default country taxonomy", 'error');
+  }
 }
 
 /**
@@ -78,17 +83,17 @@ function devtrac_country_point_data($code, $langcode = "en") {
   if(!empty($long_name)) {
     $data['long_name'] = (string) $long_name[0]['v'];
   }
-   
+
   $wikipedia = $country[0]->xpath("tag[@k='wikipedia']");
   if(!empty($wikipedia)) {
     $data['wikipedia'] = (string) $wikipedia[0]['v'];
   }
-    
+
   $name = $country[0]->xpath("tag[@k='name:" . $langcode . "']");
   if(!empty($name)) {
     $data['name'] = (string) $name[0]['v'];
   }
-  
+
   return $data;
 }
 
@@ -200,8 +205,18 @@ function devtrac_initialize_taxonomy_access() {
 
   // Initialize term settings for different roles.
   foreach ($roles as $rid => $role_name) {
+    // Deny Anonymous User access to term Undefined Area.
+    if ($rid == 1) {
+      foreach ($vocabularies as $vid => $vocabulary) {
+        if ($vocabulary->machine_name == 'vocabulary_6') {
+          $terms = taxonomy_get_term_by_name('Undefined Area', $vocabulary->machine_name);
+          $term = array_shift($terms);
+          $anonymous_term_defaults[$term->tid] = _taxonomy_access_format_grant_record($term->tid, $rid, $deny);
+        }
+      }
+    }
     foreach ($vocabularies as $vid => $vocabulary) {
-      if ($vocabulary->machine_name == 'taxonomy_vocabulary_6') {
+      if ($vocabulary->machine_name == 'vocabulary_6') {
         continue;
       }
       $terms = taxonomy_get_tree($vid, 0, NULL, TRUE);
@@ -266,6 +281,9 @@ function devtrac_initialize_taxonomy_access() {
   }
 
   // Process term grants.
+  if (!empty($anonymous_term_defaults)) {
+    taxonomy_access_set_term_grants($anonymous_term_defaults);
+  }
   if (!empty($admin_term_defaults)) {
     taxonomy_access_set_term_grants($admin_term_defaults);
   }
