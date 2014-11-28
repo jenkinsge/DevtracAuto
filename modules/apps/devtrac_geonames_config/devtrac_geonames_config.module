@@ -9,7 +9,7 @@
  */
 function devtrac_geonames_config_apps_app_info() {
   return array(
-    'configure form' => 'geonames_config_app_configure_form',
+    'configure form' => 'devtrac_geonames_config_app_configure_form',
     'post install callback' => 'geonames_config_app_post_install',
   );
 }
@@ -37,8 +37,8 @@ function devtrac_geonames_config_app_configure_form() {
  */
 function devtrac_geonames_config_app_post_install() {
   $geo_settings = variable_get("openlayers_geosearch_geocoders", array());
-  if (module_exists("openlayers_geosearch")) {
-    $geo_settings['geonames'] = "geonames";
-    variable_set("openlayers_geosearch_geocoders", $geo_settings);
-  }
+  $geo_settings['geonames'] = "geonames";
+  variable_set("openlayers_geosearch_geocoders", $geo_settings);
+  // We need to download the initial metadata
+  geonames_metadata_update();
 }
