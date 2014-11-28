@@ -359,6 +359,7 @@ projects[robotstxt][subdir] = "contrib"
 projects[role_delegation][version] = "1.1"
 projects[role_delegation][type] = "module"
 projects[role_delegation][subdir] = "contrib"
+projects[role_delegation][patch][] = "https://www.drupal.org/files/issues/role_delegation-add-compatibility-with-permission_lock-582524-19.patch"
 
 projects[rules][version] = "2.7"
 projects[rules][type] = "module"
