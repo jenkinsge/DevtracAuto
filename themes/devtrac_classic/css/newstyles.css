@@ -1866,7 +1866,7 @@ div.olControlAttribution a:link {
 
 /*================================= about devtrac ===============================*/
 #pane_front_about_information_content {
-  padding: 5px 10px;
+  /*padding: 5px 10px;*/
   font-size: 0.95em;
 }
 
