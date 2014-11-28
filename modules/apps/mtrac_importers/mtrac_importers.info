@@ -1,6 +1,5 @@
 name = "Mtrac Importer Module"
 description = "Adds capability to import data into an mtrac installation."
 core = "7.x"
-package = "Mtrac"
-
+package = "Devtrac Apps"
 files[] = mtrac_importers.module

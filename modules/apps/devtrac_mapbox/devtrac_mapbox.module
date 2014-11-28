@@ -156,7 +156,7 @@ function devtrac_mapbox_openlayers_layers() {
  *                'class' => The class of the layer,
  *              );
  */
-function getLayers() {
+function devtrac_mapbox_getlayers() {
 
   $layers = array();
   $layer_elements = array();
@@ -199,13 +199,14 @@ function getLayers() {
 }
 
 /**
+ * Implements hook_openlayers_map_alter().
  * Function that adds an icon for each additional layer to the Layer Switcher.
  */
-function addLayerIcons() {
+function devtrac_mapbox_openlayers_map_alter(&$map = array()) {
   global $base_path;
   $path = $base_path . path_to_theme();
   // Extract the layers data from the string.
-  $layers = getlayers();
+  $layers = devtrac_mapbox_getlayers();
   if(!is_null($layers)) {
     foreach($layers as $layer) {
       if($layer['class'] != "") {
@@ -223,32 +224,12 @@ function addLayerIcons() {
 }
 
 /**
- * Implements hook_openlayers_map_alter()
- */
-function devtrac_mapbox_openlayers_map_alter(&$map = array()) {
-  // Add icons for each additional layer to the Layer switcher.
-  addLayerIcons();
-}
-
-// Making Devtrac Mapbox an app.
-
-/**
  * Implements hook_apps_app_info()
+ * Making Devtrac Mapbox an app.
  */
 function devtrac_mapbox_apps_app_info() {
   return array(
-    'demo content description' => 'There is not a lot of content in this app.',
     // This form will be rendered on the app config page:
-    'configure form' => 'devtrac_mapbox_app_configure_form',
-    'post install callback' => 'devtrac_mapbox_app_post_install',
+    'configure form' => 'devtrac_mapbox_settings_form',
   );
-}
-
-function devtrac_mapbox_app_configure_form() {
- return devtrac_mapbox_settings_form();
-
-}
-
-function devtrac_mapbox_app_post_install() {
-  drupal_set_message(t("We are happy to tell you that the Devtrac Mapbox App is successfully installed."));
 }
