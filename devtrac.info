@@ -192,6 +192,7 @@ dependencies[] = elements
 dependencies[] = telephone
 dependencies[] = addressfield
 dependencies[] = link_favicon_formatter
+dependencies[] = role_delegation
 
 ; Questionnaire
 dependencies[] = questionnaire

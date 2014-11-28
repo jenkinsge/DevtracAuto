@@ -356,6 +356,10 @@ projects[robotstxt][version] = "1.2"
 projects[robotstxt][type] = "module"
 projects[robotstxt][subdir] = "contrib"
 
+projects[role_delegation][version] = "1.1"
+projects[role_delegation][type] = "module"
+projects[role_delegation][subdir] = "contrib"
+
 projects[rules][version] = "2.7"
 projects[rules][type] = "module"
 projects[rules][subdir] = "contrib"
