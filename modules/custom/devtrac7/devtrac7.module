@@ -1952,6 +1952,7 @@ function devtrac7_admin_paths_alter(&$paths) {
   $paths['import/*'] = FALSE;
   $paths['admin'] = FALSE;
   $paths['admin/devtrac*'] = FALSE;
+  $paths['admin/apps*'] = FALSE;
 }
 
 /**
