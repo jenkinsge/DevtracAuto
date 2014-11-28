@@ -842,7 +842,9 @@ function devtrac7_node_types_field_default_field_instances() {
   $field_instances['node-actionitem-field_actionitem_severity'] = array(
     'bundle' => 'actionitem',
     'default_value' => array(
+        0 => array(
         'value' => 2,
+      ),
     ),
     'default_value_function' => '',
     'default_value_php' => '',
