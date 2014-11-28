@@ -221,6 +221,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'assign devtrac admin role',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
     ),
     'module' => 'role_delegation',
   );
@@ -240,6 +241,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'assign field worker role',
     'roles' => array(
       'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
       'editor' => 'editor',
     ),
     'module' => 'role_delegation',
@@ -250,7 +252,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'assign iati manager role',
     'roles' => array(
       'administrator' => 'administrator',
-      'devtrac admin' => 'devtrac admin',
     ),
     'module' => 'role_delegation',
   );
