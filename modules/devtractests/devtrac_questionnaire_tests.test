@@ -1074,7 +1074,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $loc['title'] = $this->randomString(32);
    $loc['taxonomy_vocabulary_1[und]'] = 253;
     $this->assertField('taxonomy_vocabulary_1[und]', 'Taxonomy vocabulary 1 found');
-    $this->assertNoField('taxonomy_vocabulary_6[und]', 'District field is showing');
+    $this->assertField('taxonomy_vocabulary_6[und]', 'District field is showing');
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Sector field was rename');
     $this->assertNoField('field_ftritem_lat_long[und][0][geom]', 'Map field is not showing');
     $this->drupalPost(NULL, $loc, t('Save'));

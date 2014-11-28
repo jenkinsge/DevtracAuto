@@ -914,6 +914,7 @@ article.comment nav ul li a {
   background-repeat: no-repeat;
   background-size: auto 16px;
   color: #777777;
+  font-size: inherit;
 }
 
 article.comment nav ul li a:hover {
@@ -922,6 +923,9 @@ article.comment nav ul li a:hover {
   background-size: auto 18px;
   background-color: transparent;
   color: #A52A2A;
+  margin: 0;
+  padding-left: 28px;
+  font-size: inherit;
 }
 
 article.comment nav ul li.comment-delete a {
@@ -1188,6 +1192,11 @@ form.comment-form .form-item.form-type-item {
   position: absolute;
 }
 
+.ctools-button.ctools-button-processed ul {
+  margin: 0;
+}
+
+
 td .ctools-wrapper {
   width: 125px;
   position: relative;
@@ -1240,6 +1249,40 @@ tr:hover .ctools-button li a:visited {
   text-decoration: none;
 }
 
+.ctools-button.ctools-button-processed ul li a ,
+tr:hover .ctools-button.ctools-button-processed ul li a ,
+tr:hover .ctools-button.ctools-button-processed ul li a:hover {
+  display: block;
+  text-align: center;
+}
+
+
+.olControlMaptext .ctools-wrapper {
+  display: inline-block;
+  float: right;
+  position: relative;
+}
+
+.olControlMaptext .ctools-button {
+  /*background: #333333;*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  /*border: thin solid #FFFFFF;*/
+}
+
+.olControlMaptext .ctools-wrapper li {
+  min-width: 56px;
+}
+
+.olControlMaptext .ctools-button li a:hover {
+  background-color: #000000;
+}
+
+.olControlMaptext .ctools-link:hover {
+  background-color: #000000;
+  height: 29px;
+}
 
 /*=====================================================================================
  * Progress Bar
@@ -1668,8 +1711,9 @@ div.olControlAttribution a:link {
 \*===========================================================================*/
 
 .olMapViewport .olControlMaptext {
-  background: none;
-  background: url(../images/alpha-black-bg.png);
+  /*background: none;*/
+  /*background: url(../images/alpha-black-bg.png);*/
+  background: rgba(0, 0, 0, 0.8);
   color: #FFFFFF;
   font-family: sans-serif;
   font-size: 0.9em;
@@ -1689,8 +1733,9 @@ div.olControlAttribution a:link {
 .olMapViewport .olControlMaptext h2.popup-title {
   border-bottom: none;
   background: none;
-  background: #000;
-  opacity: 0.8;
+  /*background: #000;*/
+  /*opacity: 0.8;*/
+  background: rgba(0, 0, 0, 0.8);
   font-size: 1.0em;
   margin: 0px;
   padding: 5px;
@@ -1728,6 +1773,10 @@ div.olControlAttribution a:link {
 
 .olMapViewport .olControlMaptext .field {
   padding: 5px 10px;
+}
+
+.olMapViewport .olControlMaptext .block-pane .block-inner {
+  padding: 10px;
 }
 
 .olMapViewport .olControlMaptext .field-name-field-wikipedia.field-type-link-field.field-label-hidden a {
@@ -1817,16 +1866,6 @@ div.olControlAttribution a:link {
   background: url(../images/map-layer-osm-mapnik.png) no-repeat 5px 50%;
 }
 
-/*
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_4 {
-  background: url(../images/map-layer-osm-mapnik.png) no-repeat 5px 50%;
-}
-
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_6 ,
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_XYZ_8 {
-  background: url(../images/map-layer-cycling-map.png) no-repeat 5px 50%;
-}*/
-
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.activated {
   background-color: rgba(0, 0, 0, 0.9) !important;
 }
@@ -1846,7 +1885,6 @@ div.olControlAttribution a:link {
 
 /*================================= about devtrac ===============================*/
 #pane_front_about_information_content {
-  padding: 5px 10px;
   font-size: 0.95em;
 }
 

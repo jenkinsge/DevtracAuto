@@ -207,6 +207,54 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'user',
   );
 
+  // Exported permission: 'assign all roles'.
+  $permissions['assign all roles'] = array(
+    'name' => 'assign all roles',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'role_delegation',
+  );
+
+  // Exported permission: 'assign devtrac admin role'.
+  $permissions['assign devtrac admin role'] = array(
+    'name' => 'assign devtrac admin role',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'role_delegation',
+  );
+
+  // Exported permission: 'assign editor role'.
+  $permissions['assign editor role'] = array(
+    'name' => 'assign editor role',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
+    ),
+    'module' => 'role_delegation',
+  );
+
+  // Exported permission: 'assign field worker role'.
+  $permissions['assign field worker role'] = array(
+    'name' => 'assign field worker role',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'role_delegation',
+  );
+
+  // Exported permission: 'assign iati manager role'.
+  $permissions['assign iati manager role'] = array(
+    'name' => 'assign iati manager role',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
+    ),
+    'module' => 'role_delegation',
+  );
+
   // Exported permission: 'context ajax block access'.
   $permissions['context ajax block access'] = array(
     'name' => 'context ajax block access',

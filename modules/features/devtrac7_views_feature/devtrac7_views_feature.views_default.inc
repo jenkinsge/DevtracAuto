@@ -9071,6 +9071,7 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: About the user */
   $handler = $view->new_display('block', 'About the user', 'block_7');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'About this User';
   $handler->display->display_options['display_description'] = 'About me text that shows in the last preface on the user profile page';
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
@@ -9088,7 +9089,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_aboutme']['id'] = 'field_user_aboutme';
   $handler->display->display_options['fields']['field_user_aboutme']['table'] = 'field_data_field_user_aboutme';
   $handler->display->display_options['fields']['field_user_aboutme']['field'] = 'field_user_aboutme';
-  $handler->display->display_options['fields']['field_user_aboutme']['label'] = 'About this User';
+  $handler->display->display_options['fields']['field_user_aboutme']['label'] = '';
   $handler->display->display_options['fields']['field_user_aboutme']['element_label_type'] = 'h3';
   $handler->display->display_options['fields']['field_user_aboutme']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_user_aboutme']['element_default_classes'] = FALSE;
