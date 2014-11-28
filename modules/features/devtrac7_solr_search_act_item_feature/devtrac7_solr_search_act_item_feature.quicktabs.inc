@@ -66,7 +66,6 @@ function devtrac7_solr_search_act_item_feature_quicktabs_default_quicktabs() {
   t('Sectors');
   t('Status');
   t('Users');
-  t('devtrac_actionitems_graph_tabs');
 
   $export['devtrac_actionitems_graph_tabs'] = $quicktabs;
 

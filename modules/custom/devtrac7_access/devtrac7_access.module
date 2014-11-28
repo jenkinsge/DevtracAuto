@@ -598,6 +598,11 @@ function devtrac7_access_node_access_records($node) {
       $fieldtrip = node_load($node->field_ftritem_field_trip['und'][0]['target_id'], NULL, TRUE);
     }
     if (isset($fieldtrip->field_fieldtrip_status['und'][0]['value'])) {
+      if ((!isset($fieldtrip->field_fieldtrip_user)) || (!isset($fieldtrip->field_fieldtrip_user['und']))) {
+        // This may happen when field trips are anonymously imported using feeds
+        return;
+      }
+
       $localuser = user_load($fieldtrip->field_fieldtrip_user['und'][0]['target_id']);
       $role = user_role_load_by_name('field worker');
       $rid = $role->rid;
@@ -707,7 +712,7 @@ function devtrac7_access_node_access_records($node) {
 function devtrac7_access_taxonomy_term_insert($term) {
   // Skip setting access for Admin Units.
   $vocabulary = taxonomy_vocabulary_load($term->vid);
-  if ($vocabulary->machine_name == 'taxonomy_vocabulary_6') {
+  if ($vocabulary->machine_name == 'vocabulary_6') {
     return;
   }
 
@@ -785,7 +790,7 @@ function devtrac7_access_taxonomy_term_delete($term) {
 function _devtrac7_access_tree_update_term_grants($vid) {
   // Skip setting access for Admin Units.
   $vocabulary = taxonomy_vocabulary_load($vid);
-  if ($vocabulary->machine_name == 'taxonomy_vocabulary_6') {
+  if ($vocabulary->machine_name == 'vocabulary_6') {
     return;
   }
 

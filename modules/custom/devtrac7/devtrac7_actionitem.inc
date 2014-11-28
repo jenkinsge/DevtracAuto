@@ -184,7 +184,12 @@ function devtrac7_actionitem_updatedistrict($node) {
     // There is a place attached so copy it
     $place = node_load($node->field_actionitem_resp_place[$node->language][0]['target_id']);
     $node->taxonomy_vocabulary_6 = $place->taxonomy_vocabulary_6;
-    watchdog('admin_feature', 'Copied District on Action Item: ' . $node->nid);
+    if (isset($node->nid)) {
+      watchdog('admin_feature', 'Copied District on Action Item: ' . $node->nid);
+    }
+    else {
+      watchdog('admin_feature', 'Copied District on new Action Item');
+    }
     // drupal_set_message('Copied District on the Action Item.', 'status');
     return TRUE;
   }
@@ -297,7 +302,12 @@ function devtrac7_actionitem_updateresponsible($node) {
   }
   // No person responsible so add the author
   $node->field_actionitem_responsible[$node->language][0]['target_id'] = $node->uid;
-  watchdog('admin_feature', 'There is a person responsible for Action Item: ' . $node->nid);
+  if (isset($node->nid)) {
+    watchdog('admin_feature', 'The autor is responsible for the Action Item: ' . $node->nid);
+  }
+  else {
+    watchdog('admin_feature', 'There is a person responsible for new Action Item.');
+  }
   return TRUE;
 }
 

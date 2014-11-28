@@ -841,7 +841,11 @@ function devtrac7_node_types_field_default_field_instances() {
   // Exported field_instance: 'node-actionitem-field_actionitem_severity'
   $field_instances['node-actionitem-field_actionitem_severity'] = array(
     'bundle' => 'actionitem',
-    'default_value' => array(),
+    'default_value' => array(
+        0 => array(
+        'value' => 2,
+      ),
+    ),
     'default_value_function' => '',
     'default_value_php' => '',
     'deleted' => 0,
@@ -2500,7 +2504,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'bundle' => 'ftritem',
     'default_value' => '',
     'deleted' => 0,
-    'description' => 'Did you take any photos during the reporting? Please upload the images from here. Click "Choose File" to access the images on your computer.',
+    'description' => 'Did you take any photos during the reporting? Please upload the images from here. Click "Browse" to upload an Image or select one from the Library.',
     'display' => array(
       'default' => array(
         'label' => 'hidden',

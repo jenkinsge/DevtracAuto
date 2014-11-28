@@ -526,7 +526,9 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
   $tree = taxonomy_get_tree($vocabulary);
   $districts = array();
   foreach ($tree as $term) {
-    $districts[$term->tid] = str_repeat ( '-' , $term->depth) . ' ' .$term->name;
+    if (($term->name != 'Undefined Area') && ($term->name != 'Unknown Area')) {
+      $districts[$term->tid] = str_repeat ( '-' , $term->depth) . ' ' .$term->name;
+    }
   }
 
   $element = array(
@@ -1702,26 +1704,9 @@ function _devtrac7_isinternetexplorer() {
  *  Implements hook_form_alter()
  */
 function devtrac7_form_place_node_form_alter(&$form, &$form_state, $form_id) {
-  $form['taxonomy_vocabulary_6'][LANGUAGE_NONE]['#multiple'] = FALSE;
-  $form['taxonomy_vocabulary_6'][LANGUAGE_NONE]['#description'] = 'Select the country or district this location is in.';
-  /*
-   * This field will hold the scrobbler when we do a getfeatureinfo request on the map
-   * (though it will show in a colorbox
-   */
-  $form['getfeatureinfo'] = Array (
-    '#type' => "markup",
-    '#markup' => '<div id="getfeatureinfo"></div>',
-    '#weight' => 0,
-  );
-  /*
-   * this isnt working yet.
-   * Lets do this when we have a X&Y field
-   */
-  // $form['title']['#states'] = array (
-  //   'visible' => array(
-  //     ':input[class="geofield_wkt"]' => array('!value' => ''),
-  //   ),
-  // );
+  global $user;
+  // Hide the book vertical tab for anyone but admin and administrators
+  $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
 }
 
 /* Implements hook_form_alter()
@@ -1879,10 +1864,11 @@ function devtrac7_ftritem_datevisited_validate($form, &$form_state){
 
 /**
  *  implement hook_form_alter for action item
- *  Implements hook_form_alter()
+ *  Implements hook_form_alter().
  *
 */
 function devtrac7_form_actionitem_node_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
   /*
    * Remove the Formatter options from the textarea
    */
@@ -1890,20 +1876,30 @@ function devtrac7_form_actionitem_node_form_alter(&$form, &$form_state, $form_id
   // Hide the book vertical tab for anyone but admin
   $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
 
+  // Hide Admin Unit field.
+  $form['taxonomy_vocabulary_6']['#type'] = 'hidden';
+
   // Hide map (location picker) if resp_place is given
   if (isset($form['#node']->field_actionitem_resp_place['und'][0]['target_id'])) {
     $form['field_actionitem_lat_long']['#type'] = "hidden";
   }
 }
 
-/** implement hook_form_alter for user
-  *  Implements hook_form_alter()
+/** 
+  *  Implements hook_form_alter().
+  * 
+  *  Implement hook_form_alter for user
   */
 function devtrac7_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
   /*
    * Remove the Formatter options from the textarea
    */
   $form['field_user_aboutme']['#after_build'][] = 'devtrac7_removeformat_form';
+  foreach ($form['taxonomy_vocabulary_6'][$form['taxonomy_vocabulary_6']['#language']]['#options'] as $tid => $name) {
+    if (($name == 'Undefined Area') || ($name == 'Unknown Area')) {
+      unset($form['taxonomy_vocabulary_6'][$form['taxonomy_vocabulary_6']['#language']]['#options'][$tid]);
+    }
+  }
   $form['#submit'][] = 'devtrac7_form_user_rebuild_menu';
 
 }
@@ -1917,7 +1913,10 @@ function devtrac7_form_user_rebuild_menu() {
 }
 
 
-/* implement hook_form_alter for comment
+/* 
+ * Implements hook_form_alter().
+ * 
+ * For the comment form.
  *
  */
 function devtrac7_form_comment_form_alter(&$form, &$form_state, $form_id) {
@@ -1930,7 +1929,7 @@ function devtrac7_form_comment_form_alter(&$form, &$form_state, $form_id) {
 /*
  *  Helper function to remove Filter format from the textareas
  *  pretty much all over the site.
- *  Called from #after_build (see above in the form_alters
+ *  Called from #after_build (see above in the form_alters)
  *  more info
  *  http://timonweb.com/how-remove-format-options-guideliness-comments-textarea-drupal-7
  */
@@ -1941,10 +1940,10 @@ function devtrac7_removeformat_form($form) {
 }
 
 /*
- *  Implementation of hook_admin_paths_alter
+ * Implementation of hook_admin_paths_alter().
  *
- *  Makes the user edit pages non-admin pages, therefor they wont be rendered with the seven
- *  theme, but with the devtrac theme.
+ * Makes the user edit pages non-admin pages, therefor they wont be 
+ * rendered with the seven theme, but with the devtrac theme.
  */
 function devtrac7_admin_paths_alter(&$paths) {
   // Treat all user pages as not administrative.
@@ -2047,7 +2046,12 @@ function devtrac7_field_attach_form($entity_type, $entity, &$form, &$form_state,
   }
 }
 
-
+/**
+ * Implements entity_load().
+ * 
+ * Calculated status of IATI activities based on start & end date
+ */
+/*
 function devtrac7_entity_load($entities, $type) {
   if ($type == 'node') {
     foreach ($entities as $entity) {
@@ -2077,11 +2081,14 @@ function devtrac7_entity_load($entities, $type) {
     }
   }
 }
+*/
 
 /**
  * Implements hook_field_formatter_info().
+ * 
+ * Used in IATI feature
  */
-function devtrac7_field_formatter_info() {
+/*function devtrac7_field_formatter_info() {
   return array(
     'devtrac7_file_table' => array(
       'label' => t('Devtrac7 table of files'),
@@ -2089,10 +2096,15 @@ function devtrac7_field_formatter_info() {
     ),
   );
 }
+ */
+ 
 
 /**
  * Implements hook_field_formatter_view().
+ * 
+ * Used in IATI feature
  */
+/*
 function devtrac7_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
   $element = array();
   switch ($display['type']) {
@@ -2109,6 +2121,8 @@ function devtrac7_field_formatter_view($entity_type, $entity, $field, $instance,
 
   return $element;
 }
+ * 
+ */
 
 /**
  * Returns HTML for a file attachments table.
@@ -2117,8 +2131,9 @@ function devtrac7_field_formatter_view($entity_type, $entity, $field, $instance,
  *   An associative array containing:
  *   - items: An array of file attachments.
  *
- * @ingroup themeable
+ * Used in IATI feature
  */
+/*
 function theme_devtrac7_file_formatter_table($variables) {
   $header = array(t('Document Name'), t('Size'), t('Upload date'), t('Uploaded by'));
   $rows = array();
@@ -2134,10 +2149,14 @@ function theme_devtrac7_file_formatter_table($variables) {
 
   return empty($rows) ? '' : theme('table', array('header' => $header, 'rows' => $rows));
 }
+*/
 
 /**
  * Implements hook_theme().
+ * 
+ * For IATI feature
  */
+/*
 function devtrac7_theme() {
   return array(
     'devtrac7_file_formatter_table' => array(
@@ -2145,7 +2164,15 @@ function devtrac7_theme() {
     ),
   );
 }
+*/
 
+/**
+ * Creates for for solr search setting
+ * This setting regulates a warning we give to users when they have too
+ * many items in their inbox. Too many items means the string controlling node 
+ * access that is sent to Solr gets too long and the queries to solr start 
+ * failing.
+ */
 function devtrac7_solr_search_access_settings_form() {
   $form['devtrac7_solr_search_access_threshold'] = array(
     '#type' => 'textfield',
@@ -2182,6 +2209,21 @@ function devtrac7_form_search_api_saved_searches_save_form_alter(&$form, &$form_
     case 'fieldtrips':
       $form['submit']['#value'] = t('Email new Field Trips');
       break;
+    case 'sitereports':
+      $form['submit']['#value'] = t('Email new Site Visits');
+      break;
+    case 'images':
+      $form['submit']['#value'] = t('Email new Images');
+      break;
+    case 'locations':
+      $form['submit']['#value'] = t('Email new Locations');
+      break;
+    case 'adminunits':
+      $form['submit']['#value'] = t('Email new Admin Units');
+      break;
+    case 'users':
+      $form['submit']['#value'] = t('Email new Users');
+      break;
     default:
       $form['submit']['#value'] = t('Email new items');
   }
@@ -2190,7 +2232,10 @@ function devtrac7_form_search_api_saved_searches_save_form_alter(&$form, &$form_
 /**
  *
  * Implements hook_libraries_info_alter().
- * @param array $libraries
+ * 
+ * This overrides the default OpenLayers library with one we compiled
+ * especially for Devtrac so it is much smaller than the full one but
+ * still contains everything we need.
  */
 function devtrac7_libraries_info_alter(&$libraries) {
   $libraries['openlayers']['variants']['devtrac'] = array (
@@ -2208,7 +2253,10 @@ function devtrac7_libraries_info_alter(&$libraries) {
 
 /**
  * Implements hook_js_alter().
- * @param array $js
+ * 
+ * This function makes all blocks on the left of search pages collapsible
+ * with a few exceptions that are open by default. We do this here because
+ * these settings are not exportable as they are a part of the block.
  */
 function devtrac7_js_alter(&$javascript) {
   $settings = $javascript['settings']['data'];
@@ -2248,11 +2296,17 @@ function devtrac7_js_alter(&$javascript) {
       "facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-7",
       "facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-6",
     );
+    $notcollapsable = Array (
+      "views_dvtrc_user-block_3",
+    );
 
     foreach ($addblocks as $block) {
       // note, the strtolower is because facetapi keys case incensitive, and html does not.
       if (isset($block->content['#attributes']['id']) && in_array($block->content['#attributes']['id'], $openbydefault)) {
         $javascript['settings']['data'][$index]['collapsiblock']['blocks'][strtolower('block-' . str_replace('_', '-', $block->module) . '-' . str_replace('_', '-', $block->delta))] = 2;
+      }
+      elseif ((!isset($block->content['#attributes']['id'])) && ($block->module != 'pane')) {
+        // Do not collapse, so do nothing
       }
       else {
         $javascript['settings']['data'][$index]['collapsiblock']['blocks'][strtolower('block-' . str_replace('_', '-', $block->module) . '-' . str_replace('_', '-', $block->delta))] = 3;
@@ -2262,7 +2316,7 @@ function devtrac7_js_alter(&$javascript) {
 }
 
 /**
- * Implements hook_system_info_alter()
+ * Implements hook_system_info_alter().
  *
  * Adds region that can be used on top of the map
  */
@@ -2270,11 +2324,10 @@ function devtrac7_system_info_alter(&$info, $file, $type) {
   if ($type == 'theme') {
     $info['regions']['olmaptext_rightuppercorner'] = t('OL+ Maptext Right Upper Corner Group');
   }
-
 }
 
 /**
- * OpenLayers Map Alter
+ * Implements openlayers_map_alter().
  *
  * Post-processing Map array alter.  Fired after processing the array, and
  * before checking for errors.  The whole array is passed
@@ -2286,6 +2339,10 @@ function devtrac7_system_info_alter(&$info, $file, $type) {
  *   Map array
  */
 function devtrac7_openlayers_map_alter(&$map = array()) {
+  /* When the site opens first on an unfiltered map, zoom to the full extend
+   * of the default country that was set during installation, instead of 
+   * zooming in to the (few) site reports in the system.
+   */
   if (devtrac7_is_unfiltered_front_page()) {
     $map['behaviors']['openlayers_behavior_zoomtolayer']['zoomtolayer']['devtrac_solr_view_sitevisits_json'] = '0';
   }
@@ -2325,7 +2382,12 @@ function devtrac7_form_user_login_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Sets shutdown function to perform redirects later.
+ * Implements hook_form_submit().
+ * 
+ * When a user has not filled in all the fields on his user profile
+ * redirect to his user page so he can fill in his/her missing info.
+ * Sets a shutdown function to perform redirects later so other submit hooks
+ * are also fired (which was the case when using drupal_goto)
  */
 function devtrac7_user_login_submit(&$form, &$form_state) {
   if (isset($form_state['uid'])) {
@@ -2344,7 +2406,8 @@ function devtrac7_user_login_submit(&$form, &$form_state) {
           !isset($user->mail) ||
           !isset($user->name)
       ) {
-        drupal_set_message("Please finish filling in you full profile by filling in all mandatory fields.");
+        drupal_set_message('Please <a href="@url">finish filling in your full profile</a> '
+          . 'by filling in all mandatory fields.', array('@url' => $destination));
         drupal_register_shutdown_function('devtrac7_perform_redirect', $destination);
       }
     }
@@ -2352,7 +2415,9 @@ function devtrac7_user_login_submit(&$form, &$form_state) {
 }
 
 /**
- * Perform redirects.
+ * Perform redirects as a callback function
+ * 
+ * @ref devtrac7_user_login_submit()
  */
 function devtrac7_perform_redirect($destination) {
   drupal_goto($destination, array('external' => TRUE));
@@ -2363,7 +2428,7 @@ function devtrac7_perform_redirect($destination) {
  * additional attributes.
  * We have to run this after re-enabling the features.
  * Since drush updb is run before re-enabling the features, we
- * can't implement is as an update function in devtrac7.install.
+ * can not implement it as an update function in devtrac7.install.
  */
 function devtrac7_resave_geolayer_attributes() {
   $layers = array (

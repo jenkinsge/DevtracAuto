@@ -78,6 +78,7 @@ function devtrac7_solr_search_act_item_feature_default_search_api_index() {
         "field_action_items_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_actionitem_due_date" : { "type" : "date" },
         "field_actionitem_followuptask:value" : { "type" : "text" },
+        "field_actionitem_ftreportitem:uuid" : { "type" : "string" },
         "field_actionitem_resp_place:nid" : { "type" : "integer" },
         "field_actionitem_resp_place:taxonomy_vocabulary_1" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "field_actionitem_resp_place:title" : { "type" : "text" },

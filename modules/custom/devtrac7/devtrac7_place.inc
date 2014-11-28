@@ -145,7 +145,7 @@ function devtrac7_place_updatedistrict($node) {
             ->execute();
           while ($site_report = $site_reports->fetchAssoc()) {
             $report = node_load($site_report['entity_id']);
-            if ($report->field_ftritem_place[$report->language][0]['target_id'] == $node->nid) {
+            if (isset($report->field_ftritem_place[$report->language][0]['target_id']) && ($report->field_ftritem_place[$report->language][0]['target_id'] == $node->nid)) {
               $report->taxonomy_vocabulary_6[$report->language][0]['tid'] = $newterm->tid;
               node_save($report);
             }

@@ -3,4 +3,10 @@ description = "Adds capability to import data from another devtrac installation.
 core = "7.x"
 package = "Devtrac"
 
+dependencies[] = job_scheduler
+dependencies[] = feeds
+dependencies[] = feeds_tamper
+dependencies[] = feeds_entityreference
+dependencies[] = devtrac_2_devtrac_feeds_importers
+
 files[] = devtrac_to_devtrac_importer.module

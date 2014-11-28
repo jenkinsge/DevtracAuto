@@ -98,7 +98,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Districts */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_action_items_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
@@ -134,7 +134,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_responsible']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_actionitem_responsible']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_actionitem_responsible']['view_mode'] = 'full';
-  /* Field: Broken/missing handler */
+  /* Field: Virtual Field: virtual_field */
   $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
@@ -272,11 +272,10 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Districts */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_action_items_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['label'] = 'Admin Unit';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['bypass_access'] = 0;
@@ -313,7 +312,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_responsible']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_actionitem_responsible']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_actionitem_responsible']['view_mode'] = 'full';
-  /* Field: Broken/missing handler */
+  /* Field: Virtual Field: virtual_field */
   $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
@@ -423,7 +422,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Districts */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_action_items_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
@@ -459,10 +458,13 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_responsible']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_actionitem_responsible']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_actionitem_responsible']['view_mode'] = 'full';
-  /* Field: Indexed Node: Follow-up Task */
-  $handler->display->display_options['fields']['field_actionitem_followuptask']['id'] = 'field_actionitem_followuptask';
-  $handler->display->display_options['fields']['field_actionitem_followuptask']['table'] = 'search_api_index_devtrac_solr_action_items_index';
-  $handler->display->display_options['fields']['field_actionitem_followuptask']['field'] = 'field_actionitem_followuptask';
+  /* Field: Follow-up Task: Text (indexed) */
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['id'] = 'field_actionitem_followuptask_value';
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['field'] = 'field_actionitem_followuptask_value';
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['label'] = 'Task';
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['link_to_entity'] = 0;
   /* Field: Indexed Node: Tags */
   $handler->display->display_options['fields']['field_action_items_tags']['id'] = 'field_action_items_tags';
   $handler->display->display_options['fields']['field_action_items_tags']['table'] = 'search_api_index_devtrac_solr_action_items_index';
@@ -482,7 +484,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_resp_place_uuid']['field'] = 'field_actionitem_resp_place_uuid';
   $handler->display->display_options['fields']['field_actionitem_resp_place_uuid']['label'] = 'Location UUID';
   $handler->display->display_options['fields']['field_actionitem_resp_place_uuid']['link_to_entity'] = 0;
-  /* Field: Broken/missing handler */
+  /* Field: Global: Site information */
   $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
   $handler->display->display_options['fields']['site_info']['table'] = 'views';
   $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
@@ -490,6 +492,13 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['site_info']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['site_info']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
   $handler->display->display_options['fields']['site_info']['element_label_colon'] = FALSE;
+  /* Field: Report: UUID (indexed) */
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['id'] = 'field_actionitem_ftreportitem_uuid';
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['field'] = 'field_actionitem_ftreportitem_uuid';
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['label'] = 'Sitereport UUID';
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Indexed Node: Status */
   $handler->display->display_options['sorts']['field_actionitem_status']['id'] = 'field_actionitem_status';
@@ -687,7 +696,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
-  /* Field: Indexed Node: Districts */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_action_items_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
