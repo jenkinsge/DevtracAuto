@@ -556,6 +556,7 @@ projects[geocoder_geonames][subdir] = "contrib"
 projects[apps][version] = "1.0-beta18"
 projects[apps][type] = "module"
 projects[apps][subdir] = "contrib"
+projects[facetapi_context][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"
 
 ; Themes
 projects[omega][version] = "3.1"
