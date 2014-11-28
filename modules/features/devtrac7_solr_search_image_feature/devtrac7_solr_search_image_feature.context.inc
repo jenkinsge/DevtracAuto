@@ -72,15 +72,15 @@ function devtrac7_solr_search_image_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'current_search-devtrac7_images_standard' => array(
-          'module' => 'current_search',
-          'delta' => 'devtrac7_images_standard',
-          'region' => 'featured',
-          'weight' => '-10',
-        ),
         'blockify-blockify-feed-icons' => array(
           'module' => 'blockify',
           'delta' => 'blockify-feed-icons',
+          'region' => 'featured',
+          'weight' => '-10',
+        ),
+        'current_search-devtrac7_images_standard' => array(
+          'module' => 'current_search',
+          'delta' => 'devtrac7_images_standard',
           'region' => 'featured',
           'weight' => '-10',
         ),
@@ -96,6 +96,12 @@ function devtrac7_solr_search_image_feature_context_default_contexts() {
           'region' => 'olmaptext_rightuppercorner',
           'weight' => '-9',
         ),
+        'pane-images_info' => array(
+          'module' => 'pane',
+          'delta' => 'images_info',
+          'region' => 'olmaptext_rightuppercorner',
+          'weight' => '-8',
+        ),
         'current_search-devtrac7_images_activefacets' => array(
           'module' => 'current_search',
           'delta' => 'devtrac7_images_activefacets',
@@ -108,41 +114,11 @@ function devtrac7_solr_search_image_feature_context_default_contexts() {
           'region' => 'olblockpanel',
           'weight' => '-9',
         ),
-        'facetapi-OTPskdHShzgRK9sT6Cu3fNYPQTQZyRI1' => array(
-          'module' => 'facetapi',
-          'delta' => 'OTPskdHShzgRK9sT6Cu3fNYPQTQZyRI1',
-          'region' => 'olblockpanel',
-          'weight' => '-8',
-        ),
-        'facetapi-HBWkP77vlaAoT15ngZqUe60gDBnS6wpL' => array(
-          'module' => 'facetapi',
-          'delta' => 'HBWkP77vlaAoT15ngZqUe60gDBnS6wpL',
-          'region' => 'olblockpanel',
-          'weight' => '-7',
-        ),
         'facetapi-ZOh4o0QIjo7sMPGZSMu1AsVVr5ZGCcR5' => array(
           'module' => 'facetapi',
           'delta' => 'ZOh4o0QIjo7sMPGZSMu1AsVVr5ZGCcR5',
           'region' => 'olblockpanel',
           'weight' => '-6',
-        ),
-        'facetapi-P874lkjf183H8nuvpJUZqB0HG1BJebo7' => array(
-          'module' => 'facetapi',
-          'delta' => 'P874lkjf183H8nuvpJUZqB0HG1BJebo7',
-          'region' => 'olblockpanel',
-          'weight' => '-5',
-        ),
-        'facetapi-QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty' => array(
-          'module' => 'facetapi',
-          'delta' => 'QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty',
-          'region' => 'olblockpanel',
-          'weight' => '-4',
-        ),
-        'facetapi-KmUKKR3hGbSOSRidaVNmAkT8C6lBQtoi' => array(
-          'module' => 'facetapi',
-          'delta' => 'KmUKKR3hGbSOSRidaVNmAkT8C6lBQtoi',
-          'region' => 'olblockpanel',
-          'weight' => '-3',
         ),
       ),
     ),
@@ -181,6 +157,18 @@ function devtrac7_solr_search_image_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'current_search-devtrac7_images_standard' => array(
+          'module' => 'current_search',
+          'delta' => 'devtrac7_images_standard',
+          'region' => 'featured',
+          'weight' => '-10',
+        ),
+        'pane-images_info' => array(
+          'module' => 'pane',
+          'delta' => 'images_info',
+          'region' => 'featured',
+          'weight' => '-10',
+        ),
         'current_search-devtrac7_images_activefacets' => array(
           'module' => 'current_search',
           'delta' => 'devtrac7_images_activefacets',
@@ -193,47 +181,11 @@ function devtrac7_solr_search_image_feature_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-9',
         ),
-        'facetapi-OTPskdHShzgRK9sT6Cu3fNYPQTQZyRI1' => array(
-          'module' => 'facetapi',
-          'delta' => 'OTPskdHShzgRK9sT6Cu3fNYPQTQZyRI1',
-          'region' => 'sidebar_first',
-          'weight' => '-8',
-        ),
-        'facetapi-P874lkjf183H8nuvpJUZqB0HG1BJebo7' => array(
-          'module' => 'facetapi',
-          'delta' => 'P874lkjf183H8nuvpJUZqB0HG1BJebo7',
-          'region' => 'sidebar_first',
-          'weight' => '-7',
-        ),
-        'facetapi-QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty' => array(
-          'module' => 'facetapi',
-          'delta' => 'QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty',
-          'region' => 'sidebar_first',
-          'weight' => '-6',
-        ),
-        'facetapi-KmUKKR3hGbSOSRidaVNmAkT8C6lBQtoi' => array(
-          'module' => 'facetapi',
-          'delta' => 'KmUKKR3hGbSOSRidaVNmAkT8C6lBQtoi',
-          'region' => 'sidebar_first',
-          'weight' => '-5',
-        ),
-        'facetapi-HBWkP77vlaAoT15ngZqUe60gDBnS6wpL' => array(
-          'module' => 'facetapi',
-          'delta' => 'HBWkP77vlaAoT15ngZqUe60gDBnS6wpL',
-          'region' => 'sidebar_first',
-          'weight' => '-4',
-        ),
         'facetapi-ZOh4o0QIjo7sMPGZSMu1AsVVr5ZGCcR5' => array(
           'module' => 'facetapi',
           'delta' => 'ZOh4o0QIjo7sMPGZSMu1AsVVr5ZGCcR5',
           'region' => 'sidebar_first',
           'weight' => '-3',
-        ),
-        'current_search-devtrac7_images_standard' => array(
-          'module' => 'current_search',
-          'delta' => 'devtrac7_images_standard',
-          'region' => 'featured',
-          'weight' => '-10',
         ),
       ),
     ),

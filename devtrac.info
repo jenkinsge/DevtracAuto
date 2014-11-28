@@ -71,7 +71,6 @@ dependencies[] = token
 dependencies[] = me
 dependencies[] = adaptive_image
 ; dependencies[] = advanced_help
-dependencies[] = autoassignrole
 dependencies[] = blockify
 dependencies[] = colorbox
 dependencies[] = commentblock
@@ -192,6 +191,7 @@ dependencies[] = elements
 dependencies[] = telephone
 dependencies[] = addressfield
 dependencies[] = link_favicon_formatter
+dependencies[] = role_delegation
 
 ; Questionnaire
 dependencies[] = questionnaire

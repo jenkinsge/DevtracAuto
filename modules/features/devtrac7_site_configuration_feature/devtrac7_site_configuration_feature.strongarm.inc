@@ -13,26 +13,6 @@ function devtrac7_site_configuration_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'autoassignrole_admin_active';
-  $strongarm->value = '1';
-  $export['autoassignrole_admin_active'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'autoassignrole_auto_roles';
-  $strongarm->value = array(
-    5 => '5',
-    3 => 0,
-    4 => 0,
-    6 => 0,
-    7 => 0,
-  );
-  $export['autoassignrole_auto_roles'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'cron_safe_threshold';
   $strongarm->value = '0';
   $export['cron_safe_threshold'] = $strongarm;

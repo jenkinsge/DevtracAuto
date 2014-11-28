@@ -914,6 +914,7 @@ article.comment nav ul li a {
   background-repeat: no-repeat;
   background-size: auto 16px;
   color: #777777;
+  font-size: inherit;
 }
 
 article.comment nav ul li a:hover {
@@ -922,6 +923,9 @@ article.comment nav ul li a:hover {
   background-size: auto 18px;
   background-color: transparent;
   color: #A52A2A;
+  margin: 0;
+  padding-left: 28px;
+  font-size: inherit;
 }
 
 article.comment nav ul li.comment-delete a {
@@ -1188,6 +1192,11 @@ form.comment-form .form-item.form-type-item {
   position: absolute;
 }
 
+.ctools-button.ctools-button-processed ul {
+  margin: 0;
+}
+
+
 td .ctools-wrapper {
   width: 125px;
   position: relative;
@@ -1238,6 +1247,13 @@ tr:hover .ctools-button li a:visited {
 .ctools-button td li a:hover {
   background-color: #333333;
   text-decoration: none;
+}
+
+.ctools-button.ctools-button-processed ul li a ,
+tr:hover .ctools-button.ctools-button-processed ul li a ,
+tr:hover .ctools-button.ctools-button-processed ul li a:hover {
+  display: block;
+  text-align: center;
 }
 
 
@@ -1730,6 +1746,10 @@ div.olControlAttribution a:link {
   padding: 5px 10px;
 }
 
+.olMapViewport .olControlMaptext .block-pane .block-inner {
+  padding: 10px;
+}
+
 .olMapViewport .olControlMaptext .field-name-field-wikipedia.field-type-link-field.field-label-hidden a {
   background: url(../images/wiki-icon.png) no-repeat 0px 50%;
   background-size: 16px auto;
@@ -1846,7 +1866,7 @@ div.olControlAttribution a:link {
 
 /*================================= about devtrac ===============================*/
 #pane_front_about_information_content {
-  padding: 5px 10px;
+  /*padding: 5px 10px;*/
   font-size: 0.95em;
 }
 

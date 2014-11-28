@@ -138,6 +138,12 @@ function devtrac7_solr_search_feature_context_default_contexts() {
           'region' => 'olmaptext_rightuppercorner',
           'weight' => '-6',
         ),
+        'pane-front_about_information' => array(
+          'module' => 'pane',
+          'delta' => 'front_about_information',
+          'region' => 'olmaptext_rightuppercorner',
+          'weight' => '-5',
+        ),
         'current_search-devtrac7_sitevisits_activefacets' => array(
           'module' => 'current_search',
           'delta' => 'devtrac7_sitevisits_activefacets',
@@ -241,6 +247,18 @@ function devtrac7_solr_search_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'current_search-devtrac7_sitevisits_standard' => array(
+          'module' => 'current_search',
+          'delta' => 'devtrac7_sitevisits_standard',
+          'region' => 'featured',
+          'weight' => '-10',
+        ),
+        'pane-front_about_information' => array(
+          'module' => 'pane',
+          'delta' => 'front_about_information',
+          'region' => 'featured',
+          'weight' => '10',
+        ),
         'current_search-devtrac7_sitevisits_activefacets' => array(
           'module' => 'current_search',
           'delta' => 'devtrac7_sitevisits_activefacets',
@@ -306,12 +324,6 @@ function devtrac7_solr_search_feature_context_default_contexts() {
           'delta' => '2TzkoHt1hR709cgaOW08O0DZM9HYN7o8',
           'region' => 'sidebar_first',
           'weight' => '0',
-        ),
-        'current_search-devtrac7_sitevisits_standard' => array(
-          'module' => 'current_search',
-          'delta' => 'devtrac7_sitevisits_standard',
-          'region' => 'featured',
-          'weight' => '-10',
         ),
       ),
     ),

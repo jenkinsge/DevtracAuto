@@ -1885,6 +1885,19 @@ function devtrac7_form_actionitem_node_form_alter(&$form, &$form_state, $form_id
   }
 }
 
+/**
+ * Implements hook_form_FORM_ID_alter() for user_register_form().
+ */
+function devtrac7_form_user_register_form_alter(&$form, &$form_state) {
+  foreach ($form['account']['roles']['#options'] as $rid => $name) {
+    if ($name == 'field worker') {
+      // Auto select role 'field worker' on the user registration form if available.
+      $form['#user']->roles[$rid] = $name;
+      break;
+    }
+  }
+}
+
 /** 
   *  Implements hook_form_alter().
   * 
