@@ -210,6 +210,10 @@ projects[hidden_comment][version] = "1.x-dev"
 projects[hidden_comment][type] = "module"
 projects[hidden_comment][subdir] = "contrib"
 
+projects[hierarchical_select][version] = "3.0-alpha6"
+projects[hierarchical_select][type] = "module"
+projects[hierarchical_select][subdir] = "contrib"
+
 projects[hurricane][version] = "1.x-dev"
 projects[hurricane][type] = "module"
 projects[hurricane][subdir] = "contrib"
