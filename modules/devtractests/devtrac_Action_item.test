@@ -1063,7 +1063,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $location_add_full['field_ftritem_narrative[und][0][value]'] = 'jhfjkdjkcbxcb';
     $this->assertField('taxonomy_vocabulary_6[und]', 'District field found');
     //$location_add_full['taxonomy_vocabulary_6[und]'] = $form_submit_report['district'];
-    $this->assertField('taxonomy_vocabulary_8[und]', 'Sector field was rename');
+    $this->assertNoField('taxonomy_vocabulary_8[und]', 'Sector field was rename');
     $location_add_full['taxonomy_vocabulary_8[und][]'] = array(51,53,52);
     $location_add_full['field_ftritem_public_summary[und][0][value]'] = $this->randomString(40);
     $location_add_full['field_ftritem_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
