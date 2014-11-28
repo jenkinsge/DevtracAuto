@@ -197,6 +197,7 @@ projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-sql-
 projects[geonames][version] = "1.1"
 projects[geonames][type] = "module"
 projects[geonames][subdir] = "contrib"
+projects[geonames][patch][] = "https://www.drupal.org/files/issues/geonames_type_not_set.patch"
 
 projects[geophp][version] = "1.7"
 projects[geophp][type] = "module"
@@ -556,7 +557,7 @@ projects[geocoder_geonames][subdir] = "contrib"
 projects[apps][version] = "1.0-beta18"
 projects[apps][type] = "module"
 projects[apps][subdir] = "contrib"
-projects[facetapi_context][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"
+projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"
 
 ; Themes
 projects[omega][version] = "3.1"
