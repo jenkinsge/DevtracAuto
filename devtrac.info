@@ -71,7 +71,6 @@ dependencies[] = token
 dependencies[] = me
 dependencies[] = adaptive_image
 ; dependencies[] = advanced_help
-dependencies[] = autoassignrole
 dependencies[] = blockify
 dependencies[] = colorbox
 dependencies[] = commentblock

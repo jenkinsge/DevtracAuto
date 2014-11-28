@@ -19,10 +19,6 @@ projects[adaptive_image][version] = "1.4"
 projects[adaptive_image][type] = "module"
 projects[adaptive_image][subdir] = "contrib"
 
-projects[autoassignrole][version] = "1.0-beta2"
-projects[autoassignrole][type] = "module"
-projects[autoassignrole][subdir] = "contrib"
-
 projects[behavior_weights][version] = "1.0"
 projects[behavior_weights][type] = "module"
 projects[behavior_weights][subdir] = "contrib"
