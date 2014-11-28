@@ -23,11 +23,11 @@ function devtrac_to_devtrac_demodata_enable() {
 function devtrac_to_devtrac_demodata_disable() {
   $myfeed = feeds_source('devtrac_2_devtrac_action_item_import');
   $myfeed->startClear();
-  $myfeed = feeds_source('devtrac_2_devtrac_location_import');
+  $myfeed = feeds_source('devtrac_2_devtrac_site_reports_import');
   $myfeed->startClear();
   $myfeed = feeds_source('devtrac_2_devtrac_field_trip_import');
   $myfeed->startClear();
-  $myfeed = feeds_source('devtrac_2_devtrac_site_reports_import');
+  $myfeed = feeds_source('devtrac_2_devtrac_location_import');
   $myfeed->startClear();
   drupal_set_message(t("Deleted all Sample data."));
 }
