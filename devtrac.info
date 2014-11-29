@@ -192,8 +192,8 @@ dependencies[] = telephone
 dependencies[] = addressfield
 dependencies[] = link_favicon_formatter
 dependencies[] = role_delegation
-dependencies[] = hierarchical_select
-dependencies[] = hs_taxonomy
+dependencies[] = js
+dependencies[] = shs
 
 ; Questionnaire
 dependencies[] = questionnaire

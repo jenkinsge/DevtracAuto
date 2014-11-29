@@ -211,10 +211,6 @@ projects[hidden_comment][version] = "1.x-dev"
 projects[hidden_comment][type] = "module"
 projects[hidden_comment][subdir] = "contrib"
 
-projects[hierarchical_select][version] = "3.0-alpha6"
-projects[hierarchical_select][type] = "module"
-projects[hierarchical_select][subdir] = "contrib"
-
 projects[hurricane][version] = "1.x-dev"
 projects[hurricane][type] = "module"
 projects[hurricane][subdir] = "contrib"
@@ -230,6 +226,10 @@ projects[job_scheduler][subdir] = "contrib"
 projects[jquery_update][version] = "2.x-dev"
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
+
+projects[js][version] = "1.0"
+projects[js][type] = "module"
+projects[js][subdir] = "contrib"
 
 projects[kml][version] = "1.x-dev"
 projects[kml][type] = "module"
@@ -419,6 +419,10 @@ projects[services][subdir] = "contrib"
 projects[services_views][version] = "1.0"
 projects[services_views][type] = "module"
 projects[services_views][subdir] = "contrib"
+
+projects[shs][version] = "1.6"
+projects[shs][type] = "module"
+projects[shs][subdir] = "contrib"
 
 projects[special_menu_items][version] = "2.0"
 projects[special_menu_items][type] = "module"
