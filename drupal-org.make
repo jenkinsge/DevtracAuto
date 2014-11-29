@@ -557,12 +557,15 @@ projects[geocoder_geonames][subdir] = "contrib"
 projects[apps][version] = "1.0-beta18"
 projects[apps][type] = "module"
 projects[apps][subdir] = "contrib"
-projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"
+; Following patch just fails.
+; projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"
+; Going to use Aggrey's patch.
+projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-call_post_install_callback-2376519-%233.patch"
 
 ; Themes
 projects[omega][version] = "3.1"
 projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
-projects[shiny][type] = "theme"
+projects[omega][type] = "theme"
 
 projects[shiny][version] = "1.6"
 projects[shiny][type] = "theme"
