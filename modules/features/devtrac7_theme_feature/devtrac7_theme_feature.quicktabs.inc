@@ -112,31 +112,24 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
   $quicktabs->machine_name = 'location_quicktabs';
   $quicktabs->ajax = 0;
   $quicktabs->hide_empty_tabs = TRUE;
-  $quicktabs->default_tab = 0;
+  $quicktabs->default_tab = 1;
   $quicktabs->title = 'Details of this Location ';
   $quicktabs->tabs = array(
     0 => array(
-      'bid' => 'views_delta_b85d4b52a829c5edd880acb7c8641359',
-      'hide_title' => 1,
-      'title' => 'Statistics ',
-      'weight' => '-100',
-      'type' => 'block',
-    ),
-    1 => array(
       'bid' => 'views_delta_dvtrc_site_visits-block_6',
       'hide_title' => 1,
       'title' => 'SiteVisits',
       'weight' => '-99',
       'type' => 'block',
     ),
-    2 => array(
+    1 => array(
       'bid' => 'views_delta_dvtrc_action_items-block_6',
       'hide_title' => 1,
       'title' => 'Contact Information',
       'weight' => '-98',
       'type' => 'block',
     ),
-    3 => array(
+    2 => array(
       'bid' => 'views_delta_dvtrc_locations-block_5',
       'hide_title' => 1,
       'title' => 'Action Items',
@@ -154,7 +147,6 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
   t('Contact Information');
   t('Details of this Location ');
   t('SiteVisits');
-  t('Statistics ');
 
   $export['location_quicktabs'] = $quicktabs;
 

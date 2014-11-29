@@ -398,7 +398,7 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'context_node_view_location';
   $context->description = 'To be shown on Location pages';
-  $context->tag = 'nodetype';
+  $context->tag = 'Locations';
   $context->conditions = array(
     'node' => array(
       'values' => array(
@@ -412,6 +412,12 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'pane-locations_info' => array(
+          'module' => 'pane',
+          'delta' => 'locations_info',
+          'region' => 'featured',
+          'weight' => '-80',
+        ),
         'system-main' => array(
           'module' => 'system',
           'delta' => 'main',
@@ -428,19 +434,13 @@ function devtrac7_theme_feature_context_default_contexts() {
           'module' => 'views',
           'delta' => 'dvtrc_locations-block_2',
           'region' => 'postscript_first',
-          'weight' => '-10',
+          'weight' => '0',
         ),
         'views-dvtrc_site_visits-block_15' => array(
           'module' => 'views',
           'delta' => 'dvtrc_site_visits-block_15',
           'region' => 'postscript_second',
           'weight' => '-10',
-        ),
-        'pane-locations_info' => array(
-          'module' => 'pane',
-          'delta' => 'locations_info',
-          'region' => 'featured',
-          'weight' => '-80',
         ),
         'delta_blocks-messages' => array(
           'module' => 'delta_blocks',
@@ -458,8 +458,8 @@ function devtrac7_theme_feature_context_default_contexts() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Locations');
   t('To be shown on Location pages');
-  t('nodetype');
   $export['context_node_view_location'] = $context;
 
   $context = new stdClass();
@@ -822,6 +822,48 @@ function devtrac7_theme_feature_context_default_contexts() {
   t('User profile page');
   t('user');
   $export['context_user_view'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'devtrac_location_statistics_context';
+  $context->description = 'Manages the Statistics on the Locations page';
+  $context->tag = 'Locations';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'place' => 'place',
+      ),
+      'options' => array(
+        'node_form' => '0',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-3a9ae4acb949c61f74e7a3c27d58f170' => array(
+          'module' => 'views',
+          'delta' => '3a9ae4acb949c61f74e7a3c27d58f170',
+          'region' => 'postscript_first',
+          'weight' => '-10',
+        ),
+        'system-powered-by' => array(
+          'module' => 'system',
+          'delta' => 'powered-by',
+          'region' => 'postscript_first',
+          'weight' => '-7',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Locations');
+  t('Manages the Statistics on the Locations page');
+  $export['devtrac_location_statistics_context'] = $context;
 
   return $export;
 }

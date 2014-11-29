@@ -15,7 +15,7 @@ function devtrac7_node_types_context_default_contexts() {
   $context->api_version = 3;
   $context->name = 'node_edit_location';
   $context->description = 'Adds blocks on the add node pages for places and ftritems. We use the path context because that one fires in hook_init.';
-  $context->tag = 'nodetype';
+  $context->tag = 'Locations';
   $context->conditions = array(
     'path' => array(
       'values' => array(
