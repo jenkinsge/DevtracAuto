@@ -137,8 +137,6 @@ function devtrac7_menu() {
     'page arguments' => array(1, 4),
     'access callback' => array('devtrac7_update_fieldtrip_access'),
     'access arguments' => array(1),
-    // 'type' => MENU_LOCAL_ACTION,
-    // 'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 4,
   );
   $items['node/%/%/fieldtripcommentform/ajax/%ctools_js/go'] = array(
@@ -148,20 +146,8 @@ function devtrac7_menu() {
     'page arguments' => array(1, 2, 5),
     'access callback' => array('devtrac7_update_fieldtrip_access'),
     'access arguments' => array(1),
-    // 'type' => MENU_LOCAL_ACTION,
-    // 'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 4,
   );
-  // $items['node/%/addplaceform/noajax'] = array(
-  //    'title' => t('Add Location Direct'),
-  //    'page callback' => 'devtrac7_pageaddplaceform',
-  //    'page arguments' => array(1),
-  //    'access callback' => array('devtrac7_update_fieldtrip_access'),
-  //    'access arguments' => array(1),
-  //    'type' => MENU_LOCAL_ACTION,
-  //    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
-  //    'weight' => 4,
-  // );
   $items['node/%/addactionitem'] = array(
     'title' => 'Add Actionitem',
     'description' => 'Create a new Actionitem',
