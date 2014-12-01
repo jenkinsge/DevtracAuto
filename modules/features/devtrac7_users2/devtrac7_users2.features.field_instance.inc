@@ -610,7 +610,7 @@ function devtrac7_users2_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Select all the districts you are interested in. To select more than 1 district, press the CTRL key and click them 1 by 1.',
+    'description' => 'Select all the districts you are interested in. To select more than 1 district, click "Add another item" and provide the details.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -636,13 +636,19 @@ function devtrac7_users2_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'shs',
       'settings' => array(
         'apply_chosen' => '',
-        'content_taxonomy_opt_groups' => FALSE,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 0,
+          'node_count' => 0,
+          'use_chosen' => 'chosen',
+        ),
       ),
-      'type' => 'options_select',
+      'type' => 'taxonomy_shs',
       'weight' => 12,
     ),
   );
@@ -652,7 +658,7 @@ function devtrac7_users2_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Select all the subjects you are interested in. To select more than 1 subject, press the CTRL key and click them 1 by 1.',
+    'description' => 'Select all the subjects you are interested in. To select more than 1 subject, click "Add another item" and provide the details.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -679,13 +685,19 @@ function devtrac7_users2_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'shs',
       'settings' => array(
         'apply_chosen' => '',
-        'content_taxonomy_opt_groups' => FALSE,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 0,
+          'node_count' => 0,
+          'use_chosen' => 'chosen',
+        ),
       ),
-      'type' => 'options_select',
+      'type' => 'taxonomy_shs',
       'weight' => 13,
     ),
   );
@@ -700,8 +712,8 @@ function devtrac7_users2_field_default_field_instances() {
   t('First Name');
   t('Function');
   t('Manager');
-  t('Select all the districts you are interested in. To select more than 1 district, press the CTRL key and click them 1 by 1.');
-  t('Select all the subjects you are interested in. To select more than 1 subject, press the CTRL key and click them 1 by 1.');
+  t('Select all the districts you are interested in. To select more than 1 district, click "Add another item" and provide the details.');
+  t('Select all the subjects you are interested in. To select more than 1 subject, click "Add another item" and provide the details.');
   t('Subjects');
   t('Surname');
   t('Tell us something about yourself that we did not know.');

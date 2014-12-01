@@ -12,6 +12,7 @@ dependencies[] = entityreference
 dependencies[] = features
 dependencies[] = field_group
 dependencies[] = options
+dependencies[] = shs
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = virtual_field
