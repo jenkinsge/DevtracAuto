@@ -10,7 +10,7 @@
 function devtrac_geonames_config_apps_app_info() {
   return array(
     'configure form' => 'devtrac_geonames_config_app_configure_form',
-    'post install callback' => 'geonames_config_app_post_install',
+    'post install callback' => 'devtrac_geonames_config_app_post_install',
   );
 }
 
