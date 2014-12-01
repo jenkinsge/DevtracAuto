@@ -2259,6 +2259,36 @@ function devtrac7_libraries_info_alter(&$libraries) {
  * these settings are not exportable as they are a part of the block.
  */
 function devtrac7_js_alter(&$javascript) {
+  /*
+   * By default, the facetapi_flot and views_flot modules will position the 
+   * legend 'bottom'. In the flot module template_preprocess_flot_graph function,
+   * this causes flot to insert javascript into the creation of the flot
+   * graph that says the legend should be placed in a container and it adds that
+   * container to the html (under the graph)
+   * We want the default flot behaviour that overlays the legend at the top
+   * of the graph.
+   * There is no way to change relevant things before the template_preprocess_flot_graph
+   * function. Any preprocess function you add is only called after that, and then
+   * the javascript is already inserted.
+   * So, this is the alternative, a string_replace in the javascript.
+   * Sorry about that, I hope you found this in a reasonable time.
+   * 
+   * @see template_preprocess_flot_graph().
+   */
+  foreach ($javascript as $key => $script) {
+    if (($script['type'] == 'inline') && 
+         (strpos($script['data'], 'flot_auto_identifier_5') > 0)) {
+      $javascript[$key]['data'] = str_replace('bottom', 'ne', $script['data']);
+      $javascript[$key]['data'] = 
+        str_replace(',"container":"#flot-auto-identifier-1-legend","containerid":"flot-auto-identifier-1-legend"', '', $script['data']);
+    }
+  }
+  /*
+   * We need to enable collapsiblock on all facet blocks in the left
+   * sidebar, and close most of them.
+   * Therefor we add the collapsiblock settings here, as we can not export
+   * block settings.
+   */
   $settings = $javascript['settings']['data'];
   $index = -1;
   foreach ($settings as $key => $value) {
@@ -2544,4 +2574,3 @@ function devtrac7_query_alter($query) {
     $query->orderBy('id', 'DESC');
   }
 }
-
