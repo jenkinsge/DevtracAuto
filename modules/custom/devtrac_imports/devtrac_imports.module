@@ -10,14 +10,14 @@ function devtrac_imports_migrate_api() {
 					'DevtracImportsPurpose' => array('class_name' => 'DevtracImportsPurpose'),
 					'DevtracImportsFunction' => array('class_name' => 'DevtracImportsFunction'),
 					'DevtracImportsDepartment' => array('class_name' => 'DevtracImportsDepartment'),					
-					'DevtracImportsSectors0' => array('class_name' => 'DevtracImportsSectors0'),
-				  'DevtracImportsSectors1' => array('class_name' => 'DevtracImportsSectors1'),
+					'DevtracImportsSectorsLevel0' => array('class_name' => 'DevtracImportsSectorsLevel0'),
+				  'DevtracImportsSectorsLevel1' => array('class_name' => 'DevtracImportsSectorslevel1'),
 					'DevtracImportsSectorIcons' => array('class_name' => 'DevtracImportsSectorIcons'),
 					'DevtracImportsPlacetypeIcons' => array('class_name' => 'DevtracImportsPlacetypeIcons'),
 					'DevtracImportsSiteReportType' => array('class_name' => 'DevtracImportsSiteReportType'),	
-					'DevtracImportsPlacetype0' => array('class_name' => 'DevtracImportsPlacetype0'),
-					'DevtracImportsPlacetype1' => array('class_name' => 'DevtracImportsPlacetype1'),
-					'DevtracImportsPlacetype2' => array('class_name' => 'DevtracImportsPlacetype2'),
+					'DevtracImportsPlacetypeLevel0' => array('class_name' => 'DevtracImportsPlacetypeLevel0'),
+					'DevtracImportsPlacetypeLevel1' => array('class_name' => 'DevtracImportsPlacetypeLevel1'),
+					'DevtracImportsPlacetypeLevel2' => array('class_name' => 'DevtracImportsPlacetypeLevel2'),
 					
 			),
 	);
@@ -77,13 +77,13 @@ function devtrac_imports_batch($operation="import") {
 			'DevtracImportsFunction',
 	    'DevtracImportsDepartment',
 			'DevtracImportsSectorIcons',
-			'DevtracImportsSectors0',
-			'DevtracImportsSectors1',
+			'DevtracImportsSectorsLevel0',
+			'DevtracImportsSectorsLevel1',
 			'DevtracImportsSiteReportType',
 			'DevtracImportsPlacetypeIcons',
-			'DevtracImportsPlacetype0',
-			'DevtracImportsPlacetype1',
-			'DevtracImportsPlacetype2',
+			'DevtracImportsPlacetypeLevel0',
+			'DevtracImportsPlacetypeLevel1',
+			'DevtracImportsPlacetypeLevel2',
 	);
 
 	$operations = array();

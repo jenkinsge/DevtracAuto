@@ -2,7 +2,7 @@
 /**
  *Imports codelists for activity data type flag
 */
-class DevtracImportsSectors0 extends XMLMigration {
+class DevtracImportsSectorsLevel0 extends XMLMigration {
   /**
    * Invoke the class constructor.
    */
@@ -10,7 +10,7 @@ class DevtracImportsSectors0 extends XMLMigration {
     parent::__construct();
 
     // Do some general administration.
-    $this->description = t('Imports terms of Activity Sector 0.');
+    $this->description = t('Imports terms of  Sector Level 0.');
 
     // Instantiate the map.
     $fields = array(
