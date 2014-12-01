@@ -110,6 +110,17 @@ function devtrac7_profile_menu_install() {
     ->condition('menu_name', 'menu-my-profile')
     ->condition('router_path', '%analyse%', 'LIKE')
     ->execute();
+  db_update('menu_links')
+    ->fields($fields)
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', '%questions%', 'LIKE')
+    ->execute();
+  db_update('menu_links')
+    ->expression('p1', 'plid')
+    ->expression('p2', 'mlid')
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', '%questions%', 'LIKE')
+    ->execute();
 
   // Assign menu menu-my-profile to the second nice menu.
   variable_set('nice_menus_menu_2', 'menu-my-profile:0');
@@ -1378,6 +1389,58 @@ function devtrac7_profile_menu_file_exports_menu_links($mlid) {
     'parent_identifier' => 'menu-my-profile_export:export',
   );
 
+  $menu_items['menu-my-profile_statistics-questions-csv:statisticsquestionscsv'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'statistics/questions/csv',
+    'router_path' => 'statistics/questions/csv',
+    'link_title' => $title . 'to CSV',
+    'options' => array(
+      'attributes' => array(
+        'title' => $title . 'to CSV',
+        'orginal-title' => 'csv',
+        'class' => array('csv'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_statistics-questions-csv:statisticsquestionscsv',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -39,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+/*
+  $menu_items['menu-my-profile_statistics-questions-kml:statisticsquestionskml'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'statistics/questions/kml',
+    'router_path' => 'statistics/questions/kml',
+    'link_title' => $title . 'to KML',
+    'options' => array(
+      'attributes' => array(
+        'title' => $title . 'to KML',
+        'orginal-title' => 'kml',
+        'class' => array('kml'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_statistics-questions-kml:statisticsquestionskml',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -38,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+*/
   $menu_items['menu-my-profile_statistics-analyse-csv:statisticsanalysecsv'] = array(
     'menu_name' => 'menu-my-profile',
     'link_path' => 'statistics/analyse/csv',
