@@ -1178,6 +1178,52 @@ form.comment-form .form-item.form-type-item {
   color: #A52A2A;
 }
 
+.overview-link-wrapper a:link ,
+.overview-link-wrapper a:visited ,
+.overview-link-wrapper tr:hover a:link ,
+.overview-link-wrapper tr:hover a:visited {
+  color: #333333;
+}
+
+.overview-link-wrapper table {
+  margin-bottom: 10px;
+}
+
+.overview-link-wrapper table thead ,
+.overview-link-wrapper table tbody {
+  border: none;
+}
+
+.overview-link-wrapper table tbody tr {}
+
+.overview-link-wrapper table tbody tr:hover {
+  background: transparent;
+}
+
+.overview-link-wrapper table tbody tr td {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.overview-link-wrapper table tbody tr .views-field-title {
+  text-align: center;
+}
+
+.overview-link-wrapper table tbody tr .views-field-title a {
+  padding: 2px 5px;
+  background-color: #777777;
+  color: #FFFFFF;
+  min-width: 20px;
+  display: inline-block;
+  float: right;
+}
+
+.overview-link-wrapper table tbody tr:hover .views-field-title a {
+  background-color: #333333;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 /*=====================================================================================
  * Ctools Buttons
  * ==================================================================================*/
@@ -1198,16 +1244,19 @@ form.comment-form .form-item.form-type-item {
 
 
 td .ctools-wrapper {
-  width: 125px;
+  /*width: 125px;*/
+  min-width: 45px;
+  min-height: 27px;
   position: relative;
 }
 
 td .ctools-wrapper .ctools-button {
   position: absolute;
+  right: 0;
 }
 
 td .ctools-wrapper .ctools-button li {
-  width: 106px;
+  /*width: 106px;*/
 }
 
 .ctools-button-processed .ctools-content {
@@ -1252,8 +1301,8 @@ tr:hover .ctools-button li a:visited {
 .ctools-button.ctools-button-processed ul li a ,
 tr:hover .ctools-button.ctools-button-processed ul li a ,
 tr:hover .ctools-button.ctools-button-processed ul li a:hover {
-  display: block;
-  text-align: center;
+  /*display: block;*/
+  /*text-align: center;*/
 }
 
 
