@@ -131,10 +131,6 @@
       <arg value="${docroot}"/>
     </exec>
     
-  <first id="first">
-    <fileset dir="/home/travis/build/jenkinsge/devtrac/build/" includes="**/devtrac.profile" />
-  </first>
-  <echo message="${toString:first}" />
     
   <!-- <copy overwrite="true" file="/home/travis/build/TddDoctor/devtrac/devtrac.profile" todir="/home/travis/build/TddDoctor/devtrac/build/docroot/profiles/devtrac/" />
      replacing the devtrac.profile file for default country -->
