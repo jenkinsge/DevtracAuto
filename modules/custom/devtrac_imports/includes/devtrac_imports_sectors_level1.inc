@@ -1,5 +1,5 @@
 <?php
-class DevtracImportsSectors1 extends XMLMigration {
+class DevtracImportsSectorsLevel1 extends XMLMigration {
 
   /**
    * Invoke the class constructor.
@@ -8,7 +8,7 @@ class DevtracImportsSectors1 extends XMLMigration {
     parent::__construct();
 
     // Do some general administration.
-    $this->description = t('Imports terms of Aid Type level 1.');
+    $this->description = t('Imports terms of Sectorlevel 1.');
     //$this->softDependencies = array('LocationLevel0');
 
     // Instantiate the map.

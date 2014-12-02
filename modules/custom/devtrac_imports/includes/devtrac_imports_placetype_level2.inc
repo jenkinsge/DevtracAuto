@@ -1,20 +1,18 @@
 <?php
-class DevtracImportsPlacetype1 extends XMLMigration {
+class DevtracImportsPlacetypeLevel2 extends XMLMigration {
 
   public function __construct(array $arguments) {
     $this->arguments = $arguments;
     parent::__construct();
     
-    $this->description = t('Imports relations of type Implementing organisation role.');
+    $this->description = t('Imports placetype level2.');
     $this->dependencies = array(
-    	//'DevtracImportsPlacetype0',
+    	//'DevtracImportsPlacetypeLevel0',
     );
         
     $items_url = drupal_get_path('module', 'devtrac_imports') . '/data/placetype.xml';
-    $this->item_xpath = "/placetypes/placetype/placetype";  // relative to document
+    $this->item_xpath = "/placetypes/placetype/placetype/placetype";  // relative to document
     $this->item_ID_xpath = 'name';
-    // Do some general administration
-    // $this->description = t('Imports relations of type funding organisation role.');
 
     $fields = array(
         'name', 'name',
@@ -40,13 +38,12 @@ class DevtracImportsPlacetype1 extends XMLMigration {
         ),
         MigrateDestinationTerm::getKeySchema()
     );
-    //$sourcemaptable = str_replace('relationorgrolefunding', 'dataactivity', $this->generateMachineName());
-    //$this->addFieldMapping('field_oecd_code', 'code')->xpath('@code'); //->defaultValue('1');
+
     $this->addFieldMapping('name', 'name')->xpath('name');   
      
     $this->addFieldMapping('parent', 'parent')
     ->xpath('parent::*/name')
-    ->sourceMigration('DevtracImportsPlacetype0');   
+    ->sourceMigration('DevtracImportsPlacetypeLevel1');   
      
     $this->addFieldMapping('field_term_icon', 'name')
       ->xpath('name')

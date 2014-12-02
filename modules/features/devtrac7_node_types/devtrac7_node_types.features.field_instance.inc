@@ -70,12 +70,19 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'shs',
       'settings' => array(
         'apply_chosen' => '',
-        'content_taxonomy_opt_groups' => FALSE,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+          'use_chosen' => 'chosen',
+        ),
       ),
-      'type' => 'options_select',
+      'type' => 'taxonomy_shs',
       'weight' => 1,
     ),
   );
@@ -1194,13 +1201,19 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'shs',
       'settings' => array(
         'apply_chosen' => 1,
-        'content_taxonomy_opt_groups' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+          'use_chosen' => 'chosen',
+        ),
       ),
-      'type' => 'options_select',
+      'type' => 'taxonomy_shs',
       'weight' => 2,
     ),
   );
@@ -3200,13 +3213,19 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'shs',
       'settings' => array(
         'apply_chosen' => 0,
-        'content_taxonomy_opt_groups' => FALSE,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+          'use_chosen' => 'chosen',
+        ),
       ),
-      'type' => 'options_select',
+      'type' => 'taxonomy_shs',
       'weight' => 1,
     ),
   );
@@ -3363,13 +3382,19 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'shs',
       'settings' => array(
         'apply_chosen' => 1,
-        'content_taxonomy_opt_groups' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+          'use_chosen' => 'chosen',
+        ),
       ),
-      'type' => 'options_select',
+      'type' => 'taxonomy_shs',
       'weight' => 4,
     ),
   );
@@ -4278,13 +4303,19 @@ The \'Search Address\' box will only help you to do an initial search on a rough
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
+      'module' => 'shs',
       'settings' => array(
         'apply_chosen' => 1,
-        'content_taxonomy_opt_groups' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'shs' => array(
+          'create_new_levels' => 0,
+          'create_new_terms' => 0,
+          'force_deepest' => 1,
+          'node_count' => 0,
+          'use_chosen' => 'chosen',
+        ),
       ),
-      'type' => 'options_select',
+      'type' => 'taxonomy_shs',
       'weight' => 2,
     ),
   );

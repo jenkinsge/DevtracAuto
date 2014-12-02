@@ -1,0 +1,7 @@
+name = "Devtrac Geonames Configuration"
+description = "App for configuring geonames.org integration"
+core = "7.x"
+package = "Devtrac Apps"
+files[] = devtrac_geonames_config.module
+dependencies[] = geonames
+dependencies[] = openlayers_geosearch

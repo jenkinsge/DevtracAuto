@@ -192,6 +192,11 @@ dependencies[] = telephone
 dependencies[] = addressfield
 dependencies[] = link_favicon_formatter
 dependencies[] = role_delegation
+; The following line introduces some access issues on taxonomy terms
+; and makes thus makes the shs module fail to do its work.
+; So until we solve this, we just do not enable it.
+; dependencies[] = js
+dependencies[] = shs
 
 ; Questionnaire
 dependencies[] = questionnaire

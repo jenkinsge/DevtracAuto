@@ -11,6 +11,7 @@ dependencies[] = features
 dependencies[] = list
 dependencies[] = options
 dependencies[] = quicktabs
+dependencies[] = shs
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text

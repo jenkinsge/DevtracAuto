@@ -1,6 +1,5 @@
 name = "Devtrac to Devtrac Demo Data Module"
 description = "Adds Demo Data when enabled and removes it when disabled."
 core = "7.x"
-package = "Devtrac"
-
+package = "Devtrac Apps"
 

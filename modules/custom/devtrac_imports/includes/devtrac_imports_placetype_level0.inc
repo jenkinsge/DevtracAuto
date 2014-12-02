@@ -1,11 +1,11 @@
 <?php
-class DevtracImportsPlacetype0 extends XMLMigration {
+class DevtracImportsPlacetypeLevel0 extends XMLMigration {
 
   public function __construct(array $arguments) {
     $this->arguments = $arguments;
     parent::__construct();
     
-    $this->description = t('Imports relations of type Implementing organisation role.');
+    $this->description = t('Imports Place Types on Level 0.');
     $this->dependencies = array(
     	//'DevtracImportsPlacetypeIcons',
     );

@@ -197,6 +197,7 @@ projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-sql-
 projects[geonames][version] = "1.1"
 projects[geonames][type] = "module"
 projects[geonames][subdir] = "contrib"
+projects[geonames][patch][] = "https://www.drupal.org/files/issues/geonames_type_not_set.patch"
 
 projects[geophp][version] = "1.7"
 projects[geophp][type] = "module"
@@ -225,6 +226,10 @@ projects[job_scheduler][subdir] = "contrib"
 projects[jquery_update][version] = "2.x-dev"
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
+
+projects[js][version] = "1.0"
+projects[js][type] = "module"
+projects[js][subdir] = "contrib"
 
 projects[kml][version] = "1.x-dev"
 projects[kml][type] = "module"
@@ -415,6 +420,10 @@ projects[services_views][version] = "1.0"
 projects[services_views][type] = "module"
 projects[services_views][subdir] = "contrib"
 
+projects[shs][version] = "1.6"
+projects[shs][type] = "module"
+projects[shs][subdir] = "contrib"
+
 projects[special_menu_items][version] = "2.0"
 projects[special_menu_items][type] = "module"
 projects[special_menu_items][subdir] = "contrib"
@@ -549,14 +558,18 @@ projects[geocoder_geonames][download][branch] = "7.x-1.x"
 projects[geocoder_geonames][download][revision] = "57417b6bab16585f8d06a06e460e5096d3ba25b0"
 projects[geocoder_geonames][subdir] = "contrib"
 
-projects[apps][version] = "1.0-beta18"
+projects[apps][version] = "1.0-beta20"
 projects[apps][type] = "module"
 projects[apps][subdir] = "contrib"
+; Following patch just fails.
+; projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"
+; Going to use Aggrey's patch.
+projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-call_post_install_callback-2376519-%233.patch"
 
 ; Themes
 projects[omega][version] = "3.1"
 projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
-projects[shiny][type] = "theme"
+projects[omega][type] = "theme"
 
 projects[shiny][version] = "1.6"
 projects[shiny][type] = "theme"
