@@ -172,6 +172,20 @@ function devtrac7_menu() {
     // 'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 4,
   );
+  $items['user/barcode'] = array(
+    'page callback' => 'devtrac7_barcode',
+    'access callback' => 'user_is_logged_in',
+    'type' => MENU_CALLBACK,    
+  );  
+
+  $items['devtrac7/modal/%ctools_js/barcode'] = array(
+    'title' => 'Barcode',
+    'page callback' => 'devtrac7_modal_barcode',
+    'page arguments' => array(1),
+    'access callback' => 'user_is_logged_in',
+    'type' => MENU_CALLBACK,
+  );  
+
   /* All field collections */
   $items['modal/field-collection/%/%/%/%/%ctools_js/go'] = array(
     'page callback' => 'devtrac7_modal_operator_callback',
@@ -180,6 +194,58 @@ function devtrac7_menu() {
   );
 
   return $items;
+}
+
+
+
+function devtrac7_modal_barcode($js = NULL) {
+    // Fall back if $js is not set.
+  if (!$js) {
+    return devtrac7_barcode();
+  }
+
+  ctools_include('modal');
+  ctools_include('ajax');
+ 
+  //$output = ctools_modal_form_wrapper('user_register_form', $form_state);
+  $barcode = devtrac7_barcode();
+  $output = array();
+  $output[] = ctools_modal_command_display("barcode title", $barcode);
+ // $output = ctools_modal_command_display("barcode title", "<div>here</div>");
+
+  $return = ajax_render($output);
+
+
+  print $return;
+}
+
+function devtrac7_barcode() {
+  //debug($value1);
+  global $user;
+  global $base_url;
+  $account = $user;
+  $barcode =array();
+  $barcode['name'] = $account->name;
+  $barcode['url'] = $base_url;
+  
+  module_load_include('inc', 'content', 'includes/password');
+  $barcode['key'] = drupal_hash_base64(user_hash_password($account->pass, $count_log2 = 3)) ;
+  //debug($barcode[2]);
+  //array
+  
+  $settings = array (
+    'barcode_value' => drupal_json_encode($barcode),
+    'encoding' => 'QRCODE',
+    'height' => 200,
+    'scale' => '2.0',
+    'bgcolor' => '#FFFFFF',
+    'barcolor' => '#000000',
+    'image_format' => 'png',
+  );
+  
+  //debug(ctools_modal_text_button(t('Modal Login'), 'modal_forms/nojs/login', t('Login via modal')));
+  
+  return theme('barcode_image', $settings) ;
 }
 
 /**

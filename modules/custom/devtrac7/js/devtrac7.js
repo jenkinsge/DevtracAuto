@@ -106,7 +106,14 @@ Drupal.behaviors.addPlace = {
 //	  });
 	}
   };
-
+  
+Drupal.behaviors.initModalFormsBarcode = {
+  attach: function (context, settings) {
+    $("a[href*='/user/barcode'], a[href*='?q=user/barcode']", context).once('init-modal-forms-barcode', function () {
+      this.href = this.href.replace(/user\/barcode/,'devtrac7/modal/nojs/barcode');
+    }).addClass('ctools-use-modal ctools-modal-modal-popup-medium');
+  }
+};
 
 Drupal.behaviors.FixOpenLayersOrdering = {
         attach: function (context, settings) {
