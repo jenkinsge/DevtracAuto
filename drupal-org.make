@@ -548,7 +548,7 @@ projects[OL_lat_long][download][url] = "http://git.drupal.org/sandbox/GwenMahe/2
 projects[OL_lat_long][download][branch] = "master"
 projects[OL_lat_long][subdir] = "contrib"
 
-projects[geocoder_geonames][version] = "7.x-1.0"
+projects[geocoder_geonames][version] = "1.0"
 projects[geocoder_geonames][type] = "module"
 projects[geocoder_geonames][subdir] = "contrib"
 
