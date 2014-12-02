@@ -185,7 +185,6 @@ dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
 dependencies[] = search_api_swatches
 dependencies[] = cancel_button
-dependencies[] = local_fonts
 dependencies[] = elements
 dependencies[] = telephone
 dependencies[] = addressfield
