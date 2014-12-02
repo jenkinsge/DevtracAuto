@@ -94,7 +94,7 @@ function devtrac_mapbox_openlayers_map_preprocess_alter(&$map = array()) {
   // Store the current map in a variable.
   $current_map = $map;
   // Extract the layers data from the string.
-  $layers = getlayers();
+  $layers = devtrac_mapbox_getlayers();
 
   // Look for key for default layer, then remove the layer from the layers array
   // for the map. Remove the osm cycling map as well.

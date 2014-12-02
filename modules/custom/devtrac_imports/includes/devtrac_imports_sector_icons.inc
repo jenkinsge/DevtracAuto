@@ -47,8 +47,8 @@ class DevtracImportsSectorIcons extends XMLMigration {
 
     $this->addFieldMapping('uid')
          ->defaultValue(1);
-    $this->addFieldMapping('field_file_image_title_text', 'name');
-    $this->addFieldMapping('field_file_image_alt_text', 'name');
+    $this->addFieldMapping('field_file_image_title_text', 'name')->xpath('name');
+    $this->addFieldMapping('field_file_image_alt_text', 'name')->xpath('name');
     
     $this->addUnmigratedDestinations(array('field_image_description:format',
       'field_image_description:language', 'destination_dir', 'destination_file',

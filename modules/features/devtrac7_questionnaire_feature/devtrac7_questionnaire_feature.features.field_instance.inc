@@ -62,7 +62,7 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
         ),
       ),
       'type' => 'taxonomy_shs',
-      'weight' => 1,
+      'weight' => -1.25,
     ),
   );
 
@@ -116,7 +116,7 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
         ),
       ),
       'type' => 'taxonomy_shs',
-      'weight' => 2,
+      'weight' => -1.5,
     ),
   );
 
