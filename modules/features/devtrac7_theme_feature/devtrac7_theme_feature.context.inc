@@ -848,12 +848,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'postscript_first',
           'weight' => '-10',
         ),
-        'system-powered-by' => array(
-          'module' => 'system',
-          'delta' => 'powered-by',
-          'region' => 'postscript_first',
-          'weight' => '-7',
-        ),
       ),
     ),
   );
