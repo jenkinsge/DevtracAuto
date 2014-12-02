@@ -2436,8 +2436,8 @@ function devtrac7_user_login_submit(&$form, &$form_state) {
           !isset($user->mail) ||
           !isset($user->name)
       ) {
-        drupal_set_message('Please <a href="@url">finish filling in your full profile</a> '
-          . 'by filling in all mandatory fields.', array('@url' => $destination));
+        drupal_set_message(t('Please <a href="@url">finish filling in your full profile</a> '
+          . 'by filling in all mandatory fields.', array('@url' => $destination)));
         drupal_register_shutdown_function('devtrac7_perform_redirect', $destination);
       }
     }
