@@ -593,7 +593,7 @@ libraries[flot][download][type] = "file"
 libraries[flot][download][url] = "https://flot.googlecode.com/files/flot-0.7.tar.gz"
 libraries[flot][directory_name] = "flot"
 libraries[flot][type] = "library"
-libraries[flot][patch" = "https://www.drupal.org/files/issues/1897440_flot_resize_library.patch"
+libraries[flot][patch][] = "https://www.drupal.org/files/issues/1897440_flot_resize_library.patch"
 
 libraries[FooTable][download][type] = "file"
 libraries[FooTable][download][url] = "https://github.com/bradvin/FooTable/archive/V2.zip"
