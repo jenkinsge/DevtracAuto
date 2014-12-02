@@ -132,7 +132,7 @@
     </exec>
     
   <first id="first">
-    <fileset dir="/home/travis/build/TddDoctor/devtrac/build/" includes="**/devtrac.profile" />
+    <fileset dir="/home/travis/build/jenkinsge/devtrac/build/" includes="**/devtrac.profile" />
   </first>
   <echo message="${toString:first}" />
     
