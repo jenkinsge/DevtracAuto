@@ -2509,6 +2509,9 @@ function devtrac7_user_login_submit(&$form, &$form_state) {
         // the previous code so we can revert back quickly if this is not so.
         $_GET['destination'] = $destination;
       }
+      else {
+        $_GET['destination'] = check_plain(filter_xss($base_url . '/user/' . $form_state['uid']));
+      }
     }
   }
 }
