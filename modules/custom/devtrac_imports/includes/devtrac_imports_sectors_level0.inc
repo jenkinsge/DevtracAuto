@@ -38,7 +38,7 @@ class DevtracImportsSectorsLevel0 extends XMLMigration {
     MigrateDestinationTerm::getKeySchema()
     );
     // Instantiate the field mapping.
-    $this->addFieldMapping('field_iati_code', 'category')->xpath('category');
+    $this->addFieldMapping('field_oecd_code', 'category')->xpath('category');
     $this->addFieldMapping('name', 'category-name')->xpath('category-name');
     $this->addFieldMapping('description', 'category-description')->xpath('category-description');
   }
