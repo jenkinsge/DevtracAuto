@@ -169,6 +169,7 @@ projects[flot][type] = "module"
 projects[flot][subdir] = "contrib"
 projects[flot][patch][] = "https://www.drupal.org/files/flot-pie_options-2088021-3.patch"
 projects[flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects-2264691-4.patch"
+projects[flot][patch][] = "https://www.drupal.org/files/issues/1897440_flot_resize_module.patch"
 
 projects[footable][version] = "1.0-rc1"
 projects[footable][type] = "module"
@@ -552,7 +553,6 @@ projects[geocoder_geonames][type] = "module"
 projects[geocoder_geonames][subdir] = "contrib"
 
 projects[apps][version] = "1.0-beta20"
-projects[apps][type] = "module"
 projects[apps][subdir] = "contrib"
 ; Following patch just fails.
 ; projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"
@@ -593,6 +593,7 @@ libraries[flot][download][type] = "file"
 libraries[flot][download][url] = "https://flot.googlecode.com/files/flot-0.7.tar.gz"
 libraries[flot][directory_name] = "flot"
 libraries[flot][type] = "library"
+libraries[flot][patch" = "https://www.drupal.org/files/issues/1897440_flot_resize_library.patch"
 
 libraries[FooTable][download][type] = "file"
 libraries[FooTable][download][url] = "https://github.com/bradvin/FooTable/archive/V2.zip"
