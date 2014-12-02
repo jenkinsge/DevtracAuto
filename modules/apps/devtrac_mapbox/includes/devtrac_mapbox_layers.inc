@@ -19,7 +19,7 @@ function _devtrac_mapbox_openlayers_layers() {
   $exports = array();
 
   // Get all the additional layers.
-  $layers = getlayers();
+  $layers = devtrac_mapbox_getlayers();
 
   if(!is_null($layers)) {
   foreach ($layers as $layer) {
