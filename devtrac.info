@@ -97,6 +97,7 @@ dependencies[] = module_filter
 dependencies[] = pane
 dependencies[] = pathauto
 dependencies[] = purl
+dependencies[] = purl_search_api
 dependencies[] = prepopulate
 dependencies[] = proj4js
 dependencies[] = proxy
@@ -184,9 +185,7 @@ dependencies[] = search_api_facetapi
 dependencies[] = search_api_views
 dependencies[] = search_api_swatches
 dependencies[] = cancel_button
-dependencies[] = fontyourface
 dependencies[] = local_fonts
-dependencies[] = fontyourface_wysiwyg
 dependencies[] = elements
 dependencies[] = telephone
 dependencies[] = addressfield
@@ -218,6 +217,7 @@ dependencies[] = devtrac7_realms
 dependencies[] = devtrac_custom_packages
 dependencies[] = devtrac_question_packages
 dependencies[] = devtrac_imports
+dependencies[] = devtrac_purl
 
 ; Devtrac features
 dependencies[] = devtrac7_services_api

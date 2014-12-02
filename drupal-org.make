@@ -170,10 +170,6 @@ projects[flot][subdir] = "contrib"
 projects[flot][patch][] = "https://www.drupal.org/files/flot-pie_options-2088021-3.patch"
 projects[flot][patch][] = "https://www.drupal.org/files/issues/flot-default_objects-2264691-4.patch"
 
-projects[fontyourface][version] = "2.8"
-projects[fontyourface][type] = "module"
-projects[fontyourface][subdir] = "contrib"
-
 projects[footable][version] = "1.0-rc1"
 projects[footable][type] = "module"
 projects[footable][subdir] = "contrib"
