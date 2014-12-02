@@ -321,7 +321,7 @@ projects[purl][type] = "module"
 projects[purl][subdir] = "contrib"
 projects[purl][patch][] = "https://www.drupal.org/files/1511708_5_menu_save.patch"
 
-projects[purl_search_api][version] = "1.0-beta1"
+projects[purl_search_api][version] = "1.0-beta2"
 projects[purl_search_api][type] = "module"
 projects[purl_search_api][subdir] = "contrib"
 

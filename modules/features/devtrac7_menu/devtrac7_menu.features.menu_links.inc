@@ -21,9 +21,6 @@ function devtrac7_menu_menu_default_menu_links() {
         'title' => 'Shows action items of Devtrac reporters from the field',
         'class' => array(
           0 => 'purl_search_api_noreset',
-          1 => 'purl_search_api_noreset',
-          2 => 'purl_search_api_noreset',
-          3 => 'purl_search_api_noreset',
         ),
       ),
       'identifier' => 'main-menu_action-items:actionitems',
@@ -34,23 +31,6 @@ function devtrac7_menu_menu_default_menu_links() {
     'has_children' => 0,
     'expanded' => 0,
     'weight' => -49,
-    'customized' => 1,
-  );
-  // Exported menu link: main-menu_contact:contact
-  $menu_links['main-menu_contact:contact'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'contact',
-    'router_path' => 'contact',
-    'link_title' => 'Contact',
-    'options' => array(
-      'identifier' => 'main-menu_contact:contact',
-    ),
-    'module' => 'system',
-    'hidden' => 1,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -41,
     'customized' => 1,
   );
   // Exported menu link: main-menu_admin-units:adminunits
@@ -86,10 +66,6 @@ function devtrac7_menu_menu_default_menu_links() {
         'title' => 'Shows Field Trips of Devtrac reporters from the field',
         'class' => array(
           0 => 'purl_search_api_noreset',
-          1 => 'purl_search_api_noreset',
-          2 => 'purl_search_api_noreset',
-          3 => 'purl_search_api_noreset',
-          4 => 'purl_search_api_noreset',
         ),
       ),
       'identifier' => 'main-menu_field-trips:fieldtrips',
@@ -176,9 +152,6 @@ function devtrac7_menu_menu_default_menu_links() {
         'title' => 'Shows reports of Devtrac reporters from the field',
         'class' => array(
           0 => 'purl_search_api_noreset',
-          1 => 'purl_search_api_noreset',
-          2 => 'purl_search_api_noreset',
-          3 => 'purl_search_api_noreset',
         ),
       ),
       'identifier' => 'main-menu_site-reports:sitereports',
@@ -202,9 +175,6 @@ function devtrac7_menu_menu_default_menu_links() {
         'title' => 'Statistics',
         'class' => array(
           0 => 'purl_search_api_noreset',
-          1 => 'purl_search_api_noreset',
-          2 => 'purl_search_api_noreset',
-          3 => 'purl_search_api_noreset',
         ),
       ),
       'identifier' => 'main-menu_statistics:statistics',
@@ -226,6 +196,9 @@ function devtrac7_menu_menu_default_menu_links() {
     'options' => array(
       'attributes' => array(
         'title' => 'List of users of Devtrac',
+        'class' => array(
+          0 => 'purl_search_api_noreset',
+        ),
       ),
       'identifier' => 'main-menu_users:users',
     ),
