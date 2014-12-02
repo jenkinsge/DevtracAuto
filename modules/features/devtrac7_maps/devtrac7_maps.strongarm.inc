@@ -34,15 +34,8 @@ function devtrac7_maps_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'geocoder_geonames_country';
-  $strongarm->value = 'none';
-  $export['geocoder_geonames_country'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'geocoder_geonames_maxresults';
-  $strongarm->value = '3';
+  $strongarm->value = '5';
   $export['geocoder_geonames_maxresults'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -60,7 +53,7 @@ function devtrac7_maps_strongarm() {
     'geocoder_apikey_yahoo' => '',
     'geocoder_apikey_yandex' => '',
     'geocoder_apikey_bing' => '',
-    'geocoder_nominatim_limit' => '3',
+    'geocoder_nominatim_limit' => '5',
     'geocoder_country' => 'none',
   );
   $export['geocoder_settings'] = $strongarm;
@@ -78,20 +71,6 @@ function devtrac7_maps_strongarm() {
   $strongarm->name = 'geonames_cache_limit';
   $strongarm->value = '14';
   $export['geonames_cache_limit'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'geonames_commercial_credits';
-  $strongarm->value = 1;
-  $export['geonames_commercial_credits'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'geonames_commercial_credits_since';
-  $strongarm->value = 1394007552;
-  $export['geonames_commercial_credits_since'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -120,13 +99,6 @@ function devtrac7_maps_strongarm() {
   $strongarm->name = 'geonames_server';
   $strongarm->value = 'http://api.geonames.org';
   $export['geonames_server'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'geonames_username';
-  $strongarm->value = 'devtrac';
-  $export['geonames_username'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

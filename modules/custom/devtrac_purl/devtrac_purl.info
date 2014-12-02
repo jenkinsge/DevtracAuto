@@ -1,0 +1,8 @@
+name = PURL for Devtrac
+description = "Renames Responsible to Author and vice-versa"
+package = Devtrac
+core = 7.x
+dependencies[] = purl_search_api
+
+files[] = devtrac_purl.module
+files[] = includes/devtrac_purl.inc
