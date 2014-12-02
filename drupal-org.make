@@ -181,7 +181,7 @@ projects[footable][subdir] = "contrib"
 projects[geocoder][version] = "1.x-dev"
 projects[geocoder][type] = "module"
 projects[geocoder][subdir] = "contrib"
-projects[geocoder][patch][] = "https://www.drupal.org/files/issues/geocoder-fix_nominatim_data-1748412-39.patch"
+projects[geocoder][patch][] = "https://www.drupal.org/files/issues/geocoder-mapquest-nominatim-1748412-46.patch"
 
 projects[geocoder_wfs][version] = "1.0"
 projects[geocoder_wfs][type] = "module"
@@ -286,7 +286,7 @@ projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/zoomtolayer-only-when-there-are-features-%232344127-1.patch"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetapi.patch"
 
-projects[openlayers_geosearch][version] = "1.0-beta3"
+projects[openlayers_geosearch][version] = "1.0-beta4"
 projects[openlayers_geosearch][type] = "module"
 projects[openlayers_geosearch][subdir] = "contrib"
 
@@ -551,11 +551,8 @@ projects[OL_lat_long][download][url] = "http://git.drupal.org/sandbox/GwenMahe/2
 projects[OL_lat_long][download][branch] = "master"
 projects[OL_lat_long][subdir] = "contrib"
 
+projects[geocoder_geonames][version] = "7.x-1.0"
 projects[geocoder_geonames][type] = "module"
-projects[geocoder_geonames][download][type] = "git"
-projects[geocoder_geonames][download][url] = "http://git.drupal.org/sandbox/dmulindwa/1996068.git"
-projects[geocoder_geonames][download][branch] = "7.x-1.x"
-projects[geocoder_geonames][download][revision] = "57417b6bab16585f8d06a06e460e5096d3ba25b0"
 projects[geocoder_geonames][subdir] = "contrib"
 
 projects[apps][version] = "1.0-beta20"
