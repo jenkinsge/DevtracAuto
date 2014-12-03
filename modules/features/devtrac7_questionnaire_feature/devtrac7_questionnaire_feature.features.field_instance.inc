@@ -103,19 +103,12 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'shs',
+      'module' => 'options',
       'settings' => array(
         'apply_chosen' => 1,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'shs' => array(
-          'create_new_levels' => 0,
-          'create_new_terms' => 0,
-          'force_deepest' => 1,
-          'node_count' => 0,
-          'use_chosen' => 'chosen',
-        ),
       ),
-      'type' => 'taxonomy_shs',
+      'type' => 'options_select',
       'weight' => -1.5,
     ),
   );
