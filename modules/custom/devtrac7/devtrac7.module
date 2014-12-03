@@ -253,7 +253,11 @@ function devtrac7_barcode() {
   
   //debug(ctools_modal_text_button(t('Modal Login'), 'modal_forms/nojs/login', t('Login via modal')));
   
-  return theme('barcode_image', $settings) ;
+  $header = "You can use this barcode to configure the Devtrac Mobile App to connect to this instance of Devtrac.<br /><br />";
+  $header .= "After starting the Devtrac Mobile App, please start the QRCode scanner and scan this code.<br />";
+  $header .= "It will log you in automatically and your Mobile App will connect to this instance of Devtrac.<br />";
+
+  return t($header) . theme('barcode_image', $settings);
 }
 
 /**
