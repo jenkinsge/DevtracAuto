@@ -282,12 +282,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'on a map',
         'orginal-title' => 'map',
-        'class' => array('map'),
+        'class' => array('map', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'map',
@@ -315,12 +315,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -348,12 +348,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',
@@ -381,12 +381,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -414,12 +414,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',
@@ -447,12 +447,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -480,12 +480,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',
@@ -513,12 +513,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -546,12 +546,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',
@@ -579,12 +579,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -612,12 +612,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',
@@ -645,12 +645,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -678,12 +678,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',
@@ -711,12 +711,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'on a map',
         'orginal-title' => 'map',
-        'class' => array('map'),
+        'class' => array('map', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'map',
@@ -744,12 +744,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -777,12 +777,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',
@@ -810,12 +810,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'on a map',
         'orginal-title' => 'map',
-        'class' => array('map'),
+        'class' => array('map', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'map',
@@ -843,12 +843,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -876,12 +876,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',
@@ -909,12 +909,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'in a list',
         'orginal-title' => 'list',
-        'class' => array('list'),
+        'class' => array('list', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'list',
@@ -942,12 +942,12 @@ function devtrac7_profile_menu_views_modes_menu_links() {
       'purl' => array(
         'provider' => 'views_modes',
         'id' => '',
-        'disabled' => 1,
+        'disabled' => 0,
       ),
       'attributes' => array(
         'title' => $title . 'as graphs',
         'orginal-title' => 'graphs',
-        'class' => array('graphs'),
+        'class' => array('graphs', 'purl_search_api_noreset'),
       ),
       'query' => array(
         'display' => 'graphs',

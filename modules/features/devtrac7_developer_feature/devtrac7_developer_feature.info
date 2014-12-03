@@ -9,6 +9,7 @@ dependencies[] = context_ui
 dependencies[] = ctools
 dependencies[] = devel_node_access
 dependencies[] = diff
+features[context][] = devtrac_solr_not_map_views_admin
 features[context][] = devtrac7_developers
 features[ctools][] = context:context:3
 features[features_api][] = api:1
