@@ -204,8 +204,11 @@ function devtrac7_menu() {
   return $items;
 }
 
-
-
+/**
+ * 
+ * @param type $js
+ * @return type
+ */
 function devtrac7_modal_barcode($js = NULL) {
     // Fall back if $js is not set.
   if (!$js) {
@@ -222,11 +225,15 @@ function devtrac7_modal_barcode($js = NULL) {
  // $output = ctools_modal_command_display("barcode title", "<div>here</div>");
 
   $return = ajax_render($output);
-
-
   print $return;
 }
 
+/**
+ * 
+ * @global type $user
+ * @global type $base_url
+ * @return type
+ */
 function devtrac7_barcode() {
   //debug($value1);
   global $user;
@@ -236,11 +243,12 @@ function devtrac7_barcode() {
   $barcode['name'] = $account->name;
   $barcode['url'] = $base_url;
   
-  module_load_include('inc', 'content', 'includes/password');
-  $barcode['key'] = drupal_hash_base64(user_hash_password($account->pass, $count_log2 = 3)) ;
+
+  $apikey = devtrac7_generate_apikey($account->name);
+  $barcode['key'] = drupal_hash_base64($apikey);
   //debug($barcode[2]);
   //array
-  
+  watchdog('devtrac7',$barcode['key']);
   $settings = array (
     'barcode_value' => drupal_json_encode($barcode),
     'encoding' => 'QRCODE',
@@ -258,6 +266,23 @@ function devtrac7_barcode() {
   $header .= "It will log you in automatically and your Mobile App will connect to this instance of Devtrac.<br />";
 
   return t($header) . theme('barcode_image', $settings);
+}
+
+/**
+ * 
+ * @param type $username
+ * @return type
+ */
+function devtrac7_generate_apikey($username)  {
+  //global $user;
+  $user = user_load_by_name($username);
+  if(!$user) {
+    return null;
+  }
+  module_load_include('inc', 'content', 'includes/password'); 
+  $devtracapieypassword = $user->name . $user->pass;
+  $newhash = _password_crypt('sha512', $devtracapieypassword, $user->pass);
+  return $newhash;
 }
 
 /**
