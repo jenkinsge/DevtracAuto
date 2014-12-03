@@ -16,7 +16,7 @@ function devtrac_form_install_configure_form_alter(&$form, $form_state, $form_id
 
     // Alter country install_settings_form.
     // $form['server_settings']['site_default_country']['#required'] = TRUE;
-    $form['#submit'][] = 'devtrac_install_configure_form_submit_country';
+   // $form['#submit'][] = 'devtrac_install_configure_form_submit_country';
   }
 }
 
