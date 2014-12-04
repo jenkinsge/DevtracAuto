@@ -10,6 +10,7 @@ matrix:
   - fast_finish: true
     
 before_install:
+  - php /home/travis/.phpenv/versions/5.5/bin/composer self-update
   - "sudo apt-get update"
   - sleep 3
 
