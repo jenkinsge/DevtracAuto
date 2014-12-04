@@ -220,6 +220,7 @@ dependencies[] = devtrac_purl
 dependencies[] = devtrac7_services_user
 
 ; Devtrac features
+dependencies[] = mountbatten_web_media
 dependencies[] = devtrac7_services_api
 dependencies[] = devtrac7_admin_feature
 ; We'll have to enable the devtrac7_field_permissions feature after
