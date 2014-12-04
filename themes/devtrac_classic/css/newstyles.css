@@ -322,6 +322,10 @@ table tbody tr.even td.active {
   border-top: thin solid #555555;
 }
 
+.block-search-api-saved-searches {
+  display: none;
+}
+
 /*=============================================================================
  * Content Styles
  * ==========================================================================*/
