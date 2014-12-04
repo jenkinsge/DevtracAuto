@@ -461,6 +461,12 @@ table tbody tr.even td.active {
   background-image: url(../images/summary-icon-priority.png);
 }
 
+.vocabulary-vocabulary-8 ,
+.field-name-taxonomy-vocabulary-8 .field-item {
+  display: inline-block;
+  margin-right: 2px;
+}
+
 .region-content .block-system-main {
   margin-bottom: 10px;
 }
