@@ -30,8 +30,8 @@ function devtrac_install_configure_form_submit_country(&$form, $form_state) {
   $country_code = $form_state['values']['site_default_country'];
   if(empty($countries[$country_code])) {
     drupal_set_message("Country code provided in default country can not be identified.", 'error');
-   // return;
-    $country_code = 'UG';
+     return;
+   
   }
 
   if(!module_exists("mapit")) {
