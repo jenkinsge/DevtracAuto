@@ -317,7 +317,7 @@ projects[purl][type] = "module"
 projects[purl][subdir] = "contrib"
 projects[purl][patch][] = "https://www.drupal.org/files/1511708_5_menu_save.patch"
 
-projects[purl_search_api][version] = "1.0-beta2"
+projects[purl_search_api][version] = "1.0-beta3"
 projects[purl_search_api][type] = "module"
 projects[purl_search_api][subdir] = "contrib"
 
@@ -498,7 +498,7 @@ projects[views_slideshow][subdir] = "contrib"
 projects[virtual_field][version] = "1.2"
 projects[virtual_field][type] = "module"
 projects[virtual_field][subdir] = "contrib"
-projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_field_views_support_1506376_9.patch"
+projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_field_views_support_1506376_11.patch"
 
 projects[wms][version] = "2.x-dev"
 projects[wms][type] = "module"

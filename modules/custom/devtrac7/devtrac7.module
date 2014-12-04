@@ -178,6 +178,14 @@ function devtrac7_menu() {
     'type' => MENU_CALLBACK,    
   );  
 
+  $items['user/%/barcode'] = array(
+    'title' => 'Barcode',
+    'page callback' => 'devtrac7_barcode',
+    'access callback' => 'user_is_logged_in',
+    'type' => MENU_LOCAL_TASK,
+    'weight' => 1,
+  );
+
   $items['devtrac7/modal/%ctools_js/barcode'] = array(
     'title' => 'Barcode',
     'page callback' => 'devtrac7_modal_barcode',
@@ -196,8 +204,11 @@ function devtrac7_menu() {
   return $items;
 }
 
-
-
+/**
+ * 
+ * @param type $js
+ * @return type
+ */
 function devtrac7_modal_barcode($js = NULL) {
     // Fall back if $js is not set.
   if (!$js) {
@@ -214,11 +225,15 @@ function devtrac7_modal_barcode($js = NULL) {
  // $output = ctools_modal_command_display("barcode title", "<div>here</div>");
 
   $return = ajax_render($output);
-
-
   print $return;
 }
 
+/**
+ * 
+ * @global type $user
+ * @global type $base_url
+ * @return type
+ */
 function devtrac7_barcode() {
   //debug($value1);
   global $user;
@@ -228,11 +243,12 @@ function devtrac7_barcode() {
   $barcode['name'] = $account->name;
   $barcode['url'] = $base_url;
   
-  module_load_include('inc', 'content', 'includes/password');
-  $barcode['key'] = drupal_hash_base64(user_hash_password($account->pass, $count_log2 = 3)) ;
+
+  $apikey = devtrac7_generate_apikey($account->name);
+  $barcode['key'] = drupal_hash_base64($apikey);
   //debug($barcode[2]);
   //array
-  
+  watchdog('devtrac7',$barcode['key']);
   $settings = array (
     'barcode_value' => drupal_json_encode($barcode),
     'encoding' => 'QRCODE',
@@ -245,7 +261,28 @@ function devtrac7_barcode() {
   
   //debug(ctools_modal_text_button(t('Modal Login'), 'modal_forms/nojs/login', t('Login via modal')));
   
-  return theme('barcode_image', $settings) ;
+  $header = "You can use this barcode to configure the Devtrac Mobile App to connect to this instance of Devtrac.<br /><br />";
+  $header .= "After starting the Devtrac Mobile App, please start the QRCode scanner and scan this code.<br />";
+  $header .= "It will log you in automatically and your Mobile App will connect to this instance of Devtrac.<br />";
+
+  return t($header) . theme('barcode_image', $settings);
+}
+
+/**
+ * 
+ * @param type $username
+ * @return type
+ */
+function devtrac7_generate_apikey($username)  {
+  //global $user;
+  $user = user_load_by_name($username);
+  if(!$user) {
+    return null;
+  }
+  module_load_include('inc', 'content', 'includes/password'); 
+  $devtracapieypassword = $user->name . $user->pass;
+  $newhash = _password_crypt('sha512', $devtracapieypassword, $user->pass);
+  return $newhash;
 }
 
 /**
@@ -1771,12 +1808,6 @@ function devtrac7_form_fieldtrip_node_form_alter(&$form, &$form_state, $form_id)
       ((isset($form['#node']->field_fieldtrip_narrative) && (empty($form['#node']->field_fieldtrip_narrative['und'][0]['value']))))) {
     $form['field_fieldtrip_narrative']['#type'] = "hidden";
   }
-  else {
-    /*
-     * Remove the Formatter options from the textarea
-     */
-    $form['field_fieldtrip_narrative']['#after_build'][] = 'devtrac7_removeformat_form';
-  }
   
   // In Devtrac Uganda there are Field Trips that have a description
   // in which case we show the field. Default is we do not show it.
@@ -1784,13 +1815,6 @@ function devtrac7_form_fieldtrip_node_form_alter(&$form, &$form_state, $form_id)
       ((isset($form['#node']->field_fieldtrip_public_summary) && (empty($form['#node']->field_fieldtrip_public_summary['und'][0]['value']))))) {
     $form['field_fieldtrip_public_summary']['#type'] = "hidden";
   }
-  else {
-    /*
-     * Remove the Formatter options from the textarea
-     */
-    $form['field_fieldtrip_public_summary']['#after_build'][] = 'devtrac7_removeformat_form';
-  }
-
   /*
    *  Always hide places, User, Status, Approved by, Approval Date
    */
@@ -1852,11 +1876,6 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
        $form['field_ftritem_lat_long']['#type'] = "hidden";
     }
   }
-  /*
-   * Remove the Formatter options from the textarea
-   */
-  $form['field_ftritem_public_summary']['#after_build'][] = 'devtrac7_removeformat_form';
-  $form['field_ftritem_narrative']['#after_build'][] = 'devtrac7_removeformat_form';
 
   $form['field_ftritem_images']['und']['#file_upload_title'] = t("Add a new Image");
 
@@ -1921,10 +1940,6 @@ function devtrac7_ftritem_datevisited_validate($form, &$form_state){
 */
 function devtrac7_form_actionitem_node_form_alter(&$form, &$form_state, $form_id) {
   global $user;
-  /*
-   * Remove the Formatter options from the textarea
-   */
-  $form['field_actionitem_followuptask']['#after_build'][] = 'devtrac7_removeformat_form';
   // Hide the book vertical tab for anyone but admin
   $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
 
@@ -1956,10 +1971,6 @@ function devtrac7_form_user_register_form_alter(&$form, &$form_state) {
   *  Implement hook_form_alter for user
   */
 function devtrac7_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
-  /*
-   * Remove the Formatter options from the textarea
-   */
-  $form['field_user_aboutme']['#after_build'][] = 'devtrac7_removeformat_form';
   foreach ($form['taxonomy_vocabulary_6'][$form['taxonomy_vocabulary_6']['#language']]['#options'] as $tid => $name) {
     if (($name == 'Undefined Area') || ($name == 'Unknown Area')) {
       unset($form['taxonomy_vocabulary_6'][$form['taxonomy_vocabulary_6']['#language']]['#options'][$tid]);
@@ -1975,33 +1986,6 @@ function devtrac7_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
  */
 function devtrac7_form_user_rebuild_menu() {
   variable_set('menu_rebuild_needed', TRUE);
-}
-
-
-/* 
- * Implements hook_form_alter().
- * 
- * For the comment form.
- *
- */
-function devtrac7_form_comment_form_alter(&$form, &$form_state, $form_id) {
-  /*
-   * Remove the Formatter options from the textarea
-   */
-  $form['comment_body']['#after_build'][] = 'devtrac7_removeformat_form';
-
-}
-/*
- *  Helper function to remove Filter format from the textareas
- *  pretty much all over the site.
- *  Called from #after_build (see above in the form_alters)
- *  more info
- *  http://timonweb.com/how-remove-format-options-guideliness-comments-textarea-drupal-7
- */
-function devtrac7_removeformat_form($form) {
-  // Hide guideliness
-  $form[LANGUAGE_NONE][0]['format']['#access'] = FALSE;
-  return $form;
 }
 
 /*
