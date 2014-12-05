@@ -19,7 +19,7 @@ projects[adaptive_image][version] = "1.4"
 projects[adaptive_image][type] = "module"
 projects[adaptive_image][subdir] = "contrib"
 
-projects[barcode][version] = "1.2"
+projects[barcode][version] = "2.1"
 projects[barcode][type] = "module"
 projects[barcode][subdir] = "contrib"
 
