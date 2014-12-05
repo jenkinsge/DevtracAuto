@@ -485,12 +485,12 @@ function devtrac_install_tasks_alter(&$tasks, $install_state) {
 
   // The Solr congiguration screen needs to come after the database
   // setup, enabling the system module and after the full bootstrap.
-  $solr_task['devtrac_solr_configure_form'] = array(
-    'display_name' => st('Configure Solr search'),
-    'type' => 'form',
-  );
-  $old_tasks = $tasks;
-  $tasks = array_slice($old_tasks, 0, 8) + $solr_task + array_slice($old_tasks, 8);
+//  $solr_task['devtrac_solr_configure_form'] = array(
+//    'display_name' => st('Configure Solr search'),
+//    'type' => 'form',
+//  );
+//  $old_tasks = $tasks;
+//  $tasks = array_slice($old_tasks, 0, 8) + array_slice($old_tasks, 8);
 }
 
 /**
