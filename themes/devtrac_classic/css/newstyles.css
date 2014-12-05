@@ -1231,38 +1231,49 @@ form.comment-form .form-item.form-type-item {
   color: #A52A2A;
 }
 
-.overview-link-wrapper a:link ,
-.overview-link-wrapper a:visited ,
-.overview-link-wrapper tr:hover a:link ,
-.overview-link-wrapper tr:hover a:visited {
+.view-dvtrc-user {
+  margin-top: 10px;
+}
+
+.view-dvtrc-user a:link ,
+.view-dvtrc-user a:visited ,
+.view-dvtrc-user tr:hover a:link ,
+.view-dvtrc-user tr:hover a:visited {
   color: #333333;
 }
 
-.overview-link-wrapper table {
+.view-dvtrc-user table {
   margin-bottom: 10px;
 }
 
-.overview-link-wrapper table thead ,
-.overview-link-wrapper table tbody {
+.view-dvtrc-user table thead ,
+.view-dvtrc-user table tbody {
   border: none;
 }
 
-.overview-link-wrapper table tbody tr {}
-
-.overview-link-wrapper table tbody tr:hover {
-  background: transparent;
+.view-dvtrc-user table tbody tr {
+  padding: 0;
 }
 
-.overview-link-wrapper table tbody tr td {
+.view-dvtrc-user table tbody tr td.views-field-name {
+  padding-left: 0;
+}
+
+.view-dvtrc-user table tbody tr:hover {
+  background: transparent;
+  color: #333333;
+}
+
+.view-dvtrc-user table tbody tr td {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.overview-link-wrapper table tbody tr .views-field-title {
+.view-dvtrc-user table tbody tr .views-field-title {
   text-align: center;
 }
 
-.overview-link-wrapper table tbody tr .views-field-title a {
+.view-dvtrc-user table tbody tr .views-field-title a {
   padding: 2px 5px;
   background-color: #777777;
   color: #FFFFFF;
@@ -1271,7 +1282,7 @@ form.comment-form .form-item.form-type-item {
   float: right;
 }
 
-.overview-link-wrapper table tbody tr:hover .views-field-title a {
+.view-dvtrc-user table tbody tr:hover .views-field-title a {
   background-color: #333333;
   color: #FFFFFF;
   text-decoration: none;
