@@ -2906,6 +2906,7 @@ table tr.footable-row-detail:hover a:hover {
   border-bottom: 5px solid #EA0001;
 }
 
+#modalContent div.ctools-modal-content span.close ,
 #modalContent div.ctools-modal-content a.close {
   width: 20px;
   height: 20px;
@@ -2921,6 +2922,14 @@ table tr.footable-row-detail:hover a:hover {
 #modalContent div.ctools-modal-content .modal-title {
   font-size: 1.1em;
   margin-left: 10px;
+  color: #FFFFFF;
+  font-weight: normal;
+  font-family: inherit;
+  text-shadow: none;
+}
+
+#modalContent div.ctools-modal-content .form-actions {
+  float: left;
 }
 
 /*===================================================================================*\
