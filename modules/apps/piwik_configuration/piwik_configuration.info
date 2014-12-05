@@ -1,6 +1,0 @@
-apps[server] = "development"
-name = "Piwik Configuration"
-description = "App for setting piwik configurations"
-core = 7.x
-files[] = piwik_configuration.module
-dependencies[] = "piwik"

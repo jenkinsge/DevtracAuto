@@ -1,7 +1,0 @@
-apps[server] = "development"
-name = "Google Analytics"
-description = "app for setting Google Analytics configurations"
-core = 7.x
-files[] = google_analytics.module
-ames_config.module
-dependencies[] = "google_analytics"
