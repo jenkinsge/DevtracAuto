@@ -121,6 +121,7 @@ dependencies[] = search_api_override
 dependencies[] = search_api_autocomplete
 dependencies[] = search_api_date
 dependencies[] = search_api_saved_searches
+dependencies[] = search_api_db
 dependencies[] = facetapi
 dependencies[] = current_search
 dependencies[] = facetapi_bonus
@@ -193,8 +194,7 @@ dependencies[] = role_delegation
 ; So until we solve this, we just do not enable it.
 ; dependencies[] = js
 dependencies[] = shs
-dependencies[] barcode
-dependencies[] = search_api_db
+dependencies[] = barcode
 
 ; Questionnaire
 dependencies[] = questionnaire
