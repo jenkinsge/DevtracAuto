@@ -57,7 +57,7 @@ function devtrac7_solr_user_feature_default_search_api_index() {
     "name" : "Devtrac Solr User Index",
     "machine_name" : "devtrac7_user_index",
     "description" : null,
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "user",
     "options" : {
       "index_directly" : 0,

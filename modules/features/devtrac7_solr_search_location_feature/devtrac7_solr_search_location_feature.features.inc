@@ -62,7 +62,7 @@ function devtrac7_solr_search_location_feature_default_search_api_index() {
     "name" : "Devtrac Solr Locations Index",
     "machine_name" : "devtrac_solr_locations_index",
     "description" : null,
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "node",
     "options" : {
       "index_directly" : 0,

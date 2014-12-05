@@ -141,7 +141,7 @@ function devtrac7_solr_search_image_feature_default_search_api_index() {
     "name" : "Devtrac Solr Image Index",
     "machine_name" : "devtrac_solr_image_index",
     "description" : "Devtrac Solr Image Index",
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "file",
     "options" : {
       "index_directly" : 0,

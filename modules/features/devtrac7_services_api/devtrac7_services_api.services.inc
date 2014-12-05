@@ -63,6 +63,13 @@ function devtrac7_services_api_default_services_endpoint() {
         ),
       ),
     ),
+    'devtracuser' => array(
+      'actions' => array(
+        'login' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
     'file' => array(
       'operations' => array(
         'create' => array(

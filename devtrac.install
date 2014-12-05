@@ -480,12 +480,13 @@ function devtrac_install_tasks_alter(&$tasks, $install_state) {
 
   // The Solr congiguration screen needs to come after the database
   // setup, enabling the system module and after the full bootstrap.
-  $solr_task['devtrac_solr_configure_form'] = array(
-    'display_name' => st('Configure Solr search'),
-    'type' => 'form',
+  $solr_task['devtrac_initialize_search_server'] = array(
+    'display_name' => st('Initialize Search Server'),
+    'display' => FALSE,
+    'type' => 'normal',
   );
   $old_tasks = $tasks;
-  $tasks = array_slice($old_tasks, 0, 8) + $solr_task + array_slice($old_tasks, 8);
+  $tasks = array_slice($old_tasks, 0, 9) + $solr_task + array_slice($old_tasks, 9);
 }
 
 /**
@@ -574,7 +575,15 @@ function devtrac_install_additional_modules(&$install_state) {
     'hurricane',
     'hurricane_integration',
     'hurricane_raphael',
-
+    'devtrac7_solr_search_feature',
+    'devtrac7_solr_search_district_feature',
+    'devtrac7_solr_search_location_feature',
+    'devtrac7_solr_search_act_item_feature',
+    'devtrac7_solr_user_feature',
+    'devtrac7_solr_search_fieldtrip_feature',
+    'devtrac7_solr_search_image_feature',
+    'devtrac7_solr_search_questions_feature',
+    'devtrac7_solr_search_answers_feature',
   );
   if (isset($install_state['parameters']['stats'])) {
     $modules[] = $install_state['parameters']['stats'];
@@ -615,6 +624,22 @@ function devtrac_install_additional_modules(&$install_state) {
   );
 
   return $batch;
+}
+/**
+ * Imports devtrac_search_server.
+ */
+function devtrac_initialize_search_server() {
+  $options = 'a:4:{s:8:"database";s:15:"default:default";s:9:"min_chars";s:1:"1";s:15:"partial_matches";i:0;s:12:"autocomplete";a:2:{s:14:"suggest_suffix";i:1;s:13:"suggest_words";i:1;}}';
+  $fields = array(
+    'name' => 'Devtrac Search Server',
+    'machine_name' => 'devtrac_search_server',
+    'description' => 'Devtrac Search Server.',
+    'class' => 'search_api_db_service',
+    'options' => $options,
+  );
+  db_insert('search_api_server')
+    ->fields($fields)
+    ->execute();
 }
 
 /**

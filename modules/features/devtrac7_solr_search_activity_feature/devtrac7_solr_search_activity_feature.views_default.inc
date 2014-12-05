@@ -267,7 +267,7 @@ function devtrac7_solr_search_activity_feature_views_default_views() {
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value']['table'] = 'search_api_index_devtrac_solr_activity_index';
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value']['field'] = 'endpoints_source_node_field_iati_activity_planned_date_value';
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value']['label'] = 'Start';
-  $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value']['date_format'] = 'devtrac_format';
+  $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value']['date_format'] = 'date_only';
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value']['custom_date_format'] = 'Y/m/d';
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value']['link_to_entity'] = 0;
   /* Field: node (source endpoint) » Planned Date: End date (indexed) */
@@ -275,7 +275,7 @@ function devtrac7_solr_search_activity_feature_views_default_views() {
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value2']['table'] = 'search_api_index_devtrac_solr_activity_index';
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value2']['field'] = 'endpoints_source_node_field_iati_activity_planned_date_value2';
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value2']['label'] = 'End';
-  $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value2']['date_format'] = 'devtrac_format';
+  $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value2']['date_format'] = 'date_only';
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value2']['custom_date_format'] = 'Y/m/d';
   $handler->display->display_options['fields']['endpoints_source_node_field_iati_activity_planned_date_value2']['link_to_entity'] = 0;
   /* Field: Indexed Relation: Organisation Role */

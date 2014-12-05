@@ -65,7 +65,7 @@ function devtrac7_solr_search_fieldtrip_feature_default_search_api_index() {
     "name" : "Devtrac Solr Field Trip Index",
     "machine_name" : "devtrac_solr_field_trip_index",
     "description" : "Devtrac Solr Field Trip Index",
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "node",
     "options" : {
       "index_directly" : 0,

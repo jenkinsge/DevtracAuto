@@ -68,7 +68,7 @@ function devtrac7_solr_search_org_feature_default_search_api_index() {
     "name" : "Devtrac Solr Organisation Index",
     "machine_name" : "devtrac_solr_organisation_index",
     "description" : null,
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "node",
     "options" : {
       "index_directly" : 0,

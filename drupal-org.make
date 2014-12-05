@@ -19,6 +19,10 @@ projects[adaptive_image][version] = "1.4"
 projects[adaptive_image][type] = "module"
 projects[adaptive_image][subdir] = "contrib"
 
+projects[barcode][version] = "2.1"
+projects[barcode][type] = "module"
+projects[barcode][subdir] = "contrib"
+
 projects[behavior_weights][version] = "1.0"
 projects[behavior_weights][type] = "module"
 projects[behavior_weights][subdir] = "contrib"
@@ -370,6 +374,10 @@ projects[search_api][patch][] = "https://www.drupal.org/files/issues/search_api-
 projects[search_api_autocomplete][version] = "1.1"
 projects[search_api_autocomplete][type] = "module"
 projects[search_api_autocomplete][subdir] = "contrib"
+
+projects[search_api_db][version] = "1.4"
+projects[search_api_db][type] = "module"
+projects[search_api_db][subdir] = "contrib"
 
 projects[search_api_date][version] = "1.0-alpha2"
 projects[search_api_date][type] = "module"

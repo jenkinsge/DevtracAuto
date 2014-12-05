@@ -15,7 +15,6 @@ dependencies[] = pane
 dependencies[] = quicktabs
 dependencies[] = search_api
 dependencies[] = search_api_autocomplete
-dependencies[] = search_api_solr
 dependencies[] = search_api_views
 dependencies[] = views
 dependencies[] = views_data_export

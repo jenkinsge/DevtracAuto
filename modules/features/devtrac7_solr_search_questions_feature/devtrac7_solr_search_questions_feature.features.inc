@@ -41,7 +41,7 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
     "name" : "Devtrac Solr Questions Index",
     "machine_name" : "questions",
     "description" : null,
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "node",
     "options" : {
       "index_directly" : true,
