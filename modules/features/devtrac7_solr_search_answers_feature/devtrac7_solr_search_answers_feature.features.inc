@@ -38,7 +38,7 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
     "name" : "Devtrac Solr Answers Index",
     "machine_name" : "answers",
     "description" : null,
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "questionnaire_answer",
     "options" : {
       "index_directly" : 0,

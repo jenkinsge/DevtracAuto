@@ -65,7 +65,7 @@ function devtrac7_solr_search_act_item_feature_default_search_api_index() {
     "name" : "Devtrac Solr Action Items Index",
     "machine_name" : "devtrac_solr_action_items_index",
     "description" : "All Solr searches related to Action Items.",
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "node",
     "options" : {
       "index_directly" : 0,

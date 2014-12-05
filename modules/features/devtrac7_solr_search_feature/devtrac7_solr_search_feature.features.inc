@@ -71,7 +71,7 @@ function devtrac7_solr_search_feature_default_search_api_index() {
     "name" : "Devtrac Solr Site Visits Index",
     "machine_name" : "devtrac_solr_site_visits_index",
     "description" : "Devtrac Solr Site Visits Index",
-    "server" : "devtrac_solr_server",
+    "server" : "devtrac_search_server",
     "item_type" : "node",
     "options" : {
       "index_directly" : 0,
@@ -216,37 +216,6 @@ function devtrac7_solr_search_feature_default_search_api_index() {
     },
     "enabled" : "1",
     "read_only" : "0"
-  }');
-  return $items;
-}
-
-/**
- * Implements hook_default_search_api_server().
- */
-function devtrac7_solr_search_feature_default_search_api_server() {
-  $items = array();
-  $items['devtrac_solr_server'] = entity_import('search_api_server', '{
-    "name" : "Devtrac Solr Server (Overridden)",
-    "machine_name" : "devtrac_solr_server",
-    "description" : "DevTrac Solr Server",
-    "class" : "search_api_solr_service",
-    "options" : {
-      "clean_ids" : true,
-      "scheme" : "http",
-      "host" : "localhost",
-      "port" : "8080",
-      "path" : "solr\\/",
-      "http_user" : "",
-      "http_pass" : "",
-      "excerpt" : 0,
-      "retrieve_data" : 0,
-      "highlight_data" : 0,
-      "http_method" : "AUTO",
-      "autocorrect_spell" : 1,
-      "autocorrect_suggest_words" : 1,
-      "clean_ids_form" : []
-    },
-    "enabled" : "1"
   }');
   return $items;
 }
