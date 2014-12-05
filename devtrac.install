@@ -575,7 +575,15 @@ function devtrac_install_additional_modules(&$install_state) {
     'hurricane',
     'hurricane_integration',
     'hurricane_raphael',
-
+    'devtrac7_solr_search_feature',
+    'devtrac7_solr_search_district_feature',
+    'devtrac7_solr_search_location_feature',
+    'devtrac7_solr_search_act_item_feature',
+    'devtrac7_solr_user_feature',
+    'devtrac7_solr_search_fieldtrip_feature',
+    'devtrac7_solr_search_image_feature',
+    'devtrac7_solr_search_questions_feature',
+    'devtrac7_solr_search_answers_feature',
   );
   if (isset($install_state['parameters']['stats'])) {
     $modules[] = $install_state['parameters']['stats'];
