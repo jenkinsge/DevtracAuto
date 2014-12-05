@@ -194,6 +194,7 @@ dependencies[] = role_delegation
 ; dependencies[] = js
 dependencies[] = shs
 dependencies[] barcode
+dependencies[] = search_api_db
 
 ; Questionnaire
 dependencies[] = questionnaire

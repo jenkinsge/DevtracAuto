@@ -375,6 +375,10 @@ projects[search_api_autocomplete][version] = "1.1"
 projects[search_api_autocomplete][type] = "module"
 projects[search_api_autocomplete][subdir] = "contrib"
 
+projects[search_api_db][version] = "1.4"
+projects[search_api_db][type] = "module"
+projects[search_api_db][subdir] = "contrib"
+
 projects[search_api_date][version] = "1.0-alpha2"
 projects[search_api_date][type] = "module"
 projects[search_api_date][subdir] = "contrib"
