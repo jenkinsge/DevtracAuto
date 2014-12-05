@@ -277,7 +277,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['relationship'] = 'reverse_field_actionitem_ftreportitem_node';
   $handler->display->display_options['fields']['field_actionitem_due_date']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -440,7 +440,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'field_data_field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -664,7 +664,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'field_data_field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -824,7 +824,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'field_data_field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -980,7 +980,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'field_data_field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -1130,7 +1130,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'field_data_field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -2043,7 +2043,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -2055,7 +2055,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -2068,7 +2068,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -2510,7 +2510,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -2524,7 +2524,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -2598,7 +2598,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -2966,7 +2966,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'field_data_field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3080,7 +3080,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3092,7 +3092,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3105,7 +3105,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3242,7 +3242,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3254,7 +3254,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3267,7 +3267,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3369,7 +3369,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3381,7 +3381,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3394,7 +3394,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3667,7 +3667,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['label'] = '';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -3905,7 +3905,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -5678,7 +5678,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -6102,7 +6102,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -6534,7 +6534,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -6659,7 +6659,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -6778,7 +6778,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -6918,7 +6918,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -7191,7 +7191,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -7431,7 +7431,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['label'] = 'Post Date';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['element_label_class'] = 'field-content.latest-report-post-date';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -8016,7 +8016,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -8031,7 +8031,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -8046,7 +8046,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
     'multiple_from' => '',

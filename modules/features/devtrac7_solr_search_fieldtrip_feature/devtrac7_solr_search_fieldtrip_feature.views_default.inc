@@ -94,7 +94,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -252,7 +252,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'devtrac_format',
+    'format_type' => 'date_only',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -264,7 +264,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'date_only',
     'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -411,7 +411,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -635,7 +635,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
