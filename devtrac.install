@@ -430,6 +430,11 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Install additional functionality'),
     'type' => 'batch',
   );
+  $tasks['devtrac_initialize_search_server'] = array(
+    'display_name' => st('Initialize Search Server'),
+    'display' => FALSE,
+    'type' => 'normal',
+  );
   $tasks['devtrac_import_codelists'] = array(
     'display_name' => st('Import CodeLists'),
     'type' => 'batch',
@@ -615,6 +620,28 @@ function devtrac_install_additional_modules(&$install_state) {
   );
 
   return $batch;
+}
+/**
+ * Imports devtrac_search_server.
+ */
+function devtrac_initialize_search_server() {
+  $devtrac_search_server = array(
+    'name' => 'Devtrac Search Server',
+    'machine_name' => 'devtrac_search_server',
+    'description' => 'Devtrac Search Server.',
+    'class' => 'search_api_db_service',
+    'options' => array(
+      'database' => 'default:default',
+      'min_chars' => '1',
+      'partial_matches' => 0,
+      'autocomplete' => array(
+        'suggest_suffix' => 1,
+        'suggest_words' => 1,
+        ),
+      ),
+    'enabled' => '1',
+    );
+  entity_import('search_api_server', $devtrac_search_server);
 }
 
 /**
