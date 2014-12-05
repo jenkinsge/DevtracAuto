@@ -819,7 +819,7 @@ function devtrac7_solr_search_feature_views_default_views() {
     'value' => 'wkt',
     'other_lat' => 'title',
     'other_lon' => 'title',
-    'wkt' => 'field_ftritem_lat_long_geom',
+    'wkt' => 'field_ftritem_lat_long',
     'other_top' => 'title',
     'other_right' => 'title',
     'other_bottom' => 'title',
@@ -839,6 +839,14 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Field: Indexed Node: Place Lat_Long */
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['settings'] = array(
+    'data' => 'full',
+    );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Lat-Long: Well-known text (indexed) */

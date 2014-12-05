@@ -322,6 +322,14 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Place Lat_Long */
+  $handler->display->display_options['fields']['field_place_lat_long']['id'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['field_place_lat_long']['field'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_place_lat_long']['settings'] = array(
+    'data' => 'full',
+    );
 
   /* Display: CSV */
   $handler = $view->new_display('views_data_export', 'CSV', 'csv');

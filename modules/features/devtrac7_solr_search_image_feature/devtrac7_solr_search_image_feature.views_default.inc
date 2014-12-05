@@ -613,7 +613,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
     'value' => 'wkt',
     'other_lat' => 'rendered_entity',
     'other_lon' => 'rendered_entity',
-    'wkt' => 'owner',
+    'wkt' => 'field_ftritem_lat_long_geom',
     'other_top' => 'rendered_entity',
     'other_right' => 'rendered_entity',
     'other_bottom' => 'rendered_entity',
