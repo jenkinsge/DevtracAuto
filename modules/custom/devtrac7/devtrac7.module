@@ -2564,11 +2564,6 @@ function devtrac7_date_formats() {
 	);
 	$formats[] = array(
     'type' => 'date_only',
-    'format' => 'm/d/Y',
-    'locales' => array(),
-	);  
-	$formats[] = array(
-    'type' => 'date_only',
     'format' => 'Y-m-d',
     'locales' => array(),
 	);
