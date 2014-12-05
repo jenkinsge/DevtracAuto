@@ -781,6 +781,73 @@ li.level-4 ul.links {
   display: none;
 }
 
+/*============================= Normal Pager ===============================*/
+
+.item-list ul.pager {
+  overflow: hidden;
+  width: 100%;
+  height: 28px;
+  border: none;
+  background-color: #DDDDDD;
+  border-radius: 0;
+}
+
+.item-list ul.pager li.pager-current {
+  position: static;
+  width: 100%;
+  height: 28px;
+  padding: 7px 0;
+  text-align: center;
+  font-weight: normal;
+  font-family: inherit;
+  background: none;
+  color: #333333;
+}
+
+.item-list ul.pager li.pager-first ,
+.item-list ul.pager li.pager-previous ,
+.item-list ul.pager li.pager-next ,
+.item-list ul.pager li.pager-last {
+  position: absolute;
+  height: 28px;
+  top: 0;
+  border: none;
+}
+
+.item-list ul.pager li.pager-first ,
+.item-list ul.pager li.pager-previous {
+  position: absolute;
+  left: 0
+}
+
+.item-list ul.pager li.pager-next ,
+.item-list ul.pager li.pager-last {
+  position: absolute;
+  right: 0;
+}
+
+.item-list ul.pager li.pager-first a ,
+.item-list ul.pager li.pager-previous a ,
+.item-list ul.pager li.pager-next a ,
+.item-list ul.pager li.pager-last a {
+  display: inline-block;
+  background: #555555;
+  color: #FFFFFF;
+  padding: 7px;
+  font-weight: normal;
+  font-family: inherit;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.item-list ul.pager li a:hover {
+  background: #333333;
+}
+
+.item-list ul.pager li a > div {
+  display: none;
+}
+
 /*========================== Image Gallery Pager ============================*/
 
 .region-postscript-second .item-list .pager {
