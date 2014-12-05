@@ -6,4 +6,6 @@ package = "Devtrac Apps"
 
 files[] = devtrac_solr_search.module
 
-dependencies[] = "search_api_solr"
+dependencies[] = search_api_solr
+dependencies[] = search_api_solr_boundingbox_search
+dependencies[] = search_api_solr_dynamic_ranges
