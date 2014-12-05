@@ -486,7 +486,7 @@ function devtrac_install_tasks_alter(&$tasks, $install_state) {
     'type' => 'normal',
   );
   $old_tasks = $tasks;
-  $tasks = array_slice($old_tasks, 0, 8) + $solr_task + array_slice($old_tasks, 8);
+  $tasks = array_slice($old_tasks, 0, 9) + $solr_task + array_slice($old_tasks, 9);
 }
 
 /**
