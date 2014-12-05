@@ -195,6 +195,7 @@ dependencies[] = role_delegation
 ; So until we solve this, we just do not enable it.
 ; dependencies[] = js
 dependencies[] = shs
+dependencies[] barcode
 
 ; Questionnaire
 dependencies[] = questionnaire
