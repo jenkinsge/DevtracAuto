@@ -37,7 +37,7 @@ function devtrac7_solr_search_feature_default_pane_data() {
   $template->lang = 'und';
   $template->data = array(
     'value' => 'These are reports that are filled in at a visited Location. It includes all details about the visit. These include a narrative report, the sector of intervention at the location, the date visited and a descriptive title that can be understood clearly.',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['front_about_information_und'] = $template;

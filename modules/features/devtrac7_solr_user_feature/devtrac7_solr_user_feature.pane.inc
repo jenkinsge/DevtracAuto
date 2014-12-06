@@ -40,7 +40,7 @@ function devtrac7_solr_user_feature_default_pane_data() {
 
 <p>The Users page contains a list of all users that can be filtered by the Zonal Office of operation, Supervisor, Department, etc.</p>
 ',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['user_info_und'] = $template;
