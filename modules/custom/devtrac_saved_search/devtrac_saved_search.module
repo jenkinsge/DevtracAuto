@@ -63,7 +63,7 @@ function devtrac_saved_search_manager_weekly_reminder_fieldtrip_submited($uid) {
           'parse mode' => 'terms',
           'conjunction' => 'AND',
           'filter class' => 'SearchApiQueryFilter',
-          'search id' => 'devtrac_solr_field_trip_index:saved-search',
+          'search id' => 'dsfti:saved-search',
           'search_api_facets' => Array(
               'author:field_user_superior' => Array(
                   'field' => 'author:field_user_superior',
@@ -144,7 +144,7 @@ function devtrac_saved_search_manager_weekly_reminder_fieldtrip_submited($uid) {
 
   $search = entity_create('search_api_saved_search', array(
       'uid' => $search_user->uid,
-      'settings_id' => 'devtrac_solr_field_trip_index',
+      'settings_id' => 'dsfti',
       'enabled' => $enabled,
       'name' => "All Field Trip reports submitted for your approval",
       'mail' => $search_user->mail,
@@ -199,7 +199,7 @@ function devtrac_saved_search_manager_notify_fieldtrip_submited($uid) {
           'parse mode' => 'terms',
           'conjunction' => 'AND',
           'filter class' => 'SearchApiQueryFilter',
-          'search id' => 'devtrac_solr_field_trip_index:saved-search',
+          'search id' => 'dsfti:saved-search',
           'search_api_facets' => Array(
               'author:field_user_superior' => Array(
                   'field' => 'author:field_user_superior',
@@ -280,7 +280,7 @@ function devtrac_saved_search_manager_notify_fieldtrip_submited($uid) {
 
   $search = entity_create('search_api_saved_search', array(
       'uid' => $search_user->uid,
-      'settings_id' => 'devtrac_solr_field_trip_index',
+      'settings_id' => 'dsfti',
       'enabled' => $enabled,
       'name' => "Field Trip reports submitted for your approval",
       'mail' => $search_user->mail,
@@ -334,7 +334,7 @@ function devtrac_saved_search_user_notify_fieldtrip_rejected($uid) {
           'parse mode' => 'terms',
           'conjunction' => 'AND',
           'filter class' => 'SearchApiQueryFilter',
-          'search id' => 'devtrac_solr_field_trip_index:saved-search',
+          'search id' => 'dsfti:saved-search',
           'search_api_facets' => Array(
               'author:field_user_superior' => Array(
                   'field' => 'author:field_user_superior',
@@ -413,7 +413,7 @@ function devtrac_saved_search_user_notify_fieldtrip_rejected($uid) {
 
   $search = entity_create('search_api_saved_search', array(
       'uid' => $search_user->uid,
-      'settings_id' => 'devtrac_solr_field_trip_index',
+      'settings_id' => 'dsfti',
       'enabled' => $enabled,
       'name' => "Your Field Trip reports that still need approval",
       'mail' => $search_user->mail,
@@ -461,7 +461,7 @@ function devtrac_saved_search_user_weekly_reminder_fieldtrip_rejected($uid) {
           'parse mode' => 'terms',
           'conjunction' => 'AND',
           'filter class' => 'SearchApiQueryFilter',
-          'search id' => 'devtrac_solr_field_trip_index:saved-search',
+          'search id' => 'dsfti:saved-search',
           'search_api_facets' => Array(
               'author:field_user_superior' => Array(
                   'field' => 'author:field_user_superior',
@@ -540,7 +540,7 @@ function devtrac_saved_search_user_weekly_reminder_fieldtrip_rejected($uid) {
 
   $search = entity_create('search_api_saved_search', array(
       'uid' => $search_user->uid,
-      'settings_id' => 'devtrac_solr_field_trip_index',
+      'settings_id' => 'dsfti',
       'enabled' => $enabled,
       'name' => "All your Field Trip reports that need approval",
       'mail' => $search_user->mail,
@@ -570,7 +570,7 @@ function devtrac_saved_search_user_weekly_reminder_fieldtrip_rejected($uid) {
 
 //  not working yet
 function getQueryArray() {
-  $index = search_api_index_load("devtrac_solr_field_trip_index");
+  $index = search_api_index_load("dsfti");
   $query = $index->query(array(
       'parse mode' => 'terms',
   ));
@@ -580,7 +580,7 @@ function getQueryArray() {
   // When checking for new results, we need all results.
   // @todo Make this configurable?
   unset($options['offset'], $options['limit']);
-  $options['search id'] = 'devtrac_solr_field_trip_index' . ':' . 'saved-search';
+  $options['search id'] = 'dsfti' . ':' . 'saved-search';
   $form_state['query'] = array(
       'index_id' => $query->getIndex()->machine_name,
       'keys' => $query->getKeys(),

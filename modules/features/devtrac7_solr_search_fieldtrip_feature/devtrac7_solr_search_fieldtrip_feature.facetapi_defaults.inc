@@ -13,8 +13,8 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index::created';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti::created';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = '';
   $facet->facet = 'created';
   $facet->enabled = FALSE;
@@ -37,13 +37,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'facet_search_ids' => array(),
     'date_granularity' => 'MINUTE',
   );
-  $export['search_api@devtrac_solr_field_trip_index::created'] = $facet;
+  $export['search_api@dsfti::created'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index::field_fieldtrip_fc_purpose';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti::field_fieldtrip_fc_purpose';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = '';
   $facet->facet = 'field_fieldtrip_fc_purpose';
   $facet->enabled = FALSE;
@@ -62,13 +62,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'default_true' => '1',
     'facet_search_ids' => array(),
   );
-  $export['search_api@devtrac_solr_field_trip_index::field_fieldtrip_fc_purpose'] = $facet;
+  $export['search_api@dsfti::field_fieldtrip_fc_purpose'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index::field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti::field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = '';
   $facet->facet = 'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
   $facet->enabled = FALSE;
@@ -91,13 +91,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'facet_search_ids' => array(),
     'exclude' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index::field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps'] = $facet;
+  $export['search_api@dsfti::field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index::field_fieldtriptags';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti::field_fieldtriptags';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = '';
   $facet->facet = 'field_fieldtriptags';
   $facet->enabled = FALSE;
@@ -116,13 +116,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'default_true' => '1',
     'facet_search_ids' => array(),
   );
-  $export['search_api@devtrac_solr_field_trip_index::field_fieldtriptags'] = $facet;
+  $export['search_api@dsfti::field_fieldtriptags'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index::search_api_aggregation_1';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti::search_api_aggregation_1';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = '';
   $facet->facet = 'search_api_aggregation_1';
   $facet->enabled = FALSE;
@@ -147,13 +147,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'limit_active_items' => 0,
     'exclude' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index::search_api_aggregation_1'] = $facet;
+  $export['search_api@dsfti::search_api_aggregation_1'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index::taxonomy_vocabulary_6:field_district_category';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti::taxonomy_vocabulary_6:field_district_category';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = '';
   $facet->facet = 'taxonomy_vocabulary_6:field_district_category';
   $facet->enabled = FALSE;
@@ -172,13 +172,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'default_true' => '1',
     'facet_search_ids' => array(),
   );
-  $export['search_api@devtrac_solr_field_trip_index::taxonomy_vocabulary_6:field_district_category'] = $facet;
+  $export['search_api@dsfti::taxonomy_vocabulary_6:field_district_category'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:author';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:author';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'author';
   $facet->enabled = TRUE;
@@ -206,13 +206,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:author'] = $facet;
+  $export['search_api@dsfti:block:author'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:author:field_user_superior';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:author:field_user_superior';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'author:field_user_superior';
   $facet->enabled = TRUE;
@@ -240,13 +240,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:author:field_user_superior'] = $facet;
+  $export['search_api@dsfti:block:author:field_user_superior'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:created';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:created';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'created';
   $facet->enabled = TRUE;
@@ -318,13 +318,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:created'] = $facet;
+  $export['search_api@dsfti:block:created'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_approval_date';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:field_fieldtrip_approval_date';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'field_fieldtrip_approval_date';
   $facet->enabled = FALSE;
@@ -358,13 +358,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_approval_date'] = $facet;
+  $export['search_api@dsfti:block:field_fieldtrip_approval_date'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_approved_by';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:field_fieldtrip_approved_by';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'field_fieldtrip_approved_by';
   $facet->enabled = FALSE;
@@ -392,13 +392,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_approved_by'] = $facet;
+  $export['search_api@dsfti:block:field_fieldtrip_approved_by'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_fc_purpose';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:field_fieldtrip_fc_purpose';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'field_fieldtrip_fc_purpose';
   $facet->enabled = FALSE;
@@ -470,13 +470,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_fc_purpose'] = $facet;
+  $export['search_api@dsfti:block:field_fieldtrip_fc_purpose'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
   $facet->enabled = TRUE;
@@ -548,13 +548,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps'] = $facet;
+  $export['search_api@dsfti:block:field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_start_end_date:value';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:field_fieldtrip_start_end_date:value';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'field_fieldtrip_start_end_date:value';
   $facet->enabled = TRUE;
@@ -588,13 +588,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_start_end_date:value'] = $facet;
+  $export['search_api@dsfti:block:field_fieldtrip_start_end_date:value'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_status';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:field_fieldtrip_status';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'field_fieldtrip_status';
   $facet->enabled = TRUE;
@@ -622,13 +622,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:field_fieldtrip_status'] = $facet;
+  $export['search_api@dsfti:block:field_fieldtrip_status'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:field_fieldtriptags';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:field_fieldtriptags';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'field_fieldtriptags';
   $facet->enabled = TRUE;
@@ -700,13 +700,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:field_fieldtriptags'] = $facet;
+  $export['search_api@dsfti:block:field_fieldtriptags'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:search_api_access_node';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:search_api_access_node';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'search_api_access_node';
   $facet->enabled = FALSE;
@@ -734,13 +734,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:search_api_access_node'] = $facet;
+  $export['search_api@dsfti:block:search_api_access_node'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:search_api_aggregation_1';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:search_api_aggregation_1';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'search_api_aggregation_1';
   $facet->enabled = TRUE;
@@ -814,13 +814,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'facet_more_text' => 'Show more',
     'facet_fewer_text' => 'Show fewer',
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:search_api_aggregation_1'] = $facet;
+  $export['search_api@dsfti:block:search_api_aggregation_1'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:search_api_language';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:search_api_language';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'search_api_language';
   $facet->enabled = FALSE;
@@ -848,13 +848,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:search_api_language'] = $facet;
+  $export['search_api@dsfti:block:search_api_language'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:search_api_viewed';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:search_api_viewed';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'search_api_viewed';
   $facet->enabled = FALSE;
@@ -882,13 +882,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:search_api_viewed'] = $facet;
+  $export['search_api@dsfti:block:search_api_viewed'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:status';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:status';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'status';
   $facet->enabled = FALSE;
@@ -916,13 +916,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:status'] = $facet;
+  $export['search_api@dsfti:block:status'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:taxonomy_vocabulary_6';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:taxonomy_vocabulary_6';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'taxonomy_vocabulary_6';
   $facet->enabled = TRUE;
@@ -992,13 +992,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'show_minimum_items' => 2,
     'yfacet' => '',
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:taxonomy_vocabulary_6'] = $facet;
+  $export['search_api@dsfti:block:taxonomy_vocabulary_6'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:taxonomy_vocabulary_6:field_district_category';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:taxonomy_vocabulary_6:field_district_category';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'taxonomy_vocabulary_6:field_district_category';
   $facet->enabled = TRUE;
@@ -1070,13 +1070,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:taxonomy_vocabulary_6:field_district_category'] = $facet;
+  $export['search_api@dsfti:block:taxonomy_vocabulary_6:field_district_category'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:title';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:title';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'title';
   $facet->enabled = FALSE;
@@ -1104,13 +1104,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:title'] = $facet;
+  $export['search_api@dsfti:block:title'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:block:type';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:block:type';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'block';
   $facet->facet = 'type';
   $facet->enabled = FALSE;
@@ -1138,13 +1138,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'nofollow' => 1,
     'show_expanded' => 0,
   );
-  $export['search_api@devtrac_solr_field_trip_index:block:type'] = $facet;
+  $export['search_api@dsfti:block:type'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:devtrac7_graph_bar:field_fieldtrip_status';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:devtrac7_graph_bar:field_fieldtrip_status';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'devtrac7_graph_bar';
   $facet->facet = 'field_fieldtrip_status';
   $facet->enabled = TRUE;
@@ -1213,13 +1213,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:devtrac7_graph_bar:field_fieldtrip_status'] = $facet;
+  $export['search_api@dsfti:devtrac7_graph_bar:field_fieldtrip_status'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:devtrac7_graph_combo:author';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:devtrac7_graph_combo:author';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'devtrac7_graph_combo';
   $facet->facet = 'author';
   $facet->enabled = TRUE;
@@ -1303,13 +1303,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:devtrac7_graph_combo:author'] = $facet;
+  $export['search_api@dsfti:devtrac7_graph_combo:author'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:devtrac7_graph_combo:created';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:devtrac7_graph_combo:created';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'devtrac7_graph_combo';
   $facet->facet = 'created';
   $facet->enabled = TRUE;
@@ -1393,13 +1393,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:devtrac7_graph_combo:created'] = $facet;
+  $export['search_api@dsfti:devtrac7_graph_combo:created'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:devtrac7_graph_combo:taxonomy_vocabulary_6';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:devtrac7_graph_combo:taxonomy_vocabulary_6';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'devtrac7_graph_combo';
   $facet->facet = 'taxonomy_vocabulary_6';
   $facet->enabled = TRUE;
@@ -1511,13 +1511,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'inaccessible' => 1,
     'show_minimum_items' => 2,
   );
-  $export['search_api@devtrac_solr_field_trip_index:devtrac7_graph_combo:taxonomy_vocabulary_6'] = $facet;
+  $export['search_api@dsfti:devtrac7_graph_combo:taxonomy_vocabulary_6'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:devtrac7_graph_pie:field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:devtrac7_graph_pie:field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'devtrac7_graph_pie';
   $facet->facet = 'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps';
   $facet->enabled = TRUE;
@@ -1567,13 +1567,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:devtrac7_graph_pie:field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps'] = $facet;
+  $export['search_api@dsfti:devtrac7_graph_pie:field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:devtrac7_graph_pie:field_fieldtrip_status';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:devtrac7_graph_pie:field_fieldtrip_status';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'devtrac7_graph_pie';
   $facet->facet = 'field_fieldtrip_status';
   $facet->enabled = TRUE;
@@ -1646,13 +1646,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:devtrac7_graph_pie:field_fieldtrip_status'] = $facet;
+  $export['search_api@dsfti:devtrac7_graph_pie:field_fieldtrip_status'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:graphs_data_combo:author';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:graphs_data_combo:author';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'graphs_data_combo';
   $facet->facet = 'author';
   $facet->enabled = FALSE;
@@ -1679,13 +1679,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'title' => NULL,
     'nofollow' => 1,
   );
-  $export['search_api@devtrac_solr_field_trip_index:graphs_data_combo:author'] = $facet;
+  $export['search_api@dsfti:graphs_data_combo:author'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:graphs_data_combo:created';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:graphs_data_combo:created';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'graphs_data_combo';
   $facet->facet = 'created';
   $facet->enabled = FALSE;
@@ -1712,13 +1712,13 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'title' => NULL,
     'nofollow' => 1,
   );
-  $export['search_api@devtrac_solr_field_trip_index:graphs_data_combo:created'] = $facet;
+  $export['search_api@dsfti:graphs_data_combo:created'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@devtrac_solr_field_trip_index:graphs_data_combo:field_fieldtrip_status';
-  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->name = 'search_api@dsfti:graphs_data_combo:field_fieldtrip_status';
+  $facet->searcher = 'search_api@dsfti';
   $facet->realm = 'graphs_data_combo';
   $facet->facet = 'field_fieldtrip_status';
   $facet->enabled = TRUE;
@@ -1753,7 +1753,7 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     ),
     'submit_realm' => 'Save and go back to realm settings',
   );
-  $export['search_api@devtrac_solr_field_trip_index:graphs_data_combo:field_fieldtrip_status'] = $facet;
+  $export['search_api@dsfti:graphs_data_combo:field_fieldtrip_status'] = $facet;
 
   return $export;
 }

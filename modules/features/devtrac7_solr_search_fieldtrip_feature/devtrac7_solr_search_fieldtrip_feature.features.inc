@@ -43,7 +43,7 @@ function devtrac7_solr_search_fieldtrip_feature_default_search_api_autocomplete_
   $items['search_api_views_devtrac_solr_view_fieldtrips'] = entity_import('search_api_autocomplete_search', '{
     "machine_name" : "search_api_views_devtrac_solr_view_fieldtrips",
     "name" : "devtrac_solr_view_fieldtrips",
-    "index_id" : "devtrac_solr_field_trip_index",
+    "index_id" : "dsfti",
     "type" : "search_api_views",
     "enabled" : "1",
     "options" : {
@@ -61,9 +61,9 @@ function devtrac7_solr_search_fieldtrip_feature_default_search_api_autocomplete_
  */
 function devtrac7_solr_search_fieldtrip_feature_default_search_api_index() {
   $items = array();
-  $items['devtrac_solr_field_trip_index'] = entity_import('search_api_index', '{
+  $items['dsfti'] = entity_import('search_api_index', '{
     "name" : "Devtrac Solr Field Trip Index",
-    "machine_name" : "devtrac_solr_field_trip_index",
+    "machine_name" : "dsfti",
     "description" : "Devtrac Solr Field Trip Index",
     "server" : "devtrac_search_server",
     "item_type" : "node",
@@ -198,9 +198,9 @@ function devtrac7_solr_search_fieldtrip_feature_default_search_api_index() {
  */
 function devtrac7_solr_search_fieldtrip_feature_default_search_api_saved_searches_settings() {
   $items = array();
-  $items['devtrac_solr_field_trip_index'] = entity_import('search_api_saved_searches_settings', '{
-    "delta" : "devtrac_solr_field_trip_index",
-    "index_id" : "devtrac_solr_field_trip_index",
+  $items['dsfti'] = entity_import('search_api_saved_searches_settings', '{
+    "delta" : "dsfti",
+    "index_id" : "dsfti",
     "enabled" : "1",
     "options" : {
       "date_field" : "",
