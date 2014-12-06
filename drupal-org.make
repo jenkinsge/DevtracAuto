@@ -251,7 +251,7 @@ projects[masonry_views][subdir] = "contrib"
 projects[maxlength][version] = "3.0"
 projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"
-projects[menu_token][patch][] = "https://www.drupal.org/files/issues/maxlength-exclude-any-html-entity-and-token-1830182-6.patch"
+projects[maxlength][patch][] = "https://www.drupal.org/files/issues/maxlength-exclude-any-html-entity-and-token-1830182-6.patch"
 
 projects[me][version] = "1.1"
 projects[me][type] = "module"
