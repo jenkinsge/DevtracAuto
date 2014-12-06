@@ -18,7 +18,8 @@ class DevtracImportsSectorsLevel1 extends XMLMigration {
       'description' => 'description',
       'parent' => 'parent',
     );
-    $items_url = 'http://codelists103.archive.iatistandard.org/data/codelist/Sector/version/1.0/lang/en.xml';
+    $xml_folder = drupal_get_path('module', 'devtrac_imports');
+    $items_url = $xml_folder . '/data/sectors.xml';
     $item_xpath = '/codelist/Sector';  // relative to document
     $item_ID_xpath = 'code';          // relative to item_xpath
     $this->source = new MigrateSourceXML($items_url, $item_xpath, $item_ID_xpath, $fields);
