@@ -37,7 +37,7 @@ function devtrac7_solr_search_fieldtrip_feature_default_pane_data() {
   $template->lang = 'und';
   $template->data = array(
     'value' => 'A field trip is a detail of a trip by a Field worker to the field. It details the purpose of the field trip, the start and end date, the internal ID and any tags the user may be interested in labeling the Field trip with. The field trip page contains a dynamic list that can be filtered on many types of fields e.g Status, Date, etc.',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['field_trips_info_und'] = $template;

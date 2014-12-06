@@ -1986,6 +1986,7 @@ function devtrac7_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
  */
 function devtrac7_form_user_rebuild_menu() {
   variable_set('menu_rebuild_needed', TRUE);
+  $_GET['destination'] = 'user/' . $form['#user']->uid;
 }
 
 /*

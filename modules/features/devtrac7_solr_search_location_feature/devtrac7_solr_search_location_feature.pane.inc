@@ -37,7 +37,7 @@ function devtrac7_solr_search_location_feature_default_pane_data() {
   $template->lang = 'und';
   $template->data = array(
     'value' => 'These are the locations where which have been visited by Devtrac users. These locations are differentiated by their place types as seen on the map. Site reports are filled out for a specific location.</br><a href="http://www.devtrac.org/node/31" target="_blank" title="Locations on Devtrac.org">Locations</a> on Devtrac.org.',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['locations_info_und'] = $template;

@@ -263,6 +263,12 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'content',
           'weight' => '-8',
         ),
+        'pane-front_about_information' => array(
+          'module' => 'pane',
+          'delta' => 'front_about_information',
+          'region' => 'featured',
+          'weight' => -10,
+	),
         'commentblock-commentblock' => array(
           'module' => 'commentblock',
           'delta' => 'commentblock',

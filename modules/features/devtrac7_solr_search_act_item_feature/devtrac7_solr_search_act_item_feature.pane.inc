@@ -38,7 +38,7 @@ function devtrac7_solr_search_act_item_feature_default_pane_data() {
   $template->data = array(
     'value' => '<p>An Action item is a task that a user can assign to another user within the system. They contain a comments section where progress on the action item can be tracked. Only when the action item has been satisfactorily worked can it be closed by the person responsible.</p>
 ',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['action_items_info_und'] = $template;

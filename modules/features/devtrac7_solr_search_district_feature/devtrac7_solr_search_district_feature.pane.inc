@@ -38,7 +38,7 @@ function devtrac7_solr_search_district_feature_default_pane_data() {
   $template->data = array(
     'value' => '<p>This is the first level of Admin Units. The district page has a list or map of the districts of Uganda. Click on the icons to have a small overview of the district including the site reports of users that have visited the district and the photos they have taken.</p>
 ',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['devtrac_solr_map_info_und'] = $template;
