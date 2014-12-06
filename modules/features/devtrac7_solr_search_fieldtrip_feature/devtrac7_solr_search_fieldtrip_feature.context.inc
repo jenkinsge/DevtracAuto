@@ -130,9 +130,9 @@ function devtrac7_solr_search_fieldtrip_feature_context_default_contexts() {
           'region' => 'featured',
           'weight' => '-9',
         ),
-        'search_api_saved_searches-dsfti' => array(
+        'search_api_saved_searches-devtrac_solr_field_trip_index' => array(
           'module' => 'search_api_saved_searches',
-          'delta' => 'dsfti',
+          'delta' => 'devtrac_solr_field_trip_index',
           'region' => 'featured',
           'weight' => '-10',
         ),

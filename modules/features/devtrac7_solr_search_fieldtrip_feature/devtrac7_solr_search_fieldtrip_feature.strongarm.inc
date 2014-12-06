@@ -15,7 +15,7 @@ function devtrac7_solr_search_fieldtrip_feature_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'search_api_saved_searches_search_ids';
   $strongarm->value = array(
-    'dsfti' => array(
+    'devtrac_solr_field_trip_index' => array(
       'search_api_views:devtrac_solr_view_fieldtrips:list' => 'search_api_views:devtrac_solr_view_fieldtrips:list',
       'facetapicombo:hash' => 'facetapicombo:hash',
       'facetapicombo:hash-1' => 'facetapicombo:hash-1',

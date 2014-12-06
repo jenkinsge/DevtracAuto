@@ -1762,7 +1762,7 @@ function devtrac7_block_view_alter(&$data, $block) {
           case 'devtrac_solr_action_items_index':
             $data['subject'] = t('Email new Action Items');
             break;
-          case 'dsfti':
+          case 'devtrac_solr_field_trip_index':
             $data['subject'] = t('Email new Field Trips');
             break;
           default:
