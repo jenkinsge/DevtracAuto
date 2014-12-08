@@ -77,6 +77,18 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'draggableviews',
   );
 
+  // Exported permission: 'access media browser'.
+  $permissions['access media browser'] = array(
+    'name' => 'access media browser',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
+      'editor' => 'editor',
+      'field worker' => 'field worker',
+    ),
+    'module' => 'media',
+  );
+
   // Exported permission: 'access proxy router'.
   $permissions['access proxy router'] = array(
     'name' => 'access proxy router',
@@ -2014,6 +2026,18 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'field worker' => 'field worker',
     ),
     'module' => 'questionnaire_question',
+  );
+
+  // Exported permission: 'use text format filtered_html'.
+  $permissions['use text format filtered_html'] = array(
+    'name' => 'use text format filtered_html',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
+      'editor' => 'editor',
+      'field worker' => 'field worker',
+    ),
+    'module' => 'filter',
   );
 
   // Exported permission: 'view field_actionitem_due_date'.

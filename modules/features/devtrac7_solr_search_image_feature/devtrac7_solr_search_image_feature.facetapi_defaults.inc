@@ -454,7 +454,7 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
       'natural' => '4',
       'indexed' => '4',
     ),
-    'empty_behavior' => 'text',
+    'empty_behavior' => 'none',
     'soft_limit' => '5',
     'nofollow' => 1,
     'show_expanded' => 0,
