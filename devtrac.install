@@ -629,17 +629,23 @@ function devtrac_install_additional_modules(&$install_state) {
  * Imports devtrac_search_server.
  */
 function devtrac_initialize_search_server() {
-  $options = 'a:4:{s:8:"database";s:15:"default:default";s:9:"min_chars";s:1:"1";s:15:"partial_matches";i:0;s:12:"autocomplete";a:2:{s:14:"suggest_suffix";i:1;s:13:"suggest_words";i:1;}}';
-  $fields = array(
+  $devtrac_search_server = array(
     'name' => 'Devtrac Search Server',
     'machine_name' => 'devtrac_search_server',
     'description' => 'Devtrac Search Server.',
     'class' => 'search_api_db_service',
-    'options' => $options,
+    'options' => array(
+      'database' => 'default:default',
+      'min_chars' => '1',
+      'partial_matches' => 0,
+      'autocomplete' => array(
+        'suggest_suffix' => 1,
+        'suggest_words' => 1,
+      ),
+    ),
+  'enabled' => '1',
   );
-  db_insert('search_api_server')
-    ->fields($fields)
-    ->execute();
+  search_api_server_insert($devtrac_search_server);
 }
 
 /**
