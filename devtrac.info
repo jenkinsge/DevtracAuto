@@ -195,6 +195,7 @@ dependencies[] = role_delegation
 ; dependencies[] = js
 dependencies[] = shs
 dependencies[] = barcode
+dependencies[] = devtrac_demo_phase
 
 ; Questionnaire
 dependencies[] = questionnaire
