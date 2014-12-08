@@ -571,10 +571,6 @@ function devtrac_install_additional_modules(&$install_state) {
   variable_set('devtrac_menu_rebuild_needed', TRUE);
   $modules = array(
     // 'devtrac7_profile_menu',
-    'devtrac7_field_permissions_feature',
-    'hurricane',
-    'hurricane_integration',
-    'hurricane_raphael',
     'devtrac7_solr_search_feature',
     'devtrac7_solr_search_district_feature',
     'devtrac7_solr_search_location_feature',
@@ -584,6 +580,10 @@ function devtrac_install_additional_modules(&$install_state) {
     'devtrac7_solr_search_image_feature',
     'devtrac7_solr_search_questions_feature',
     'devtrac7_solr_search_answers_feature',
+    'devtrac7_field_permissions_feature',
+    'hurricane',
+    'hurricane_integration',
+    'hurricane_raphael',
   );
   if (isset($install_state['parameters']['stats'])) {
     $modules[] = $install_state['parameters']['stats'];
