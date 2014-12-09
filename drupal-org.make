@@ -214,6 +214,7 @@ projects[hidden_comment][subdir] = "contrib"
 projects[hurricane][version] = "1.x-dev"
 projects[hurricane][type] = "module"
 projects[hurricane][subdir] = "contrib"
+projects[hurricane][patch][] = "https://www.drupal.org/files/issues/hurricane-black-throbbers-2366421-7.patch"
 
 projects[image_url_formatter][version] = "1.4"
 projects[image_url_formatter][type] = "module"
