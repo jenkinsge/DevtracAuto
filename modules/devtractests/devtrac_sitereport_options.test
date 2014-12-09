@@ -79,7 +79,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     $this->administrator->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     // Giving field worker some details by editing the profile page.
   }
 	

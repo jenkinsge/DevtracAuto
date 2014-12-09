@@ -69,30 +69,30 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     parent::setUp('devtractests', 'devtrac7');
     $this->public_files_directory = variable_get('file_public_path');
     $this->adminUser = $this->drupalCreateUser(array(
-    'administer users',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules'));
+      'administer users',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules'));
     $this->managerUser = $this->drupalCreateUser(array(
-    'administer users',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules'));
+      'administer users',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules'));
     $this->editUser = $this->drupalCreateUser(array(
-    'administer users',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules'));
+      'administer users',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules'));
     $this->drupalLogin($this->adminUser);
     $this->drupalPost('user/' . $this->adminUser->uid . '/edit', array(
-    "roles[3]" => 3,
-    'field_user_firstname[und][0][value]' => 'ozzx',
-    'field_user_surname[und][0][value]' => 'xzzo',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'field_user_superior[und][0][target_id]' => 'admin (1)'),
+      "roles[3]" => 3,
+      'field_user_firstname[und][0][value]' => 'ozzx',
+      'field_user_surname[und][0][value]' => 'xzzo',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
   }
   /**
@@ -198,23 +198,23 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $this->unicefUser = $this->drupalCreateUser(array('create field_fieldtrip_user', 'edit field_fieldtrip_user'));
     $this->drupalLogin($this->managerUser);
     $this->drupalPost('user/' . $this->managerUser->uid . '/edit', array(
-    "roles[5]" => 5,
-    'taxonomy_vocabulary_5[und]' => 4,
-    'taxonomy_vocabulary_4[und]' => 8,
-    'field_user_firstname[und][0][value]' => 'firstname',
-    'field_user_surname[und][0][value]' => 'lname',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'field_user_superior[und][0][target_id]' => 'admin (1)'),
+      "roles[5]" => 5,
+      'taxonomy_vocabulary_5[und]' => 8,
+      'taxonomy_vocabulary_4[und]' => 13,
+      'field_user_firstname[und][0][value]' => 'firstname',
+      'field_user_surname[und][0][value]' => 'lname',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
     $this->drupalGet('user/' . $this->managerUser->uid);
     $this->assertNoLink('admin admin', 0, 'Link not found');
     $this->assertLink('Edit', 0, 'Admin link is found');
     $this->drupalPost('user/' . $this->adminUser->uid . '/edit', array(
-    "roles[3]" => 3,
-    'field_user_firstname[und][0][value]' => 'ozzx',
-    'field_user_surname[und][0][value]' => 'xzzo',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
+      "roles[3]" => 3,
+      'field_user_firstname[und][0][value]' => 'ozzx',
+      'field_user_surname[und][0][value]' => 'xzzo',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
   }
   /**
@@ -226,13 +226,13 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     }*/
     $this->drupalLogin($this->editUser);
     $this->drupalPost('user/' . $this->editUser->uid . '/edit', array(
-    "roles[4]" => 4,
-    'field_user_firstname[und][0][value]' => 'unicefEditor',
-    'field_user_surname[und][0][value]' => 'editor',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 5,
-    'taxonomy_vocabulary_4[und]' => 7,
-    'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
+      "roles[4]" => 4,
+      'field_user_firstname[und][0][value]' => 'unicefEditor',
+      'field_user_surname[und][0][value]' => 'editor',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'taxonomy_vocabulary_5[und]' => 11,
+      'taxonomy_vocabulary_4[und]' => 13,
+      'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
@@ -243,18 +243,15 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
    * Confirming that the unicef user logins and access the add questionnaire.
    */
   public function testUnicefEditoruserQuestionnaireAccesstest() {
-    /*if ($this->loggedInUser) {
-      $this->drupalLogout();
-    }*/
     $this->drupalLogin($this->editUser);
     $this->drupalPost('user/' . $this->editUser->uid . '/edit', array(
-    "roles[4]" => 4,
-    'field_user_firstname[und][0][value]' => 'unicefEditor',
-    'field_user_surname[und][0][value]' => 'editor',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 4,
-    'taxonomy_vocabulary_4[und]' => 8,
-    'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
+      "roles[4]" => 4,
+      'field_user_firstname[und][0][value]' => 'unicefEditor',
+      'field_user_surname[und][0][value]' => 'editor',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'taxonomy_vocabulary_5[und]' => 10,
+      'taxonomy_vocabulary_4[und]' => 12,
+      'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
@@ -266,18 +263,15 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
    * Unicef user logins and can not access add questionnaire.
    */
   public function testUnicefEditoruserEditQuestionnaireAccesstest1() {
-    /*if ($this->loggedInUser) {
-      $this->drupalLogou8t();
-    }*/
     $this->drupalLogin($this->editUser);
     $this->drupalPost('user/' . $this->editUser->uid . '/edit', array(
-    "roles[4]" => 4,
-    'field_user_firstname[und][0][value]' => 'unicefEditor',
-    'field_user_surname[und][0][value]' => 'editor',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 6,
-    'taxonomy_vocabulary_4[und]' => 7,
-    'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
+      "roles[4]" => 4,
+      'field_user_firstname[und][0][value]' => 'unicefEditor',
+      'field_user_surname[und][0][value]' => 'editor',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'taxonomy_vocabulary_5[und]' => 8,
+      'taxonomy_vocabulary_4[und]' => 14,
+      'field_user_superior[und][0][target_id]' => 'firstname lname ' . '(' . $this->managerUser->uid . ')'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');
@@ -289,18 +283,15 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
    * Admin should access the action items.
    */
   public function testUnicefmanageruserEditQuestionnaireAccesstest() {
-    /*if ($this->loggedInUser) {
-      $this->drupalLogout();
-    }*/
     $this->drupalLogin($this->managerUser);
     $this->drupalPost('user/' . $this->managerUser->uid . '/edit', array(
-    "roles[5]" => 5,
-    'field_user_firstname[und][0][value]' => 'unicefEditor',
-    'field_user_surname[und][0][value]' => 'editor',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 6,
-    'taxonomy_vocabulary_4[und]' => 7,
-    'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'),
+      "roles[5]" => 5,
+      'field_user_firstname[und][0][value]' => 'unicefEditor',
+      'field_user_surname[und][0][value]' => 'editor',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'taxonomy_vocabulary_5[und]' => 8,
+      'taxonomy_vocabulary_4[und]' => 14,
+      'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertNoText('Welcome, unicefEditor', 'Welcome, unicefEditor Text not found');
@@ -316,18 +307,15 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
    * Unicef editor should access the action items.
    */
   public function testUnicefEditoruserEditQuestionnaireEditorAccesstest3() {
-    /*if ($this->loggedInUser) {
-      $this->drupalLogout();
-    }*/
     $this->drupalLogin($this->editUser);
     $this->drupalPost('user/' . $this->editUser->uid . '/edit', array(
-    "roles[4]" => 4,
-    'field_user_firstname[und][0][value]' => 'unicefEditor',
-    'field_user_surname[und][0][value]' => 'editor',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'taxonomy_vocabulary_5[und]' => 6,
-    'taxonomy_vocabulary_4[und]' => 7,
-    'field_user_superior[und][0][target_id]' => 'admin (1)'),
+      "roles[4]" => 4,
+      'field_user_firstname[und][0][value]' => 'unicefEditor',
+      'field_user_surname[und][0][value]' => 'editor',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'taxonomy_vocabulary_5[und]' => 10,
+      'taxonomy_vocabulary_4[und]' => 12,
+      'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
     $this->assertNoText('Welcome, firstname', 'Welcome, firstname message not found');
     $this->assertText('Welcome, unicefEditor', 'Welcome, unicefEditor found');

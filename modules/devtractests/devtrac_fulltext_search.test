@@ -95,7 +95,7 @@ class FullTextSearchTestCase extends SimpleTestCloneTestCase {
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
   }
   /**
    * In order to receive new email.
@@ -129,7 +129,8 @@ class FullTextSearchTestCase extends SimpleTestCloneTestCase {
   public function testSearchItem() {
     $this->drupalGet('actionitems', array(
       'f[0]' => 'field_actionitem_due_date%3A[2011-01-01T00%3A00%3A00Z TO 2012-01-01T00%3A00%3A00Z]'));
-    $this->assertResponse(200, 'page loaded successfuly');
+    $this->assertNoResponse(200, 'Page access denied');
+    $this->assertResponse(403, 'Page access denied status returned');
     $this->assertNoLink('2011 (630)', 0, 'Item is clicked');
     $this->assertNoLink('2011 (630)', 0, 'Item is not clicked');
     $this->assertNoLink('status', 0, 'Status link is not showing');
@@ -143,7 +144,7 @@ class FullTextSearchTestCase extends SimpleTestCloneTestCase {
    */
   public function testFieldTripSavedSearch() {
     $this->drupalGet('fieldtrips', array('f[0]' => 'field_fieldtrip_status%3ASubmitted'));
-    $this->assertResponse(200, 'page loaded successfuly');
+    $this->assertResponse(200, 'page loaded successfully');
     // $this->drupalPost(NULL, NULL, t('Email new Field Trips'));
     $this->assertNoText('Your saved search was successfully created. You will receive e-mail notifications for new results in the future', 'Email notification is sent', 'Detrac');
     $this->drupalGet('user/' . $this->loggedInUser->uid);
@@ -156,8 +157,8 @@ class FullTextSearchTestCase extends SimpleTestCloneTestCase {
     $this->drupalGet('actionitems', array(
       'query' => array(
         'search_api_aggregation_1' => 'Open')));
-   $this->assertResponse(200, 'response positively responded');
-    $this->assertNoText('Closed', 'Search results are found');
+    $this->assertResponse(200, 'response positively responded');
+    $this->assertNoText('Closed', 'Search results are not found');
     $this->assertNoLink('End User Feedback PQA Soroti', 0, 'End User Feedback PQA Soroti link is not found');
   }
   /**

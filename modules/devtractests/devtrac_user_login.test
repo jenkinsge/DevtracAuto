@@ -291,11 +291,11 @@ class CustomUserRoleTestsCase extends DrupalWebTestCase {
       'administer modules'));
     $this->drupalLogin($this->fieldWorker);
     $this->drupalPost('user/' . $this->fieldWorker->uid . '/edit', array(
-    "roles[3]" => 3,
-    'field_user_firstname[und][0][value]' => 'ozzx',
-    'field_user_surname[und][0][value]' => 'xzzo',
-    'field_user_aboutme[und][0][value]' => 'aboutjan',
-    'field_user_superior[und][0][target_id]' => 'admin (1)'),
+      "roles[3]" => 3,
+      'field_user_firstname[und][0][value]' => 'ozzx',
+      'field_user_surname[und][0][value]' => 'xzzo',
+      'field_user_aboutme[und][0][value]' => 'aboutjan',
+      'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
   }
   public function testAnonymousroletest() {

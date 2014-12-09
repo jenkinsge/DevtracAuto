@@ -636,6 +636,105 @@ function devtrac7_profile_menu_views_modes_menu_links() {
     'customized' => 0,
   );
 
+  $menu_items['menu-my-profile_images:imagesmap'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'images',
+    'router_path' => 'images',
+    'link_title' => 'Map',
+    'options' => array(
+      'purl' => array(
+        'provider' => 'views_modes',
+        'id' => '',
+        'disabled' => 0,
+      ),
+      'attributes' => array(
+        'title' => $title . 'on a map',
+        'orginal-title' => 'map',
+        'class' => array('map', 'purl_search_api_noreset'),
+      ),
+      'query' => array(
+        'display' => 'map',
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_images:imagesmap',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -50,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+  );
+
+  $menu_items['menu-my-profile_images:imageslist'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'images',
+    'router_path' => 'images',
+    'link_title' => 'List',
+    'options' => array(
+      'purl' => array(
+        'provider' => 'views_modes',
+        'id' => '',
+        'disabled' => 0,
+      ),
+      'attributes' => array(
+        'title' => $title . 'in a list',
+        'orginal-title' => 'list',
+        'class' => array('list', 'purl_search_api_noreset'),
+      ),
+      'query' => array(
+        'display' => 'list',
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_images:imageslist',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -49,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+  );
+
+  $menu_items['menu-my-profile_images:imagesgraphs'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'images',
+    'router_path' => 'images',
+    'link_title' => 'Graphs',
+    'options' => array(
+      'purl' => array(
+        'provider' => 'views_modes',
+        'id' => '',
+        'disabled' => 0,
+      ),
+      'attributes' => array(
+        'title' => $title . 'as graphs',
+        'orginal-title' => 'graphs',
+        'class' => array('graphs', 'purl_search_api_noreset'),
+      ),
+      'query' => array(
+        'display' => 'graphs',
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_images:imagesgraphs',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -48,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+  );
+
   $menu_items['menu-my-profile_statistics-answers:statisticsanswerslist'] = array(
     'menu_name' => 'menu-my-profile',
     'link_path' => 'statistics/answers',
@@ -1377,6 +1476,84 @@ function devtrac7_profile_menu_file_exports_menu_links($mlid) {
       'alter' => 1,
       'customized' => 1,
       'identifier' => 'menu-my-profile_activities-analyse-feed:activitiesanalysefeed',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -37,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+
+  $menu_items['menu-my-profile_images-analyse-csv:imagesanalysecsv'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'images/analyse/csv',
+    'router_path' => 'images/analyse/csv',
+    'link_title' => $title . 'to CSV',
+    'options' => array(
+      'attributes' => array(
+        'title' => $title . 'to CSV',
+        'orginal-title' => 'csv',
+        'class' => array('csv'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_images-analyse-csv:imagesanalysecsv',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -39,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+
+  $menu_items['menu-my-profile_images-analyse-kml:imagesanalysekml'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'images/analyse/kml',
+    'router_path' => 'images/analyse/kml',
+    'link_title' => $title . 'to KML',
+    'options' => array(
+      'attributes' => array(
+        'title' => $title . 'to KML',
+        'orginal-title' => 'kml',
+        'class' => array('kml'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_images-analyse-kml:imagesanalysekml',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -38,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+
+  $menu_items['menu-my-profile_images-analyse-rss:imagesanalyserss'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'images/analyse/rss',
+    'router_path' => 'images/analyse/rss',
+    'link_title' => 'Subscribe to RSS Feed',
+    'options' => array(
+      'attributes' => array(
+        'title' => 'Subscribe to RSS Feed',
+        'orginal-title' => 'rss',
+        'class' => array('rss'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_images-analyse-rss:imagesanalyserss',
     ),
     'module' => 'menu',
     'hidden' => 0,

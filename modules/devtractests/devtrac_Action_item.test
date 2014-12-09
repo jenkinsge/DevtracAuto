@@ -84,7 +84,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifully logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     $this->drupalPost('user/' . $this->fieldWorker->uid . '/edit', array(
       "roles[3]" => 3,
       'roles[8]' => '',
@@ -109,7 +109,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is no longer found on the add filed trip form');
     $actionsub['title'] = 'My future fieldtrip';
     $actionsub['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $actionsub['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $actionsub['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $actionsub['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $actionsub['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $actionsub['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -132,10 +132,10 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     //
     $rn1='Schools performance';
     //$actionper['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is not found on fieldtrip page');
     $actionper['title'] = 'My future fieldtrip';
     $actionper['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $actionper['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2; 
+    $actionper['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6; 
     $actionper['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = -100;
     $actionper['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $actionper['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -144,8 +144,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => ''
     ))); 
-    $this->assertText(t('Percentage: the value may be no less than 0.'), t('Percentage is less than the allowable value'), 'Devtrac'); 
-    //  
+    $this->assertText(t('Percentage: the value may be no less than 0.'), t('Percentage is less than the allowable value'), 'Devtrac');  
   } 
   /**
    * Now the user enters more than 100%(over 100 percentage).
@@ -163,7 +162,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $actionper1['title'] = 'My future fieldtrip';
     // Try to add multi purposes(1.2.3).
     $actionper1['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $actionper1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3; 
+    $actionper1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7; 
     $actionper1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 101;
     $actionper1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $actionper1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -191,7 +190,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $fieldAdd['title'] = 'YES WE CAN';
     $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAdd['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3; 
+    $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7; 
     $fieldAdd['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAdd['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAdd['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -230,7 +229,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $fieldAddLocation['title'] = 'YES WE CAN';
     $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocation['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(2);
-    $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3; 
+    $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7; 
     $fieldAddLocation['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocation['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocation['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -281,11 +280,11 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     // Populating the fieldtrip create form.
     // Try to add multiple districts as random(upper&lower)????
     // $fieldAddLocationsChange['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is not found on fieldtrip page');
     $fieldAddLocationsChange['title'] = 'YES WE CAN';
     $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocationsChange['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
+    $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6;
     $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocationsChange['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocationsChange['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -325,11 +324,11 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
     // Populating the fieldtrip create form
     // $fieldAddLocationsChange['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is not found on fieldtrip page');
     $fieldAddLocationsChange['title'] = 'YES WE CAN';
     $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocationsChange['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
+    $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6;
     $fieldAddLocationsChange['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocationsChange['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocationsChange['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -363,7 +362,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('TA Number'), t('TA number field is removed'), 'Devtrac');
     // populating the fieldtrip create form
     //$fieldAddLocationsChangex['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is not found form');
     $fieldAddLocationsChangex['title'] = 'YES You CAN';
     $fieldAddLocationsChangex['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocationsChangex['field_fieldtrip_internal_id[und][0][value]'] = 76;
@@ -400,7 +399,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
     $fieldAddLocationsChangedistrict['title'] = 'YES WE CAN';
     $fieldAddLocationsChangedistrict['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fieldAddLocationsChangedistrict['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fieldAddLocationsChangedistrict['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
+    $fieldAddLocationsChangedistrict['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6;
     $fieldAddLocationsChangedistrict['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fieldAddLocationsChangedistrict['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fieldAddLocationsChangedistrict['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -431,14 +430,13 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
   public function testUnicefUserCommentsOnExistingOpenFieldTrips() {
     $comment['comment_body[und][0][value]'] = $this->randomName(320);
     $this->drupalGet('node/5026');
-    $this->assertNoText(t('Add new comment'), t('Add new comment label is found'), 'Devtrac');
-    $this->assertNoField('comment_body[und][0][value]', t('Comment field is found for the unicef user to comment on an open fieldtrip'), 'Devtrac');
+    $this->assertNoText(t('Add new comment'), t('Add new comment label is not found'), 'Devtrac');
+    $this->assertNoField('comment_body[und][0][value]', t('Comment field is not found for the unicef user to comment on an open fieldtrip'), 'Devtrac');
     // $this->drupalPost('node/5026',$comment, t('Save'));
     $this->assertNoText('Your comment has been posted.', t('comment is posted successfully'),'Devtrac');
     // Now explore the comment from the fieldtrip itself(going to the fieldtrip node page to confrim the comment posted).
     $this->drupalGet('node/5026');
-    
-    $this->assertNoLink('reply', 0 , t('link button reply is showing on the fieldtrip comment section'), 'Devtrac');
+    $this->assertNoLink('reply', 0 , t('link button reply is not showing on the fieldtrip comment section'), 'Devtrac');
   } 
 
 }
@@ -529,8 +527,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $edit['field_user_aboutme[und][0][value]'] = $this->randomName(45);
     $edit['field_user_superior[und][0][target_id]'] = 'admin (1)';
     $this->drupalPost('user/' . $this->fieldWorker->uid . '/edit', $edit, t('Save'));*/
-    
-    $this->assertNoText(t('Overview'), t('User is successifully logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
   
   }
   /**
@@ -548,7 +545,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
+    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -587,7 +584,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -644,7 +641,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $field_add_location_submit['title'] = 'YES WE CAN';
     $field_add_location_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_location_submit['field_fieldtrip_internal_id[und][0][value]'] = 7;
-    $field_add_location_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $field_add_location_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $field_add_location_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_location_submit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_location_submit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -698,7 +695,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $full_report_submit['title'] = 'YES WE CAN';
     $full_report_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $full_report_submit['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $full_report_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $full_report_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $full_report_submit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $full_report_submit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $full_report_submit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -749,7 +746,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -827,11 +824,11 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 90);
     // Populating the fieldtrip create form.
     // $field_add_report_item1['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is not found on fieldtrip page');
     $field_add_report_item1['title'] = 'YES WE CAN';
     $field_add_report_item1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_report_item1['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(2);
-    $field_add_report_item1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
+    $field_add_report_item1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6;
     $field_add_report_item1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -918,11 +915,11 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     // $field_add_report_item['taxonomy_vocabulary_6[und][]'] = 81;
-    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back from the add field trip form');
+    $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is not found on fieldtrip page');
     $field_add_report_item['title'] = 'YES WE CAN';
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -963,6 +960,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $location_add_full['title'] = $this->randomName(32);
     $location_add_full['taxonomy_vocabulary_1[und]'] = 283;
     $this->assertField('taxonomy_vocabulary_6[und]', 'district field was not removed');
+    $this->assertNoField('taxonomy_vocabulary_6[und]', 'district field was removed');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     $this->drupalPost(NULL, $location_add_full, t('Save'),
       array(
@@ -1023,7 +1021,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $field_add_report_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
+    $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6;
     $field_add_report_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_add_report_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';

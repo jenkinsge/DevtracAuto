@@ -80,12 +80,12 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
         }
  	/**
 	 * Submit site report for manager  approval.
-         * 
+     * 
 	 * Manager login to approve the fieldtrip.
 	 */
   public function testsubmitSiteReportSubmitPublicSumaryExceeds() {
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     // Populating the fieldtrip create form.
@@ -96,7 +96,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
     $fullReportSubmitoz['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     //$fullReportSubmitoz['field_fieldtrip_proms_ta_id[und][0][value]'] = 76;
     $fullReportSubmitoz['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(24);
-    $fullReportSubmitoz['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $fullReportSubmitoz['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $fullReportSubmitoz['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitoz['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitoz['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -147,7 +147,6 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
     $ditnarrativeoz['field_ftritem_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     // $ditnarrativeoz['files[field_ftritem_images_und_0]'] = 'profiles/devtrac/themes/devtrac7_theme/logo.png';
     $this->drupalPost(NULL, $ditnarrativeoz, t('Save'), array('query' => array('destination' => 'node/'.$nodeAddreportfullSubmitoz->nid)));
-    
     $this->assertNoText(t('Public Summary cannot be longer than 600 characters but is currently 650 characters long.'), t('Public Summary cannot be longer than 600 characters but is currently 650 characters long.'), 'Devtrac');
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('Copied Lat-Lon to the Site Report.'), 'Devtrac');
     $this->assertNoText(t('Copied Lat-Lon to the Site Report.'), t('Copied Lat-Lon to the Site Report.'), 'Devtrac');
@@ -162,14 +161,14 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
     $this->assertLink('YES WE CAN', 0, t('field trip YES WE CAN is found in the manager inbox'), 'DevTrac');
     $this->drupalGet('node/'.$this->fieldWorker->uid.'/user_profile = 0/user_profile');
   }
-    /**
-     * Unicef user manager.
-     * 
-     * approves the a site report.
-     */
+  /**
+   * Unicef user manager.
+   * 
+   * approves the a site report.
+   */
   public function testmanagerApprovesFieldTriphtc() {
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
@@ -180,7 +179,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
     $fullReportSubmitozy['title'] = 'YES WE CAN';
     $fullReportSubmitozy['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fullReportSubmitoz['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(22);
-    $fullReportSubmitozy['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $fullReportSubmitozy['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $fullReportSubmitozy['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitozy['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozy['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';

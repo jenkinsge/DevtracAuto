@@ -232,7 +232,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['label'] = 'Image';
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
-  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'preview';
+  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'teaser';
   /* Field: Indexed File: Title Text */
   $handler->display->display_options['fields']['field_file_image_title_text']['id'] = 'field_file_image_title_text';
   $handler->display->display_options['fields']['field_file_image_title_text']['table'] = 'search_api_index_devtrac_solr_image_index';
@@ -487,7 +487,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
     'absolute_paths' => 1,
     'feed_in_links' => 0,
   );
-  $handler->display->display_options['path'] = 'image/analyse/rss';
+  $handler->display->display_options['path'] = 'images/analyse/rss';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'list' => 'list',
@@ -516,8 +516,6 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['text'] = 'http://devtrac-2.ifrik.org/sites/default/files/styles/medium/public/media/images/330/ajax/[name]';
   $handler->display->display_options['fields']['name']['link_to_entity'] = 0;
   /* Field: Indexed File: Title Text */
   $handler->display->display_options['fields']['field_file_image_title_text']['id'] = 'field_file_image_title_text';
@@ -558,6 +556,11 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['owner']['field'] = 'owner';
   $handler->display->display_options['fields']['owner']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['owner']['view_mode'] = 'full';
+  /* Field: Indexed File: URL */
+  $handler->display->display_options['fields']['url']['id'] = 'url';
+  $handler->display->display_options['fields']['url']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['fields']['url']['field'] = 'url';
+  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'images/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',

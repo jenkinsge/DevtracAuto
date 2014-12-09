@@ -44,6 +44,22 @@ function devtrac7_images_feature_file_default_displays() {
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
+  $file_display->name = 'image__teaser__file_field_colorbox';
+  $file_display->weight = 0;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'colorbox_node_style' => 'gallery',
+    'colorbox_node_style_first' => 'gallery',
+    'colorbox_image_style' => 'gallery_popup_images',
+    'colorbox_gallery' => 'page',
+    'colorbox_gallery_custom' => '',
+    'colorbox_caption' => 'auto',
+    'colorbox_caption_custom' => '',
+  );
+  $export['image__teaser__file_field_colorbox'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
   $file_display->name = 'image__teaser__file_image';
   $file_display->weight = 5;
   $file_display->status = TRUE;

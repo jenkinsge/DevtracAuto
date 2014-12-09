@@ -63,37 +63,36 @@ class CreatePermittedUserCreateUserWithSameDetailTestCase extends SimpleTestClon
     * @see DrupalWebTestCase::setUp()
     */
   public function setUp() {
-  parent::setUp('devtractests');
-  $this->public_files_directory = variable_get('file_public_path');
-  // Create and log in a permitted user.
-  $this->admin_user = $this->drupalCreateUser(array(
-    'access content',
-    'create fieldtrip content',
-    'administer nodes',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules',
-    'edit taxonomy_vocabulary_1',));
-  $this->admin_user->roles[] = 'administration';
-  user_save($this->admin_user);
-  //$authenticated_user = $this->drupalCreateUser('access user profiles', 'administer site configuration');
-  $this->drupalLogin($this->admin_user);
+    parent::setUp('devtractests');
+    $this->public_files_directory = variable_get('file_public_path');
+    // Create and log in a permitted user.
+    $this->admin_user = $this->drupalCreateUser(array(
+      'access content',
+      'create fieldtrip content',
+      'administer nodes',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules',
+      'edit taxonomy_vocabulary_1',));
+    $this->admin_user->roles[] = 'administration';
+    user_save($this->admin_user);
+    //$authenticated_user = $this->drupalCreateUser('access user profiles', 'administer site configuration');
+    $this->drupalLogin($this->admin_user);
   }
-  
   /**
-    * 
-    * Functional tests for authenticated (User) creating a user with aready existing user details
-    */
+   * 
+   * Functional tests for authenticated (User) creating a user with aready existing user details
+   */
   public function testDevtrac7UserRegistration() {
     $this->drupalPost('user/' . $this->admin_user->uid . '/edit', array(
-    "roles[3]" => 3,
-    'taxonomy_vocabulary_5[und]' => 5,
-    'taxonomy_vocabulary_4[und]' => 7,
-    'field_user_firstname[und][0][value]' => 'admin',
-    'field_user_surname[und][0][value]' => 'Adminol',
-    'field_user_aboutme[und][0][value]' => 'aboutAdmin',
-    'field_user_superior[und][0][target_id]' => 'admin (1)'), t('Save'));
+      "roles[3]" => 3,
+      'taxonomy_vocabulary_5[und]' => 5,
+      'taxonomy_vocabulary_4[und]' => 7,
+      'field_user_firstname[und][0][value]' => 'admin',
+      'field_user_surname[und][0][value]' => 'Adminol',
+      'field_user_aboutme[und][0][value]' => 'aboutAdmin',
+      'field_user_superior[und][0][target_id]' => 'admin (1)'), t('Save'));
     // $this->drupalPost('user/login', $permissions, t('Log in'));
     $newUser['field_user_firstname[und][0][value]'] = 'Obote';
     $newUser['field_user_surname[und][0][value]'] = 'obote';
@@ -123,12 +122,12 @@ class CreatePermittedUserCreateUserWithSameDetailTestCase extends SimpleTestClon
  * 
  * This time arround the authenticted user who permitted to add users, 
  * 
- * Creates a user successifuly.
+ * Creates a user successfully.
  */
 class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTestCase {
   protected $profile = 'devtrac';
   protected $administrator;
-  // This time arround permitted user successifuly creates. 
+  // This time arround permitted user successfully creates. 
   public static function getInfo() {
   return array(
      'name' => 'User registration',
@@ -197,13 +196,13 @@ class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTest
     $this->administrator->roles[] = 'administrator';
     user_save($this->administrator);
     $this->drupalLogin($this->administrator);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     $this->drupalPost('user/' . $this->fieldWorker->uid . '/edit', array(
-    "roles[5]" => 5,
-    'field_user_firstname[und][0][value]' => 'firstname',
-    'field_user_surname[und][0][value]' => 'lname',
-    'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester',
-    'field_user_superior[und][0][target_id]' => 'admin (1)'),
+      "roles[5]" => 5,
+      'field_user_firstname[und][0][value]' => 'firstname',
+      'field_user_surname[und][0][value]' => 'lname',
+      'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester',
+      'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
   }
   /**
@@ -261,7 +260,6 @@ class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTest
   public function testLogiNotValidtest() {
     if ($this->loggedInUser) {
       $this->drupalLogout();
-      
     }
     $this->drupalGet('user/login');
     $this->assertNoLink('Contact Us', 0 ,'Link to site reports found');
@@ -348,7 +346,7 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
       'administer modules',
       'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
     $this->drupalLogin($this->fieldWorkerx);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     $this->drupalPost('user/' . $this->fieldWorkerx->uid . '/edit', array(
     "roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'), t('Save'));
   }
@@ -376,9 +374,7 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
     $this->drupalPost('admin/people/create', $newUserx, t('Create new account'));
     $this->assertText(t('Created a new user account for'), t('User added was not added successfully'), 'Devtrac');
     $this->assertText(t('No e-mail has been sent.'), t('E-mail was  not sent to the created user'), 'DevTrac');
-    if ($this->loggedInUser) {
-      $this->drupalLogout();
-    }
+
   }
   /**
    * Finally login in authenticated user to create a devtrac user.

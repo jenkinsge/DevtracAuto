@@ -86,7 +86,7 @@ function devtrac7_theme_feature_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'colorbox_compression_type';
-  $strongarm->value = 'min';
+  $strongarm->value = 'minified';
   $export['colorbox_compression_type'] = $strongarm;
 
   $strongarm = new stdClass();
