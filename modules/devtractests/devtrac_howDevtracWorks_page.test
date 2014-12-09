@@ -4,7 +4,7 @@
 * Test Devtrac project. public  access information 
 **/
 class CustomTestCase extends DrupalWebTestCase {
-	protected $profile = 'devtrac';
+  protected $profile = 'devtrac';
   public static function getInfo() {
     return array(
       'name' => 'About Devtrac test',
@@ -246,17 +246,17 @@ class AnonymousUserContactdevtrac extends DrupalWebTestCase {
    * Devtrac team from here. 
    */
   public function testAnonymousUserContactsDevtrac() {
- 	  $this->drupalGet('content/devtrac-help-pages');
- 	  $this->assertResponse('404', 'Page not found was removed');
- 	  $this->assertNoLink('Contact Us', 0, 'Link to site reports not found');
- 	  $this->assertNoField('subject', 'No field found all were removed');
- 	  $this->assertNoField('mail', 'No field found all were removed');
- 	  $this->assertNoField('message', 'No field found all were removed');
- 	  $this->assertNoField('name', 'No field found all were removed');
- 	  $this->assertNoField('name', 'No field found all were removed');
- 	  $this->assertNoText('DevTrac is a Ugandan initiative', 'About us page is found', 'DevTrac7');
- 	  $this->assertNoLink('Send message', 0 ,'Link to Home devtrac page not found');
-   	$this->assertNoText('Your message has been sent.', 'Message is successifuly sent', 'DevTrac');
+ 	$this->drupalGet('content/devtrac-help-pages');
+ 	$this->assertResponse('404', 'Page not found was removed');
+ 	$this->assertNoLink('Contact Us', 0, 'Link to site reports not found');
+ 	$this->assertNoField('subject', 'No field found all were removed');
+ 	$this->assertNoField('mail', 'No field found all were removed');
+ 	$this->assertNoField('message', 'No field found all were removed');
+ 	$this->assertNoField('name', 'No field found all were removed');
+ 	$this->assertNoField('name', 'No field found all were removed');
+ 	$this->assertNoText('DevTrac is a Ugandan initiative', 'About us page is found', 'DevTrac7');
+ 	$this->assertNoLink('Send message', 0 ,'Link to Home devtrac page not found');
+   	$this->assertNoText('Your message has been sent.', 'Message is successfully sent', 'DevTrac');
   }
 }
  

@@ -74,27 +74,27 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
       // Create and log in a permitted user.
     $this->public_files_directory = variable_get('file_public_path');
     $this->fieldWorker = $this->drupalCreateUser(array(
-    'get any binary files',
-    		'get own binary files',
-    		'hide own comments',
-    		'post comments',
-    		'save file information',
-    		'skip comment approval',
-    		'submit questions',
-    		'view taxonomy_vocabulary_1',
-    		'access comments',
-    		'access content',
-    		'access proxy router',
-    		'access user profiles',
-    		'administer own comments',
-    		'create taxonomy_vocabulary_1',
-    		'create fieldtrip content',
-    		));
+      'get any binary files',
+      'get own binary files',
+      'hide own comments',
+      'post comments',
+      'save file information',
+      'skip comment approval',
+      'submit questions',
+      'view taxonomy_vocabulary_1',
+      'access comments',
+      'access content',
+      'access proxy router',
+      'access user profiles',
+      'administer own comments',
+      'create taxonomy_vocabulary_1',
+      'create fieldtrip content',
+   ));
     // Loading a user by role name 
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
  }
   /**
    * Assess 'Create Fieldtrip' permission.
@@ -393,7 +393,7 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
     $input1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $input1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->drupalPost('node/add/fieldtrip', $input1, t('Save'));
-    $this->assertNoText(t('has been created.'), ('field trip is not created successifuly ta is long'), 'DevTrac');
+    $this->assertNoText(t('has been created.'), ('field trip is not created successfully ta is long'), 'DevTrac');
     // This will be marked as a fail because the TA number is more than 24 needed length.
   }
   /**

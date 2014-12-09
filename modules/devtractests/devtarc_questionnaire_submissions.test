@@ -61,15 +61,15 @@ class testQuestionnaireSubmissionCase extends SimpleTestCloneTestCase {
     parent::setUp();
     $this->public_files_directory = variable_get('file_public_path');
     $this->editor = $this->drupalCreateUser(array(
-    'access content',
-    'create fieldtrip content',
-    'administer nodes',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules',
-    'create questionnaire_question',
-    'create questionnaire_question content'));
+      'access content',
+      'create fieldtrip content',
+      'administer nodes',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules',
+      'create questionnaire_question',
+      'create questionnaire_question content'));
     $this->editor->roles[] = 'editor';
     user_save($this->editor);
     // Another user
@@ -93,35 +93,35 @@ class testQuestionnaireSubmissionCase extends SimpleTestCloneTestCase {
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->editor);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     $this->assertLink('Users', 0, t('User link is found'));
-    $this->assertNoText('The changes have been saved.', 'The changes have been saved.');
+    $this->assertText('Overview text on the use page is found', 'The changes have been saved. message is not showing');
   }
   
   public function testEditorQuestionnaireAddForWF() {
   	$this->drupalLogin($this->editor);
   	$this->drupalPost('user/' . $this->editor->uid . '/edit', array(
   	  "roles[4]" => 4,
-  	  'taxonomy_vocabulary_5[und]' => 6,
-  	  'taxonomy_vocabulary_4[und]' => 8,
+  	  'taxonomy_vocabulary_5[und]' => 8,
+  	  'taxonomy_vocabulary_4[und]' => 12,
   	  'field_user_firstname[und][0][value]' => 'Editor',
   	  'field_user_surname[und][0][value]' => 'Adminol',
   	  'field_user_aboutme[und][0][value]' => 'about editor',
   	  'field_user_superior[und][0][target_id]' => 'admin (1)'),
   	  t('Save'));
-  	$this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+  	$this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
   	$this->drupalGet('node/add/questionnaire-question');
-  	$this->assertNoResponse(403, 'page access is denied by the server');
+  	$this->assertNoResponse(403, 'page access is not denied by the server');
   	$this->assertResponse(200, 'page found by the server');
-  	$this->assertText('Question', 'Questionnaire page is not found and loaded');
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+  	$this->assertText('Question', 'Questionnaire page is found and loaded');
+    $this->assertNoText(t('Overview'), t('Overview is not found on the page'), 'Devtrac');
     $this->drupalGet('node/add/questionnaire-question');
     $qsubmit['title'] = $this->randomString(35);
     $qsubmit['taxonomy_vocabulary_1[und]'] = 284;
     $qsubmit['taxonomy_vocabulary_8[und][]'] = 228;
     $qsubmit['questionnaire_question_type[und]'] = 'select';
     $this->drupalPost(NULL, $qsubmit, t('Save'));
-    $this->assertText('has been created.', 'questionnaire is not created');
+    $this->assertText('has been created.', 'questionnaire is created');
     $this->assertNoLink('Government Office', 0, 'Government Office link is not found');
     $this->assertNoLink('Child Protection', 0, 'Child Protection link is not found');
   }

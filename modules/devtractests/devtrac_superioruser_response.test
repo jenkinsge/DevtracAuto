@@ -83,25 +83,25 @@ class FacetsVisibilityOnStatTestCase extends SimpleTestCloneTestCase {
       'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'admin (1)'),
       t('Save'));
     }
-    /**
-     * On the user home page there should be n facets of any kind.
-     */
-    public    function testStatisticsFacetstest() {
-      // Testing Statistics page facets.
-      $this->drupalGet('statistics');
-      $this->assertNoTitle(t('Statistics | DevTrac'), t('The statistics page title is found'), 'DevTrac');
-      $this->assertNoTitle('DevTrac | Real time reporting on public services in Uganda', 'Title is found');
-      $this->assertNoRaw('<h3> class="">' . t('Search found no items')    . '</h3>');
-      $this->assertNoText(t('Statistics | DevTrac'), t('satistics title is visible on statistics page'), 'DevTrac');
-      $this->assertNoText('Health Facilities', 'text found');
-      $this->assertNoRaw('<h2' . t('Health Facilities')    . '</h2>');
-      $this->assertNoRaw('<h2 class="block-title">' . t('Current search')    . '</h2>');
-      // Testing user page facets.
-    }
+   /**
+    * On the user home page there should be n facets of any kind.
+    */
+  public function testStatisticsFacetstest() {
+    // Testing Statistics page facets.
+    $this->drupalGet('statistics');
+    $this->assertNoTitle(t('Statistics | DevTrac'), t('The statistics page title is found'), 'DevTrac');
+    $this->assertNoTitle('DevTrac | Real time reporting on public services in Uganda', 'Title is found');
+    $this->assertNoRaw('<h3> class="">' . t('Search found no items')    . '</h3>');
+    $this->assertNoText(t('Statistics | DevTrac'), t('satistics title is visible on statistics page'), 'DevTrac');
+    $this->assertNoText('Health Facilities', 'text found');
+    $this->assertNoRaw('<h2' . t('Health Facilities')    . '</h2>');
+    $this->assertNoRaw('<h2 class="block-title">' . t('Current search')    . '</h2>');
+    // Testing user page facets.
+  }
 }
-    /**
-     * Functional tests for authenticated (permitted) Fieldtrip multiple district creation.
-     */
+  /**
+   * Functional tests for authenticated (permitted) Fieldtrip multiple district creation.
+   */
 class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
   protected $profile = 'devtrac';  
   protected $fieldWorker;
@@ -174,7 +174,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     
   }
  /**
@@ -270,7 +270,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     $commentq['comment_body[und][0][value]'] = $this->randomName(12);
     // Commenting on the submitted fieldtrip.
     $this->drupalPost(NULL, $commentq, t('Save'), array('query' => array('destination' => 'user/' . $this->fieldWorker->uid)));
-    $this->assertText(t('Your comment has been posted.'), t('manager message is posted successifuly'), 'DevTrac');
+    $this->assertText(t('Your comment has been posted.'), t('manager message is posted successfully'), 'DevTrac');
     $this->drupalLogout($this->fieldWorker);
     $this->drupalGet('user/login');
     $this->assertResponse(200, 'Page loaded successfully');

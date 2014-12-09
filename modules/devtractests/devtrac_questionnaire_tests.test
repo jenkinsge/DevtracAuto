@@ -60,19 +60,19 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
     parent::setUp();
     $this->public_files_directory = variable_get('file_public_path');
     $this->adminUser = $this->drupalCreateUser(array(
-    'access content',
-    'create fieldtrip content',
-    'administer nodes',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules',
-    'create questionnaire_question',
-    'create questionnaire_question content'));
+      'access content',
+      'create fieldtrip content',
+      'administer nodes',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules',
+      'create questionnaire_question',
+      'create questionnaire_question content'));
     $this->adminUser->roles[] = 'administrator';
     user_save($this->adminUser);
     $this->drupalLogin($this->adminUser);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     /*$this->drupalPost('user/' . $this->adminUser->uid . '/edit', array(
     "roles[3]" => 3,
     'taxonomy_vocabulary_5[und]' => 30,
@@ -90,7 +90,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
    */
   public function testQuestionnaireAdd() {
     $this->drupalGet('node/add/questionnaire-question');
-    $this->assertNoResponse(403, 'page access is denied by the server');
+    $this->assertNoResponse(403, 'page access is not denied by the server');
     $this->assertResponse(200, 'page returned');
     $this->assertText('Question', 'Questionnaire page found and loaded');
     $this->clickLink('OECD Sector Codes', 0, 'OECD Sector Codes link is clicked');
@@ -208,7 +208,7 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
     }
 	}
 	
-	public function setup() {
+  public function setup() {
     parent::setUp();
     $this->public_files_directory = variable_get('file_public_path');
     // Create and log in a permitted user.
@@ -225,32 +225,32 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->Editor_user->roles[] = 'editor';
     user_save($this->Editor_user);
     $this->drupalLogin($this->Editor_user);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     $this->drupalPost('user/' . $this->Editor_user->uid . '/edit', array(
-    "roles[4]" => 4,
-    'taxonomy_vocabulary_5[und]' => 6,
-    'taxonomy_vocabulary_4[und]' => 8,
-    'field_user_firstname[und][0][value]' => 'Editor',
-    'field_user_surname[und][0][value]' => 'Adminol',
-    'field_user_aboutme[und][0][value]' => 'about editor',
-    'field_user_superior[und][0][target_id]' => 'admin (1)'),
+      "roles[4]" => 4,
+      'taxonomy_vocabulary_5[und]' => 6,
+      'taxonomy_vocabulary_4[und]' => 8,
+      'field_user_firstname[und][0][value]' => 'Editor',
+      'field_user_surname[und][0][value]' => 'Adminol',
+      'field_user_aboutme[und][0][value]' => 'about editor',
+      'field_user_superior[und][0][target_id]' => 'admin (1)'),
     t('Save'));
     $this->assertLink('Users', 0, t('User link is found'));
     $this->assertText('The changes have been saved.', 'The changes have not been saved.');
-	}
+  }
 	/**
      * User loads Question-question node.
      */
-	public function testEditorQuestionnaireAdd() {
+  public function testEditorQuestionnaireAdd() {
     $this->drupalGet('node/add/questionnaire-question');
     $this->assertNoResponse(403, 'page access is denied by the server');
     $this->assertResponse(200, 'page found by the server');
     $this->assertText('Question', 'Questionnaire page is not found and loaded');
-	}
-	/**
+  }
+  /**
    * Testing the qeutionnaire field presence.
    */
-	public function testEditorQuestionnaireFieldexistance() {
+  public function testEditorQuestionnaireFieldexistance() {
     $this->drupalGet('node/add/questionnaire-question');
     $this->assertField('title', 'Question title field is not found');
     $this->assertField('taxonomy_vocabulary_1[und]', 'Question Location type field is no found');
@@ -260,13 +260,13 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField('questionnaire_question_options_add_more', 'Question add another item button is not found');
     $this->assertField('taxonomy_vocabulary_8[und][]', 'Question Sector field is found');
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Question Sector field is not found');
-	}
-	/**
-     * Editor submits an empty questionnaire-question form.
-     * 
-     * and warned about it.
-     */
-	public function testEditorQuestionnaireEmptySubmit() {
+  }
+  /**
+   * Editor submits an empty questionnaire-question form.
+   * 
+   * and warned about it.
+   */
+  public function testEditorQuestionnaireEmptySubmit() {
     $this->drupalGet('node/add/questionnaire-question');
     $emptyq['title'] = '';
     // $emptyq['taxonomy_vocabulary_1[und]'] = '';
@@ -278,11 +278,11 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertText('Question field is required', 'Question field is required left empty');
     $this->assertText('The type of question. field is required.', 'The type of question. field is required.');
     $this->assertNoText('Sub-Category field is required.', 'Sub-Category field is required.');
-	}
+  }
 	/**
      * Editor user submits questionnaire-qustion.
      */
-	public function testEditorQuestionnaireSubmit() {
+  public function testEditorQuestionnaireSubmit() {
     $this->drupalGet('node/add/questionnaire-question');
     $qsubmit['title'] = $this->randomString(35);
     $qsubmit['taxonomy_vocabulary_1[und]'] = 253;
@@ -292,22 +292,21 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertText('has been created.', 'questionnaire is created');
     $this->assertNoLink('Government Office', 0, 'Government Office link is not found');
     $this->assertNoLink('Child Protection', 0, 'Child Protection link is not found');
-	}
-	
-	/**
-	 * Editor user submits questionnaire-qustion with top level location type selection.
-	 */
-	public function testEditorQuestionnaireSubCatSelectSubmit() {
-		$this->drupalGet('node/add/questionnaire-question');
-		$qsubmit['title'] = $this->randomString(35);
-		$qsubmit['taxonomy_vocabulary_1[und]'] = 253;
-		$qsubmit['taxonomy_vocabulary_8[und][]'] = 226;
-		$qsubmit['questionnaire_question_type[und]'] = 'select';
-		$this->drupalPost(NULL, $qsubmit, t('Save'));
-		$this->assertText('has been created.', 'questionnaire is created');
-		$this->assertNoLink('Government Office', 0, 'Government Office link is not found');
-		$this->assertNoLink('Child Protection', 0, 'Child Protection link is not found');
-	}
+  }
+  /**
+   * Editor user submits questionnaire-qustion with top level location type selection.
+   */
+  public function testEditorQuestionnaireSubCatSelectSubmit() {
+    $this->drupalGet('node/add/questionnaire-question');
+    $qsubmit['title'] = $this->randomString(35);
+    $qsubmit['taxonomy_vocabulary_1[und]'] = 253;
+    $qsubmit['taxonomy_vocabulary_8[und][]'] = 226;
+    $qsubmit['questionnaire_question_type[und]'] = 'select';
+    $this->drupalPost(NULL, $qsubmit, t('Save'));
+    $this->assertText('has been created.', 'questionnaire is created');
+    $this->assertNoLink('Government Office', 0, 'Government Office link is not found');
+    $this->assertNoLink('Child Protection', 0, 'Child Protection link is not found');
+  }
 }
 
 class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
@@ -368,14 +367,14 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->public_files_directory = variable_get('file_public_path');
     // Create and log in a permitted user.
     $this->fieldWorker = $this->drupalCreateUser(array(
-  'access content',
-    'create fieldtrip content',
-    'administer nodes',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules',
-    'edit taxonomy_vocabulary_1',));
+      'access content',
+      'create fieldtrip content',
+      'administer nodes',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules',
+      'edit taxonomy_vocabulary_1',));
     // Loading a user by role name 
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
@@ -383,7 +382,6 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertLink('Users', 0, t('User link is found'));
     $this->assertNoText('The changes have been saved.', 'The changes have been saved.');
   }
-  
   /**
    * Creating a fieldtrip, sitereport and attarch a questionnaire.
    */

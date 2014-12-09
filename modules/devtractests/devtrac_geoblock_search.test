@@ -120,7 +120,7 @@ class DevtracSimpleTestCloneCase extends DrupalWebTestCase {
     $this->assertNoLink('Administrative Boundaries', 0, 'Administrative Boundaries not showing on the home page');
     $this->assertLink('Admin Unit', 0, 'Admin Unit not showing on the home page');
     $this->assertNoRaw('<h2 class="collapsible"' . '>', 'Collapsible class is not showing on the home page and must show');
-    $this->assertResponse(200, 'facet block isb working as intended');
+    $this->assertResponse(200, 'facet block is working as intended');
   }
   /**
    * This test was intended to check for a permalink and was moved.

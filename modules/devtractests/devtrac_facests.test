@@ -62,20 +62,20 @@ class FacetsVisibilityTestCase extends SimpleTestCloneTestCase {
     $this->public_files_directory = variable_get('file_public_path');
     // Create and log in a permitted user.
     $this->fieldWorker = $this->drupalCreateUser(array(
-    'bypass node access',
-    'access content',
-    'create fieldtrip content',
-    'administer nodes',
-    'administer permissions',
-    'access user profiles',
-    'administer site configuration',
-    'administer modules'));
+      'bypass node access',
+      'access content',
+      'create fieldtrip content',
+      'administer nodes',
+      'administer permissions',
+      'access user profiles',
+      'administer site configuration',
+      'administer modules'));
     $this->drupalLogin($this->fieldWorker);
-   $this->fieldWorker->roles[] = 'field worker';
+    $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successifuly logged in'), 'Devtrac');
-    $this->assertNoText(t('You do not have items in your inbox'), t('User is successifuly logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
+    $this->assertNoText(t('You do not have items in your inbox'), t('User is successfully logged in'), 'Devtrac');
   }
   /**
    * On the user home page there should be. No facets of any kind.
@@ -83,8 +83,8 @@ class FacetsVisibilityTestCase extends SimpleTestCloneTestCase {
   public function testAdminHomePageHasNoFacetstest() {
     // Making sure the home page has no facets at all.
     $this->drupalGet('user/' . $this->fieldWorker->uid);
-    $this->assertNoText(t('You do not have items in your inbox'), t('User is successifuly logged in'), 'Devtrac');
-    $this->assertText(t('Overview'), 'User is successifuly logged in', 'Devtrac');
+    $this->assertNoText(t('You do not have items in your inbox'), t('User is successfully logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), 'User is successfully logged in', 'Devtrac');
     $this->assertNoRaw('<h2 class="block-title">' . t('Date Visited')  . '</h2>');
     $this->assertNoText('Date Visited', 'Date Visited facet is not found on user home page', 'DevTrac');
     $this->assertNoText('May 2011 (60)', 'Date Visited facet is not found on user home page', 'DevTrac');
