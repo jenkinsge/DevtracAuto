@@ -296,7 +296,7 @@ function devtrac7_taxonomy_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['relationship'] = 'reverse_taxonomy_vocabulary_6_node';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'long',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -412,7 +412,7 @@ function devtrac7_taxonomy_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['relationship'] = 'reverse_taxonomy_vocabulary_6_node';
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'long',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',

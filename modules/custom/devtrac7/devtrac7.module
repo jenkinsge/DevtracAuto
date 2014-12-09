@@ -1986,6 +1986,7 @@ function devtrac7_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
  */
 function devtrac7_form_user_rebuild_menu() {
   variable_set('menu_rebuild_needed', TRUE);
+  $_GET['destination'] = 'user/' . $form['#user']->uid;
 }
 
 /*
@@ -2559,6 +2560,11 @@ function devtrac7_date_formats() {
 	// Short date formats.
 	$formats[] = array(
     'type' => 'date_only',
+    'format' => 'd-m-Y',
+    'locales' => array(),
+	);
+	$formats[] = array(
+    'type' => 'date_only',
     'format' => 'Y-m-d',
     'locales' => array(),
 	);
@@ -2578,15 +2584,16 @@ function devtrac7_date_formats() {
      'locales' => array(),
 	);
 	$formats[] = array(
-    'type' => 'date_only',
-    'format' => 'M j Y',
+    'type' => 'export_only',
+    'format' => 'd-m-Y',
     'locales' => array(),
 	);
 	$formats[] = array(
-    'type' => 'date_only',
-    'format' => 'j M Y',
+    'type' => 'export_only',
+    'format' => 'm/d/Y',
     'locales' => array(),
 	);
+
 
 
 	return $formats;
@@ -2599,6 +2606,7 @@ function devtrac7_date_format_types() {
 	// Define the core date format types.
 	return array(
     'date_only' => t('Date Only'),
+    'export_only' => t('Export Only'),
 	);
 }
 

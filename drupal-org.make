@@ -19,6 +19,10 @@ projects[adaptive_image][version] = "1.4"
 projects[adaptive_image][type] = "module"
 projects[adaptive_image][subdir] = "contrib"
 
+projects[barcode][version] = "2.1"
+projects[barcode][type] = "module"
+projects[barcode][subdir] = "contrib"
+
 projects[behavior_weights][version] = "1.0"
 projects[behavior_weights][type] = "module"
 projects[behavior_weights][subdir] = "contrib"
@@ -210,6 +214,7 @@ projects[hidden_comment][subdir] = "contrib"
 projects[hurricane][version] = "1.x-dev"
 projects[hurricane][type] = "module"
 projects[hurricane][subdir] = "contrib"
+projects[hurricane][patch][] = "https://www.drupal.org/files/issues/hurricane-black-throbbers-2366421-7.patch"
 
 projects[image_url_formatter][version] = "1.4"
 projects[image_url_formatter][type] = "module"
@@ -244,9 +249,10 @@ projects[masonry_views][version] = "1.0"
 projects[masonry_views][type] = "module"
 projects[masonry_views][subdir] = "contrib"
 
-projects[maxlength][version] = "3.0-beta1"
+projects[maxlength][version] = "3.0"
 projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"
+projects[maxlength][patch][] = "https://www.drupal.org/files/issues/maxlength-exclude-any-html-entity-and-token-1830182-6.patch"
 
 projects[me][version] = "1.1"
 projects[me][type] = "module"
@@ -370,6 +376,10 @@ projects[search_api][patch][] = "https://www.drupal.org/files/issues/search_api-
 projects[search_api_autocomplete][version] = "1.1"
 projects[search_api_autocomplete][type] = "module"
 projects[search_api_autocomplete][subdir] = "contrib"
+
+projects[search_api_db][version] = "1.4"
+projects[search_api_db][type] = "module"
+projects[search_api_db][subdir] = "contrib"
 
 projects[search_api_date][version] = "1.0-alpha2"
 projects[search_api_date][type] = "module"

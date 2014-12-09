@@ -25,7 +25,9 @@ class DevtracImportsSectorIcons extends XMLMigration {
     );
 
     // Our test data is in an XML file
-    $items_url = 'http://codelists103.archive.iatistandard.org/data/codelist/Sector/version/1.0/lang/en.xml';
+    $xml_folder = drupal_get_path('module', 'devtrac_imports');
+    $items_url = $xml_folder . '/data/sectors.xml';
+    //$items_url = 'http://codelists103.archive.iatistandard.org/data/codelist/Sector/version/1.0/lang/en.xml';
     $item_xpath = '/codelist/Sector';
     $item_ID_xpath = 'code';
     $items_class = new MigrateItemsXML($items_url, $item_xpath, $item_ID_xpath);

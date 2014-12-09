@@ -75,7 +75,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -232,7 +232,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['label'] = 'Image';
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
-  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'preview';
+  $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'teaser';
   /* Field: Indexed File: Title Text */
   $handler->display->display_options['fields']['field_file_image_title_text']['id'] = 'field_file_image_title_text';
   $handler->display->display_options['fields']['field_file_image_title_text']['table'] = 'search_api_index_devtrac_solr_image_index';
@@ -261,7 +261,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -487,7 +487,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
     'absolute_paths' => 1,
     'feed_in_links' => 0,
   );
-  $handler->display->display_options['path'] = 'image/analyse/rss';
+  $handler->display->display_options['path'] = 'images/analyse/rss';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'list' => 'list',
@@ -546,7 +546,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'short',
+    'format_type' => 'date_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -613,7 +613,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
     'value' => 'wkt',
     'other_lat' => 'rendered_entity',
     'other_lon' => 'rendered_entity',
-    'wkt' => 'owner',
+    'wkt' => 'field_ftritem_lat_long_geom',
     'other_top' => 'rendered_entity',
     'other_right' => 'rendered_entity',
     'other_bottom' => 'rendered_entity',

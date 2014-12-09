@@ -480,12 +480,13 @@ function devtrac_install_tasks_alter(&$tasks, $install_state) {
 
   // The Solr congiguration screen needs to come after the database
   // setup, enabling the system module and after the full bootstrap.
-  $solr_task['devtrac_solr_configure_form'] = array(
-    'display_name' => st('Configure Solr search'),
-    'type' => 'form',
+  $solr_task['devtrac_initialize_search_server'] = array(
+    'display_name' => st('Initialize Search Server'),
+    'display' => FALSE,
+    'type' => 'normal',
   );
   $old_tasks = $tasks;
-  $tasks = array_slice($old_tasks, 0, 8) + $solr_task + array_slice($old_tasks, 8);
+  $tasks = array_slice($old_tasks, 0, 9) + $solr_task + array_slice($old_tasks, 9);
 }
 
 /**
@@ -570,11 +571,19 @@ function devtrac_install_additional_modules(&$install_state) {
   variable_set('devtrac_menu_rebuild_needed', TRUE);
   $modules = array(
     // 'devtrac7_profile_menu',
+    'devtrac7_solr_search_feature',
+    'devtrac7_solr_search_district_feature',
+    'devtrac7_solr_search_location_feature',
+    'devtrac7_solr_search_act_item_feature',
+    'devtrac7_solr_user_feature',
+    'devtrac7_solr_search_fieldtrip_feature',
+    'devtrac7_solr_search_image_feature',
+    'devtrac7_solr_search_questions_feature',
+    'devtrac7_solr_search_answers_feature',
     'devtrac7_field_permissions_feature',
     'hurricane',
     'hurricane_integration',
     'hurricane_raphael',
-
   );
   if (isset($install_state['parameters']['stats'])) {
     $modules[] = $install_state['parameters']['stats'];
@@ -615,6 +624,28 @@ function devtrac_install_additional_modules(&$install_state) {
   );
 
   return $batch;
+}
+/**
+ * Imports devtrac_search_server.
+ */
+function devtrac_initialize_search_server() {
+  $devtrac_search_server = array(
+    'name' => 'Devtrac Search Server',
+    'machine_name' => 'devtrac_search_server',
+    'description' => 'Devtrac Search Server.',
+    'class' => 'search_api_db_service',
+    'options' => array(
+      'database' => 'default:default',
+      'min_chars' => '1',
+      'partial_matches' => 0,
+      'autocomplete' => array(
+        'suggest_suffix' => 1,
+        'suggest_words' => 1,
+      ),
+    ),
+  'enabled' => '1',
+  );
+  search_api_server_insert($devtrac_search_server);
 }
 
 /**

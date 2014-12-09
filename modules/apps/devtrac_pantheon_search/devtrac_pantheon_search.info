@@ -1,0 +1,12 @@
+apps[server] = "development"
+name = "Pantheon Solr Server Settings"
+description = "App for setting Pantheon Solr Server connection details"
+core = 7.x
+package = "Devtrac Apps"
+
+files[] = devtrac_pantheon_search.module
+
+; dependencies[] = search_api_solr
+; dependencies[] = search_api_solr_boundingbox_search
+; dependencies[] = search_api_solr_dynamic_ranges
+dependencies[] = pantheon_apachesolr

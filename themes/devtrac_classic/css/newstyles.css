@@ -149,7 +149,7 @@ table tbody tr.even td.active {
 
 .zone-featured .nice-menu {
   float: right;
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 .zone-featured .nice-menu ,
@@ -277,6 +277,53 @@ table tbody tr.even td.active {
 .zone-featured .block-current-search h3 {
   margin: 0;
   font-size: 1em;
+}
+
+
+.zone-featured .block-pane {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  width: 31px;
+  height: 27px;
+
+}
+
+.zone-featured .block-pane .block-inner {
+  position: relative;
+  width: 31px;
+  height: 27px;
+  float: right;
+  z-index: 3;
+}
+
+.zone-featured .block-pane .block-title.collapsiblock.collapsiblockCollapsed {
+  background-color: #333333;
+}
+
+.zone-featured .block-pane .block-title.collapsiblock {
+  width: 31px;
+  height: 27px;
+  background-color: #111111;
+  background-image: url(../images/user-menu-icon-info.png);
+  background-repeat: no-repeat;
+  background-size: auto 17px;
+  background-position: 50% 50%;
+}
+
+.zone-featured .block-pane .content {
+  position: absolute;
+  top: 27px;
+  right: 0;
+  max-height: 200px;
+  width: 300px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: thin solid #555555;
+}
+
+.block-search-api-saved-searches {
+  display: none;
 }
 
 /*=============================================================================
@@ -734,6 +781,73 @@ li.level-4 ul.links {
   display: none;
 }
 
+/*============================= Normal Pager ===============================*/
+
+.item-list ul.pager {
+  overflow: hidden;
+  width: 100%;
+  height: 28px;
+  border: none;
+  background-color: #DDDDDD;
+  border-radius: 0;
+}
+
+.item-list ul.pager li.pager-current {
+  position: static;
+  width: 100%;
+  height: 28px;
+  padding: 7px 0;
+  text-align: center;
+  font-weight: normal;
+  font-family: inherit;
+  background: none;
+  color: #333333;
+}
+
+.item-list ul.pager li.pager-first ,
+.item-list ul.pager li.pager-previous ,
+.item-list ul.pager li.pager-next ,
+.item-list ul.pager li.pager-last {
+  position: absolute;
+  height: 28px;
+  top: 0;
+  border: none;
+}
+
+.item-list ul.pager li.pager-first ,
+.item-list ul.pager li.pager-previous {
+  position: absolute;
+  left: 0
+}
+
+.item-list ul.pager li.pager-next ,
+.item-list ul.pager li.pager-last {
+  position: absolute;
+  right: 0;
+}
+
+.item-list ul.pager li.pager-first a ,
+.item-list ul.pager li.pager-previous a ,
+.item-list ul.pager li.pager-next a ,
+.item-list ul.pager li.pager-last a {
+  display: inline-block;
+  background: #555555;
+  color: #FFFFFF;
+  padding: 7px;
+  font-weight: normal;
+  font-family: inherit;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.item-list ul.pager li a:hover {
+  background: #333333;
+}
+
+.item-list ul.pager li a > div {
+  display: none;
+}
+
 /*========================== Image Gallery Pager ============================*/
 
 .region-postscript-second .item-list .pager {
@@ -812,6 +926,7 @@ li.level-4 ul.links {
   width: 100%;
   font-weight: normal;
   font-family: inherit;
+  color: #FFFFFF;
 }
 
 /*================================ list-page =================================*/
@@ -1184,38 +1299,49 @@ form.comment-form .form-item.form-type-item {
   color: #A52A2A;
 }
 
-.overview-link-wrapper a:link ,
-.overview-link-wrapper a:visited ,
-.overview-link-wrapper tr:hover a:link ,
-.overview-link-wrapper tr:hover a:visited {
+.view-dvtrc-user {
+  margin-top: 10px;
+}
+
+.view-dvtrc-user a:link ,
+.view-dvtrc-user a:visited ,
+.view-dvtrc-user tr:hover a:link ,
+.view-dvtrc-user tr:hover a:visited {
   color: #333333;
 }
 
-.overview-link-wrapper table {
+.view-dvtrc-user table {
   margin-bottom: 10px;
 }
 
-.overview-link-wrapper table thead ,
-.overview-link-wrapper table tbody {
+.view-dvtrc-user table thead ,
+.view-dvtrc-user table tbody {
   border: none;
 }
 
-.overview-link-wrapper table tbody tr {}
-
-.overview-link-wrapper table tbody tr:hover {
-  background: transparent;
+.view-dvtrc-user table tbody tr {
+  padding: 0;
 }
 
-.overview-link-wrapper table tbody tr td {
+.view-dvtrc-user table tbody tr td.views-field-name {
+  padding-left: 0;
+}
+
+.view-dvtrc-user table tbody tr:hover {
+  background: transparent;
+  color: #333333;
+}
+
+.view-dvtrc-user table tbody tr td {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.overview-link-wrapper table tbody tr .views-field-title {
+.view-dvtrc-user table tbody tr .views-field-title {
   text-align: center;
 }
 
-.overview-link-wrapper table tbody tr .views-field-title a {
+.view-dvtrc-user table tbody tr .views-field-title a {
   padding: 2px 5px;
   background-color: #777777;
   color: #FFFFFF;
@@ -1224,7 +1350,7 @@ form.comment-form .form-item.form-type-item {
   float: right;
 }
 
-.overview-link-wrapper table tbody tr:hover .views-field-title a {
+.view-dvtrc-user table tbody tr:hover .views-field-title a {
   background-color: #333333;
   color: #FFFFFF;
   text-decoration: none;
@@ -1250,10 +1376,17 @@ form.comment-form .form-item.form-type-item {
 
 
 td .ctools-wrapper {
-  /*width: 125px;*/
-  min-width: 45px;
+  min-width: 60px;
   min-height: 27px;
   position: relative;
+}
+
+#quicktabs-tabpage-user_profile-0 .view-dvtrc-action-items td .ctools-wrapper {
+  min-width: 126px;
+}
+
+#quicktabs-tabpage-user_profile-2 .view-dvtrc-action-items td .ctools-wrapper {
+  min-width: 102px;
 }
 
 td .ctools-wrapper .ctools-button {
@@ -1338,6 +1471,88 @@ tr:hover .ctools-button.ctools-button-processed ul li a:hover {
   background-color: #000000;
   height: 29px;
 }
+
+/*=====================================================================================
+ * App List Styling
+ * ==================================================================================*/
+
+/*.vertical-tabs fieldset.vertical-tabs-pane*/
+#apps-list .vertical-tabs fieldset.vertical-tabs-pane {
+  padding: 0;
+}
+
+#apps-list .vertical-tabs-panes ul {
+  overflow: hidden;
+  width: 100%;
+}
+
+#apps-list .vertical-tabs-panes ul li {
+  /*width: 33.3%;*/
+  width: 50%;
+  max-width: initial;
+  margin: 0;
+  padding: 0;
+  border: none;
+  height: auto;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper {
+  margin: 10px;
+  padding: 10px;
+  border: thin solid #CCCCCC;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-logo {
+  width: 30%;
+  height: 112px;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-logo a {
+  border: thin solid #CCCCCC;
+  display: block;
+  height: inherit;
+  padding: 5px;
+  text-align: center;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser {
+  width: 70%;
+  padding: 0;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser h2 ,
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser .app-status ,
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser .app-rating ,
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser .app-action {
+  padding: 2px 10px;
+  font-family: inherit;
+  color: inherit;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser h2 {
+  width: auto;
+  margin: 0;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser h2 a {
+  font-family: inherit;
+  font-size: 1.3em;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser .app-action {
+  background: none;
+}
+
+#apps-list .vertical-tabs-panes ul li .app-teaser-wrapper .app-teaser .app-action a {
+  color: #FFFFFF;
+  margin: 0;
+}
+
+
+
+
+
+
 
 /*=====================================================================================
  * Progress Bar
@@ -2859,6 +3074,7 @@ table tr.footable-row-detail:hover a:hover {
   border-bottom: 5px solid #EA0001;
 }
 
+#modalContent div.ctools-modal-content span.close ,
 #modalContent div.ctools-modal-content a.close {
   width: 20px;
   height: 20px;
@@ -2874,6 +3090,14 @@ table tr.footable-row-detail:hover a:hover {
 #modalContent div.ctools-modal-content .modal-title {
   font-size: 1.1em;
   margin-left: 10px;
+  color: #FFFFFF;
+  font-weight: normal;
+  font-family: inherit;
+  text-shadow: none;
+}
+
+#modalContent div.ctools-modal-content .form-actions {
+  float: left;
 }
 
 /*===================================================================================*\

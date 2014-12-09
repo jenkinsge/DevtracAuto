@@ -37,7 +37,7 @@ function devtrac7_solr_search_activity_feature_default_pane_data() {
   $template->lang = 'und';
   $template->data = array(
     'value' => 'These are the projects that are carried out by the organizations that are in the system. Information includes the status of the project (On-going, complete, etc.), the date of commencement and date of completion.',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['activities_info_und'] = $template;

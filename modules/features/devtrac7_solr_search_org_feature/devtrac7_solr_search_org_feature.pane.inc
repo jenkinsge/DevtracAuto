@@ -37,7 +37,7 @@ function devtrac7_solr_search_org_feature_default_pane_data() {
   $template->lang = 'und';
   $template->data = array(
     'value' => 'These are the organizations whose activities are documented in the system (DevTrac). The Organizations page includes major details about the organization. These include whether the organization is a funding or implementing organization.',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['organisations_info_und'] = $template;

@@ -37,7 +37,7 @@ function devtrac7_solr_search_questions_feature_default_pane_data() {
   $template->lang = 'und';
   $template->data = array(
     'value' => 'The statistics page is where summaries and graphical representation of the data in the system can be viewed. Try out different filter options to analyse the data graphically.',
-    'format' => '1',
+    'format' => 'filtered_html',
     'title' => '',
   );
   $export['statistics_info_und'] = $template;

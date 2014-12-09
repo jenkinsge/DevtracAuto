@@ -180,7 +180,7 @@ function devtrac7_solr_search_image_feature_openlayers_maps() {
       'site_reports_recent_site_reports_data' => '0',
       'openlayers_searchresult_layer' => 'devtrac_mapstyle_search_default',
       'devtrac_solr_view_images_json' => '0',
-      'devtrac_solr_view_images_dummy' => '0',
+      'devtrac_solr_view_images_dummy' => 'invisible',
     ),
     'layer_styles_select' => array(
       'devtrac_solr_view_sitevisits_json' => 'devtrac_mapstyle_placetype_selected',
@@ -208,7 +208,7 @@ function devtrac7_solr_search_image_feature_openlayers_maps() {
       'site_reports_recent_site_reports_data' => '0',
       'openlayers_searchresult_layer' => 'devtrac_mapstyle_search_selected',
       'devtrac_solr_view_images_json' => '0',
-      'devtrac_solr_view_images_dummy' => '0',
+      'devtrac_solr_view_images_dummy' => 'invisible',
     ),
     'layer_styles_temporary' => array(
       'devtrac_solr_view_sitevisits_json' => 'devtrac_mapstyle_placetype_active',
@@ -236,7 +236,7 @@ function devtrac7_solr_search_image_feature_openlayers_maps() {
       'site_reports_recent_site_reports_data' => '0',
       'openlayers_searchresult_layer' => 'devtrac_mapstyle_search_active',
       'devtrac_solr_view_images_json' => '0',
-      'devtrac_solr_view_images_dummy' => '0',
+      'devtrac_solr_view_images_dummy' => 'invisible',
     ),
     'layer_activated' => array(
       'openlayers_searchresult_layer' => 'openlayers_searchresult_layer',

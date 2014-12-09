@@ -1,0 +1,5 @@
+name = "Devtrac Demo Phase Module"
+description = "Contains alterations necessary to use Devtrac in demo mode."
+core = "7.x"
+
+files[] = devtrac_demo_phase.module
