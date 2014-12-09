@@ -487,7 +487,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
     'absolute_paths' => 1,
     'feed_in_links' => 0,
   );
-  $handler->display->display_options['path'] = 'image/analyse/rss';
+  $handler->display->display_options['path'] = 'images/analyse/rss';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'list' => 'list',
