@@ -145,7 +145,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertText('The type of question', 'The type of question section is found');
     $this->assertText('Sector:', 'Sector section is found');
     $this->assertNoLink('Secondary Community School', 0, 'Secondary Community School link is created');
-    $this->clinkLink('Secondary Community School', 0, 'Secondary Community School link is clicked');
+    $this->clickLink('Secondary Community School', 0, 'Secondary Community School link is clicked');
     $this->assertNoLink('Public Community School', 0, 'Public Community School link is not created');
     $this->assertLink('Public Government School', 0, 'Public Government School link is not created');
     $this->assertNoLink('Cotton', 0, 'Cotton link is not created');
