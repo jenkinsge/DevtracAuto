@@ -94,7 +94,7 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
     $this->fieldWorker->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
  }
   /**
    * Assess 'Create Fieldtrip' permission.

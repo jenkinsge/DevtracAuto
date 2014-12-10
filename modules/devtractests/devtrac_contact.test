@@ -68,15 +68,15 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
       'administer site configuration',
       'administer modules'));
     $this->drupalLogin($this->unicef_user);
-    $this->assertNoText('Overview', 'User is successifully logged in', 'Devtrac');
+    $this->assertText('Overview', 'User is successfully logged in', 'Devtrac');
     $this->drupalPost('user/' . $this->unicef_user->uid . '/edit', array(
       "roles[3]" => 3,
       'field_user_firstname[und][0][value]' => 'Admino',
       'field_user_surname[und][0][value]' => 'Adminol',
       'field_user_aboutme[und][0][value]' => 'aboutAdmin',
       'field_user_superior[und][0][target_id]' => 'admin (1)',
-      'taxonomy_vocabulary_5[und]' => 4,
-      'taxonomy_vocabulary_4[und]' => 8,),
+      'taxonomy_vocabulary_5[und]' => 8,
+      'taxonomy_vocabulary_4[und]' => 12,),
       t('Save'));
   	$this->assertLink('Users', 0, 'User link is found');
   	$this->assertText('The changes have been saved.', 'The changes have been saved.');
