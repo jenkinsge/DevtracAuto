@@ -900,7 +900,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
     $this->assertNoText('TA Number', 'TA number field is removedfound', 'Devtrac');
-    $this->assertNoText('Overview', 'User is successifully logged in', 'Devtrac');
+    $this->assertNoText('Overview', 'User is successfully logged in', 'Devtrac');
   }
   /**
    * Submiting a full report item.

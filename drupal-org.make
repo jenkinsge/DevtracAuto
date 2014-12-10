@@ -22,6 +22,7 @@ projects[adaptive_image][subdir] = "contrib"
 projects[barcode][version] = "2.1"
 projects[barcode][type] = "module"
 projects[barcode][subdir] = "contrib"
+projects[barcode][patch][] = "https://www.drupal.org/files/barcode-empty_value_in_barcode_generate_image-1937974-1.patch"
 
 projects[behavior_weights][version] = "1.0"
 projects[behavior_weights][type] = "module"

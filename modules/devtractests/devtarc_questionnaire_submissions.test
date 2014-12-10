@@ -95,7 +95,7 @@ class testQuestionnaireSubmissionCase extends SimpleTestCloneTestCase {
     $this->drupalLogin($this->editor);
     $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     $this->assertLink('Users', 0, t('User link is found'));
-    $this->assertText('Overview text on the use page is found', 'The changes have been saved. message is not showing');
+    $this->assertNoText('Overview text on the use page', 'The changes have been saved. message is not showing');
   }
   
   public function testEditorQuestionnaireAddForWF() {
