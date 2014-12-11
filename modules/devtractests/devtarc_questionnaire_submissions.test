@@ -114,7 +114,7 @@ class testQuestionnaireSubmissionCase extends SimpleTestCloneTestCase {
   	$this->assertNoResponse(403, 'page access is not denied by the server');
   	$this->assertResponse(200, 'page found by the server');
   	$this->assertText('Question', 'Questionnaire page is found and loaded');
-    $this->assertNoText(t('Overview'), t('Overview is not found on the page'), 'Devtrac');
+    $this->assertText(t('Overview'), t('Overview is not found on the page'), 'Devtrac');
     $this->drupalGet('node/add/questionnaire-question');
     $qsubmit['title'] = $this->randomString(35);
     $qsubmit['taxonomy_vocabulary_1[und]'] = 284;

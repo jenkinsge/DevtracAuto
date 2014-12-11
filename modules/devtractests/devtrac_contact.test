@@ -1,7 +1,7 @@
 <?php
 module_load_include('test', 'simpletest_clone');
 class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
-  protected $admin_user;
+  protected $dev_admin;
   protected $profile = 'devtrac';
   public static function getInfo() {
     return array(
@@ -61,15 +61,15 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
   	parent::setUp();
   	$this->public_files_directory = variable_get('file_public_path');
   	// Create and log in a permitted user.
-    $this->unicef_user = $this->drupalCreateUser(array(
+    $this->dev_admin = $this->drupalCreateUser(array(
       'administer users',
       'administer permissions',
       'access user profiles',
       'administer site configuration',
       'administer modules'));
-    $this->drupalLogin($this->unicef_user);
+    $this->drupalLogin($this->dev_admin);
     $this->assertText('Overview', 'User is successfully logged in', 'Devtrac');
-    $this->drupalPost('user/' . $this->unicef_user->uid . '/edit', array(
+    $this->drupalPost('user/' . $this->dev_admin->uid . '/edit', array(
       "roles[3]" => 3,
       'field_user_firstname[und][0][value]' => 'Admino',
       'field_user_surname[und][0][value]' => 'Adminol',
@@ -104,7 +104,7 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
    * Are available and accessible.
    */
   public function testusereditContact() {
-    $this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+    $this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
       'query' =>array(
         'destination' => 'user')));
   	$this->assertNoText('Admino Adminol', 'Edit user form is showing');
@@ -116,12 +116,12 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
    * Submiting the user edit form.
    */
   public function testuserEditContactSubmit() {
-    $this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+    $this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
   	  'query' =>array(
   	    'destination' => 'user')));
     $this->assertText('Welcome, Admino', 'Edit user form is showing');
     $editname['name'] = 'ozzy';
-  	$editname['current_pass'] = $this->unicef_user->pass;
+  	$editname['current_pass'] = $this->dev_admin->pass;
     $role['roles[3]'] = '';
     $role['roles[5]'] = 5;
     $role['field_user_aboutme[und][0][value]'] = $this->randomString(300);
@@ -133,12 +133,12 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
    * Then clicks the saved searches.
    */
   public function testuserAccessSaveSearch() {
-    $this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+    $this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
       'query' =>array(
  	    'destination' => 'user')));
  	$this->assertNoText('Admino Adminol', 'Edit user form is showing');
    	$editname['name'] = 'ozzy';
-  	$editname['current_pass'] = $this->unicef_user->pass;
+  	$editname['current_pass'] = $this->dev_admin->pass;
  	$role['roles[3]'] = '';
   	$role['roles[5]'] = 5;
   	$role['field_user_aboutme[und][0][value]'] = $this->randomString(300);
@@ -146,7 +146,7 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
  	$this->drupalPost(NULL, $role, t('Save'));
  	$this->assertNoText('The changes have been saved.', 'The changes have been saved.');
  	$this->assertNoLink('Saved searches', 0, 'Saved searches link found');
- 	$this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+ 	$this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
  	  'query' =>array(
  	    'destination' => 'user')));
     $this->assertNoText('Admino Adminol', 'Edit user form is showing');
@@ -158,13 +158,13 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
    * Then clicks.
    */
   public function testuserAccessView() {
-    $this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+    $this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
  	  'query' =>array(
  	    'destination' => 'user')));
     $this->assertText('Welcome, Admino', 'Edit user form is showing');
  	$this->assertNoText('Admino Adminol', 'Edit user form is showing');
  	$editname['name'] = 'ozzy';
- 	$editname['current_pass'] = $this->unicef_user->pass;
+ 	$editname['current_pass'] = $this->dev_admin->pass;
  	$role['roles[3]'] = '';
  	$role['roles[5]'] = 5;
  	$role['field_user_aboutme[und][0][value]'] = $this->randomString(300);
@@ -173,7 +173,7 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
  	$this->assertNoText('The changes have been saved.', 'The changes have been saved.');
  	$this->assertNoLink('Saved searches', 0, 'Saved searches link found');
  	$this->assertNoLink('View', 0, 'View link is found');
- 	$this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+ 	$this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
  	  'query' =>array(
  	    'destination' => 'user')));
  	  $this->assertNoLink('Saved searches', 0, 'Saved searches link not found');
@@ -185,16 +185,16 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
   * Then submits the form.
   */
   public function testuserAccontactsUnicefUser() {
-    $this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+    $this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
  	  'query' =>array(
  	    'destination' => 'user')));
     $this->assertText('Welcome, Admino', 'Edit user form is showing');
-    $this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+    $this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
       'query' =>array(
         'destination' => 'user')));
  	$this->assertNoText('Admino Adminol', 'Edit user form is showing');
  	$editname['name'] = 'ozzy';
- 	$editname['current_pass'] = $this->unicef_user->pass;
+ 	$editname['current_pass'] = $this->dev_admin->pass;
  	$role['roles[3]'] = '';
  	$role['roles[5]'] = 5;
  	$role['field_user_aboutme[und][0][value]'] = $this->randomString(300);
@@ -203,7 +203,7 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
  	$this->assertNoText('The changes have been saved.', 'The changes have been saved.');
  	$this->assertNoLink('Saved searches', 0, 'Saved searches link found');
  	$this->assertNoLink('View', 0, 'View link is found');
- 	$this->drupalGet('user/'.$this->unicef_user->uid.'/edit', array(
+ 	$this->drupalGet('user/'.$this->dev_admin->uid.'/edit', array(
  	  'query' =>array(
  	    'destination' => 'user')));
  	$this->assertNoLink('Saved searches', 0, 'Saved searches link not found');

@@ -75,7 +75,7 @@ class FacetsVisibilityTestCase extends SimpleTestCloneTestCase {
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
     $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
-    $this->assertNoText(t('You do not have items in your inbox'), t('User is successfully logged in'), 'Devtrac');
+    $this->assertNoText(t('You do not have items in your inbox'), t('You do not have items in your inbox message is not showing'), 'Devtrac');
   }
   /**
    * On the user home page there should be. No facets of any kind.

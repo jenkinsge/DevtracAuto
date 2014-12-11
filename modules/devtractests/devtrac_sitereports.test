@@ -85,7 +85,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
 	 */
   public function testsubmitSiteReportSubmitPublicSumaryExceeds() {
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     // Populating the fieldtrip create form.
@@ -168,7 +168,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
    */
   public function testmanagerApprovesFieldTriphtc() {
     $this->drupalLogin($this->fieldWorker);
-    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);

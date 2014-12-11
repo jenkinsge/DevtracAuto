@@ -80,10 +80,20 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
     $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
+    $this->drupalPost('user/' . $this->fieldWorker->uid . '/edit', array(
+     "roles[5]" => 5,
+    		'taxonomy_vocabulary_5[und]' => 9,
+    		'taxonomy_vocabulary_4[und]' => 13,
+    		'field_user_firstname[und][0][value]' => 'Admino',
+    		'field_user_surname[und][0][value]' => 'Adminol',
+    		'field_user_aboutme[und][0][value]' => 'aboutAdmin',
+    		'field_user_superior[und][0][target_id]' => 'admin (1)'),
+    		t('Save'));
     // Giving field worker some details by editing the profile page.
   }
 	
   public function testValidUploadImages() {
+  	
     $this->drupalGet('node/add/fieldtrip', array(
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
@@ -95,7 +105,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $this->assertNoField(t('field_fieldtrip_proms_ta_id[und][0][value]'), 'TA Number field was removed');
     $fullReportSubmit['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(13);
-    $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 'fieldwork';
     $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -156,7 +166,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     $fullReportSubmit1['field_fieldtrip_internal_id[und][0][value]'] = 100;
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta Field was renamed');
-    $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmit1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmit1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
