@@ -79,6 +79,7 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
       'administer nodes',
       'administer permissions',
       'access user profiles',
+      'administer taxonomy',
       'administer site configuration',
       'administer modules'));
     $this->fieldWorker->roles[] = 'field worker';
@@ -91,7 +92,9 @@ class FieltripActionItemsSubmissionsTestCase extends SimpleTestCloneTestCase {
       'field_user_firstname[und][0][value]' => 'ozzx',
       'field_user_surname[und][0][value]' => 'xzzo',
       'field_user_aboutme[und][0][value]' => 'aboutjan',
-      'field_user_superior[und][0][target_id]' => 'admin (1)'),
+      'field_user_superior[und][0][target_id]' => 'admin (1)',
+      'taxonomy_vocabulary_5[und]' => 8,
+      'taxonomy_vocabulary_4[und]' => 12),
     t('Save'));
   } 
  /**
