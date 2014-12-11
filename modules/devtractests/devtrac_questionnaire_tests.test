@@ -62,6 +62,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->adminUser = $this->drupalCreateUser(array(
       'access content',
       'create fieldtrip content',
+      'administer taxonomy',
       'administer nodes',
       'administer permissions',
       'access user profiles',
