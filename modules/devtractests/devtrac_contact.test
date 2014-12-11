@@ -65,6 +65,7 @@ class presenceContactItemTestCase  extends SimpleTestCloneTestCase {
       'administer users',
       'administer permissions',
       'access user profiles',
+      'administer taxonomy',
       'administer site configuration',
       'administer modules'));
     $this->drupalLogin($this->dev_admin);
