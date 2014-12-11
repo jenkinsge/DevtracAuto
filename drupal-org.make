@@ -22,6 +22,7 @@ projects[adaptive_image][subdir] = "contrib"
 projects[barcode][version] = "2.1"
 projects[barcode][type] = "module"
 projects[barcode][subdir] = "contrib"
+projects[barcode][patch][] = "https://www.drupal.org/files/barcode-empty_value_in_barcode_generate_image-1937974-1.patch"
 
 projects[behavior_weights][version] = "1.0"
 projects[behavior_weights][type] = "module"
@@ -385,10 +386,6 @@ projects[search_api_date][version] = "1.0-alpha2"
 projects[search_api_date][type] = "module"
 projects[search_api_date][subdir] = "contrib"
 projects[search_api_date][patch][] = "https://www.drupal.org/files/issues/search_api_date-widget_date_only_links-2063115-7.patch"
-
-projects[search_api_file_usage][version] = "1.x-dev"
-projects[search_api_file_usage][type] = "module"
-projects[search_api_file_usage][subdir] = "contrib"
 
 projects[search_api_saved_searches][version] = "1.x-dev"
 projects[search_api_saved_searches][type] = "module"

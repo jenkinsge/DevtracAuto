@@ -426,14 +426,15 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Configure Date Format'),
     'type' => 'form',
   );
+  $tasks['devtrac_import_codelists'] = array(
+    'display_name' => st('Import CodeLists'),
+    'type' => 'batch',
+  );  
   $tasks['devtrac_install_additional_modules'] = array(
     'display_name' => st('Install additional functionality'),
     'type' => 'batch',
   );
-  $tasks['devtrac_import_codelists'] = array(
-    'display_name' => st('Import CodeLists'),
-    'type' => 'batch',
-  );
+
   // We're not going to initialize the taxonomy access settings now. Instead we
   // put a marker in the database to do it after the site install has finished.
   // (See: devtrac_init() in devtrac.profile.)
@@ -571,6 +572,7 @@ function devtrac_install_additional_modules(&$install_state) {
   variable_set('devtrac_menu_rebuild_needed', TRUE);
   $modules = array(
     // 'devtrac7_profile_menu',
+    'devtrac7_site_configuration_feature',
     'devtrac7_solr_search_feature',
     'devtrac7_solr_search_district_feature',
     'devtrac7_solr_search_location_feature',
