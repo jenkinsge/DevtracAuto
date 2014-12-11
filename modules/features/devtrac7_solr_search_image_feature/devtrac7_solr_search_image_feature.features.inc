@@ -170,6 +170,11 @@ function devtrac7_solr_search_image_feature_default_search_api_index() {
           "weight" : "-50",
           "settings" : { "default" : "0", "bundles" : { "image" : "image" } }
         },
+        "search_api_file_source_bundle_filter" : {
+          "status" : 1,
+          "weight" : "-10",
+          "settings" : { "bundles" : { "ftritem" : "ftritem" } }
+        },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "-49", "settings" : { "mode" : "teaser" } },
         "search_api_alter_add_hierarchy" : {
           "status" : 1,
