@@ -387,6 +387,10 @@ projects[search_api_date][type] = "module"
 projects[search_api_date][subdir] = "contrib"
 projects[search_api_date][patch][] = "https://www.drupal.org/files/issues/search_api_date-widget_date_only_links-2063115-7.patch"
 
+projects[search_api_file_source_bundle_filter][version] = "1.x-dev"
+projects[search_api_file_source_bundle_filter][type] = "module"
+projects[search_api_file_source_bundle_filter][subdir] = "contrib"
+
 projects[search_api_saved_searches][version] = "1.x-dev"
 projects[search_api_saved_searches][type] = "module"
 projects[search_api_saved_searches][subdir] = "contrib"
