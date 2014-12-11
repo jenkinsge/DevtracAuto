@@ -74,6 +74,7 @@ class CreatePermittedUserCreateUserWithSameDetailTestCase extends SimpleTestClon
       'access user profiles',
       'administer site configuration',
       'administer modules',
+      'administer taxonomy',
       'edit taxonomy_vocabulary_1',));
     $this->admin_user->roles[] = 'administration';
     user_save($this->admin_user);
@@ -190,6 +191,7 @@ class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTest
       'administer users',
       'administer permissions',
       'access user profiles',
+      'administer taxonomy',
       'administer site configuration',
       'administer modules'));
     $this->fieldWorker = $this->drupalCreateUser(array('administer users', 'administer permissions', 'access user profiles', 'administer site configuration', 'administer modules', 'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
@@ -342,6 +344,7 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
       'administer users',
       'administer permissions',
       'access user profiles',
+      'administer taxonomy',
       'administer site configuration',
       'administer modules',
       'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
