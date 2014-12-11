@@ -74,16 +74,18 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
       'administer nodes',
       'administer permissions',
       'access user profiles',
+      'administer taxonomy',
+      'create taxonomy_vocabulary_1',
       'administer site configuration',
       'administer modules'));
     $this->administrator->roles[] = 'field worker';
     user_save($this->fieldWorker);
     $this->drupalLogin($this->fieldWorker);
     $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
-    // Giving field worker some details by editing the profile page.
+    $this->drupalGet('user/' . $this->fieldWorker->uid . '/edit');
   }
-	
   public function testValidUploadImages() {
+  	$this->drupalGet('user/' . $this->fieldWorker->uid . '/edit');
     $this->drupalGet('node/add/fieldtrip', array(
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
@@ -95,7 +97,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $this->assertNoField(t('field_fieldtrip_proms_ta_id[und][0][value]'), 'TA Number field was removed');
     $fullReportSubmit['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(13);
-    $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6;
     $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -121,7 +123,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Taxonomy vocabulary 8 renamed');
     $ftr['title'] = $this->randomString(12);
     $this->assertField('taxonomy_vocabulary_6[und]', 'District field is nolonger available');
-    $ftr['taxonomy_vocabulary_7[und]'] = 242;
+    $ftr['taxonomy_vocabulary_7[und]'] = 247;
     $this->assertNoField('files[field_ftritem_images_und_0]', 'Image upload Field name changed');
     $ftr['media[field_ftritem_images_und_0]'] = 'themes/devtrac7_theme/devtrac_logo.jpg';
     $this->drupalPost(NULL, $ftr, t('Save'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmit11->nid)));
@@ -156,7 +158,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     $fullReportSubmit1['field_fieldtrip_internal_id[und][0][value]'] = 100;
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta Field was renamed');
-    $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
+    $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
     $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmit1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmit1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
@@ -172,8 +174,8 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     // Now fill in the Edit Field Trip Report Item Site Visit form.
     $this->assertNoLink('Create New Location', 0, 'clicked');
     $ditnarrative1['title'] = 'YES THAT IS FOR NOW!';
-    $ditnarrative1['taxonomy_vocabulary_1[und]'] = 245;
-    $ditnarrative1['taxonomy_vocabulary_7[und]'] = 242;
+    $ditnarrative1['taxonomy_vocabulary_1[und]'] = 53;
+    $ditnarrative1['taxonomy_vocabulary_7[und]'] = 247;
     $this->assertField('taxonomy_vocabulary_7[und]', 'Taxonomy vocabulary 7 is found');
     $this->assertField('taxonomy_vocabulary_6[und]', 'taxonomy vocabulary_6 is removed');
     $ditnarrative1['field_ftritem_narrative[und][0][value]'] = 'dsdvsdsdsdssy89488';

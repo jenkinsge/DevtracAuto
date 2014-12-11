@@ -62,6 +62,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->adminUser = $this->drupalCreateUser(array(
       'access content',
       'create fieldtrip content',
+      'administer taxonomy',
       'administer nodes',
       'administer permissions',
       'access user profiles',
@@ -72,7 +73,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->adminUser->roles[] = 'administrator';
     user_save($this->adminUser);
     $this->drupalLogin($this->adminUser);
-    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     /*$this->drupalPost('user/' . $this->adminUser->uid . '/edit', array(
     "roles[3]" => 3,
     'taxonomy_vocabulary_5[und]' => 30,
@@ -225,7 +226,7 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->Editor_user->roles[] = 'editor';
     user_save($this->Editor_user);
     $this->drupalLogin($this->Editor_user);
-    $this->assertNoText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
+    $this->assertText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     $this->drupalPost('user/' . $this->Editor_user->uid . '/edit', array(
       "roles[4]" => 4,
       'taxonomy_vocabulary_5[und]' => 11,

@@ -168,6 +168,7 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
       'create fieldtrip content',
       'administer users',
       'administer permissions',
+      'administer taxonomy',
       'access user profiles',
       'administer site configuration',
       'administer modules'));

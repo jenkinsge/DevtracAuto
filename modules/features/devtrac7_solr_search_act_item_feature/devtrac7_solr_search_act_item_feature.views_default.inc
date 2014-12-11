@@ -445,7 +445,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
-    'format_type' => 'date_only',
+    'format_type' => 'export_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',

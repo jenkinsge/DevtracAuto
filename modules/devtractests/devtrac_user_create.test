@@ -74,6 +74,7 @@ class CreatePermittedUserCreateUserWithSameDetailTestCase extends SimpleTestClon
       'access user profiles',
       'administer site configuration',
       'administer modules',
+      'administer taxonomy',
       'edit taxonomy_vocabulary_1',));
     $this->admin_user->roles[] = 'administration';
     user_save($this->admin_user);
@@ -87,8 +88,8 @@ class CreatePermittedUserCreateUserWithSameDetailTestCase extends SimpleTestClon
   public function testDevtrac7UserRegistration() {
     $this->drupalPost('user/' . $this->admin_user->uid . '/edit', array(
       "roles[3]" => 3,
-      'taxonomy_vocabulary_5[und]' => 5,
-      'taxonomy_vocabulary_4[und]' => 7,
+      'taxonomy_vocabulary_5[und]' => 8,
+      'taxonomy_vocabulary_4[und]' => 12,
       'field_user_firstname[und][0][value]' => 'admin',
       'field_user_surname[und][0][value]' => 'Adminol',
       'field_user_aboutme[und][0][value]' => 'aboutAdmin',
@@ -190,6 +191,7 @@ class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTest
       'administer users',
       'administer permissions',
       'access user profiles',
+      'administer taxonomy',
       'administer site configuration',
       'administer modules'));
     $this->fieldWorker = $this->drupalCreateUser(array('administer users', 'administer permissions', 'access user profiles', 'administer site configuration', 'administer modules', 'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
@@ -209,7 +211,7 @@ class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTest
    * Attempting to create a user and manager field is left empty.
    * 
    */
-  public function testDevtrac7UserRegistrationNotSuccessifulCase() {
+  public function testDevtrac7UserRegistrationNotSuccessfullCase() {
     $newUser1['field_user_firstname[und][0][value]'] = 'Moses';
     $newUser1['field_user_surname[und][0][value]'] = 'guide';
     $newUser1['field_user_aboutme[und][0][value]'] = 'cordinator for kampala district';
@@ -233,7 +235,7 @@ class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTest
   * Now trying to finish the user create rutines.
   *
   */
-  public function testDevtrac7UserRegistrationSuccessifulCase() {
+  public function testDevtrac7UserRegistrationSuccessfullCase() {
     $newUserx['field_user_firstname[und][0][value]'] = 'Moses';
     $newUserx['field_user_surname[und][0][value]'] = 'guide';
     $newUserx['field_user_aboutme[und][0][value]'] = 'Unicef cordinator for kampala district';
@@ -342,13 +344,14 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
       'administer users',
       'administer permissions',
       'access user profiles',
+      'administer taxonomy',
       'administer site configuration',
       'administer modules',
       'create taxonomy_vocabulary_6', 'create taxonomy_vocabulary_8'));
     $this->drupalLogin($this->fieldWorkerx);
     $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     $this->drupalPost('user/' . $this->fieldWorkerx->uid . '/edit', array(
-    "roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'), t('Save'));
+    "roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'admin (1)'), t('Save'));
   }
   /**
    * Finally login in authenticated user to create a devtrac user.
@@ -364,11 +367,11 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
     $newUserx['pass[pass2]'] = '1234';
     $newUserx['status'] = 1;
     // New findings(now required).
-    $newUserx['taxonomy_vocabulary_4[und]'] = 7;
+    $newUserx['taxonomy_vocabulary_4[und]'] = 12;
     $newUserx['field_user_superior[und][0][target_id]'] = 'admin (1)';
     $newUserx['roles[5]'] = 5;
     $newUserx['field_user_title[und][0][value]'] = 5;
-    $newUserx['taxonomy_vocabulary_5[und]'] = 5;
+    $newUserx['taxonomy_vocabulary_5[und]'] = 8;
     $newUserx['field_user_degree[und][0][value]'] = 'Information Technology';
     $newUserx['field_user_superior[und][0][target_id]'] = 'firstname' . ' ' . 'lname' . ' (' . $this->fieldWorkerx->uid . ')';
     $this->drupalPost('admin/people/create', $newUserx, t('Create new account'));
@@ -391,8 +394,8 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
     $newUserx['pass[pass2]'] = '1234';
     $newUserx['status'] = 1;
     // New findings(now required).
-    $newUserx['taxonomy_vocabulary_5[und]'] = 4;
-    $newUserx['taxonomy_vocabulary_4[und]'] = 7;
+    $newUserx['taxonomy_vocabulary_5[und]'] = 8;
+    $newUserx['taxonomy_vocabulary_4[und]'] = 12;
     // $newUserx['field_user_superior[und][0][target_id]'] = 'firstname lname (307)';
     $newUserx['roles[5]'] = 5;
     $newUserx['field_user_title[und][0][value]'] = 5;

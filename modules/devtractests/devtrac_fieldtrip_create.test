@@ -81,6 +81,7 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
       'save file information',
       'skip comment approval',
       'submit questions',
+      'administer taxonomy',
       'view taxonomy_vocabulary_1',
       'access comments',
       'access content',

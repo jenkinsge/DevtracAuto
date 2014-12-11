@@ -544,7 +544,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['settings'] = array(
-    'format_type' => 'date_only',
+    'format_type' => 'export_only',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
