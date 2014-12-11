@@ -507,6 +507,7 @@ class TestCreateFieldTripReportItemTestCase extends SimpleTestCloneTestCase {
       'get own binary files',
       'hide own comments',
       'post comments',
+      'administer taxonomy',
       'save file information',
       'skip comment approval',
       'submit questions',

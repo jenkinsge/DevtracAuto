@@ -367,11 +367,11 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
     $newUserx['pass[pass2]'] = '1234';
     $newUserx['status'] = 1;
     // New findings(now required).
-    $newUserx['taxonomy_vocabulary_4[und]'] = 7;
+    $newUserx['taxonomy_vocabulary_4[und]'] = 12;
     $newUserx['field_user_superior[und][0][target_id]'] = 'admin (1)';
     $newUserx['roles[5]'] = 5;
     $newUserx['field_user_title[und][0][value]'] = 5;
-    $newUserx['taxonomy_vocabulary_5[und]'] = 5;
+    $newUserx['taxonomy_vocabulary_5[und]'] = 8;
     $newUserx['field_user_degree[und][0][value]'] = 'Information Technology';
     $newUserx['field_user_superior[und][0][target_id]'] = 'firstname' . ' ' . 'lname' . ' (' . $this->fieldWorkerx->uid . ')';
     $this->drupalPost('admin/people/create', $newUserx, t('Create new account'));
@@ -394,8 +394,8 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
     $newUserx['pass[pass2]'] = '1234';
     $newUserx['status'] = 1;
     // New findings(now required).
-    $newUserx['taxonomy_vocabulary_5[und]'] = 4;
-    $newUserx['taxonomy_vocabulary_4[und]'] = 7;
+    $newUserx['taxonomy_vocabulary_5[und]'] = 8;
+    $newUserx['taxonomy_vocabulary_4[und]'] = 12;
     // $newUserx['field_user_superior[und][0][target_id]'] = 'firstname lname (307)';
     $newUserx['roles[5]'] = 5;
     $newUserx['field_user_title[und][0][value]'] = 5;
