@@ -88,8 +88,8 @@ class CreatePermittedUserCreateUserWithSameDetailTestCase extends SimpleTestClon
   public function testDevtrac7UserRegistration() {
     $this->drupalPost('user/' . $this->admin_user->uid . '/edit', array(
       "roles[3]" => 3,
-      'taxonomy_vocabulary_5[und]' => 5,
-      'taxonomy_vocabulary_4[und]' => 7,
+      'taxonomy_vocabulary_5[und]' => 8,
+      'taxonomy_vocabulary_4[und]' => 12,
       'field_user_firstname[und][0][value]' => 'admin',
       'field_user_surname[und][0][value]' => 'Adminol',
       'field_user_aboutme[und][0][value]' => 'aboutAdmin',
@@ -211,7 +211,7 @@ class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTest
    * Attempting to create a user and manager field is left empty.
    * 
    */
-  public function testDevtrac7UserRegistrationNotSuccessifulCase() {
+  public function testDevtrac7UserRegistrationNotSuccessfullCase() {
     $newUser1['field_user_firstname[und][0][value]'] = 'Moses';
     $newUser1['field_user_surname[und][0][value]'] = 'guide';
     $newUser1['field_user_aboutme[und][0][value]'] = 'cordinator for kampala district';
@@ -235,7 +235,7 @@ class FieldtripCreatePermittedUserCreateUserTestCase extends SimpleTestCloneTest
   * Now trying to finish the user create rutines.
   *
   */
-  public function testDevtrac7UserRegistrationSuccessifulCase() {
+  public function testDevtrac7UserRegistrationSuccessfullCase() {
     $newUserx['field_user_firstname[und][0][value]'] = 'Moses';
     $newUserx['field_user_surname[und][0][value]'] = 'guide';
     $newUserx['field_user_aboutme[und][0][value]'] = 'Unicef cordinator for kampala district';
@@ -351,7 +351,7 @@ class FieldtripUserAutoManagerTestCase extends SimpleTestCloneTestCase {
     $this->drupalLogin($this->fieldWorkerx);
     $this->assertText(t('Overview'), t('Overview text on the use page is found'), 'Devtrac');
     $this->drupalPost('user/' . $this->fieldWorkerx->uid . '/edit', array(
-    "roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'Jan van Diepen (3)'), t('Save'));
+    "roles[5]" => 5, 'field_user_firstname[und][0][value]' => 'firstname', 'field_user_surname[und][0][value]' => 'lname', 'field_user_aboutme[und][0][value]' => 'aboutjan', 'name' =>'tester', 'field_user_superior[und][0][target_id]' => 'admin (1)'), t('Save'));
   }
   /**
    * Finally login in authenticated user to create a devtrac user.
