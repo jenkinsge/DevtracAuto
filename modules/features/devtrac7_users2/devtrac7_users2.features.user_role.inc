@@ -10,12 +10,6 @@
 function devtrac7_users2_user_default_roles() {
   $roles = array();
 
-  // Exported role: administrator.
-//  $roles['administrator'] = array(
-//    'name' => 'administrator',
-//    'weight' => 0,
-//  );
-
   // Exported role: devtrac admin.
   $roles['devtrac admin'] = array(
     'name' => 'devtrac admin',
