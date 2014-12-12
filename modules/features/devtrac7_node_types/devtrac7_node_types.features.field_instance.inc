@@ -10,6 +10,44 @@
 function devtrac7_node_types_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'comment-comment_node_actionitem-comment_body'
+  $field_instances['comment-comment_node_actionitem-comment_body'] = array(
+    'bundle' => 'comment_node_actionitem',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'comment',
+    'field_name' => 'comment_body',
+    'label' => 'Comment',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 2,
+    ),
+  );
+
   // Exported field_instance: 'comment-comment_node_actionitem-field_actionitem_status'
   $field_instances['comment-comment_node_actionitem-field_actionitem_status'] = array(
     'bundle' => 'comment_node_actionitem',
@@ -73,10 +111,49 @@ function devtrac7_node_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => 1,
+        'content_taxonomy_opt_groups' => FALSE,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_select',
       'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'comment-comment_node_fieldtrip-comment_body'
+  $field_instances['comment-comment_node_fieldtrip-comment_body'] = array(
+    'bundle' => 'comment_node_fieldtrip',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'comment',
+    'field_name' => 'comment_body',
+    'label' => 'Comment',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 0,
     ),
   );
 
@@ -842,7 +919,7 @@ function devtrac7_node_types_field_default_field_instances() {
   $field_instances['node-actionitem-field_actionitem_severity'] = array(
     'bundle' => 'actionitem',
     'default_value' => array(
-        0 => array(
+      0 => array(
         'value' => 2,
       ),
     ),
@@ -1197,6 +1274,7 @@ function devtrac7_node_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => 1,
+        'content_taxonomy_opt_groups' => FALSE,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_select',
@@ -3371,6 +3449,7 @@ function devtrac7_node_types_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(
         'apply_chosen' => 1,
+        'content_taxonomy_opt_groups' => FALSE,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
       ),
       'type' => 'options_select',
@@ -4381,13 +4460,14 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('Approved By');
   t('Body');
   t('Button');
+  t('Comment');
   t('Contact Person');
   t('Contact Persons');
   t('Current status of the Site Report');
   t('Current status on the Field Trip');
   t('Date on which the Field Trip is approved');
   t('Description');
-  t('Did you take any photos during the reporting? Please upload the images from here. Click "Choose File" to access the images on your computer.');
+  t('Did you take any photos during the reporting? Please upload the images from here. Click "Browse" to upload an Image or select one from the Library.');
   t('Due Date');
   t('E-mail');
   t('Email');
