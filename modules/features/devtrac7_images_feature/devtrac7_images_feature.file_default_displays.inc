@@ -53,8 +53,8 @@ function devtrac7_images_feature_file_default_displays() {
     'colorbox_image_style' => 'gallery_popup_images',
     'colorbox_gallery' => 'page',
     'colorbox_gallery_custom' => '',
-    'colorbox_caption' => 'auto',
-    'colorbox_caption_custom' => '',
+    'colorbox_caption' => 'custom',
+    'colorbox_caption_custom' => '[file:field-file-image-title-text] Added to : [file:node-usage]',
   );
   $export['image__teaser__file_field_colorbox'] = $file_display;
 

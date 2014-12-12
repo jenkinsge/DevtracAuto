@@ -1,0 +1,6 @@
+name = "Devtrac7 Index Immediately"
+description = "Changes settings of all search_api to index items immediately."
+core = "7.x"
+package = "Devtrac" 
+
+files[] = devtrac7_index_immediate.module

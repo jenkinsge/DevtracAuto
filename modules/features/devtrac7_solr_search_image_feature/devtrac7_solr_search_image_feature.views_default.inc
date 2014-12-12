@@ -255,7 +255,8 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['list']['separator'] = '';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['display'] = 'view';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['view_mode'] = 'list_view_mode';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['view_mode'] = 'sector_code_icon';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['bypass_access'] = 0;
   /* Field: Indexed File: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'search_api_index_devtrac_solr_image_index';
