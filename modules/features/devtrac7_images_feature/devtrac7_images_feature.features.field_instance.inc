@@ -100,7 +100,7 @@ function devtrac7_images_feature_field_default_field_instances() {
     'bundle' => 'image',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'You don\'t need to fill in this field. 
+    'description' => 'You don\'t need to fill in this field.
 If available, this will be filled in automatically with the date that is contained in the image file itself.',
     'display' => array(
       'default' => array(
@@ -500,15 +500,8 @@ It will be automatically filled in with the date recorded with your image or wit
       ),
       'teaser' => array(
         'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
     ),
@@ -603,11 +596,8 @@ It will be automatically filled in with the GPS information of the image or with
       ),
       'teaser' => array(
         'label' => 'above',
-        'module' => 'geofield',
-        'settings' => array(
-          'data' => 'full',
-        ),
-        'type' => 'geofield_wkt',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 0,
       ),
     ),
@@ -798,7 +788,7 @@ It will be automatically filled in with the place type of your Field Trip when y
     'default_value' => NULL,
     'deleted' => 0,
     'description' => 'You don\'t need to fill in this field.
-It will be automatically filled in with the districk of your Field Trip when you save the Field Trip Report. ',
+It will be automatically filled in with the district of your Field Trip when you save the Field Trip Report. ',
     'display' => array(
       'default' => array(
         'label' => 'inline',
@@ -966,7 +956,7 @@ It will be automatically filled in with the sectors of your Field Trip when you 
   t('This text is displayed with the image in pop-ups, lists and slide shows');
   t('Title Text');
   t('You don\'t need to fill in this field.
-If available, this will be filled in automatically with GPS informatio that is contained in the image file itself.');
+If available, this will be filled in automatically with GPS information that is contained in the image file itself.');
   t('You don\'t need to fill in this field.
 If available, this will be filled in automatically with GPS information that is contained in the image file itself.');
   t('You don\'t need to fill in this field.
@@ -974,12 +964,12 @@ It will be automatically filled in with the GPS information of the image or with
   t('You don\'t need to fill in this field.
 It will be automatically filled in with the date recorded with your image or with the date of your Field Trip when you save the Field Trip Report. ');
   t('You don\'t need to fill in this field.
-It will be automatically filled in with the districk of your Field Trip when you save the Field Trip Report. ');
+It will be automatically filled in with the district of your Field Trip when you save the Field Trip Report. ');
   t('You don\'t need to fill in this field.
 It will be automatically filled in with the place type of your Field Trip when you save the Field Trip Report. ');
   t('You don\'t need to fill in this field.
 It will be automatically filled in with the sectors of your Field Trip when you save the Field Trip Report. ');
-  t('You don\'t need to fill in this field. 
+  t('You don\'t need to fill in this field.
 If available, this will be filled in automatically with the date that is contained in the image file itself.');
 
   return $field_instances;
