@@ -195,7 +195,6 @@ dependencies[] = role_delegation
 ; dependencies[] = js
 dependencies[] = shs
 dependencies[] = barcode
-dependencies[] = devtrac_demo_phase
 dependencies[] = search_api_file_source_bundle_filter
 
 ; Questionnaire
