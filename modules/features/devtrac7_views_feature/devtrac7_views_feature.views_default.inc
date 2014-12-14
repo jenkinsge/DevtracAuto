@@ -192,7 +192,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_resp_place' => 'field_actionitem_resp_place',
     'field_actionitem_responsible' => 'field_actionitem_responsible',
     'view' => 'view',
-    'view_1' => 'view_1',
   );
   $handler->display->display_options['style_options']['default'] = 'field_actionitem_due_date';
   $handler->display->display_options['style_options']['info'] = array(
@@ -230,11 +229,6 @@ function devtrac7_views_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'view' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'view_1' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -305,19 +299,10 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['view']['id'] = 'view';
   $handler->display->display_options['fields']['view']['table'] = 'views';
   $handler->display->display_options['fields']['view']['field'] = 'view';
-  $handler->display->display_options['fields']['view']['label'] = 'Progress';
-  $handler->display->display_options['fields']['view']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view']['label'] = 'Actions';
   $handler->display->display_options['fields']['view']['view'] = 'dvtrc_action_items';
-  $handler->display->display_options['fields']['view']['display'] = 'block_13';
+  $handler->display->display_options['fields']['view']['display'] = 'block_14';
   $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
-  /* Field: Global: View */
-  $handler->display->display_options['fields']['view_1']['id'] = 'view_1';
-  $handler->display->display_options['fields']['view_1']['table'] = 'views';
-  $handler->display->display_options['fields']['view_1']['field'] = 'view';
-  $handler->display->display_options['fields']['view_1']['label'] = 'Actions';
-  $handler->display->display_options['fields']['view_1']['view'] = 'dvtrc_action_items';
-  $handler->display->display_options['fields']['view_1']['display'] = 'block_14';
-  $handler->display->display_options['fields']['view_1']['arguments'] = '[!nid]';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -375,7 +360,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_due_date' => 'field_actionitem_due_date',
     'field_actionitem_status' => 'field_actionitem_status',
     'field_actionitem_responsible' => 'field_actionitem_responsible',
-    'virtual_field' => 'virtual_field',
   );
   $handler->display->display_options['style_options']['default'] = 'field_actionitem_status';
   $handler->display->display_options['style_options']['info'] = array(
@@ -402,11 +386,6 @@ function devtrac7_views_feature_views_default_views() {
     ),
     'field_actionitem_responsible' => array(
       'align' => 'views-align-left',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'virtual_field' => array(
-      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
@@ -458,13 +437,6 @@ function devtrac7_views_feature_views_default_views() {
     'link' => 1,
   );
   $handler->display->display_options['fields']['field_actionitem_responsible']['delta_offset'] = '0';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_progress_bar';
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -587,7 +559,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_responsible' => 'field_actionitem_responsible',
     'field_actionitem_resp_place' => 'field_actionitem_resp_place',
     'virtual_field' => 'virtual_field',
-    'virtual_field_1' => 'virtual_field_1',
   );
   $handler->display->display_options['style_options']['default'] = 'field_actionitem_due_date';
   $handler->display->display_options['style_options']['info'] = array(
@@ -618,11 +589,6 @@ function devtrac7_views_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'virtual_field' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'virtual_field_1' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -691,12 +657,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['label'] = 'Actions';
   $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_fieldtrip_button';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field_1']['id'] = 'virtual_field_1';
-  $handler->display->display_options['fields']['virtual_field_1']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field_1']['virtual_field'] = 'field_progress_bar';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
@@ -1059,7 +1019,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_responsible' => 'field_actionitem_responsible',
     'field_actionitem_resp_place' => 'field_actionitem_resp_place',
     'virtual_field' => 'virtual_field',
-    'virtual_field_1' => 'virtual_field_1',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -1090,11 +1049,6 @@ function devtrac7_views_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'virtual_field' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'virtual_field_1' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -1156,12 +1110,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_status']['id'] = 'field_actionitem_status';
   $handler->display->display_options['fields']['field_actionitem_status']['table'] = 'field_data_field_actionitem_status';
   $handler->display->display_options['fields']['field_actionitem_status']['field'] = 'field_actionitem_status';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field_1']['id'] = 'virtual_field_1';
-  $handler->display->display_options['fields']['virtual_field_1']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field_1']['virtual_field'] = 'field_progress_bar';
   /* Field: Virtual Field: virtual_field */
   $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
@@ -3165,7 +3113,6 @@ function devtrac7_views_feature_views_default_views() {
     'title' => 'title',
     'field_fieldtrip_start_end_date' => 'field_fieldtrip_start_end_date',
     'field_fieldtrip_start_end_date_1' => 'field_fieldtrip_start_end_date_1',
-    'field_fieldtrip_start_end_date_2' => 'field_fieldtrip_start_end_date_2',
     'field_fieldtrip_status' => 'field_fieldtrip_status',
     'virtual_field_1' => 'virtual_field_1',
     'virtual_field' => 'virtual_field',
@@ -3187,13 +3134,6 @@ function devtrac7_views_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'field_fieldtrip_start_end_date_1' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_fieldtrip_start_end_date_2' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -3240,10 +3180,10 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'field_data_field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start and End Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
     'format_type' => 'date_only',
-    'fromto' => 'value',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -3252,21 +3192,9 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['id'] = 'field_fieldtrip_start_end_date_1';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['table'] = 'field_data_field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'Duration';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'date_only',
-    'fromto' => 'value2',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Field: Content: Start and End Date */
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['id'] = 'field_fieldtrip_start_end_date_2';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['table'] = 'field_data_field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
     'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
@@ -4498,7 +4426,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_due_date' => 'field_actionitem_due_date',
     'field_actionitem_responsible' => 'field_actionitem_responsible',
     'field_actionitem_status' => 'field_actionitem_status',
-    'virtual_field' => 'virtual_field',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -4524,11 +4451,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_status' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'virtual_field' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -4573,13 +4495,6 @@ function devtrac7_views_feature_views_default_views() {
     'link' => 1,
   );
   $handler->display->display_options['fields']['field_actionitem_responsible']['delta_offset'] = '0';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_progress_bar';
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
   $handler->display->display_options['arguments']['nid']['table'] = 'node';
@@ -6039,6 +5954,7 @@ function devtrac7_views_feature_views_default_views() {
     'field_ftritem_date_visited' => 'field_ftritem_date_visited',
     'field_ftritem_place' => 'field_ftritem_place',
     'virtual_field' => 'virtual_field',
+    'virtual_field_1' => 'virtual_field_1',
   );
   $handler->display->display_options['style_options']['default'] = 'field_ftritem_date_visited';
   $handler->display->display_options['style_options']['info'] = array(
@@ -6069,6 +5985,11 @@ function devtrac7_views_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'virtual_field' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 1,
+    ),
+    'virtual_field_1' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 1,
@@ -6120,10 +6041,17 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['label'] = 'Actions';
-  $handler->display->display_options['fields']['virtual_field']['element_wrapper_class'] = 'ctools-button-processed';
-  $handler->display->display_options['fields']['virtual_field']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_fieldtrip_button';
+  $handler->display->display_options['fields']['virtual_field']['label'] = 'Progress';
+  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_progress_bar';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Field: Virtual Field: virtual_field */
+  $handler->display->display_options['fields']['virtual_field_1']['id'] = 'virtual_field_1';
+  $handler->display->display_options['fields']['virtual_field_1']['table'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field_1']['field'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field_1']['label'] = 'Actions';
+  $handler->display->display_options['fields']['virtual_field_1']['element_wrapper_class'] = 'ctools-button-processed';
+  $handler->display->display_options['fields']['virtual_field_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['virtual_field_1']['virtual_field'] = 'field_fieldtrip_button';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
