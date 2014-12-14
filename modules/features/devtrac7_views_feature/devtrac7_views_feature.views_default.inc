@@ -3165,7 +3165,6 @@ function devtrac7_views_feature_views_default_views() {
     'title' => 'title',
     'field_fieldtrip_start_end_date' => 'field_fieldtrip_start_end_date',
     'field_fieldtrip_start_end_date_1' => 'field_fieldtrip_start_end_date_1',
-    'field_fieldtrip_start_end_date_2' => 'field_fieldtrip_start_end_date_2',
     'field_fieldtrip_status' => 'field_fieldtrip_status',
     'virtual_field_1' => 'virtual_field_1',
     'virtual_field' => 'virtual_field',
@@ -3187,13 +3186,6 @@ function devtrac7_views_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'field_fieldtrip_start_end_date_1' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_fieldtrip_start_end_date_2' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
@@ -3240,10 +3232,10 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'field_data_field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start and End Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
     'format_type' => 'date_only',
-    'fromto' => 'value',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -3252,21 +3244,9 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['id'] = 'field_fieldtrip_start_end_date_1';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['table'] = 'field_data_field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'Duration';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'date_only',
-    'fromto' => 'value2',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Field: Content: Start and End Date */
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['id'] = 'field_fieldtrip_start_end_date_2';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['table'] = 'field_data_field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
     'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
