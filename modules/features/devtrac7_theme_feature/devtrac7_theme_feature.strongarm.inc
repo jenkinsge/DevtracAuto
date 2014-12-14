@@ -47,6 +47,7 @@ function devtrac7_theme_feature_strongarm() {
     'extra' => array(
       'pages' => '',
       'visibility' => '0',
+      'admin' => TRUE,
     ),
   );
   $export['better_messages'] = $strongarm;
