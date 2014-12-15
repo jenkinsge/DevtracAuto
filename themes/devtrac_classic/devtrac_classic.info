@@ -41,7 +41,7 @@ regions[postscript_fourth] = 'Postscript Fourth'
 regions[categories] = 'Categories'
 regions[breadcrumb] = 'Breadcrumb'
 regions[filter] = 'Filter'
-regions[questions] = 'Questions
+regions[questions] = 'Questions'
 regions[map_toolbar] = 'Map Toolbar'
 
 zones[branding] = 'Branding'

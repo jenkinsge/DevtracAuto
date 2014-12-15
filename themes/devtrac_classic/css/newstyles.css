@@ -120,6 +120,8 @@ table tbody tr.even td.active {
 
 .block-nice-menus {
   z-index: inherit;
+  display: inline-block;
+  float: right;
 }
 
 .zone-featured {
@@ -149,7 +151,7 @@ table tbody tr.even td.active {
 
 .zone-featured .nice-menu {
   float: right;
-  margin-right: 50px;
+  margin-right: 5px;
 }
 
 .zone-featured .nice-menu ,
@@ -192,16 +194,19 @@ table tbody tr.even td.active {
   right: 0px;
 }
 
+.zone-featured #view-modes li a ,
 .zone-featured .nice-menu li a {
   padding: 5px 5px;
   color: #FFFFFF;
 }
 
+.zone-featured #view-modes li a:hover ,
 .zone-featured .nice-menu li a:hover {
   text-decoration: none;
   background-color: #000000;
 }
 
+.zone-featured #view-modes li a ,
 .zone-featured .nice-menu li a.map ,
 .zone-featured .nice-menu li a.list ,
 .zone-featured .nice-menu li a.graphs {
@@ -214,17 +219,28 @@ table tbody tr.even td.active {
   color: transparent;
 }
 
+.zone-featured #view-modes li.default a ,
 .zone-featured .nice-menu li a.map {
   background-image: url(../images/user-menu-icon-map.png);
 }
 
+.zone-featured #view-modes li.list a ,
 .zone-featured .nice-menu li a.list {
   background-image: url(../images/user-menu-icon-list.png);
 }
 
+.zone-featured #view-modes li.graphs a ,
 .zone-featured .nice-menu li a.graphs {
   background-image: url(../images/user-menu-icon-graph.png);
   margin-right: 5px;
+}
+
+.zone-featured #view-modes li.tagcloud {
+  display: none;
+}
+
+.zone-featured #view-modes li a.views-modes-active.active {
+  background-color: #222222;
 }
 
 .zone-featured .nice-menu li.menuparent li {
@@ -266,12 +282,38 @@ table tbody tr.even td.active {
 
 .region-featured-inner {
   position: relative;
+  height: 27px;
 }
 
 .zone-featured .block-current-search {
   display: inline-block;
-  position: absolute;
-  top: 0px;
+/*  position: absolute;
+  top: 0px;*/
+}
+
+.zone-featured .block-views-modes-modes {
+  display: inline-block;
+  float: right;
+}
+
+.zone-featured .block-views-modes-modes ul {
+  margin: 0;
+  height: 27px;
+}
+
+.zone-featured .block-views-modes-modes ul li {
+  display: inline-block;
+  height: 27px;
+  width: 31px;
+  list-style: none;
+  float: left;
+}
+
+.zone-featured .block-views-modes-modes ul li a {
+  display: inline-block;
+  height: 27px;
+  width: 31px;
+  overflow: hidden;
 }
 
 .zone-featured .block-current-search h3 {
@@ -281,12 +323,11 @@ table tbody tr.even td.active {
 
 
 .zone-featured .block-pane {
-  position: absolute;
-  right: 20px;
-  top: 0;
   width: 31px;
   height: 27px;
-
+  display: inline-block;
+  float: right;
+  margin-right: 20px;
 }
 
 .zone-featured .block-pane .block-inner {
@@ -375,6 +416,10 @@ table tbody tr.even td.active {
 }
 
 .context-sitereport .zone-content .grid-4.region-content .action-links {
+  display: none;
+}
+
+.fluid .view-modes-graphs .block-system-main .views-table {
   display: none;
 }
 
