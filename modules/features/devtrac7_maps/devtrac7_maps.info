@@ -6,7 +6,6 @@ version = 7.x-1.0-beta1
 project = devtrac7_maps
 dependencies[] = ctools
 dependencies[] = devtrac7_node_types
-dependencies[] = devtrac7_wms
 dependencies[] = image
 dependencies[] = jquery_update
 dependencies[] = openlayers

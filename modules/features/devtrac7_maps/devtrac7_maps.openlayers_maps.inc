@@ -730,12 +730,6 @@ function devtrac7_maps_openlayers_maps() {
         'anchor' => 0,
       ),
       'openlayers_behavior_geofield' => array(),
-      'openlayers_behavior_wmsgetfeatureinfo' => array(
-        'getfeatureinfo_usevisiblelayers' => 1,
-        'getfeatureinfo_layers' => 'osm_mapnik',
-        'getfeatureinfo_info_format' => 'application/vnd.ogc.gml',
-        'getfeatureinfo_htmlelement' => 'getfeatureinfo',
-      ),
       'openlayers_behavior_navigation' => array(
         'zoomWheelEnabled' => 0,
         'zoomBoxEnabled' => 0,
@@ -2547,12 +2541,6 @@ function devtrac7_maps_openlayers_maps() {
       ),
     ),
     'behaviors' => array(
-      'openlayers_behavior_wmsgetfeatureinfo' => array(
-        'getfeatureinfo_usevisiblelayers' => 1,
-        'getfeatureinfo_layers' => 'osm_mapnik',
-        'getfeatureinfo_info_format' => 'application/vnd.ogc.gml',
-        'getfeatureinfo_htmlelement' => 'getfeatureinfo',
-      ),
       'openlayers_behavior_attribution' => array(
         'separator' => ' | ',
       ),
