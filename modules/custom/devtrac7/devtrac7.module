@@ -179,7 +179,7 @@ function devtrac7_menu() {
   );  
 
   $items['user/%/barcode'] = array(
-    'title' => 'Barcode',
+    'title' => 'Mobile',
     'page callback' => 'devtrac7_barcode',
     'access callback' => 'user_is_logged_in',
     'type' => MENU_LOCAL_TASK,
@@ -187,7 +187,7 @@ function devtrac7_menu() {
   );
 
   $items['devtrac7/modal/%ctools_js/barcode'] = array(
-    'title' => 'Barcode',
+    'title' => 'Mobile',
     'page callback' => 'devtrac7_modal_barcode',
     'page arguments' => array(1),
     'access callback' => 'user_is_logged_in',

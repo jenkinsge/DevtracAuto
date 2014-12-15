@@ -181,16 +181,17 @@ function devtrac7_place_devtrac7_progress_field_checks_info() {
   $referer = explode('?', $httpreferer);
   $fullpath = $referer[0];
   $path = explode('/', $fullpath);
-  if ((count($path) != 9) || ($path[4] != 'node') || ($path[5] != 'add') || ($path[6] != 'place') || !is_numeric($path[7]) || !is_numeric($path[8])) {
+  $count = count($path);
+  if (($count < 5) || ($path[$count - 5] != 'node') || ($path[$count - 4] != 'add') || ($path[$count - 3] != 'place') || !is_numeric($path[$count - 2]) || !is_numeric($path[$count - 1])) {
     return array();
   }
-  $fieldtrip = node_load($path[7]);
+  $fieldtrip = node_load($path[$count - 2]);
   if ($fieldtrip->type == 'fieldtrip') {
-    $fieldtripnid = $path[7];
+    $fieldtripnid = $path[$count - 2];
   }
-  $term = taxonomy_term_load($path[8]);
+  $term = taxonomy_term_load($path[$count - 1]);
   if ($term->vid == 7) { // Vocabulary for report types = 7
-    $reporttype = $path[8];
+    $reporttype = $path[$count - 1];
   }
   $progress_checks['devtrac7_place_addfofieldtrip'] = array(
     'name' => t('devtrac7_place_addfofieldtrip'),

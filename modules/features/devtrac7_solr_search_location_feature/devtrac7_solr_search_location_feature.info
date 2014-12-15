@@ -6,7 +6,6 @@ dependencies[] = context
 dependencies[] = ctools
 dependencies[] = current_search
 dependencies[] = delta_blocks
-dependencies[] = devtrac7_wms
 dependencies[] = entity
 dependencies[] = facetapi
 dependencies[] = footable
