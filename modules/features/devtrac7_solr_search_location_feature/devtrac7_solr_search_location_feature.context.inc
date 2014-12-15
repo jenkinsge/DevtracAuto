@@ -109,7 +109,7 @@ function devtrac7_solr_search_location_feature_context_default_contexts() {
           'module' => 'pane',
           'delta' => 'locations_info',
           'region' => 'featured',
-          'weight' => '100',
+          'weight' => '-50',
         ),
       ),
     ),
@@ -167,7 +167,7 @@ function devtrac7_solr_search_location_feature_context_default_contexts() {
           'module' => 'pane',
           'delta' => 'locations_info',
           'region' => 'olmaptext_rightuppercorner',
-          'weight' => '100',
+          'weight' => '-8',
         ),
         'current_search-devtrac7_locations_activefacets' => array(
           'module' => 'current_search',

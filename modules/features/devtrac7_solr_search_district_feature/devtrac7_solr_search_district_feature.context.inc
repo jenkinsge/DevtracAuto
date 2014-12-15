@@ -110,7 +110,7 @@ function devtrac7_solr_search_district_feature_context_default_contexts() {
           'module' => 'pane',
           'delta' => 'devtrac_solr_map_info',
           'region' => 'featured',
-          'weight' => '100',
+          'weight' => '-50',
         ),
       ),
     ),

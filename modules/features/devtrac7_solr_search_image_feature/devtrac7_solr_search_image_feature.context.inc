@@ -161,7 +161,7 @@ function devtrac7_solr_search_image_feature_context_default_contexts() {
           'module' => 'pane',
           'delta' => 'images_info',
           'region' => 'featured',
-          'weight' => '100',
+          'weight' => '-50',
         ),
         'current_search-devtrac7_images_activefacets' => array(
           'module' => 'current_search',

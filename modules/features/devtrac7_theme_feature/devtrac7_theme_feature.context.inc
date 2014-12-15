@@ -900,7 +900,7 @@ function devtrac7_theme_feature_context_default_contexts() {
           'module' => 'views_modes',
           'delta' => 'modes',
           'region' => 'featured',
-          'weight' => '-50',
+          'weight' => '100',
         ),
       ),
     ),

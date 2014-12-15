@@ -60,7 +60,7 @@ function devtrac7_solr_search_questions_feature_context_default_contexts() {
           'module' => 'pane',
           'delta' => 'statistics_info',
           'region' => 'featured',
-          'weight' => '100',
+          'weight' => '-50',
         ),
       ),
     ),

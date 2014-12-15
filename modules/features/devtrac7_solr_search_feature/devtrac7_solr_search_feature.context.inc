@@ -213,7 +213,7 @@ function devtrac7_solr_search_feature_context_default_contexts() {
           'module' => 'pane',
           'delta' => 'front_about_information',
           'region' => 'featured',
-          'weight' => '100',
+          'weight' => '-50',
         ),
         'current_search-devtrac7_sitevisits_activefacets' => array(
           'module' => 'current_search',

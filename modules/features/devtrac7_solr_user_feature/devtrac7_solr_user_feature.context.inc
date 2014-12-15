@@ -102,7 +102,7 @@ function devtrac7_solr_user_feature_context_default_contexts() {
           'module' => 'pane',
           'delta' => 'user_info',
           'region' => 'featured',
-          'weight' => '100',
+          'weight' => '-50',
         ),
       ),
     ),
