@@ -4033,7 +4033,7 @@ function devtrac7_maps_openlayers_maps() {
       'dvtrc_maps_openlayers_7' => '0',
       'dvtrc_maps_openlayers_8' => '0',
       'site_reports_recent_site_reports_data' => '0',
-      'dvtrc_user_openlayers_1' => 'devtrac_mapstyle_placetype_default',
+      'dvtrc_user_openlayers_1' => 'devtrac_mapstyle_plain_default',
     ),
     'layer_styles_select' => array(
       'devtrac_solr_view_sitevisits_json' => '0',
@@ -4061,7 +4061,7 @@ function devtrac7_maps_openlayers_maps() {
       'dvtrc_maps_openlayers_7' => '0',
       'dvtrc_maps_openlayers_8' => '0',
       'site_reports_recent_site_reports_data' => '0',
-      'dvtrc_user_openlayers_1' => 'devtrac_mapstyle_placetype_selected',
+      'dvtrc_user_openlayers_1' => 'devtrac_mapstyle_plain_selected',
     ),
     'layer_styles_temporary' => array(
       'devtrac_solr_view_sitevisits_json' => '0',
@@ -4089,7 +4089,7 @@ function devtrac7_maps_openlayers_maps() {
       'dvtrc_maps_openlayers_7' => '0',
       'dvtrc_maps_openlayers_8' => '0',
       'site_reports_recent_site_reports_data' => '0',
-      'dvtrc_user_openlayers_1' => 'devtrac_mapstyle_placetype_active',
+      'dvtrc_user_openlayers_1' => 'devtrac_mapstyle_plain_active',
     ),
     'layer_activated' => array(
       'dvtrc_user_openlayers_1' => 'dvtrc_user_openlayers_1',
