@@ -1932,7 +1932,7 @@ function devtrac7_maps_openlayers_maps() {
       'dvtrc_user_openlayers_1' => '0',
       'site_reports_recent_site_reports_data' => '0',
       'openlayers_searchresult_layer' => 'devtrac_mapstyle_search_default',
-      'devtrac_solr_view_districts_json' => 'devtrac_mapstyle_search_default',
+      'devtrac_solr_view_districts_json' => 'devtrac_mapstyle_plain_default',
       'devtrac_solr_view_districts_openlayers_1' => 'invisible',
     ),
     'layer_styles_select' => array(
