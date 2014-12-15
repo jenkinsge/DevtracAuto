@@ -419,6 +419,10 @@ table tbody tr.even td.active {
   display: none;
 }
 
+.fluid .view-modes-graphs .block-system-main .views-table {
+  display: none;
+}
+
 
 @media screen and (min-width: 845px) {
 
