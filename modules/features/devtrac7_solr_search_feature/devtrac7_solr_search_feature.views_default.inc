@@ -280,6 +280,7 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['id'] = 'taxonomy_vocabulary_8';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['field'] = 'taxonomy_vocabulary_8';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['list']['separator'] = ' ';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['display'] = 'view';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['view_mode'] = 'sector_code_icon';
