@@ -20,7 +20,7 @@ function devtrac7_solr_search_image_feature_current_search_default_items() {
       'devtrac7_images_fieldgroup' => array(
         'id' => 'group',
         'label' => 'devtrac7_images_fieldgroup',
-        'field_pattern' => '[facetapi_facet:facet-label]:',
+        'field_pattern' => '[facetapi_facet:facet-label]',
         'nofollow' => 1,
         'weight' => '0',
       ),
