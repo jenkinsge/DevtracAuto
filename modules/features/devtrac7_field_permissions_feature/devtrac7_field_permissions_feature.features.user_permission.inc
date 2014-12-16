@@ -89,17 +89,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'media',
   );
 
-  // Exported permission: 'access proxy router'.
-  $permissions['access proxy router'] = array(
-    'name' => 'access proxy router',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'authenticated user' => 'authenticated user',
-      'field worker' => 'field worker',
-    ),
-    'module' => 'proxy',
-  );
-
   // Exported permission: 'access relations'.
   $permissions['access relations'] = array(
     'name' => 'access relations',
