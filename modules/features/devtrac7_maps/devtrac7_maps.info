@@ -81,4 +81,3 @@ features[variable][] = openlayers_geosearch_zoomonselect
 features[variable][] = openlayers_source
 features[variable][] = openlayers_source_internal_variant
 features[variable][] = openlayers_source_type
-features[variable][] = proxy_whitelist_domains
