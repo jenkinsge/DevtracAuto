@@ -3,12 +3,11 @@ core = 7.x
 api = 2
 
 ; Mountbatten defaults
-includes[mountbatten_web_analytics] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_web_analytics.make
-includes[mountbatten_seo] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_seo.make
-; includes[mountbatten_spam_protection] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_spam_protection.make
-includes[mountbatten_web_media] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_web_media.make
-includes[mountbatten_sitewide] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_sitewide.make
-
+includes[mountbatten_web_analytics] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_web_analytics.make
+includes[mountbatten_seo] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_seo.make
+; includes[mountbatten_spam_protection] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_spam_protection.make
+includes[mountbatten_web_media] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_web_media.make
+includes[mountbatten_sitewide] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_sitewide.make
 
 ; Modules
 projects[acl][version] = "1.0"
