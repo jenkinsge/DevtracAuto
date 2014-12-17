@@ -438,19 +438,19 @@ function devtrac7_views_feature_views_default_views() {
   );
   $handler->display->display_options['fields']['field_actionitem_responsible']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Location (field_actionitem_resp_place) */
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['id'] = 'field_actionitem_resp_place_target_id';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['table'] = 'field_data_field_actionitem_resp_place';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['field'] = 'field_actionitem_resp_place_target_id';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['specify_validation'] = TRUE;
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['validate']['type'] = 'node';
-  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['validate_options']['types'] = array(
-    'place' => 'place',
+  /* Contextual filter: Content: Report (field_actionitem_ftreportitem) */
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['id'] = 'field_actionitem_ftreportitem_target_id';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['table'] = 'field_data_field_actionitem_ftreportitem';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['field'] = 'field_actionitem_ftreportitem_target_id';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['validate_options']['types'] = array(
+    'ftritem' => 'ftritem',
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
@@ -2543,7 +2543,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -3591,7 +3591,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_ftritem_place_node';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -3831,7 +3831,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'strong';
   $handler->display->display_options['fields']['title']['element_label_type'] = 'strong';
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -4499,6 +4499,21 @@ function devtrac7_views_feature_views_default_views() {
     'link' => 1,
   );
   $handler->display->display_options['fields']['field_actionitem_responsible']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Location (field_actionitem_resp_place) */
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['id'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['table'] = 'field_data_field_actionitem_resp_place';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['field'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['validate_options']['types'] = array(
+    'place' => 'place',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -5582,7 +5597,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6012,7 +6027,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6450,7 +6465,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'field_data_taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['delta_offset'] = '0';
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6575,7 +6590,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6694,7 +6709,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6834,7 +6849,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -7107,7 +7122,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -7345,7 +7360,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Report';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Field: Visited on */
+  /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
