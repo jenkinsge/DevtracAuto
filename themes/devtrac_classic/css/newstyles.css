@@ -194,6 +194,15 @@ table tbody tr.even td.active {
   right: 0px;
 }
 
+.zone-featured #view-modes {
+  border: thin solid #555555;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  margin: 0 5px;
+  padding: 0 5px;
+}
+
 .zone-featured #view-modes li a ,
 .zone-featured .nice-menu li a {
   padding: 5px 5px;
@@ -219,24 +228,24 @@ table tbody tr.even td.active {
   color: transparent;
 }
 
-.zone-featured #view-modes li.map a ,
-.zone-featured .nice-menu li a.map {
+.zone-featured #view-modes li a.images-map ,
+.zone-featured #view-modes li a.map {
   background-image: url(../images/user-menu-icon-map.png);
 }
 
 .zone-featured #view-modes li.list a ,
-.zone-featured .nice-menu li a.list {
+.zone-featured #view-modes li a.list {
   background-image: url(../images/user-menu-icon-list.png);
 }
 
-.zone-featured #view-modes li.graphs a ,
-.zone-featured .nice-menu li a.graphs {
+.zone-featured #view-modes li a.graphs ,
+.zone-featured #view-modes li.graphs a {
   background-image: url(../images/user-menu-icon-graph.png);
   margin-right: 5px;
 }
 
-.zone-featured #view-modes li.grid a ,
-.zone-featured .nice-menu li a.grid {
+.zone-featured #view-modes li a.grid ,
+.zone-featured #view-modes li.grid a {
   background-image: url(../images/user-menu-icon-grid.png);
   margin-right: 5px;
 }
