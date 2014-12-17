@@ -497,6 +497,10 @@ projects[views_rss][version] = "2.0-rc3"
 projects[views_rss][type] = "module"
 projects[views_rss][subdir] = "contrib"
 
+projects[views_plugin_argument_default_referer][version] = "1.x-dev"
+projects[views_plugin_argument_default_referer][type] = "module"
+projects[views_plugin_argument_default_referer][subdir] = "contrib"
+
 projects[views_rss_georss][version] = "1.0-rc1"
 projects[views_rss_georss][type] = "module"
 projects[views_rss_georss][subdir] = "contrib"
