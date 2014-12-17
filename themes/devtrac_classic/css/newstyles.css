@@ -219,7 +219,7 @@ table tbody tr.even td.active {
   color: transparent;
 }
 
-.zone-featured #view-modes li.default a ,
+.zone-featured #view-modes li.map a ,
 .zone-featured .nice-menu li a.map {
   background-image: url(../images/user-menu-icon-map.png);
 }
@@ -232,6 +232,12 @@ table tbody tr.even td.active {
 .zone-featured #view-modes li.graphs a ,
 .zone-featured .nice-menu li a.graphs {
   background-image: url(../images/user-menu-icon-graph.png);
+  margin-right: 5px;
+}
+
+.zone-featured #view-modes li.grid a ,
+.zone-featured .nice-menu li a.grid {
+  background-image: url(../images/user-menu-icon-grid.png);
   margin-right: 5px;
 }
 
@@ -283,6 +289,7 @@ table tbody tr.even td.active {
 .region-featured-inner {
   position: relative;
   height: 27px;
+  padding-right: 20px;
 }
 
 .zone-featured .block-current-search {
@@ -327,7 +334,6 @@ table tbody tr.even td.active {
   height: 27px;
   display: inline-block;
   float: right;
-  margin-right: 20px;
 }
 
 .zone-featured .block-pane .block-inner {
@@ -1506,6 +1512,7 @@ tr:hover .ctools-button.ctools-button-processed ul li a:hover {
 
 .olControlMaptext .ctools-wrapper li {
   min-width: 56px;
+  list-style: none;
 }
 
 .olControlMaptext .ctools-button li a:hover {
@@ -1830,11 +1837,18 @@ div .collapsiblockCollapsed a {
 .block-facetapi ul li a {
   padding: 5px 5px 5px 15px;
   color: inherit;
+  display: block;
 }
 
 .block-facetapi ul li a:hover {
   background: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
 }
+
+.block-facetapi ul li a span.facetapi-search-api-swatches-text {
+  padding-left: 5px;
+}
+
 
 
 /*=====================================================================================
