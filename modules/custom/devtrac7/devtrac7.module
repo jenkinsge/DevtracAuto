@@ -1693,8 +1693,10 @@ function devtrac7_block_view_alter(&$data, $block) {
           case 'Filter by district category:':
           case 'Filter by unicef category:':
           case 'Filter by admin unit » unicef category:':
-          case 'Filter by admin unit » tags:':  
             $data['subject'] = 'Tags';
+            break;
+          case 'Filter by admin unit » tags:':
+            $data['subject'] = 'Admin Unit Tags';
             break;
           case 'Filter by node (target endpoint):':
             $data['subject'] = 'Organisations';
