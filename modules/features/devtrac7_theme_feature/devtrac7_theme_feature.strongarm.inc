@@ -534,6 +534,43 @@ system/ajax/*';
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'media_wysiwyg_view_mode_image_file_wysiwyg_view_mode';
+  $strongarm->value = 'teaser';
+  $export['media_wysiwyg_view_mode_image_file_wysiwyg_view_mode'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_wysiwyg_view_mode_image_file_wysiwyg_view_mode_status';
+  $strongarm->value = 1;
+  $export['media_wysiwyg_view_mode_image_file_wysiwyg_view_mode_status'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_wysiwyg_view_mode_image_wysiwyg_restricted_view_modes';
+  $strongarm->value = array(
+    'default' => 'default',
+    'full' => 'full',
+    'preview' => 'preview',
+    'rss' => 'rss',
+    'wysiwyg' => 'wysiwyg',
+    'token' => 'token',
+    'image_export' => 'image_export',
+    'teaser' => 0,
+  );
+  $export['media_wysiwyg_view_mode_image_wysiwyg_restricted_view_modes'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'media_wysiwyg_view_mode_image_wysiwyg_restricted_view_modes_status';
+  $strongarm->value = 1;
+  $export['media_wysiwyg_view_mode_image_wysiwyg_restricted_view_modes_status'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'media_wysiwyg_wysiwyg_allowed_types';
   $strongarm->value = array(
     0 => 'image',
@@ -545,9 +582,9 @@ system/ajax/*';
   $strongarm->api_version = 1;
   $strongarm->name = 'media_wysiwyg_wysiwyg_browser_plugins';
   $strongarm->value = array(
-    0 => 'media_default--media_browser_1',
-    1 => 'media_default--media_browser_my_files',
-    2 => 'media_default--media_browser_2',
+    0 => 'devtrac_media_browser_extensions--attached_files',
+    1 => 'media_default--media_browser_1',
+    2 => 'media_default--media_browser_my_files',
   );
   $export['media_wysiwyg_wysiwyg_browser_plugins'] = $strongarm;
 

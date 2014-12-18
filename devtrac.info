@@ -165,6 +165,7 @@ dependencies[] = views_slideshow
 dependencies[] = views_slideshow_cycle
 dependencies[] = date_views
 dependencies[] = media
+dependencies[] = media_wysiwyg_view_mode
 dependencies[] = kml
 dependencies[] = services_views
 dependencies[] = views_modes
@@ -193,7 +194,7 @@ dependencies[] = role_delegation
 dependencies[] = shs
 dependencies[] = barcode
 dependencies[] = search_api_file_source_bundle_filter
-dependencies[] = views_plugin_argument_default_referer
+dependencies[] = views_contextual_filter_query
 
 ; Questionnaire
 dependencies[] = questionnaire
