@@ -83,13 +83,16 @@ function devtrac7_fieldtrip_places_required($node) {
   return TRUE;
 }
 
+/**
+ *
+ * Function that determines access to the 'Add Site Visit' quick menu item.
+ * Inherits from the one used by the modal form.
+ *
+ * @param $node
+ * @return bool
+ */
 function devtrac7_fieldtrip_places_override($node) {
-  global $user;
-  // Only allow user #1 and the owner of the content.
-  if (($user->uid == 1) || ($user->uid == $node->uid)) {
-    return TRUE;
-  }
-  return FALSE;
+  return devtrac7_update_fieldtrip_access($node->nid);
 }
 
 /**
