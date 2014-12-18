@@ -545,9 +545,9 @@ system/ajax/*';
   $strongarm->api_version = 1;
   $strongarm->name = 'media_wysiwyg_wysiwyg_browser_plugins';
   $strongarm->value = array(
-    0 => 'media_default--media_browser_1',
-    1 => 'media_default--media_browser_my_files',
-    2 => 'media_default--media_browser_2',
+    0 => 'devtrac_media_browser_extensions--attached_files',
+    1 => 'media_default--media_browser_1',
+    2 => 'media_default--media_browser_my_files',
   );
   $export['media_wysiwyg_wysiwyg_browser_plugins'] = $strongarm;
 
