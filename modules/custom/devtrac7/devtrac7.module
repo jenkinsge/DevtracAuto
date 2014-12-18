@@ -2638,3 +2638,21 @@ function devtrac7_query_alter($query) {
     $query->orderBy('id', 'DESC');
   }
 }
+
+/**
+ * Implements hook_theme_registry_alter().
+ * 
+ * We override the theme registry to use our own page template for the media
+ * browser page. The structure of $vars['page'] is different for the omega
+ * theme or any subtheme of it so the original page template provided with the
+ * media module won't do.
+ */
+function devtrac7_theme_registry_alter(&$theme_registry) {
+  // Override the media dialog page template.
+  if (isset($theme_registry['media_dialog_page'])) {
+    // We append the full path to the 'template' parameter. 
+    // See https://api.drupal.org/comment/29013#comment-29013.
+    $path = drupal_get_path('module', 'base');
+    $theme_registry['media_dialog_page']['template'] = $path . 'profiles/devtrac/modules/custom/devtrac7/devtrac-media-dialog-page';
+  }
+}
