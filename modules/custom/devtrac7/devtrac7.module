@@ -614,12 +614,16 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
       $districts[$term->tid] = str_repeat ( '-' , $term->depth) . ' ' .$term->name;
     }
   }
-
+  
+  // We make the first element in the array the default value
+  $districttids = array_keys($districts);
+  
   $element = array(
     '#title' => t('Admin Unit'),
     '#type' => 'select',
     '#description' => t('You can select and Admin Unit. It is used to zoom the map for you.'),
     '#options' => $districts,
+    '#default_value' => $districttids[1],
     '#field_name' => 'devtrac7_dummy_district',
     '#properties' => array('empty_option' => FALSE),
     '#value_key' => 'tid', // Picked 'tid' because District is a vocabulary.
