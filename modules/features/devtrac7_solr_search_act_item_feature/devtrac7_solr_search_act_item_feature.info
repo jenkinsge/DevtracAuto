@@ -36,6 +36,7 @@ features[current_search][] = devtrac7_actionitem_activefacets
 features[current_search][] = devtrac7_actionitems_standard
 features[facetapi][] = search_api@devtrac_solr_action_items_index::author
 features[facetapi][] = search_api@devtrac_solr_action_items_index::author:field_user_superior
+features[facetapi][] = search_api@devtrac_solr_action_items_index::created
 features[facetapi][] = search_api@devtrac_solr_action_items_index::field_action_items_tags
 features[facetapi][] = search_api@devtrac_solr_action_items_index::field_actionitem_due_date
 features[facetapi][] = search_api@devtrac_solr_action_items_index::field_actionitem_responsible:field_user_superior

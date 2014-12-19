@@ -604,13 +604,6 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
   foreach ($terms as $term) {
     $reporttypes[] = $term->name;
   }
-  $form['reporttype'] = array(
-    '#title' => t('Site Report Type'),
-    '#type' => 'radios',
-    '#description' => 'Select the type of report you want to create.',
-    '#options' => $reporttypes,
-    '#default_value' => 0,
-  );
   $vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_6');
   $vocabulary = reset($vocabulary);
 
@@ -621,19 +614,16 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
       $districts[$term->tid] = str_repeat ( '-' , $term->depth) . ' ' .$term->name;
     }
   }
-
+  
+  // We make the first element in the array the default value
+  $districttids = array_keys($districts);
+  
   $element = array(
-    '#title' => t('District'),
+    '#title' => t('Admin Unit'),
     '#type' => 'select',
-    '#description' => '',
+    '#description' => t('You can select and Admin Unit. It is used to zoom the map for you.'),
     '#options' => $districts,
-    // '#states' => array (
-    //   'visible' => array(
-    //     ':input[name="reporttype"]' => array('value' => '1'),
-    //   ),
-    // ),
-    // And these are to satisfy the following function
-    '#default_value' => array('121'),  // This is Kampala
+    '#default_value' => $districttids[1],
     '#field_name' => 'devtrac7_dummy_district',
     '#properties' => array('empty_option' => FALSE),
     '#value_key' => 'tid', // Picked 'tid' because District is a vocabulary.
@@ -642,6 +632,18 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
   _taxonomy_access_configure_options_widget($element, 1000);
 
   $form['district'] = $element;
+  /*
+   * We moved report type down for a while as the district dropdown doesnt
+   * fit in the window
+   * 
+   */
+  $form['reporttype'] = array(
+    '#title' => t('Site Report Type'),
+    '#type' => 'radios',
+    '#description' => t('Select the type of report you want to create.'),
+    '#options' => $reporttypes,
+    '#default_value' => 0,
+  );
 
   $form['nid'] = array(
     '#type' => 'hidden',

@@ -35,3 +35,24 @@ function devtrac7_profile_menu_translated_menu_link_alter(&$item, $map) {
     }
   }
 }
+
+/**
+ * Implements hook_menu_alter().
+ */
+function devtrac7_profile_menu_menu_alter(&$items) {
+  $items['<nolink>']['access callback'] = 'devtrac7_profile_menu_export_access_callback';
+}
+
+/**
+ * Implements custom access callback function.
+ */
+function devtrac7_profile_menu_export_access_callback() {
+
+  if (in_array($_GET['q'], array('fieldtrips', 'actionitems', 'images'))) {
+    global $user;
+    if ($user->uid == 0) {
+      return FALSE;
+    }
+  }
+  return TRUE;
+}

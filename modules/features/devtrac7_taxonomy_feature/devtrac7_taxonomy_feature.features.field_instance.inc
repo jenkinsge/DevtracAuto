@@ -603,7 +603,6 @@ function devtrac7_taxonomy_feature_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Code');
   t('Geo');
-  t('Location Type');
   t('Long Name');
   t('OSM Id');
   t('OSM Relation Id');

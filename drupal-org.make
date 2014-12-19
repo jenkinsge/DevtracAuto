@@ -191,6 +191,7 @@ projects[geofield][subdir] = "contrib"
 projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-merge-openlayers-layers.patch"
 projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-sql-error-1965484-18.patch"
 ; projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-wkb-exception-1924206-11.patch"
+projects[geofield][patch][] = https://www.drupal.org/files/issues/add_titles_to_editingtoolbar_buttons.patch
 
 projects[geonames][version] = "1.1"
 projects[geonames][type] = "module"
@@ -495,9 +496,9 @@ projects[views_rss][version] = "2.0-rc3"
 projects[views_rss][type] = "module"
 projects[views_rss][subdir] = "contrib"
 
-projects[views_contextual_filter_query][version] = "1.0"
-projects[views_contextual_filter_query][type] = "module"
-projects[views_contextual_filter_query][subdir] = "contrib"
+projects[views_plugin_argument_default_referer][version] = "1.x-dev"
+projects[views_plugin_argument_default_referer][type] = "module"
+projects[views_plugin_argument_default_referer][subdir] = "contrib"
 
 projects[views_rss_georss][version] = "1.0-rc1"
 projects[views_rss_georss][type] = "module"
