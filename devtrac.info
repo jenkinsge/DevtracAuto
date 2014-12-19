@@ -194,7 +194,7 @@ dependencies[] = role_delegation
 dependencies[] = shs
 dependencies[] = barcode
 dependencies[] = search_api_file_source_bundle_filter
-dependencies[] = views_contextual_filter_query
+dependencies[] = views_plugin_argument_default_referer
 
 ; Questionnaire
 dependencies[] = questionnaire
