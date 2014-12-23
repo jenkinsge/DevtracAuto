@@ -2179,22 +2179,20 @@ div.olControlAttribution a:link {
   font-weight: normal;
 }
 
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio {
-  background: none;
+html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio {
   padding: 5px 0 5px 40px;
   height: 30px;
   margin: 2px 0;
+  background-position: 5px 5px;
+}
+
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio label {
+  line-height: 28px;
 }
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio:hover {
   cursor: pointer;
 }
-
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_8 ,
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_6 {
-  background: url(../images/map-layer-natural.png) no-repeat 5px 50% !important;
-}
-
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.osm_cycle {
   background: url(../images/map-layer-cycling-map.png) no-repeat 5px 50%;

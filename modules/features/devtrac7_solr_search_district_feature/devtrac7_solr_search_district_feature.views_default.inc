@@ -44,7 +44,8 @@ function devtrac7_solr_search_district_feature_views_default_views() {
   );
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'noresult text';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Your search did not return any results. Making your search less specific give you a higher chance of finding what you are looking for.';
@@ -510,12 +511,12 @@ function devtrac7_solr_search_district_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_geojson';
-  $handler->display->display_options['style_options']['data_source']['value'] = 'latlon';
+  $handler->display->display_options['style_options']['data_source']['value'] = 'wkt';
   $handler->display->display_options['style_options']['data_source']['latitude'] = 'field_district_geo';
   $handler->display->display_options['style_options']['data_source']['longitude'] = 'field_district_geo_1';
   $handler->display->display_options['style_options']['data_source']['geofield'] = 'field_district_geo';
-  $handler->display->display_options['style_options']['data_source']['wkt'] = 'name';
-  $handler->display->display_options['style_options']['data_source']['name_field'] = 'name';
+  $handler->display->display_options['style_options']['data_source']['wkt'] = 'field_district_geo_2';
+  $handler->display->display_options['style_options']['data_source']['name_field'] = 'name_1';
   $handler->display->display_options['style_options']['data_source']['description_field'] = 'rendered_entity';
   $handler->display->display_options['style_options']['jsonp_prefix'] = '';
   $handler->display->display_options['style_options']['using_views_api_mode'] = 0;
@@ -565,6 +566,24 @@ function devtrac7_solr_search_district_feature_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'map_popup_view_mode';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
+  /* Field: Indexed Taxonomy term: Geo */
+  $handler->display->display_options['fields']['field_district_geo_2']['id'] = 'field_district_geo_2';
+  $handler->display->display_options['fields']['field_district_geo_2']['table'] = 'search_api_index_devtrac_solr_district_index';
+  $handler->display->display_options['fields']['field_district_geo_2']['field'] = 'field_district_geo';
+  $handler->display->display_options['fields']['field_district_geo_2']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_district_geo_2']['settings'] = array(
+    'data' => 'full',
+  );
+  /* Field: Indexed Taxonomy term: Name */
+  $handler->display->display_options['fields']['name_1']['id'] = 'name_1';
+  $handler->display->display_options['fields']['name_1']['table'] = 'search_api_index_devtrac_solr_district_index';
+  $handler->display->display_options['fields']['name_1']['field'] = 'name';
+  $handler->display->display_options['fields']['name_1']['link_to_entity'] = 0;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Indexed Taxonomy term: Term ID */
+  $handler->display->display_options['sorts']['tid']['id'] = 'tid';
+  $handler->display->display_options['sorts']['tid']['table'] = 'search_api_index_devtrac_solr_district_index';
+  $handler->display->display_options['sorts']['tid']['field'] = 'tid';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Geo: Well-known text (indexed) */
