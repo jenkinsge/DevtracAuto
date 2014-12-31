@@ -115,10 +115,10 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
     // Name field.
     $this->assertNoLink('Create New Location', 0, 'clicked');
     //$this->clickLink('Create New Location', 0, 'clicked');
-    $this->assertField('taxonomy_vocabulary_1[und]', 'Field found');
+    $this->assertField('taxonomy_vocabulary_1[und][0][tid]', 'Field found');
     $this->assertField('taxonomy_vocabulary_6[und]', 'field was found');
     $locationAddFulloz['title'] = $this->randomName(32);
-    $locationAddFulloz['taxonomy_vocabulary_1[und]'] = 245;
+    $locationAddFulloz['taxonomy_vocabulary_1[und][0][tid]'] = 245;
     //$locationAddFulloz['taxonomy_vocabulary_6[und]'] = 82;
     $locationAddFulloz['field_place_lat_long[und][0][geom]'] = 'POINT(33.346199035645 2.911979913712)';
     //, array('query' => array('edit[taxonomy_vocabulary_6][und]' => 82, 'destination' => 'places/' . $locationAddFulloz['taxonomy_vocabulary_6[und]'].'/'. $nodeAddreportfullSubmitoz->nid.'/211')));
@@ -139,7 +139,7 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field removed from the form');
     $ditnarrativeoz['title'] = $this->randomName(20);
     $ditnarrativeoz['taxonomy_vocabulary_7[und]'] = 243;
-    $ditnarrativeoz['taxonomy_vocabulary_1[und]'] = 245;
+    $ditnarrativeoz['taxonomy_vocabulary_1[und][0][tid]'] = 245;
     $ditnarrativeoz['field_ftritem_narrative[und][0][value]'] = $this->randomName(30);
     $ditnarrativeoz['field_ftritem_public_summary[und][0][value]'] = $this->randomName(15);
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Sector field is was rename');
@@ -202,8 +202,8 @@ class CustomfieldTripExtraCase extends SimpleTestCloneTestCase {
     //$locationAddFullozy['taxonomy_vocabulary_6[und]'] =  $formSubmitreportsozy['district'];
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Sector field was rename');
     //$locationAddFullozy['taxonomy_vocabulary_8[und][]'] = array(326);
-    $locationAddFullozy['taxonomy_vocabulary_7[und]'] = 242;
-    $locationAddFullozy['taxonomy_vocabulary_1[und]'] = 245;
+    $locationAddFullozy['taxonomy_vocabulary_7[und]'] = 247;
+    $locationAddFullozy['taxonomy_vocabulary_1[und][0][tid]'] = 245;
     //$locationAddFullozy['files[field_ftritem_images_und_0]'] = 'sites/default/themes/devtrac7_theme/images/ws_pandas_in_love_1920x1200.jpg';
     $locationAddFullozy['field_ftritem_narrative[und][0][value]'] = 'hfjkdjkjkj';
     //$locationAddFullozy['field_ftritem_public_summary[und][0][value]'] = 'iobklklbkbkuysrui';

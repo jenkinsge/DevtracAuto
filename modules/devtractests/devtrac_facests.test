@@ -66,6 +66,7 @@ class FacetsVisibilityTestCase extends SimpleTestCloneTestCase {
       'access content',
       'create fieldtrip content',
       'administer nodes',
+      'administer taxonomy',
       'administer permissions',
       'access user profiles',
       'administer site configuration',
@@ -133,11 +134,12 @@ class FacetsVisibilityTestCase extends SimpleTestCloneTestCase {
   public function testFieldTripFacettest() {
     // Testing the field trips facets.
     $this->drupalGet('fieldtrips');
+    $this->assertNoResponse(200, '');
     $this->assertNoText(t('FieldTrips: List'), 'The Field Trip list page title is found', 'DevTrac');
     $this->assertNoRaw('<h1 id="page-title" class="title">' . t('FieldTrips: List')  . '</h1>');
     $this->assertNoRaw('<h2 class="block-title">' . t('Current search')  . '</h2>');
-    $this->assertText('Date', 'Date provision on Field trips list search facet is nolonger found on field trips page', 'DevTrac');
-    $this->assertText('Status', 'Status provision on Field trips list search facet is found on field trips page', 'DevTrac');
+    $this->assertNoText('Date', 'Date provision on Field trips list search facet is nolonger found on field trips page', 'DevTrac');
+    $this->assertNoText('Status', 'Status provision on Field trips list search facet is found on field trips page', 'DevTrac');
     $this->assertNoRaw('<h2 class="block-title">' . t('Current search')  . '</h2>');
     // For these links are not stable they keep on changing due to updates.
     $this->assertNoLink('Approved(737)', 0, 'Link to approved fieldtrips page is not showing on the facet');

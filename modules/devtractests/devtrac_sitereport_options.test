@@ -174,7 +174,7 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     // Now fill in the Edit Field Trip Report Item Site Visit form.
     $this->assertNoLink('Create New Location', 0, 'clicked');
     $ditnarrative1['title'] = 'YES THAT IS FOR NOW!';
-    $ditnarrative1['taxonomy_vocabulary_1[und]'] = 53;
+    $ditnarrative1['taxonomy_vocabulary_1[und][0][tid]'] = 53;
     $ditnarrative1['taxonomy_vocabulary_7[und]'] = 247;
     $this->assertField('taxonomy_vocabulary_7[und]', 'Taxonomy vocabulary 7 is found');
     $this->assertField('taxonomy_vocabulary_6[und]', 'taxonomy vocabulary_6 is removed');

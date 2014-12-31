@@ -104,7 +104,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
   public function testQuestionnaireFieldexistance() {
     $this->drupalGet('node/add/questionnaire-question');
     $this->assertField('title', 'Question title field is found');
-    $this->assertField('taxonomy_vocabulary_1[und]', 'Question Location type field is found');
+    $this->assertField('taxonomy_vocabulary_1[und][0][tid]', 'Question Location type field is found');
     $this->assertNoField('field_question_subject[und]', 'Question Sub-Category field is found');
     $this->assertField('questionnaire_question_type[und]', 'Question The type of question. field is found');
     $this->assertField('questionnaire_question_options[und][0][value]', 'Question Options field is found');
@@ -118,7 +118,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
   public function testQuestionnaireEmptySubmit() {
     $this->drupalGet('node/add/questionnaire-question');
     $emptyq['title'] = '';
-    // $emptyq['taxonomy_vocabulary_1[und]'] = '';
+    // $emptyq['taxonomy_vocabulary_1[und][0][tid]'] = '';
     // $emptyq['field_question_subject[und]'] = '';
     // $emptyq['questionnaire_question_type[und]'] = '';
     $emptyq['questionnaire_question_options[und][0][value]'] = '';
@@ -134,7 +134,7 @@ class testQuestionnaireCase extends SimpleTestCloneTestCase {
   public function testQuestionnaireSubmit() {
     $this->drupalGet('node/add/questionnaire-question');
     $qsubmit['title'] = $this->randomString(35);
-    $qsubmit['taxonomy_vocabulary_1[und]'] = 282;
+    $qsubmit['taxonomy_vocabulary_1[und][0][tid]'] = 282;
     $this->assertNoField('field_question_subject[und]', 'Question Sub-Category field is not found');
     $qsubmit['questionnaire_question_type[und]'] = 'select';
     $qsubmit['taxonomy_vocabulary_8[und][]'] = 47;
@@ -217,6 +217,7 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
       'access content',
       'create fieldtrip content',
       'administer nodes',
+      'administer taxonomy',
       'administer permissions',
       'access user profiles',
       'administer site configuration',
@@ -229,7 +230,7 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertText(t('Overview'), t('User is successfully logged in'), 'Devtrac');
     $this->drupalPost('user/' . $this->Editor_user->uid . '/edit', array(
       "roles[4]" => 4,
-      'taxonomy_vocabulary_5[und]' => 11,
+      'taxonomy_vocabulary_5[und]' => 9,
       'taxonomy_vocabulary_4[und]' => 13,
       'field_user_firstname[und][0][value]' => 'Editor',
       'field_user_surname[und][0][value]' => 'Adminol',
@@ -254,7 +255,7 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
   public function testEditorQuestionnaireFieldexistance() {
     $this->drupalGet('node/add/questionnaire-question');
     $this->assertField('title', 'Question title field is not found');
-    $this->assertField('taxonomy_vocabulary_1[und]', 'Question Location type field is no found');
+    $this->assertField('taxonomy_vocabulary_1[und][0][tid]', 'Question Location type field is no found');
     $this->assertNoField('field_question_subject[und]', 'Question Sub-Category field is not found');
     $this->assertField('questionnaire_question_type[und]', 'Question The type of question. field is not found');
     $this->assertField('questionnaire_question_options[und][0][value]', 'Question Options field is not found');
@@ -270,7 +271,7 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
   public function testEditorQuestionnaireEmptySubmit() {
     $this->drupalGet('node/add/questionnaire-question');
     $emptyq['title'] = '';
-    // $emptyq['taxonomy_vocabulary_1[und]'] = '';
+    // $emptyq['taxonomy_vocabulary_1[und][0][tid]'] = '';
     // $emptyq['field_question_subject[und]'] = '';
     // $emptyq['questionnaire_question_type[und]'] = '';
     $emptyq['questionnaire_question_options[und][0][value]'] = '';
@@ -286,7 +287,7 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
   public function testEditorQuestionnaireSubmit() {
     $this->drupalGet('node/add/questionnaire-question');
     $qsubmit['title'] = $this->randomString(35);
-    $qsubmit['taxonomy_vocabulary_1[und]'] = 253;
+    $qsubmit['taxonomy_vocabulary_1[und][0][tid]'] = 253;
     $qsubmit['taxonomy_vocabulary_8[und][]'] = 226;
     $qsubmit['questionnaire_question_type[und]'] = 'select';
     $this->drupalPost(NULL, $qsubmit, t('Save'));
@@ -300,7 +301,7 @@ class testUnicefEditorQuestionnaireCase extends SimpleTestCloneTestCase {
   public function testEditorQuestionnaireSubCatSelectSubmit() {
     $this->drupalGet('node/add/questionnaire-question');
     $qsubmit['title'] = $this->randomString(35);
-    $qsubmit['taxonomy_vocabulary_1[und]'] = 253;
+    $qsubmit['taxonomy_vocabulary_1[und][0][tid]'] = 253;
     $qsubmit['taxonomy_vocabulary_8[und][]'] = 226;
     $qsubmit['questionnaire_question_type[und]'] = 'select';
     $this->drupalPost(NULL, $qsubmit, t('Save'));
@@ -374,6 +375,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
       'administer permissions',
       'access user profiles',
       'administer site configuration',
+      'administer taxonomy',
       'administer modules',
       'edit taxonomy_vocabulary_1',));
     // Loading a user by role name 
@@ -426,7 +428,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // $this->clickLink('Create New Location', 0, 'clicked');
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText('Name', 'Label Name is found on the form', 'Devtrac');
-    $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
+    $this->assertField(t('taxonomy_vocabulary_1[und][0][tid]'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField('field_place_responsible_person[und][0][value]', 'Field Contact is found on the add location form', 'Devtrac');
@@ -437,7 +439,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField('field_place_website[und][0][url]', 'Field Contact is found on the add location form', 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = $this->randomName(32);
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 284;
+    $locationaddfull['taxonomy_vocabulary_1[und][0][tid]'] = 284;
     $this->assertField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary 6 was found');
     $locationaddfull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     // TO BE CONTINUED.
@@ -505,7 +507,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // $this->clickLink('Create New Location', 0, 'clicked');
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
-    $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
+    $this->assertField(t('taxonomy_vocabulary_1[und][0][tid]'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
@@ -516,7 +518,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = $this->randomName(32);
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 251;
+    $locationaddfull['taxonomy_vocabulary_1[und][0][tid]'] = 251;
     $this->assertField('taxonomy_vocabulary_6[und]', 'District field was found');
     $locationaddfull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     // TO BE CONTINUED.
@@ -603,7 +605,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // $this->clickLink('Create New Location', 0, 'clicked');
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
-    $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
+    $this->assertField(t('taxonomy_vocabulary_1[und][0][tid]'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
@@ -614,7 +616,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = $this->randomName(32);
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 281;
+    $locationaddfull['taxonomy_vocabulary_1[und][0][tid]'] = 281;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $locationaddfull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
     // TO BE CONTINUED.
@@ -698,7 +700,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // $this->clickLink('Create New Location', 0, 'clicked');
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
-    $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
+    $this->assertField(t('taxonomy_vocabulary_1[und][0][tid]'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
@@ -710,7 +712,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = 'this is meant for questionnaires';
     $this->assertNoField('taxonomy_vocabulary_8[und][]', 'Sector field was rename');
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 284;
+    $locationaddfull['taxonomy_vocabulary_1[und][0][tid]'] = 284;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     // $locationaddfull['field_place_responsible_person[und][0][value]']='jan';
     $locationaddfull['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
@@ -783,7 +785,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // $this->clickLink('Create New Location', 0, 'clicked');
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
-    $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
+    $this->assertField(t('taxonomy_vocabulary_1[und][0][tid]'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
@@ -794,7 +796,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = 'this is meant for questionnaires';
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 284;
+    $locationaddfull['taxonomy_vocabulary_1[und][0][tid]'] = 284;
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Sector field was rename');
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     //$location_add_full['taxonomy_vocabulary_8[und]'] = array(14,13,15);
@@ -867,7 +869,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
       'query' => array(
     		  'destination' => 'node/' . $node_addreportitem->nid)));
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
-    $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field is found on the add location form'), 'Devtrac');
+    $this->assertField(t('taxonomy_vocabulary_1[und][0][tid]'), t('Field is found on the add location form'), 'Devtrac');
     $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertNoField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is not found on the add location form'), 'Devtrac');
@@ -878,7 +880,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertNoField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertNoText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     $locationaddfull['title'] = $this->randomName(32);
-    $locationaddfull['taxonomy_vocabulary_1[und]'] = 278;
+    $locationaddfull['taxonomy_vocabulary_1[und][0][tid]'] = 278;
     $locationaddfull['title'] = $this->randomString(7);
     $locationaddfull['field_ftritem_narrative[und][0][value]'] = $this->randomString(50);
     $locationaddfull['taxonomy_vocabulary_7[und]'] = 242;
@@ -955,7 +957,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // Name field.
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
-    $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
+    $this->assertField(t('taxonomy_vocabulary_1[und][0][tid]'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertNoField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
@@ -966,7 +968,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertNoField('field_place_website[und][0][url]', t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertNoText('Website', 'Label Website Types is found on the form', 'Devtrac');
     $loc['title'] = $this->randomString(32);
-    $loc['taxonomy_vocabulary_1[und]'] = 248;
+    $loc['taxonomy_vocabulary_1[und][0][tid]'] = 248;
     $addftritem['title'] = $this->randomString(7);
     $addftritem['field_ftritem_narrative[und][0][value]'] = $this->randomString(50);
     $addftritem['taxonomy_vocabulary_7[und]'] = 242;
@@ -1045,7 +1047,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // name field.
     $this->assertField(t('title'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Name'), t('Label Name is found on the form'), 'Devtrac');
-    $this->assertField(t('taxonomy_vocabulary_1[und]'), t('Field Title is found on the add location form'), 'Devtrac');
+    $this->assertField(t('taxonomy_vocabulary_1[und][0][tid]'), t('Field Title is found on the add location form'), 'Devtrac');
     $this->assertText(t('Location Type'), t('Label  Place Types is found on the form'), 'Devtrac');
     // Now to the Contact field.
     $this->assertField(t('field_place_responsible_person[und][0][value]'), t('Field Contact is found on the add location form'), 'Devtrac');
@@ -1056,7 +1058,7 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     $this->assertField(t('field_place_website[und][0][url]'), t('Field Contact is found on the add location form'), 'Devtrac');
     $this->assertText(t('Website'), t('Label Website Types is found on the form'), 'Devtrac');
     
-    $location_add_full['taxonomy_vocabulary_1[und]'] = 245;
+    $location_add_full['taxonomy_vocabulary_1[und][0][tid]'] = 245;
     
     $this->assertField('taxonomy_vocabulary_6[und]', 'district field was found');
     $location_add_full['field_place_lat_long[und][0][geom]'] = 'POINT (33.346199035645 2.911979913712)';
@@ -1071,8 +1073,8 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
         'destination' => 'node/' . $node_addreportitem->nid)));*/
     $action_item_form['title'] = $this->randomName(23);
     $loc['title'] = $this->randomString(32);
-   $loc['taxonomy_vocabulary_1[und]'] = 253;
-    $this->assertField('taxonomy_vocabulary_1[und]', 'Taxonomy vocabulary 1 found');
+   $loc['taxonomy_vocabulary_1[und][0][tid]'] = 253;
+    $this->assertField('taxonomy_vocabulary_1[und][0][tid]', 'Taxonomy vocabulary 1 found');
     $this->assertField('taxonomy_vocabulary_6[und]', 'District field is showing');
     $this->assertNoField('taxonomy_vocabulary_8[und]', 'Sector field was rename');
     $this->assertNoField('field_ftritem_lat_long[und][0][geom]', 'Map field is not showing');

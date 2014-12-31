@@ -117,7 +117,7 @@ class testQuestionnaireSubmissionCase extends SimpleTestCloneTestCase {
     $this->assertText(t('Overview'), t('Overview is not found on the page'), 'Devtrac');
     $this->drupalGet('node/add/questionnaire-question');
     $qsubmit['title'] = $this->randomString(35);
-    $qsubmit['taxonomy_vocabulary_1[und]'] = 284;
+    $qsubmit['taxonomy_vocabulary_1[und][0][tid]'] = 284;
     $qsubmit['taxonomy_vocabulary_8[und][]'] = 228;
     $qsubmit['questionnaire_question_type[und]'] = 'select';
     $this->drupalPost(NULL, $qsubmit, t('Save'));
