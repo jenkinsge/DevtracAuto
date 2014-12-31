@@ -1,5 +1,5 @@
 name = "Devtrac Demo Phase Module"
-description = "Contains alterations necessary to use Devtrac in demo mode."
+description = "Alters pager settings for view displays when using the db indexing service."
 core = "7.x"
 
 files[] = devtrac_demo_phase.module

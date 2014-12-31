@@ -69,6 +69,7 @@ function devtrac7_profile_menu_install() {
     ->condition('router_path', 'node/add/fieldtrip')
     ->execute();
   // Let's do the view modes.
+  /*
   $links = devtrac7_profile_menu_views_modes_menu_links();
   foreach ($links as $identifier => $link){
     // Look in the table first if the data does exist
@@ -77,7 +78,7 @@ function devtrac7_profile_menu_install() {
     if(!$exists) {
       menu_link_save($link);
     }
-  }
+  }*/
   // Now do the file exports.
   $links = devtrac7_profile_menu_file_exports_menu_links($mlid);
   foreach ($links as $identifier => $link){

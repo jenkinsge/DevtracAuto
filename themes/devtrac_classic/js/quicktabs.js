@@ -31,6 +31,7 @@
         }
         $(this).find('ul.quicktabs-tabs a').click(function() {
           $.cookie(id, $(this).attr('id'));
+          jQuery(window).resize();
         });
       });
     }

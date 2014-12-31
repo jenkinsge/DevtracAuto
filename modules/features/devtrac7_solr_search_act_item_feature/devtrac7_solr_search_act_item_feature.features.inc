@@ -137,7 +137,7 @@ function devtrac7_solr_search_act_item_feature_default_search_api_index() {
         "date_processor" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "default" : "0", "fields" : { "field_actionitem_due_date" : true } }
+          "settings" : { "default" : "0", "fields" : { "created" : true, "field_actionitem_due_date" : true } }
         },
         "search_api_case_ignore" : {
           "status" : 1,

@@ -702,12 +702,16 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Lat-Long: Well-known text (indexed) */
-  $handler->display->display_options['filters']['field_place_lat_long_geom']['id'] = 'field_place_lat_long_geom';
-  $handler->display->display_options['filters']['field_place_lat_long_geom']['table'] = 'search_api_index_devtrac_solr_locations_index';
-  $handler->display->display_options['filters']['field_place_lat_long_geom']['field'] = 'field_place_lat_long_geom';
-  $handler->display->display_options['filters']['field_place_lat_long_geom']['value'] = 'POINT';
-  $handler->display->display_options['filters']['field_place_lat_long_geom']['group'] = 1;
+  /* Filter criterion: Lat-Long: Latitude (indexed) */
+  $handler->display->display_options['filters']['field_place_lat_long_lat']['id'] = 'field_place_lat_long_lat';
+  $handler->display->display_options['filters']['field_place_lat_long_lat']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['filters']['field_place_lat_long_lat']['field'] = 'field_place_lat_long_lat';
+  $handler->display->display_options['filters']['field_place_lat_long_lat']['operator'] = 'not empty';
+  /* Filter criterion: Lat-Long: Longitude (indexed) */
+  $handler->display->display_options['filters']['field_place_lat_long_lon']['id'] = 'field_place_lat_long_lon';
+  $handler->display->display_options['filters']['field_place_lat_long_lon']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['filters']['field_place_lat_long_lon']['field'] = 'field_place_lat_long_lon';
+  $handler->display->display_options['filters']['field_place_lat_long_lon']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'locations/json';
   $export['devtrac_solr_view_locations'] = $view;
 

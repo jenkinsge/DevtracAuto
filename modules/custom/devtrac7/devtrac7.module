@@ -179,7 +179,7 @@ function devtrac7_menu() {
   );  
 
   $items['user/%/barcode'] = array(
-    'title' => 'Barcode',
+    'title' => 'Mobile',
     'page callback' => 'devtrac7_barcode',
     'access callback' => 'user_is_logged_in',
     'type' => MENU_LOCAL_TASK,
@@ -187,7 +187,7 @@ function devtrac7_menu() {
   );
 
   $items['devtrac7/modal/%ctools_js/barcode'] = array(
-    'title' => 'Barcode',
+    'title' => 'Mobile',
     'page callback' => 'devtrac7_modal_barcode',
     'page arguments' => array(1),
     'access callback' => 'user_is_logged_in',
@@ -260,7 +260,8 @@ function devtrac7_barcode() {
   );
   
   //debug(ctools_modal_text_button(t('Modal Login'), 'modal_forms/nojs/login', t('Login via modal')));
-  
+  //TODO You should not use html in data that will go to the t() function. You could use <blockquote> around the whole
+  //  text instead
   $header = "You can use this barcode to configure the Devtrac Mobile App to connect to this instance of Devtrac.<br /><br />";
   $header .= "After starting the Devtrac Mobile App, please start the QRCode scanner and scan this code.<br />";
   $header .= "It will log you in automatically and your Mobile App will connect to this instance of Devtrac.<br />";
@@ -551,8 +552,9 @@ function devtrac7_addactionitem_access($nid) {
 }
 
 /**
- * @todo Please document this function.
- * @see http://drupal.org/node/1354
+ * Implements hook_access()
+ *
+ * determines if you have access to the fieldtrip passed in $nid
  */
 function devtrac7_update_fieldtrip_access($nid = NULL) {
   global $user;
@@ -602,13 +604,6 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
   foreach ($terms as $term) {
     $reporttypes[] = $term->name;
   }
-  $form['reporttype'] = array(
-    '#title' => t('Site Report Type'),
-    '#type' => 'radios',
-    '#description' => 'Select the type of report you want to create.',
-    '#options' => $reporttypes,
-    '#default_value' => 0,
-  );
   $vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_6');
   $vocabulary = reset($vocabulary);
 
@@ -619,19 +614,16 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
       $districts[$term->tid] = str_repeat ( '-' , $term->depth) . ' ' .$term->name;
     }
   }
-
+  
+  // We make the first element in the array the default value
+  $districttids = array_keys($districts);
+  
   $element = array(
-    '#title' => t('District'),
+    '#title' => t('Admin Unit'),
     '#type' => 'select',
-    '#description' => '',
+    '#description' => t('You can select and Admin Unit. It is used to zoom the map for you.'),
     '#options' => $districts,
-    // '#states' => array (
-    //   'visible' => array(
-    //     ':input[name="reporttype"]' => array('value' => '1'),
-    //   ),
-    // ),
-    // And these are to satisfy the following function
-    '#default_value' => array('121'),  // This is Kampala
+    '#default_value' => $districttids[0],
     '#field_name' => 'devtrac7_dummy_district',
     '#properties' => array('empty_option' => FALSE),
     '#value_key' => 'tid', // Picked 'tid' because District is a vocabulary.
@@ -640,6 +632,18 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
   _taxonomy_access_configure_options_widget($element, 1000);
 
   $form['district'] = $element;
+  /*
+   * We moved report type down for a while as the district dropdown doesnt
+   * fit in the window
+   * 
+   */
+  $form['reporttype'] = array(
+    '#title' => t('Site Report Type'),
+    '#type' => 'radios',
+    '#description' => t('Select the type of report you want to create.'),
+    '#options' => $reporttypes,
+    '#default_value' => 0,
+  );
 
   $form['nid'] = array(
     '#type' => 'hidden',
@@ -1693,8 +1697,10 @@ function devtrac7_block_view_alter(&$data, $block) {
           case 'Filter by district category:':
           case 'Filter by unicef category:':
           case 'Filter by admin unit » unicef category:':
-          case 'Filter by admin unit » tags:':  
             $data['subject'] = 'Tags';
+            break;
+          case 'Filter by admin unit » tags:':
+            $data['subject'] = 'Admin Unit Tags';
             break;
           case 'Filter by node (target endpoint):':
             $data['subject'] = 'Organisations';
@@ -2400,6 +2406,9 @@ function devtrac7_js_alter(&$javascript) {
  * Implements hook_system_info_alter().
  *
  * Adds region that can be used on top of the map
+ * @param $info
+ * @param $file
+ * @param $type
  */
 function devtrac7_system_info_alter(&$info, $file, $type) {
   if ($type == 'theme') {
@@ -2636,5 +2645,23 @@ function _devtrac7_site_report_tid($termname) {
 function devtrac7_query_alter($query) {
   if ($query->hasTag('mapit_processing')) {
     $query->orderBy('id', 'DESC');
+  }
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ * 
+ * We override the theme registry to use our own page template for the media
+ * browser page. The structure of $vars['page'] is different for the omega
+ * theme or any subtheme of it so the original page template provided with the
+ * media module won't do.
+ */
+function devtrac7_theme_registry_alter(&$theme_registry) {
+  // Override the media dialog page template.
+  if (isset($theme_registry['media_dialog_page'])) {
+    // We append the full path to the 'template' parameter. 
+    // See https://api.drupal.org/comment/29013#comment-29013.
+    $path = drupal_get_path('module', 'base');
+    $theme_registry['media_dialog_page']['template'] = $path . 'profiles/devtrac/modules/custom/devtrac7/devtrac-media-dialog-page';
   }
 }

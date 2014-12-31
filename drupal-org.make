@@ -3,12 +3,11 @@ core = 7.x
 api = 2
 
 ; Mountbatten defaults
-includes[mountbatten_web_analytics] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_web_analytics.make
-includes[mountbatten_seo] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_seo.make
-; includes[mountbatten_spam_protection] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_spam_protection.make
-includes[mountbatten_web_media] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_web_media.make
-includes[mountbatten_sitewide] = https://raw.githubusercontent.com/benjaminug/mountbatten_makefiles/master/mountbatten_sitewide.make
-
+includes[mountbatten_web_analytics] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_web_analytics.make
+includes[mountbatten_seo] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_seo.make
+; includes[mountbatten_spam_protection] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_spam_protection.make
+includes[mountbatten_web_media] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_web_media.make
+includes[mountbatten_sitewide] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_sitewide.make
 
 ; Modules
 projects[acl][version] = "1.0"
@@ -39,8 +38,6 @@ projects[charts_graphs][subdir] = "contrib"
 projects[charts_graphs_flot][version] = "1.x-dev"
 projects[charts_graphs_flot][type] = "module"
 projects[charts_graphs_flot][subdir] = "contrib"
-projects[charts_graphs_flot][patch][] = "https://www.drupal.org/files/issues/charts_graphs_flot-fixes-getChart-warning-at-line-232-2324399-0.patch"
-projects[charts_graphs_flot][patch][] = "https://www.drupal.org/files/issues/charts_graphs_flot-fix-for-xaxis-warning-2324451-0.patch"
 
 projects[ckan_packages][version] = "1.x-dev"
 projects[ckan_packages][type] = "module"
@@ -194,6 +191,7 @@ projects[geofield][subdir] = "contrib"
 projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-merge-openlayers-layers.patch"
 projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-sql-error-1965484-18.patch"
 ; projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-wkb-exception-1924206-11.patch"
+projects[geofield][patch][] = https://www.drupal.org/files/issues/add_titles_to_editingtoolbar_buttons.patch
 
 projects[geonames][version] = "1.1"
 projects[geonames][type] = "module"
@@ -497,6 +495,10 @@ projects[views_modes][subdir] = "contrib"
 projects[views_rss][version] = "2.0-rc3"
 projects[views_rss][type] = "module"
 projects[views_rss][subdir] = "contrib"
+
+projects[views_plugin_argument_default_referer][version] = "1.x-dev"
+projects[views_plugin_argument_default_referer][type] = "module"
+projects[views_plugin_argument_default_referer][subdir] = "contrib"
 
 projects[views_rss_georss][version] = "1.0-rc1"
 projects[views_rss_georss][type] = "module"

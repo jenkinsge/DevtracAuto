@@ -4,4 +4,5 @@ core = "7.x"
 package = "Devtrac Apps"
 files[] = devtrac_geonames_config.module
 dependencies[] = geonames
+dependencies[] = geocoder_geonames
 dependencies[] = openlayers_geosearch

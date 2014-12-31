@@ -110,7 +110,7 @@ function devtrac7_solr_search_district_feature_context_default_contexts() {
           'module' => 'pane',
           'delta' => 'devtrac_solr_map_info',
           'region' => 'featured',
-          'weight' => '-72',
+          'weight' => '-50',
         ),
       ),
     ),
@@ -152,7 +152,7 @@ function devtrac7_solr_search_district_feature_context_default_contexts() {
           'module' => 'current_search',
           'delta' => 'devtrac7_districts_standard',
           'region' => 'featured',
-          'weight' => '-10',
+          'weight' => '-100',
         ),
         'openlayers_plus-blockswitcher' => array(
           'module' => 'openlayers_plus',

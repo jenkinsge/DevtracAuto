@@ -36,7 +36,7 @@ function devtrac7_theme_feature_context_default_contexts() {
           'module' => 'nice_menus',
           'delta' => '2',
           'region' => 'featured',
-          'weight' => '-71',
+          'weight' => '0',
         ),
         'delta_blocks-page-title' => array(
           'module' => 'delta_blocks',
@@ -55,12 +55,6 @@ function devtrac7_theme_feature_context_default_contexts() {
           'delta' => 'credit_footer_block',
           'region' => 'footer_first',
           'weight' => '-10',
-        ),
-        'nice_menus-3' => array(
-          'module' => 'nice_menus',
-          'delta' => '3',
-          'region' => 'my_items_menu',
-          'weight' => '-9',
         ),
       ),
     ),
@@ -268,7 +262,7 @@ function devtrac7_theme_feature_context_default_contexts() {
           'delta' => 'front_about_information',
           'region' => 'featured',
           'weight' => -10,
-	),
+        ),
         'commentblock-commentblock' => array(
           'module' => 'commentblock',
           'delta' => 'commentblock',
@@ -735,6 +729,12 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'postscript_first',
           'weight' => '-10',
         ),
+        'views-user_media-block_1' => array(
+          'module' => 'views',
+          'delta' => 'user_media-block_1',
+          'region' => 'postscript_second',
+          'weight' => '-10',
+        ),
         'delta_blocks-messages' => array(
           'module' => 'delta_blocks',
           'delta' => 'messages',
@@ -766,6 +766,41 @@ function devtrac7_theme_feature_context_default_contexts() {
           'footer_thirdcolumn' => 0,
           'footer_fourthcolumn' => 0,
           'footer' => 0,
+          'olmaptext_rightuppercorner' => 0,
+          'olblockpanel' => 0,
+          'olmaptext_1' => 0,
+        ),
+      ),
+      'devtrac7_theme' => array(
+        'disable' => array(
+          'page_top' => 0,
+          'page_bottom' => 0,
+          'content' => 0,
+          'help' => 0,
+          'user_first' => 0,
+          'user_second' => 0,
+          'branding' => 0,
+          'menu' => 0,
+          'sidebar_first' => 0,
+          'sidebar_second' => 0,
+          'header_first' => 0,
+          'header_second' => 0,
+          'preface_first' => 0,
+          'preface_second' => 0,
+          'preface_third' => 0,
+          'postscript_first' => 0,
+          'postscript_second' => 0,
+          'postscript_third' => 0,
+          'postscript_fourth' => 0,
+          'footer_first' => 0,
+          'footer_second' => 0,
+          'my_items_menu' => 0,
+          'my_tool_menu' => 0,
+          'categories' => 0,
+          'breadcrumb' => 0,
+          'filter' => 0,
+          'questions' => 0,
+          'map_toolbar' => 0,
           'olmaptext_rightuppercorner' => 0,
           'olblockpanel' => 0,
           'olmaptext_1' => 0,
@@ -828,6 +863,55 @@ function devtrac7_theme_feature_context_default_contexts() {
   t('User profile page');
   t('user');
   $export['context_user_view'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'devtrac_all_solr_pages';
+  $context->description = 'Shows items that are active on all Solr pages';
+  $context->tag = 'solr';
+  $context->conditions = array(
+    'views' => array(
+      'values' => array(
+        'devtrac7_solr_user_view' => 'devtrac7_solr_user_view',
+        'devtrac7_solr_user_view:page' => 'devtrac7_solr_user_view:page',
+        'devtrac_solr_view_actionitems' => 'devtrac_solr_view_actionitems',
+        'devtrac_solr_view_actionitems:list' => 'devtrac_solr_view_actionitems:list',
+        'devtrac_solr_view_answers' => 'devtrac_solr_view_answers',
+        'devtrac_solr_view_answers:graphs' => 'devtrac_solr_view_answers:graphs',
+        'devtrac_solr_view_districts' => 'devtrac_solr_view_districts',
+        'devtrac_solr_view_districts:map' => 'devtrac_solr_view_districts:map',
+        'devtrac_solr_view_fieldtrips' => 'devtrac_solr_view_fieldtrips',
+        'devtrac_solr_view_fieldtrips:list' => 'devtrac_solr_view_fieldtrips:list',
+        'devtrac_solr_view_images' => 'devtrac_solr_view_images',
+        'devtrac_solr_view_images:page_1' => 'devtrac_solr_view_images:page_1',
+        'devtrac_solr_view_images:page_2' => 'devtrac_solr_view_images:page_2',
+        'devtrac_solr_view_locations' => 'devtrac_solr_view_locations',
+        'devtrac_solr_view_locations:map' => 'devtrac_solr_view_locations:map',
+        'devtrac_solr_view_sitevisits' => 'devtrac_solr_view_sitevisits',
+        'devtrac_solr_view_sitevisits:map' => 'devtrac_solr_view_sitevisits:map',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views_modes-modes' => array(
+          'module' => 'views_modes',
+          'delta' => 'modes',
+          'region' => 'featured',
+          'weight' => '100',
+        ),
+      ),
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Shows items that are active on all Solr pages');
+  t('solr');
+  $export['devtrac_all_solr_pages'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */

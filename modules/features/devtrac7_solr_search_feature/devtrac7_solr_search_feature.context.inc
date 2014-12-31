@@ -74,7 +74,7 @@ function devtrac7_solr_search_feature_context_default_contexts() {
           'module' => 'current_search',
           'delta' => 'devtrac7_sitevisits_standard',
           'region' => 'featured',
-          'weight' => '-10',
+          'weight' => '-100',
         ),
         'openlayers_plus-blockswitcher' => array(
           'module' => 'openlayers_plus',
@@ -207,13 +207,13 @@ function devtrac7_solr_search_feature_context_default_contexts() {
           'module' => 'current_search',
           'delta' => 'devtrac7_sitevisits_standard',
           'region' => 'featured',
-          'weight' => '-10',
+          'weight' => '-100',
         ),
         'pane-front_about_information' => array(
           'module' => 'pane',
           'delta' => 'front_about_information',
           'region' => 'featured',
-          'weight' => '10',
+          'weight' => '-50',
         ),
         'current_search-devtrac7_sitevisits_activefacets' => array(
           'module' => 'current_search',

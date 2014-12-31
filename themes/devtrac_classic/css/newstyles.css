@@ -120,6 +120,8 @@ table tbody tr.even td.active {
 
 .block-nice-menus {
   z-index: inherit;
+  display: inline-block;
+  float: right;
 }
 
 .zone-featured {
@@ -149,7 +151,7 @@ table tbody tr.even td.active {
 
 .zone-featured .nice-menu {
   float: right;
-  margin-right: 50px;
+  margin-right: 5px;
 }
 
 .zone-featured .nice-menu ,
@@ -192,16 +194,28 @@ table tbody tr.even td.active {
   right: 0px;
 }
 
+.zone-featured #view-modes {
+  border: thin solid #555555;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  margin: 0 5px;
+  padding: 0 5px;
+}
+
+.zone-featured #view-modes li a ,
 .zone-featured .nice-menu li a {
   padding: 5px 5px;
   color: #FFFFFF;
 }
 
+.zone-featured #view-modes li a:hover ,
 .zone-featured .nice-menu li a:hover {
   text-decoration: none;
   background-color: #000000;
 }
 
+.zone-featured #view-modes li a ,
 .zone-featured .nice-menu li a.map ,
 .zone-featured .nice-menu li a.list ,
 .zone-featured .nice-menu li a.graphs {
@@ -214,17 +228,34 @@ table tbody tr.even td.active {
   color: transparent;
 }
 
-.zone-featured .nice-menu li a.map {
+.zone-featured #view-modes li a.images-map ,
+.zone-featured #view-modes li a.map {
   background-image: url(../images/user-menu-icon-map.png);
 }
 
-.zone-featured .nice-menu li a.list {
+.zone-featured #view-modes li.list a ,
+.zone-featured #view-modes li a.list {
   background-image: url(../images/user-menu-icon-list.png);
 }
 
-.zone-featured .nice-menu li a.graphs {
+.zone-featured #view-modes li a.graphs ,
+.zone-featured #view-modes li.graphs a {
   background-image: url(../images/user-menu-icon-graph.png);
   margin-right: 5px;
+}
+
+.zone-featured #view-modes li a.grid ,
+.zone-featured #view-modes li.grid a {
+  background-image: url(../images/user-menu-icon-grid.png);
+  margin-right: 5px;
+}
+
+.zone-featured #view-modes li.tagcloud {
+  display: none;
+}
+
+.zone-featured #view-modes li a.views-modes-active.active {
+  background-color: #222222;
 }
 
 .zone-featured .nice-menu li.menuparent li {
@@ -266,12 +297,39 @@ table tbody tr.even td.active {
 
 .region-featured-inner {
   position: relative;
+  height: 27px;
+  padding-right: 20px;
 }
 
 .zone-featured .block-current-search {
   display: inline-block;
-  position: absolute;
-  top: 0px;
+/*  position: absolute;
+  top: 0px;*/
+}
+
+.zone-featured .block-views-modes-modes {
+  display: inline-block;
+  float: right;
+}
+
+.zone-featured .block-views-modes-modes ul {
+  margin: 0;
+  height: 27px;
+}
+
+.zone-featured .block-views-modes-modes ul li {
+  display: inline-block;
+  height: 27px;
+  width: 31px;
+  list-style: none;
+  float: left;
+}
+
+.zone-featured .block-views-modes-modes ul li a {
+  display: inline-block;
+  height: 27px;
+  width: 31px;
+  overflow: hidden;
 }
 
 .zone-featured .block-current-search h3 {
@@ -281,12 +339,10 @@ table tbody tr.even td.active {
 
 
 .zone-featured .block-pane {
-  position: absolute;
-  right: 20px;
-  top: 0;
   width: 31px;
   height: 27px;
-
+  display: inline-block;
+  float: right;
 }
 
 .zone-featured .block-pane .block-inner {
@@ -375,6 +431,10 @@ table tbody tr.even td.active {
 }
 
 .context-sitereport .zone-content .grid-4.region-content .action-links {
+  display: none;
+}
+
+.fluid .view-modes-graphs .block-system-main .views-table {
   display: none;
 }
 
@@ -1461,6 +1521,7 @@ tr:hover .ctools-button.ctools-button-processed ul li a:hover {
 
 .olControlMaptext .ctools-wrapper li {
   min-width: 56px;
+  list-style: none;
 }
 
 .olControlMaptext .ctools-button li a:hover {
@@ -1785,11 +1846,18 @@ div .collapsiblockCollapsed a {
 .block-facetapi ul li a {
   padding: 5px 5px 5px 15px;
   color: inherit;
+  display: block;
 }
 
 .block-facetapi ul li a:hover {
   background: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
 }
+
+.block-facetapi ul li a span.facetapi-search-api-swatches-text {
+  padding-left: 5px;
+}
+
 
 
 /*=====================================================================================
@@ -2111,22 +2179,20 @@ div.olControlAttribution a:link {
   font-weight: normal;
 }
 
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio {
-  background: none;
+html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio {
   padding: 5px 0 5px 40px;
   height: 30px;
   margin: 2px 0;
+  background-position: 5px 5px;
+}
+
+.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio label {
+  line-height: 28px;
 }
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio:hover {
   cursor: pointer;
 }
-
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_8 ,
-.olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.OpenLayers_Layer_TMS_6 {
-  background: url(../images/map-layer-natural.png) no-repeat 5px 50% !important;
-}
-
 
 .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.base .form-option.radio.osm_cycle {
   background: url(../images/map-layer-cycling-map.png) no-repeat 5px 50%;

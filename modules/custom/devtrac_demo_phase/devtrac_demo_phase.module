@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains alterations required to use Devtrac in demo mode.
+ * Alters pager settings for view displays when using the db indexing service.
  */
 
 /*  

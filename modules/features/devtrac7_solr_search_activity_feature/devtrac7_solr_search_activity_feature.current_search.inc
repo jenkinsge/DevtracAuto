@@ -20,7 +20,7 @@ function devtrac7_solr_search_activity_feature_current_search_default_items() {
       'devtrac7_activities_fieldgroup' => array(
         'id' => 'devtracgroup',
         'label' => 'devtrac7_activities_fieldgroup',
-        'field_pattern' => '[facetapi_facet:facet-label]:',
+        'field_pattern' => '[facetapi_facet:facet-label]',
         'nofollow' => 1,
         'weight' => '0',
       ),

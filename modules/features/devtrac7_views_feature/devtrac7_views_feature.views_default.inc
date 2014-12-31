@@ -11,6 +11,141 @@ function devtrac7_views_feature_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'devtrac_media_browser_extensions';
+  $view->description = 'View that implements extra media browser tabs.';
+  $view->tag = 'default';
+  $view->base_table = 'file_managed';
+  $view->human_name = 'Devtrac Media Browser Extensions';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['query']['options']['query_tags'] = array(
+    0 => 'media_browser',
+  );
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: File: Name */
+  $handler->display->display_options['fields']['filename']['id'] = 'filename';
+  $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filename']['field'] = 'filename';
+  $handler->display->display_options['fields']['filename']['label'] = '';
+  $handler->display->display_options['fields']['filename']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['filename']['alter']['ellipsis'] = FALSE;
+
+  /* Display: Attached files */
+  $handler = $view->new_display('media_browser', 'Attached files', 'attached_files');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Attached files';
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '25';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['quantity'] = '9';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'media_browser';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['empty'] = TRUE;
+  $handler->display->display_options['empty']['area']['content'] = 'No images attached.';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: File: Content using Images */
+  $handler->display->display_options['relationships']['reverse_field_ftritem_images_node']['id'] = 'reverse_field_ftritem_images_node';
+  $handler->display->display_options['relationships']['reverse_field_ftritem_images_node']['table'] = 'file_managed';
+  $handler->display->display_options['relationships']['reverse_field_ftritem_images_node']['field'] = 'reverse_field_ftritem_images_node';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: File: Upload date */
+  $handler->display->display_options['sorts']['timestamp']['id'] = 'timestamp';
+  $handler->display->display_options['sorts']['timestamp']['table'] = 'file_managed';
+  $handler->display->display_options['sorts']['timestamp']['field'] = 'timestamp';
+  $handler->display->display_options['sorts']['timestamp']['order'] = 'DESC';
+  $handler->display->display_options['sorts']['timestamp']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['timestamp']['expose']['label'] = 'Upload date';
+  /* Sort criterion: File Usage: Use count */
+  $handler->display->display_options['sorts']['count']['id'] = 'count';
+  $handler->display->display_options['sorts']['count']['table'] = 'file_usage';
+  $handler->display->display_options['sorts']['count']['field'] = 'count';
+  $handler->display->display_options['sorts']['count']['group_type'] = 'sum';
+  $handler->display->display_options['sorts']['count']['exposed'] = TRUE;
+  $handler->display->display_options['sorts']['count']['expose']['label'] = 'Use count';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_ftritem_images_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'referer';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: File: Status */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'file_managed';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = array(
+    1 => '1',
+  );
+  /* Filter criterion: File: Name */
+  $handler->display->display_options['filters']['filename']['id'] = 'filename';
+  $handler->display->display_options['filters']['filename']['table'] = 'file_managed';
+  $handler->display->display_options['filters']['filename']['field'] = 'filename';
+  $handler->display->display_options['filters']['filename']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['filename']['expose']['operator_id'] = 'filename_op';
+  $handler->display->display_options['filters']['filename']['expose']['label'] = 'File name';
+  $handler->display->display_options['filters']['filename']['expose']['operator'] = 'filename_op';
+  $handler->display->display_options['filters']['filename']['expose']['identifier'] = 'filename';
+  $handler->display->display_options['filters']['filename']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+  );
+  /* Filter criterion: File: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'file_managed';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
+  $handler->display->display_options['filters']['type']['expose']['operator'] = 'type_op';
+  $handler->display->display_options['filters']['type']['expose']['identifier'] = 'type';
+  $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    3 => 0,
+    4 => 0,
+    5 => 0,
+    6 => 0,
+    7 => 0,
+  );
+  $export['devtrac_media_browser_extensions'] = $view;
+
+  $view = new view();
   $view->name = 'dvtrc_action_items';
   $view->description = '';
   $view->tag = 'default';
@@ -184,17 +319,17 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_plugin'] = 'footable';
   $handler->display->display_options['style_options']['columns'] = array(
     'nid' => 'nid',
     'title' => 'title',
+    'field_actionitem_status' => 'field_actionitem_status',
     'field_actionitem_due_date' => 'field_actionitem_due_date',
     'field_actionitem_resp_place' => 'field_actionitem_resp_place',
     'field_actionitem_responsible' => 'field_actionitem_responsible',
     'view' => 'view',
-    'view_1' => 'view_1',
   );
-  $handler->display->display_options['style_options']['default'] = 'field_actionitem_due_date';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'nid' => array(
       'sortable' => 0,
@@ -204,28 +339,35 @@ function devtrac7_views_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'title' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_actionitem_status' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_actionitem_due_date' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_actionitem_resp_place' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_actionitem_responsible' => array(
-      'align' => 'views-align-left',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
@@ -234,10 +376,40 @@ function devtrac7_views_feature_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'view_1' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
+  );
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'nid',
+    'icon' => '',
+    'icon_size' => '',
+    'hide' => array(
+      'nid' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'title' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_actionitem_status' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_actionitem_due_date' => array(
+        'phone' => 'phone',
+        'tablet' => 0,
+      ),
+      'field_actionitem_resp_place' => array(
+        'phone' => 'phone',
+        'tablet' => 'tablet',
+      ),
+      'field_actionitem_responsible' => array(
+        'phone' => 'phone',
+        'tablet' => 'tablet',
+      ),
+      'view' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
     ),
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -270,6 +442,13 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Task';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Status */
+  $handler->display->display_options['fields']['field_actionitem_status']['id'] = 'field_actionitem_status';
+  $handler->display->display_options['fields']['field_actionitem_status']['table'] = 'field_data_field_actionitem_status';
+  $handler->display->display_options['fields']['field_actionitem_status']['field'] = 'field_actionitem_status';
+  $handler->display->display_options['fields']['field_actionitem_status']['relationship'] = 'reverse_field_actionitem_ftreportitem_node';
+  $handler->display->display_options['fields']['field_actionitem_status']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_actionitem_status']['element_wrapper_class'] = '[field_actionitem_status-value]';
   /* Field: Content: Due Date */
   $handler->display->display_options['fields']['field_actionitem_due_date']['id'] = 'field_actionitem_due_date';
   $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'field_data_field_actionitem_due_date';
@@ -305,25 +484,17 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['view']['id'] = 'view';
   $handler->display->display_options['fields']['view']['table'] = 'views';
   $handler->display->display_options['fields']['view']['field'] = 'view';
-  $handler->display->display_options['fields']['view']['label'] = 'Progress';
-  $handler->display->display_options['fields']['view']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['view']['label'] = 'Actions';
   $handler->display->display_options['fields']['view']['view'] = 'dvtrc_action_items';
-  $handler->display->display_options['fields']['view']['display'] = 'block_13';
+  $handler->display->display_options['fields']['view']['display'] = 'block_14';
   $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
-  /* Field: Global: View */
-  $handler->display->display_options['fields']['view_1']['id'] = 'view_1';
-  $handler->display->display_options['fields']['view_1']['table'] = 'views';
-  $handler->display->display_options['fields']['view_1']['field'] = 'view';
-  $handler->display->display_options['fields']['view_1']['label'] = 'Actions';
-  $handler->display->display_options['fields']['view_1']['view'] = 'dvtrc_action_items';
-  $handler->display->display_options['fields']['view_1']['display'] = 'block_14';
-  $handler->display->display_options['fields']['view_1']['arguments'] = '[!nid]';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sort criterion: Content: Post date */
-  $handler->display->display_options['sorts']['created']['id'] = 'created';
-  $handler->display->display_options['sorts']['created']['table'] = 'node';
-  $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Sort criterion: Field: Status (field_actionitem_status) */
+  $handler->display->display_options['sorts']['field_actionitem_status_value']['id'] = 'field_actionitem_status_value';
+  $handler->display->display_options['sorts']['field_actionitem_status_value']['table'] = 'field_data_field_actionitem_status';
+  $handler->display->display_options['sorts']['field_actionitem_status_value']['field'] = 'field_actionitem_status_value';
+  $handler->display->display_options['sorts']['field_actionitem_status_value']['relationship'] = 'reverse_field_actionitem_ftreportitem_node';
+  $handler->display->display_options['sorts']['field_actionitem_status_value']['order'] = 'DESC';
   /* Sort criterion: Content: Due Date (field_actionitem_due_date) */
   $handler->display->display_options['sorts']['field_actionitem_due_date_value']['id'] = 'field_actionitem_due_date_value';
   $handler->display->display_options['sorts']['field_actionitem_due_date_value']['table'] = 'field_data_field_actionitem_due_date';
@@ -375,7 +546,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_due_date' => 'field_actionitem_due_date',
     'field_actionitem_status' => 'field_actionitem_status',
     'field_actionitem_responsible' => 'field_actionitem_responsible',
-    'virtual_field' => 'virtual_field',
   );
   $handler->display->display_options['style_options']['default'] = 'field_actionitem_status';
   $handler->display->display_options['style_options']['info'] = array(
@@ -402,11 +572,6 @@ function devtrac7_views_feature_views_default_views() {
     ),
     'field_actionitem_responsible' => array(
       'align' => 'views-align-left',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'virtual_field' => array(
-      'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
@@ -458,23 +623,21 @@ function devtrac7_views_feature_views_default_views() {
     'link' => 1,
   );
   $handler->display->display_options['fields']['field_actionitem_responsible']['delta_offset'] = '0';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_progress_bar';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_actionitem_ftreportitem_target_id';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Report (field_actionitem_ftreportitem) */
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['id'] = 'field_actionitem_ftreportitem_target_id';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['table'] = 'field_data_field_actionitem_ftreportitem';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['field'] = 'field_actionitem_ftreportitem_target_id';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['field_actionitem_ftreportitem_target_id']['validate_options']['types'] = array(
+    'ftritem' => 'ftritem',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -587,7 +750,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_responsible' => 'field_actionitem_responsible',
     'field_actionitem_resp_place' => 'field_actionitem_resp_place',
     'virtual_field' => 'virtual_field',
-    'virtual_field_1' => 'virtual_field_1',
   );
   $handler->display->display_options['style_options']['default'] = 'field_actionitem_due_date';
   $handler->display->display_options['style_options']['info'] = array(
@@ -622,22 +784,11 @@ function devtrac7_views_feature_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'virtual_field_1' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = 'You do not have any Open Action Items yet';
-  $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referenced Entity */
   $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['id'] = 'field_actionitem_responsible_target_id';
@@ -691,12 +842,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['label'] = 'Actions';
   $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_fieldtrip_button';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field_1']['id'] = 'virtual_field_1';
-  $handler->display->display_options['fields']['virtual_field_1']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field_1']['virtual_field'] = 'field_progress_bar';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
@@ -1059,7 +1204,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_responsible' => 'field_actionitem_responsible',
     'field_actionitem_resp_place' => 'field_actionitem_resp_place',
     'virtual_field' => 'virtual_field',
-    'virtual_field_1' => 'virtual_field_1',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -1090,11 +1234,6 @@ function devtrac7_views_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'virtual_field' => array(
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'virtual_field_1' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -1156,12 +1295,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_status']['id'] = 'field_actionitem_status';
   $handler->display->display_options['fields']['field_actionitem_status']['table'] = 'field_data_field_actionitem_status';
   $handler->display->display_options['fields']['field_actionitem_status']['field'] = 'field_actionitem_status';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field_1']['id'] = 'virtual_field_1';
-  $handler->display->display_options['fields']['virtual_field_1']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field_1']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field_1']['virtual_field'] = 'field_progress_bar';
   /* Field: Virtual Field: virtual_field */
   $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
@@ -1943,7 +2076,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
     2 => '2',
-    5 => '5',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -2003,105 +2135,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'fieldtrip' => 'fieldtrip',
   );
-
-  /* Display: FieldTripPage */
-  $handler = $view->new_display('page', 'FieldTripPage', 'page');
-  $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '30';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'table';
-  $handler->display->display_options['style_options']['columns'] = array(
-    'title' => 'title',
-  );
-  $handler->display->display_options['style_options']['default'] = '-1';
-  $handler->display->display_options['style_options']['info'] = array(
-    'title' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-  );
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
-  $handler->display->display_options['fields']['title']['id'] = 'title';
-  $handler->display->display_options['fields']['title']['table'] = 'node';
-  $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'FieldTrip';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Start and End Date */
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'field_data_field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
-    'format_type' => 'date_only',
-    'fromto' => 'value',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Field: Content: Start and End Date */
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['id'] = 'field_fieldtrip_start_end_date_1';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['table'] = 'field_data_field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'date_only',
-    'fromto' => 'value2',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Field: Content: Start and End Date */
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['id'] = 'field_fieldtrip_start_end_date_2';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['table'] = 'field_data_field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
-    'format_type' => 'date_only',
-    'fromto' => 'none',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'duration' => 1,
-  );
-  /* Field: Content: Status */
-  $handler->display->display_options['fields']['field_fieldtrip_status']['id'] = 'field_fieldtrip_status';
-  $handler->display->display_options['fields']['field_fieldtrip_status']['table'] = 'field_data_field_fieldtrip_status';
-  $handler->display->display_options['fields']['field_fieldtrip_status']['field'] = 'field_fieldtrip_status';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['label'] = 'Operations';
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'node';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type']['id'] = 'type';
-  $handler->display->display_options['filters']['type']['table'] = 'node';
-  $handler->display->display_options['filters']['type']['field'] = 'type';
-  $handler->display->display_options['filters']['type']['value'] = array(
-    'fieldtrip' => 'fieldtrip',
-  );
-  $handler->display->display_options['path'] = 'field-trip';
 
   /* Display: FieldTrip P-1st */
   $handler = $view->new_display('block', 'FieldTrip P-1st', 'block_1');
@@ -2462,6 +2495,14 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: Full Report */
   $handler = $view->new_display('page', 'Full Report', 'page_1');
   $handler->display->display_options['display_description'] = 'Fieldtrip Full report PDF version with the respective sitevisits ';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    7 => '7',
+  );
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -2590,7 +2631,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_type'] = 'strong';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -2685,6 +2726,14 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: Pre Trip Report */
   $handler = $view->new_display('page', 'Pre Trip Report', 'page_2');
   $handler->display->display_options['display_description'] = 'Pre Trip Report PDF version with the respective sitevisits ';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    7 => '7',
+  );
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -3149,59 +3198,50 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
 
-  /* Display: Open fieldtrips */
-  $handler = $view->new_display('block', 'Open fieldtrips', 'block_8');
+  /* Display: Open Fieldtrips Block */
+  $handler = $view->new_display('block', 'Open Fieldtrips Block', 'block_8');
   $handler->display->display_options['display_description'] = 'Block outputs a list of open fieldtrips that belong to a given user';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
-  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '10';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_plugin'] = 'footable';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
     'field_fieldtrip_start_end_date' => 'field_fieldtrip_start_end_date',
     'field_fieldtrip_start_end_date_1' => 'field_fieldtrip_start_end_date_1',
-    'field_fieldtrip_start_end_date_2' => 'field_fieldtrip_start_end_date_2',
     'field_fieldtrip_status' => 'field_fieldtrip_status',
     'virtual_field_1' => 'virtual_field_1',
     'virtual_field' => 'virtual_field',
   );
-  $handler->display->display_options['style_options']['default'] = 'field_fieldtrip_status';
+  $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
     'title' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fieldtrip_start_end_date' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fieldtrip_start_end_date_1' => array(
-      'sortable' => 1,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'field_fieldtrip_start_end_date_2' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'field_fieldtrip_status' => array(
-      'sortable' => 1,
+      'sortable' => 0,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -3216,6 +3256,37 @@ function devtrac7_views_feature_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'title',
+    'icon' => '',
+    'icon_size' => '',
+    'hide' => array(
+      'title' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_fieldtrip_start_end_date' => array(
+        'phone' => 'phone',
+        'tablet' => 'tablet',
+      ),
+      'field_fieldtrip_start_end_date_1' => array(
+        'phone' => 'phone',
+        'tablet' => 'tablet',
+      ),
+      'field_fieldtrip_status' => array(
+        'phone' => 'phone',
+        'tablet' => 0,
+      ),
+      'virtual_field_1' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'virtual_field' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
     ),
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -3233,17 +3304,16 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'FieldTrips';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Field: Content: Start and End Date */
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'field_data_field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Dates';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
     'format_type' => 'date_only',
-    'fromto' => 'value',
+    'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -3252,21 +3322,9 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['id'] = 'field_fieldtrip_start_end_date_1';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['table'] = 'field_data_field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'Duration';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['type'] = 'date_default_with_duration';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
-    'format_type' => 'date_only',
-    'fromto' => 'value2',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
-  /* Field: Content: Start and End Date */
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['id'] = 'field_fieldtrip_start_end_date_2';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['table'] = 'field_data_field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['field'] = 'field_fieldtrip_start_end_date';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['label'] = 'Duration';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['type'] = 'date_default_with_duration';
-  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_2']['settings'] = array(
     'format_type' => 'date_only',
     'fromto' => 'none',
     'multiple_number' => '',
@@ -3659,7 +3717,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_ftritem_place_node';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -3778,7 +3836,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -3899,7 +3957,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = 'strong';
   $handler->display->display_options['fields']['title']['element_label_type'] = 'strong';
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -4498,7 +4556,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_due_date' => 'field_actionitem_due_date',
     'field_actionitem_responsible' => 'field_actionitem_responsible',
     'field_actionitem_status' => 'field_actionitem_status',
-    'virtual_field' => 'virtual_field',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
@@ -4524,11 +4581,6 @@ function devtrac7_views_feature_views_default_views() {
     'field_actionitem_status' => array(
       'sortable' => 1,
       'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
-    'virtual_field' => array(
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
@@ -4573,23 +4625,21 @@ function devtrac7_views_feature_views_default_views() {
     'link' => 1,
   );
   $handler->display->display_options['fields']['field_actionitem_responsible']['delta_offset'] = '0';
-  /* Field: Virtual Field: virtual_field */
-  $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['label'] = 'Progress';
-  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_progress_bar';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Nid */
-  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['table'] = 'node';
-  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
-  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_actionitem_resp_place_target_id';
-  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
-  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Location (field_actionitem_resp_place) */
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['id'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['table'] = 'field_data_field_actionitem_resp_place';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['field'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['field_actionitem_resp_place_target_id']['validate_options']['types'] = array(
+    'place' => 'place',
+  );
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -4676,7 +4726,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -4761,7 +4811,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -5205,7 +5255,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Lat-Long */
+  /* Field: Field: Lat-Long */
   $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
   $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
@@ -5579,12 +5629,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['row_options']['inline'] = array(
     'field_user_title' => 'field_user_title',
   );
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = 'No Site Reports yet';
-  $handler->display->display_options['empty']['area']['format'] = '1';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -5673,7 +5717,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6039,6 +6083,7 @@ function devtrac7_views_feature_views_default_views() {
     'field_ftritem_date_visited' => 'field_ftritem_date_visited',
     'field_ftritem_place' => 'field_ftritem_place',
     'virtual_field' => 'virtual_field',
+    'virtual_field_1' => 'virtual_field_1',
   );
   $handler->display->display_options['style_options']['default'] = 'field_ftritem_date_visited';
   $handler->display->display_options['style_options']['info'] = array(
@@ -6073,6 +6118,11 @@ function devtrac7_views_feature_views_default_views() {
       'separator' => '',
       'empty_column' => 1,
     ),
+    'virtual_field_1' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 1,
+    ),
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
@@ -6097,7 +6147,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6120,10 +6170,16 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
   $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
-  $handler->display->display_options['fields']['virtual_field']['label'] = 'Actions';
-  $handler->display->display_options['fields']['virtual_field']['element_wrapper_class'] = 'ctools-button-processed';
-  $handler->display->display_options['fields']['virtual_field']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_fieldtrip_button';
+  $handler->display->display_options['fields']['virtual_field']['label'] = 'Progress';
+  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_progress_bar';
+  /* Field: Virtual Field: virtual_field */
+  $handler->display->display_options['fields']['virtual_field_1']['id'] = 'virtual_field_1';
+  $handler->display->display_options['fields']['virtual_field_1']['table'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field_1']['field'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field_1']['label'] = 'Actions';
+  $handler->display->display_options['fields']['virtual_field_1']['element_wrapper_class'] = 'ctools-button-processed';
+  $handler->display->display_options['fields']['virtual_field_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['virtual_field_1']['virtual_field'] = 'field_fieldtrip_button';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -6529,7 +6585,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'field_data_taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['delta_offset'] = '0';
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6654,7 +6710,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6773,7 +6829,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -6913,7 +6969,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -7186,7 +7242,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['type'] = 'taxonomy_sector_code_icon';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['delta_offset'] = '0';
   $handler->display->display_options['fields']['taxonomy_vocabulary_8']['separator'] = ' ';
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -7424,7 +7480,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = 'Report';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Field: Content: Visited on */
+  /* Field: Field: Visited on */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['table'] = 'field_data_field_ftritem_date_visited';
   $handler->display->display_options['fields']['field_ftritem_date_visited']['field'] = 'field_ftritem_date_visited';
@@ -8860,6 +8916,9 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'field_data_taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['label'] = '';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['element_type'] = 'h3';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['delta_offset'] = '0';
   /* Field: Taxonomy term: Geo */
@@ -8867,9 +8926,9 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_district_geo']['table'] = 'field_data_field_district_geo';
   $handler->display->display_options['fields']['field_district_geo']['field'] = 'field_district_geo';
   $handler->display->display_options['fields']['field_district_geo']['relationship'] = 'taxonomy_vocabulary_6_tid';
-  $handler->display->display_options['fields']['field_district_geo']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_district_geo']['click_sort_column'] = 'geom';
   $handler->display->display_options['fields']['field_district_geo']['settings'] = array(
-    'data' => 'centroid',
+    'data' => 'full',
   );
   /* Field: Taxonomy term: Term description */
   $handler->display->display_options['fields']['description']['id'] = 'description';
@@ -8878,22 +8937,6 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['description']['relationship'] = 'taxonomy_vocabulary_6_tid';
   $handler->display->display_options['fields']['description']['label'] = '';
   $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
-  /* Field: User: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'users';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = '';
-  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Field: Global: Custom text */
-  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['table'] = 'views';
-  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
-  $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<span class="user-name-map">[name]</span> is responsible for reporting Site Reports in these districts';
-  $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
@@ -8905,6 +8948,15 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Field: Admin Unit (taxonomy_vocabulary_6) */
+  $handler->display->display_options['filters']['taxonomy_vocabulary_6_tid']['id'] = 'taxonomy_vocabulary_6_tid';
+  $handler->display->display_options['filters']['taxonomy_vocabulary_6_tid']['table'] = 'field_data_taxonomy_vocabulary_6';
+  $handler->display->display_options['filters']['taxonomy_vocabulary_6_tid']['field'] = 'taxonomy_vocabulary_6_tid';
+  $handler->display->display_options['filters']['taxonomy_vocabulary_6_tid']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['taxonomy_vocabulary_6_tid']['value'] = '';
+  $handler->display->display_options['filters']['taxonomy_vocabulary_6_tid']['vocabulary'] = 'vocabulary_6';
 
   /* Display: UserMap */
   $handler = $view->new_display('block', 'UserMap', 'block_5');
@@ -8918,6 +8970,9 @@ function devtrac7_views_feature_views_default_views() {
     5 => '5',
     6 => '6',
   );
+  $handler->display->display_options['defaults']['exposed_form'] = FALSE;
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['expose_sort_order'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '135';
