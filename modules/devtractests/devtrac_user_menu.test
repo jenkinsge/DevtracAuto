@@ -108,7 +108,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('placetype', 'place type field is no longer found');
     $this->drupalPost('node/' . $nodeAddreportfullSubmitozyq->nid . '/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
     $locationAddFullozyq['title'] = $this->randomName(32);
-    $locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 245;
+    $locationAddFullozyq['taxonomy_vocabulary_1[und][0][tid]'] = 245;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'Taxonomy vocabulary term 6 is removed');
     $this->drupalGet('node/add/place/');
     $this->assertNoText('Uganda Basemap', t('Uganda Basemap option is found'), 'Devtrac');
@@ -143,7 +143,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('placetype', 'place type is removed from the add site report form');
     $this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
     $locationAddFullozyq['title'] = $this->randomName(32);
-    $locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 245;
+    $locationAddFullozyq['taxonomy_vocabulary_1[und][0][tid]'] = 245;
     $this->assertField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary term 6 is not removed');
     $this->drupalGet('node/add/place/', array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81)));
     $this->assertNoText('Here will the results be', t('Section under which the geosearch will be placed is found'), 'Devtrac');
@@ -177,7 +177,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('placetype', 'place type field is no longer found on the add site report form');
     $this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
     $locationAddFullozyq['title'] = $this->randomName(32);
-    $locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 27;
+    $locationAddFullozyq['taxonomy_vocabulary_1[und][0][tid]'] = 27;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $this->drupalGet('node/add/place/'.array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81)));
     $this->assertNoText('Here will the results be', t('Section under which the geosearch will be placed is found'), 'Devtrac');
@@ -214,7 +214,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('placetype', 'place type field is removed from the add site report form');
     $this->drupalPost('node/'.$nodeAddreportfullSubmitozyq->nid.'/addplaceform/ajax/nojs/go', $formSubmitreportsozyq, t('Submit'), array('query' => array('destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
     $locationAddFullozyq['title'] = $this->randomName(32);
-    $locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 248;
+    $locationAddFullozyq['taxonomy_vocabulary_1[und][0][tid]'] = 248;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $locationAddFullozyq['field_place_lat_long[und][0][geom]'] = 'POINT (33.256301879883 2.269829988480)';
     $this->drupalGet('node/add/place/'.array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81)));
@@ -252,7 +252,7 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
       'query' => array(
       'destination' => 'node/' . $nodeAddreportfullSubmitozyq->nid)));
     $locationAddFullozyq['title'] = $this->randomName(32);
-    $locationAddFullozyq['taxonomy_vocabulary_1[und]'] = 27;
+    $locationAddFullozyq['taxonomy_vocabulary_1[und][0][tid]'] = 27;
     $this->assertField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary 6 filed was removed not from the form');
     $this->drupalGet('node/add/place/', array('query' => array('edit[taxonomy_vocabulary_6][und]' => 81)));
     $this->assertNoText('Here will the results be', t('Section under which the geosearch will be placed is found'), 'Devtrac');

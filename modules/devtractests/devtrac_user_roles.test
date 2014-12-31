@@ -77,6 +77,8 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
       'administer modules'));
     $this->managerUser = $this->drupalCreateUser(array(
       'administer users',
+      'create fieldtrip content',
+      'bypass node access',
       'administer permissions',
       'administer taxonomy',
       'access user profiles',
@@ -116,6 +118,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
    * This tests multiple districts, there was a change in the requirements.
    */
   public function testUserMultiSiteReportTypeSelectiontest() {
+  	$this->drupalLogin($this->managerUser);
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->managerUser->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
@@ -146,7 +149,7 @@ class FieldtripUserDistrictsTest1Case extends SimpleTestCloneTestCase {
     $this->assertNoLink('Create New Location', 0, 'link Create new location found');
     // $this->clickLink('Create New Location', 0, 'Link to add location');
     $locationaddfullozyq['title'] = $this->randomName(32);
-    $locationaddfullozyq['taxonomy_vocabulary_1[und]'] = 278;
+    $locationaddfullozyq['taxonomy_vocabulary_1[und][0][tid]'] = 278;
     $this->assertField('taxonomy_vocabulary_6[und]', 'Taxonomy vocabulary 6 filed was removed from the form');
     $locationaddfullozyq['field_place_lat_long[und][0][geom]'] = 'POINT (31.768699645996 3.228319883347)';
     $this->drupalPost(NULL, $locationaddfullozyq, t('Save'), array('query' => array(
