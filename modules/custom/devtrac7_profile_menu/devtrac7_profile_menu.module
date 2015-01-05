@@ -47,12 +47,14 @@ function devtrac7_profile_menu_menu_alter(&$items) {
  * Implements custom access callback function.
  */
 function devtrac7_profile_menu_export_access_callback() {
-
-  if (in_array($_GET['q'], array('fieldtrips', 'actionitems', 'images'))) {
-    global $user;
-    if ($user->uid == 0) {
-      return FALSE;
+  // Check if site is offline.
+  $page_callback_result = _menu_site_is_offline() ? MENU_SITE_OFFLINE : MENU_SITE_ONLINE;
+  if ($page_callback_result == MENU_SITE_ONLINE) {
+    if ($router_item = menu_get_item($_GET['q'])) {
+      if ($router_item['access']) {
+        return TRUE;
+      }
     }
   }
-  return TRUE;
+  return FALSE;
 }
