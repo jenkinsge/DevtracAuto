@@ -136,3 +136,94 @@ function devtrac_solr_search_app_configure_form_submit($form, &$form_state) {
   // Disable module search_api_db.
   module_disable(array('search_api_db'));
 }
+
+/**
+ * Implements hook_menu().
+ */
+function devtrac_solr_search_menu() {
+  $items['admin/devtrac7/solr'] = array(
+    'title' => "Solr Settings",
+    'description' => 'This is the page for various Solr settings',
+    'position' => 'right',
+    'weight' => -3,
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  // Menu item for setting solr search access settings.
+  $items['admin/devtrac7/solr/solr_search_access_settings'] = array(
+    'title' => 'Solr search access settings',
+    'title callback' => 'check_plain',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('devtrac_solr_search_access_settings_form'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer site configuration'),
+    'description' => 'Set the threshold for the number of user access items in the system.',
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 5,
+  );
+
+  return $items;
+}
+
+/**
+ * Creates form for solr search settings.
+ * This setting regulates a warning we give to users when they have too
+ * many items in their inbox. Too many items means the string controlling node
+ * access that is sent to Solr gets too long and the queries to solr start
+ * failing.
+ */
+function devtrac_solr_search_access_settings_form() {
+  $form['devtrac_solr_search_access_threshold'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Threshold'),
+    '#description' => t('Set the threshold for the number of user access items in the system. Reduce this number if users get empty search pages showing the following error message: "An error occurred while trying to search with Solr: \'400\' Status: Bad Request."'),
+    '#default_value' => variable_get('devtrac_solr_search_access_threshold', '75'),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save settings'),
+  );
+
+  return $form;
+}
+
+function devtrac_solr_search_access_settings_form_submit($form, &$form_state) {
+  $threshold = $form_state['values']['devtrac_solr_search_access_threshold'];
+  variable_set('devtrac_solr_search_access_threshold', $threshold);
+  drupal_set_message('Your new settings have been saved.');
+}
+
+/**
+ * Implements hook_user_view().
+ */
+function devtrac_solr_search_user_view($account, $view_mode, $langcode) {
+  /**
+   * Let's make sure the user gets a message as soon as he/she gets
+   * close to the solr_search request string length on search pages.
+   *
+   * This causes the following message to be shown on the website's
+   * search pages and the pages to be empty:
+   *
+   *    "An error occurred while trying to search with Solr: '400' Status: Bad Request."
+   *
+   * That just means the user has to go through his/her inbox and
+   * process some of the items in it, until the length of the
+   * request string is less than the cut-off length.
+   */
+  global $user;
+  $arg1 = arg(1);
+  if (($account->uid == $user->uid) && (arg(0) == 'user') && (is_numeric($arg1))) {
+    $threshold = variable_get('devtrac_solr_search_access_threshold', 75);
+    $query = db_select('acl_user', 'au')
+      ->condition('uid', $account->uid);
+    $count = $query
+      ->countQuery()
+      ->execute()
+      ->fetchField();
+    if ($count > $threshold) {
+      drupal_set_message(t('Dear user, you are advised to process some items from your ') . l(t('inbox'), 'user/' . $account->uid) . t('. If you are getting empty search pages and see the following error message "An error occurred while trying to search with Solr: \'400\' Status: Bad Request." please report this to your site administrator.'));
+    }
+  }
+}
