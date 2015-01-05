@@ -1188,6 +1188,21 @@ form.comment-form .form-item.form-type-item {
   background-size: 70px auto;
 }
 
+/*================================ statistics-page =================================*/
+
+.view-devtrac-solr-view-questions .view-grouping-header h2 {
+  margin: 0;
+}
+
+.view-devtrac-solr-view-questions .hiddentitle-done-processed {
+  display: none;
+}
+
+.view-devtrac-solr-view-questions .views-field-taxonomy-vocabulary-8 ,
+.view-devtrac-solr-view-questions .views-field-title {
+  display: inline-block;
+}
+
 /*================================ page-user =================================*/
 
 .page-user .region-content {
