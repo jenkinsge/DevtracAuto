@@ -147,7 +147,6 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_place']['table'] = 'entity_node';
   $handler->display->display_options['fields']['field_ftritem_place']['field'] = 'field_ftritem_place';
   $handler->display->display_options['fields']['field_ftritem_place']['relationship'] = 'questionnaire_id';
-  $handler->display->display_options['fields']['field_ftritem_place']['label'] = 'Context';
   $handler->display->display_options['fields']['field_ftritem_place']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['field_ftritem_place']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_ftritem_place']['bypass_access'] = 0;
@@ -252,7 +251,7 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['fields']['questionnaire_id']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['questionnaire_id']['view_mode'] = 'full';
   $handler->display->display_options['fields']['questionnaire_id']['bypass_access'] = 0;
-  /* Field: Indexed Answer: Location Types */
+  /* Field: Indexed Answer: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
@@ -458,7 +457,7 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
     'format' => 'decimal_degrees',
     'labels' => 1,
   );
-  /* Field: Indexed Answer: Location Types */
+  /* Field: Indexed Answer: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';

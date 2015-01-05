@@ -44,7 +44,7 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
     "server" : "devtrac_search_server",
     "item_type" : "node",
     "options" : {
-      "index_directly" : true,
+      "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
         "author" : { "type" : "integer", "entity_type" : "user" },
@@ -54,7 +54,7 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
         "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },
         "search_api_language" : { "type" : "string" },
         "status" : { "type" : "boolean" },
-        "taxonomy_vocabulary_1" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_1" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "title" : { "type" : "text" }
       },
@@ -68,14 +68,19 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
           }
         },
         "search_api_alter_node_access" : { "status" : 1, "weight" : "0", "settings" : [] },
+        "search_api_alter_node_status" : { "status" : 0, "weight" : "0", "settings" : [] },
         "search_api_alter_add_hierarchy" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "fields" : { "taxonomy_vocabulary_1:parent" : "taxonomy_vocabulary_1:parent" } }
+          "settings" : { "fields" : {
+              "taxonomy_vocabulary_8:parents_all" : "taxonomy_vocabulary_8:parents_all",
+              "taxonomy_vocabulary_1:parents_all" : "taxonomy_vocabulary_1:parents_all"
+            }
+          }
         },
-        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
+        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "full" } },
         "search_api_alter_add_url" : { "status" : 0, "weight" : "0", "settings" : [] },
-        "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : "search_index" } }
+        "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] }
       },
       "processors" : {
         "search_api_case_ignore" : {
@@ -93,6 +98,11 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
             "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
           }
         },
+        "search_api_transliteration" : {
+          "status" : 0,
+          "weight" : "15",
+          "settings" : { "fields" : { "title" : true, "questionnaire_question_options" : true } }
+        },
         "search_api_tokenizer" : {
           "status" : 0,
           "weight" : "20",
@@ -109,6 +119,18 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
             "fields" : { "title" : true, "questionnaire_question_options" : true },
             "file" : "",
             "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
+          }
+        },
+        "search_api_highlighting" : {
+          "status" : 0,
+          "weight" : "35",
+          "settings" : {
+            "prefix" : "\\u003Cstrong\\u003E",
+            "suffix" : "\\u003C\\/strong\\u003E",
+            "excerpt" : 1,
+            "excerpt_length" : "256",
+            "exclude_fields" : [],
+            "highlight" : "always"
           }
         }
       }
