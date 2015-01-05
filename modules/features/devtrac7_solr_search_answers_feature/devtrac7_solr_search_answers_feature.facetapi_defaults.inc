@@ -13,6 +13,201 @@ function devtrac7_solr_search_answers_feature_facetapi_default_facet_settings() 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
+  $facet->name = 'search_api@answers::answertext';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = '';
+  $facet->facet = 'answertext';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => 0,
+    'individual_parent' => 0,
+    'query_type' => 'term',
+    'limit_active_items' => 0,
+    'default_true' => '1',
+    'facet_search_ids' => array(),
+    'exclude' => 0,
+  );
+  $export['search_api@answers::answertext'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers::created';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = '';
+  $facet->facet = 'created';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => 0,
+    'individual_parent' => 0,
+    'query_type' => 'date',
+    'limit_active_items' => 0,
+    'default_true' => '1',
+    'facet_search_ids' => array(),
+    'date_granularity' => 'DAY',
+  );
+  $export['search_api@answers::created'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers::taxonomy_vocabulary_1';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = '';
+  $facet->facet = 'taxonomy_vocabulary_1';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+      'roles' => array(),
+      'bundle' => 'none',
+      'bundle_selected' => array(),
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => '0',
+    'individual_parent' => '0',
+    'query_type' => 'term',
+    'limit_active_items' => 0,
+    'default_true' => '1',
+    'facet_search_ids' => array(),
+    'exclude' => 0,
+  );
+  $export['search_api@answers::taxonomy_vocabulary_1'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:block:answernumber';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'block';
+  $facet->facet = 'answernumber';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_links',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'soft_limit' => 20,
+    'nofollow' => 1,
+    'show_expanded' => 0,
+  );
+  $export['search_api@answers:block:answernumber'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:block:answertext';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'block';
+  $facet->facet = 'answertext';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_links',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'soft_limit' => 20,
+    'nofollow' => 1,
+    'show_expanded' => 0,
+  );
+  $export['search_api@answers:block:answertext'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:block:context_id';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'block';
+  $facet->facet = 'context_id';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_links',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'soft_limit' => 20,
+    'nofollow' => 1,
+    'show_expanded' => 0,
+  );
+  $export['search_api@answers:block:context_id'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
   $facet->name = 'search_api@answers:block:created';
   $facet->searcher = 'search_api@answers';
   $facet->realm = 'block';
@@ -82,13 +277,49 @@ function devtrac7_solr_search_answers_feature_facetapi_default_facet_settings() 
     'graphsflot' => 'point',
     'empty_text' => array(
       'value' => '',
-      'format' => '1',
+      'format' => '',
     ),
     'submit_realm' => 'Save and go back to realm settings',
     'facet_more_text' => 'Show more',
     'facet_fewer_text' => 'Show fewer',
   );
   $export['search_api@answers:block:created'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:block:question';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'block';
+  $facet->facet = 'question';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_links',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'soft_limit' => 20,
+    'nofollow' => 1,
+    'show_expanded' => 0,
+  );
+  $export['search_api@answers:block:question'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
@@ -168,11 +399,11 @@ function devtrac7_solr_search_answers_feature_facetapi_default_facet_settings() 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
-  $facet->name = 'search_api@answers:block:taxonomy_vocabulary_1';
+  $facet->name = 'search_api@answers:block:questionnaire_id';
   $facet->searcher = 'search_api@answers';
   $facet->realm = 'block';
-  $facet->facet = 'taxonomy_vocabulary_1';
-  $facet->enabled = TRUE;
+  $facet->facet = 'questionnaire_id';
+  $facet->enabled = FALSE;
   $facet->settings = array(
     'weight' => 0,
     'widget' => 'facetapi_links',
@@ -181,18 +412,93 @@ function devtrac7_solr_search_answers_feature_facetapi_default_facet_settings() 
       'active' => 'active',
       'count' => 'count',
       'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'soft_limit' => 20,
+    'nofollow' => 1,
+    'show_expanded' => 0,
+  );
+  $export['search_api@answers:block:questionnaire_id'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:block:search_api_language';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'block';
+  $facet->facet = 'search_api_language';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_links',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'soft_limit' => 20,
+    'nofollow' => 1,
+    'show_expanded' => 0,
+  );
+  $export['search_api@answers:block:search_api_language'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:block:taxonomy_vocabulary_1';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'block';
+  $facet->facet = 'taxonomy_vocabulary_1';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'search_api_swatches',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+      'natural' => 0,
       'indexed' => 0,
     ),
     'sort_weight' => array(
       'active' => '-50',
       'count' => '-49',
       'display' => '-48',
+      'natural' => '0',
       'indexed' => '0',
     ),
     'sort_order' => array(
       'active' => '3',
       'count' => '3',
       'display' => '4',
+      'natural' => '4',
       'indexed' => '4',
     ),
     'empty_behavior' => 'none',
@@ -226,15 +532,15 @@ function devtrac7_solr_search_answers_feature_facetapi_default_facet_settings() 
     'graphs_comboseries_colours' => NULL,
     'graphs_comboshowlegend' => 1,
     'tagcloud_levels' => '6',
-    'swatch_field' => '',
-    'swatch_imagestyle' => 'devtrac_oecd_icons_bw',
-    'swatch_showtext' => 0,
+    'swatch_field' => 'field_term_icon',
+    'swatch_imagestyle' => 'devtrac_oecd_icons_bw_small',
+    'swatch_showtext' => 1,
     'swatch_shownoimage' => 1,
-    'swatch_imagestyle_select' => 'devtrac_oecd_icons_bw',
+    'swatch_imagestyle_select' => 'devtrac_oecd_icons_color_small',
     'graphsflot' => 'point',
     'empty_text' => array(
       'value' => '',
-      'format' => '1',
+      'format' => '',
     ),
     'submit_realm' => 'Save and go back to realm settings',
     'facet_more_text' => 'Show more',
@@ -1138,6 +1444,247 @@ function devtrac7_solr_search_answers_feature_facetapi_default_facet_settings() 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
+  $facet->name = 'search_api@answers:devtrac7_graph_pie:answernumber';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'answernumber';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => NULL,
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => NULL,
+    'graphsy_max' => NULL,
+    'graphsy_step' => NULL,
+    'graphsy_legend' => NULL,
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => NULL,
+    'graphsshowlegend' => 1,
+  );
+  $export['search_api@answers:devtrac7_graph_pie:answernumber'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:devtrac7_graph_pie:answertext';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'answertext';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+      'natural' => 0,
+      'indexed' => 0,
+    ),
+    'sort_weight' => array(
+      'active' => '-50',
+      'count' => '-49',
+      'display' => '-48',
+      'natural' => '0',
+      'indexed' => '0',
+    ),
+    'sort_order' => array(
+      'active' => '3',
+      'count' => '3',
+      'display' => '4',
+      'natural' => '4',
+      'indexed' => '4',
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => '',
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => '',
+    'graphsy_max' => '',
+    'graphsy_step' => '',
+    'graphsy_legend' => '',
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => '',
+    'graphsshowlegend' => 1,
+    'graphsflot' => 'pie',
+    'empty_text' => array(
+      'value' => '',
+      'format' => 'filtered_html',
+    ),
+  );
+  $export['search_api@answers:devtrac7_graph_pie:answertext'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:devtrac7_graph_pie:context_id';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'context_id';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => NULL,
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => NULL,
+    'graphsy_max' => NULL,
+    'graphsy_step' => NULL,
+    'graphsy_legend' => NULL,
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => NULL,
+    'graphsshowlegend' => 1,
+  );
+  $export['search_api@answers:devtrac7_graph_pie:context_id'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:devtrac7_graph_pie:created';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'created';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => NULL,
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => NULL,
+    'graphsy_max' => NULL,
+    'graphsy_step' => NULL,
+    'graphsy_legend' => NULL,
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => NULL,
+    'graphsshowlegend' => 1,
+  );
+  $export['search_api@answers:devtrac7_graph_pie:created'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:devtrac7_graph_pie:question';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'question';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => NULL,
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => NULL,
+    'graphsy_max' => NULL,
+    'graphsy_step' => NULL,
+    'graphsy_legend' => NULL,
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => NULL,
+    'graphsshowlegend' => 1,
+  );
+  $export['search_api@answers:devtrac7_graph_pie:question'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
   $facet->name = 'search_api@answers:devtrac7_graph_pie:questionnaire_answer_number';
   $facet->searcher = 'search_api@answers';
   $facet->realm = 'devtrac7_graph_pie';
@@ -1287,6 +1834,98 @@ function devtrac7_solr_search_answers_feature_facetapi_default_facet_settings() 
     'submit_realm' => 'Save and go back to realm settings',
   );
   $export['search_api@answers:devtrac7_graph_pie:questionnaire_answer_text'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:devtrac7_graph_pie:questionnaire_id';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'questionnaire_id';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => NULL,
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => NULL,
+    'graphsy_max' => NULL,
+    'graphsy_step' => NULL,
+    'graphsy_legend' => NULL,
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => NULL,
+    'graphsshowlegend' => 1,
+  );
+  $export['search_api@answers:devtrac7_graph_pie:questionnaire_id'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@answers:devtrac7_graph_pie:search_api_language';
+  $facet->searcher = 'search_api@answers';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'search_api_language';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => NULL,
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => NULL,
+    'graphsy_max' => NULL,
+    'graphsy_step' => NULL,
+    'graphsy_legend' => NULL,
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => NULL,
+    'graphsshowlegend' => 1,
+  );
+  $export['search_api@answers:devtrac7_graph_pie:search_api_language'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */

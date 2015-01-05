@@ -30,6 +30,16 @@ function devtrac7_solr_search_answers_feature_views_api($module = NULL, $api = N
 }
 
 /**
+ * Implements hook_quicktabs_default_quicktabs_alter().
+ */
+function devtrac7_solr_search_answers_feature_quicktabs_default_quicktabs_alter(&$data) {
+  if (isset($data['devtrac_statistics_graphs_tabs'])) {
+    unset($data['devtrac_statistics_graphs_tabs']->tabs[4]);
+    unset($data['devtrac_statistics_graphs_tabs']->tabs[5]);
+  }
+}
+
+/**
  * Implements hook_default_search_api_index().
  */
 function devtrac7_solr_search_answers_feature_default_search_api_index() {
@@ -41,7 +51,7 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
     "server" : "devtrac_search_server",
     "item_type" : "questionnaire_answer",
     "options" : {
-      "index_directly" : 0,
+      "index_directly" : 1,
       "cron_limit" : "50",
       "fields" : {
         "answernumber" : { "type" : "decimal" },
@@ -50,13 +60,19 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
         "created" : { "type" : "date" },
         "question" : { "type" : "integer", "entity_type" : "node" },
         "questionnaire_id" : { "type" : "integer", "entity_type" : "node" },
-        "search_api_language" : { "type" : "string" }
+        "search_api_language" : { "type" : "string" },
+        "taxonomy_vocabulary_1" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_add_hierarchy" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "fields" : { "taxonomy_vocabulary_6:parents_all" : "taxonomy_vocabulary_6:parents_all" } }
+          "settings" : { "fields" : {
+              "taxonomy_vocabulary_6:parents_all" : "taxonomy_vocabulary_6:parents_all",
+              "taxonomy_vocabulary_1:parents_all" : "taxonomy_vocabulary_1:parents_all"
+            }
+          }
         },
         "search_api_alter_add_viewed_entity" : { "status" : 0, "weight" : "0", "settings" : { "mode" : false } },
         "search_api_alter_add_aggregation" : { "status" : 0, "weight" : "0", "settings" : [] },
@@ -66,7 +82,7 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
         "date_processor" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "default" : "0", "fields" : { "created" : true } }
+          "settings" : { "default" : "1", "fields" : [] }
         },
         "search_api_case_ignore" : { "status" : 1, "weight" : "0", "settings" : { "fields" : [] } },
         "search_api_html_filter" : {
@@ -78,6 +94,11 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
             "alt" : 1,
             "tags" : "h1 = 5\\r\\nh2 = 3\\r\\nh3 = 2\\r\\nstrong = 2\\r\\nb = 2\\r\\nem = 1.5\\r\\nu = 1.5"
           }
+        },
+        "search_api_transliteration" : {
+          "status" : 0,
+          "weight" : "15",
+          "settings" : { "fields" : { "answertext" : true } }
         },
         "search_api_tokenizer" : {
           "status" : 0,
@@ -96,9 +117,20 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
             "file" : "",
             "stopwords" : "but\\r\\ndid\\r\\nthe this that those\\r\\netc"
           }
+        },
+        "search_api_highlighting" : {
+          "status" : 0,
+          "weight" : "35",
+          "settings" : {
+            "prefix" : "\\u003Cstrong\\u003E",
+            "suffix" : "\\u003C\\/strong\\u003E",
+            "excerpt" : 1,
+            "excerpt_length" : "256",
+            "exclude_fields" : [],
+            "highlight" : "always"
+          }
         }
-      },
-      "additional fields" : { "question" : "question" }
+      }
     },
     "enabled" : "1",
     "read_only" : "0"

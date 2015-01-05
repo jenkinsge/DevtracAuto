@@ -26,6 +26,12 @@ function devtrac7_solr_search_answers_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'current_search-devtrac7_answers_standard' => array(
+          'module' => 'current_search',
+          'delta' => 'devtrac7_answers_standard',
+          'region' => 'featured',
+          'weight' => '-100',
+        ),
         'current_search-devtrac7_answers_activefacets' => array(
           'module' => 'current_search',
           'delta' => 'devtrac7_answers_activefacets',
@@ -50,16 +56,7 @@ function devtrac7_solr_search_answers_feature_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-7',
         ),
-        'current_search-devtrac7_answers_standard' => array(
-          'module' => 'current_search',
-          'delta' => 'devtrac7_answers_standard',
-          'region' => 'featured',
-          'weight' => '-100',
-        ),
       ),
-    ),
-    'delta' => array(
-      'delta_template' => 'informationalpage_layout',
     ),
   );
   $context->condition_mode = 1;
@@ -92,17 +89,17 @@ function devtrac7_solr_search_answers_feature_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'quicktabs-devtrac_statistics_graphs_tabs' => array(
-          'module' => 'quicktabs',
-          'delta' => 'devtrac_statistics_graphs_tabs',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
         'pane-statistics_info' => array(
           'module' => 'pane',
           'delta' => 'statistics_info',
           'region' => 'featured',
           'weight' => '-50',
+        ),
+        'quicktabs-devtrac_statistics_graphs_tabs' => array(
+          'module' => 'quicktabs',
+          'delta' => 'devtrac_statistics_graphs_tabs',
+          'region' => 'content',
+          'weight' => '-10',
         ),
       ),
     ),

@@ -44,6 +44,34 @@ function devtrac7_solr_search_questions_feature_facetapi_default_facet_settings(
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
+  $facet->name = 'search_api@questions::taxonomy_vocabulary_8';
+  $facet->searcher = 'search_api@questions';
+  $facet->realm = '';
+  $facet->facet = 'taxonomy_vocabulary_8';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => '0',
+    'individual_parent' => '0',
+    'query_type' => 'term',
+    'limit_active_items' => 0,
+    'default_true' => '1',
+    'facet_search_ids' => array(),
+    'exclude' => 0,
+  );
+  $export['search_api@questions::taxonomy_vocabulary_8'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
   $facet->name = 'search_api@questions:block:field_question_subject';
   $facet->searcher = 'search_api@questions';
   $facet->realm = 'block';
@@ -149,7 +177,7 @@ function devtrac7_solr_search_questions_feature_facetapi_default_facet_settings(
   $facet->enabled = TRUE;
   $facet->settings = array(
     'weight' => 0,
-    'widget' => 'facetapi_links',
+    'widget' => 'search_api_swatches',
     'filters' => array(
       'active_items' => array(
         'status' => 0,
@@ -218,16 +246,16 @@ function devtrac7_solr_search_questions_feature_facetapi_default_facet_settings(
     'graphs_comboseries_colours' => NULL,
     'graphs_comboshowlegend' => 1,
     'tagcloud_levels' => '6',
-    'swatch_field' => '',
-    'swatch_imagestyle' => 'devtrac_oecd_icons_bw',
-    'swatch_showtext' => 0,
+    'swatch_field' => 'field_term_icon',
+    'swatch_imagestyle' => 'devtrac_oecd_icons_bw_small',
+    'swatch_showtext' => 1,
     'swatch_shownoimage' => 1,
-    'swatch_imagestyle_select' => 'devtrac_oecd_icons_bw',
+    'swatch_imagestyle_select' => 'devtrac_oecd_icons_color_small',
     'graphsbluff' => 'line',
     'graphsflot' => 'point',
     'empty_text' => array(
       'value' => '',
-      'format' => '1',
+      'format' => '',
     ),
     'submit_realm' => 'Save and go back to realm settings',
     'facet_more_text' => 'Show more',
@@ -289,13 +317,13 @@ function devtrac7_solr_search_questions_feature_facetapi_default_facet_settings(
     'graphs_comboshowlegend' => 1,
     'tagcloud_levels' => '6',
     'swatch_field' => 'field_term_icon',
-    'swatch_imagestyle' => 'devtrac_oecd_icons_color',
+    'swatch_imagestyle' => 'devtrac_oecd_icons_bw_small',
     'swatch_showtext' => 1,
     'swatch_shownoimage' => 1,
     'swatch_imagestyle_select' => 'devtrac_oecd_icons_color_small',
     'empty_text' => array(
       'value' => '',
-      'format' => '1',
+      'format' => '',
     ),
   );
   $export['search_api@questions:block:taxonomy_vocabulary_8'] = $facet;
