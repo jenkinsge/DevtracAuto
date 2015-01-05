@@ -1374,49 +1374,49 @@ form.comment-form .form-item.form-type-item {
   color: #A52A2A;
 }
 
-.view-dvtrc-user {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user {
   margin-top: 10px;
 }
 
-.view-dvtrc-user a:link ,
-.view-dvtrc-user a:visited ,
-.view-dvtrc-user tr:hover a:link ,
-.view-dvtrc-user tr:hover a:visited {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user a:link ,
+.block-views-dvtrc-user-block-3 .view-dvtrc-user a:visited ,
+.block-views-dvtrc-user-block-3 .view-dvtrc-user tr:hover a:link ,
+.block-views-dvtrc-user-block-3 .view-dvtrc-user tr:hover a:visited {
   color: #333333;
 }
 
-.view-dvtrc-user table {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table {
   margin-bottom: 10px;
 }
 
-.view-dvtrc-user table thead ,
-.view-dvtrc-user table tbody {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table thead ,
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody {
   border: none;
 }
 
-.view-dvtrc-user table tbody tr {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr {
   padding: 0;
 }
 
-.view-dvtrc-user table tbody tr td.views-field-name {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr td.views-field-name {
   padding-left: 0;
 }
 
-.view-dvtrc-user table tbody tr:hover {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr:hover {
   background: transparent;
   color: #333333;
 }
 
-.view-dvtrc-user table tbody tr td {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr td {
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.view-dvtrc-user table tbody tr .views-field-title {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr .views-field-title {
   text-align: center;
 }
 
-.view-dvtrc-user table tbody tr .views-field-title a {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr .views-field-title a {
   padding: 2px 5px;
   background-color: #777777;
   color: #FFFFFF;
@@ -1425,7 +1425,7 @@ form.comment-form .form-item.form-type-item {
   float: right;
 }
 
-.view-dvtrc-user table tbody tr:hover .views-field-title a {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr:hover .views-field-title a {
   background-color: #333333;
   color: #FFFFFF;
   text-decoration: none;
