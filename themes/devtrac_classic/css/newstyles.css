@@ -496,6 +496,10 @@ table tbody tr.even td.active {
 
 }
 
+.view-header h2 {
+  display: none;
+}
+
 
 /*============================== summary icons ==============================*/
 
