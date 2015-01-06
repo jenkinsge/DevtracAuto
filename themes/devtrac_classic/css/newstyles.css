@@ -496,7 +496,7 @@ table tbody tr.even td.active {
 
 }
 
-.view-header h2 {
+.block-without-title h2.views-field-questionnaire-answer-question {
   display: none;
 }
 
@@ -1251,6 +1251,40 @@ form.comment-form .form-item.form-type-item {
   margin: 100px auto 200px auto;
   background: #CCCCCC url(../images/search-results-bg.png) no-repeat 50% 20px;
   background-size: 70px auto;
+}
+
+
+/*================================ images-page =================================*/
+
+.masonry-item.masonry-brick {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: inline-block;
+  width: 200px;
+  overflow: hidden;
+}
+
+.masonry-item.masonry-brick .views-field-field-file-image-title-text {
+  position: absolute;
+  bottom: 0;
+  color: #FFFFFF;
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  min-height: 50px;
+  display: block;
+  font-size: 0.9em;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.masonry-item.masonry-brick:hover .views-field-field-file-image-title-text {
+  opacity: 1;
+}
+
+.masonry-item.masonry-brick .views-field-field-file-image-title-text .field-content {
+    padding: 10px;
 }
 
 /*================================ statistics-page =================================*/
