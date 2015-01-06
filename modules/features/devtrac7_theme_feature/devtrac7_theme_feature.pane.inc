@@ -36,7 +36,7 @@ function devtrac7_theme_feature_default_pane_data() {
   $template->container = 'credit_footer_block';
   $template->lang = 'und';
   $template->data = array(
-    'value' => '<span id="project-info-footer">Built by  <a href="http://www.mountbatten.net/">Mountbatten Ltd</a> | Originally developed for <a href="http://www.unicef.org/uganda">Unicef Uganda</a> © 2014<br /></span>',
+    'value' => '<span id="project-info-footer"><a href="http://www.devtrac.org" title="Devtrac">www.devtrac.org</a> | Built by  <a href="http://www.mountbatten.net/">Mountbatten Ltd</a> | Originally developed for <a href="http://www.unicef.org/uganda">Unicef Uganda</a> © 2015<br /></span>',
     'format' => '2',
     'title' => '<none>',
   );
