@@ -58,6 +58,9 @@ function devtrac7_solr_search_answers_feature_context_default_contexts() {
         ),
       ),
     ),
+    'delta' => array(
+      'delta_template' => 'informationalpage_layout',
+    ),
   );
   $context->condition_mode = 1;
 
