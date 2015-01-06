@@ -328,12 +328,6 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Indexed File: Title Text */
-  $handler->display->display_options['fields']['field_file_image_title_text']['id'] = 'field_file_image_title_text';
-  $handler->display->display_options['fields']['field_file_image_title_text']['table'] = 'search_api_index_devtrac_solr_image_index';
-  $handler->display->display_options['fields']['field_file_image_title_text']['field'] = 'field_file_image_title_text';
-  $handler->display->display_options['fields']['field_file_image_title_text']['label'] = '';
-  $handler->display->display_options['fields']['field_file_image_title_text']['element_label_colon'] = FALSE;
   /* Field: File: Rendered File */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_file';
@@ -345,6 +339,12 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'teaser';
   $handler->display->display_options['fields']['rendered_entity']['bypass_access'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Field: Indexed File: Title Text */
+  $handler->display->display_options['fields']['field_file_image_title_text']['id'] = 'field_file_image_title_text';
+  $handler->display->display_options['fields']['field_file_image_title_text']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['fields']['field_file_image_title_text']['field'] = 'field_file_image_title_text';
+  $handler->display->display_options['fields']['field_file_image_title_text']['label'] = '';
+  $handler->display->display_options['fields']['field_file_image_title_text']['element_label_colon'] = FALSE;
   /* Sort criterion: Indexed File: Date Visited */
   $handler->display->display_options['sorts']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
   $handler->display->display_options['sorts']['field_ftritem_date_visited']['table'] = 'search_api_index_devtrac_solr_image_index';
