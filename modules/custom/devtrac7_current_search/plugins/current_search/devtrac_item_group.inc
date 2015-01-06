@@ -51,7 +51,8 @@ class CurrentSearchDevtracGroup extends CurrentSearchItem {
 
       // Builds list items.
       foreach ($group as $item) {
-        if ($item['facets'][0] == "questionnaire_answer_question") {
+        // This removes the "question" facet from the Answers Current Search
+        if ($item['facets'][0] == "question") {
           break;
         }
         $markup = $adapter->getMappedValue($item['facets'][0], $item['value']);

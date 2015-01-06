@@ -15,6 +15,7 @@ function devtrac_classic_field__taxonomy_vocabulary_6__fieldtrip($variables) {
     $classes = 'field-item ' . ($delta % 2 ? 'odd' : 'even');
     $output .= '<div class="' . $classes . '"' . $variables['item_attributes'][$delta] . '>' . drupal_render($item) . '</div>, ';
   }
+  $output = rtrim($output, ", ");
   $output .= '</div>';
 
   // Render the top-level DIV.
