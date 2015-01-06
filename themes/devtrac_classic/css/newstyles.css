@@ -1256,7 +1256,7 @@ form.comment-form .form-item.form-type-item {
 
 /*================================ images-page =================================*/
 
-.masonry-item.masonry-brick {
+.masonry-item.masonry-brick .views-masonry-format-row-wrapper {
   position: relative !important;
   top: auto !important;
   left: auto !important;
