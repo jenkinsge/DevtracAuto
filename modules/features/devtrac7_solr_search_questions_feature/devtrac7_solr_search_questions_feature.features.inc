@@ -54,7 +54,7 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
         "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },
         "search_api_language" : { "type" : "string" },
         "status" : { "type" : "boolean" },
-        "taxonomy_vocabulary_1" : { "type" : "integer", "entity_type" : "taxonomy_term" },
+        "taxonomy_vocabulary_1" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "title" : { "type" : "text" }
       },
