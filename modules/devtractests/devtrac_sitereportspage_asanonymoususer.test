@@ -1,0 +1,99 @@
+<?php
+
+/**
+ * @file
+ * Visit the Site Reports page as an Anonymous user and check that all is as
+ * should be.
+ */
+
+
+// Make sure simpletest_clone is available
+module_load_include('test', 'simpletest_clone');
+
+/**
+ * Checks that when the Site Reports page is viewed by an anonymous user, the
+ * page and its content is all present and working as it should.
+ */
+class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
+  protected $profile = 'devtrac';
+
+  /**
+   * The getInfo function.
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Site Reports page as an Anonymous User',
+      'description' => 'Visit Site Reports page as an Anonymous User and check that all is as should be.',
+      'group' => 'Devtrac',
+    );
+  }
+
+  /**
+   * The setUp function.
+   */
+  public function setUp() {
+    $this->public_files_directory = variable_get('file_public_path');
+    parent::setUp('devtractests');
+
+    // 'devtrac_2_devtrac_feeds_importers', 'devtrac_to_devtrac_demodata'
+    // Enabling demo data.
+    // devtrac_to_devtrac_demodata_enable();
+
+    // Running cron twice so mapit can lookup the admin units.
+    // $this->cronRun();
+    // $this->cronRun();
+  }
+
+  /**
+   * Assess 'Site Reports' page as an anonymous user.
+   */
+  public function testSiteReportsPageAccessAnonymous() {
+    $this->drupalGet('');
+    $this->assertNoText(t('Access denied'), t('Anonymous user is permitted to visit the Site Reports page.'), 'Devtrac');
+  }
+
+  /**
+   * Check that all generic content is present.
+   */
+  public function testPresenceOfGenericContentAnonymous() {
+    $this->drupalGet('');
+
+    // Check for Error Messages.
+    $this->assertNoText('Error', 'There are no errors on this page', 'Devtrac');
+
+    // Check for Built by Mountbatten footer text.
+    $this->assertRaw('<p><span id="project-info-footer">Built by  <a href="http://www.mountbatten.net/">Mountbatten Ltd</a> | Originally developed for <a href="http://www.unicef.org/uganda">Unicef Uganda</a> © 2014<br /></span></p>',
+        'Correct Project Information is displayed on the page',
+        'Devtrac');
+
+    // Check for generic Main Menu Links.
+    $this->assertLinkByHref('/sitereports', 0, 'Site Reports link is present on the page.', 'Devtrac');
+    $this->assertLinkByHref('/statistics', 0, 'Statistics link is present on the page.', 'Devtrac');
+    $this->assertLinkByHref('/adminunits', 0, 'Admin Units link is present on the page.', 'Devtrac');
+    $this->assertLinkByHref('/locations', 0, 'Locations link is present on the page.', 'Devtrac');
+    $this->assertNoLinkByHref('/actionitems', 'Action Items link is not present on the page.', 'Devtrac');
+    $this->assertNoLinkByHref('/fieldtrips', 'Field trips link is not present on the page.', 'Devtrac');
+    $this->assertNoLinkByHref('/images', 'Images link is not present on the page.', 'Devtrac');
+    $this->assertNoLinkByHref('/users', 'Users link is not present on the page.', 'Devtrac');
+    $this->assertLink('Sign in', 0, 'SIGN IN link is present on the page.', 'Devtrac');
+
+    // Check for view mode button links.
+    $this->assertLinkByHref('/sitereports?display=default', 0, 'Default display link is present on the page.', 'Devtrac');
+    $this->assertLinkByHref('/sitereports?display=list', 0, 'List display link is present on the page.', 'Devtrac');
+    $this->assertLinkByHref('/sitereports?display=graphs', 0, 'Graphs display link is present on the page.', 'Devtrac');
+
+    // Check that the my-profile menu is absent.
+    $this->assertNoRaw('<a href="/user" title="">Welcome,', 'My profile menu is not present on the page.', 'Devtrac');
+    $this->assertNoLink('Add Field Trip', 'Add Field Trip link is not present on the page.', 'Devtrac');
+    $this->assertNoLink('Edit My Profile', 'Edit My Profile link is not present on the page.', 'Devtrac');
+
+    // Check for Export links.
+    $this->assertLink('Export', 0, 'Export link is present on the page.', 'Devtrac');
+    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', 'Export to CSV (administrator version) link is  not present on the page.', 'Devtrac');
+    $this->assertLink('Export to CSV', 0, 'Export to CSV link is present on the page.', 'Devtrac');
+    $this->assertLink('Export to KML', 0, 'Export to KML link is present on the page.', 'Devtrac');
+    $this->assertLink('Subscribe to RSS Feed', 0, 'Subscribe to RSS Feed link is present on the page.', 'Devtrac');
+
+    // Check for Facets.
+  }
+}
