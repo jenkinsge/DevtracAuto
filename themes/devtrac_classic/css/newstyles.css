@@ -899,6 +899,8 @@ li.level-4 ul.links {
   font-family: inherit;
   text-transform: capitalize;
   text-decoration: none;
+  white-space: nowrap;
+  width: auto;
 }
 
 .item-list ul.pager li a:hover {
@@ -907,6 +909,40 @@ li.level-4 ul.links {
 
 .item-list ul.pager li a > div {
   display: none;
+}
+
+/*========================== Normal Pager with pages ============================*/
+
+.media-browser-tab .item-list ul.pager {
+  width: 90%;
+  padding-left: 10%;
+}
+
+.media-browser-tab ul.pager li.pager-current {
+  height: auto;
+  width: 28px;
+  padding: 7px 0;
+}
+
+.media-browser-tab ul.pager li.pager-item {
+  height: 28px;
+  padding: 0;
+}
+
+.media-browser-tab ul.pager li.pager-item a {
+  width: 28px;
+  height: auto;
+  padding: 7px 0;
+  text-align: center;
+  font-weight: normal;
+  font-family: inherit;
+  background: none;
+  display: inline-block;
+}
+
+.media-browser-tab .item-list ul.pager li a:hover {
+  color: #FFFFFF;
+  background: #333333;
 }
 
 /*========================== Image Gallery Pager ============================*/
@@ -988,6 +1024,30 @@ li.level-4 ul.links {
   font-weight: normal;
   font-family: inherit;
   color: #FFFFFF;
+}
+
+/*================================ colorBox =================================*/
+
+div#cboxLoadedContent {
+  border-bottom: 3px solid #EA0001;
+}
+
+#cboxCurrent {
+  bottom: -31px;
+}
+
+#cboxNext ,
+#cboxPrevious {
+  bottom: -27px;
+}
+
+button#cboxNext:focus ,
+button#cboxPrevious:focus ,
+button#cboxNext:active ,
+button#cboxPrevious:active {
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
 }
 
 /*================================ list-page =================================*/
@@ -3166,7 +3226,7 @@ table tr.footable-row-detail:hover a:hover {
 }
 
 #modalContent div.ctools-modal-content a.close img {
-  display: none;    
+  display: none;
 }
 
 #modalContent div.ctools-modal-content .modal-title {
@@ -3181,6 +3241,146 @@ table tr.footable-row-detail:hover a:hover {
 #modalContent div.ctools-modal-content .form-actions {
   float: left;
 }
+
+
+/*===================================================================================*\
+ * Add Image Dialogue Box Styles
+\*===================================================================================*/
+
+
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.media-wrapper.ui-dialog-buttons {
+  padding: 0;
+  border-radius: 0;
+}
+
+.ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix {
+  margin:0;
+  border-radius: 0;
+  border: none;
+  background: none;
+  background-color: #333333;
+  border-bottom: 5px solid #EA0001;
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  display: block;
+  box-shadow: none;
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close span.ui-button-icon-primary {
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  background: url(../images/closer.png) no-repeat 50% 50%;
+  background-size: 20px;
+}
+
+/* content area */
+#media-browser-tabset {
+  border:none;
+  border-radius: 0;
+  width: 99.9%;
+  font-family: Gen;
+  color: #333333;
+}
+
+#media-tabs-wrapper {
+  float: initial;
+  width: 100%;
+  border-bottom: thin solid #CCCCCC;
+  height: 29px;
+
+}
+
+#media-browser-tabset ul.tabs.primary {
+  display: block;
+  float: right;
+  border-radius: 0;
+  margin-right: 10px;
+}
+
+#media-browser-tabset .ui-tabs .ui-tabs-nav li ,
+#media-browser-tabset .ui-tabs .ui-tabs-nav li:hover {
+  list-style: none;
+  float: left;
+  position: relative;
+  top: 0;
+  margin: 1px solid #CCCCCC;
+  border-bottom-width: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+#media-browser-tabset ul.tabs.primary li a:link {
+  font-weight: normal;
+  margin-right: 0;
+  font-size: 0.9em;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #777777;
+  border-radius: 3px 3px 0 0;
+  color: #FFFFFF;
+  border:none
+}
+
+#media-browser-tabset ul.tabs.primary li a:hover {
+  background-color: #555555;
+  border: none;
+}
+
+#media-browser-tabset ul.tabs.primary li.ui-tabs-active a:link ,
+#media-browser-tabset ul.tabs.primary li.ui-tabs-active a:hover {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-color: #FFFFFF;
+}
+
+.media-browser-tab {
+  font-size: 0.9em;
+  font-family: Gen;
+}
+
+.media-browser-tab .views-exposed-form label {
+  font-weight: normal;
+}
+
+.media-browser-tab form textarea ,
+.media-browser-tab form select ,
+.media-browser-tab form input[type="date"] ,
+.media-browser-tab form input[type="datetime"] ,
+.media-browser-tab form input[type="datetime-local"] ,
+.media-browser-tab form input[type="email"] ,
+.media-browser-tab form input[type="month"] ,
+.media-browser-tab form input[type="number"] ,
+.media-browser-tab form input[type="password"] ,
+.media-browser-tab form input[type="search"] ,
+.media-browser-tab form input[type="tel"] ,
+.media-browser-tab form input[type="text"] ,
+.media-browser-tab form input[type="time"] ,
+.media-browser-tab form input[type="url"] ,
+.media-browser-tab form input[type="week"] {
+  border: 2px solid #999999;
+  border-radius: 2px;
+  padding: 5px 5px;
+  height: auto;
+  font-size: inherit;
+}
+
+.media-browser-tab form select {
+  padding-right: 20px;
+}
+
+.media-browser-tab .views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 1.2em;
+}
+
+
 
 /*===================================================================================*\
  * User Login Styles
