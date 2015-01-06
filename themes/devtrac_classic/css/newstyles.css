@@ -239,6 +239,7 @@ table tbody tr.even td.active {
 }
 
 .zone-featured #view-modes li a.graphs ,
+.zone-featured #view-modes li a.answer-graphs ,
 .zone-featured #view-modes li.graphs a {
   background-image: url(../images/user-menu-icon-graph.png);
   margin-right: 5px;
