@@ -65,7 +65,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = 'No images attached.';
+  $handler->display->display_options['empty']['area']['content'] = 'No images attached. Any images you have uploaded on the content you are creating or editing will become visible as soon as you save that content.';
   $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: File: Content using Images */
