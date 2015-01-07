@@ -31,7 +31,10 @@ function _devtrac_mapbox_openlayers_layers() {
     $openlayers_layers->description = $layer['description'];
     $openlayers_layers->data = array(
       'url' => array(
-        0 => 'http://a.tiles.mapbox.com/v3/',
+        0 => 'http://a.tiles.mapbox.com/v1',
+        1 => 'http://b.tiles.mapbox.com/v1',
+        2 => 'http://c.tiles.mapbox.com/v1',
+        3 => 'http://d.tiles.mapbox.com/v1',
       ),
       'layername' => $layer['id'],
       'type' => 'png',
@@ -57,7 +60,7 @@ function _devtrac_mapbox_openlayers_layers() {
         18 => 0.59716428337097005,
       ),
       'wrapDateLine' => FALSE,
-      'serviceVersion' => '1.0.0',
+      'serviceVersion' => '',
       'zoomOffset' => 0,
       'maptiler' => FALSE,
       'attribution' => 'Basemap: © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> Tiles by <a href="http://www.mapbox.com/about/maps/">Mapbox</a>',
