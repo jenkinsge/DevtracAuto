@@ -2983,6 +2983,44 @@ td.delta-order select.form-select {
   margin-right: 40px;
 }
 
+/*=======================================================================================*/
+
+form input[type="file"] ,
+#edit-picture-upload {
+  border: none;
+  width: 110px;
+  height: 25px;
+  margin-bottom: 10px;
+  font-family: Gen;
+  color: transparent;
+}
+
+form input[type="file"]::before ,
+#edit-picture-upload::before {
+  content: 'Choose File';
+  display: inline-block;
+  background: #777777;
+  border-radius: 3px;
+  padding: 5px 10px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #FFFFFF;
+}
+
+form input[type="file"]:hover::before ,
+#edit-picture-upload:hover::before {
+  background: #333333;
+}
+
+form input[type="file"]:active::before ,
+#edit-picture-upload:active::before {
+  background: #333333;
+  border: none;
+}
+
 /*=======================================================*/
 
 .collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper tr.draggable td .form-item {
