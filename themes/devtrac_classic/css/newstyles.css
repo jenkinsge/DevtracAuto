@@ -496,6 +496,10 @@ table tbody tr.even td.active {
 
 }
 
+.block-without-title h2.views-field-questionnaire-answer-question {
+  display: none;
+}
+
 
 /*============================== summary icons ==============================*/
 
@@ -1247,6 +1251,40 @@ form.comment-form .form-item.form-type-item {
   margin: 100px auto 200px auto;
   background: #CCCCCC url(../images/search-results-bg.png) no-repeat 50% 20px;
   background-size: 70px auto;
+}
+
+
+/*================================ images-page =================================*/
+
+.masonry-item.masonry-brick .views-masonry-format-row-wrapper {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  display: inline-block;
+  width: 200px;
+  overflow: hidden;
+}
+
+.masonry-item.masonry-brick .views-field-field-file-image-title-text {
+  position: absolute;
+  bottom: 0;
+  color: #FFFFFF;
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  min-height: 50px;
+  display: block;
+  font-size: 0.9em;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.masonry-item.masonry-brick:hover .views-field-field-file-image-title-text {
+  opacity: 1;
+}
+
+.masonry-item.masonry-brick .views-field-field-file-image-title-text .field-content {
+    padding: 10px;
 }
 
 /*================================ statistics-page =================================*/
@@ -2945,6 +2983,44 @@ td.delta-order select.form-select {
   margin-right: 40px;
 }
 
+/*=======================================================================================*/
+
+form input[type="file"] ,
+#edit-picture-upload {
+  border: none;
+  width: 110px;
+  height: 25px;
+  margin-bottom: 10px;
+  font-family: Gen;
+  color: transparent;
+}
+
+form input[type="file"]::before ,
+#edit-picture-upload::before {
+  content: 'Choose File';
+  display: inline-block;
+  background: #777777;
+  border-radius: 3px;
+  padding: 5px 10px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #FFFFFF;
+}
+
+form input[type="file"]:hover::before ,
+#edit-picture-upload:hover::before {
+  background: #333333;
+}
+
+form input[type="file"]:active::before ,
+#edit-picture-upload:active::before {
+  background: #333333;
+  border: none;
+}
+
 /*=======================================================*/
 
 .collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper tr.draggable td .form-item {
@@ -3372,15 +3448,59 @@ button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui
   font-size: inherit;
 }
 
-.media-browser-tab form select {
+form select {
   padding-right: 20px;
+  margin-right: 10px;
 }
 
 .media-browser-tab .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 1.2em;
 }
 
+/*====================================== edit-image ==================================*/
 
+fieldset .fieldset-legend ,
+#modalContent .file-image-form fieldset .fieldset-legend {
+  position: static;
+  font-weight: normal;
+}
+
+#modalContent .button:link, 
+#modalContent .button:visited, 
+#modalContent form input[type="reset"], 
+#modalContent form input[type="submit"], 
+#modalContent form input[type="button"] {
+  color: #FFFFFF;
+  text-shadow: none;
+  box-shadow: none;
+  font-family: Gen;
+  line-height: 20px;
+}
+
+#modalContent .button:hover, 
+#modalContent form input[type="reset"]:hover, 
+#modalContent form input[type="submit"]:hover, 
+#modalContent form input[type="button"]:hover {
+  background: #333333;
+  color: #FFFFFF;
+}
+
+#modalContent .file-image-form #edit-actions--2 {
+  margin-top: 0;
+}
+
+/*===================================================================================*\
+ * Float Table Styles
+\*===================================================================================*/
+
+.flot .legend table tbody tr:hover {
+  background: #777777;
+  color: #333333;
+}
+
+.flot .legend table tbody {
+  border: thin solid #CCCCCC;
+}
 
 /*===================================================================================*\
  * User Login Styles
