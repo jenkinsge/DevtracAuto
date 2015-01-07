@@ -234,7 +234,8 @@ table tbody tr.even td.active {
 }
 
 .zone-featured #view-modes li.list a ,
-.zone-featured #view-modes li a.list {
+.zone-featured #view-modes li a.list ,
+.zone-featured #view-modes li a.users-list-page {
   background-image: url(../images/user-menu-icon-list.png);
 }
 
