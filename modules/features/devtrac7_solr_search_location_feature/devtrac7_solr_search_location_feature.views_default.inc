@@ -68,7 +68,8 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   );
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'noresult text';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
   $handler->display->display_options['empty']['area']['content'] = 'Your search did not return any results. Making your search less specific give you a higher chance of finding what you are looking for.';
@@ -84,7 +85,7 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Admin Units */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
@@ -98,7 +99,7 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['field_place_lat_long']['settings'] = array(
     'data' => 'centroid',
   );
-  /* Field: Indexed Node: Location Types */
+  /* Field: Indexed Node: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
@@ -225,7 +226,7 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Location Types */
+  /* Field: Indexed Node: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
@@ -234,7 +235,7 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['bypass_access'] = 0;
-  /* Field: Indexed Node: Admin Units */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
@@ -322,14 +323,14 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['link_to_entity'] = 0;
-  /* Field: Indexed Node: Place Lat_Long */
+  /* Field: Indexed Node: Lat-Long */
   $handler->display->display_options['fields']['field_place_lat_long']['id'] = 'field_place_lat_long';
   $handler->display->display_options['fields']['field_place_lat_long']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['field_place_lat_long']['field'] = 'field_place_lat_long';
   $handler->display->display_options['fields']['field_place_lat_long']['click_sort_column'] = 'geom';
   $handler->display->display_options['fields']['field_place_lat_long']['settings'] = array(
     'data' => 'full',
-    );
+  );
 
   /* Display: CSV */
   $handler = $view->new_display('views_data_export', 'CSV', 'csv');
@@ -358,13 +359,13 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Admin Units */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
-  /* Field: Indexed Node: Location Types */
+  /* Field: Indexed Node: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
@@ -495,13 +496,13 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Admin Units */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
-  /* Field: Indexed Node: Location Types */
+  /* Field: Indexed Node: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
@@ -551,13 +552,13 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Indexed Node: Admin Units */
+  /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
-  /* Field: Indexed Node: Location Types */
+  /* Field: Indexed Node: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
@@ -609,11 +610,11 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['query']['options']['entity_access'] = 0;
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'views_geojson';
-  $handler->display->display_options['style_options']['data_source']['value'] = 'latlon';
+  $handler->display->display_options['style_options']['data_source']['value'] = 'wkt';
   $handler->display->display_options['style_options']['data_source']['latitude'] = 'field_place_lat_long_lat';
   $handler->display->display_options['style_options']['data_source']['longitude'] = 'field_place_lat_long_lon';
   $handler->display->display_options['style_options']['data_source']['geofield'] = 'field_place_lat_long';
-  $handler->display->display_options['style_options']['data_source']['wkt'] = 'title';
+  $handler->display->display_options['style_options']['data_source']['wkt'] = 'field_place_lat_long_geom';
   $handler->display->display_options['style_options']['data_source']['name_field'] = 'title';
   $handler->display->display_options['style_options']['data_source']['description_field'] = 'rendered_entity';
   $handler->display->display_options['style_options']['jsonp_prefix'] = '';
@@ -634,22 +635,11 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['ui_name'] = 'Location Title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
-  /* Field: Latitude */
-  $handler->display->display_options['fields']['field_place_lat_long_lat']['id'] = 'field_place_lat_long_lat';
-  $handler->display->display_options['fields']['field_place_lat_long_lat']['table'] = 'search_api_index_devtrac_solr_locations_index';
-  $handler->display->display_options['fields']['field_place_lat_long_lat']['field'] = 'field_place_lat_long_lat';
-  $handler->display->display_options['fields']['field_place_lat_long_lat']['ui_name'] = 'Latitude';
-  $handler->display->display_options['fields']['field_place_lat_long_lat']['label'] = 'Latitude';
-  $handler->display->display_options['fields']['field_place_lat_long_lat']['precision'] = '0';
-  $handler->display->display_options['fields']['field_place_lat_long_lat']['link_to_entity'] = 0;
-  /* Field: Longitude */
-  $handler->display->display_options['fields']['field_place_lat_long_lon']['id'] = 'field_place_lat_long_lon';
-  $handler->display->display_options['fields']['field_place_lat_long_lon']['table'] = 'search_api_index_devtrac_solr_locations_index';
-  $handler->display->display_options['fields']['field_place_lat_long_lon']['field'] = 'field_place_lat_long_lon';
-  $handler->display->display_options['fields']['field_place_lat_long_lon']['ui_name'] = 'Longitude';
-  $handler->display->display_options['fields']['field_place_lat_long_lon']['label'] = 'Longitude';
-  $handler->display->display_options['fields']['field_place_lat_long_lon']['precision'] = '0';
-  $handler->display->display_options['fields']['field_place_lat_long_lon']['link_to_entity'] = 0;
+  /* Field: Lat-Long: Well-known text (indexed) */
+  $handler->display->display_options['fields']['field_place_lat_long_geom']['id'] = 'field_place_lat_long_geom';
+  $handler->display->display_options['fields']['field_place_lat_long_geom']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['field_place_lat_long_geom']['field'] = 'field_place_lat_long_geom';
+  $handler->display->display_options['fields']['field_place_lat_long_geom']['link_to_entity'] = 0;
   /* Field: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
