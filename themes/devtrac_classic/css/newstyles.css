@@ -3410,15 +3410,46 @@ button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui
   font-size: inherit;
 }
 
-.media-browser-tab form select {
+form select {
   padding-right: 20px;
+  margin-right: 10px;
 }
 
 .media-browser-tab .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 1.2em;
 }
 
+/*====================================== edit-image ==================================*/
 
+fieldset .fieldset-legend ,
+#modalContent .file-image-form fieldset .fieldset-legend {
+  position: static;
+  font-weight: normal;
+}
+
+#modalContent .button:link, 
+#modalContent .button:visited, 
+#modalContent form input[type="reset"], 
+#modalContent form input[type="submit"], 
+#modalContent form input[type="button"] {
+  color: #FFFFFF;
+  text-shadow: none;
+  box-shadow: none;
+  font-family: Gen;
+  line-height: 20px;
+}
+
+#modalContent .button:hover, 
+#modalContent form input[type="reset"]:hover, 
+#modalContent form input[type="submit"]:hover, 
+#modalContent form input[type="button"]:hover {
+  background: #333333;
+  color: #FFFFFF;
+}
+
+#modalContent .file-image-form #edit-actions--2 {
+  margin-top: 0;
+}
 
 /*===================================================================================*\
  * User Login Styles
