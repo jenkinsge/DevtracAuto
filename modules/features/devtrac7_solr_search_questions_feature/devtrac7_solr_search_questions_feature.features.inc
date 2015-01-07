@@ -44,7 +44,7 @@ function devtrac7_solr_search_questions_feature_default_search_api_index() {
     "server" : "devtrac_search_server",
     "item_type" : "node",
     "options" : {
-      "index_directly" : 1,
+      "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
         "author" : { "type" : "integer", "entity_type" : "user" },

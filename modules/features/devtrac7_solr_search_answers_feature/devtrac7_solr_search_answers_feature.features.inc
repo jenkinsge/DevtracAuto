@@ -51,7 +51,7 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
     "server" : "devtrac_search_server",
     "item_type" : "questionnaire_answer",
     "options" : {
-      "index_directly" : 1,
+      "index_directly" : 0,
       "cron_limit" : "50",
       "fields" : {
         "answernumber" : { "type" : "decimal" },
