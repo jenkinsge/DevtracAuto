@@ -48,7 +48,7 @@ function devtrac7_node_types_context_default_contexts() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Adds blocks on the add node pages for places and ftritems. We use the path context because that one fires in hook_init.');
-  t('nodetype');
+  t('Locations');
   $export['node_edit_location'] = $context;
 
   return $export;

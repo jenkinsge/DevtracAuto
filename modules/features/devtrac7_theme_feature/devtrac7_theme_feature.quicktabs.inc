@@ -65,7 +65,7 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
     1 => array(
       'bid' => 'views_delta_dvtrc_field_trip-block_6',
       'hide_title' => 1,
-      'title' => 'Description',
+      'title' => 'Notes',
       'weight' => '-99',
       'type' => 'block',
     ),
@@ -99,7 +99,7 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
   // Included for use with string extractors like potx.
   t('Action Items');
   t('Comments');
-  t('Description');
+  t('Notes');
   t('FieldTrip');
   t('Progress');
   t('Site Reports');
@@ -201,7 +201,7 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
   $quicktabs->ajax = 0;
   $quicktabs->hide_empty_tabs = TRUE;
   $quicktabs->default_tab = 0;
-  $quicktabs->title = 'Site Visit';
+  $quicktabs->title = 'Devtrac Site Report Node Page Tabs';
   $quicktabs->tabs = array(
     0 => array(
       'bid' => 'views_delta_dvtrc_site_visits-block_7',
@@ -211,31 +211,38 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
       'type' => 'block',
     ),
     1 => array(
-      'bid' => 'views_delta_dvtrc_site_visits-block_8',
+      'bid' => 'views_delta_dvtrc_site_visits-block_3',
       'hide_title' => 1,
-      'title' => 'Description',
+      'title' => 'Report',
       'weight' => '-99',
       'type' => 'block',
     ),
     2 => array(
-      'bid' => 'views_delta_cdfeff0bd1e4604398b1031273f8f09a',
+      'bid' => 'views_delta_dvtrc_site_visits-block_8',
       'hide_title' => 1,
-      'title' => 'Questionnaire',
+      'title' => 'Notes',
       'weight' => '-98',
       'type' => 'block',
     ),
     3 => array(
-      'bid' => 'views_delta_dvtrc_action_items-block_4',
+      'bid' => 'views_delta_cdfeff0bd1e4604398b1031273f8f09a',
       'hide_title' => 1,
-      'title' => 'Action Items',
+      'title' => 'Questionnaire',
       'weight' => '-97',
       'type' => 'block',
     ),
     4 => array(
+      'bid' => 'views_delta_dvtrc_action_items-block_4',
+      'hide_title' => 1,
+      'title' => 'Action Items',
+      'weight' => '-96',
+      'type' => 'block',
+    ),
+    5 => array(
       'bid' => 'commentblock_delta_commentblock',
       'hide_title' => 0,
       'title' => 'Comments',
-      'weight' => '-96',
+      'weight' => '-95',
       'type' => 'block',
     ),
   );
@@ -247,10 +254,11 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
   // Included for use with string extractors like potx.
   t('Action Items');
   t('Comments');
-  t('Description');
+  t('Notes');
+  t('Devtrac Site Report Node Page Tabs');
   t('Progress');
   t('Questionnaire');
-  t('Site Visit');
+  t('Report');
 
   $export['site_visit_quicktabs'] = $quicktabs;
 

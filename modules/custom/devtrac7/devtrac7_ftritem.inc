@@ -240,7 +240,7 @@ function devtrac7_ftritem_datevisitedset($node) {
 }
 
 /**
- * This function checks if the Public Summary on the Site Report is set.
+ * This function checks if the Public Report on the Site Report is set.
  * It returns TRUE if it does.
  * It returns FALSE if it doesn't.
  */
@@ -248,13 +248,13 @@ function devtrac7_ftritem_summaryset($node) {
   if (!empty($node->field_ftritem_public_summary) && isset($node->field_ftritem_public_summary[$node->language])) {
     return ((count($node->field_ftritem_public_summary[$node->language]) > 0) &&
            (!empty($node->field_ftritem_public_summary[$node->language][0]['value'])) &&
-           ($node->field_ftritem_public_summary[$node->language][0]['value'] != 'Please Provide a small summary for the public.'));
+           ($node->field_ftritem_public_summary[$node->language][0]['value'] != 'Please provide the public report.'));
   }
   return FALSE;
 }
 
 /**
- * This function checks if the Narrative on the Site Report is set.
+ * This function checks if the Private Notes on the Site Report is set.
  * It returns TRUE if it does.
  * It returns FALSE if it doesn't.
  */
@@ -262,7 +262,7 @@ function devtrac7_ftritem_narrativeset($node) {
   if (!empty($node->field_ftritem_narrative) && isset($node->field_ftritem_narrative[$node->language])) {
     return ((count($node->field_ftritem_narrative[$node->language]) > 0) &&
            (!empty($node->field_ftritem_narrative[$node->language][0]['value'])) &&
-           ($node->field_ftritem_narrative[$node->language][0]['value'] != 'Please provide a full report.'));
+           ($node->field_ftritem_narrative[$node->language][0]['value'] != 'Please provide private notes for other Devtrac users.'));
   }
   return FALSE;
 }
@@ -767,8 +767,8 @@ function devtrac7_ftritem_create($placenid, $fieldtripnid = NULL, $reporttype = 
           $ftr->field_ftritem_field_trip[LANGUAGE_NONE][0]['target_type'] = 'node';
           $ftr->field_ftritem_place[LANGUAGE_NONE][0]['target_id'] = $placenid;
           $ftr->field_ftritem_place[LANGUAGE_NONE][0]['target_type'] = 'node';
-          $ftr->field_ftritem_public_summary[LANGUAGE_NONE][0]['value'] = t('Please Provide a small summary for the public.');
-          $ftr->field_ftritem_narrative[LANGUAGE_NONE][0]['value'] = t('Please provide a full report.');
+          $ftr->field_ftritem_public_summary[LANGUAGE_NONE][0]['value'] = t('Please provide the public report.');
+          $ftr->field_ftritem_narrative[LANGUAGE_NONE][0]['value'] = t('Please provide private notes.');
           $ftr->field_ftritem_status[LANGUAGE_NONE][0]['value'] = 'In Progress';
           $ftr->uid = $user->uid;
           $ftr->language = LANGUAGE_NONE;
@@ -887,10 +887,10 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
   $progress_checks['devtrac7_ftritem_narrativeset'] = array(
     'name' => t('devtrac7_ftritem_narrativeset'),
     'label' => t('devtrac7_ftritem_narrativeset'),
-    'description' => 'Change the narrative of the Site Report.',
+    'description' => 'Change the private notes of the Site Report.',
     'finished_condition' => 'none',
     'url' => array(
-    'text' => t('Edit Narrative'),
+    'text' => t('Edit Notes'),
     'path' => 'node/%/edit',
     'attributes' => array(),
       'query' => array(
@@ -901,20 +901,20 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
       'override' => FALSE,
       'override_function' => '',
     ),
-    'success_text' => 'The narrative is meaningful.',
-    'fail_text' => 'You have to provide a meaningful narrative.',
+    'success_text' => 'The private notes have been succesfully altered.',
+    'fail_text' => 'You have to provide some private notes narrative.',
     'function' => 'devtrac7_ftritem_narrativeset',
     'filename' => 'devtrac7_ftritem.inc',
-    'required' => TRUE,
+    'required' => FALSE,
     'required_function' => '',
   );
   $progress_checks['devtrac7_ftritem_summaryset'] = array(
     'name' => t('devtrac7_ftritem_summaryset'),
     'label' => t('devtrac7_ftritem_summaryset'),
-    'description' => 'Change the public summary of the Site Report.',
+    'description' => 'Change the public report of the Site Report.',
     'finished_condition' => 'none',
     'url' => array(
-      'text' => t('Edit Summary'),
+      'text' => t('Edit Public Report'),
       'path' => 'node/%/edit',
       'attributes' => array(),
       'query' => array(
@@ -925,8 +925,8 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
       'override' => FALSE,
       'override_function' => '',
     ),
-    'success_text' => 'The summary is meaningful.',
-    'fail_text' => 'You have to provide a meaningful summary.',
+    'success_text' => 'The public report has been provided.',
+    'fail_text' => 'You have to provide a meaningful public report.',
     'function' => 'devtrac7_ftritem_summaryset',
     'filename' => 'devtrac7_ftritem.inc',
     'required' => TRUE,
