@@ -230,15 +230,22 @@ function theme_devtrac7_progress_field_progress_links($variables) {
   foreach ($links as $key => $link) {
     $keyparts = explode('-', $key);
     if ($keyparts[1] == 0) { // The fieldtrip
-      $fieldtrip = $keyparts[2];
-      $linksets[$fieldtrip][$key] = $link;
+      $fieldtripid = $keyparts[2];
+      $linksets[$fieldtripid][$key] = $link;
     }
     if ($keyparts[1] == 1) { // A sitereport
-      $sitereport = $keyparts[2];
-      $linksets[$fieldtrip][$sitereport][$key] = $link;
+      $sitereportid = $keyparts[2];
+      $sitereport = entity_load_single('node', $sitereportid);
+      $fieldtripid = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['target_id'];
+      $linksets[$fieldtripid][$sitereportid][$key] = $link;
     }
     if ($keyparts[1] == 2) { // An actionitem
-      $linksets[$fieldtrip][$sitereport][$keyparts[2]][$key] = $link;
+      $actionitemid = $keyparts[2];
+      $actionitem = entity_load_single('node', $actionitemid);
+      $sitereportid = $actionitem->field_actionitem_ftreportitem[$actionitem->language][0]['target_id'];
+      $sitereport = entity_load_single('node', $sitereportid);
+      $fieldtripid = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['target_id'];
+      $linksets[$fieldtripid][$sitereportid][$actionitemid][$key] = $link;
     }
   }
   $output = '';
