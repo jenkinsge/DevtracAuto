@@ -411,10 +411,9 @@ If available, this will be filled in automatically with GPS informatio that is c
         'weight' => 1,
       ),
       'image_export' => array(
-        'label' => 'hidden',
-        'module' => 'text',
+        'label' => 'inline',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'list_view_mode' => array(
