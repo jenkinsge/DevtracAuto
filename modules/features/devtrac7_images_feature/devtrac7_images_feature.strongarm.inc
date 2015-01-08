@@ -103,6 +103,9 @@ function devtrac7_images_feature_strongarm() {
       'grid' => array(
         'custom_settings' => TRUE,
       ),
+      'wysiwyg' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -136,6 +139,14 @@ function devtrac7_images_feature_strongarm() {
             'visible' => TRUE,
           ),
           'grid' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'teaser' => array(
+            'weight' => '0',
+            'visible' => TRUE,
+          ),
+          'wysiwyg' => array(
             'weight' => '0',
             'visible' => TRUE,
           ),

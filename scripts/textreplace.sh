@@ -67,6 +67,13 @@
  grep -rl 'district-category' ../test  | xargs sed -i 's/district-category/field-district-tags/g'
  grep -rl 'district-category' ../themes  | xargs sed -i 's/district-category/field-district-tags/g'
  
+ grep -rl 'field_ftritem_public_summary' ../modules | xargs sed -i 's/field_ftritem_public_summary/field_ftritem_report/g'
+ grep -rl 'field_ftritem_public_summary' ../test  | xargs sed -i 's/field_ftritem_public_summary/field_ftritem_report/g'
+ grep -rl 'field_ftritem_public_summary' ../themes  | xargs sed -i 's/field_ftritem_public_summary/field_ftritem_report/g'
+
+ grep -rl 'field_ftritem_narrative' ../modules | xargs sed -i 's/field_ftritem_narrative/field_ftritem_notes/g'
+ grep -rl 'field_ftritem_narrative' ../test  | xargs sed -i 's/field_ftritem_narrative/field_ftritem_notes/g'
+ grep -rl 'field_ftritem_narrative' ../themes  | xargs sed -i 's/field_ftritem_narrative/field_ftritem_notes/g'
+
  
- 
- 
+	

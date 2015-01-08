@@ -231,42 +231,20 @@ function devtrac7_theme_feature_context_default_contexts() {
         'node_form' => '0',
       ),
     ),
-    'user' => array(
-      'values' => array(
-        'administrator' => 'administrator',
-        'authenticated user' => 'authenticated user',
-        'devtrac admin' => 'devtrac admin',
-        'editor' => 'editor',
-        'field worker' => 'field worker',
-        'iati manager' => 'iati manager',
-      ),
-    ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'system-main' => array(
-          'module' => 'system',
-          'delta' => 'main',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
-        'views-dvtrc_site_visits-block_3' => array(
-          'module' => 'views',
-          'delta' => 'dvtrc_site_visits-block_3',
-          'region' => 'content',
-          'weight' => '-8',
-        ),
         'pane-front_about_information' => array(
           'module' => 'pane',
           'delta' => 'front_about_information',
           'region' => 'featured',
-          'weight' => -10,
+          'weight' => '-10',
         ),
-        'commentblock-commentblock' => array(
-          'module' => 'commentblock',
-          'delta' => 'commentblock',
-          'region' => 'sidebar_second',
+        'system-main' => array(
+          'module' => 'system',
+          'delta' => 'main',
+          'region' => 'content',
           'weight' => '-10',
         ),
         'quicktabs-site_visit_quicktabs' => array(
@@ -337,27 +315,15 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'views-dvtrc_site_visits-block_3' => array(
-          'module' => 'views',
-          'delta' => 'dvtrc_site_visits-block_3',
-          'region' => 'content',
-          'weight' => '-8',
-        ),
-        'views-dvtrc_site_visits-block_21' => array(
-          'module' => 'views',
-          'delta' => 'dvtrc_site_visits-block_21',
+        'commentblock-commentblock' => array(
+          'module' => 'commentblock',
+          'delta' => 'commentblock',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'quicktabs-site_visit_quicktabs' => array(
           'module' => 'quicktabs',
           'delta' => 'site_visit_quicktabs',
-          'region' => 'sidebar_second',
-          'weight' => '-9',
-        ),
-        'commentblock-commentblock' => array(
-          'module' => 'commentblock',
-          'delta' => 'commentblock',
           'region' => 'sidebar_second',
           'weight' => '-9',
         ),

@@ -114,6 +114,7 @@ features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:ta
 features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:url
 features[features_api][] = api:2
 features[image][] = grid
+features[image][] = image_export
 features[openlayers_maps][] = devtrac_solr_images_map
 features[quicktabs][] = devtrac_images_graphs_tabs
 features[search_api_autocomplete_search][] = search_api_views_devtrac_solr_view_images

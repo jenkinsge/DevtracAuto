@@ -55,8 +55,10 @@ function devtrac7_actionitem_priorityset($node) {
  */
 function devtrac7_actionitem_duedateset($node) {
   if (!empty($node->field_actionitem_due_date) && isset($node->field_actionitem_due_date[$node->language])) {
+return TRUE;
     return (count($node->field_actionitem_due_date[$node->language]) > 0);
   }
+return TRUE;
   return FALSE;
 }
 
@@ -385,30 +387,6 @@ function devtrac7_actionitem_devtrac7_progress_field_checks_info() {
     'required' => TRUE,
     'required_function' => '',
   );
-  $progress_checks['devtrac7_actionitem_followuptaskset'] = array(
-    'name' => t('devtrac7_actionitem_followuptaskset'),
-    'label' => t('devtrac7_actionitem_followuptaskset'),
-    'description' => 'Change the follow-up task of the Action Item.',
-    'finished_condition' => 'none',
-    'url' => array(
-      'text' => t('Edit Action Item'),
-      'path' => 'node/%/edit',
-      'attributes' => array(),
-      'query' => array(
-        'destination' => $destination,
-      ),
-      'fragment' => 'edit-field-actionitem-followuptask',
-      'contextual' => TRUE,
-      'override' => TRUE,
-      'override_function' => '',
-    ),
-    'success_text' => 'The follow-up task is given.',
-    'fail_text' => 'You have to provide the follow-up task.',
-    'function' => 'devtrac7_actionitem_followuptaskset',
-    'filename' => 'devtrac7_actionitem.inc',
-    'required' => TRUE,
-    'required_function' => '',
-  );
   $progress_checks['devtrac7_actionitem_responsibleset'] = array(
     'name' => t('devtrac7_actionitem_responsibleset'),
     'label' => t('devtrac7_actionitem_responsibleset'),
@@ -430,7 +408,31 @@ function devtrac7_actionitem_devtrac7_progress_field_checks_info() {
     'fail_text' => 'You have to provide at least one responsible person.',
     'function' => 'devtrac7_actionitem_responsibleset',
     'filename' => 'devtrac7_actionitem.inc',
-    'required' => TRUE,
+    'required' => FALSE,
+    'required_function' => '',
+  );
+  $progress_checks['devtrac7_actionitem_followuptaskset'] = array(
+    'name' => t('devtrac7_actionitem_followuptaskset'),
+    'label' => t('devtrac7_actionitem_followuptaskset'),
+    'description' => 'Change the follow-up task of the Action Item.',
+    'finished_condition' => 'none',
+    'url' => array(
+      'text' => t('Edit Action Item'),
+      'path' => 'node/%/edit',
+      'attributes' => array(),
+      'query' => array(
+        'destination' => $destination,
+      ),
+      'fragment' => 'edit-field-actionitem-followuptask',
+      'contextual' => TRUE,
+      'override' => TRUE,
+      'override_function' => '',
+    ),
+    'success_text' => 'The follow-up task is given.',
+    'fail_text' => 'You have to provide the follow-up task.',
+    'function' => 'devtrac7_actionitem_followuptaskset',
+    'filename' => 'devtrac7_actionitem.inc',
+    'required' => FALSE,
     'required_function' => '',
   );
   $progress_checks['devtrac7_actionitem_duedateset'] = array(
@@ -446,18 +448,18 @@ function devtrac7_actionitem_devtrac7_progress_field_checks_info() {
         'destination' => $destination,
       ),
       'fragment' => 'edit-field-actionitem-due-date',
-      'contextual' => TRUE,
-      'override' => TRUE,
+      'contextual' => FALSE,
+      'override' => FALSE,
       'override_function' => '',
     ),
     'success_text' => 'The due date is given.',
     'fail_text' => 'You have to provide the due date.',
     'function' => 'devtrac7_actionitem_duedateset',
     'filename' => 'devtrac7_actionitem.inc',
-    'required' => TRUE,
+    'required' => FALSE,
     'required_function' => '',
   );
-  $progress_checks['devtrac7_actionitem_priorityset'] = array(
+/*  $progress_checks['devtrac7_actionitem_priorityset'] = array(
     'name' => t('devtrac7_actionitem_priorityset'),
     'label' => t('devtrac7_actionitem_priorityset'),
     'description' => 'Change the priority of the Action Item.',
@@ -504,7 +506,7 @@ function devtrac7_actionitem_devtrac7_progress_field_checks_info() {
     'filename' => 'devtrac7_actionitem.inc',
     'required' => TRUE,
     'required_function' => '',
-  );
+  );*/
   $progress_checks['devtrac7_actionitem_oecdcodesset'] = array(
     'name' => t('devtrac7_actionitem_oecdcodesset'),
     'label' => t('devtrac7_actionitem_oecdcodesset'),
@@ -530,7 +532,7 @@ function devtrac7_actionitem_devtrac7_progress_field_checks_info() {
     'required_function' => '',
   );
 /*
-  $progress_checks['devtrac7_actionitem_districtset'] = array(
+/*  $progress_checks['devtrac7_actionitem_districtset'] = array(
     'name' => t('devtrac7_actionitem_districtset'),
     'label' => t('devtrac7_actionitem_districtset'),
     'description' => 'Change the district of the Action Item.',
@@ -553,7 +555,8 @@ function devtrac7_actionitem_devtrac7_progress_field_checks_info() {
     'filename' => 'devtrac7_actionitem.inc',
     'required' => TRUE,
     'required_function' => '',
-  );
+  );*/
+/*
   $progress_checks['devtrac7_actionitem_buttonset'] = array(
     'name' => t('devtrac7_actionitem_buttonset'),
     'label' => t('devtrac7_actionitem_buttonset'),

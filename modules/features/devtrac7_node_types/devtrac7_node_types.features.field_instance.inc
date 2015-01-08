@@ -719,7 +719,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'prepopulate' => array(
           'action' => 'hide',
           'fallback' => 'hide',
-          'skip_perm' => 'create field_actionitem_ftreportitem',
+          'skip_perm' => 'access administration menu',
           'status' => 1,
         ),
       ),
@@ -838,7 +838,7 @@ function devtrac7_node_types_field_default_field_instances() {
             'og_context' => FALSE,
             'url' => 1,
           ),
-          'skip_perm' => 'create field_actionitem_resp_place',
+          'skip_perm' => 'access administration menu',
           'status' => 1,
         ),
       ),
@@ -2791,7 +2791,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'bundle' => 'ftritem',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Your Trip Report Item content. This will be kept private and thus only available to people logged into DevTrac.',
+    'description' => 'Private notes that you would only like to share with other Devtrac users. This will be kept private and thus only available to people logged into DevTrac.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -2856,8 +2856,8 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_ftritem_narrative',
-    'label' => 'Full Report',
-    'required' => 1,
+    'label' => 'Notes',
+    'required' => 0,
     'settings' => array(
       'text_processing' => 1,
       'user_register_form' => FALSE,
@@ -2867,6 +2867,10 @@ function devtrac7_node_types_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
         'rows' => 10,
       ),
       'type' => 'text_textarea',
@@ -2949,7 +2953,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'bundle' => 'ftritem',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Your summarized Trip Report content. This will be made PUBLIC and thus available to the general public.',
+    'description' => 'Your Site Report story. This will be visible to the general public.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -3009,7 +3013,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'ds_extras_field_template' => '',
     'entity_type' => 'node',
     'field_name' => 'field_ftritem_public_summary',
-    'label' => 'Public Summary',
+    'label' => 'Report',
     'required' => 1,
     'settings' => array(
       'text_processing' => 1,
@@ -3020,10 +3024,10 @@ function devtrac7_node_types_field_default_field_instances() {
       'active' => 1,
       'module' => 'text',
       'settings' => array(
-        'maxlength_js' => 600,
+        'maxlength_js' => '',
         'maxlength_js_enforce' => 0,
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-        'maxlength_js_truncate_html' => 1,
+        'maxlength_js_truncate_html' => 0,
         'rows' => 5,
       ),
       'type' => 'text_textarea',
@@ -4474,7 +4478,6 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('Field Trip');
   t('Fill in a valid URL of this Location');
   t('Follow-up Task');
-  t('Full Report');
   t('If this person is not working for the location above, but for a specific organisation, then please indicate.');
   t('If you can not find a location, just navigate the map towards the location and click the pencil, and then the map to indicate the right location. You can search the map using the magnifying glass on the right side of the map.');
   t('Images');
@@ -4492,12 +4495,14 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('Mailing Address');
   t('Name of that layer at SourceURI where this location is imported from. If not sure, insert \'devtrac\'.');
   t('Narrative');
+  t('Notes');
   t('Organisation');
   t('Percentage');
   t('Person Name');
   t('Phone');
   t('Please set the correct priority for this Action Item.');
   t('Priority');
+  t('Private notes that you would only like to share with other Devtrac users. This will be kept private and thus only available to people logged into DevTrac.');
   t('Progress Bar');
   t('Progress Links');
   t('Provide a clear description for the task at hand. Make sure that the task is SMART
@@ -4547,7 +4552,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('Where was this site report taken? Please provide the Location');
   t('Which users are responsible for the execution of this action item? You may select more than 1 person.');
   t('You can select the District where this Report originated only if you have not done this before.');
-  t('Your Trip Report Item content. This will be kept private and thus only available to people logged into DevTrac.');
+  t('Your Site Report story. This will be visible to the general public.');
   t('Your full Report content. This will be kept private and thus only available to people logged into DevTrac.');
   t('Your summarized Trip Report content. This will be made PUBLIC and thus available to the general public.');
 

@@ -36,8 +36,13 @@
   margin-right: 5px;
 }
 
+.page-node-add-questionnaire #page-title ,
 .node-type-questionnaire-question #page-title {
   background-image: url(../images/title-icon-question.png);
+}
+
+.page-node-add-place #page-title {
+  background-image: url(../images/title-icon-location.png);
 }
 
 .page-node-add-ftritem #page-title ,
@@ -234,7 +239,8 @@ table tbody tr.even td.active {
 }
 
 .zone-featured #view-modes li.list a ,
-.zone-featured #view-modes li a.list {
+.zone-featured #view-modes li a.list ,
+.zone-featured #view-modes li a.users-list-page {
   background-image: url(../images/user-menu-icon-list.png);
 }
 
@@ -1821,6 +1827,26 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
 }
 
 /*=====================================================================================
+ * Fieldtrip Progress Quicktab
+ * ==================================================================================*/
+
+/*html body .devtrac7-progress-field-required a {
+  color: #ff0000;
+}
+
+html body .devtrac7-progress-field-optional a {
+  color: #ffb050;    
+}*/
+
+/*html body .devtrac7-progress-field-required a {
+  background-image: url(../images/summary-icon-important.png);
+  background-repeat: no-repeat;
+  background-size: auto 13px;
+  background-position: 100% 50%;
+  padding-right: 20px;
+}*/
+
+/*=====================================================================================
  * Block Facetapi Styles
  * ==================================================================================*/
 
@@ -2868,7 +2894,7 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
 
 .form-required {
   font-weight: bold;
-  color: #A52A2A;
+  /*color: #A52A2A;*/
   font-size: 1.3em;
   vertical-align: middle;
 }

@@ -230,15 +230,22 @@ function theme_devtrac7_progress_field_progress_links($variables) {
   foreach ($links as $key => $link) {
     $keyparts = explode('-', $key);
     if ($keyparts[1] == 0) { // The fieldtrip
-      $fieldtrip = $keyparts[2];
-      $linksets[$fieldtrip][$key] = $link;
+      $fieldtripid = $keyparts[2];
+      $linksets[$fieldtripid][$key] = $link;
     }
     if ($keyparts[1] == 1) { // A sitereport
-      $sitereport = $keyparts[2];
-      $linksets[$fieldtrip][$sitereport][$key] = $link;
+      $sitereportid = $keyparts[2];
+      $sitereport = entity_load_single('node', $sitereportid);
+      $fieldtripid = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['target_id'];
+      $linksets[$fieldtripid][$sitereportid][$key] = $link;
     }
     if ($keyparts[1] == 2) { // An actionitem
-      $linksets[$fieldtrip][$sitereport][$keyparts[2]][$key] = $link;
+      $actionitemid = $keyparts[2];
+      $actionitem = entity_load_single('node', $actionitemid);
+      $sitereportid = $actionitem->field_actionitem_ftreportitem[$actionitem->language][0]['target_id'];
+      $sitereport = entity_load_single('node', $sitereportid);
+      $fieldtripid = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['target_id'];
+      $linksets[$fieldtripid][$sitereportid][$actionitemid][$key] = $link;
     }
   }
   $output = '';
@@ -263,7 +270,7 @@ function theme_devtrac7_progress_field_progress_links($variables) {
             else {
               $output .= devtrac7_progress_field_link_render($actionitem, $aiid);
             }
-          }			
+          }
           $output .= '</ul>';
           $output .= '</li>';
         }
@@ -396,6 +403,11 @@ function devtrac7_progress_field_field_formatter_view($entity_type, $entity, $fi
           }
           if ($item->type == 'actionitem') {
             $items['links'][$key]['title'] = str_replace('the Action Item', 'Action Item ' . trim($item->title), $link['check']['description']);
+          }
+          // Add the required asterisk to required links
+          if (in_array('devtrac7-progress-field-required', $items['links'][$key]['attributes']['class'])) {
+            $items['links'][$key]['title'] .= '<span class="form-required" original-title="This field is required.">*</span>';
+            $items['links'][$key]['html'] = TRUE;
           }
         }
       }
@@ -616,8 +628,8 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
             ->condition('fdr.' . $referencing_field . '_target_id', $entity->nid, '=');
           $referencing_entity_ids = $query->execute();
           foreach ($referencing_entity_ids as $referencing_entity_id) {
-          	$referencing_entity = entity_load_single('node', $referencing_entity_id->entity_id);
-          	if ($referencing_entity->status != 0) {
+            $referencing_entity = entity_load_single('node', $referencing_entity_id->entity_id);
+            if ($referencing_entity->status != 0) {
               $newitems = devtrac7_progress_field_progress_field_getprogress($entity_type, $referencing_entity_id->entity_id, $level + 1, $access);
               foreach ($newitems['links'] as $k => $newitem) {
                 $items['links'][$k] = $newitem;
@@ -633,10 +645,10 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
         $function = $check['function'];
         $checks[$key]['finished'] = $function($entity);
         if ($entity_type == 'node') {
-        	if ($access || node_access('update', $entity)) {
+          if ($access || node_access('update', $entity)) {
             // Add the link to the start of the array so it shows first/on top.
             devtrac7_progress_field_addlink($entity_type, $entity_id, $level, $checks[$key], $items);
-        	}
+          }
         }
         if ($entity_type == 'user') {
           // Add the link to the start of the array so it shows first/on top.

@@ -26,7 +26,7 @@ function devtrac7_theme_feature_strongarm() {
     'vertical' => '0',
     'horizontal' => '10',
     'fixed' => 1,
-    'width' => '400px',
+    'width' => '800px',
     'autoclose' => '5',
     'opendelay' => '0.3',
     'disable_autoclose' => 1,
