@@ -719,7 +719,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'prepopulate' => array(
           'action' => 'hide',
           'fallback' => 'hide',
-          'skip_perm' => 'create field_actionitem_ftreportitem',
+          'skip_perm' => 'access administration menu',
           'status' => 1,
         ),
       ),
@@ -838,7 +838,7 @@ function devtrac7_node_types_field_default_field_instances() {
             'og_context' => FALSE,
             'url' => 1,
           ),
-          'skip_perm' => 'create field_actionitem_resp_place',
+          'skip_perm' => 'access administration menu',
           'status' => 1,
         ),
       ),
