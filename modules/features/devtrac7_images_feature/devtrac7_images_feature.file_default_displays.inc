@@ -12,6 +12,17 @@ function devtrac7_images_feature_file_default_displays() {
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
+  $file_display->name = 'image__default__file_field_image';
+  $file_display->weight = 50;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => '',
+    'image_link' => '',
+  );
+  $export['image__default__file_field_image'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
   $file_display->name = 'image__full__file_image';
   $file_display->weight = 5;
   $file_display->status = TRUE;
@@ -22,6 +33,17 @@ function devtrac7_images_feature_file_default_displays() {
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
+  $file_display->name = 'image__image_export__file_field_image';
+  $file_display->weight = 5;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => 'image_export',
+    'image_link' => '',
+  );
+  $export['image__image_export__file_field_image'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
   $file_display->name = 'image__media_original__file_image';
   $file_display->weight = 5;
   $file_display->status = TRUE;
@@ -29,6 +51,17 @@ function devtrac7_images_feature_file_default_displays() {
     'image_style' => '',
   );
   $export['image__media_original__file_image'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'image__preview__file_field_image';
+  $file_display->weight = 50;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => 'media_thumbnail',
+    'image_link' => '',
+  );
+  $export['image__preview__file_field_image'] = $file_display;
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
@@ -57,6 +90,17 @@ function devtrac7_images_feature_file_default_displays() {
     'colorbox_caption_custom' => '[file:field-file-image-title-text] Added to : [file:node-usage]',
   );
   $export['image__teaser__file_field_colorbox'] = $file_display;
+
+  $file_display = new stdClass();
+  $file_display->api_version = 1;
+  $file_display->name = 'image__teaser__file_field_image';
+  $file_display->weight = 50;
+  $file_display->status = TRUE;
+  $file_display->settings = array(
+    'image_style' => 'medium',
+    'image_link' => 'content',
+  );
+  $export['image__teaser__file_field_image'] = $file_display;
 
   $file_display = new stdClass();
   $file_display->api_version = 1;
