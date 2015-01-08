@@ -1830,12 +1830,20 @@ table .devtrac7progressbar-req-of-tot .ui-widget-header {
  * Fieldtrip Progress Quicktab
  * ==================================================================================*/
 
-html body .devtrac7-progress-field-required a {
+/*html body .devtrac7-progress-field-required a {
   color: #ff0000;
 }
 
 html body .devtrac7-progress-field-optional a {
   color: #ffb050;    
+}*/
+
+html body .devtrac7-progress-field-required a {
+  background-image: url(../images/summary-icon-important.png);
+  background-repeat: no-repeat;
+  background-size: auto 13px;
+  background-position: 100% 50%;
+  padding-right: 20px;
 }
 
 /*=====================================================================================
