@@ -36,8 +36,13 @@
   margin-right: 5px;
 }
 
+.page-node-add-questionnaire #page-title ,
 .node-type-questionnaire-question #page-title {
   background-image: url(../images/title-icon-question.png);
+}
+
+.page-node-add-place #page-title {
+  background-image: url(../images/title-icon-location.png);
 }
 
 .page-node-add-ftritem #page-title ,
