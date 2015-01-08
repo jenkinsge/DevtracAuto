@@ -1561,6 +1561,7 @@ function devtrac7_block_view_alter(&$data, $block) {
           case 'Filter by sub-category:':
             $data['subject'] = t('Category');
             break;
+          case 'Filter by owner:':
           case 'Filter by author:':
             $data['subject'] = t('User');
             break;
