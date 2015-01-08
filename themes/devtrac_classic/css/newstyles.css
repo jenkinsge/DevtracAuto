@@ -1838,13 +1838,13 @@ html body .devtrac7-progress-field-optional a {
   color: #ffb050;    
 }*/
 
-html body .devtrac7-progress-field-required a {
+/*html body .devtrac7-progress-field-required a {
   background-image: url(../images/summary-icon-important.png);
   background-repeat: no-repeat;
   background-size: auto 13px;
   background-position: 100% 50%;
   padding-right: 20px;
-}
+}*/
 
 /*=====================================================================================
  * Block Facetapi Styles
@@ -2894,7 +2894,7 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
 
 .form-required {
   font-weight: bold;
-  color: #A52A2A;
+  /*color: #A52A2A;*/
   font-size: 1.3em;
   vertical-align: middle;
 }

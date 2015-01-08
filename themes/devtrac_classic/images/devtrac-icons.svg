@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="22.627417"
-     inkscape:cx="952.74133"
-     inkscape:cy="672.93009"
+     inkscape:zoom="11.313708"
+     inkscape:cx="945.00725"
+     inkscape:cy="665.86422"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -971,10 +971,13 @@
        style="font-size:111.64344025px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:DejaVu Sans;-inkscape-font-specification:DejaVu Sans"
        transform="matrix(0.21269195,0,0,0.10308685,803.63417,315.99733)" />
     <g
-       id="g3242">
+       id="g4040"
+       inkscape:export-filename="/var/www/html/devtrac/dtrac6/profiles/devtrac/themes/devtrac_classic/images/summary-icon-important.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
       <path
          sodipodi:type="star"
-         style="fill:#ff0000;fill-opacity:1;stroke:none"
+         style="fill:#ea0001;fill-opacity:1;stroke:none"
          id="path3197"
          sodipodi:sides="3"
          sodipodi:cx="791"
@@ -987,10 +990,10 @@
          inkscape:rounded="0.05"
          inkscape:randomized="0"
          d="m 871.55898,315.60523 c -4.02795,6.97662 -157.09001,6.97661 -161.11796,0 C 706.41307,308.62862 782.9441,176.07298 791,176.07298 c 8.0559,0 84.58693,132.55564 80.55898,139.53225 z"
-         transform="matrix(0.08980089,0,0,0.08980089,888.50309,356.29388)"
+         transform="matrix(0.08980089,0,0,0.08980089,888.47786,356.29388)"
          inkscape:transform-center-y="-23.255376" />
       <g
-         transform="translate(-0.15900628,0.53033004)"
+         transform="matrix(0.82730824,0,0,0.82730824,165.54711,66.151714)"
          id="g3238">
         <path
            transform="matrix(0.13786377,0,0,0.13786377,846.90514,342.36914)"
