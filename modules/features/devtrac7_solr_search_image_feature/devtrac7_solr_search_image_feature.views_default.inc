@@ -677,6 +677,11 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Relationship: Indexed File: File usage (node) */
+  $handler->display->display_options['relationships']['node_usage']['id'] = 'node_usage';
+  $handler->display->display_options['relationships']['node_usage']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['relationships']['node_usage']['field'] = 'node_usage';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Indexed File: Title Text */
   $handler->display->display_options['fields']['field_file_image_title_text']['id'] = 'field_file_image_title_text';
   $handler->display->display_options['fields']['field_file_image_title_text']['table'] = 'search_api_index_devtrac_solr_image_index';
@@ -689,6 +694,8 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['text'] = '[field_file_image_title_text]';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_entity'] = 0;
   /* Field: Lat-Long: Latitude (indexed) */
@@ -709,11 +716,22 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_lat_long_lon']['precision'] = '0';
   $handler->display->display_options['fields']['field_ftritem_lat_long_lon']['separator'] = '';
   $handler->display->display_options['fields']['field_ftritem_lat_long_lon']['link_to_entity'] = 0;
+  /* Field: Node: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'node_usage';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
   /* Field: File: Rendered File */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_file';
   $handler->display->display_options['fields']['rendered_entity']['field'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['label'] = 'Image';
+  $handler->display->display_options['fields']['rendered_entity']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['rendered_entity']['alter']['text'] = '[rendered_entity] [field_file_image_title_text] added to [title]';
   $handler->display->display_options['fields']['rendered_entity']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['rendered_entity']['display'] = 'view';
   $handler->display->display_options['fields']['rendered_entity']['view_mode'] = 'image_export';
