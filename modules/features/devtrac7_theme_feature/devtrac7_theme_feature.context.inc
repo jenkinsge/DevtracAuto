@@ -915,5 +915,44 @@ function devtrac7_theme_feature_context_default_contexts() {
   t('Manages the Statistics on the Locations page');
   $export['devtrac_location_statistics_context'] = $context;
 
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'devtrac_theme_page_border_context';
+  $context->description = 'This context is active on pages that need a grey box around them it adds a css class to the body';
+  $context->tag = 'theme';
+  $context->conditions = array(
+    'node' => array(
+      'values' => array(
+        'page' => 'page',
+      ),
+      'options' => array(
+        'node_form' => '1',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        'user/*/*' => 'user/*/*',
+        'node/*/*' => 'node/*/*',
+        'contact' => 'contact',
+        'contact/*' => 'contact/*',
+        'notfound' => 'notfound',
+        'accessdenied' => 'accessdenied',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'theme_html' => array(
+      'class' => 'pageborder',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('This context is active on pages that need a grey box around them it adds a css class to the body');
+  t('theme');
+  $export['devtrac_theme_page_border_context'] = $context;
+
   return $export;
 }

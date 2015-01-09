@@ -2861,30 +2861,22 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
 
 /*====================================================================
  *  Form Page Styles
+ * The .pageborder class is added by the devtrac_theme_page_border_context 
  ====================================================================*/
 
-.page-import .container-12 ,
-.page-user-me-edit .container-12 ,
-.page-node-add .container-12 ,
-.page-node-edit .container-12 {
+.pageborder .container-12 {
   width: 92%;
   margin-left: 4%;
   margin-right: 4%;
 }
 
-.page-import .zone-content .region-inner ,
-.page-user-me-edit .zone-content .region-inner ,
-.page-node-add .zone-content .region-inner ,
-.page-node-edit .zone-content .region-inner {
+.pageborder .zone-content .region-inner {
   padding: 20px;
   background: #DDDDDD;
   border: thin solid #CCCCCC; 
 }
 
-.page-import form ,
-.page-user-me-edit form ,
-.page-node-add form ,
-.page-node-edit form {
+.pageborder .block-system-main {
 /*  border: thick solid #CCCCCC;
   padding: 50px;*/
   border: thin solid #CCCCCC;
@@ -2898,17 +2890,9 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
   font-size: 1.3em;
   vertical-align: middle;
 }
-
-.page-import .fieldset-legend ,
-.page-user-me-edit label ,
-.page-node-add label ,
-.page-node-edit label ,
-.page-user-me-edit legend ,
-.page-node-add legend ,
-.page-node-edit legend ,
-.page-user-me-edit div.field-label ,
-.page-node-add div.field-label ,
-.page-node-edit div.field-label {
+.pageborder label ,
+.pageborder legend ,
+.pageborder div.field-label {
   display: block;
   font-weight: normal;
   font-size: 1.2em;
@@ -2926,17 +2910,17 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
   padding: 20px;
 }
 
-.page-user-me-edit .user-picture {
+.pageborder .user-picture {
   display: inline-block;
   margin-right: 20px;
   float: left;
 }
 
-.page-user-me-edit .form-item-files-picture-upload {
+.pageborder .form-item-files-picture-upload {
   display: inline-block;
 }
 
-.page-user-me-edit .user-picture img {
+.pageborder .user-picture img {
   border: 3px solid #CCCCCC;
   padding: 1px 5px;
 }
@@ -3116,11 +3100,6 @@ tr:hover .tabledrag-toggle-weight:hover {
   text-decoration: none;
 }
 
-
-
-
-
-
 /*=======================================================*/
 
 .page-import #block-system-main {
@@ -3129,30 +3108,20 @@ tr:hover .tabledrag-toggle-weight:hover {
   border: thin solid #CCCCCC;
 }
 
-.page-user-me-edit table tr ,
-.page-node-add table tr ,
-.page-node-edit table tr ,
-.page-user-me-edit table tr.even ,
-.page-node-add table tr.even ,
-.page-node-edit table tr.even ,
-.page-user-me-edit table tr:hover ,
-.page-node-add table tr:hover ,
-.page-node-edit table tr:hover {
-  background: transparent;
-  color: inherit;
+.pageborder table tr,
+.pageborder table tr.even,
+.pageborder table tr:hover {
+/*  background: transparent;
+  color: inherit;*/
 }
 
-.page-user-me-edit table thead ,
-.page-node-add table thead ,
-.page-node-edit table thead {
-  border: none;
+.pageborder table thead {
+  /* border: none; */
 }
 
-.page-user-me-edit table thead tr th ,
-.page-node-add table thead tr th ,
-.page-node-edit table thead tr th {
+.pageborder table thead tr th { /*
   background: transparent;
-  color: inherit;
+  color: inherit;*/
 }
 
 .container-inline-date .date-padding {
@@ -3163,9 +3132,7 @@ tr:hover .tabledrag-toggle-weight:hover {
   background: #555555;
 }
 
-.page-user-me-edit a.helpinject-link,
-.page-node-add a.helpinject-link,
-.page-node-edit a.helpinject-link {
+.pageborder a.helpinject-link {
   display: none;
 }
 

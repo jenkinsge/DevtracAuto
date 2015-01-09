@@ -12,6 +12,8 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
     return;
   }
   if (isset($node->field_ftritem_place[$node->language]) && (count($node->field_ftritem_place[$node->language]) > 0)) {
+    $mapit_vocabulary = variable_get('mapit_vocabulary',"0");
+    $undefined_area_tid = mapit_get_undefined_area_tid($mapit_vocabulary, $node->language);
     $fieldtrip = node_load($node->field_ftritem_field_trip[$node->language][0]['target_id']);
     if (isset($node->original->field_ftritem_place[$node->language]) && (count($node->original->field_ftritem_place[$node->language]) > 0)) {
       /*
@@ -41,7 +43,9 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
         }
         $districts = array_unique($alldistricts);
         foreach ($districts as $key => $tid) {
-          $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][$key]['tid'] = $tid;
+          if ($tid != $undefined_area_tid) {
+            $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][$key]['tid'] = $tid;
+          }
         }
         node_save($fieldtrip);
         return TRUE;
@@ -71,13 +75,15 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
        */
       if ((isset($node->field_ftritem_place[$node->language][0])) && (!empty($node->field_ftritem_place[$node->language][0]))) {
         $fieldtrip->field_fieldtrip_places[$fieldtrip->language][] = $node->field_ftritem_place[$node->language][0];
-        if (isset($fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language]) && (count($fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language]) > 0)) {
-          if (!in_array($node->taxonomy_vocabulary_6[$node->language][0], $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language])) {
+        if (isset($node->taxonomy_vocabulary_6[$node->language][0]['tid']) && ($node->taxonomy_vocabulary_6[$node->language][0]['tid'] != $undefined_area_tid)) {
+          if (isset($fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language]) && (count($fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language]) > 0)) {
+            if (!in_array($node->taxonomy_vocabulary_6[$node->language][0], $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language])) {
+              $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][] = $node->taxonomy_vocabulary_6[$node->language][0];
+            }
+          }
+          else {
             $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][] = $node->taxonomy_vocabulary_6[$node->language][0];
           }
-        }
-        else {
-          $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][] = $node->taxonomy_vocabulary_6[$node->language][0];
         }
       }
     }
@@ -277,6 +283,18 @@ function devtrac7_ftritem_imagesset($node) {
     return (count($node->field_ftritem_images[$node->language]) > 0);
   }
   return FALSE;
+}
+
+/**
+ * This function checks if there are questions available for the Site Report.
+ * It returns FALSE if it does.
+ * It returns TRUE if it doesn't.
+ */
+function devtrac7_ftritem_questionnaireset($node) {
+  if (module_exists('questionnaire_question')) {
+    return !questionnaire_question_addsubmission_access($node);
+  }
+  return TRUE;
 }
 
 /**
@@ -880,6 +898,30 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
     'success_text' => '',
     'fail_text' => '',
     'function' => 'devtrac7_ftritem_imagesset',
+    'filename' => 'devtrac7_ftritem.inc',
+    'required' => FALSE,
+    'required_function' => '',
+  );
+  $progress_checks['devtrac7_ftritem_questionnaireset'] = array(
+    'name' => t('devtrac7_ftritem_questionnaireset'),
+    'label' => t('devtrac7_ftritem_questionnaireset'),
+    'description' => 'Add a questionnaire to the Site Report.',
+    'finished_condition' => 'none',
+    'url' => array(
+      'text' => t('Add Questionnaire'),
+      'path' => 'node/%/addsubmission',
+      'attributes' => array(),
+      'query' => array(
+        'destination' => $destination,
+      ),
+      'fragment' => NULL,
+      'contextual' => TRUE,
+      'override' => FALSE,
+      'override_function' => '',
+    ),
+    'success_text' => '',
+    'fail_text' => '',
+    'function' => 'devtrac7_ftritem_questionnaireset',
     'filename' => 'devtrac7_ftritem.inc',
     'required' => FALSE,
     'required_function' => '',

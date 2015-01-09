@@ -99,8 +99,8 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
   // Included for use with string extractors like potx.
   t('Action Items');
   t('Comments');
-  t('Notes');
   t('FieldTrip');
+  t('Notes');
   t('Progress');
   t('Site Reports');
 
@@ -254,8 +254,8 @@ function devtrac7_theme_feature_quicktabs_default_quicktabs() {
   // Included for use with string extractors like potx.
   t('Action Items');
   t('Comments');
-  t('Notes');
   t('Devtrac Site Report Node Page Tabs');
+  t('Notes');
   t('Progress');
   t('Questionnaire');
   t('Report');
