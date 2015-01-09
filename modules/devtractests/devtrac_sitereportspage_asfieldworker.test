@@ -11,10 +11,10 @@
 module_load_include('test', 'simpletest_clone');
 
 /**
- * Checks that when the Site Reports page is viewed by an anonymous user, the
+ * Checks that when the Site Reports page is viewed by a field worker, the
  * page and its content is all present and working as it should.
  */
-class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
+class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
   protected $profile = 'devtrac';
 
   public function validateDate($date, $format = 'd-m-Y') {
@@ -23,12 +23,24 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     }
 
   /**
+   * Creates a user with the given role.
+   */
+  public function drupalCreateUserWithRole($role) {
+    $roles = user_roles();
+    $index = array_search($role, $roles);
+    $permissions = user_role_permissions(array(array_search($role, $roles) => $role));
+    $user = $this->drupalCreateUser(array_keys($permissions[$index]));
+    $user->roles[$index] = $role;
+    return user_save($user);
+    }
+
+  /**
    * The getInfo function.
    */
   public static function getInfo() {
     return array(
-      'name' => 'Site Reports page as an Anonymous User',
-      'description' => 'Visit Site Reports page as an Anonymous User and check that all is as should be.',
+      'name' => 'Site Reports page as a Field Worker',
+      'description' => 'Visit Site Reports page as a Field Worker and check that all is as should be.',
       'group' => 'Devtrac',
     );
   }
@@ -38,26 +50,48 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
    */
   public function setUp() {
     $this->public_files_directory = variable_get('file_public_path');
-    parent::setUp(array('devtractests', 'devtrac_to_devtrac_importer', 'devtrac_to_devtrac_demodata',));
+    parent::setUp(array('devtractests', 'devtrac_to_devtrac_importer', 'devtrac_to_devtrac_demodata'));
+
+    // Adding Admin Unit tags.
+
+    $vocabularies = entity_load('taxonomy_vocabulary', NULL, array('machine_name' => 'district_category'));
+    $vocabulary = reset($vocabularies);
+    $vid = $vocabulary->vid;
+
+    $newterm = new stdClass();
+    $newterm->name = 'Tag 1';
+    $newterm->vid = $vid;
+    $newterm->parent = 0;
+    taxonomy_term_save($newterm);
+
+    $newterm1 = new stdClass();
+    $newterm1->name = 'Tag 2';
+    $newterm1->vid = $vid;
+    $newterm1->parent = 0;
+    taxonomy_term_save($newterm1);
 
     // Running cron twice so mapit can lookup the admin units.
     $this->cronRun();
     $this->cronRun();
+    
+    // Create a field worker.
+    $user = $this->drupalCreateUserWithRole('field worker');
+    $this->drupalLogin($user);
 
   }
 
   /**
-   * Assess 'Site Reports' page as an anonymous user.
+   * Assess 'Site Reports' page as a field worker.
    */
-  public function testSiteReportsPageAccessAnonymous() {
+  public function testSiteReportsPageAccessFieldWorker() {
     $this->drupalGet('');
-    $this->assertNoText(t('Access denied'), t('Anonymous user is permitted to visit the Site Reports page.')), t('Devtrac'));
+    $this->assertNoText(t('Access denied'), t('Field Worker is permitted to visit the Site Reports page.'), t('Devtrac'));
   }
 
   /**
    * Check that all generic content is present.
-   */
-  public function testPresenceOfGenericContentAnonymous() {
+   *
+  public function testPresenceOfGenericContentFieldWorker() {
     $this->drupalGet('');
 
     // Check for Error Messages.
@@ -77,11 +111,11 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
-    $this->assertLink('Sign in', 0, t('SIGN IN link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/users', 0, t('Users link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Sign out', 0, t('SIGN OUT link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
     $this->assertLinkByHref('/sitereports?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
@@ -89,13 +123,13 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    $this->assertRaw('<a href="/user" title="">Welcome,', t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', t('Export to CSV (administrator version) link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -123,10 +157,10 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     // $this->assertRaw('', t('Location search list is collapsed by default on the page'), t('Devtrac'));
 
     // User.
-    $this->assertNoRaw('\u003Ch2 class=\u0022block-title\u0022\u003EUser\u003C\/h2\u003E\n', t('User Heading is not present on the page'), t('Devtrac'));
+    $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EUser\u003C\/h2\u003E\n', t('User Heading is present on the page'), t('Devtrac'));
 
     // Manager.
-    $this->assertNoRaw('\u003Ch2 class=\u0022block-title\u0022\u003EManager\u003C\/h2\u003E\n', t('Manager Heading is not present on the page'), t('Devtrac'));
+    $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EManager\u003C\/h2\u003E\n', t('Manager Heading is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('\u003Cform id=\u0022facetapi-textfield-widget-form\u0022 class=\u0022facetapi-textfield-widget-form\u0022 action=\u0022sitereports\u0022 method=\u0022GET\u0022 onsubmit=\u0022return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)\u0022\u003E\n  \u003Cinput type=\u0022textfield\u0022 name=\u0022search_api_aggregation_1\u0022 value=\u0022\u0022 \/\u003E\n  \u003Cdiv id=\u0022edit-actions\u0022 class=\u0022form-actions form-wrapper\u0022\u003E\n    \u003Cinput type=\u0022submit\u0022 class=\u0022form-submit\u0022 value=\u0022Search\u0022 \/\u003E\n  \u003C\/div\u003E\n\u003C\/form\u003E', t('Full text search block is present on the page'), t('Devtrac'));
@@ -144,10 +178,10 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertLink('Sign in', 0, t('SIGN IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
@@ -156,9 +190,9 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    $this->assertRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
@@ -211,8 +245,8 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
             Sector          </th>', t('Sector table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th data-hide="phone" class="views-field views-field-taxonomy-vocabulary-6" >
             Admin Unit          </th>', t('Admin Unit table column and heading is present on the page.'), t('Devtrac'));
-    $this->assertNoRaw('<th class="views-field views-field-author" data-hide="phone">
-            User          </th>', t('User table column and heading is not present on the page.'), t('Devtrac'));
+    $this->assertRaw('<th class="views-field views-field-author" data-hide="phone">
+            User          </th>', t('User table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('/sitereports?display=list&amp;order=field_ftritem_date_visited&amp;sort=asc" title="sort by Visited on" class="active">Visited on', t('Visited On table column and heading is present on the page. This column is also sortable.'), t('Devtrac'));
     $this->assertRaw('<th data-hide="phone" class="views-field views-field-virtual-field" >
                       </th>', t('Empty Button table column and heading is present on the page.'), t('Devtrac'));
@@ -225,10 +259,10 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertLink('Amudat', 0, t('Admin Unit column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-field-ftritem-date-visited active" >
             <span class="date-display-single">02-11-2014</span>', t('Visited On column is filled.'), t('Devtrac'));
-    $this->assertNoRaw('<th class="views-field views-field-virtual-field" data-hide="phone">
+    $this->assertRaw('<th class="views-field views-field-virtual-field" data-hide="phone">
                       </th>', t('Empty Button table heading is present on the page'), t('Devtrac'));
-    $this->assertNoLink('Edit', t('Edit button is not present.'), t('Devtrac'));
-    $this->assertNoLink('Delete', t('Delete button is not present.'), t('Devtrac'));
+    $this->assertLink('Edit', 0, t('Edit button is present.'), t('Devtrac'));
+    $this->assertLink('Delete', 0, t('Delete button is present.'), t('Devtrac'));
 
     // Check for date format.
 
@@ -245,10 +279,10 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertLink('Sign in', 0, t('SIGN IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
@@ -257,9 +291,9 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    $this->assertRaw('<a href="/user" title="">Welcome,', t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
@@ -321,8 +355,8 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=2#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-2"', t('Districts quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Districts', 0, t('Districts Quicktab is labeled'), t('Devtrac'));
 
-    // User (absence).
-    $this->assertNoRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=3#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-3"', t('Users quicktab is not present on the page'), t('Devtrac'));
+    // User.
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=3#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-3"', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // Enabling a Filter
     $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
@@ -475,5 +509,5 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     // FeatureTypeTag : taxonomy_vocabulary_1.
     $this->assertRaw('<georss:featureTypeTag>Gfs or Tap</georss:featureTypeTag>', t('georss FeatureTypeTag is mapped correctly'), t('Devtrac'));
 
-  }
+  }*/
 }
