@@ -286,6 +286,18 @@ function devtrac7_ftritem_imagesset($node) {
 }
 
 /**
+ * This function checks if a questionnaire has been submitted to the Site Report.
+ * It returns TRUE if it does.
+ * It returns FALSE if it doesn't.
+ */
+function devtrac7_ftritem_questionnaireset($node) {
+  if (module_exists('questionnaire_question')) {
+    return questionnaire_question_addsubmission_access($node);
+  }
+  return FALSE;
+}
+
+/**
  * This function checks if the Lat-Lon on the Site Report is set.
  * It returns TRUE if it does.
  * It returns FALSE if it doesn't.
@@ -886,6 +898,30 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
     'success_text' => '',
     'fail_text' => '',
     'function' => 'devtrac7_ftritem_imagesset',
+    'filename' => 'devtrac7_ftritem.inc',
+    'required' => FALSE,
+    'required_function' => '',
+  );
+  $progress_checks['devtrac7_ftritem_questionnaireset'] = array(
+    'name' => t('devtrac7_ftritem_questionnaireset'),
+    'label' => t('devtrac7_ftritem_questionnaireset'),
+    'description' => 'Add a questionnaire to the Site Report.',
+    'finished_condition' => 'none',
+    'url' => array(
+      'text' => t('Add Questionnaire'),
+      'path' => 'node/%/addsubmission',
+      'attributes' => array(),
+      'query' => array(
+        'destination' => $destination,
+      ),
+      'fragment' => NULL,
+      'contextual' => TRUE,
+      'override' => TRUE,
+      'override_function' => '',
+    ),
+    'success_text' => '',
+    'fail_text' => '',
+    'function' => 'devtrac7_ftritem_questionnaireset',
     'filename' => 'devtrac7_ftritem.inc',
     'required' => FALSE,
     'required_function' => '',
