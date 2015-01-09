@@ -286,15 +286,15 @@ function devtrac7_ftritem_imagesset($node) {
 }
 
 /**
- * This function checks if a questionnaire has been submitted to the Site Report.
- * It returns TRUE if it does.
- * It returns FALSE if it doesn't.
+ * This function checks if there are questions available for the Site Report.
+ * It returns FALSE if it does.
+ * It returns TRUE if it doesn't.
  */
 function devtrac7_ftritem_questionnaireset($node) {
   if (module_exists('questionnaire_question')) {
-    return questionnaire_question_addsubmission_access($node);
+    return !questionnaire_question_addsubmission_access($node);
   }
-  return FALSE;
+  return TRUE;
 }
 
 /**
@@ -916,7 +916,7 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
       ),
       'fragment' => NULL,
       'contextual' => TRUE,
-      'override' => TRUE,
+      'override' => FALSE,
       'override_function' => '',
     ),
     'success_text' => '',
