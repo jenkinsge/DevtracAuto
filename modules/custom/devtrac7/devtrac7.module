@@ -1646,6 +1646,7 @@ function devtrac7_block_view_alter(&$data, $block) {
             $data['subject'] = 'Tags';
             break;
           case 'Filter by admin unit » tags:':
+          case 'Filter by admin units » tags:':
             $data['subject'] = 'Admin Unit Tags';
             break;
           case 'Filter by node (target endpoint):':
