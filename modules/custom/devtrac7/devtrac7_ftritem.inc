@@ -12,6 +12,8 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
     return;
   }
   if (isset($node->field_ftritem_place[$node->language]) && (count($node->field_ftritem_place[$node->language]) > 0)) {
+    $mapit_vocabulary = variable_get('mapit_vocabulary',"0");
+    $undefined_area_tid = mapit_get_undefined_area_tid($mapit_vocabulary, $node->language);
     $fieldtrip = node_load($node->field_ftritem_field_trip[$node->language][0]['target_id']);
     if (isset($node->original->field_ftritem_place[$node->language]) && (count($node->original->field_ftritem_place[$node->language]) > 0)) {
       /*
@@ -41,7 +43,9 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
         }
         $districts = array_unique($alldistricts);
         foreach ($districts as $key => $tid) {
-          $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][$key]['tid'] = $tid;
+          if ($tid != $undefined_area_tid) {
+            $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][$key]['tid'] = $tid;
+          }
         }
         node_save($fieldtrip);
         return TRUE;
@@ -71,13 +75,15 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
        */
       if ((isset($node->field_ftritem_place[$node->language][0])) && (!empty($node->field_ftritem_place[$node->language][0]))) {
         $fieldtrip->field_fieldtrip_places[$fieldtrip->language][] = $node->field_ftritem_place[$node->language][0];
-        if (isset($fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language]) && (count($fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language]) > 0)) {
-          if (!in_array($node->taxonomy_vocabulary_6[$node->language][0], $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language])) {
+        if (isset($node->taxonomy_vocabulary_6[$node->language][0]['tid']) && ($node->taxonomy_vocabulary_6[$node->language][0]['tid'] != $undefined_area_tid)) {
+          if (isset($fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language]) && (count($fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language]) > 0)) {
+            if (!in_array($node->taxonomy_vocabulary_6[$node->language][0], $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language])) {
+              $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][] = $node->taxonomy_vocabulary_6[$node->language][0];
+            }
+          }
+          else {
             $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][] = $node->taxonomy_vocabulary_6[$node->language][0];
           }
-        }
-        else {
-          $fieldtrip->taxonomy_vocabulary_6[$fieldtrip->language][] = $node->taxonomy_vocabulary_6[$node->language][0];
         }
       }
     }
