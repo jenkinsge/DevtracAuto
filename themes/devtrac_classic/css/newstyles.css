@@ -2890,6 +2890,9 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
   font-size: 1.3em;
   vertical-align: middle;
 }
+
+form label ,
+form .fieldset-legend ,
 .pageborder label ,
 .pageborder legend ,
 .pageborder div.field-label {
@@ -2995,7 +2998,7 @@ td.delta-order select.form-select {
 
 /*=======================================================================================*/
 
-form input[type="file"] ,
+/*form input[type="file"] ,
 #edit-picture-upload {
   border: none;
   width: 110px;
@@ -3029,7 +3032,7 @@ form input[type="file"]:active::before ,
 #edit-picture-upload:active::before {
   background: #333333;
   border: none;
-}
+}*/
 
 /*=======================================================*/
 
@@ -3108,20 +3111,20 @@ tr:hover .tabledrag-toggle-weight:hover {
   border: thin solid #CCCCCC;
 }
 
-.pageborder table tr,
-.pageborder table tr.even,
-.pageborder table tr:hover {
-/*  background: transparent;
-  color: inherit;*/
-}
-
-.pageborder table thead {
-  /* border: none; */
-}
-
-.pageborder table thead tr th { /*
+form table tr,
+form table tr.even,
+form table tr:hover {
   background: transparent;
-  color: inherit;*/
+  color: inherit;
+}
+
+form table thead {
+   border: none; 
+}
+
+form table thead tr th { 
+  background: transparent;
+  color: inherit;
 }
 
 .container-inline-date .date-padding {
@@ -3130,10 +3133,6 @@ tr:hover .tabledrag-toggle-weight:hover {
 
 .chosen-container .chosen-results li.highlighted {
   background: #555555;
-}
-
-.pageborder a.helpinject-link {
-  display: none;
 }
 
 .page-node-edit .grid-12.region-content form.node-form .olControlZoomPanel.olControlNoSelect ,
