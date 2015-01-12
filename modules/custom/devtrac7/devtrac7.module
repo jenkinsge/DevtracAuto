@@ -1601,6 +1601,7 @@ function devtrac7_block_view_alter(&$data, $block) {
             break;
           case 'Filter by subject:':
           case 'Filter by sector:':
+          case 'Filter by sectors:':
             $data['subject'] = 'Sector';
             break;
           case 'Filter by textual answers:':
