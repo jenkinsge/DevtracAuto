@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Visit the Site Reports page as an Anonymous user and check that all is as
+ * Visit the Site Reports page as an Field worker and check that all is as
  * should be.
  */
 
@@ -120,7 +120,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
   /**
    * Assess 'Site Reports' page as a field worker.
-   *
+   */
   public function testSiteReportsPageAccessFieldWorker() {
     $this->drupalGet('');
     $this->assertNoText(t('Access denied'), t('Field Worker is permitted to visit the Site Reports page.'), t('Devtrac'));
