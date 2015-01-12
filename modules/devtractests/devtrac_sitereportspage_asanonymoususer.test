@@ -119,8 +119,16 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
 
     // Check for Built by Mountbatten footer text.
     $this->assertRaw('<p><span id="project-info-footer"><a href="http://www.devtrac.org" title="Devtrac">www.devtrac.org</a> | Built by  <a href="http://www.mountbatten.net/">Mountbatten Ltd</a> | Originally developed for <a href="http://www.unicef.org/uganda">Unicef Uganda</a> © 2015<br /></span></p>',
-        'Correct Project Information is displayed on the page',
-        'Devtrac');
+        t('Correct Project Information is displayed on the page'),
+        t('Devtrac'));
+
+    // Map Elements.
+    // Base Layers.
+    $this->assertRaw('\u003Cdiv class=\u0027layers base\u0027\u003E\n    \u003Ch2 class=\u0027layers-title\u0027\u003E\nBase layers\u003C\/h2\u003E\n', t('Base layers block is present on the map.'), t('Devtrac'));
+    // Legend.
+    $this->assertRaw('"title":"Legend","markup":"\u003Cdiv', t('Legend is present on the map.'), t('Devtrac'));
+    // Attribution.
+    $this->assertRaw('"attribution":"\u0026copy;\u003Ca href=\u0022http:\/\/creativecommons.org\/licenses\/by-sa\/2.0\/\u0022\u003ECCBYSA\u003C\/a\u003E \u003Ca href=\u0022http:\/\/www.openstreetmap.org\/copyright\u0022\u003E\u0026copy; OpenStreetMap contributors\u003C\/a\u003E"', t('Attribution is present on the map.'), t('Devtrac'));
 
     // Check for link to devtrac.
     $this->assertLinkByHref('http://www.devtrac.org', 0, t('There is a link to devtrac.org on the page.'), t('Devtrac'));
