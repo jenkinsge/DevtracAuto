@@ -460,10 +460,18 @@ function devtrac7_ftritem_updatedistrict($node) {
         watchdog('admin_feature', 'District did not change on Site Report: ' . $node->nid);
         return FALSE;
       }
-      // It changed so save it
-      watchdog('admin_feature', 'Changed District on Site Report: ' . $node->nid);
-      // drupal_set_message('Changed District on the Site Report.', 'status');
-      return TRUE;
+      // It is changed so save it.
+      // If it is changed by mapit, mitigate it to the place attached.
+      $mapit_vocabulary = variable_get('mapit_vocabulary',"0");
+      $undefined_area_tid = mapit_get_undefined_area_tid($mapit_vocabulary, $node->language);
+      if ($node->original->taxonomy_vocabulary_6[$node->language][0]['tid'] == $undefined_area_tid) {
+        $place = node_load($node->field_ftritem_place[$node->language][0]['target_id']);
+        $place->taxonomy_vocabulary_6[$place->language][0]['tid'] = $node->taxonomy_vocabulary_6[$node->language][0]['tid'];
+        node_save($place);
+        watchdog('admin_feature', 'Changed District on Site Report: ' . $node->nid);
+        // drupal_set_message('Changed District on the Site Report.', 'status');
+        return TRUE;
+      }
     }
     // There is no District anymore
     watchdog('admin_feature', 'Attempt to delete District on Site Report: ' . $node->nid);
@@ -919,7 +927,7 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
       'override' => FALSE,
       'override_function' => '',
     ),
-    'success_text' => '',
+    'success_text' => 'Thank you for filling out the questionnaire.',
     'fail_text' => '',
     'function' => 'devtrac7_ftritem_questionnaireset',
     'filename' => 'devtrac7_ftritem.inc',

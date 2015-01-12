@@ -41,8 +41,14 @@
   background-image: url(../images/title-icon-question.png);
 }
 
-.page-node-add-place #page-title {
+.page-node-add-place #page-title ,
+.context-location #page-title {
   background-image: url(../images/title-icon-location.png);
+}
+
+.page-node-add-district #page-title ,
+.context-district #page-title {
+  background-image: url(../images/title-icon-adminunit.png);
 }
 
 .page-node-add-ftritem #page-title ,
@@ -1437,6 +1443,11 @@ form.comment-form .form-item.form-type-item {
   background-color: #FFFFFF;
   border-bottom: thin solid #FFFFFF;
 }
+
+.page-user .view-dvtrc-field-trip .ctools-wrapper {
+  min-width: 100px;
+}
+
 
 /*=====================================================================================
  * Footer Styles
@@ -2890,6 +2901,9 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
   font-size: 1.3em;
   vertical-align: middle;
 }
+
+form label ,
+form .fieldset-legend ,
 .pageborder label ,
 .pageborder legend ,
 .pageborder div.field-label {
@@ -2954,6 +2968,7 @@ html.js fieldset.collapsible .fieldset-legend .fieldset-title {
   text-shadow: none;
   transition: background-color 0.3s;
   -webkit-transition: background-color 0.3s;
+  font-size: 0.8em;
 }
 
 html.js fieldset.collapsible .fieldset-legend .fieldset-title:hover {
@@ -2995,7 +3010,7 @@ td.delta-order select.form-select {
 
 /*=======================================================================================*/
 
-form input[type="file"] ,
+/*form input[type="file"] ,
 #edit-picture-upload {
   border: none;
   width: 110px;
@@ -3029,7 +3044,7 @@ form input[type="file"]:active::before ,
 #edit-picture-upload:active::before {
   background: #333333;
   border: none;
-}
+}*/
 
 /*=======================================================*/
 
@@ -3108,20 +3123,20 @@ tr:hover .tabledrag-toggle-weight:hover {
   border: thin solid #CCCCCC;
 }
 
-.pageborder table tr,
-.pageborder table tr.even,
-.pageborder table tr:hover {
-/*  background: transparent;
-  color: inherit;*/
-}
-
-.pageborder table thead {
-  /* border: none; */
-}
-
-.pageborder table thead tr th { /*
+form table tr,
+form table tr.even,
+form table tr:hover {
   background: transparent;
-  color: inherit;*/
+  color: inherit;
+}
+
+form table thead {
+   border: none; 
+}
+
+form table thead tr th { 
+  background: transparent;
+  color: inherit;
 }
 
 .container-inline-date .date-padding {
@@ -3130,10 +3145,6 @@ tr:hover .tabledrag-toggle-weight:hover {
 
 .chosen-container .chosen-results li.highlighted {
   background: #555555;
-}
-
-.pageborder a.helpinject-link {
-  display: none;
 }
 
 .page-node-edit .grid-12.region-content form.node-form .olControlZoomPanel.olControlNoSelect ,
