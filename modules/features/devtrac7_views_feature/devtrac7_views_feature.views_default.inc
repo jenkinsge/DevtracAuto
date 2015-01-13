@@ -6199,8 +6199,10 @@ function devtrac7_views_feature_views_default_views() {
   $handler = $view->new_display('block', 'Progress', 'block_7');
   $handler->display->display_options['display_description'] = 'Progress of the SiteVisit';
   $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'edit own ftritem content';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    5 => '5',
+  );
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Virtual Field: virtual_field */
