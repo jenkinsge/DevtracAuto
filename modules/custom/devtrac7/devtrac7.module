@@ -2588,14 +2588,15 @@ function devtrac7_theme_registry_alter(&$theme_registry) {
 
 /**
  * Implements hook_views_pre_render().
- * 
+ *
  * The access on the views blocks that show the progress on the fieldtrip and
  * the sitereport has to be implemented in code so we can hide the tabs when
  * they do not return any progress links.
  */
 function devtrac7_views_pre_render(&$view) {
-  // The progress on the fieldtrip.
-  if (($view->name == 'dvtrc_field_trip') && ($view->current_display == 'block_5') && ($view->total_rows == 1)) {
+  // The progress on the fieldtrip and the sitereport.
+  if ((($view->name == 'dvtrc_field_trip') && ($view->current_display == 'block_5') && ($view->total_rows == 1)) ||
+      (($view->name == 'dvtrc_site_visits') && ($view->current_display == 'block_7') && ($view->total_rows == 1))) {
     $entity_type = $view->base_table;
     $entity_id = $view->result[0]->{$view->base_field};
     $level = 0;
@@ -2607,19 +2608,4 @@ function devtrac7_views_pre_render(&$view) {
     }
     unset($view->result[0]);
   }
-  // The progress on the sitereport.
-//  if (($view->name == 'dvtrc_site_visits') && ($view->current_display == 'block_7') && ($view->total_rows == 1)) {
-//    $entity_type = $view->base_table;
-//    $entity_id = $view->result[0]->{$view->base_field};
-//    $level = 0;
-//    $sitereport = entity_load_single($entity_type, $entity_id);
-////    $fieldtrip_id = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['target_id'];
-////    $fieldtrip = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['entity'];
-//    $access = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['access'];
-//    $items = devtrac7_progress_field_progress_field_getprogress($entity_type, $entity_id, $level, $access);
-//    if (isset($items['links']) && (count($items['links']) > 0)) {
-//      return;
-//    }
-//    unset($view->result[0]);
-//  }
 }

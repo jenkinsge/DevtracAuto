@@ -230,22 +230,27 @@ function theme_devtrac7_progress_field_progress_links($variables) {
   foreach ($links as $key => $link) {
     $keyparts = explode('-', $key);
     if ($keyparts[1] == 0) { // The fieldtrip
-      $fieldtripid = $keyparts[2];
-      $linksets[$fieldtripid][$key] = $link;
+      $level0id = $keyparts[2];
+      $linksets[$level0id][$key] = $link;
     }
     if ($keyparts[1] == 1) { // A sitereport
-      $sitereportid = $keyparts[2];
-      $sitereport = entity_load_single('node', $sitereportid);
-      $fieldtripid = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['target_id'];
-      $linksets[$fieldtripid][$sitereportid][$key] = $link;
+      $level1id = $keyparts[2];
+      $level1entity = entity_load_single('node', $level1id);
+      if ($level1entity->type == 'ftritem') {
+        $level0id = $level1entity->field_ftritem_field_trip[$level1entity->language][0]['target_id'];
+      }
+      else { // actionitem
+        $level0id = $level1entity->field_actionitem_ftreportitem[$level1entity->language][0]['target_id'];
+      }
+      $linksets[$level0id][$level1id][$key] = $link;
     }
     if ($keyparts[1] == 2) { // An actionitem
-      $actionitemid = $keyparts[2];
-      $actionitem = entity_load_single('node', $actionitemid);
-      $sitereportid = $actionitem->field_actionitem_ftreportitem[$actionitem->language][0]['target_id'];
-      $sitereport = entity_load_single('node', $sitereportid);
-      $fieldtripid = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['target_id'];
-      $linksets[$fieldtripid][$sitereportid][$actionitemid][$key] = $link;
+      $level2id = $keyparts[2];
+      $level2entity = entity_load_single('node', $level2id);
+      $level1id = $level2entity->field_actionitem_ftreportitem[$level2entity->language][0]['target_id'];
+      $level1entity = entity_load_single('node', $level1id);
+      $level0id = $level1entity->field_ftritem_field_trip[$level1entity->language][0]['target_id'];
+      $linksets[$level0id][$level1id][$level2id][$key] = $link;
     }
   }
   $output = '';
