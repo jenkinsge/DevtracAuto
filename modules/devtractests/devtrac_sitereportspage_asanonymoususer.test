@@ -48,7 +48,7 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     return array(
       'name' => 'Site Reports page as an Anonymous User',
       'description' => 'Visit Site Reports page as an Anonymous User and check that all is as should be.',
-      'group' => 'Devtrac',
+      'group' => 'Devtrac2',
     );
   }
 
