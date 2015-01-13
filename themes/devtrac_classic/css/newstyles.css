@@ -2404,6 +2404,23 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
   margin-bottom: 5px;
 }
 
+/*================================= legend ==================================*/
+
+#facetapi-facet-search-apidevtrac-solr-site-visits-index-devtrac7-graph-combo-2-taxonomy-vocabulary-1 li {
+  list-style:none;
+  margin: 0;
+  padding: 0;
+}
+
+#facetapi-facet-search-apidevtrac-solr-site-visits-index-devtrac7-graph-combo-2-taxonomy-vocabulary-1 li a {
+  padding: 3px 10px;
+  display: inline-block;
+}
+
+#facetapi-facet-search-apidevtrac-solr-site-visits-index-devtrac7-graph-combo-2-taxonomy-vocabulary-1 li a img {
+  margin-right: 10px;
+}
+
 /*================================= geosearch ===============================*/
 
 .olMapViewport .olControlMaptext form#openlayers-geosearch-searchform--2 {
@@ -2909,8 +2926,9 @@ form .fieldset-legend ,
 .pageborder div.field-label {
   display: block;
   font-weight: normal;
-  font-size: 1.2em;
-  padding-bottom: 5px;
+  /*font-size: 1.2em;*/
+  font-size: 17px;
+  /*padding-bottom: 5px;*/
   background: transparent;
 }
 
@@ -3452,7 +3470,8 @@ button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui
   font-size: inherit;
 }
 
-form select {
+form select ,
+.media-browser-tab form select {
   padding-right: 20px;
   margin-right: 10px;
 }
