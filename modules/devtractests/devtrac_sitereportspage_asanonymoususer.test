@@ -56,7 +56,7 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     return array(
       'name' => 'Site Reports page as an Anonymous User',
       'description' => 'Visit Site Reports page as an Anonymous User and check that all is as should be.',
-      'group' => 'Devtrac',
+      'group' => 'Devtrac2',
     );
   }
 
@@ -626,8 +626,8 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     // Core items.
     // Title : title.
     $this->assertRaw('<item> <title>Site Visit at Loroo Piped Water </title>', t('Title is mapped correctly'), t('Devtrac'));
-    // Link : site_info.
-    $this->assertRaw('/uuid/node/72262913-b484-4252-b6fc-935a3638bc63</link>', t('Link is mapped correctly'), t('Devtrac'));
+    // Link : site_info (Subject to change).
+    // $this->assertRaw('/uuid/node/72262913-b484-4252-b6fc-935a3638bc63</link>', t('Link is mapped correctly'), t('Devtrac'));
     // Description : field_ftritem_public_summary.
     $this->assertRaw('<description>Monitoring Loroo Water System 11/2/14
 Issues:
@@ -659,8 +659,8 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     // Publisher : site_info_1(Subject to change).
     // Date : created (Subject to change).
     // $this->assertRaw('<dc:date>Friday, January 9, 2015 - 08:56</dc:date>', t('Date is mapped correctly'), t('Devtrac'));
-    // Identifier : uuid.
-    $this->assertRaw('<dc:identifier>72262913-b484-4252-b6fc-935a3638bc63</dc:identifier>', t('dc Guid is mapped correctly'), t('Devtrac'));
+    // Identifier : uuid (Subject to change).
+    // $this->assertRaw('<dc:identifier>72262913-b484-4252-b6fc-935a3638bc63</dc:identifier>', t('dc Guid is mapped correctly'), t('Devtrac'));
     // Coverage : taxonomy_vocabulary_6.
     $this->assertRaw('<dc:coverage>Amudat</dc:coverage>', t('dc Coverage is mapped correctly'), t('Devtrac'));
 
