@@ -1930,8 +1930,19 @@ function devtrac7_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
       unset($form['taxonomy_vocabulary_6'][$form['taxonomy_vocabulary_6']['#language']]['#options'][$tid]);
     }
   }
+  $form['field_user_aboutme']['#after_build'][] = 'devtrac7_customize_user_profile_form';
   $form['#submit'][] = 'devtrac7_form_user_rebuild_menu';
 
+}
+
+function devtrac7_customize_user_profile_form(&$form) {
+  $form[$form['#language']][0]['format']['help']['#access'] = FALSE;
+  $form[$form['#language']][0]['format']['guidelines']['#access'] = FALSE;
+  $form[$form['#language']][0]['format']['format']['#options'] = array(
+    'filtered_html' => 'Filtered HTML',
+  );
+  $form[$form['#language']][0]['format']['format']['#access'] = FALSE;
+  return $form;
 }
 
 /*
