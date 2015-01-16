@@ -491,9 +491,11 @@ function devtrac7_ftritem_updatedistrict($node) {
       }
       if (isset($undefined_area_tid) && is_numeric($undefined_area_tid)) {
         if ($node->original->taxonomy_vocabulary_6[$node->language][0]['tid'] == $undefined_area_tid) {
-          $place = node_load($node->field_ftritem_place[$node->language][0]['target_id']);
-          $place->taxonomy_vocabulary_6[$place->language][0]['tid'] = $node->taxonomy_vocabulary_6[$node->language][0]['tid'];
-          node_save($place);
+          if (isset($node->field_ftritem_place[$node->language][0]['target_id'])) {
+            $place = node_load($node->field_ftritem_place[$node->language][0]['target_id']);
+            $place->taxonomy_vocabulary_6[$place->language][0]['tid'] = $node->taxonomy_vocabulary_6[$node->language][0]['tid'];
+            node_save($place);
+          }
         }
       }
       watchdog('admin_feature', 'Changed District on Site Report: ' . $node->nid);
