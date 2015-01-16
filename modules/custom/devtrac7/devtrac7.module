@@ -2574,8 +2574,10 @@ function _devtrac7_site_report_tid($termname) {
  * Implements hook_query_alter().
  */
 function devtrac7_query_alter($query) {
-  if ($query->hasTag('mapit_processing')) {
-    $query->orderBy('id', 'DESC');
+  if (module_exists('mapit')) {
+    if ($query->hasTag('mapit_processing')) {
+      $query->orderBy('id', 'DESC');
+    }
   }
 }
 
