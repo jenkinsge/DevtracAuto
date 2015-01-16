@@ -2460,7 +2460,15 @@ function devtrac7_resave_geolayer_attributes() {
     $layer->data['useBBOX'] = TRUE;
     $layer->data['resFactor'] = 1;
     $layer->data['ratio'] = 1;
-    $layer->data['url'] = str_replace('http://default/', '', $layer->data['url']);
+    
+    /* 
+     * There is one user that complained that there was an error because the
+     * ['url'] was not set. I would think there will be other errors without
+     resaving it.
+     */
+    if (isset($layer->data['url'])) {
+      $layer->data['url'] = str_replace('http://default/', '', $layer->data['url']);
+    }
     // The record might be in the database or not.
     // An insert will fail if the record already exists.
     // An update will fail if the record does not exist.
