@@ -101,17 +101,17 @@ function devtrac7_menu_menu_default_menu_links() {
     'weight' => -43,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_sign-in:user/login
-  $menu_links['main-menu_sign-in:user/login'] = array(
+  // Exported menu link: main-menu_log-in:user/login
+  $menu_links['main-menu_log-in:user/login'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'user/login',
     'router_path' => 'user/login',
-    'link_title' => 'Sign in',
+    'link_title' => 'Log in',
     'options' => array(
       'attributes' => array(
-        'title' => '',
+        'title' => 'Log in',
       ),
-      'identifier' => 'main-menu_sign-in:user/login',
+      'identifier' => 'main-menu_log-in:user/login',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -121,17 +121,17 @@ function devtrac7_menu_menu_default_menu_links() {
     'weight' => -40,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_sign-out:user/logout
-  $menu_links['main-menu_sign-out:user/logout'] = array(
+  // Exported menu link: main-menu_log-out:user/logout
+  $menu_links['main-menu_log-out:user/logout'] = array(
     'menu_name' => 'main-menu',
     'link_path' => 'user/logout',
     'router_path' => 'user/logout',
-    'link_title' => 'Sign out',
+    'link_title' => 'Log out',
     'options' => array(
       'attributes' => array(
-        'title' => '',
+        'title' => 'Log out',
       ),
-      'identifier' => 'main-menu_sign-out:user/logout',
+      'identifier' => 'main-menu_log-out:user/logout',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -219,8 +219,6 @@ function devtrac7_menu_menu_default_menu_links() {
   t('Districts');
   t('Field trips');
   t('Locations');
-  t('Sign in');
-  t('Sign out');
   t('Site Reports');
   t('Statistics');
   t('Users');

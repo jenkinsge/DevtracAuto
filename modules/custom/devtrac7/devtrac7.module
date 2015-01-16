@@ -477,9 +477,11 @@ function devtrac7_getcurrentfieldtrip($account = NULL) {
   $query = db_select('node', 'n');
   $query->join('field_data_field_fieldtrip_user', 'u', 'n.nid = u.entity_id');
   $query->join('field_data_field_fieldtrip_start_end_date', 'sd', 'n.nid = sd.entity_id');
+  $query->join('field_data_field_fieldtrip_status', 's', 'n.nid = s.entity_id');
   $query->fields('n', array('nid'));
   $query->condition('n.type', 'fieldtrip');
   $query->condition('u.field_fieldtrip_user_target_id', $account->uid);
+  $query->condition('s.field_fieldtrip_status_value', 'In Progress');
   $query->where("( (DATE_FORMAT(STR_TO_DATE(sd.field_fieldtrip_start_end_date_value, '%Y-%m-%dT%T'), '%Y-%m-%d') <= :thedatea) AND (DATE_FORMAT(STR_TO_DATE(sd.field_fieldtrip_start_end_date_value2, '%Y-%m-%dT%T'), '%Y-%m-%d') >= :thedateb) )", array(":thedatea" => $thedate, ":thedateb"=> $thedate));
   $query->orderBy('sd.field_fieldtrip_start_end_date_value', 'ASC');
 
@@ -519,7 +521,11 @@ function devtrac7_addactionitem_access($nid) {
     $node = node_load($nid);
     if ($node->type == 'ftritem') {
       // return (in_array('administrator', $user->roles) || (($user->uid == $arg1) && user_access('create fieldtrip content')));
-      return (($user->uid == $node->uid) && user_access('create actionitem content'));
+      $terms = taxonomy_get_term_by_name('Site Visit', 'vocabulary_7');
+      $term = reset($terms);
+      if ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == $term->tid) {
+        return (($user->uid == $node->uid) && user_access('create actionitem content'));
+      }
     }
     // if ($node->type == 'actionitem') {
     //   $node = node_load($arg1);
@@ -2471,7 +2477,15 @@ function devtrac7_resave_geolayer_attributes() {
     $layer->data['useBBOX'] = TRUE;
     $layer->data['resFactor'] = 1;
     $layer->data['ratio'] = 1;
-    $layer->data['url'] = str_replace('http://default/', '', $layer->data['url']);
+    
+    /* 
+     * There is one user that complained that there was an error because the
+     * ['url'] was not set. I would think there will be other errors without
+     resaving it.
+     */
+    if (isset($layer->data['url'])) {
+      $layer->data['url'] = str_replace('http://default/', '', $layer->data['url']);
+    }
     // The record might be in the database or not.
     // An insert will fail if the record already exists.
     // An update will fail if the record does not exist.
@@ -2574,8 +2588,10 @@ function _devtrac7_site_report_tid($termname) {
  * Implements hook_query_alter().
  */
 function devtrac7_query_alter($query) {
-  if ($query->hasTag('mapit_processing')) {
-    $query->orderBy('id', 'DESC');
+  if (module_exists('mapit')) {
+    if ($query->hasTag('mapit_processing')) {
+      $query->orderBy('id', 'DESC');
+    }
   }
 }
 
