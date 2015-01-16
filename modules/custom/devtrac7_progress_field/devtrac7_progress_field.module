@@ -574,8 +574,6 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
         devtrac7_progress_field_getmenuitem($items, $key, $menu, $destination);
       }
       else {
-//      	print $key;
-//      	print_r($menu);
         // TODO: This is a quick fix for the devtrac system
         // Remove this before contributing to drupal.org
         // Only add the Restore (Publish) link to the progress bar
