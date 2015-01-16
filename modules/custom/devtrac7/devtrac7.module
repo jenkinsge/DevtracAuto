@@ -477,9 +477,11 @@ function devtrac7_getcurrentfieldtrip($account = NULL) {
   $query = db_select('node', 'n');
   $query->join('field_data_field_fieldtrip_user', 'u', 'n.nid = u.entity_id');
   $query->join('field_data_field_fieldtrip_start_end_date', 'sd', 'n.nid = sd.entity_id');
+  $query->join('field_data_field_fieldtrip_status', 's', 'n.nid = s.entity_id');
   $query->fields('n', array('nid'));
   $query->condition('n.type', 'fieldtrip');
   $query->condition('u.field_fieldtrip_user_target_id', $account->uid);
+  $query->condition('s.field_fieldtrip_status_value', 'In Progress');
   $query->where("( (DATE_FORMAT(STR_TO_DATE(sd.field_fieldtrip_start_end_date_value, '%Y-%m-%dT%T'), '%Y-%m-%d') <= :thedatea) AND (DATE_FORMAT(STR_TO_DATE(sd.field_fieldtrip_start_end_date_value2, '%Y-%m-%dT%T'), '%Y-%m-%d') >= :thedateb) )", array(":thedatea" => $thedate, ":thedateb"=> $thedate));
   $query->orderBy('sd.field_fieldtrip_start_end_date_value', 'ASC');
 
