@@ -135,14 +135,27 @@ function devtrac7_place_updatedistrict($node) {
           // The Admin Unit was (most probably) updated by mapit.
           // Propagate the change to all Site Reports that reference this
           // Location and have their Admin Unit set to "Undefined Area".
-          $mapit_vocabulary = variable_get('mapit_vocabulary',"0");
-          $undefined_area_tid = mapit_get_undefined_area_tid($mapit_vocabulary, $node->language);
-          $site_reports = db_select('field_data_taxonomy_vocabulary_6', 'fdtv6')
-            ->fields('fdtv6', array('entity_id'))
-            ->condition('entity_type', 'node')
-            ->condition('bundle', 'ftritem')
-            ->condition('taxonomy_vocabulary_6_tid', $undefined_area_tid, '!=')
-            ->execute();
+          if (module_exists('mapit')) {
+            $mapit_vocabulary = variable_get('mapit_vocabulary',"0");
+            $undefined_area_tid = mapit_get_undefined_area_tid($mapit_vocabulary, $node->language);
+            $site_reports = db_select('field_data_taxonomy_vocabulary_6', 'fdtv6')
+              ->fields('fdtv6', array('entity_id'))
+              ->condition('entity_type', 'node')
+              ->condition('bundle', 'ftritem')
+              ->condition('taxonomy_vocabulary_6_tid', $undefined_area_tid, '!=')
+              ->execute();
+          }
+          else {
+            $terms = taxonomy_get_term_by_name('Undefined Area', 'vocabulary_6');
+            $term = array_shift($terms);
+            $site_reports = db_select('field_data_taxonomy_vocabulary_6', 'fdtv6')
+              ->fields('fdtv6', array('entity_id'))
+              ->condition('entity_type', 'node')
+              ->condition('bundle', 'ftritem')
+              ->condition('taxonomy_vocabulary_6_tid', $term->tid)
+              ->execute();
+
+          }
           while ($site_report = $site_reports->fetchAssoc()) {
             $report = node_load($site_report['entity_id']);
             if (isset($report->field_ftritem_place[$report->language][0]['target_id']) && ($report->field_ftritem_place[$report->language][0]['target_id'] == $node->nid)) {

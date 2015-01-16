@@ -477,9 +477,11 @@ function devtrac7_getcurrentfieldtrip($account = NULL) {
   $query = db_select('node', 'n');
   $query->join('field_data_field_fieldtrip_user', 'u', 'n.nid = u.entity_id');
   $query->join('field_data_field_fieldtrip_start_end_date', 'sd', 'n.nid = sd.entity_id');
+  $query->join('field_data_field_fieldtrip_status', 's', 'n.nid = s.entity_id');
   $query->fields('n', array('nid'));
   $query->condition('n.type', 'fieldtrip');
   $query->condition('u.field_fieldtrip_user_target_id', $account->uid);
+  $query->condition('s.field_fieldtrip_status_value', 'In Progress');
   $query->where("( (DATE_FORMAT(STR_TO_DATE(sd.field_fieldtrip_start_end_date_value, '%Y-%m-%dT%T'), '%Y-%m-%d') <= :thedatea) AND (DATE_FORMAT(STR_TO_DATE(sd.field_fieldtrip_start_end_date_value2, '%Y-%m-%dT%T'), '%Y-%m-%d') >= :thedateb) )", array(":thedatea" => $thedate, ":thedateb"=> $thedate));
   $query->orderBy('sd.field_fieldtrip_start_end_date_value', 'ASC');
 
@@ -519,7 +521,11 @@ function devtrac7_addactionitem_access($nid) {
     $node = node_load($nid);
     if ($node->type == 'ftritem') {
       // return (in_array('administrator', $user->roles) || (($user->uid == $arg1) && user_access('create fieldtrip content')));
-      return (($user->uid == $node->uid) && user_access('create actionitem content'));
+      $terms = taxonomy_get_term_by_name('Site Visit', 'vocabulary_7');
+      $term = reset($terms);
+      if ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == $term->tid) {
+        return (($user->uid == $node->uid) && user_access('create actionitem content'));
+      }
     }
     // if ($node->type == 'actionitem') {
     //   $node = node_load($arg1);
@@ -1930,8 +1936,19 @@ function devtrac7_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
       unset($form['taxonomy_vocabulary_6'][$form['taxonomy_vocabulary_6']['#language']]['#options'][$tid]);
     }
   }
+  $form['field_user_aboutme']['#after_build'][] = 'devtrac7_customize_user_profile_form';
   $form['#submit'][] = 'devtrac7_form_user_rebuild_menu';
 
+}
+
+function devtrac7_customize_user_profile_form(&$form) {
+  $form[$form['#language']][0]['format']['help']['#access'] = FALSE;
+  $form[$form['#language']][0]['format']['guidelines']['#access'] = FALSE;
+  $form[$form['#language']][0]['format']['format']['#options'] = array(
+    'filtered_html' => 'Filtered HTML',
+  );
+  $form[$form['#language']][0]['format']['format']['#access'] = FALSE;
+  return $form;
 }
 
 /*
@@ -2571,8 +2588,10 @@ function _devtrac7_site_report_tid($termname) {
  * Implements hook_query_alter().
  */
 function devtrac7_query_alter($query) {
-  if ($query->hasTag('mapit_processing')) {
-    $query->orderBy('id', 'DESC');
+  if (module_exists('mapit')) {
+    if ($query->hasTag('mapit_processing')) {
+      $query->orderBy('id', 'DESC');
+    }
   }
 }
 
@@ -2596,14 +2615,15 @@ function devtrac7_theme_registry_alter(&$theme_registry) {
 
 /**
  * Implements hook_views_pre_render().
- * 
+ *
  * The access on the views blocks that show the progress on the fieldtrip and
  * the sitereport has to be implemented in code so we can hide the tabs when
  * they do not return any progress links.
  */
 function devtrac7_views_pre_render(&$view) {
-  // The progress on the fieldtrip.
-  if (($view->name == 'dvtrc_field_trip') && ($view->current_display == 'block_5') && ($view->total_rows == 1)) {
+  // The progress on the fieldtrip and the sitereport.
+  if ((($view->name == 'dvtrc_field_trip') && ($view->current_display == 'block_5') && ($view->total_rows == 1)) ||
+      (($view->name == 'dvtrc_site_visits') && ($view->current_display == 'block_7') && ($view->total_rows == 1))) {
     $entity_type = $view->base_table;
     $entity_id = $view->result[0]->{$view->base_field};
     $level = 0;
@@ -2615,19 +2635,4 @@ function devtrac7_views_pre_render(&$view) {
     }
     unset($view->result[0]);
   }
-  // The progress on the sitereport.
-//  if (($view->name == 'dvtrc_site_visits') && ($view->current_display == 'block_7') && ($view->total_rows == 1)) {
-//    $entity_type = $view->base_table;
-//    $entity_id = $view->result[0]->{$view->base_field};
-//    $level = 0;
-//    $sitereport = entity_load_single($entity_type, $entity_id);
-////    $fieldtrip_id = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['target_id'];
-////    $fieldtrip = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['entity'];
-//    $access = $sitereport->field_ftritem_field_trip[$sitereport->language][0]['access'];
-//    $items = devtrac7_progress_field_progress_field_getprogress($entity_type, $entity_id, $level, $access);
-//    if (isset($items['links']) && (count($items['links']) > 0)) {
-//      return;
-//    }
-//    unset($view->result[0]);
-//  }
 }

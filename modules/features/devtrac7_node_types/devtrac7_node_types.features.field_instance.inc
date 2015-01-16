@@ -4401,9 +4401,9 @@ The \'Search Address\' box will only help you to do an initial search on a rough
       ),
       'full' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
+        'module' => 'mapit',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'mapit_taxonomy_term_reference_link',
         'weight' => 3,
       ),
       'map_popup_view_mode' => array(

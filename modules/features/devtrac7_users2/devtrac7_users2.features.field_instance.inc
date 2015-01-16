@@ -98,7 +98,7 @@ function devtrac7_users2_field_default_field_instances() {
     'label' => 'About Me',
     'required' => 1,
     'settings' => array(
-      'text_processing' => 1,
+      'text_processing' => 0,
       'user_register_form' => 1,
     ),
     'weight' => 11,

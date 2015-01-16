@@ -6199,8 +6199,10 @@ function devtrac7_views_feature_views_default_views() {
   $handler = $view->new_display('block', 'Progress', 'block_7');
   $handler->display->display_options['display_description'] = 'Progress of the SiteVisit';
   $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'edit own ftritem content';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    5 => '5',
+  );
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Virtual Field: virtual_field */
@@ -6573,6 +6575,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'field_data_taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['type'] = 'mapit_taxonomy_term_reference_link';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['delta_offset'] = '0';
   /* Field: Field: Date Visited */
   $handler->display->display_options['fields']['field_ftritem_date_visited']['id'] = 'field_ftritem_date_visited';
