@@ -82,7 +82,7 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
         "date_processor" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "default" : "1", "fields" : [] }
+          "settings" : { "default" : "0", "fields" : { "created" : true } }
         },
         "search_api_case_ignore" : { "status" : 1, "weight" : "0", "settings" : { "fields" : [] } },
         "search_api_html_filter" : {

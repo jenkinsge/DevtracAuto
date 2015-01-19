@@ -219,8 +219,35 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'query_type' => 'term',
     'default_true' => '1',
     'facet_search_ids' => array(),
+    'date_granularity' => 'DAY',
   );
   $export['search_api@devtrac_solr_site_visits_index::created'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_site_visits_index::field_ftritem_date_visited';
+  $facet->searcher = 'search_api@devtrac_solr_site_visits_index';
+  $facet->realm = '';
+  $facet->facet = 'field_ftritem_date_visited';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => 0,
+    'query_type' => 'date',
+    'default_true' => '1',
+    'facet_search_ids' => array(),
+    'date_granularity' => 'DAY',
+  );
+  $export['search_api@devtrac_solr_site_visits_index::field_ftritem_date_visited'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */

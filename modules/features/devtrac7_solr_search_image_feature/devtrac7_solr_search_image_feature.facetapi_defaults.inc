@@ -32,6 +32,7 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
     'query_type' => 'term',
     'default_true' => TRUE,
     'facet_search_ids' => array(),
+    'date_granularity' => 'DAY',
   );
   $export['search_api@devtrac_solr_image_index::field_ftritem_date_visited'] = $facet;
 
