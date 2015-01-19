@@ -103,7 +103,6 @@ dependencies[] = publishcontent
 dependencies[] = quicktabs
 dependencies[] = realname
 dependencies[] = robotstxt
-dependencies[] = stringoverrides
 dependencies[] = strongarm
 dependencies[] = tipsy
 dependencies[] = transliteration

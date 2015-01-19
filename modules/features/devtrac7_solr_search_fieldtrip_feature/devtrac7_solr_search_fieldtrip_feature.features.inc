@@ -128,7 +128,10 @@ function devtrac7_solr_search_fieldtrip_feature_default_search_api_index() {
         "date_processor" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "default" : "0", "fields" : { "created" : true } }
+          "settings" : {
+            "default" : "0",
+            "fields" : { "created" : true, "field_fieldtrip_start_end_date:value" : true }
+          }
         },
         "search_api_case_ignore" : {
           "status" : 1,

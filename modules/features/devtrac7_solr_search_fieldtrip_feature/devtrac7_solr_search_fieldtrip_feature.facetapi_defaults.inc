@@ -35,7 +35,7 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'query_type' => 'term',
     'default_true' => '1',
     'facet_search_ids' => array(),
-    'date_granularity' => 'MINUTE',
+    'date_granularity' => 'DAY',
   );
   $export['search_api@devtrac_solr_field_trip_index::created'] = $facet;
 
@@ -92,6 +92,35 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'exclude' => 0,
   );
   $export['search_api@devtrac_solr_field_trip_index::field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_field_trip_index::field_fieldtrip_start_end_date:value';
+  $facet->searcher = 'search_api@devtrac_solr_field_trip_index';
+  $facet->realm = '';
+  $facet->facet = 'field_fieldtrip_start_end_date:value';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+      'roles' => array(),
+      'bundle' => 'none',
+      'bundle_selected' => array(),
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => 0,
+    'query_type' => 'date',
+    'default_true' => '1',
+    'facet_search_ids' => array(),
+    'date_granularity' => 'DAY',
+  );
+  $export['search_api@devtrac_solr_field_trip_index::field_fieldtrip_start_end_date:value'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */

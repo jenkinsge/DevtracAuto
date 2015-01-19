@@ -13,6 +13,40 @@ function devtrac7_solr_search_location_feature_facetapi_default_facet_settings()
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_locations_index::author';
+  $facet->searcher = 'search_api@devtrac_solr_locations_index';
+  $facet->realm = '';
+  $facet->facet = 'author';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '50',
+    'dependencies' => array(
+      'roles' => array(
+        3 => '3',
+        5 => '5',
+        2 => '2',
+        1 => 0,
+        4 => 0,
+        6 => 0,
+        7 => 0,
+      ),
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => 0,
+    'query_type' => 'term',
+    'default_true' => TRUE,
+    'facet_search_ids' => array(),
+  );
+  $export['search_api@devtrac_solr_locations_index::author'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
   $facet->name = 'search_api@devtrac_solr_locations_index::search_api_aggregation_1';
   $facet->searcher = 'search_api@devtrac_solr_locations_index';
   $facet->realm = '';

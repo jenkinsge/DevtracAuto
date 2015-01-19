@@ -81,24 +81,6 @@ function devtrac7_site_configuration_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'locale_custom_disabled_strings_en';
-  $strongarm->value = array();
-  $export['locale_custom_disabled_strings_en'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'locale_custom_strings_en';
-  $strongarm->value = array(
-    '' => array(
-      'Log out' => 'Sign out',
-    ),
-  );
-  $export['locale_custom_strings_en'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'mapit_discard_ids';
   $strongarm->value = '0';
   $export['mapit_discard_ids'] = $strongarm;

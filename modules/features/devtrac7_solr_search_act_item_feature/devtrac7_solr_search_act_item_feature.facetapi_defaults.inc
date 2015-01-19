@@ -181,6 +181,7 @@ function devtrac7_solr_search_act_item_feature_facetapi_default_facet_settings()
     'query_type' => 'term',
     'default_true' => '1',
     'facet_search_ids' => array(),
+    'date_granularity' => 'DAY',
   );
   $export['search_api@devtrac_solr_action_items_index::field_actionitem_due_date'] = $facet;
 

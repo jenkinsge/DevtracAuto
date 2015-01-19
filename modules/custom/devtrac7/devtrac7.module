@@ -1580,7 +1580,8 @@ function devtrac7_block_view_alter(&$data, $block) {
           case 'oecd sector code:':
             $data['subject'] = '';
             break;
-          case 'Filter by author » manager:':
+              case 'Filter by owner » manager:':
+              case 'Filter by author » manager:':
             $data['subject'] = 'Manager';
             break;
           case 'Filter by responsible » manager:':

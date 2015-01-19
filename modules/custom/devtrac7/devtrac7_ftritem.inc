@@ -713,7 +713,7 @@ function devtrac7_ftritem_updatedatevisited($node) {
     // There is a Date Visited now so save it
     // This might fire on node creation when ftritems are loaded using feeds
     // This means there might not be a ->nid yet
-    if (!isset($node->nid)) {
+    if (isset($node->nid)) {
       watchdog('admin_feature', 'Set Date Visited on Site Report: ' . $node->nid);
     }
     else {

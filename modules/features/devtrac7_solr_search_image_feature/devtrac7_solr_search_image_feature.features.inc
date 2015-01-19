@@ -180,6 +180,7 @@ function devtrac7_solr_search_image_feature_default_search_api_index() {
         "field_taxonomy_image_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "name" : { "type" : "string" },
         "owner" : { "type" : "integer", "entity_type" : "user" },
+        "owner:field_user_superior" : { "type" : "integer", "entity_type" : "user" },
         "search_api_aggregation_1" : { "type" : "text" },
         "search_api_language" : { "type" : "string" },
         "search_api_url" : { "type" : "uri" },
@@ -231,7 +232,7 @@ function devtrac7_solr_search_image_feature_default_search_api_index() {
         "date_processor" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "default" : "0", "fields" : [] }
+          "settings" : { "default" : "0", "fields" : { "field_ftritem_date_visited" : true } }
         },
         "search_api_case_ignore" : {
           "status" : 1,

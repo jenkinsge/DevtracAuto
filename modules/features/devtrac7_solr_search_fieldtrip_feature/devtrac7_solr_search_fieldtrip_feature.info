@@ -38,6 +38,7 @@ features[current_search][] = devtrac7_fieldtrips_standard
 features[facetapi][] = search_api@devtrac_solr_field_trip_index::created
 features[facetapi][] = search_api@devtrac_solr_field_trip_index::field_fieldtrip_fc_purpose
 features[facetapi][] = search_api@devtrac_solr_field_trip_index::field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps
+features[facetapi][] = search_api@devtrac_solr_field_trip_index::field_fieldtrip_start_end_date:value
 features[facetapi][] = search_api@devtrac_solr_field_trip_index::field_fieldtriptags
 features[facetapi][] = search_api@devtrac_solr_field_trip_index::search_api_aggregation_1
 features[facetapi][] = search_api@devtrac_solr_field_trip_index::taxonomy_vocabulary_6:field_district_category
