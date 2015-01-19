@@ -65,36 +65,25 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
    */
   public function setUp() {
     $this->public_files_directory = variable_get('file_public_path');
-    parent::setUp(array('devtractests', 'devtrac_to_devtrac_importer', 'devtrac_to_devtrac_demodata'));
+    parent::setUp(array('devtractests'));
 
     $administrator = $this->drupalCreateAdminUser();
     $this->drupalLogin($administrator);
+
     // Enabling demo data.
-    $this->drupalGet('/admin/apps/devtrac/devtrac_to_devtrac_importer/details');
+    $this->drupalGet('admin/apps/devtrac/devtrac_to_devtrac_importer/details');
     $this->clickLink('Enable App', 0);
     $this->assertText('Enabled Devtrac to Devtrac Importers app', t('Enabled Devtrac to Devtrac Importers app'), t('Devtrac'));
     $this->clickLink('Configure', 0);
     $this->drupalPost(NULL, NULL, t('Enable Demo Content'));
     $this->assertText('All Data has been imported. It will take a little while before the data will appear on the overview pages.', t('All Data has been imported. It will take a little while before the data will appear on the overview pages.'), t('Devtrac'));
+
     // Adding Admin Unit tags.
-
-    $vocabularies = entity_load('taxonomy_vocabulary', FALSE, array('machine_name' => 'district_category'));
-    $vocabulary = reset($vocabularies);
-    $vid = $vocabulary->vid;
-
-    $newterm = new stdClass();
-    $newterm->name = 'Tag 1';
-    $newterm->vid = $vid;
-    $newterm->parent = 0;
-    taxonomy_term_save($newterm);
-    $newtermid = $newterm->tid;
-
-    $newterm1 = new stdClass();
-    $newterm1->name = 'Tag 2';
-    $newterm1->vid = $vid;
-    $newterm1->parent = 0;
-    taxonomy_term_save($newterm1);
-    $newterm1id = $newterm1->tid;
+    $this->drupalGet('admin/structure/taxonomy/district_category/add');
+    $tag1['name'] = 'Tag 1';
+    $this->drupalPost(NULL, $tag1, t('Save'));
+    $tag2['name'] = 'Tag 2';
+    $this->drupalPost(NULL, $tag2, t('Save'));
     $this->drupalGet('admin/structure/taxonomy/district_category');
 
     // Running cron twice so mapit can lookup the admin units.
@@ -102,14 +91,16 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->drupalGet('');
     $this->cronRun();
 
-    // Edit the Undefined Area district so it is tagged with tag 1.
-    $terms = entity_load('taxonomy_term', FALSE, array('name' => 'amudat'));
-    $term = reset($terms);
-    $tid = $term->tid;
-    $term->field_district_category['und'][0]['tid'] = $newtermid;
-    taxonomy_term_save($term);
+    $this->drupalGet('admin/structure/taxonomy/vocabulary_6');
+    $this->clickLink('edit', 9);
+    $tag['field_district_category[und]'] = 'Tag 1';
+    $this->drupalPost(NULL, $tag, t('Save'));
+    $this->clickLink('Amudat');
+    $this->assertRaw('<div class="field-label">Tags:&nbsp;</div><div class="field-items"><div class="field-item even">Tag 1</div></div></div></div>', t('Amudat district tagged correctly.'), t('Devtrac'));
 
     $this->drupalGet('admin/config/search/search_api/index/devtrac_solr_site_visits_index');
+    $this->drupalPost(NULL, NULL, t('Queue all items for reindexing'));
+    $this->drupalPost(NULL, NULL, t('Confirm'));
     $this->drupalPost(NULL, NULL, t('Clear all indexed data'));
     $this->drupalPost(NULL, NULL, t('Confirm'));
     $this->drupalPost(NULL, NULL, t('Index now'));
@@ -154,7 +145,7 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
-    $this->assertLink('Sign in', 0, t('SIGN IN link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
     $this->assertLinkByHref('/sitereports?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
@@ -235,9 +226,6 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     // Location block id block-facetapi-1mowyanjknrdopbts0c089qkom59umzk
     $this->assertRaw('"block-facetapi-1mowyanjknrdopbts0c089qkom59umzk":3', t('Location block is collapsed by default.'), t('Devtrac'));
 
-    // User block id block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw.
-    $this->assertRaw('"block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw":3', t('User block is collapsed by default.'), t('Devtrac'));
-    // Manager.
     // Admin Unit Tags block id block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1.
     $this->assertRaw('"block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1":3', t('Admin Unit Tags block is collapsed by default.'), t('Devtrac'));
 
@@ -274,7 +262,7 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
-    $this->assertLink('Sign in', 0, t('SIGN IN link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
     $this->assertLinkByHref('/sitereports?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
@@ -393,7 +381,7 @@ class VisitSiteReportsAsAnonymousTestCase extends SimpleTestCloneTestCase {
     $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
-    $this->assertLink('Sign in', 0, t('SIGN IN link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
     $this->assertLinkByHref('/sitereports?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
