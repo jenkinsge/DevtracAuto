@@ -73,6 +73,15 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
     'operator' => 'and',
     'hard_limit' => '-1',
     'dependencies' => array(
+      'roles' => array(
+        3 => '3',
+        5 => '5',
+        2 => '2',
+        1 => 0,
+        4 => 0,
+        6 => 0,
+        7 => 0,
+      ),
       'facets' => array(),
       'force_deactivation' => TRUE,
       'regex' => FALSE,
@@ -85,6 +94,40 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
     'facet_search_ids' => array(),
   );
   $export['search_api@devtrac_solr_image_index::owner'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_image_index::owner:field_user_superior';
+  $facet->searcher = 'search_api@devtrac_solr_image_index';
+  $facet->realm = '';
+  $facet->facet = 'owner:field_user_superior';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '-1',
+    'dependencies' => array(
+      'roles' => array(
+        3 => '3',
+        5 => '5',
+        2 => '2',
+        1 => 0,
+        4 => 0,
+        6 => 0,
+        7 => 0,
+      ),
+      'facets' => array(),
+      'force_deactivation' => TRUE,
+      'regex' => FALSE,
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => 0,
+    'query_type' => 'term',
+    'default_true' => TRUE,
+    'facet_search_ids' => array(),
+  );
+  $export['search_api@devtrac_solr_image_index::owner:field_user_superior'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
@@ -500,6 +543,85 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
     'submit_realm' => 'Save and go back to realm settings',
   );
   $export['search_api@devtrac_solr_image_index:block:owner'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_image_index:block:owner:field_user_superior';
+  $facet->searcher = 'search_api@devtrac_solr_image_index';
+  $facet->realm = 'block';
+  $facet->facet = 'owner:field_user_superior';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_links',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+      'natural' => 0,
+      'indexed' => 0,
+    ),
+    'sort_weight' => array(
+      'active' => '-50',
+      'count' => '-49',
+      'display' => '-48',
+      'natural' => '0',
+      'indexed' => '0',
+    ),
+    'sort_order' => array(
+      'active' => '3',
+      'count' => '3',
+      'display' => '4',
+      'natural' => '4',
+      'indexed' => '4',
+    ),
+    'empty_behavior' => 'none',
+    'soft_limit' => '5',
+    'nofollow' => 1,
+    'show_expanded' => 0,
+    'graphstitle' => '',
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => '',
+    'graphsy_max' => '',
+    'graphsy_step' => '',
+    'graphsy_legend' => '',
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => '',
+    'graphsshowlegend' => 1,
+    'graphs_combotitle' => NULL,
+    'graphs_comboshowzoom' => 0,
+    'graphs_comboengine' => 'flot',
+    'graphs_combonofollow' => 1,
+    'graphs_combowidth' => '500',
+    'graphs_comboheight' => '400',
+    'graphs_comboy_min' => NULL,
+    'graphs_comboy_max' => NULL,
+    'graphs_comboy_step' => NULL,
+    'graphs_comboy_legend' => NULL,
+    'graphs_combobackground_colour' => '#fff',
+    'graphs_comboseries_colours' => NULL,
+    'graphs_comboshowlegend' => 1,
+    'tagcloud_levels' => '6',
+    'swatch_field' => '',
+    'swatch_imagestyle' => 'devtrac_oecd_icons_bw',
+    'swatch_showtext' => 0,
+    'swatch_shownoimage' => 1,
+    'swatch_imagestyle_select' => 'devtrac_oecd_icons_bw',
+    'graphsflot' => 'point',
+    'empty_text' => array(
+      'value' => '<p>There are no Authors</p>
+',
+      'format' => '1',
+    ),
+    'submit_realm' => 'Save and go back to realm settings',
+  );
+  $export['search_api@devtrac_solr_image_index:block:owner:field_user_superior'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
@@ -1328,6 +1450,50 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_image_index:devtrac7_graph_bar:owner:field_user_superior';
+  $facet->searcher = 'search_api@devtrac_solr_image_index';
+  $facet->realm = 'devtrac7_graph_bar';
+  $facet->facet = 'owner:field_user_superior';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'graphstitle' => NULL,
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => NULL,
+    'graphsy_max' => NULL,
+    'graphsy_step' => NULL,
+    'graphsy_legend' => NULL,
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => NULL,
+    'graphsshowlegend' => 1,
+  );
+  $export['search_api@devtrac_solr_image_index:devtrac7_graph_bar:owner:field_user_superior'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
   $facet->name = 'search_api@devtrac_solr_image_index:devtrac7_graph_bar:search_api_aggregation_1';
   $facet->searcher = 'search_api@devtrac_solr_image_index';
   $facet->realm = 'devtrac7_graph_bar';
@@ -2079,6 +2245,50 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_image_index:devtrac7_graph_combo:owner:field_user_superior';
+  $facet->searcher = 'search_api@devtrac_solr_image_index';
+  $facet->realm = 'devtrac7_graph_combo';
+  $facet->facet = 'owner:field_user_superior';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs_combo',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'graphs_combotitle' => NULL,
+    'graphs_comboshowzoom' => 0,
+    'graphs_comboengine' => 'flot',
+    'graphs_combonofollow' => 1,
+    'graphs_combowidth' => '500',
+    'graphs_comboheight' => '400',
+    'graphs_comboy_min' => NULL,
+    'graphs_comboy_max' => NULL,
+    'graphs_comboy_step' => NULL,
+    'graphs_comboy_legend' => NULL,
+    'graphs_combobackground_colour' => '#fff',
+    'graphs_comboseries_colours' => NULL,
+    'graphs_comboshowlegend' => 1,
+  );
+  $export['search_api@devtrac_solr_image_index:devtrac7_graph_combo:owner:field_user_superior'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
   $facet->name = 'search_api@devtrac_solr_image_index:devtrac7_graph_combo:search_api_aggregation_1';
   $facet->searcher = 'search_api@devtrac_solr_image_index';
   $facet->realm = 'devtrac7_graph_combo';
@@ -2779,6 +2989,50 @@ function devtrac7_solr_search_image_feature_facetapi_default_facet_settings() {
     'graphsshowlegend' => 1,
   );
   $export['search_api@devtrac_solr_image_index:devtrac7_graph_pie:owner'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_image_index:devtrac7_graph_pie:owner:field_user_superior';
+  $facet->searcher = 'search_api@devtrac_solr_image_index';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'owner:field_user_superior';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+    ),
+    'sort_weight' => array(
+      'active' => -50,
+      'count' => -49,
+      'display' => -48,
+    ),
+    'sort_order' => array(
+      'active' => 3,
+      'count' => 3,
+      'display' => 4,
+    ),
+    'empty_behavior' => 'none',
+    'graphstitle' => NULL,
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '500',
+    'graphsheight' => '400',
+    'graphsy_min' => NULL,
+    'graphsy_max' => NULL,
+    'graphsy_step' => NULL,
+    'graphsy_legend' => NULL,
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => NULL,
+    'graphsshowlegend' => 1,
+  );
+  $export['search_api@devtrac_solr_image_index:devtrac7_graph_pie:owner:field_user_superior'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */

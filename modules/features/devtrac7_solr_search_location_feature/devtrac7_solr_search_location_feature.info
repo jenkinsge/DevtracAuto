@@ -35,6 +35,7 @@ features[ctools][] = quicktabs:quicktabs:1
 features[ctools][] = views:views_default:3.0
 features[current_search][] = devtrac7_locations_activefacets
 features[current_search][] = devtrac7_locations_standard
+features[facetapi][] = search_api@devtrac_solr_locations_index::author
 features[facetapi][] = search_api@devtrac_solr_locations_index::search_api_aggregation_1
 features[facetapi][] = search_api@devtrac_solr_locations_index::taxonomy_vocabulary_1
 features[facetapi][] = search_api@devtrac_solr_locations_index::taxonomy_vocabulary_1:parents_all
