@@ -231,7 +231,7 @@ function devtrac7_solr_search_image_feature_default_search_api_index() {
         "date_processor" : {
           "status" : 1,
           "weight" : "0",
-          "settings" : { "default" : "0", "fields" : [] }
+          "settings" : { "default" : "0", "fields" : { "field_ftritem_date_visited" : true } }
         },
         "search_api_case_ignore" : {
           "status" : 1,
