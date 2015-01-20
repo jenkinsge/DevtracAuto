@@ -9,6 +9,7 @@
  * Implements hook_enable().
  */
 function devtrac_to_devtrac_demodata_enable() {
+  devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_user_import', 'devtrac_solr_view_users.csv');
   devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_location_import', 'devtrac_solr_view_locations.csv');
   devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_field_trip_import', 'devtrac_solr_view_fieldtrips.csv');
   devtrac_to_devtrac_demodata_import('devtrac_2_devtrac_site_reports_import', 'devtrac_solr_view_sitevisits.csv');
@@ -28,6 +29,8 @@ function devtrac_to_devtrac_demodata_disable() {
   $myfeed = feeds_source('devtrac_2_devtrac_field_trip_import');
   $myfeed->startClear();
   $myfeed = feeds_source('devtrac_2_devtrac_location_import');
+  $myfeed->startClear();
+  $myfeed = feeds_source('devtrac_2_devtrac_user_import');
   $myfeed->startClear();
   drupal_set_message(t("Deleted all Sample data."));
 }
