@@ -12,4 +12,6 @@ features[feeds_importer][] = devtrac_2_devtrac_action_item_import
 features[feeds_importer][] = devtrac_2_devtrac_field_trip_import
 features[feeds_importer][] = devtrac_2_devtrac_location_import
 features[feeds_importer][] = devtrac_2_devtrac_site_reports_import
-
+features[feeds_importer][] = devtrac_2_devtrac_user_import
+features[feeds_tamper][] = devtrac_2_devtrac_action_item_import-responsible-explode
+features[feeds_tamper][] = devtrac_2_devtrac_action_item_import-responsible-trim

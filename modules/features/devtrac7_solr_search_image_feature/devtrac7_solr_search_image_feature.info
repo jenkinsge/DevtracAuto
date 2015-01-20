@@ -109,6 +109,7 @@ features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:fi
 features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:field_taxonomy_image_tags
 features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:name
 features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:owner
+features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:owner:field_user_superior
 features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:search_api_aggregation_1
 features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:search_api_language
 features[facetapi][] = search_api@devtrac_solr_image_index:devtrac7_graph_pie:search_api_url

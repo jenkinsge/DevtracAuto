@@ -11,4 +11,7 @@ function devtrac_2_devtrac_feeds_importers_ctools_plugin_api($module = NULL, $ap
   if ($module == "feeds" && $api == "feeds_importer_default") {
     return array("version" => "1");
   }
+  if ($module == "feeds_tamper" && $api == "feeds_tamper_default") {
+    return array("version" => "2");
+  }
 }
