@@ -569,7 +569,9 @@ function devtrac_install_welcome_submit($form, &$form_state) {
 function devtrac_install_additional_modules(&$install_state) {
   // Do not enable devtrac7_profile_menu module now. Instead put a marker in
   // the database to do a menu rebuild later and enable the module later.
-  variable_set('devtrac_menu_rebuild_needed', TRUE);
+  // Set the marker after the additional modules have been enabled.
+  // Function devtrac_install_finished() is probably the place to do that.
+  // variable_set('devtrac_menu_rebuild_needed', TRUE);
   $modules = array(
     // 'devtrac7_profile_menu',
     'devtrac7_site_configuration_feature',
@@ -886,6 +888,12 @@ function devtrac_install_finished(&$install_state) {
   // Will also trigger indexing of profile-supplied content or feeds.
 //  drupal_cron_run();
 
+  // We did not enable devtrac7_profile_menu module in function
+  // devtac_install_additional_modules(). Instead we decided to put a marker in
+  // the database to do a menu rebuild later and enable the module later.
+  // Setting the marker here and now.
+  variable_set('devtrac_menu_rebuild_needed', TRUE);
+
   if (isset($messages['error'])) {
     $output = '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
     return $output;
@@ -902,7 +910,15 @@ function devtrac_install_finished(&$install_state) {
     // If we don't install drupal using Drush, redirect the user to the front
     // page.
     if (!drupal_is_cli()) {
-        drupal_goto('');
+      // drupal_goto('');
+      // drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
+      // $messages = drupal_set_message();
+      $output = '<p>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</p>';
+      $output .= '<p>' . st('You can visit our documentation site at <a href="@url1">@url2</a>.', array('@url1' => url('http://www.drupal.org'), '@url2' => 'www.drupal.org')) . '</p>';
+      $output .= '<p>' . st('Why don\'t you have a look at our <a href="@url">app store</a> and get started by installing the devtrac demo data.', array('@url' => url('admin/apps'))) . '</p>';
+      $output .= '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
+
+      return $output;
     }
   }
 }
