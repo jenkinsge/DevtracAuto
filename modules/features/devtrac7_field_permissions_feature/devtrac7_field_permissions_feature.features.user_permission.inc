@@ -89,15 +89,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'media',
   );
 
-  // Exported permission: 'access relations'.
-  $permissions['access relations'] = array(
-    'name' => 'access relations',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'relation',
-  );
-
   // Exported permission: 'access site reports'.
   $permissions['access site reports'] = array(
     'name' => 'access site reports',
@@ -188,13 +179,13 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'hidden_comment',
   );
 
-  // Exported permission: 'administer relations'.
-  $permissions['administer relations'] = array(
-    'name' => 'administer relations',
+  // Exported permission: 'administer search_api_saved_searches'.
+  $permissions['administer search_api_saved_searches'] = array(
+    'name' => 'administer search_api_saved_searches',
     'roles' => array(
       'administrator' => 'administrator',
     ),
-    'module' => 'relation',
+    'module' => 'search_api_saved_searches',
   );
 
   // Exported permission: 'administer users'.
@@ -768,16 +759,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'create relations'.
-  $permissions['create relations'] = array(
-    'name' => 'create relations',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
-    ),
-    'module' => 'relation',
-  );
-
   // Exported permission: 'create taxonomy_vocabulary_1'.
   $permissions['create taxonomy_vocabulary_1'] = array(
     'name' => 'create taxonomy_vocabulary_1',
@@ -918,15 +899,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
-  );
-
-  // Exported permission: 'delete relations'.
-  $permissions['delete relations'] = array(
-    'name' => 'delete relations',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'relation',
   );
 
   // Exported permission: 'edit any actionitem content'.
@@ -1871,16 +1843,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit relations'.
-  $permissions['edit relations'] = array(
-    'name' => 'edit relations',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'iati manager' => 'iati manager',
-    ),
-    'module' => 'relation',
-  );
-
   // Exported permission: 'edit taxonomy_vocabulary_1'.
   $permissions['edit taxonomy_vocabulary_1'] = array(
     'name' => 'edit taxonomy_vocabulary_1',
@@ -2015,6 +1977,17 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'field worker' => 'field worker',
     ),
     'module' => 'questionnaire_question',
+  );
+
+  // Exported permission: 'use search_api_saved_searches'.
+  $permissions['use search_api_saved_searches'] = array(
+    'name' => 'use search_api_saved_searches',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'search_api_saved_searches',
   );
 
   // Exported permission: 'use text format filtered_html'.

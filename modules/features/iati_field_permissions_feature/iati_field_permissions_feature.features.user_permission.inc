@@ -10,6 +10,24 @@
 function iati_field_permissions_feature_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'access relations'.
+  $permissions['access relations'] = array(
+    'name' => 'access relations',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'relation',
+  );
+
+  // Exported permission: 'administer relations'.
+  $permissions['administer relations'] = array(
+    'name' => 'administer relations',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'relation',
+  );
+
   // Exported permission: 'create field_field_iati_activity_doc'.
   $permissions['create field_field_iati_activity_doc'] = array(
     'name' => 'create field_field_iati_activity_doc',
@@ -52,6 +70,16 @@ function iati_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'create relations'.
+  $permissions['create relations'] = array(
+    'name' => 'create relations',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'iati manager' => 'iati manager',
+    ),
+    'module' => 'relation',
+  );
+
   // Exported permission: 'delete any iati_activity content'.
   $permissions['delete any iati_activity content'] = array(
     'name' => 'delete any iati_activity content',
@@ -86,6 +114,15 @@ function iati_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'delete relations'.
+  $permissions['delete relations'] = array(
+    'name' => 'delete relations',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'relation',
   );
 
   // Exported permission: 'edit any iati_activity content'.
@@ -171,6 +208,16 @@ function iati_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'edit relations'.
+  $permissions['edit relations'] = array(
+    'name' => 'edit relations',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'iati manager' => 'iati manager',
+    ),
+    'module' => 'relation',
   );
 
   // Exported permission: 'view field_field_iati_activity_doc'.
