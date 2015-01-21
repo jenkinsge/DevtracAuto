@@ -18,7 +18,6 @@ dependencies[] = nice_menus
 dependencies[] = openlayers_views
 dependencies[] = pane
 dependencies[] = quicktabs
-dependencies[] = relation
 dependencies[] = strongarm
 dependencies[] = views
 dependencies[] = views_modes
