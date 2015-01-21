@@ -914,7 +914,7 @@ function devtrac_install_finished(&$install_state) {
       // drupal_set_title(st('@drupal installation complete', array('@drupal' => drupal_install_profile_distribution_name())), PASS_THROUGH);
       // $messages = drupal_set_message();
       $output = '<p>' . st('Congratulations, you installed @drupal!', array('@drupal' => drupal_install_profile_distribution_name())) . '</p>';
-      $output .= '<p>' . st('You can visit our documentation site at <a href="@url1">@url2</a>.', array('@url1' => url('http://www.drupal.org'), '@url2' => 'www.drupal.org')) . '</p>';
+      $output .= '<p>' . st('You can visit our documentation site at <a href="@url1">@url2</a>.', array('@url1' => url('http://www.devtrac.org'), '@url2' => 'www.devtrac.org')) . '</p>';
       $output .= '<p>' . st('Why don\'t you have a look at our <a href="@url">app store</a> and get started by installing the devtrac demo data.', array('@url' => url('admin/apps'))) . '</p>';
       $output .= '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
 
