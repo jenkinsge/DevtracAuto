@@ -137,7 +137,7 @@ projects[field_collection_feeds][version] = "1.0-alpha3"
 projects[field_collection_feeds][type] = "module"
 projects[field_collection_feeds][subdir] = "contrib"
 
-projects[field_collection][version] = "1.0-beta7"
+projects[field_collection][version] = "1.0-beta8"
 projects[field_collection][type] = "module"
 projects[field_collection][subdir] = "contrib"
 
@@ -158,9 +158,10 @@ projects[field_permissions][version] = "1.0-beta2"
 projects[field_permissions][type] = "module"
 projects[field_permissions][subdir] = "contrib"
 
-projects[file_entity][version] = "2.0-alpha3"
-projects[file_entity][type] = "module"
-projects[file_entity][subdir] = "contrib"
+; Is included in mountbatten_web_media.make on github
+; projects[file_entity][version] = "2.0-beta1"
+; projects[file_entity][type] = "module"
+; projects[file_entity][subdir] = "contrib"
 
 projects[file_entity_usage][version] = "1.x-dev"
 projects[file_entity_usage][type] = "module"
@@ -262,7 +263,7 @@ projects[menu_token][type] = "module"
 projects[menu_token][subdir] = "contrib"
 projects[menu_token][patch][] = "https://www.drupal.org/files/issues/localized_options-not-set.patch"
 
-projects[migrate][version] = "2.5"
+projects[migrate][version] = "2.6"
 projects[migrate][type] = "module"
 projects[migrate][subdir] = "contrib"
 
@@ -513,7 +514,7 @@ projects[wms][version] = "2.x-dev"
 projects[wms][type] = "module"
 projects[wms][subdir] = "contrib"
 
-projects[addressfield][version] = "1.0-beta5"
+projects[addressfield][version] = "1.0"
 projects[addressfield][type] = "module"
 projects[addressfield][subdir] = "contrib"
 
