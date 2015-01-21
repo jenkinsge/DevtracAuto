@@ -179,6 +179,15 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'hidden_comment',
   );
 
+  // Exported permission: 'administer search_api_saved_searches'.
+  $permissions['administer search_api_saved_searches'] = array(
+    'name' => 'administer search_api_saved_searches',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'search_api_saved_searches',
+  );
+
   // Exported permission: 'administer users'.
   $permissions['administer users'] = array(
     'name' => 'administer users',
@@ -1968,6 +1977,17 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'field worker' => 'field worker',
     ),
     'module' => 'questionnaire_question',
+  );
+
+  // Exported permission: 'use search_api_saved_searches'.
+  $permissions['use search_api_saved_searches'] = array(
+    'name' => 'use search_api_saved_searches',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'search_api_saved_searches',
   );
 
   // Exported permission: 'use text format filtered_html'.
