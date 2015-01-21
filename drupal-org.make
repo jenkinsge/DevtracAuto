@@ -263,7 +263,7 @@ projects[menu_token][type] = "module"
 projects[menu_token][subdir] = "contrib"
 projects[menu_token][patch][] = "https://www.drupal.org/files/issues/localized_options-not-set.patch"
 
-projects[migrate][version] = "2.6"
+projects[migrate][version] = "2.5"
 projects[migrate][type] = "module"
 projects[migrate][subdir] = "contrib"
 
