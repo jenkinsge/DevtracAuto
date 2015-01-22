@@ -441,6 +441,7 @@ function devtrac7_taxonomy_feature_field_default_field_instances() {
     'label' => 'Wikipedia',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,

@@ -284,9 +284,12 @@ projects[openlayers][type] = "module"
 projects[openlayers][subdir] = "contrib"
 projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojson_anydisplay_4.patch"
 ; projects[openlayers][patch][] = "http://cgit.drupalcode.org/openlayers/patch/openlayers.make?id=66ca5d62bee0601902ca3dbda171d6a8fea8993d"
+; Following 2 patches were committed in 7.x-2.0-beta11
 ; projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-7.x-2.0-beta9_makefile_release_patch-2257461-5.patch"
 ; projects[openlayers][patch][] = "https://www.drupal.org/files/issues/zoomtolayer-only-when-there-are-features-%232344127-1.patch"
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetapi.patch"
+; Following patch makes sure any library variants will be picked up
+projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-locale-original-variant-2191887-19.patch"
 
 projects[openlayers_geosearch][version] = "1.0-beta4"
 projects[openlayers_geosearch][type] = "module"
