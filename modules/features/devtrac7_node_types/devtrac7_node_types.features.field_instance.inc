@@ -4286,6 +4286,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
     'label' => 'Website',
     'required' => 0,
     'settings' => array(
+      'absolute_url' => 1,
       'attributes' => array(
         'class' => '',
         'configurable_title' => 0,
