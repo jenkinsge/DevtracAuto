@@ -124,6 +124,16 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     // Create a field worker.
     $user = $this->drupalCreateUserWithRole('field worker');
     $this->drupalLogin($user);
+    $this->clickLink(t('Edit My Profile'), 0);
+    // Assign a manager.
+    $admin_account = user_load($administrator->uid);
+    $manager['taxonomy_vocabulary_5[und]'] = '11';
+    $manager['field_user_superior[und][0][target_id]'] = $admin_account->name . ' (' . $administrator->uid . ')';
+    $manager['taxonomy_vocabulary_4[und]'] = '16';
+    $manager['field_user_firstname[und][0][value]'] = 'Test';
+    $manager['field_user_surname[und][0][value]'] = 'Fieldworker';
+    $manager['field_user_aboutme[und][0][value]'] = '...';
+    $this->drupalPost(NULL, $manager, t('Save'));
 
     // Create a Site Report for edit button test.
     $this->clickLink('Add Field Trip', 0);
@@ -239,6 +249,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
     // Manager.
     $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EManager\u003C\/h2\u003E\n', t('Manager Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('\u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-authorfield-user-superior\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior\u0022\u003E\u003C', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -260,7 +271,10 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
     // User block id block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw.
     $this->assertRaw('"block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw":3', t('User block is collapsed by default.'), t('Devtrac'));
-    // Manager.
+
+    // Manager block id block-2tzkoht1hr709cgaow08o0dzm9hyn7o8.
+    $this->assertRaw('"block-facetapi-2tzkoht1hr709cgaow08o0dzm9hyn7o8":3', t('Manager block is collapsed by default.'), t('Devtrac'));
+
     // Admin Unit Tags block id block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1.
     $this->assertRaw('"block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1":3', t('Admin Unit Tags block is collapsed by default.'), t('Devtrac'));
 
@@ -345,7 +359,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
     // Manager.
     $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
-    // $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1parents-all" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-1parents-all">', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Admin Unit Tags.
     $this->assertRaw('<h2 class="block-title">Admin Unit Tags</h2>', t('Admin Unit Tags Heading is present on the page'), t('Devtrac'));
@@ -474,7 +488,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
     // Manager.
     $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
-    // $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1parents-all" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-1parents-all">', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Admin Unit Tags.
     $this->assertRaw('<h2 class="block-title">Admin Unit Tags</h2>', t('Admin Unit Tags Heading is present on the page'), t('Devtrac'));
@@ -566,7 +580,10 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
     // User block id block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw.
     $this->assertRaw('"block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw":3', t('User block is collapsed by default.'), t('Devtrac'));
-    // Manager.
+
+    // Manager block id block-2tzkoht1hr709cgaow08o0dzm9hyn7o8.
+    $this->assertRaw('"block-facetapi-2tzkoht1hr709cgaow08o0dzm9hyn7o8":3', t('Manager block is collapsed by default.'), t('Devtrac'));
+
     // Admin Unit Tags block id block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1.
     $this->assertRaw('"block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1":3', t('Admin Unit Tags block is collapsed by default.'), t('Devtrac'));
 
