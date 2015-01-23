@@ -68,6 +68,34 @@ function devtrac7_profile_menu_install() {
     ->condition('menu_name', 'menu-my-profile')
     ->condition('router_path', 'node/add/fieldtrip')
     ->execute();
+  // Move the existing "Log in" link to the profile menu.
+  db_update('menu_links')
+    ->fields(array(
+      'menu_name' => 'menu-my-profile',
+      'hidden' => 0,
+      'customized' => 1,
+    ))
+    ->condition('router_path', 'user/login')
+    ->execute();
+  // Move the existing "Log out" link to the profile
+  // menu as a subitem of the "Welcome, ???" link.
+  db_update('menu_links')
+    ->fields(array(
+      'menu_name' => 'menu-my-profile',
+      'hidden' => 0,
+      'depth' => 2,
+      'customized' => 1,
+      'plid' => $mlid,
+    ))
+    ->condition('router_path', 'user/logout')
+    ->execute();
+  db_update('menu_links')
+    ->expression('p1', 'plid')
+    ->expression('p2', 'mlid')
+    ->condition('menu_name', 'menu-my-profile')
+    ->condition('router_path', 'user/logout')
+    ->execute();
+
   // Let's do the view modes.
   /*
   $links = devtrac7_profile_menu_views_modes_menu_links();
