@@ -24,4 +24,6 @@ files[] = devtrac_questionnaire_tests.test
 files[] = devtarc_questionnaire_submissions.test
 files[] = devtrac_sitereportspage_asanonymoususer.test
 files[] = devtrac_sitereportspage_asfieldworker.test
+files[] = devtrac_actionitemspage_asanonymoususer.test
+files[] = devtrac_actionitemspage_asfieldworker.test
 core = 7.x

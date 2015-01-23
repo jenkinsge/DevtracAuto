@@ -195,7 +195,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertRaw('/user" title="">Welcome,', t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
     $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
     $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
@@ -292,6 +292,9 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     $this->clickLink('List');
     $this->assertUrl($this->getAbsoluteUrl('/?display=list'), array(), t('User is redirected to the correct page when list view mode link is clicked.'), t('Devtrac'));
 
+    // Check for Error Messages.
+    $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
+
     // Check for no : in Date Visited.
     // High level.
     $this->assertNoPattern('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a high level on the page.'), t('Devtrac'));
@@ -320,7 +323,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertRaw('/user?display=list" title="">Welcome,', t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
     $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
     $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
@@ -423,6 +426,9 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     $this->clickLink('Graphs');
     $this->assertUrl($this->getAbsoluteUrl('/?display=graphs'), array(), t('User is redirected to the correct page when list view mode link is clicked.'), t('Devtrac'));
 
+    // Check for Error Messages.
+    $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
+
     // Check for generic Main Menu Links.
     $this->assertLinkByHref('/sitereports', 0, t('Site Reports link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
@@ -440,7 +446,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertRaw('/user?display=graphs" title="">Welcome,', t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
     $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
     $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
