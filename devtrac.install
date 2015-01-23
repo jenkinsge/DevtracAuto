@@ -567,6 +567,37 @@ function devtrac_install_welcome_submit($form, &$form_state) {
  * additional functionality to the base install.
  */
 function devtrac_install_additional_modules(&$install_state) {
+  // Before enabling the devtrac7_solr_search_answers
+  // feature make sure all field instances are created.
+  $instances = field_info_instances('node', 'place');
+  if (isset($instances['taxonomy_vocabulary_6'])) {
+    $instance = $instances['taxonomy_vocabulary_6'];
+    $instance['entity_type'] = 'questionnaire_answer';
+    $instance['bundle'] = 'questionnaire_answer';
+    field_create_instance($instance);
+  }
+  if (isset($instances['taxonomy_iati_custom_admin_unit'])) {
+    $instance = $instances['taxonomy_iati_custom_admin_unit'];
+    $instance['entity_type'] = 'questionnaire_answer';
+    $instance['bundle'] = 'questionnaire_answer';
+    field_create_instance($instance);
+  }
+
+  // Temporary fix until the location type is available on content type place.
+  $instances = field_info_instances('node', 'questionnaire_question');
+  if(isset($instances['taxonomy_vocabulary_1'])) {
+    $instance = $instances['taxonomy_vocabulary_1'];
+    $instance['entity_type'] = 'questionnaire_answer';
+    $instance['bundle'] = 'questionnaire_answer';
+    field_create_instance($instance);
+  }
+  if(isset($instances['taxonomy_location_type'])) {
+    $instance = $instances['taxonomy_location_type'];
+    $instance['entity_type'] = 'questionnaire_answer';
+    $instance['bundle'] = 'questionnaire_answer';
+    field_create_instance($instance);
+  }
+
   // Do not enable devtrac7_profile_menu module now. Instead put a marker in
   // the database to do a menu rebuild later and enable the module later.
   // Set the marker after the additional modules have been enabled.
@@ -815,53 +846,6 @@ function devtrac_install_finished(&$install_state) {
   // Remember the profile which was used.
   variable_set('install_profile', drupal_get_profile());
   variable_set('install_task', 'done');
-
-  $instances = field_info_instances('node', 'place');
-  if (isset($instances['taxonomy_vocabulary_6'])) {
-    $instance = $instances['taxonomy_vocabulary_6'];
-    $instance['entity_type'] = 'questionnaire_answer';
-    $instance['bundle'] = 'questionnaire_answer';
-    field_create_instance($instance);
-  }
-  if (isset($instances['taxonomy_iati_custom_admin_unit'])) {
-    $instance = $instances['taxonomy_iati_custom_admin_unit'];
-    $instance['entity_type'] = 'questionnaire_answer';
-    $instance['bundle'] = 'questionnaire_answer';
-    field_create_instance($instance);
-  }
-
-  // Temporary fix until the loaction type is available on content type place.
-  $instances = field_info_instances('node', 'questionnaire_question');
-  if(isset($instances['taxonomy_vocabulary_1'])) {
-    $instance = $instances['taxonomy_vocabulary_1'];
-
-    $instance['entity_type'] = 'questionnaire_answer';
-    $instance['bundle'] = 'questionnaire_answer';
-    field_create_instance($instance);
-
-/*    $instance['entity_type'] = 'node';
-    $instance['bundle'] = 'ftritem';
-    field_create_instance($instance);
-
-    $instance['entity_type'] = 'node';
-    $instance['bundle'] = 'place';
-    field_create_instance($instance);*/
-  }
-  if(isset($instances['taxonomy_location_type'])) {
-    $instance = $instances['taxonomy_location_type'];
-
-    $instance['entity_type'] = 'questionnaire_answer';
-    $instance['bundle'] = 'questionnaire_answer';
-    field_create_instance($instance);
-
-/*    $instance['entity_type'] = 'node';
-    $instance['bundle'] = 'ftritem';
-    field_create_instance($instance);
-
-    $instance['entity_type'] = 'node';
-    $instance['bundle'] = 'place';
-    field_create_instance($instance);*/
-  }
 
   // Rebuild the node access permissions.
   node_access_rebuild();
