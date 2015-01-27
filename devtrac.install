@@ -904,6 +904,9 @@ function devtrac_install_finished(&$install_state) {
   variable_set('install_profile', drupal_get_profile());
   variable_set('install_task', 'done');
 
+  // Update the file formatter to version 2 of the File Entity module.
+  variable_set('picture_updated_to_file_entity_2', _picture_update_to_file_entity_2());
+
   // Rebuild the node access permissions.
   node_access_rebuild();
 
