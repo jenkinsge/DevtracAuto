@@ -244,11 +244,14 @@ class VisitActionItemsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     // Responsible block id block-facetapi-juh0liko1i0pkeepvdfe5jri5goyrg57.
     $this->assertRaw('"block-facetapi-juh0liko1i0pkeepvdfe5jri5goyrg57":3', t('Responsible block is collapsed by default.'), t('Devtrac'));
 
+    // Responsible's Manager block id block-facetapi-ucj8e9q0dd6c2sdmssjubiugwhn2t38m.
+    $this->assertRaw('"block-facetapi-ucj8e9q0dd6c2sdmssjubiugwhn2t38m":3', t('Responsible block is collapsed by default.'), t('Devtrac'));
+
     // User block id block-facetapi-jobz0vr9jh1vmqykxnx6xkndwnb7qop0.
     $this->assertRaw('"block-facetapi-jobz0vr9jh1vmqykxnx6xkndwnb7qop0":3', t('User block is collapsed by default.'), t('Devtrac'));
 
-    // Manager block id block-2tzkoht1hr709cgaow08o0dzm9hyn7o8.
-    $this->assertRaw('"block-facetapi-2tzkoht1hr709cgaow08o0dzm9hyn7o8":3', t('Manager block is collapsed by default.'), t('Devtrac'));
+    // Manager block id block-facetapi-3e4ui5x81k1n21nyjx9lscde5uru0ox0.
+    $this->assertRaw('"block-facetapi-3e4ui5x81k1n21nyjx9lscde5uru0ox0":3', t('Manager block is collapsed by default.'), t('Devtrac'));
 
     // Date block id block-facetapi-4cxsg2rkmolp5sr1dvbwmeazs9p9h1lz.
     $this->assertRaw('"block-facetapi-4cxsg2rkmolp5sr1dvbwmeazs9p9h1lz":3', t('Date block is collapsed by default.'), t('Devtrac'));
@@ -304,6 +307,10 @@ class VisitActionItemsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     // Responsible.
     $this->assertRaw('<h2 class="block-title">Responsible</h2>', t('Responsible Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-actionitem-responsible" id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-responsible">', t('Responsible search list is present on the page'), t('Devtrac'));
+
+    // Responsible's Manager.
+    $this->assertRaw('<h2 class="block-title">Responsible\'s Manager</h2>', t('Responsible\'s Manager Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-actionitem-responsiblefield-user-superior" id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-responsiblefield-user-superior">', t('Responsible\'s Manager search list is present on the page'), t('Devtrac'));
 
     // User.
     $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));
@@ -429,11 +436,14 @@ class VisitActionItemsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     // Responsible block id block-facetapi-juh0liko1i0pkeepvdfe5jri5goyrg57.
     $this->assertRaw('"block-facetapi-juh0liko1i0pkeepvdfe5jri5goyrg57":3', t('Responsible block is collapsed by default.'), t('Devtrac'));
 
+    // Responsible's Manager block id block-facetapi-ucj8e9q0dd6c2sdmssjubiugwhn2t38m.
+    $this->assertRaw('"block-facetapi-ucj8e9q0dd6c2sdmssjubiugwhn2t38m":3', t('Responsible block is collapsed by default.'), t('Devtrac'));
+
     // User block id block-facetapi-jobz0vr9jh1vmqykxnx6xkndwnb7qop0.
     $this->assertRaw('"block-facetapi-jobz0vr9jh1vmqykxnx6xkndwnb7qop0":3', t('User block is collapsed by default.'), t('Devtrac'));
 
-    // Manager block id block-2tzkoht1hr709cgaow08o0dzm9hyn7o8.
-    $this->assertRaw('"block-facetapi-2tzkoht1hr709cgaow08o0dzm9hyn7o8":3', t('Manager block is collapsed by default.'), t('Devtrac'));
+    // Manager block id block-facetapi-3e4ui5x81k1n21nyjx9lscde5uru0ox0.
+    $this->assertRaw('"block-facetapi-3e4ui5x81k1n21nyjx9lscde5uru0ox0":3', t('Manager block is collapsed by default.'), t('Devtrac'));
 
     // Date block id block-facetapi-4cxsg2rkmolp5sr1dvbwmeazs9p9h1lz.
     $this->assertRaw('"block-facetapi-4cxsg2rkmolp5sr1dvbwmeazs9p9h1lz":3', t('Date block is collapsed by default.'), t('Devtrac'));
@@ -490,6 +500,10 @@ class VisitActionItemsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     // Responsible.
     $this->assertRaw('<h2 class="block-title">Responsible</h2>', t('Responsible Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-actionitem-responsible" id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-responsible">', t('Responsible search list is present on the page'), t('Devtrac'));
+
+    // Responsible's Manager.
+    $this->assertRaw('<h2 class="block-title">Responsible\'s Manager</h2>', t('Responsible\'s Manager Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-actionitem-responsiblefield-user-superior" id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-responsiblefield-user-superior">', t('Responsible\'s Manager search list is present on the page'), t('Devtrac'));
 
     // User.
     $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));

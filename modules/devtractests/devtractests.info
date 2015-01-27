@@ -26,4 +26,6 @@ files[] = devtrac_sitereportspage_asanonymoususer.test
 files[] = devtrac_sitereportspage_asfieldworker.test
 files[] = devtrac_actionitemspage_asanonymoususer.test
 files[] = devtrac_actionitemspage_asfieldworker.test
+files[] = devtrac_fieldtripspage_asanonymoususer.test
+files[] = devtrac_fieldtripspage_asfieldworker.test
 core = 7.x
