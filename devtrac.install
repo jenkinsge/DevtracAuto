@@ -905,7 +905,46 @@ function devtrac_install_finished(&$install_state) {
   variable_set('install_task', 'done');
 
   // Update the file formatter to version 2 of the File Entity module.
-  variable_set('picture_updated_to_file_entity_2', _picture_update_to_file_entity_2());
+  // File Entity is not installed or the installed version is not version 2.
+  if (!module_exists('file_entity') || !function_exists('file_type_load_all')) {
+    $updated = FALSE;
+  }
+  // Picture was already updated.
+  if (variable_get('picture_updated_to_file_entity_2', FALSE)) {
+    $updated = TRUE;
+  }
+  // Update all file displays for all view modes of all file types.
+  $entity_info = entity_get_info('file');
+  $types = file_type_load_all();
+  foreach ($types as $file_type) {
+    $view_modes = array('default' => array('label' => t('Default'))) + $entity_info['view modes'];
+    foreach (array_keys($view_modes) as $view_mode) {
+      $current_displays = file_displays_load($file_type->type, $view_mode, TRUE);
+      if (isset($current_displays['file_picture']) && $current_displays['file_picture']->status) {
+        if (!isset($current_displays['file_field_picture']) || !$current_displays['file_field_picture']->status) {
+          $display = file_display_new($file_type->type, $view_mode, 'file_field_picture');//clone $current_displays['file_picture'];
+          $display->settings = $current_displays['file_picture']->settings;
+          unset($display->settings['alt']);
+          unset($display->settings['title']);
+          $display->settings['image_link'] = '';
+          $display->settings['colorbox'] = isset($display->settings['picture_mapping']) ? $display->settings['picture_mapping'] : $display->settings['picture_group'];
+          $display->settings['picture_mapping'] = isset($display->settings['picture_mapping']) ? $display->settings['picture_mapping'] : $display->settings['picture_group'];
+          unset($display->settings['picture_group']);
+          $display->status = 1;
+          file_display_save($display);
+        }
+      }
+      elseif (isset($current_displays['file_field_picture'])) {
+        $display = $current_displays['file_field_picture'];
+        $display->settings['picture_mapping'] = isset($display->settings['picture_mapping']) ? $display->settings['picture_mapping'] : $display->settings['picture_group'];
+        unset($display->settings['picture_group']);
+        file_display_save($display);
+      }
+    }
+  }
+  $updated = TRUE;
+  // Save the new version setting.
+  variable_set('picture_updated_to_file_entity_2', $updated);
 
   // Rebuild the node access permissions.
   node_access_rebuild();
