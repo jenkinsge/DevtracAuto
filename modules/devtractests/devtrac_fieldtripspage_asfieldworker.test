@@ -388,7 +388,7 @@ class VisitFieldTripsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     $this->assertRaw('"block-pane-field-trips-info":3', t('Information pane block is collapsed by default.'), t('Devtrac'));
 
     // Check for Field Trip counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">4 Field trips</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">5 Field Trips</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for no : in Date Visited.
     // High level.
@@ -435,7 +435,7 @@ class VisitFieldTripsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 </form>', t('Full text search block is present on the page'), t('Devtrac'));
 
     // Check for Field Trip counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">4 Field Trips</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">5 Field Trips</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for the quicktabs.
     // Status.
@@ -458,12 +458,16 @@ class VisitFieldTripsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=4#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-4" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-941745c7314247fa977f090d80c21eff active">Users</a>', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
-    $this->assertRaw('/fieldtrips?display=graphs&f[0]=field_fieldtrip_status%3AApproved', t('Filter by Approved Status link is present on the page.'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;f[0]=field_fieldtrip_status%3AApproved"', t('Filter by Approved Status link is present on the page.'), t('Devtrac'));
     // $this->drupalGet('?display=graphs&f[0]=field_fieldtrip_status%3AApproved');
-    $this->clickLinkUsingXpath('Approved', 0, '//*[@id="facetapi-link--12"]');
+    $this->clickLinkUsingXpath('Approved', 0, '//*[@id="facetapi-link--10"]');
 
     // Check for current search block.
-    $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-actionitem-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
+    $this->assertRaw('<div class="block block-current-search block-devtrac7-fieldtrips-activefacets block-current-search-devtrac7-fieldtrips-activefacets odd block-without-title" id="block-current-search-devtrac7-fieldtrips-activefacets">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-fieldtrips-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
     $this->assertRaw('/fieldtrips?display=graphs" rel="nofollow" class="field-fieldtrip-status beautytips" title="Status">Approved [X] <span class="element-invisible"> Remove Approved filter </span></a></li></ul></div></div>    </div>
 ', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
 
@@ -475,13 +479,13 @@ class VisitFieldTripsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
     $this->assertLinkByHref('/images?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/fieldtrips?display=default&f[0]=field_fieldtrip_status%3AApproved', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/fieldtrips?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips?display=default&f[0]=field_fieldtrip_status%3AApproved', 0, t('Filtered Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Filtered Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('/fieldtrips/analyse/csv?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/fieldtrips/analyse/kml?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/fieldtrips/analyse/rss?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips/analyse/csv?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Filtered Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips/analyse/kml?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Filtered Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips/analyse/rss?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Filtered Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     
     $this->drupalGet('');
@@ -592,4 +596,3 @@ class VisitFieldTripsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
   }
 }
- 
