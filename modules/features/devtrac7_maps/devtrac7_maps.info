@@ -67,7 +67,6 @@ features[variable][] = geonames_count_credits
 features[variable][] = geonames_docs_path
 features[variable][] = geonames_reveal_cache
 features[variable][] = geonames_server
-features[variable][] = openlayers_default_map
 features[variable][] = openlayers_geosearch_formatting
 features[variable][] = openlayers_geosearch_geocoders
 features[variable][] = openlayers_geosearch_geonames_description
