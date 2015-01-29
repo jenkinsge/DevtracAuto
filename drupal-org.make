@@ -240,6 +240,9 @@ projects[kml][patch][] = "https://www.drupal.org/files/kml_blockify.patch"
 projects[mapit][version] = "1.x-dev"
 projects[mapit][type] = "module"
 projects[mapit][subdir] = "contrib"
+// Added the patch while waiting for it to be committed.
+// Remove it as soon as it is committed.
+projects[mapit][patch][] = "https://www.drupal.org/files/issues/mapit-select-generation.patch"
 
 projects[masonry][version] = "2.0"
 projects[masonry][type] = "module"

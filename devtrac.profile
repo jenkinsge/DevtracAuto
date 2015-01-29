@@ -53,6 +53,13 @@ function devtrac_install_configure_form_submit_country(&$form, $form_state) {
   $unknown_area->vid = $vocabulary->vid;
   taxonomy_term_save($unknown_area);
 
+  // Set the mapit generation to use for Uganda to 4.
+  // It shows a better/clearer hierarchy.
+  // For all other countries the default (last) version will be used.
+  if ($country_code == 'UG') {
+    variable_set('mapit_generation', 4);
+  }
+
   $lcode = 'en';
   $data = devtrac_country_point_data($country_code ,$lcode);
   $term = mapit_point_taxonomy_term($data['lat'], $data['lon']);
