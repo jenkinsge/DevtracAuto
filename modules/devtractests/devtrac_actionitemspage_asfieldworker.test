@@ -64,6 +64,35 @@ class VisitActionItemsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
   }
 
   /**
+   * Asserts that the given pattern is not in the body .
+   */
+  public function assertNoPatternInBody($pattern, $message, $group) {
+    $body = strstr($this->drupalGetContent(), '<body');
+    // $this->verbose($body);
+    $this->assert(!preg_match($pattern, $body), $message, $group);
+  }
+
+  /**
+   * Asserts that the facets in the right sidebar are in the correct order
+   */
+  public function assertFacetOrder($order, $message, $group) {
+    $sidebar = strstr($this->drupalGetContent(), '<div class="region-inner region-sidebar-first-inner">');
+    // $this->verbose($sidebar);
+    $matches = array();
+    preg_match_all('/<h2[ a-zA-z="->]*/', $sidebar, $result);
+    $result = reset($result);
+    // $this->verbose(var_export($result, TRUE));
+    foreach($result as $match) {
+      $match = strstr($match, '</h2>', true);
+      $match = strstr($match, '>');
+      $match = substr($match, 1);
+      array_push($matches, $match);
+    }
+    $this->verbose(var_export($matches, TRUE));
+    $this->assert($matches === $order, $message, $group);
+  }
+
+  /**
    * The getInfo function.
    */
   public static function getInfo() {
@@ -264,14 +293,18 @@ class VisitActionItemsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
     // Check for no : in Date Visited.
     // High level.
-    $this->assertNoPattern('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a high level on the page.'), t('Devtrac'));
+    $this->assertNoPatternInBody('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a high level on the page.'), t('Devtrac'));
     // Low Level.
     $this->clickLinkUsingXpath('November 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li[2]/a');
     $this->clickLinkUsingXpath('November 1, 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li/div[2]/ul/li[2]/a');
-    $this->assertNoPattern('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a low level on the page.'), t('Devtrac'));
+    $this->assertNoPatternInBody('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a low level on the page.'), t('Devtrac'));
 
     $this->drupalGet('');
     $this->clickLink('Action Items');
+
+    // Check for order of Facets.
+    $order = array('Admin Unit', 'Sector', 'Status', 'Priority', 'Admin Unit Tags', 'Due Date', 'Tags', 'Responsible', 'Responsible\'s Manager', 'Date', 'User', 'Manager');
+    $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Search Api Elements.
     // Check for Facets.
@@ -456,15 +489,19 @@ class VisitActionItemsAsFieldWorkerTestCase extends SimpleTestCloneTestCase {
 
     // Check for no : in Date Visited.
     // High level.
-    $this->assertNoPattern('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a high level on the page.'), t('Devtrac'));
+    $this->assertNoPatternInBody('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a high level on the page.'), t('Devtrac'));
     // Low Level.
     $this->clickLinkUsingXpath('November 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li[2]/a');
     $this->clickLinkUsingXpath('November 1, 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li/div[2]/ul/li[2]/a');
-    $this->assertNoPattern('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a low level on the page.'), t('Devtrac'));
+    $this->assertNoPatternInBody('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a low level on the page.'), t('Devtrac'));
 
     $this->drupalGet('');
     $this->clickLink('Action Items');
     $this->clickLink('graphs');
+
+    // Check for order of Facets.
+    $order = array('Admin Unit', 'Sector', 'Status', 'Priority', 'Admin Unit Tags', 'Due Date', 'Tags', 'Responsible', 'Responsible\'s Manager', 'Date', 'User', 'Manager');
+    $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Search Api Elements.
     // Check for Facets.
