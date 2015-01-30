@@ -16,14 +16,7 @@
   margin-bottom: 10px;
 }
 
-.page-title ,
 #page-title {
-  margin: 10px 0px 0px 0px;
-  padding: 0px 10px;
-}
-
-#page-title {
-  margin: 10px 0px 0px 0px;
   padding: 0px 10px 0px 50px;
   background: url(../images/title-icon.png) no-repeat 10px 0;
   background-size: auto 40px;
@@ -2872,49 +2865,13 @@ html .olMapViewport .olControlMaptext .openlayers_plus-blockswitcher .layers.bas
   line-height: normal;
 }
 
-/*.maintenance-page.devtrac-installation-complete #content a {
-  display: inline-block;
-  padding: 10px 20px;
-  padding-right: 60px;
-  color: #FFFFFF;
-  background-color: #44AA00;
-  border-radius: 2px;
-  font-size: 1.5em;
-  margin-top: 20px;
-  background-image: url(/html/dtone/profiles/devtrac/themes/devtrac7_theme/images/go-icon.png);
-  background-repeat: no-repeat;
-  background-position: 90% 50%;
-  background-size: 25px;
-}*/
-
 /*====================================================================
  *  Form Page Styles
  * The .pageborder class is added by the devtrac_theme_page_border_context 
  ====================================================================*/
 
-.pageborder .container-12 {
-  width: 92%;
-  margin-left: 4%;
-  margin-right: 4%;
-}
-
-.pageborder .zone-content .region-inner {
-  padding: 20px;
-  background: #DDDDDD;
-  border: thin solid #CCCCCC; 
-}
-
-.pageborder .block-system-main {
-/*  border: thick solid #CCCCCC;
-  padding: 50px;*/
-  border: thin solid #CCCCCC;
-  padding: 50px;
-  background: #FFFFFF;  
-}
-
 .form-required {
   font-weight: bold;
-  /*color: #A52A2A;*/
   font-size: 1.3em;
   vertical-align: middle;
 }
@@ -2926,9 +2883,7 @@ form .fieldset-legend ,
 .pageborder div.field-label {
   display: block;
   font-weight: normal;
-  /*font-size: 1.2em;*/
   font-size: 17px;
-  /*padding-bottom: 5px;*/
   background: transparent;
 }
 
@@ -3027,44 +2982,6 @@ td.delta-order select.form-select {
 }
 
 /*=======================================================================================*/
-
-/*form input[type="file"] ,
-#edit-picture-upload {
-  border: none;
-  width: 110px;
-  height: 25px;
-  margin-bottom: 10px;
-  font-family: Gen;
-  color: transparent;
-}
-
-form input[type="file"]::before ,
-#edit-picture-upload::before {
-  content: 'Choose File';
-  display: inline-block;
-  background: #777777;
-  border-radius: 3px;
-  padding: 5px 10px;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  font-size: 1.1em;
-  color: #FFFFFF;
-}
-
-form input[type="file"]:hover::before ,
-#edit-picture-upload:hover::before {
-  background: #333333;
-}
-
-form input[type="file"]:active::before ,
-#edit-picture-upload:active::before {
-  background: #333333;
-  border: none;
-}*/
-
-/*=======================================================*/
 
 .collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper tr.draggable td .form-item {
   width: auto;
