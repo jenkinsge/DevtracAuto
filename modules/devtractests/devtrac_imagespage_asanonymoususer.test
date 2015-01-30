@@ -2,20 +2,19 @@
 
 /**
  * @file
- * Visit the Site Reports page as an Field worker and check that all is as
+ * Visit the Images page as an Anonymous user and check that all is as
  * should be.
  */
-
 
 // Make sure simpletest_clone and devtractestcase are available.
 module_load_include('test', 'simpletest_clone');
 module_load_include('inc', 'devtractests', 'includes/devtractestcase');
 
 /**
- * Checks that when the Site Reports page is viewed by a field worker, the
+ * Checks that when the Images page is viewed by an anonymous user, the
  * page and its content is all present and working as it should.
  */
-class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
+class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
   protected $profile = 'devtrac';
 
   /**
@@ -23,8 +22,8 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
    */
   public static function getInfo() {
     return array(
-      'name' => 'Site Reports page as a Field Worker',
-      'description' => 'Visit Site Reports page as a Field Worker and check that all is as should be.',
+      'name' => 'Images page as an Anonymous User',
+      'description' => 'Visit Images page as an Anonymous User and check that all is as should be.',
       'group' => 'Devtrac2',
     );
   }
@@ -37,20 +36,24 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     parent::setUp(array('devtractests'));
 
     $this->setUpFieldWorker();
+    $this->drupalLogout();
+
   }
 
   /**
-   * Assess 'Site Reports' page as a field worker.
+   * Assess 'Images' page as an anonymous user.
    */
-  public function testSiteReportsPageAccessFieldWorker() {
+  public function testImagesPageAccessAnonymous() {
     $this->drupalGet('');
-    $this->assertNoText(t('Access denied'), t('Field Worker is permitted to visit the Site Reports page.'), t('Devtrac'));
+    $this->clickLink('Images', 0);
+    $this->assertNoText(t('Access denied'), t('Anonymous user is permitted to visit the Images page.'), t('Devtrac'));
   }
 
   /**
    * Check that all generic content is present.
-   */
-  public function testPresenceOfGenericContentFieldWorker() {
+   *
+  public function testPresenceOfGenericContentAnonymous() {
+    $this->drupalGet('');
 
     // Check for Error Messages.
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
@@ -69,25 +72,25 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/users', 0, t('Users link is present on the page.'), t('Devtrac'));
-    $this->assertLink('Log out', 0, t('LOG OUT link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/sitereports?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
-    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
-    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
+    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', t('Export to CSV (administrator version) link is not present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/images/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -99,6 +102,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('"title":"Legend","markup":"\u003Cdiv', t('Legend is present on the map.'), t('Devtrac'));
     // Attribution.
     $this->assertRaw('"attribution":"\u0026copy;\u003Ca href=\u0022http:\/\/creativecommons.org\/licenses\/by-sa\/2.0\/\u0022\u003ECCBYSA\u003C\/a\u003E \u003Ca href=\u0022http:\/\/www.openstreetmap.org\/copyright\u0022\u003E\u0026copy; OpenStreetMap contributors\u003C\/a\u003E"', t('Attribution is present on the map.'), t('Devtrac'));
+
     // Check for Info pane text.
     $this->assertRaw('\u003Cdiv class=\u0022block block-pane block-front-about-information block-pane-front-about-information even block-without-title\u0022 id=\u0022block-pane-front-about-information\u0022\u003E\n  \u003Cdiv class=\u0022block-inner clearfix\u0022\u003E\n                \n    \u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cp\u003EThese are reports that are filled in at a visited Location. It includes all details about the visit. These include a narrative report, the sector of intervention at the location, the date visited and a descriptive title that can be understood clearly.\u003C\/p\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E', t('Info pane is present on the page'), t('Devtrac'));
 
@@ -130,12 +134,11 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('div class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1parents-all\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-1parents-all\u0022\u003E\u003C', t('Location search list is present on the page'), t('Devtrac'));
 
     // User.
-    $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EUser\u003C\/h2\u003E\n', t('User Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('\u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-author\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author\u0022\u003E\u003C', t('User search list is present on the page'), t('Devtrac'));
+    $this->assertNoRaw('\u003Ch2 class=\u0022block-title\u0022\u003EUser\u003C\/h2\u003E\n', t('User Heading is not present on the page'), t('Devtrac'));
 
     // Manager.
-    $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EManager\u003C\/h2\u003E\n', t('Manager Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('\u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-authorfield-user-superior\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior\u0022\u003E\u003C', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertNoRaw('\u003Ch2 class=\u0022block-title\u0022\u003EManager\u003C\/h2\u003E\n', t('Manager Heading is not present on the page'), t('Devtrac'));
+    $this->assertNoRaw('\u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-authorfield-user-superior\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior\u0022\u003E\u003C', t('Manager search list is not present on the page'), t('Devtrac'));
 
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -155,12 +158,6 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // Location block id block-facetapi-1mowyanjknrdopbts0c089qkom59umzk
     $this->assertRaw('"block-facetapi-1mowyanjknrdopbts0c089qkom59umzk":3', t('Location block is collapsed by default.'), t('Devtrac'));
 
-    // User block id block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw.
-    $this->assertRaw('"block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw":3', t('User block is collapsed by default.'), t('Devtrac'));
-
-    // Manager block id block-2tzkoht1hr709cgaow08o0dzm9hyn7o8.
-    $this->assertRaw('"block-facetapi-2tzkoht1hr709cgaow08o0dzm9hyn7o8":3', t('Manager block is collapsed by default.'), t('Devtrac'));
-
     // Admin Unit Tags block id block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1.
     $this->assertRaw('"block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1":3', t('Admin Unit Tags block is collapsed by default.'), t('Devtrac'));
 
@@ -168,10 +165,10 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // $this->assertRaw('"block-pane-front-about-information":3', t('Information pane block is collapsed by default.'), t('Devtrac'));
 
     // Check for fulltest search block.
-    $this->assertRaw('\u003Cform id=\u0022facetapi-textfield-widget-form\u0022 class=\u0022facetapi-textfield-widget-form\u0022 action=\u0022sitereports\u0022 method=\u0022GET\u0022 onsubmit=\u0022return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)\u0022\u003E\n  \u003Cinput type=\u0022textfield\u0022 name=\u0022search_api_aggregation_1\u0022 value=\u0022\u0022 \/\u003E\n  \u003Cdiv id=\u0022edit-actions\u0022 class=\u0022form-actions form-wrapper\u0022\u003E\n    \u003Cinput type=\u0022submit\u0022 class=\u0022form-submit\u0022 value=\u0022Search\u0022 \/\u003E\n  \u003C\/div\u003E\n\u003C\/form\u003E', t('Full text search block is present on the page'), t('Devtrac'));
+    $this->assertRaw('\u003Cform id=\u0022facetapi-textfield-widget-form\u0022 class=\u0022facetapi-textfield-widget-form\u0022 action=\u0022images\u0022 method=\u0022GET\u0022 onsubmit=\u0022return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)\u0022\u003E\n  \u003Cinput type=\u0022textfield\u0022 name=\u0022search_api_aggregation_1\u0022 value=\u0022\u0022 \/\u003E\n  \u003Cdiv id=\u0022edit-actions\u0022 class=\u0022form-actions form-wrapper\u0022\u003E\n    \u003Cinput type=\u0022submit\u0022 class=\u0022form-submit\u0022 value=\u0022Search\u0022 \/\u003E\n  \u003C\/div\u003E\n\u003C\/form\u003E', t('Full text search block is present on the page'), t('Devtrac'));
 
-    // Check for Site Report counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">7 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    // Check for Image counter.
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">6 Images</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // LIST VIEW MODE.
     // Check that link to list view mode goes to the right page.
@@ -193,33 +190,33 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('List');
 
     // Check for order of Facets.
-    $order = array('Report', 'Admin Unit', 'Sector', 'Status', 'Admin Unit Tags', 'Date Visited', 'Location', 'User', 'Manager');
+    $order = array('Report', 'Admin Unit', 'Sector', 'Status', 'Admin Unit Tags', 'Date Visited', 'Location');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
-    $this->assertLinkByHref('/sitereports', 0, t('Site Reports link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/users', 0, t('Users link is present on the page.'), t('Devtrac'));
-    $this->assertLink('Log out', 0, t('LOG OUT link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/sitereports?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
-    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
-    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
+    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/images/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -247,19 +244,19 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1parents-all" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-1parents-all">', t('Location search list is present on the page'), t('Devtrac'));
 
     // User.
-    $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is present on the page'), t('Devtrac'));
+    $this->assertNoRaw('<h2 class="block-title">User</h2>', t('User Heading is not present on the page'), t('Devtrac'));
+    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is not present on the page'), t('Devtrac'));
 
     // Manager.
-    $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertNoRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is not present on the page'), t('Devtrac'));
+    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is not present on the page'), t('Devtrac'));
 
     // Admin Unit Tags.
     $this->assertRaw('<h2 class="block-title">Admin Unit Tags</h2>', t('Admin Unit Tags Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-taxonomy-vocabulary-6field-district-category" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-6field-district-category">', t('Admin Unit Tags search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
-    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="sitereports" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
+    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="images" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
   <input type="textfield" name="search_api_aggregation_1" value="" />
   <input type="hidden" name="display" value="list" />
   <div id="edit-actions" class="form-actions form-wrapper">
@@ -267,36 +264,35 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
   </div>
 </form>', t('Full text search block is present on the page'), t('Devtrac'));
 
-    // Check for Site Report counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">7 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    // Check for Image counter.
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">6 Images</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for table.
     // Columns and Headings.
     $this->assertRaw('<th data-class="expand" class="views-field views-field-title" >
             Title          </th>', t('Title table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th data-hide="phone" class="views-field views-field-taxonomy-vocabulary-7" >
-            Site Report Type          </th>', t('Site Report Type table column and heading is present on the page.'), t('Devtrac'));
+            Image Type          </th>', t('Image Type table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th data-hide="phone" class="views-field views-field-taxonomy-vocabulary-8" >
             Sector          </th>', t('Sector table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th data-hide="phone" class="views-field views-field-taxonomy-vocabulary-6" >
             Admin Unit          </th>', t('Admin Unit table column and heading is present on the page.'), t('Devtrac'));
-    $this->assertRaw('<th data-hide="phone" class="views-field views-field-author" >
-            User          </th>', t('User table column and heading is present on the page.'), t('Devtrac'));
-    $this->assertRaw('/sitereports?display=list&amp;order=field_ftritem_date_visited&amp;sort=asc" title="sort by Visited on" class="active">Visited on', t('Visited On table column and heading is present on the page. This column is also sortable.'), t('Devtrac'));
-    $this->assertRaw('<th data-hide="phone" class="views-field views-field-virtual-field" >
-                      </th>', t('Empty Button table column and heading is present on the page.'), t('Devtrac'));
+    $this->assertNoRaw('<th class="views-field views-field-author" data-hide="phone">
+            User          </th>', t('User table column and heading is not present on the page.'), t('Devtrac'));
+    $this->assertRaw('/images?display=list&amp;order=field_ftritem_date_visited&amp;sort=asc" title="sort by Visited on" class="active">Visited on', t('Visited On table column and heading is present on the page. This column is also sortable.'), t('Devtrac'));
+    $this->assertNoRaw('<th data-hide="phone" class="views-field views-field-virtual-field" ></th>', t('Button table column and heading is not present on the page.'), t('Devtrac'));
 
     // Check that data is displayed in each column.
     $this->assertLink('Site Visit at Loroo Piped Water', 0, t('Site Visit column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-taxonomy-vocabulary-7" >
-            Site Visit          </td>', t('Site Report Type column is filled.'), t('Devtrac'));
+            Site Visit          </td>', t('Image Type column is filled.'), t('Devtrac'));
     $this->assertRaw('width="16" height="16" alt="Basic drinking water supply and basic sanitation" title="Basic drinking water supply and basic sanitation" /></a>', t('Sector column is filled'), t('Devtrac'));
     $this->assertLink('Amudat', 0, t('Admin Unit column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-field-ftritem-date-visited active" >
             <span class="date-display-single">02-11-2014</span>', t('Visited On column is filled.'), t('Devtrac'));
-    // $this->assertRaw('<th class="views-field views-field-virtual-field" data-hide="phone"></th>',
-    // t('Empty Button table heading is present on the page'), t('Devtrac'));
-    $this->assertLink('Edit', 0, t('Edit button is present.'), t('Devtrac'));
+    $this->assertNoRaw('<th class="views-field views-field-virtual-field" data-hide="phone">
+                      </th>', t('Empty Button table heading is present on the page'), t('Devtrac'));
+    $this->assertNoLink('Edit', t('Edit button is not present.'), t('Devtrac'));
     $this->assertNoLink('Delete', t('Delete button is not present.'), t('Devtrac'));
 
     // Check for date format.
@@ -331,7 +327,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Graphs');
 
     // Check for order of Facets.
-    $order = array('Report', 'Admin Unit', 'Sector', 'Status', 'Admin Unit Tags', 'Date Visited', 'Location', 'User', 'Manager');
+    $order = array('Report', 'Admin Unit', 'Sector', 'Status', 'Admin Unit Tags', 'Date Visited', 'Location');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
@@ -339,25 +335,25 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/users', 0, t('Users link is present on the page.'), t('Devtrac'));
-    $this->assertLink('Log out', 0, t('LOG OUT link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/sitereports?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
-    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
-    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
-    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
+    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('/images/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -394,19 +390,19 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1parents-all" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-1parents-all">', t('Location search list is present on the page'), t('Devtrac'));
 
     // User.
-    $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is present on the page'), t('Devtrac'));
+    $this->assertNoRaw('<h2 class="block-title">User</h2>', t('User Heading is not present on the page'), t('Devtrac'));
+    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is not present on the page'), t('Devtrac'));
 
     // Manager.
-    $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertNoRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
+    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is not present on the page'), t('Devtrac'));
 
     // Admin Unit Tags.
     $this->assertRaw('<h2 class="block-title">Admin Unit Tags</h2>', t('Admin Unit Tags Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-taxonomy-vocabulary-6field-district-category" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-6field-district-category">', t('Admin Unit Tags search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
-    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="sitereports" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
+    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="images" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
   <input type="textfield" name="search_api_aggregation_1" value="" />
   <input type="hidden" name="display" value="graphs" />
   <div id="edit-actions" class="form-actions form-wrapper">
@@ -414,42 +410,41 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
   </div>
 </form>', t('Full text search block is present on the page'), t('Devtrac'));
 
-    // Check for Site Report counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">7 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    // Check for Image counter.
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">6 Images</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for the quicktabs.
     // Location Type.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=0#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-qtabs quicktabs-tab-qtabs-devtrac-sitereports-graphs-place active">Location Type</a>', t('Location Type quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=0#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-qtabs quicktabs-tab-qtabs-devtrac-images-graphs-place active">Location Type</a>', t('Location Type quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Location Type', 0, t('Location Type Quicktab is labeled'), t('Devtrac'));
     // Pie.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_place=0#qt-devtrac_sitereports_graphs_place" id="quicktabs-tab-devtrac_sitereports_graphs_place-0"', t('Pie quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_place=0#qt-devtrac_images_graphs_place" id="quicktabs-tab-devtrac_images_graphs_place-0"', t('Pie quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Pie', 0, t('Pie Quicktab is labeled'), t('Devtrac'));
     // Bar.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_place=1#qt-devtrac_sitereports_graphs_place" id="quicktabs-tab-devtrac_sitereports_graphs_place-1"', t('Bar quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_place=1#qt-devtrac_images_graphs_place" id="quicktabs-tab-devtrac_images_graphs_place-1"', t('Bar quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Bar', 0, t('Bar Quicktab is labeled'), t('Devtrac'));
 
     // Sector.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=1#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-1"', t('Sectors quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=1#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-1"', t('Sectors quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Sectors', 0, t('Sectors Quicktab is labeled'), t('Devtrac'));
 
     // Districts.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=2#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-2"', t('Districts quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=2#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-2"', t('Districts quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Districts', 0, t('Districts Quicktab is labeled'), t('Devtrac'));
 
-    // User.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=3#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-3"', t('Users quicktab is present on the page'), t('Devtrac'));
+    // User (absence).
+    $this->assertNoRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=3#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-3"', t('Users quicktab is not present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
-    // $this->drupalGet('?display=graphs&f[0]=taxonomy_vocabulary_8%3A19');
+    $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
     $this->clickLinkUsingXpath('Basic education', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-8"]/li[1]/a');
 
     // Check current search counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">4 Site Reports</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">4 Images</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
 
     // Check for current search block.
     $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-sitevisits-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
-    $this->assertRaw('/sitereports?display=graphs" rel="nofollow" class="taxonomy-vocabulary-8 beautytips" title="Sector">Basic education [X] <span class="element-invisible"> Remove Basic education filter </span></a></li></ul></div></div>    </div>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs" rel="nofollow" class="taxonomy-vocabulary-8 beautytips" title="Sector">Basic education [X] <span class="element-invisible"> Remove Basic education filter </span></a></li></ul></div></div>    </div>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
 
     // Check main menu links.
     $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 1, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
@@ -459,14 +454,14 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/sitereports?display=default&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=list&f[0]=taxonomy_vocabulary_8%3A19', 0, t('List display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=default&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=list&f[0]=taxonomy_vocabulary_8%3A19', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('/sitereports/analyse/csv?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports/analyse/kml?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports/analyse/feed?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images/analyse/csv?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images/analyse/kml?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images/analyse/feed?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     // FACET DEFAULT STATES.
     $this->drupalget('');
@@ -475,6 +470,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // Check.
     // 2 is collapsible, default open.
     // 3 is collapisble, default closed.
+    // Report block id block-facetapi-lxcsjuspi4hstsg0c8hcqgwn6vgs7poa.
     $this->assertRaw('"block-facetapi-lxcsjuspi4hstsg0c8hcqgwn6vgs7poa":2', t('Report block is expanded by default.'), t('Devtrac'));
 
     // Admin Unit block id block-facetapi-amvw0eoro22vgnzwzxrzohrprftqkd3s.
@@ -490,11 +486,8 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('"block-facetapi-1mowyanjknrdopbts0c089qkom59umzk":3', t('Location block is collapsed by default.'), t('Devtrac'));
 
     // User block id block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw.
-    $this->assertRaw('"block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw":3', t('User block is collapsed by default.'), t('Devtrac'));
-
-    // Manager block id block-2tzkoht1hr709cgaow08o0dzm9hyn7o8.
-    $this->assertRaw('"block-facetapi-2tzkoht1hr709cgaow08o0dzm9hyn7o8":3', t('Manager block is collapsed by default.'), t('Devtrac'));
-
+    // $this->assertRaw('"block-facetapi-unfxm8tho5fv8taza5mkuesmtwcek3zw":3', t('User block is collapsed by default.'), t('Devtrac'));
+    // Manager.
     // Admin Unit Tags block id block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1.
     $this->assertRaw('"block-facetapi-3grh78sronbjsbcg4czo3cxhhlem5zk1":3', t('Admin Unit Tags block is collapsed by default.'), t('Devtrac'));
 
@@ -506,12 +499,11 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
-    $this->assertRaw('"UUID","Title","Site Report Type","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"UUID","Title","Image Type","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
     $length = 180;
     $column_names_line = substr($this->drupalGetContent(), 0, $length);
-    $this->verbose($column_names_line);
     $column_names = preg_split("/[,]+/", $column_names_line);
     $this->verbose(var_export($column_names, TRUE));
     if (count($column_names) == 14) {
@@ -526,10 +518,10 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // $this->assertRaw('"72262913-b484-4252-b6fc-935a3638bc63"',t('UUID field is filled.'), t('Devtrac'));
     // Title.
     $this->assertRaw('"Site Visit at Loroo Piped Water "', t('Title field is filled.'), t('Devtrac'));
-    // Site Report Type.
-    $this->assertRaw('"Site Visit"',t('Site Report Type field is filled.'), t('Devtrac'));
+    // Image Type.
+    $this->assertRaw('"Site Visit"', t('Image Type field is filled.'), t('Devtrac'));
     // Admin Unit.
-    $this->assertRaw('"Amudat"',t('Admin Unit field is filled.'), t('Devtrac'));
+    $this->assertRaw('"Amudat"', t('Admin Unit field is filled.'), t('Devtrac'));
     // Sector.
     $this->assertRaw('"Basic drinking water supply and basic sanitation"', t('Sector field is filled.'), t('Devtrac'));
     // Visited on.
@@ -540,11 +532,10 @@ Issues:
 Borehole discharge is 2.2 m3/h, which would contribute to about 22 m3/d. The reservoir tank of 90 cubic metre capacity would require more than 4 days of pumping to fill. Population is 1,500 people. Demand per day would be 30,000 m3, at¬†20 l/p/d. This is inadequate.
 Together with LC III Chairman and¬†Parish Chief , attempted to identify other water sourcesto be connected to the system but with no success. There are 2 water sources that are broken down but both holes require fishing.
 "', t('Summary field is filled.'), t('Devtrac'));
-    // URL (Subject to change).
-    // $this->assertRaw('/uuid/node/72262913-b484-4252-b6fc-935a3638bc63"',
-    // t('URL field is filled.'), t('Devtrac'));
+    // URL  (Subject to change).
+    // $this->assertRaw('/uuid/node/72262913-b484-4252-b6fc-935a3638bc63"',t('URL field is filled.'), t('Devtrac'));
     // Location UUID (Subject to change).
-    // $this->assertRaw('"e8d12f48-5b5d-439e-85ea-d1785ffbf7d6"', t('Location UUID field is filled.'), t('Devtrac'));
+    // $this->assertRaw('"e8d12f48-5b5d-439e-85ea-d1785ffbf7d6"',t('Location UUID field is filled.'), t('Devtrac'));
     // Site Visit Lat.
     $this->assertRaw('"2.126319885300"', t('Site Visit Lat field is filled.'), t('Devtrac'));
     // Site Visit Lon.
@@ -590,21 +581,19 @@ Borehole discharge is 2.2 m3/h, which would contribute to about 22 m3/d. The res
 Together with LC III Chairman and¬†Parish Chief , attempted to identify other water sourcesto be connected to the system but with no success. There are 2 water sources that are broken down but both holes require fishing.
 </description>', t('Description mapped correctly'), t('Devtrac'));
     // Author : author.
-    $this->assertRaw('<author>admin</author>', t('Author is mapped correctly'), t('Devtrac'));
+    $this->assertNoRaw('<author>admin</author>', t('Author is not mapped'), t('Devtrac'));
     // Category : taxonomy_vocabulary_8.
     $this->assertRaw('<category>Amudat, Basic drinking water supply and basic sanitation</category>', t('Category is mapped correctly'), t('Devtrac'));
     // Guid : uuid (Subject to change).
-    // $this->assertRaw('<guid isPermaLink="false">72262913-b484-4252-b6fc-935a3638bc63</guid>',
-    // t('Guid is mapped correctly'), t('Devtrac'));
+    // $this->assertRaw('<guid isPermaLink="false">72262913-b484-4252-b6fc-935a3638bc63</guid>', t('Guid is mapped correctly'), t('Devtrac'));
     // Published Date : created (Subject to change).
-    // $this->assertRaw('<pubDate>Friday, January 9, 2015 - 08:56</pubDate>',
-    // t('Published Date is mapped correctly'), t('Devtrac'));
+    // $this->assertRaw('<pubDate>Friday, January 9, 2015 - 08:56</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
 
     // dc items.
     // Title : title.
     $this->assertRaw('<dc:title>Site Visit at Loroo Piped Water </dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Creator : author.
-    $this->assertRaw('<dc:creator>admin</dc:creator>', t('dc Author is mapped correctly'), t('Devtrac'));
+    $this->assertNoRaw('<dc:creator>admin</dc:creator>', t('dc Author is not mapped'), t('Devtrac'));
     // Subject : taxonomy_vocabulary_8.
     $this->assertRaw('<dc:subject>Amudat, Basic drinking water supply and basic sanitation</dc:subject>', t('dc Subject is mapped correctly'), t('Devtrac'));
     // Description : field_ftritem_public_summary.
@@ -613,13 +602,11 @@ Issues:
 Borehole discharge is 2.2 m3/h, which would contribute to about 22 m3/d. The reservoir tank of 90 cubic metre capacity would require more than 4 days of pumping to fill. Population is 1,500 people. Demand per day would be 30,000 m3, at¬†20 l/p/d. This is inadequate.
 Together with LC III Chairman and¬†Parish Chief , attempted to identify other water sourcesto be connected to the system but with no success. There are 2 water sources that are broken down but both holes require fishing.
 </dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
-    // Publisher : site_info_1 (Subject to change).
+    // Publisher : site_info_1(Subject to change).
     // Date : created (Subject to change).
-    // $this->assertRaw('<dc:date>Friday, January 9, 2015 - 08:56</dc:date>',
-    // t('Date is mapped correctly'), t('Devtrac'));
+    // $this->assertRaw('<dc:date>Friday, January 9, 2015 - 08:56</dc:date>', t('Date is mapped correctly'), t('Devtrac'));
     // Identifier : uuid (Subject to change).
-    // $this->assertRaw('<dc:identifier>72262913-b484-4252-b6fc-935a3638bc63</dc:identifier>',
-    // t('dc Guid is mapped correctly'), t('Devtrac'));
+    // $this->assertRaw('<dc:identifier>72262913-b484-4252-b6fc-935a3638bc63</dc:identifier>', t('dc Guid is mapped correctly'), t('Devtrac'));
     // Coverage : taxonomy_vocabulary_6.
     $this->assertRaw('<dc:coverage>Amudat</dc:coverage>', t('dc Coverage is mapped correctly'), t('Devtrac'));
 
@@ -632,7 +619,7 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     $this->assertRaw('<georss:featureTypeTag>Gfs or Tap</georss:featureTypeTag>', t('georss FeatureTypeTag is mapped correctly'), t('Devtrac'));
 
     // JSON view.
-    $this->drupalGet('sitereports/json');
+    $this->drupalGet('images/json');
 
     // Title.
     $this->assertRaw('\/sitereport\/2014-11-02t000000\/site-visit-loroo-piped-water\u0022\u003ESite Visit at Loroo Piped Water \u003C\/a\u003E', t('Title field is present and filled in.'), t('Devtrac'));
@@ -654,5 +641,5 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
 
     // Location Type Term Icon 2.
     $this->assertRaw('\/sites\/default\/files\/styles\/map_icon_bw\/public\/Gfs%20or%20Tap_c.png', t('Location Type Term Icon 2 field is present and filled in.'), t('Devtrac'));
-  }
+  }*/
 }

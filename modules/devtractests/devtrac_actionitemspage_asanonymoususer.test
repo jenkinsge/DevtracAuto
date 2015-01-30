@@ -6,62 +6,16 @@
  * should be.
  */
 
-
-// Make sure simpletest_clone is available.
+// Make sure simpletest_clone and devtractestcase are available.
 module_load_include('test', 'simpletest_clone');
+module_load_include('inc', 'devtractests', 'includes/devtractestcase');
 
 /**
  * Checks that when the Action Items page is viewed by a field worker, the
  * page and its content is all present and working as it should.
  */
-class VisitActionItemsAsAnonymousUserTestCase extends SimpleTestCloneTestCase {
+class VisitActionItemsAsAnonymousUserTestCase extends DevtracTestCase {
   protected $profile = 'devtrac';
-  protected $user;
-  protected $administrator;
-
-  /**
-   * Create an admin user.
-   */
-  public function drupalCreateAdminUser(array $permissions = array()) {
-    $roles = user_roles();
-    $index = array_search('administrator', $roles);
-    $user = $this->drupalCreateUser($permissions);
-    $user->roles[$index] = 'administrator';
-    return user_save($user);
-  }
-
-  /**
-   * Click link using it's xpath.
-   */
-  public function clickLinkUsingXpath($label, $index, $linkxpath) {
-    $url_before = $this->getUrl();
-    $urls = $this->xpath($linkxpath);
-    if (isset($urls[$index])) {
-      $url_target = $this->getAbsoluteUrl($urls[$index]['href']);
-      $this->pass(t('Clicked link %label (@url_target) from @url_before',
-        array(
-          '%label' => $label,
-          '@url_target' => $url_target,
-          '@url_before' => $url_before)),
-        t('Devtrac'));
-      $this->drupalGet($url_target);
-    }
-    else {
-      $this->fail(t('%label Link does not exist on @url_before', array('%label' => $label, '@url_before' => $url_before)), t('Devtrac'));
-    }
-  }
-
-  /**
-   * Creates a user with the given role.
-   */
-  public function drupalCreateUserWithRole($role) {
-    $roles = user_roles();
-    $index = array_search($role, $roles);
-    $permissions = user_role_permissions(array(array_search($role, $roles) => $role));
-    $user = $this->drupalCreateUser(array_keys($permissions[$index]));
-    $user->roles[$index] = $role;
-    return user_save($user);
-  }
 
   /**
    * The getInfo function.
@@ -81,45 +35,7 @@ class VisitActionItemsAsAnonymousUserTestCase extends SimpleTestCloneTestCase {
     $this->public_files_directory = variable_get('file_public_path');
     parent::setUp(array('devtractests'));
 
-    $administrator = $this->drupalCreateAdminUser();
-    $this->drupalLogin($administrator);
-
-    // Enabling demo data.
-    $this->drupalGet('admin/apps/devtrac/devtrac_to_devtrac_importer/details');
-    $this->clickLink('Enable App', 0);
-    $this->assertText('Enabled Devtrac to Devtrac Importers app', t('Enabled Devtrac to Devtrac Importers app'), t('Devtrac'));
-    $this->clickLink('Configure', 0);
-    $this->drupalPost(NULL, NULL, t('Enable Demo Content'));
-    $this->assertText('All Data has been imported. It will take a little while before the data will appear on the overview pages.', t('All Data has been imported. It will take a little while before the data will appear on the overview pages.'), t('Devtrac'));
-
-    // Adding Admin Unit tags.
-    $this->drupalGet('admin/structure/taxonomy/district_category/add');
-    $tag1['name'] = 'Tag 1';
-    $this->drupalPost(NULL, $tag1, t('Save'));
-    $tag2['name'] = 'Tag 2';
-    $this->drupalPost(NULL, $tag2, t('Save'));
-    $this->drupalGet('admin/structure/taxonomy/district_category');
-
-    // Running cron twice so mapit can lookup the admin units.
-    $this->cronRun();
-    $this->drupalGet('');
-    $this->cronRun();
-
-    $this->drupalGet('admin/structure/taxonomy/vocabulary_6');
-    $this->clickLink('edit', 9);
-    $tag['field_district_category[und]'] = 'Tag 1';
-    $this->drupalPost(NULL, $tag, t('Save'));
-    $this->clickLink('Amudat');
-    $this->assertRaw('<div class="field-label">Tags:&nbsp;</div><div class="field-items"><div class="field-item even">Tag 1</div></div></div></div>', t('Amudat district tagged correctly.'), t('Devtrac'));
-
-    $this->drupalGet('admin/config/search/search_api/index/devtrac_solr_site_visits_index');
-    $this->drupalPost(NULL, NULL, t('Queue all items for reindexing'));
-    $this->drupalPost(NULL, NULL, t('Confirm'));
-    $this->drupalPost(NULL, NULL, t('Clear all indexed data'));
-    $this->drupalPost(NULL, NULL, t('Confirm'));
-    $this->drupalPost(NULL, NULL, t('Index now'));
-
-    // $this->drupalGet('district/uganda/amudat');
+    $this->setUpFieldWorker();
     $this->drupalLogout();
   }
 
