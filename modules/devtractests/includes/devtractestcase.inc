@@ -81,6 +81,21 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $this->verbose(var_export($matches, TRUE));
     $this->assert($matches === $order, $message, $group);
   }
+
+  /**
+   * Asserts the correct column count in a CSV.
+   */
+  public function assertColumnCount($length, $columns) {
+    $column_names_line = substr($this->drupalGetContent(), 0, $length);
+    $column_names = preg_split("/[,]+/", $column_names_line);
+    $this->verbose(var_export($column_names, TRUE));
+    if (count($column_names) == $columns) {
+      $this->pass(t('CSV Column count is correct.'), t('Devtrac'));
+    }
+    else {
+      $this->fail(t('CSV Column Count is wrong.'), t('Devtrac'));
+    }
+  }
   
   /**
    * Enables Demo Data.
@@ -262,6 +277,9 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
 
     // Enabling demo data.
     $this->enableDemoData();
+    // Add a tag to the first image.
+    $tag['field_taxonomy_image_tags[und]'] = 'Image Tag 1';
+    $this->drupalPost('file/1/edit', $tag, t('Save'));
     $this->drupalLogout();
 
     // Create a field worker.
@@ -270,12 +288,13 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $this->fillInProfile($this->administrator->uid, '11', '16', 'Test', 'Fieldworker', '...');
 
     // Create a Site Report for edit button test.
-    $this->addAFieldtrip('Test Title', 'Test Tag', '9', 100);
+    $this->addAFieldtrip('Test Title', 'Test Tag', '9', 100, '01/02/2015');
     $this->addASiteVisit('3', 'test location', 286, '0.5564815500152875', '32.70449822231746');
     
     $this->clickLink('Site Reports', 1);
     $this->clickLink('Site Visit at test location', 0);
+    $this->editASiteVisit(NULL, NULL, '57', NULL, NULL, NULL);
     $this->addImagestoSiteVisit(array('1', '2', '3'));
-    $this->addAnActionItem('Test Action Item', '158', 'Testing presence of Edit button.');
+    $this->addAnActionItem('Test Action Item', '57', 'Testing presence of Edit button.');
    }
 }

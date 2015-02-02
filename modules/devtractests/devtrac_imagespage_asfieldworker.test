@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Visit the Images page as an Anonymous user and check that all is as
+ * Visit the Images page as a Field Worker and check that all is as
  * should be.
  */
 
@@ -11,10 +11,10 @@ module_load_include('test', 'simpletest_clone');
 module_load_include('inc', 'devtractests', 'includes/devtractestcase');
 
 /**
- * Checks that when the Images page is viewed by an anonymous user, the
+ * Checks that when the Images page is viewed by a field worker, the
  * page and its content is all present and working as it should.
  */
-class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
+class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
   protected $profile = 'devtrac';
 
   /**
@@ -22,8 +22,8 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
    */
   public static function getInfo() {
     return array(
-      'name' => 'Images page as an Anonymous User',
-      'description' => 'Visit Images page as an Anonymous User and check that all is as should be.',
+      'name' => 'Images page as a Field Worker',
+      'description' => 'Visit Images page as a Fied Worker and check that all is as should be.',
       'group' => 'Devtrac2',
     );
   }
@@ -36,27 +36,26 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     parent::setUp(array('devtractests'));
 
     $this->setUpFieldWorker();
-    $this->drupalLogout();
 
   }
 
   /**
-   * Assess 'Images' page as an anonymous user.
+   * Assess 'Images' page as a fieldworker.
    */
-  public function testImagesPageAccessAnonymous() {
+  public function testImagesPageAccessFieldWorker() {
     $this->drupalGet('');
     $this->clickLink('Images', 0);
     $this->clickLink('list');
-    $this->assertNoText(t('Access denied'), t('Anonymous user is permitted to visit the Images page.'), t('Devtrac'));
+    $this->assertNoText(t('Access denied'), t('Field Worker is permitted to visit the Images page.'), t('Devtrac'));
   }
 
   /**
    * Check that all generic content is present.
    */
-  public function testPresenceOfGenericContentAnonymous() {
+  public function testPresenceOfGenericContentFieldWorker() {
     $this->drupalGet('');
     $this->clickLink('Images', 0);
-/*    // Check for Error Messages.
+    // Check for Error Messages.
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
 
     // Check for Built by Mountbatten footer text.
@@ -73,10 +72,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
@@ -84,10 +83,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
-    // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    // Check that the my-profile menu is present.
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
@@ -131,11 +130,11 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('\u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-field-taxonomy-image-tags\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-image-index-block-field-taxonomy-image-tags\u0022\u003E', t('Tags search list is present on the page'), t('Devtrac'));
 
     // User.
-    $this->assertNoRaw('\u003Ch2 class=\u0022block-title\u0022\u003EUser\u003C\/h2\u003E\n', t('User Heading is not present on the page'), t('Devtrac'));
+    $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EUser\u003C\/h2\u003E\n', t('User Heading is present on the page'), t('Devtrac'));
 
     // Manager.
-    $this->assertNoRaw('\u003Ch2 class=\u0022block-title\u0022\u003EManager\u003C\/h2\u003E\n', t('Manager Heading is not present on the page'), t('Devtrac'));
-    $this->assertNoRaw('\u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-authorfield-user-superior\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior\u0022\u003E\u003C', t('Manager search list is not present on the page'), t('Devtrac'));
+    $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EManager\u003C\/h2\u003E\n', t('Manager Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('\u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-authorfield-user-superior\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior\u0022\u003E\u003C', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -166,7 +165,7 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     // Check for Image counter.
     $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">3 Images</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
- */   // LIST VIEW MODE.
+    // LIST VIEW MODE.
     // Check that link to list view mode goes to the right page.
     $this->clickLink('list');
     $this->assertUrl($this->getAbsoluteUrl('/images?display=list'), array(), t('User is redirected to the correct page when list view mode link is clicked.'), t('Devtrac'));
@@ -195,10 +194,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
@@ -206,10 +205,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
-    // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    // Check that the my-profile menu is present.
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
@@ -242,12 +241,12 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-taxonomy-image-tags" id="facetapi-facet-search-apidevtrac-solr-image-index-block-field-taxonomy-image-tags">', t('Tags search list is present on the page'), t('Devtrac'));
 
     // User.
-    $this->assertNoRaw('<h2 class="block-title">User</h2>', t('User Heading is not present on the page'), t('Devtrac'));
-    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is not present on the page'), t('Devtrac'));
+    $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is present on the page'), t('Devtrac'));
 
     // Manager.
-    $this->assertNoRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is not present on the page'), t('Devtrac'));
-    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is not present on the page'), t('Devtrac'));
+    $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="images" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
@@ -272,10 +271,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<th >
             Sectors          </th>', t('Sector table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('/images?display=list&amp;order=field_ftritem_date_visited&amp;sort=asc" title="sort by Date Visited" class="active">Date Visited<img src', t('Date Visited table column and heading is present on the page. This column is also sortable.'), t('Devtrac'));
-    $this->assertNoRaw('<th data-hide="phone" class="views-field views-field-owner" >
+    $this->assertRaw('<th data-hide="phone" class="views-field views-field-owner" >
             <a href="/images?display=list&amp;order=owner&amp;sort=asc" title="sort by Owner" class="active">Owner</a>          </th>
-', t('Owner table column and heading is not present on the page.'), t('Devtrac'));
-    $this->assertNoRaw('<th data-hide="phone" class="views-field views-field-virtual-field" ></th>', t('Button table column and heading is not present on the page.'), t('Devtrac'));
+', t('Owner table column and heading is present on the page.'), t('Devtrac'));
+    $this->assertRaw('<th data-hide="phone" class="views-field views-field-virtual-field" ></th>', t('Button table column and heading is present on the page.'), t('Devtrac'));
 
     // Check that data is displayed in each column.
     $this->assertRaw('/file/images/admin/11110png?display=list">11110.png</a></h2>', t('Image column is filled.'), t('Devtrac'));
@@ -286,9 +285,9 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('files/styles/devtrac_oecd_icons_color_small/public/11182.png?itok=oljd3hEj" width="16" height="16" alt="Educational research" title="Educational research" /></a></div></div></div></div>          </td>', t('Sector column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-field-ftritem-date-visited active" >
             <span class="date-display-single">01-02-2015</span>          </td>', t('Date Visited column is filled.'), t('Devtrac'));
-    $this->assertNoRaw('<th class="views-field views-field-virtual-field" data-hide="phone">
+    $this->assertRaw('<th class="views-field views-field-virtual-field" data-hide="phone">
                       </th>', t('Empty Button table heading is present on the page'), t('Devtrac'));
-    $this->assertNoLink('Edit', t('Edit button is not present.'), t('Devtrac'));
+    $this->assertLink('Edit', t('Edit button is present.'), t('Devtrac'));
     $this->assertNoLink('Delete', t('Delete button is not present.'), t('Devtrac'));
 
     // Check for date format.
@@ -358,10 +357,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0,t('Field trips link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
@@ -369,10 +368,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
-    // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    // Check that the my-profile menu is present.
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
@@ -414,12 +413,12 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-taxonomy-image-tags" id="facetapi-facet-search-apidevtrac-solr-image-index-block-field-taxonomy-image-tags">', t('Tags search list is present on the page'), t('Devtrac'));
 
     // User.
-    $this->assertNoRaw('<h2 class="block-title">User</h2>', t('User Heading is not present on the page'), t('Devtrac'));
-    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is not present on the page'), t('Devtrac'));
+    $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is present on the page'), t('Devtrac'));
 
     // Manager.
-    $this->assertNoRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is not present on the page'), t('Devtrac'));
-    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is not present on the page'), t('Devtrac'));
+    $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="images" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
@@ -444,7 +443,7 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLink('Sectors', 0, t('Sectors Quicktab is labeled'), t('Devtrac'));
 
     // User (absence).
-    $this->assertNoRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=3#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-3"', t('Users quicktab is not present on the page'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=3#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-3"', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
     $this->assertRaw('/images?display=graphs&amp;f[0]=field_taxonomy_image_tags%3A311" rel="nofollow" class="facetapi-inactive image-tag-1" id="facetapi-link">Image Tag 1 <span class="count">(1)</span><span class="element-invisible"> Apply Image Tag 1 filter </span></a>', t('Filter by Image Tag 1 link is present on the page.'), t('Devtrac'));
@@ -504,10 +503,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
+    $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
@@ -515,10 +514,11 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
-    // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+
+    // Check that the my-profile menu is present.
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
@@ -560,12 +560,12 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-taxonomy-image-tags" id="facetapi-facet-search-apidevtrac-solr-image-index-block-field-taxonomy-image-tags">', t('Tags search list is present on the page'), t('Devtrac'));
 
     // User.
-    $this->assertNoRaw('<h2 class="block-title">User</h2>', t('User Heading is not present on the page'), t('Devtrac'));
-    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is not present on the page'), t('Devtrac'));
+    $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-author" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-author">', t('User search list is present on the page'), t('Devtrac'));
 
     // Manager.
-    $this->assertNoRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is not present on the page'), t('Devtrac'));
-    $this->assertNoRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is not present on the page'), t('Devtrac'));
+    $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="images" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">', t('Full text search block is present on the page'), t('Devtrac'));
@@ -624,7 +624,7 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     // Date Visited.
     $this->assertRaw('"01-02-2015"', t('Date Visited field is filled.'), t('Devtrac'));
     // Owner.
-    $this->assertNoRaw('admin', t('Owner field is not filled.'), t('Devtrac'));
+    $this->assertNoRaw('admin', t('Owner field is filled.'), t('Devtrac'));
     // URL.
     $this->assertRaw('/sites/default/files/11110.png"',t('URL field is filled.'), t('Devtrac'));
 
@@ -657,7 +657,7 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     // Description : Image.
     $this->assertRaw('/sites/default/files/styles/image_export/public/11110.png?itok=2m5K4a_X&quot; alt=&quot;Education policy and administrative management&quot; title=&quot;Education policy and administrative management&quot; /&gt;  &lt;/div&gt;', t('Description mapped correctly'), t('Devtrac'));
     // Author : owner.
-    $this->assertNoRaw('/users/admin&quot;&gt;&lt;/a&gt;</author>', t('Author is not mapped'), t('Devtrac'));
+    $this->assertRaw('/users/admin&quot;&gt;&lt;/a&gt;</author>', t('Author is mapped'), t('Devtrac'));
     // Published Date : Date Visited (Subject to change).
     $this->assertRaw('<pubDate>&lt;span class=&quot;date-display-single&quot;&gt;01-02-2015&lt;/span&gt;</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
 
@@ -665,11 +665,11 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     // Title : title.
     $this->assertRaw('<dc:title>Education policy and administrative management</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Creator : owner.
-    $this->assertNoRaw('users/admin&quot;&gt;&lt;/a&gt;</dc:creator>', t('dc Author is not mapped'), t('Devtrac'));
+    $this->assertRaw('users/admin&quot;&gt;&lt;/a&gt;</dc:creator>', t('dc Author is mapped'), t('Devtrac'));
     // Description : Image.
     $this->assertRaw('/sites/default/files/styles/image_export/public/11110.png?itok=2m5K4a_X&quot; alt=&quot;Education policy and administrative management&quot; title=&quot;Education policy and administrative management&quot; /&gt;  &lt;/div&gt;', t('dc Description mapped correctly'), t('Devtrac'));
     // Contributor : owner.
-    $this->assertNoRaw('users/admin&quot;&gt;&lt;/a&gt;</dc:contributor>', t('dc Contributor is not mapped'), t('Devtrac'));
+    $this->assertRaw('users/admin&quot;&gt;&lt;/a&gt;</dc:contributor>', t('dc Contributor is mapped'), t('Devtrac'));
     // Date : Date Visited.
     $this->assertRaw('<dc:date>&lt;span class=&quot;date-display-single&quot;&gt;01-02-2015&lt;/span&gt;</dc:date>', t('Date is mapped correctly'), t('Devtrac'));
 
@@ -677,7 +677,7 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->drupalGet('images/json');
 
     // Title.
-    $this->assertNoRaw('"name":"11110.png"', t('Title field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('"name":"11110.png"', t('Title field is present and filled in.'), t('Devtrac'));
 
     // Latitude.
     $this->assertRaw('"coordinates":[32.704498222317,', t('Latitude field is present and filled in.'), t('Devtrac'));
@@ -690,3 +690,4 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
 
   }
 }
+ 
