@@ -290,6 +290,7 @@ projects[openlayers][patch][] = "https://www.drupal.org/files/2060451-bbox_geojs
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/fix_facetapi.patch"
 ; Following patch makes sure any library variants will be picked up
 projects[openlayers][patch][] = "https://www.drupal.org/files/issues/openlayers-locale-original-variant-2191887-19.patch"
+projects[openlayers[patch][] ="https://www.drupal.org/files/issues/OpenLayers-Markers-not-displaying-in-211-2360525-%235.patch"
 
 projects[openlayers_geosearch][version] = "1.0-beta4"
 projects[openlayers_geosearch][type] = "module"
