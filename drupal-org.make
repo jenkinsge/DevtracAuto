@@ -625,7 +625,7 @@ libraries[masonry][directory_name] = "masonry"
 libraries[masonry][destination] = "libraries"
 
 libraries[openlayers][download][type] = "file"
-libraries[openlayers][download][url] = "https://github.com/janvandiepen/openlayers/archive/master.zip"
+libraries[openlayers][download][url] = "https://github.com/Mountbatten/openlayers/archive/master.zip"
 libraries[openlayers][directory_name] = "openlayers"
 libraries[openlayers][destination] = "libraries"
 
