@@ -6,6 +6,8 @@ core = 7.x
 hidden = FALSE
 exclusive = 1
 
+files[] = devtrac.profile
+
 ; Install profile
 dependencies[] = block
 ; dependencies[] = rdf
