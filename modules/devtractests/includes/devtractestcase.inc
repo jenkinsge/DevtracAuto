@@ -66,8 +66,12 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
    * Asserts that the facets in the right sidebar are in the correct order
    */
   public function assertFacetOrder($order, $message, $group) {
-    $sidebar = strstr($this->drupalGetContent(), '<div class="region-inner region-sidebar-first-inner">');
-    // $this->verbose($sidebar);
+    // $sidebar = strstr($this->drupalGetContent(), '<div class="region-inner region-sidebar-first-inner">');
+    $start = strpos($this->drupalGetContent(), '<aside class="grid-3 region region-sidebar-first" id="region-sidebar-first">');
+    $cutoff = strpos($this->drupalGetContent(), '</aside><div class="grid-9 region region-content" id="region-content">');
+    $length = $cutoff - $start;
+    $sidebar = substr($this->drupalGetContent(), $start, $length);
+    $this->verbose($sidebar);
     $matches = array();
     preg_match_all('/<h2[ a-zA-z="->]*/', $sidebar, $result);
     $result = reset($result);
@@ -78,7 +82,8 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
       $match = substr($match, 1);
       array_push($matches, $match);
     }
-    $this->verbose(var_export($matches, TRUE));
+    // $this->verbose(var_export($matches, TRUE));
+    // $this->verbose(var_export($order, TRUE));
     $this->assert($matches === $order, $message, $group);
   }
 
@@ -101,6 +106,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
    * Enables Demo Data.
    */
   public function enableDemoData() {
+    $this->fillInProfile($this->administrator->uid, '11', '16', 'Site', 'Administrator', '...');
 
     // Enabling demo data.
     $this->drupalGet('admin/apps/devtrac/devtrac_to_devtrac_importer/details');

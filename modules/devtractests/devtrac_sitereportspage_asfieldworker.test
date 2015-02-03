@@ -314,7 +314,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // GRAPHS VIEW MODE.
     // Check that link to graphs view mode goes to the right page.
     $this->clickLink('Graphs');
-    $this->assertUrl($this->getAbsoluteUrl('/?display=graphs'), array(), t('User is redirected to the correct page when list view mode link is clicked.'), t('Devtrac'));
+    $this->assertUrl($this->getAbsoluteUrl('/?display=graphs'), array(), t('User is redirected to the correct page when graphs view mode link is clicked.'), t('Devtrac'));
 
     // Check for Error Messages.
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
@@ -509,17 +509,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('"UUID","Title","Site Report Type","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
-    $length = 180;
-    $column_names_line = substr($this->drupalGetContent(), 0, $length);
-    $this->verbose($column_names_line);
-    $column_names = preg_split("/[,]+/", $column_names_line);
-    $this->verbose(var_export($column_names, TRUE));
-    if (count($column_names) == 14) {
-      $this->pass(t('CSV Column count is correct.'), t('Devtrac'));
-    }
-    else {
-      $this->fail(t('CSV Column Count is wrong.'), t('Devtrac'));
-    }
+    $this->assertColumnCount(180, 14);
 
     // Fields.
     // UUID (Subject to change).
