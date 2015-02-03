@@ -106,7 +106,6 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
    * Enables Demo Data.
    */
   public function enableDemoData() {
-    $this->fillInProfile($this->administrator->uid, '11', '16', 'Site', 'Administrator', '...');
 
     // Enabling demo data.
     $this->drupalGet('admin/apps/devtrac/devtrac_to_devtrac_importer/details');
@@ -275,17 +274,59 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   }
 
   /**
+   * Creates a question.
+   */
+  public function createQuestion($question, $type, $options = array(), $options_vocabulary = NULL, $sector = NULL, $locationtype = NULL,$related_questions = array()) {
+    // $this->clickLink('Admin', 0);
+    // $this->clickLink('Devtrac', 0);
+    // $this->clickLink('Questionnaire', 0);
+    // $this->clickLink('Edit Questions', 0);
+    // $this->clickLink('Add New Question', 0);
+    $this->drupalGet('node/add/questionnaire-question');
+    $edit['title'] = $question;
+    $edit['questionnaire_question_type[und]'] = $type;
+    if (isset($options)) {
+      for( $ctr=0; $ctr < count($options); $ctr++) {
+        $this->drupalPostAJAX(NULL, NULL,  array('questionnaire_question_options_add_more' => t('Add another item')));
+        $edit['questionnaire_question_options[und][' . $ctr . '][value]'] = $options[$ctr];
+      }
+    }
+    if (isset($options_vocabulary)) {
+      $edit['qq_options_vocabulary[und]'] = $options_vocabulary;
+    }
+    if (isset($sector)) {
+      $edit['taxonomy_vocabulary_8[und][]'] = $sector;
+    }
+    if (isset($locationtype)) {
+      $edit['taxonomy_vocabulary_1[und][0][tid]'] = $locationtype;
+    }
+    if (isset($related_questions)) {
+      for( $ctr=0; $ctr < count($related_questions); $ctr++) {
+        $edit['field_related_questions[und][' . $ctr . '][target_id]'] = $related_questions[$ctr];
+        $this->drupalPostAJAX(NULL, NULL,  array('field_related_questions_add_more' => t('Add another item')));
+      }
+    }
+    $this->drupalPost(NULL, $edit, t('Save'));
+  }
+
+  /**
    * Basic test setup required for a fieldworker.
    */
    public function setUpFieldWorker() {
     $this->administrator = $this->drupalCreateAdminUser();
     $this->drupalLogin($this->administrator);
+    $this->fillInProfile($this->administrator->uid, '11', '16', 'Site', 'Administrator', '...');
 
     // Enabling demo data.
     $this->enableDemoData();
     // Add a tag to the first image.
     $tag['field_taxonomy_image_tags[und]'] = 'Image Tag 1';
     $this->drupalPost('file/1/edit', $tag, t('Save'));
+
+    // Add questions.
+    $this->createQuestion('How would you rate this school?', 'radios', $options = array('Good', 'Mediocre', 'Bad'), NULL, '57', '286', array());
+    $this->createQuestion('Any further comments about this school?', 'open', array(), NULL, '57', '286', array());
+    $this->createQuestion('How would you rate this water point?', 'select', $options = array('Good', 'Mediocre', 'Bad'), NULL, '85', '261', array());
     $this->drupalLogout();
 
     // Create a field worker.
@@ -295,7 +336,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
 
     // Create a Site Report for edit button test.
     $this->addAFieldtrip('Test Title', 'Test Tag', '9', 100, '01/02/2015');
-    $this->addASiteVisit('3', 'test location', 286, '0.5564815500152875', '32.70449822231746');
+    $this->addASiteVisit('3', 'test location', '286', '0.5564815500152875', '32.70449822231746');
     
     $this->clickLink('Site Reports', 1);
     $this->clickLink('Site Visit at test location', 0);
