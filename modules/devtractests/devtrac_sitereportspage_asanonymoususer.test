@@ -436,7 +436,7 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertNoRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=3#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-3"', t('Users quicktab is not present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
     $this->clickLinkUsingXpath('Basic education', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-8"]/li[1]/a');
 
     // Check current search counter.
@@ -447,21 +447,21 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('/sitereports?display=graphs" rel="nofollow" class="taxonomy-vocabulary-8 beautytips" title="Sector">Basic education [X] <span class="element-invisible"> Remove Basic education filter </span></a></li></ul></div></div>    </div>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
 
     // Check main menu links.
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 1, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/statistics?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/adminunits?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/locations?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 1, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/statistics?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/sitereports?display=default&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=list&f[0]=taxonomy_vocabulary_8%3A19', 0, t('List display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=default&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=list&f[0]=taxonomy_vocabulary_8%3A18', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('/sitereports/analyse/csv?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports/analyse/kml?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports/analyse/feed?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/csv?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/kml?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/feed?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     // FACET DEFAULT STATES.
     $this->drupalget('');

@@ -52,6 +52,8 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
    * Check that all generic content is present.
    */
   public function testPresenceOfGenericContentFieldWorker() {
+    $this->drupalGet('');
+    $this->clickLink('Field trips');
 
     // Check for Error Messages.
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
@@ -386,7 +388,7 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     // ENABLING A FILTER.
     $this->assertRaw('/fieldtrips?display=graphs&amp;f[0]=field_fieldtrip_status%3AApproved"', t('Filter by Approved Status link is present on the page.'), t('Devtrac'));
     // $this->drupalGet('?display=graphs&f[0]=field_fieldtrip_status%3AApproved');
-    $this->clickLinkUsingXpath('Approved', 0, '//*[@id="facetapi-link--10"]');
+    $this->clickLinkUsingXpath('Approved', 0, '//*[@id="facetapi-link--11"]');
 
     // Check for current search block.
     $this->assertRaw('<div class="block block-current-search block-devtrac7-fieldtrips-activefacets block-current-search-devtrac7-fieldtrips-activefacets odd block-without-title" id="block-current-search-devtrac7-fieldtrips-activefacets">

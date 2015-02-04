@@ -134,7 +134,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Manager.
     $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EManager\u003C\/h2\u003E\n', t('Manager Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('\u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-authorfield-user-superior\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior\u0022\u003E\u003C', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('\u003Cdiv class=\u0022content clearfix\u0022\u003E\n      \u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-ownerfield-user-superior\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-image-index-block-ownerfield-user-superior\u0022\u003E', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -246,7 +246,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Manager.
     $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-ownerfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-image-index-block-ownerfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="images" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
@@ -413,7 +413,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Manager.
     $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-ownerfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-image-index-block-ownerfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="images" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
@@ -557,7 +557,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Manager.
     $this->assertRaw('<h2 class="block-title">Manager</h2>', t('Manager Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-authorfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-authorfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-ownerfield-user-superior" id="facetapi-facet-search-apidevtrac-solr-image-index-block-ownerfield-user-superior">', t('Manager search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="images" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">', t('Full text search block is present on the page'), t('Devtrac'));
@@ -688,4 +688,3 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
 
   }
 }
- 

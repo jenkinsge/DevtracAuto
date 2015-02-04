@@ -98,11 +98,11 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
 
     // Sector.
     $this->assertRaw('<h2 class="block-title">Sector</h2>', t('Sector Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-8 facetapi-processed" id="facetapi-facet-search-apiquestions-block-taxonomy-vocabulary-8">', t('Sector search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-8" id="facetapi-facet-search-apiquestions-block-taxonomy-vocabulary-8">', t('Sector search list is present on the page'), t('Devtrac'));
 
     // Location.
     $this->assertRaw('<h2 class="block-title">Location</h2>', t('Location Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1 facetapi-processed" id="facetapi-facet-search-apiquestions-block-taxonomy-vocabulary-1">', t('Location search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1" id="facetapi-facet-search-apiquestions-block-taxonomy-vocabulary-1">', t('Location search list is present on the page'), t('Devtrac'));
 
     // Check for Question counter.
     $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">3 Questions</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
@@ -154,5 +154,9 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     // URL.
     $this->assertRaw('/statistics/answers?f[0]=questionnaire_answer_question%3A30"',t('URL field is filled.'), t('Devtrac'));
 
+    $this->drupalGet('');
+    $this->clickLink('Statistics', 0);
+
+    $this->clickLink('Any further comments about this school?', 0);
   }
 }
