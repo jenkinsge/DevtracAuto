@@ -99,6 +99,7 @@ projects[exif][patch][] = "https://www.drupal.org/files/issues/exif_xmp_install_
 projects[facetapi][version] = "1.5"
 projects[facetapi][type] = "module"
 projects[facetapi][subdir] = "contrib"
+projects[facetapi][patch][] = "https://www.drupal.org/files/issues/facetapi-fix_missing_data_warnings_during_tests-2419817-1.patch"
 
 projects[facetapi_bonus][version] = "1.1"
 projects[facetapi_bonus][type] = "module"
