@@ -622,7 +622,7 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     // Date Visited.
     $this->assertRaw('"01-02-2015"', t('Date Visited field is filled.'), t('Devtrac'));
     // Owner.
-    $this->assertNoRaw('admin', t('Owner field is not filled.'), t('Devtrac'));
+    $this->assertNoRaw('"admin"', t('Owner field is not filled.'), t('Devtrac'));
     // URL.
     $this->assertRaw('/sites/default/files/11110.png"',t('URL field is filled.'), t('Devtrac'));
 

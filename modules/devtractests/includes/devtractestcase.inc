@@ -71,7 +71,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $cutoff = strpos($this->drupalGetContent(), '</aside><div class="grid-9 region region-content" id="region-content">');
     $length = $cutoff - $start;
     $sidebar = substr($this->drupalGetContent(), $start, $length);
-    $this->verbose($sidebar);
+    // $this->verbose($sidebar);
     $matches = array();
     preg_match_all('/<h2[ a-zA-z="->]*/', $sidebar, $result);
     $result = reset($result);
@@ -315,7 +315,6 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
    public function setUpFieldWorker() {
     $this->administrator = $this->drupalCreateAdminUser();
     $this->drupalLogin($this->administrator);
-    $this->fillInProfile($this->administrator->uid, '11', '16', 'Site', 'Administrator', '...');
 
     // Enabling demo data.
     $this->enableDemoData();
@@ -342,6 +341,14 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $this->clickLink('Site Visit at test location', 0);
     $this->editASiteVisit(NULL, NULL, '57', NULL, NULL, NULL);
     $this->addImagestoSiteVisit(array('1', '2', '3'));
+    $this->clickLink('Add Questionnaire');
+    $answers['30'] = "Needs more books in the library.";
+    $answers['29'] = "Mediocre";
+    $this->drupalPost(NULL, $answers, t('Submit'));
+    $this->clickLink('Add Questionnaire');
+    $answers['30'] = "Needs better books in the library.";
+    $answers['29'] = "Mediocre";
+    $this->drupalPost(NULL, $answers, t('Submit'));
     $this->addAnActionItem('Test Action Item', '57', 'Testing presence of Edit button.');
    }
 }

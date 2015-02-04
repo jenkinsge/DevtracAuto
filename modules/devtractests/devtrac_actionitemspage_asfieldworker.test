@@ -52,6 +52,8 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
    * Check that all generic content is present.
    */
   public function testPresenceOfGenericContentFieldWorker() {
+    $this->drupalGet('');
+    $this->clickLink('Action Items', 0);
 
     // Check for Error Messages.
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
@@ -143,7 +145,7 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     // High level.
     $this->assertNoPatternInBody('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a high level on the page.'), t('Devtrac'));
     // Low Level.
-    $this->clickLinkUsingXpath('November 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li[2]/a');
+    $this->clickLinkUsingXpath('November 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li[3]/a');
     $this->clickLinkUsingXpath('November 1, 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li/div[2]/ul/li[2]/a');
     $this->assertNoPatternInBody('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a low level on the page.'), t('Devtrac'));
 
@@ -203,7 +205,7 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Date.
     $this->assertRaw('<h2 class="block-title">Date</h2>', t('Date Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-created" id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-created"><li class="leaf first last">', t('Date search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-created" id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-created">', t('Date search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="actionitems" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
@@ -339,7 +341,7 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     // High level.
     $this->assertNoPatternInBody('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a high level on the page.'), t('Devtrac'));
     // Low Level.
-    $this->clickLinkUsingXpath('November 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li[2]/a');
+    $this->clickLinkUsingXpath('November 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li[3]/a');
     $this->clickLinkUsingXpath('November 1, 2014 ', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-field-actionitem-due-date"]/li/div[2]/ul/li[2]/a');
     $this->assertNoPatternInBody('/([01]?[0-9]|[2][0-3])\:([0-5][0-9]|[6][0])/', t('No links with time found on a low level on the page.'), t('Devtrac'));
 
@@ -400,7 +402,7 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Date.
     $this->assertRaw('<h2 class="block-title">Date</h2>', t('Date Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-created" id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-created"><li class="leaf first last">', t('Date search list is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-created" id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-created">', t('Date search list is present on the page'), t('Devtrac'));
 
     // Check for fulltest search block.
     $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="actionitems" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
@@ -435,29 +437,29 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=4#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-4" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-451e1443d2a9f8b0784ab053cf4ac325 active">Users</a>', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
-    $this->assertLinkByHref('/actionitems?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
     // $this->drupalGet('?display=graphs&f[0]=taxonomy_vocabulary_8%3A19');
-    $this->clickLinkUsingXpath('Basic education', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-taxonomy-vocabulary-8"]/li[2]/a');
+    $this->clickLinkUsingXpath('Basic education', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-action-items-index-block-taxonomy-vocabulary-8"]/li[1]/a');
 
     // Check for current search block.
     $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-actionitem-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
     $this->assertRaw('/actionitems?display=graphs" rel="nofollow" class="taxonomy-vocabulary-8 beautytips" title="Sector">Basic education [X] <span class="element-invisible"> Remove Basic education filter </span></a></li></ul></div></div>    </div>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
 
     // Check main menu links.
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/statistics?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/adminunits?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/locations?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/statistics?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/actionitems?display=default&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/actionitems?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems?display=default&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('/actionitems/analyse/csv?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/actionitems/analyse/kml?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/actionitems/analyse/feed?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems/analyse/csv?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems/analyse/kml?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems/analyse/feed?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     
     $this->drupalGet('');

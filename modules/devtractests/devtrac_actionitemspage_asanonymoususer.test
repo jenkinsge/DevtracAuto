@@ -44,7 +44,7 @@ class VisitActionItemsAsAnonymousUserTestCase extends DevtracTestCase {
    */
   public function testActionItemsPageAccessAnonymousUser() {
     $this->drupalGet('');
-    $this->assertNoLink('Action Items', t('Action Items link is not present on the page.', t('Devtrac')));
+    $this->assertNoLink('Action Items', t('Action Items link is not present on the page.'), t('Devtrac'));
     $this->drupalGet('actionitems');
     $this->assertResponse(403, t('Anonymous User is can not access the Action Items page.'), t('Devtrac'));
     $this->assertText(t('Access denied'), t('Anonymous User is not permitted to visit the Action Items page.'), t('Devtrac'));

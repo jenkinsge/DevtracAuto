@@ -51,6 +51,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
    * Check that all generic content is present.
    */
   public function testPresenceOfGenericContentFieldWorker() {
+    $this->drupalGet('');
 
     // Check for Error Messages.
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
@@ -440,7 +441,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=3#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-3"', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
     // $this->drupalGet('?display=graphs&f[0]=taxonomy_vocabulary_8%3A19');
     $this->clickLinkUsingXpath('Basic education', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-8"]/li[1]/a');
 
@@ -452,21 +453,21 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('/sitereports?display=graphs" rel="nofollow" class="taxonomy-vocabulary-8 beautytips" title="Sector">Basic education [X] <span class="element-invisible"> Remove Basic education filter </span></a></li></ul></div></div>    </div>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
 
     // Check main menu links.
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 1, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/statistics?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/adminunits?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/locations?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 1, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/statistics?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/sitereports?display=default&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=list&f[0]=taxonomy_vocabulary_8%3A19', 0, t('List display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=default&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=list&f[0]=taxonomy_vocabulary_8%3A18', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('/sitereports/analyse/csv?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports/analyse/kml?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/sitereports/analyse/feed?display=graphs&f[0]=taxonomy_vocabulary_8%3A19', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/csv?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/kml?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/feed?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     // FACET DEFAULT STATES.
     $this->drupalget('');
@@ -580,7 +581,7 @@ Borehole discharge is 2.2 m3/h, which would contribute to about 22 m3/d. The res
 Together with LC III Chairman and¬†Parish Chief , attempted to identify other water sourcesto be connected to the system but with no success. There are 2 water sources that are broken down but both holes require fishing.
 </description>', t('Description mapped correctly'), t('Devtrac'));
     // Author : author.
-    $this->assertRaw('<author>admin</author>', t('Author is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<author>Test Fieldworker</author>', t('Author is mapped correctly'), t('Devtrac'));
     // Category : taxonomy_vocabulary_8.
     $this->assertRaw('<category>Amudat, Basic drinking water supply and basic sanitation</category>', t('Category is mapped correctly'), t('Devtrac'));
     // Guid : uuid (Subject to change).
@@ -594,7 +595,7 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     // Title : title.
     $this->assertRaw('<dc:title>Site Visit at Loroo Piped Water </dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Creator : author.
-    $this->assertRaw('<dc:creator>admin</dc:creator>', t('dc Author is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:creator>Test Fieldworker</dc:creator>', t('dc Author is mapped correctly'), t('Devtrac'));
     // Subject : taxonomy_vocabulary_8.
     $this->assertRaw('<dc:subject>Amudat, Basic drinking water supply and basic sanitation</dc:subject>', t('dc Subject is mapped correctly'), t('Devtrac'));
     // Description : field_ftritem_public_summary.
