@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Visit the Statistics page as an Anonymous user and check that all is as
+ * Visit the Statistics page as an Field Worker and check that all is as
  * should be.
  */
 
@@ -11,10 +11,10 @@ module_load_include('test', 'simpletest_clone');
 module_load_include('inc', 'devtractests', 'includes/devtractestcase');
 
 /**
- * Checks that when the Statistics page is viewed by an anonymous user, the
+ * Checks that when the Statistics page is viewed by an field worker, the
  * page and its content is all present and working as it should.
  */
-class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
+class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
   protected $profile = 'devtrac';
 
   /**
@@ -22,8 +22,8 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
    */
   public static function getInfo() {
     return array(
-      'name' => 'Statistics page as an Anonymous User',
-      'description' => 'Visit Statistics page as an Anonymous User and check that all is as should be.',
+      'name' => 'Statistics page as a Field Worker',
+      'description' => 'Visit Statistics page as a Field Worker and check that all is as should be.',
       'group' => 'Devtrac2',
     );
   }
@@ -36,23 +36,22 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     parent::setUp(array('devtractests'));
 
     $this->setUpFieldWorker();
-    $this->drupalLogout();
 
   }
 
   /**
-   * Assess 'Statistics' page as an anonymous user.
+   * Assess 'Statistics' page as an field worker.
    */
-  public function testStatisticsPageAccessAnonymous() {
+  public function testStatisticsPageAccessFieldWorker() {
     $this->drupalGet('');
     $this->clickLink('Statistics', 0);
-    $this->assertNoText(t('Access denied'), t('Anonymous user is permitted to visit the Statistics page.'), t('Devtrac'));
+    $this->assertNoText(t('Access denied'), t('Field Worker is permitted to visit the Statistics page.'), t('Devtrac'));
   }
 
   /**
    * Check that all generic content is present.
    */
-  public function testPresenceOfGenericContentAnonymous() {
+  public function testPresenceOfGenericContentFieldWorker() {
     $this->drupalGet('');
     $this->clickLink('Statistics', 0);
     // Check for Error Messages.
@@ -77,16 +76,16 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is  present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is  present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
-    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Log in', t('LOG IN link is not present on the page.'), t('Devtrac'));
 
-    // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    // Check that the my-profile menu is present.
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
@@ -203,16 +202,16 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is  present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is  present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
-    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Log in', t('LOG IN link is not present on the page.'), t('Devtrac'));
 
-    // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    // Check that the my-profile menu is present.
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
@@ -325,17 +324,18 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/statistics', 0, t('Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits', 0, t('Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations', 0, t('Locations link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/actionitems', t('Action Items link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/fieldtrips', t('Field trips link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems', 0, t('Action Items link is  present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips', 0, t('Field trips link is  present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
-    $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
+    $this->assertNoLink('Log in', t('LOG IN link is not present on the page.'), t('Devtrac'));
 
-    // Check that the my-profile menu is absent.
-    $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
-    $this->assertNoLink('Edit My Profile', t('Edit My Profile link is not present on the page.'), t('Devtrac'));
+    // Check that the my-profile menu is present.
+    $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
+    $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
+    
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
     $this->assertNoLinkByHref('/images/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
@@ -405,14 +405,16 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-answers-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
     $this->assertRaw('Schools [X] <span class="element-invisible"> Remove Schools filter </span></a>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
 
-
     // Check main menu links.
     $this->assertRaw('/sitereports?display=list&amp;f[0]=question%3A29&amp;f[1]=taxonomy_vocabulary_1%3A251', t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
     $this->assertRaw('/statistics?display=list&amp;f[0]=question%3A29&amp;f[1]=taxonomy_vocabulary_1%3A251', t('Filtered Statistics link is present on the page.'), t('Devtrac'));
     $this->assertRaw('/adminunits?display=list&amp;f[0]=question%3A29&amp;f[1]=taxonomy_vocabulary_1%3A251', t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertRaw('/locations?display=list&amp;f[0]=question%3A29&amp;f[1]=taxonomy_vocabulary_1%3A251', t('Filtered Locations link is present on the page.'), t('Devtrac'));
     $this->assertRaw('/images?display=list&amp;f[0]=question%3A29&amp;f[1]=taxonomy_vocabulary_1%3A251', t('Filtered Images link is present on the page.'), t('Devtrac'));
+    $this->assertRaw('/actionitems?display=list&amp;f[0]=question%3A29&amp;f[1]=taxonomy_vocabulary_1%3A251', t('Filtered Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=list&amp;f[0]=question%3A29&amp;f[1]=taxonomy_vocabulary_1%3A251', t('Filtered Field Trips link is present on the page.'), t('Devtrac'));
 
+    
     // Check for the columns.
     $this->drupalGet('');
     $this->clickLink('Statistics', 0);
@@ -426,7 +428,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
             Answer          </th>', t('Answer table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th class="views-field views-field-field-ftritem-place" >
             Location          </th>', t('Location table column and heading is present on the page.'), t('Devtrac'));
-    $this->assertNoRaw('<th class="views-field views-field-questionnaire-id" >
+    $this->assertRaw('<th class="views-field views-field-questionnaire-id" >
             Site Visit          </th>', t('Site Visit table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th class="views-field views-field-taxonomy-vocabulary-6" >
             Admin Unit          </th>', t('Admin Unit table column and heading is present on the page.'), t('Devtrac'));
@@ -435,7 +437,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     // Check that data is displayed in each column.
     $this->assertRaw('Mediocre', t('Answer column is filled.'), t('Devtrac'));
     $this->assertLink('test location', 0, t('Location column is filled.'), t('Devtrac'));
-    $this->assertNoRaw('Site Visit at test location', t('Site Visit column is filled'), t('Devtrac'));
+    $this->assertRaw('Site Visit at test location', t('Site Visit column is filled'), t('Devtrac'));
     $this->assertLink('Undefined Area', 0, t('Admin Unit column is filled.'), t('Devtrac'));
     /*$this->assertRaw('<td class="views-field views-field-field-ftritem-date-visited active" >
             <span class="date-display-single">01-02-2015</span>          </td>', t('Date Visited column is filled.'), t('Devtrac'));
@@ -506,3 +508,4 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</georss:relationshipTag>', t('dc Relationship Tag is mapped correctly'), t('Devtrac'));
   }
 }
+
