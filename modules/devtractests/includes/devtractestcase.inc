@@ -93,7 +93,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   public function assertColumnCount($length, $columns) {
     $column_names_line = substr($this->drupalGetContent(), 0, $length);
     $column_names = preg_split("/[,]+/", $column_names_line);
-    $this->verbose(var_export($column_names, TRUE));
+    // $this->verbose(var_export($column_names, TRUE));
     if (count($column_names) == $columns) {
       $this->pass(t('CSV Column count is correct.'), t('Devtrac'));
     }
@@ -315,6 +315,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
    public function setUpFieldWorker() {
     $this->administrator = $this->drupalCreateAdminUser();
     $this->drupalLogin($this->administrator);
+    $this->fillInProfile($this->administrator->uid, '11', '16', 'Site', 'Admin', '...');
 
     // Enabling demo data.
     $this->enableDemoData();
