@@ -33,4 +33,5 @@ files[] = devtrac_imagespage_asanonymoususer.test
 files[] = devtrac_imagespage_asfieldworker.test
 files[] = devtrac_statisticspage_asanonymoususer.test
 files[] = devtrac_statisticspage_asfieldworker.test
+files[] = devtrac_adminunitspage_asanonymoususer.test
 core = 7.x
