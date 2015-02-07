@@ -6,6 +6,7 @@
  */
 
 class DevtracTestCase extends SimpleTestCloneTestCase {
+  protected $manager;
   protected $administrator;
   protected $fieldworker;
 
@@ -25,11 +26,27 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
    */
   public function drupalCreateUserWithRole($role) {
     $roles = user_roles();
-    $index = array_search($role, $roles);
-    $permissions = user_role_permissions(array(array_search($role, $roles) => $role));
-    $user = $this->drupalCreateUser(array_keys($permissions[$index]));
-    $user->roles[$index] = $role;
-    return user_save($user);
+    $rid = array_search($role, $roles);
+
+    // Create a user assigned to that role.
+    $edit = array();
+    $edit['name'] = $this->randomName();
+    $edit['mail'] = $edit['name'] . '@example.com';
+    $edit['pass'] = user_password();
+    $edit['status'] = 1;
+    if ($rid) {
+      $edit['roles'] = array($rid => $rid);
+    }
+    $account = user_save(drupal_anonymous_user(), $edit);
+
+   $this->assertTrue(!empty($account->uid), t('User created with name %name and pass %pass', array('%name' => $edit['name'], '%pass' => $edit['pass'])), t('User login'));
+    if (empty($account->uid)) {
+      return FALSE;
+    }
+
+    // Add the raw password so that we can log in as this user.
+    $account->pass_raw = $edit['pass'];
+    return $account;
   }
 
   /**
@@ -82,7 +99,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
       $match = substr($match, 1);
       array_push($matches, $match);
     }
-    // $this->verbose(var_export($matches, TRUE));
+    $this->verbose(var_export($matches, TRUE));
     // $this->verbose(var_export($order, TRUE));
     $this->assert($matches === $order, $message, $group);
   }
@@ -159,6 +176,24 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $profile['field_user_surname[und][0][value]'] = $lastname;
     $profile['field_user_aboutme[und][0][value]'] = $about;
     $this->drupalPost(NULL, $profile, t('Save'));
+  }
+
+  /**
+   * Edits a users profile.
+   */
+  public function editUserProfile($userid, $manageruid, $function, $department, $firstname, $lastname, $about) {
+    $this->clickLink(t('Admin'), 0);
+    $this->clickLink(t('People'), 0);
+    $this->assertLinkByHref('user/' . $userid . '/edit', 0);
+    // Fill in the required fields for the profile.
+    $manager_account = user_load($manageruid);
+    $profile['taxonomy_vocabulary_5[und]'] = $function;
+    $profile['field_user_superior[und][0][target_id]'] = $manager_account->name . ' (' . $manageruid . ')';
+    $profile['taxonomy_vocabulary_4[und]'] = $department;
+    $profile['field_user_firstname[und][0][value]'] = $firstname;
+    $profile['field_user_surname[und][0][value]'] = $lastname;
+    $profile['field_user_aboutme[und][0][value]'] = $about;
+    $this->drupalPost('user/' . $userid . '/edit', $profile, t('Save'));
   }
 
   /**
@@ -313,9 +348,10 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
    * Basic test setup required for a fieldworker.
    */
    public function setUpFieldWorker() {
+    // $this->manager = $this->drupalCreateAdminUser();
     $this->administrator = $this->drupalCreateAdminUser();
     $this->drupalLogin($this->administrator);
-    $this->fillInProfile($this->administrator->uid, '11', '16', 'Site', 'Admin', '...');
+    $this->editUserProfile('1', '1', '11', '16', 'Site', 'Admin', '...');
 
     // Enabling demo data.
     $this->enableDemoData();
