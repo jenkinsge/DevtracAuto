@@ -426,8 +426,8 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
             Answer          </th>', t('Answer table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th class="views-field views-field-field-ftritem-place" >
             Location          </th>', t('Location table column and heading is present on the page.'), t('Devtrac'));
-    $this->assertNoRaw('<th class="views-field views-field-questionnaire-id" >
-            Site Visit          </th>', t('Site Visit table column and heading is not present on the page.'), t('Devtrac'));
+    $this->assertRaw('<th class="views-field views-field-questionnaire-id" >
+            Site Visit          </th>', t('Site Visit table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th class="views-field views-field-taxonomy-vocabulary-6" >
             Admin Unit          </th>', t('Admin Unit table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('/statistics/answers?f[0]=question%3A29&amp;display=list&amp;order=created&amp;sort=desc" title="sort by Date created" class="active">Date created<img src=', t('Date Created table column and heading is present on the page. This column is also sortable.'), t('Devtrac'));
@@ -435,7 +435,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     // Check that data is displayed in each column.
     $this->assertRaw('Mediocre', t('Answer column is filled.'), t('Devtrac'));
     $this->assertLink('test location', 0, t('Location column is filled.'), t('Devtrac'));
-    $this->assertNoRaw('Site Visit at test location', t('Site Visit column is filled'), t('Devtrac'));
+    $this->assertRaw('Site Visit at test location', t('Site Visit column is filled'), t('Devtrac'));
     $this->assertLink('Undefined Area', 0, t('Admin Unit column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-created active">
             ' . date("d-m-Y") . '          </td>', t('Date Visited column is filled.'), t('Devtrac'));
@@ -444,7 +444,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->drupalGet('statistics/analyse/csv');
 
     // Check for column names.
-    $this->assertRaw('"Answer","Site report","Location Placetype","Admin Unit","Date created"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"Answer","Site report","Location Placetype","Admin Unit","Date created"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
     $this->assertColumnCount(72, 5);
