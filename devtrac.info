@@ -37,7 +37,6 @@ dependencies[] = charts_graphs
 dependencies[] = flot
 dependencies[] = charts_graphs_flot
 dependencies[] = context
-dependencies[] = context_ui
 dependencies[] = date_api
 dependencies[] = date
 dependencies[] = date_popup
