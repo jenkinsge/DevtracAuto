@@ -229,10 +229,6 @@ projects[jquery_update][version] = "2.x-dev"
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
 
-projects[js][version] = "1.0"
-projects[js][type] = "module"
-projects[js][subdir] = "contrib"
-
 projects[kml][version] = "1.x-dev"
 projects[kml][type] = "module"
 projects[kml][subdir] = "contrib"
@@ -315,10 +311,6 @@ projects[proj4js][version] = "1.2"
 projects[proj4js][type] = "module"
 projects[proj4js][subdir] = "contrib"
 
-projects[proxy][version] = "1.0-beta3"
-projects[proxy][type] = "module"
-projects[proxy][subdir] = "contrib"
-
 projects[publishcontent][version] = "1.3"
 projects[publishcontent][type] = "module"
 projects[publishcontent][subdir] = "contrib"
@@ -348,17 +340,6 @@ projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs--machine_
 projects[realname][version] = "1.2"
 projects[realname][type] = "module"
 projects[realname][subdir] = "contrib"
-
-projects[relation][version] = "1.0-rc6"
-projects[relation][type] = "module"
-projects[relation][subdir] = "contrib"
-projects[relation][patch][] = "https://www.drupal.org/files/relation-entity_property_info-1958298-3.patch"
-; projects[relation][patch][] = "http://cgit.drupalcode.org/relation/patch/?id=5b8e243b7e6450b9e2a26d71447fd91628eb4845"
-projects[relation][patch][] = "https://www.drupal.org/files/issues/relation_feeds-tests-fail-2198405-2.patch"
-
-projects[relation_add][version] = "1.2"
-projects[relation_add][type] = "module"
-projects[relation_add][subdir] = "contrib"
 
 projects[robotstxt][version] = "1.3"
 projects[robotstxt][type] = "module"
@@ -516,10 +497,6 @@ projects[virtual_field][type] = "module"
 projects[virtual_field][subdir] = "contrib"
 projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_field_views_support_1506376_11.patch"
 
-projects[wms][version] = "2.x-dev"
-projects[wms][type] = "module"
-projects[wms][subdir] = "contrib"
-
 projects[addressfield][version] = "1.0"
 projects[addressfield][type] = "module"
 projects[addressfield][subdir] = "contrib"
@@ -549,13 +526,6 @@ projects[commentblock][download][url] = "http://git.drupal.org/sandbox/bc/144731
 projects[commentblock][download][branch] = "7.x-1.x"
 projects[commentblock][subdir] = "contrib"
 projects[commentblock][patch][] = "https://www.drupal.org/files/parameter-1-expected-to-be-a-reference.patch"
-
-projects[facetapi_context][type] = "module"
-projects[facetapi_context][download][type] = "git"
-projects[facetapi_context][download][url] = "http://git.drupal.org/sandbox/ygerasimov/1591872.git"
-projects[facetapi_context][download][branch] = "7.x-1.x"
-projects[facetapi_context][subdir] = "contrib"
-projects[facetapi_context][patch][] = "https://www.drupal.org/files/moreoptions-1704152-1.patch"
 
 projects[OL_lat_long][type] = "module"
 projects[OL_lat_long][download][type] = "git"
