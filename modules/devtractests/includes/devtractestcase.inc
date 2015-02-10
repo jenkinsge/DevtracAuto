@@ -152,13 +152,10 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $this->clickLink('Amudat');
     $this->assertRaw('<div class="field-label">Tags:&nbsp;</div><div class="field-items"><div class="field-item even">Tag 1</div></div></div></div>', t('Amudat district tagged correctly.'), t('Devtrac'));
 
-    $this->drupalGet('admin/config/search/search_api/index/devtrac_solr_site_visits_index');
-    $this->drupalPost(NULL, NULL, t('Queue all items for reindexing'));
+    $this->drupalGet('admin/config/search/search_api/server/devtrac_search_server');
+    $this->drupalPost(NULL, NULL, t('Delete all indexed data on this server'));
     $this->drupalPost(NULL, NULL, t('Confirm'));
-    $this->drupalPost(NULL, NULL, t('Clear all indexed data'));
-    $this->drupalPost(NULL, NULL, t('Confirm'));
-    $this->drupalPost(NULL, NULL, t('Index now'));
-
+    $this->cronRun();
     // $this->drupalGet('district/uganda/amudat');
   }
 

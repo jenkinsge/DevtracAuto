@@ -88,6 +88,8 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
     $this->assertNoLinkByHref('statistics/questions/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     // Search Api Elements.
     // Check for Facets.
@@ -106,6 +108,9 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     // Check for Info pane text.
     $this->assertRaw('\u003Cp\u003EThis is the first level of Admin Units. The district page has a list or map of the districts of Uganda. Click on the icons to have a small overview of the district including the site reports of users that have visited the district and the photos they have taken.\u003C\/p\u003E', t('Info pane is present on the page'), t('Devtrac'));
 
+    // Full text search block
+    $this->assertRaw('\u003Cform id=\u0022facetapi-textfield-widget-form\u0022 class=\u0022facetapi-textfield-widget-form\u0022 action=\u0022adminunits\u0022 method=\u0022GET\u0022 onsubmit=\u0022return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)\u0022\u003E\n  \u003Cinput type=\u0022textfield\u0022 name=\u0022search_api_aggregation_1\u0022 value=\u0022\u0022 \/\u003E\n  \u003Cdiv id=\u0022edit-actions\u0022 class=\u0022form-actions form-wrapper\u0022\u003E\n    \u003Cinput type=\u0022submit\u0022 class=\u0022form-submit\u0022 value=\u0022Search\u0022 \/\u003E\n  \u003C\/div\u003E\n\u003C\/form\u003E', t('Full Text Search Block is present on the page'), t('Devtrac'));
+
     
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -113,7 +118,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     // 3 is collapisble, default closed.
 
     // Admin Unit block id block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf
-    $this->assertRaw('"block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf":2', t('Admin Unit block is collapsed by default.'), t('Devtrac'));
+    $this->assertRaw('"block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
 
     // Tags block id block-facetapi-l2dluv3aaqmwzo0fi0e7idwplai93anc
     $this->assertRaw('"block-facetapi-l2dluv3aaqmwzo0fi0e7idwplai93anc":3', t('Tags block is collapsed by default.'), t('Devtrac'));
@@ -155,6 +160,8 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
     $this->assertNoLinkByHref('statistics/questions/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     // Search Api Elements.
     // Check for Facets.
@@ -173,6 +180,15 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     // Check for Info pane text.
     $this->assertRaw('<p>This is the first level of Admin Units. The district page has a list or map of the districts of Uganda. Click on the icons to have a small overview of the district including the site reports of users that have visited the district and the photos they have taken.</p>', t('Info pane is present on the page'), t('Devtrac'));
 
+    // Full text search block
+    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="adminunits" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
+  <input type="textfield" name="search_api_aggregation_1" value="" />
+  <input type="hidden" name="display" value="list" />
+  <div id="edit-actions" class="form-actions form-wrapper">
+    <input type="submit" class="form-submit" value="Search" />
+  </div>
+</form>', t('Full Text Search Block is present on the page'), t('Devtrac'));
+
     
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -180,7 +196,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     // 3 is collapisble, default closed.
 
     // Admin Unit block id block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf
-    $this->assertRaw('"block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf":2', t('Admin Unit block is collapsed by default.'), t('Devtrac'));
+    $this->assertRaw('"block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
 
     // Tags block id block-facetapi-l2dluv3aaqmwzo0fi0e7idwplai93anc
     $this->assertRaw('"block-facetapi-l2dluv3aaqmwzo0fi0e7idwplai93anc":3', t('Tags block is collapsed by default.'), t('Devtrac'));
@@ -265,6 +281,8 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
     $this->assertNoLinkByHref('statistics/questions/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     // Search Api Elements.
     // Check for Facets.
@@ -283,6 +301,15 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     // Check for Info pane text.
     $this->assertRaw('<p>This is the first level of Admin Units. The district page has a list or map of the districts of Uganda. Click on the icons to have a small overview of the district including the site reports of users that have visited the district and the photos they have taken.</p>', t('Info pane is present on the page'), t('Devtrac'));
 
+    // Full text search block
+    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="adminunits" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
+  <input type="textfield" name="search_api_aggregation_1" value="" />
+  <input type="hidden" name="display" value="graphs" />
+  <div id="edit-actions" class="form-actions form-wrapper">
+    <input type="submit" class="form-submit" value="Search" />
+  </div>
+</form>', t('Full Text Search Block is present on the page'), t('Devtrac'));
+
     
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -290,7 +317,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     // 3 is collapisble, default closed.
 
     // Admin Unit block id block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf
-    $this->assertRaw('"block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf":2', t('Admin Unit block is collapsed by default.'), t('Devtrac'));
+    $this->assertRaw('"block-facetapi-lg63gd04gbns5u1dxsguqomdj9xvvjgf":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
 
     // Tags block id block-facetapi-l2dluv3aaqmwzo0fi0e7idwplai93anc
     $this->assertRaw('"block-facetapi-l2dluv3aaqmwzo0fi0e7idwplai93anc":3', t('Tags block is collapsed by default.'), t('Devtrac'));
