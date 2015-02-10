@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * devtrac_frontpage.strongarm.inc
+ * devtrac_frontpage_sitereports.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function devtrac_frontpage_strongarm() {
+function devtrac_frontpage_sitereports_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();
@@ -53,9 +53,9 @@ function devtrac_frontpage_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'nodesinblock_contenttypes';
   $strongarm->value = array(
-    'article' => 'article',
     'page' => 'page',
     'actionitem' => 0,
+    'article' => 0,
     'fieldtrip' => 0,
     'ftritem' => 0,
     'place' => 0,
@@ -113,7 +113,7 @@ function devtrac_frontpage_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'nodesinblock_friendlyname_1';
-  $strongarm->value = 'Homepage Organisation Article';
+  $strongarm->value = 'Homepage Organisation Page';
   $export['nodesinblock_friendlyname_1'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -174,7 +174,7 @@ function devtrac_frontpage_strongarm() {
   $strongarm->name = 'nodesinblock_page_block';
   $strongarm->value = array(
     1 => '1',
-    2 => 0,
+    2 => '2',
   );
   $export['nodesinblock_page_block'] = $strongarm;
 

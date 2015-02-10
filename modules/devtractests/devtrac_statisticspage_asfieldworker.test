@@ -446,8 +446,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->drupalGet('statistics/analyse/csv');
 
     // Check for column names.
-    $this->assertRaw('"Answer","Site report","Location Placetype","Admin Unit","Date created"
-', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"Answer","Site report","Location Placetype","Admin Unit","Date created"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
     $this->assertColumnCount(72, 5);
@@ -482,7 +481,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Core items.
     // Title : Answer All.
-    $this->assertRaw('/questionnaire_answer/1&quot;&gt;Mediocre&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('&quot;&gt;Mediocre&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Category : Location Placetype.
     $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</category>', t('Category is mapped correctly'), t('Devtrac'));
     // Description : Question.
@@ -492,7 +491,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // dc items.
     // Title : Answer All.
-    $this->assertRaw('/questionnaire_answer/1&quot;&gt;Mediocre&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('&quot;&gt;Mediocre&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Category : Location Placetype.
     $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</dc:subject>', t('dc Category is mapped'), t('Devtrac'));
     // Description : Question.
@@ -509,4 +508,3 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</georss:relationshipTag>', t('dc Relationship Tag is mapped correctly'), t('Devtrac'));
   }
 }
-

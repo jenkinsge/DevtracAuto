@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * devtrac_frontpage.views_default.inc
+ * devtrac_frontpage_sitereports.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function devtrac_frontpage_views_default_views() {
+function devtrac_frontpage_sitereports_views_default_views() {
   $export = array();
 
   $view = new view();
@@ -243,7 +243,7 @@ function devtrac_frontpage_views_default_views() {
   $handler->display->display_options['fields']['rendered']['field'] = 'rendered';
   $handler->display->display_options['fields']['rendered']['label'] = '';
   $handler->display->display_options['fields']['rendered']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['rendered']['file_view_mode'] = 'image_export';
+  $handler->display->display_options['fields']['rendered']['file_view_mode'] = 'teaser';
   $export['frontpage_slideshow'] = $view;
 
   return $export;

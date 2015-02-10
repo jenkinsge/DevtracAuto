@@ -3518,6 +3518,7 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
   margin-bottom: 20px;
 }
 
+.page-frontpage-sitereports .block-nodesinblock-1 .field-name-body ,
 .page-frontpage-sitereports .block-nodesinblock-1 .block-title {
   display: none;
 }
