@@ -3621,3 +3621,51 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
   background-color: #333333;
 }
 
+
+
+/*===================================================================================*\
+ * Flexslideshow Styles
+\*===================================================================================*/
+
+/* https://www.drupal.org/files/issues/0001-Issue-2086525-by-alvar0hurtad0-Johnny-vd-Laar-Flexsl_0.patch */
+
+.flexslider {
+  padding: 10px;
+  margin: 0;
+  border: none;
+  box-shadow: 0 0 0 transparent;
+  border-radius: 0;
+  background: none;
+}
+
+.flexslider .slides > li {
+  margin: 0 5px;
+}
+
+.flexslider .flex-direction-nav .flex-prev,
+.flexslider .flex-direction-nav .flex-next {
+  color: transparent;
+  text-shadow: 0 0 0 transparent;
+  background-color: #000000;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.flexslider .flex-direction-nav .flex-prev {
+  background-image: url(../images/pager-icon-left.png);
+}
+
+.flexslider .flex-direction-nav .flex-next {
+  background-image: url(../images/pager-icon-right.png);
+}
+
+.flex-direction-nav a.flex-prev:before ,
+.flex-direction-nav a.flex-next:before {
+  content: normal;
+}
+
+.flexslider:hover .flex-prev ,
+.flexslider:hover .flex-next {
+  opacity: 1.0;
+}
+
