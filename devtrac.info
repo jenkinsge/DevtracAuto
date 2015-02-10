@@ -17,7 +17,6 @@ dependencies[] = file
 dependencies[] = image
 
 ; Core
-dependencies[] = contact
 dependencies[] = contextual
 dependencies[] = list
 dependencies[] = menu
