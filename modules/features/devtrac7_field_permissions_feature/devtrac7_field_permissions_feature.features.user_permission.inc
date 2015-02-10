@@ -120,15 +120,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'better_messages',
   );
 
-  // Exported permission: 'administer contexts'.
-  $permissions['administer contexts'] = array(
-    'name' => 'administer contexts',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'context_ui',
-  );
-
   // Exported permission: 'administer devtrac'.
   $permissions['administer devtrac'] = array(
     'name' => 'administer devtrac',
@@ -246,15 +237,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'role_delegation',
-  );
-
-  // Exported permission: 'context ajax block access'.
-  $permissions['context ajax block access'] = array(
-    'name' => 'context ajax block access',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'context_ui',
   );
 
   // Exported permission: 'create actionitem content'.
