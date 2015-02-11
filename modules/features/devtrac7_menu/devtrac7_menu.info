@@ -7,7 +7,6 @@ project = devtrac7_menu
 dependencies[] = ctools
 dependencies[] = features
 dependencies[] = menu
-dependencies[] = menu_token
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2

@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /**
  * @file
@@ -79,6 +79,11 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
+    // Check for view mode button links.
+    $this->assertLinkByHref('/locations?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+
     // Check that the my-profile menu is absent.
     $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
     $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
@@ -131,6 +136,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // LIST VIEW MODE.
     $this->clickLink('List', 0);
+    $this->assertUrl($this->getAbsoluteUrl('/locations?display=list'), array(), t('User is redirected to the correct page when list view mode link is clicked.'), t('Devtrac'));
 
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
 
@@ -156,6 +162,11 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
+
+    // Check for view mode button links.
+    $this->assertLinkByHref('/locations?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
     $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
@@ -251,7 +262,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<th class="views-field views-field-taxonomy-vocabulary-6" >
             Admin Unit          </th>', t('Admin Unit  column and heading is present on the page..'), t('Devtrac'));
     $this->assertNoRaw('<th class="views-field views-field-virtual-field" >
-                      </th>', t('Virtual field column and heding column and heading is not present on the page..'), t('Devtrac'));
+                      </th>', t('Virtual field column and heading is not present on the page..'), t('Devtrac'));
     
     $this->assertRaw('/location/public-government-school/test-location?display=list">test location</a>          </td>', t('Title table column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-taxonomy-vocabulary-1" >
@@ -261,6 +272,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // GRAPH VIEW MODE.
     $this->clickLink('graphs', 0);
+    $this->assertUrl($this->getAbsoluteUrl('/locations?display=graphs'), array(), t('User is redirected to the correct page when graphs view mode link is clicked.'), t('Devtrac'));
 
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
 
@@ -286,6 +298,11 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
+
+    // Check for view mode button links.
+    $this->assertLinkByHref('/locations?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
     $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
@@ -378,7 +395,8 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     // Latitude.
     $this->assertRaw('"0.556481550015"', t('Latitude field is filled.'), t('Devtrac'));
     // Longtitude.
-    $this->assertRaw('"32.704498222317"', t('Longtitude field is filled.'), t('Devtrac'));
+    $this->assertRaw('"32.704498222317"
+', t('Longtitude field is filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');

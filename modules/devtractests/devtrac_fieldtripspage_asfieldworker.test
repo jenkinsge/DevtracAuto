@@ -388,7 +388,7 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     // ENABLING A FILTER.
     $this->assertRaw('/fieldtrips?display=graphs&amp;f[0]=field_fieldtrip_status%3AApproved"', t('Filter by Approved Status link is present on the page.'), t('Devtrac'));
     // $this->drupalGet('?display=graphs&f[0]=field_fieldtrip_status%3AApproved');
-    $this->clickLinkUsingXpath('Approved', 0, '//*[@id="facetapi-link--11"]');
+    $this->clickLinkUsingXpath('Approved', 0, '//*[@id="facetapi-link--12"]');
 
     // Check for current search block.
     $this->assertRaw('<div class="block block-current-search block-devtrac7-fieldtrips-activefacets block-current-search-devtrac7-fieldtrips-activefacets odd block-without-title" id="block-current-search-devtrac7-fieldtrips-activefacets">
@@ -415,7 +415,6 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/fieldtrips/analyse/kml?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Filtered Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/fieldtrips/analyse/rss?display=graphs&f[0]=field_fieldtrip_status%3AApproved', 0, t('Filtered Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
-    
     $this->drupalGet('');
     $this->clickLink('Field trips');
     $this->clickLink('graphs');
