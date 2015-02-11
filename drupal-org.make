@@ -27,6 +27,10 @@ projects[behavior_weights][version] = "1.0"
 projects[behavior_weights][type] = "module"
 projects[behavior_weights][subdir] = "contrib"
 
+projects[better_messages][version] = "1.x-dev"
+projects[better_messages][type] = "module"
+projects[better_messages][subdir] = "contrib"
+
 projects[blockify][version] = "1.2"
 projects[blockify][type] = "module"
 projects[blockify][subdir] = "contrib"
@@ -38,6 +42,10 @@ projects[charts_graphs][subdir] = "contrib"
 projects[charts_graphs_flot][version] = "1.x-dev"
 projects[charts_graphs_flot][type] = "module"
 projects[charts_graphs_flot][subdir] = "contrib"
+
+projects[chosen][version] = "2.0-beta4"
+projects[chosen][type] = "module"
+projects[chosen][subdir] = "contrib"
 
 projects[ckan_packages][version] = "1.x-dev"
 projects[ckan_packages][type] = "module"
@@ -563,6 +571,11 @@ libraries[autopager][download][type] = "file"
 libraries[autopager][download][url] = "https://jquery-autopager.googlecode.com/files/jquery.autopager-1.0.0.js"
 libraries[autopager][directory_name] = "autopager"
 libraries[autopager][type] = "library"
+
+libraries[chosen][download][type] = "file"
+libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases/download/v1.1.0/chosen_v1.1.0.zip"
+libraries[chosen][directory_name] = "chosen"
+libraries[chosen][type] = "library"
 
 libraries[colorbox][download][type] = "file"
 libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/archive/1.5.14.zip"
