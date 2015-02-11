@@ -162,7 +162,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   /**
    * Fill in a users profile.
    */
-  public function fillInProfile($manageruid, $function, $department, $firstname, $lastname, $about) {
+  public function fillInProfile($manageruid, $function, $department, $firstname, $lastname, $about, $district, $sector) {
     $this->clickLink(t('Edit My Profile'), 0);
     // Fill in the required fields for the profile.
     $manager_account = user_load($manageruid);
@@ -172,13 +172,15 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $profile['field_user_firstname[und][0][value]'] = $firstname;
     $profile['field_user_surname[und][0][value]'] = $lastname;
     $profile['field_user_aboutme[und][0][value]'] = $about;
+    $profile['taxonomy_vocabulary_6[und][]'] = $district;
+    $profile['taxonomy_vocabulary_8[und][]'] = $sector;
     $this->drupalPost(NULL, $profile, t('Save'));
   }
 
   /**
    * Edits a users profile.
    */
-  public function editUserProfile($userid, $manageruid, $function, $department, $firstname, $lastname, $about) {
+  public function editUserProfile($userid, $manageruid, $function, $department, $firstname, $lastname, $about, $district, $sector) {
     $this->clickLink(t('Admin'), 0);
     $this->clickLink(t('People'), 0);
     $this->assertLinkByHref('user/' . $userid . '/edit', 0);
@@ -190,6 +192,8 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $profile['field_user_firstname[und][0][value]'] = $firstname;
     $profile['field_user_surname[und][0][value]'] = $lastname;
     $profile['field_user_aboutme[und][0][value]'] = $about;
+    $profile['taxonomy_vocabulary_6[und][]'] = $district;
+    $profile['taxonomy_vocabulary_8[und][]'] = $sector;
     $this->drupalPost('user/' . $userid . '/edit', $profile, t('Save'));
   }
 
@@ -348,10 +352,12 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     // $this->manager = $this->drupalCreateAdminUser();
     $this->administrator = $this->drupalCreateAdminUser();
     $this->drupalLogin($this->administrator);
-    $this->editUserProfile('1', '1', '11', '16', 'Site', 'Admin', '...');
 
     // Enabling demo data.
     $this->enableDemoData();
+    // Edit User 1's profile.
+    $this->drupalGet('');
+    $this->editUserProfile('1', '1', '11', '16', 'Site', 'Admin', '...', '308', '57');
     // Add a tag to the first image.
     $tag['field_taxonomy_image_tags[und]'] = 'Image Tag 1';
     $this->drupalPost('file/1/edit', $tag, t('Save'));
@@ -365,7 +371,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     // Create a field worker.
     $this->fieldworker = $this->drupalCreateUserWithRole('field worker');
     $this->drupalLogin($this->fieldworker);
-    $this->fillInProfile($this->administrator->uid, '11', '16', 'Test', 'Fieldworker', '...');
+    $this->fillInProfile($this->administrator->uid, '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
 
     // Create a Site Report for edit button test.
     $this->addAFieldtrip('Test Title', 'Test Tag', '9', 100, '01/02/2015');

@@ -78,6 +78,11 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertNoLink('Log in', t('LOG IN link is not present on the page.'), t('Devtrac'));
 
+    // Check for view mode button links.
+    $this->assertLinkByHref('/adminunits?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+
     // Check that the my-profile menu is present.
     $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
     $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
@@ -124,6 +129,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // LIST VIEW MODE.
     $this->clickLink('list', 0);
+    $this->assertUrl($this->getAbsoluteUrl('/adminunits?display=list'), array(), t('User is redirected to the correct page when list view mode link is clicked.'), t('Devtrac'));
 
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
 
@@ -149,6 +155,11 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertNoLink('Log in', t('LOG IN link is not present on the page.'), t('Devtrac'));
+
+    // Check for view mode button links.
+    $this->assertLinkByHref('/adminunits?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is present.
     $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));
@@ -224,9 +235,13 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/adminunits?display=list&f[0]=parents_all%3A3', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/locations?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/images?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Field Trips link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('adminunits/analyse/csv?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/csv?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/kml?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/rss?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Subscribe to RSS link is present on the page.'), t('Devtrac'));
 
     // Check for the columns.
     $this->drupalGet('');
@@ -245,6 +260,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // GRAPH VIEW MODE.
     $this->clickLink('graphs', 0);
+    $this->assertUrl($this->getAbsoluteUrl('/adminunits?display=graphs'), array(), t('User is redirected to the correct page when graphs view mode link is clicked.'), t('Devtrac'));
 
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
 
@@ -270,6 +286,11 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertLink('Users', 0, t('Users link is present on the page.'), t('Devtrac'));
     $this->assertNoLink('Log in', t('LOG IN link is not present on the page.'), t('Devtrac'));
+
+    // Check for view mode button links.
+    $this->assertLinkByHref('/adminunits?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is present.
     $this->assertLink('Welcome, Test', 0, t('My profile menu is present on the page.'), t('Devtrac'));

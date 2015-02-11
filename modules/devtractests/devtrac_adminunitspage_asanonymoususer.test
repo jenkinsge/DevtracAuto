@@ -79,6 +79,11 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
 
+    // Check for view mode button links.
+    $this->assertLinkByHref('/adminunits?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+
     // Check that the my-profile menu is absent.
     $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
     $this->assertNoLink('Add Field Trip', t('Add Field Trip link is not present on the page.'), t('Devtrac'));
@@ -125,6 +130,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
 
     // LIST VIEW MODE.
     $this->clickLink('list', 0);
+    $this->assertUrl($this->getAbsoluteUrl('/adminunits?display=list'), array(), t('User is redirected to the correct page when list view mode link is clicked.'), t('Devtrac'));
 
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
 
@@ -150,6 +156,11 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
+
+    // Check for view mode button links.
+    $this->assertLinkByHref('/adminunits?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
     $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
@@ -227,7 +238,9 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('adminunits/analyse/csv?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/csv?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/kml?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/rss?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Subscribe to RSS link is present on the page.'), t('Devtrac'));
 
     // Check for the columns.
     $this->drupalGet('');
@@ -246,6 +259,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
 
     // GRAPH VIEW MODE.
     $this->clickLink('graphs', 0);
+    $this->assertUrl($this->getAbsoluteUrl('/adminunits?display=graphs'), array(), t('User is redirected to the correct page when graphs view mode link is clicked.'), t('Devtrac'));
 
     $this->assertNoRaw('<h2 class="messages-label error">Error</h2>', t('There are no errors on this page'), t('Devtrac'));
 
@@ -271,6 +285,11 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLinkByHref('/images', 0, t('Images link is present on the page.'), t('Devtrac'));
     $this->assertNoLink('Users', t('Users link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Log in', 0, t('LOG IN link is present on the page.'), t('Devtrac'));
+
+    // Check for view mode button links.
+    $this->assertLinkByHref('/adminunits?display=default', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=list', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check that the my-profile menu is absent.
     $this->assertNoRaw('<a href="/user" title="">Welcome,', t('My profile menu is not present on the page.'), t('Devtrac'));
