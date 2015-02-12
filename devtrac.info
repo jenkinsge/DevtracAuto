@@ -117,7 +117,6 @@ dependencies[] = image_url_formatter
 dependencies[] = jquery_update
 dependencies[] = uuid
 dependencies[] = views
-dependencies[] = views_ui
 dependencies[] = draggableviews
 ; dependencies[] = footable
 dependencies[] = views_geojson
