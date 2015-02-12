@@ -75,6 +75,7 @@ dependencies[] = hidden_comment
 dependencies[] = libraries
 dependencies[] = masonry
 dependencies[] = masonry_views
+dependencies[] = menu_token
 dependencies[] = nice_menus
 dependencies[] = special_menu_items
 dependencies[] = pane
