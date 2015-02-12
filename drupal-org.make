@@ -516,10 +516,6 @@ projects[telephone][version] = "1.0-alpha1"
 projects[telephone][type] = "module"
 projects[telephone][subdir] = "contrib"
 
-projects[adminimal_admin_menu][version] = 1.5
-projects[adminimal_admin_menu][type] = "module"
-projects[adminimal_admin_menu][subdir] = "contrib"
-
 ; Sandbox projects
 projects[cancel_button][type] = "module"
 projects[cancel_button][download][type] = "git"
@@ -555,9 +551,6 @@ projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-call_post_in
 projects[omega][version] = "3.1"
 projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
 projects[omega][type] = "theme"
-
-projects[adminimal_theme][version] = "1.18"
-projects[adminimal_theme][type] = "theme"
 
 ; projects[devtrac7_theme][version] = "1.x-dev"
 projects[devtrac7_theme][type] = "theme"

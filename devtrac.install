@@ -452,7 +452,7 @@ function devtrac_install() {
     ->execute();
 
   // Enable the administration theme.
-  $admin_theme = 'adminimal';
+  $admin_theme = 'seven';
   theme_enable(array($admin_theme));
   variable_set('admin_theme', $admin_theme);
   variable_set('node_admin_theme', '0');

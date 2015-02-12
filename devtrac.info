@@ -30,7 +30,6 @@ dependencies[] = acl
 dependencies[] = content_access
 dependencies[] = content_taxonomy
 dependencies[] = taxonomy_access
-dependencies[] = adminimal_admin_menu
 dependencies[] = ctools
 dependencies[] = charts_graphs
 dependencies[] = flot
