@@ -516,6 +516,18 @@ projects[telephone][version] = "1.0-alpha1"
 projects[telephone][type] = "module"
 projects[telephone][subdir] = "contrib"
 
+projects[flexslider][version] = "2.0-alpha3"
+projects[flexslider][type] = "module"
+projects[flexslider][subdir] = "contrib"
+
+projects[nodesinblock][version] = "1.0"
+projects[nodesinblock][type] = "module"
+projects[nodesinblock][subdir] = "contrib"
+
+projects[openlayers_blocks][version] = "2.1"
+projects[openlayers_blocks][type] = "module"
+projects[openlayers_blocks][subdir] = "contrib"
+
 ; Sandbox projects
 projects[cancel_button][type] = "module"
 projects[cancel_button][download][type] = "git"
