@@ -310,11 +310,6 @@ projects[pane][type] = "module"
 projects[pane][subdir] = "contrib"
 projects[pane][patch][] = "https://www.drupal.org/files/issues/pane-remove-wrapper-markup-2119593-3.patch"
 
-projects[prepopulate][version] = "2.0"
-projects[prepopulate][type] = "module"
-projects[prepopulate][subdir] = "contrib"
-projects[prepopulate][patch][] = "https://www.drupal.org/files/issues/prepopulate_undefined_index_type-1090930-4.patch"
-
 projects[proj4js][version] = "1.2"
 projects[proj4js][type] = "module"
 projects[proj4js][subdir] = "contrib"
