@@ -9,6 +9,9 @@ includes[mountbatten_seo] = https://raw.githubusercontent.com/Mountbatten/mountb
 includes[mountbatten_web_media] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_web_media.make
 includes[mountbatten_sitewide] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_sitewide.make
 
+; Adding the following Mountbatten developer default for demonstration purposes. It installs a lot of ui stuff.
+includes[mountbatten_developer] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_developer.make
+
 ; Modules
 projects[acl][version] = "1.0"
 projects[acl][type] = "module"
