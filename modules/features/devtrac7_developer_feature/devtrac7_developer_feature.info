@@ -8,6 +8,19 @@ dependencies[] = context
 dependencies[] = ctools
 dependencies[] = devel_node_access
 dependencies[] = diff
+
+; Enable more modules, although not needed in this feature.
+dependencies[] = view_mode_tab
+dependencies[] = module_filter
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+; And a lot of visual ui stuff.
+dependencies[] = views_ui
+dependencies[] = field_ui
+dependencies[] = context_ui
+dependencies[] = openlayers_ui
+dependencies[] = delta_ui
+
 features[context][] = devtrac_solr_not_map_views_admin
 features[context][] = devtrac7_developers
 features[ctools][] = context:context:3
