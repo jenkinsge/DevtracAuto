@@ -202,7 +202,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('These are the locations where which have been visited by Devtrac users. These locations are differentiated by their place types as seen on the map. Site reports are filled out for a specific location.', t('Info pane is present on the page'), t('Devtrac'));
 
     // Full text search block
-    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="locations/1" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
+    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="locations" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
   <input type="textfield" name="search_api_aggregation_1" value="" />
   <input type="hidden" name="display" value="list" />
   <div id="edit-actions" class="form-actions form-wrapper">
@@ -228,7 +228,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('"block-pane-locations-info":3', t('Info pane block is collapsed by default.'), t('Devtrac'));
 
     // ENABLING A FILTER.
-    $this->assertRaw('/locations/1?display=list&amp;f[0]=taxonomy_vocabulary_1%253Aparents_all%3A251"', t('Filter by Schools link is present on the page.'), t('Devtrac'));
+    $this->assertRaw('/locations?display=list&amp;f[0]=taxonomy_vocabulary_1%253Aparents_all%3A251"', t('Filter by Schools link is present on the page.'), t('Devtrac'));
     $this->clickLinkUsingXpath('Schools', 0, '//*[@id="facetapi-facet-search-apidevtrac-solr-locations-index-block-taxonomy-vocabulary-1parents-all"]/li[1]/a');
 
     // Check current search counter.
@@ -268,7 +268,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<td class="views-field views-field-taxonomy-vocabulary-1" >
             Public Government School          </td>', t('Location type is filled.'), t('Devtrac'));
     $this->assertLink('Undefined Area', 0, t('Admin Unit is filled.'), t('Devtrac'));
-    $this->assertNoRaw('/edit?destination=locations/1%3Fdisplay%3Dlist&amp;display=list">Edit</a></li>', t('Virtual field column is not filled.'), t('Devtrac'));
+    $this->assertNoRaw('/edit?destination=locations%3Fdisplay%3Dlist&amp;display=list">Edit</a></li>', t('Virtual field column is not filled.'), t('Devtrac'));
 
     // GRAPH VIEW MODE.
     $this->clickLink('graphs', 0);
@@ -338,7 +338,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('These are the locations where which have been visited by Devtrac users. These locations are differentiated by their place types as seen on the map. Site reports are filled out for a specific location.', t('Info pane is present on the page'), t('Devtrac'));
 
     // Full text search block
-    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="locations/1" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
+    $this->assertRaw('<form id="facetapi-textfield-widget-form" class="facetapi-textfield-widget-form" action="locations" method="GET" onsubmit="return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)">
   <input type="textfield" name="search_api_aggregation_1" value="" />
   <input type="hidden" name="display" value="graphs" />
   <div id="edit-actions" class="form-actions form-wrapper">
@@ -365,11 +365,11 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // Check for quick tabs.
     // Location.
-    $this->assertRaw('locations/1?display=graphs&amp;qt-devtrac_locations_graphs_tabs=0#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-3e26345dd1c1606fc1b36c9b90809ecf active">Location</a>', t('Location quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=0#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-3e26345dd1c1606fc1b36c9b90809ecf active">Location</a>', t('Location quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Location', 0, t('Location Quicktab is labeled'), t('Devtrac'));
 
     // Admin Units.
-    $this->assertRaw('/locations/1?display=graphs&amp;qt-devtrac_locations_graphs_tabs=1#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-1" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-82a5306a1b514674d9b0f3017f95a49f active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=1#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-1" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-82a5306a1b514674d9b0f3017f95a49f active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Admin Units', 1, t('Admin Units Quicktab is labeled'), t('Devtrac'));
 
     // CSV.
