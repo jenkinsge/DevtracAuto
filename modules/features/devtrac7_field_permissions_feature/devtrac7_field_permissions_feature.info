@@ -23,7 +23,6 @@ dependencies[] = services
 dependencies[] = system
 dependencies[] = user
 features[features_api][] = api:2
-features[user_permission][] = access administration menu
 features[user_permission][] = access administration pages
 features[user_permission][] = access better messages
 features[user_permission][] = access comments
