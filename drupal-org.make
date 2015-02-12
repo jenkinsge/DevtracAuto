@@ -552,9 +552,6 @@ projects[omega][version] = "3.1"
 projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
 projects[omega][type] = "theme"
 
-projects[shiny][version] = "1.6"
-projects[shiny][type] = "theme"
-
 ; projects[devtrac7_theme][version] = "1.x-dev"
 projects[devtrac7_theme][type] = "theme"
 projects[devtrac7_theme][download][type] = "git"
