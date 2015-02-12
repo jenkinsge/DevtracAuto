@@ -9,6 +9,9 @@ includes[mountbatten_seo] = https://raw.githubusercontent.com/Mountbatten/mountb
 includes[mountbatten_web_media] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_web_media.make
 includes[mountbatten_sitewide] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_sitewide.make
 
+; Adding the following Mountbatten developer default for demonstration purposes. It installs a lot of ui stuff.
+includes[mountbatten_developer] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_developer.make
+
 ; Modules
 projects[acl][version] = "1.0"
 projects[acl][type] = "module"
@@ -263,6 +266,11 @@ projects[me][version] = "1.1"
 projects[me][type] = "module"
 projects[me][subdir] = "contrib"
 
+projects[menu_token][version] = "1.0-beta5"
+projects[menu_token][type] = "module"
+projects[menu_token][subdir] = "contrib"
+projects[menu_token][patch][] = "https://www.drupal.org/files/issues/localized_options-not-set.patch"
+
 projects[migrate][version] = "2.5"
 projects[migrate][type] = "module"
 projects[migrate][subdir] = "contrib"
@@ -304,11 +312,6 @@ projects[pane][version] = "2.5"
 projects[pane][type] = "module"
 projects[pane][subdir] = "contrib"
 projects[pane][patch][] = "https://www.drupal.org/files/issues/pane-remove-wrapper-markup-2119593-3.patch"
-
-projects[prepopulate][version] = "2.0"
-projects[prepopulate][type] = "module"
-projects[prepopulate][subdir] = "contrib"
-projects[prepopulate][patch][] = "https://www.drupal.org/files/issues/prepopulate_undefined_index_type-1090930-4.patch"
 
 projects[proj4js][version] = "1.2"
 projects[proj4js][type] = "module"
@@ -516,6 +519,18 @@ projects[telephone][version] = "1.0-alpha1"
 projects[telephone][type] = "module"
 projects[telephone][subdir] = "contrib"
 
+projects[flexslider][version] = "2.0-alpha3"
+projects[flexslider][type] = "module"
+projects[flexslider][subdir] = "contrib"
+
+projects[nodesinblock][version] = "1.0"
+projects[nodesinblock][type] = "module"
+projects[nodesinblock][subdir] = "contrib"
+
+projects[openlayers_blocks][version] = "2.1"
+projects[openlayers_blocks][type] = "module"
+projects[openlayers_blocks][subdir] = "contrib"
+
 ; Sandbox projects
 projects[cancel_button][type] = "module"
 projects[cancel_button][download][type] = "git"
@@ -551,9 +566,6 @@ projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-call_post_in
 projects[omega][version] = "3.1"
 projects[omega][patch][] = "https://www.drupal.org/files/omega-mini-pager-1828552-49.patch"
 projects[omega][type] = "theme"
-
-projects[shiny][version] = "1.6"
-projects[shiny][type] = "theme"
 
 ; projects[devtrac7_theme][version] = "1.x-dev"
 projects[devtrac7_theme][type] = "theme"
