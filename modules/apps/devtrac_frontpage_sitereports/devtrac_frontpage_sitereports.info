@@ -1,5 +1,5 @@
-name = "Devtrac Frontpage Sitereports"
-description = "Adds capability to define a custom front page based on sitereports for devtrac."
+name = "Devtrac Frontpage Sitereports App"
+description = "App that defines a custom front page based on sitereports for devtrac."
 core = "7.x"
 package = "Devtrac Apps"
 
