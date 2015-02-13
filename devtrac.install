@@ -978,6 +978,9 @@ function devtrac_install_finished(&$install_state) {
   // Setting the marker here and now.
   variable_set('devtrac_menu_rebuild_needed', TRUE);
 
+  // Set the default frontpage to 'sitereports'.
+  variable_set('site_frontpage', 'sitereports');
+
   if (isset($messages['error'])) {
     $output = '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
     return $output;

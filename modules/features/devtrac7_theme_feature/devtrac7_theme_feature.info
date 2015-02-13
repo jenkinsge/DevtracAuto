@@ -132,5 +132,4 @@ features[variable][] = modal_forms_login
 features[variable][] = node_admin_theme
 features[variable][] = realname_fields
 features[variable][] = realname_pattern
-features[variable][] = site_frontpage
 mtime = 1420700927
