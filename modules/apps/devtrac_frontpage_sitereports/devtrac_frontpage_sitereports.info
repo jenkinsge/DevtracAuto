@@ -1,0 +1,8 @@
+name = "Devtrac Frontpage Sitereports"
+description = "Adds capability to define a custom front page based on sitereports for devtrac."
+core = "7.x"
+package = "Devtrac Apps"
+
+dependencies[] = devtrac_frontpage_sitereports_feature
+
+files[] = devtrac_frontpage_sitereports.module
