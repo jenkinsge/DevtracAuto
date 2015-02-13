@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * devtrac_frontpage_sitereports.views_default.inc
+ * devtrac_frontpage_sitereports_feature.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function devtrac_frontpage_sitereports_views_default_views() {
+function devtrac_frontpage_sitereports_feature_views_default_views() {
   $export = array();
 
   $view = new view();

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * devtrac_frontpage_sitereports.context.inc
+ * devtrac_frontpage_sitereports_feature.context.inc
  */
 
 /**
  * Implements hook_context_default_contexts().
  */
-function devtrac_frontpage_sitereports_context_default_contexts() {
+function devtrac_frontpage_sitereports_feature_context_default_contexts() {
   $export = array();
 
   $context = new stdClass();

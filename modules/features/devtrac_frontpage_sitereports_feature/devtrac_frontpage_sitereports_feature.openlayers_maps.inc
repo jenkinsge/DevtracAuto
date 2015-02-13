@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * devtrac_frontpage_sitereports.openlayers_maps.inc
+ * devtrac_frontpage_sitereports_feature.openlayers_maps.inc
  */
 
 /**
  * Implements hook_openlayers_maps().
  */
-function devtrac_frontpage_sitereports_openlayers_maps() {
+function devtrac_frontpage_sitereports_feature_openlayers_maps() {
   $export = array();
 
   $openlayers_maps = new stdClass();

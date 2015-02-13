@@ -4,4 +4,4 @@
  * Code for the Devtrac Frontpage Sitereports feature.
  */
 
-include_once 'devtrac_frontpage_sitereports.features.inc';
+include_once 'devtrac_frontpage_sitereports_feature.features.inc';

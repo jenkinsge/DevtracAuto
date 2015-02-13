@@ -1,9 +1,9 @@
-name = Devtrac Frontpage Sitereports
+name = Devtrac Frontpage Sitereports Feature
 description = Contains module settings for creating a frontpage
 core = 7.x
 package = Features
 version = 7.x-1.0
-project = devtrac_frontpage_sitereports
+project = devtrac_frontpage_sitereports_feature
 dependencies[] = context
 dependencies[] = flexslider_views
 dependencies[] = nodesinblock
