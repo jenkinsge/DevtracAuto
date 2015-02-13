@@ -277,7 +277,17 @@ function devtrac_install() {
   // After the save we'll get a nid.
   node_save($node);
   // Set the Access denied (403) page variable to te appropriate value.
-  variable_set('site_403', 'node/' . $node->nid);
+  if (module_exists('r4032login')) {
+    variable_set('site_403', 'r4032login');
+    variable_set('r4032login_display_denied_message', TRUE);
+    variable_set('r4032login_access_denied_message', 'Access denied. You must log in to view this page.');
+    variable_set('r4032login_redirect_authenticated_users_to', 'node/' . $node->nid);
+    variable_set('r4032login_user_login_path', 'user/login');
+    variable_set('r4032login_default_redirect_code', '302');
+  }
+  else {
+    variable_set('site_403', 'node/' . $node->nid);
+  }
   // Clean up.
   unset($node);
   // Create a Page not found (404) page.
