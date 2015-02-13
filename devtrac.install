@@ -981,6 +981,12 @@ function devtrac_install_finished(&$install_state) {
   // Set the default frontpage to 'sitereports'.
   variable_set('site_frontpage', 'sitereports');
 
+  // Disable the devtrac_imports module.
+  $modules = array(
+    'devtrac_imports',
+  );
+  module_disable($modules);
+
   if (isset($messages['error'])) {
     $output = '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
     return $output;
