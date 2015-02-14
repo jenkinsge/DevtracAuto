@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * devtrac_frontpage_sitereports.strongarm.inc
+ * devtrac_frontpage_sitereports_feature.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function devtrac_frontpage_sitereports_strongarm() {
+function devtrac_frontpage_sitereports_feature_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

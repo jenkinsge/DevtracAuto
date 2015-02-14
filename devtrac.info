@@ -86,6 +86,7 @@ dependencies[] = publishcontent
 dependencies[] = quicktabs
 dependencies[] = realname
 dependencies[] = robotstxt
+dependencies[] = r4032login
 dependencies[] = strongarm
 dependencies[] = tipsy
 dependencies[] = transliteration
