@@ -828,30 +828,6 @@ function devtrac_solr_configure_form_submit($form, &$form_state) {
     'value' => $drupal_hash_salt,
   );
 
-  $settings["conf['search_api_override_mode']"] = array(
-    'value' => 'load',
-    'required' => TRUE,
-  );
-  $settings["conf['search_api_override_servers']"] = array(
-    'value' => array(
-      'devtrac_solr_server' => array(
-        'name' => 'Devtrac Solr Server (Overridden)',
-        'options' => array(
-          'host' => $form_state['values']['host'],
-          'port' => $form_state['values']['port'],
-          'path' => $form_state['values']['path'],
-          'http_user' => '',
-          'http_pass' => '',
-          'excerpt' => 0,
-          'retrieve_data' => 0,
-          'highlight_data' => 0,
-          'http_method' => 'POST',
-        ),
-      ),
-    ),
-    'required' => TRUE,
-  );
-
   //Do the actual write to settings.php.
   drupal_rewrite_settings($settings);
 }

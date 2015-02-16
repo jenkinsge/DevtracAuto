@@ -402,10 +402,6 @@ projects[search_api_solr_dynamic_ranges][version] = "1.x-dev"
 projects[search_api_solr_dynamic_ranges][type] = "module"
 projects[search_api_solr_dynamic_ranges][subdir] = "contrib"
 
-projects[search_api_override][version] = "1.0-rc1"
-projects[search_api_override][type] = "module"
-projects[search_api_override][subdir] = "contrib"
-
 projects[search_api_swatches][version] = "1.x-dev"
 projects[search_api_swatches][type] = "module"
 projects[search_api_swatches][subdir] = "contrib"

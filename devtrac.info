@@ -93,7 +93,6 @@ dependencies[] = transliteration
 dependencies[] = globalredirect
 dependencies[] = mapit
 dependencies[] = search_api
-dependencies[] = search_api_override
 dependencies[] = search_api_autocomplete
 dependencies[] = search_api_date
 dependencies[] = search_api_saved_searches
