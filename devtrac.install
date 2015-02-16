@@ -770,68 +770,6 @@ function _devtrac_filter_dependencies($dependency) {
   return !module_exists($dependency);
 }
 
-/**
- * Inplements devtrac_solr_configure_form()
- */
-function devtrac_solr_configure_form() {
-  drupal_set_title(st('Configure Solr Settings'));
-
-  $form['solr'] = array(
-    '#type' => 'fieldset',
-    '#title' => st('Solr Settings'),
-  );
-  $form['solr']['host'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Host'),
-    '#default_value' => 'localhost',
-    '#maxlength' => 64,
-    '#description' => t('Add hostname or IP address of your solr server.'),
-    '#required' => FALSE,
-    '#weight' => -20,
-  );
-  $form['solr']['port'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Port'),
-    '#default_value' => '8080',
-    '#maxlength' => 64,
-    '#description' => t('Port number where your solr server can be reached. 8080 is the default for a solr installation in Tomcat.'),
-    '#required' => FALSE,
-    '#weight' => -19,
-  );
-  $form['solr']['path'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Path'),
-    '#default_value' => '/solr',
-    '#maxlength' => 64,
-    '#description' => t('Path to your solr instance.'),
-    '#required' => FALSE,
-    '#weight' => -18,
-  );
-
-  $form['actions'] = array('#type' => 'actions');
-  $form['actions']['submit'] = array(
-    '#type' => 'submit',
-    '#value' => st('Create and Continue'),
-    '#weight' => 15,
-  );
-  return $form;
-}
-
-function devtrac_solr_configure_form_submit($form, &$form_state) {
-  global $databases, $drupal_hash_salt;
-
-  $settings = array();
-  $settings['databases'] = array(
-    'value' => $databases,
-  );
-  $settings['drupal_hash_salt'] = array(
-    'value' => $drupal_hash_salt,
-  );
-
-  //Do the actual write to settings.php.
-  drupal_rewrite_settings($settings);
-}
-
 function devtrac_date_format_form() {
   module_load_include('inc', 'system', 'system.admin');
   $date_time_settings = system_date_time_settings();
