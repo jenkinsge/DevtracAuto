@@ -590,6 +590,11 @@ libraries[FirePHPCore][download][url] = "https://github.com/firephp/firephp-core
 libraries[FirePHPCore][directory_name] = "FirePHPCore"
 libraries[FirePHPCore][type] = "library"
 
+libraries[flexslider][download][type] = "file"
+libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/archive/master.zip"
+libraries[flexslider][directory_name] = "flexslider"
+libraries[flexslider][type] = "library"
+
 libraries[flot][download][type] = "file"
 libraries[flot][download][url] = "https://flot.googlecode.com/files/flot-0.7.tar.gz"
 libraries[flot][directory_name] = "flot"
