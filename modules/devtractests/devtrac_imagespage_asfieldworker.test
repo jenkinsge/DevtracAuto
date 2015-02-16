@@ -145,7 +145,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('"block-facetapi-p874lkjf183h8nuvpjuzqb0hg1bjebo7":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
 
     // Sector block id block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty
-    $this->assertRaw('"block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty":3', t('Sector block is collapsed by default.'), t('Devtrac'));
+    $this->assertRaw('"block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty":2', t('Sector block is expanded by default.'), t('Devtrac'));
 
     // Date Visited block id block-facetapi-hbwkp77vlaaot15ngzque60gdbns6wpl
     $this->assertRaw('"block-facetapi-hbwkp77vlaaot15ngzque60gdbns6wpl":3', t('Date Visited block is collapsed by default.'), t('Devtrac'));
@@ -186,7 +186,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('list');
 
     // Check for order of Facets.
-    $order = array('Admin Unit', 'Sector', 'Date Visited', 'Location', 'Tags', 'User', 'Manager');
+    $order = array('Sector', 'Admin Unit', 'Date Visited', 'Location', 'Tags', 'User', 'Manager');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
@@ -310,7 +310,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('"block-facetapi-p874lkjf183h8nuvpjuzqb0hg1bjebo7":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
 
     // Sector block id block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty
-    $this->assertRaw('"block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty":3', t('Sector block is collapsed by default.'), t('Devtrac'));
+    $this->assertRaw('"block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty":2', t('Sector block is expanded by default.'), t('Devtrac'));
 
     // Date Visited block id block-facetapi-hbwkp77vlaaot15ngzque60gdbns6wpl
     $this->assertRaw('"block-facetapi-hbwkp77vlaaot15ngzque60gdbns6wpl":3', t('Date Visited block is collapsed by default.'), t('Devtrac'));
@@ -344,7 +344,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('graphs');
 
     // Check for order of Facets.
-    $order = array('Admin Unit', 'Sector', 'Date Visited', 'Location', 'Tags', 'User', 'Manager');
+    $order = array('Sector', 'Admin Unit', 'Date Visited', 'Location', 'Tags', 'User', 'Manager');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
@@ -487,7 +487,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Grid');
 
     // Check for order of Facets.
-    $order = array('Admin Unit', 'Sector', 'Date Visited', 'Location', 'Tags', 'User', 'Manager');
+    $order = array('Sector', 'Admin Unit', 'Date Visited', 'Location', 'Tags', 'User', 'Manager');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
@@ -580,7 +580,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('"block-facetapi-p874lkjf183h8nuvpjuzqb0hg1bjebo7":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
 
     // Sector block id block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty
-    $this->assertRaw('"block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty":3', t('Sector block is collapsed by default.'), t('Devtrac'));
+    $this->assertRaw('"block-facetapi-qvgb2ckccz2g8sbizployqz5lounyrty":2', t('Sector block is expanded by default.'), t('Devtrac'));
 
     // Date Visited block id block-facetapi-hbwkp77vlaaot15ngzque60gdbns6wpl
     $this->assertRaw('"block-facetapi-hbwkp77vlaaot15ngzque60gdbns6wpl":3', t('Date Visited block is collapsed by default.'), t('Devtrac'));
