@@ -522,6 +522,7 @@ projects[flexslider][subdir] = "contrib"
 projects[nodesinblock][version] = "1.0"
 projects[nodesinblock][type] = "module"
 projects[nodesinblock][subdir] = "contrib"
+projects[nodesinblock][patch][] = "https://www.drupal.org/files/nodesinblock-349507-1.patch"
 
 projects[openlayers_blocks][version] = "2.1"
 projects[openlayers_blocks][type] = "module"
