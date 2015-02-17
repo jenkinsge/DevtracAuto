@@ -439,8 +439,8 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLink('test location', 0, t('Location column is filled.'), t('Devtrac'));
     $this->assertRaw('Site Visit at test location', t('Site Visit column is filled'), t('Devtrac'));
     $this->assertLink('Undefined Area', 0, t('Admin Unit column is filled.'), t('Devtrac'));
-    $this->assertRaw('<td class="views-field views-field-field-ftritem-date-visited active" >
-            <span class="date-display-single">' . date("d-m-Y") . '</span>          </td>', t('Date Visited column is filled.'), t('Devtrac'));
+    $this->assertRaw('<td class="views-field views-field-created active" >
+            ' . date("d-m-Y") . '          </td>', t('Date Visited column is filled.'), t('Devtrac'));
     /*$this->assertRaw('/users/admin?display=list">admin</a>          </td>', t('Owner column is filled.'), t('Devtrac'));*/
 
     $this->drupalGet('statistics/analyse/csv');

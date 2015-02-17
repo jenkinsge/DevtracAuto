@@ -33,6 +33,10 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: Indexed Answer: Questionnaire */
+  $handler->display->display_options['relationships']['questionnaire_id']['id'] = 'questionnaire_id';
+  $handler->display->display_options['relationships']['questionnaire_id']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['relationships']['questionnaire_id']['field'] = 'questionnaire_id';
   /* Field: Indexed Answer: Answer ID */
   $handler->display->display_options['fields']['id']['id'] = 'id';
   $handler->display->display_options['fields']['id']['table'] = 'search_api_index_answers';
