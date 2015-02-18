@@ -83,7 +83,7 @@ function devtrac7_solr_search_act_item_feature_context_default_contexts() {
           'module' => 'facetapi',
           'delta' => '1RwXJ6vSSjf01xGzXPu5MxC5EUqVVnVe',
           'region' => 'sidebar_first',
-          'weight' => '-5',
+          'weight' => '-6',
         ),
         'facetapi-8CK8UQCGOSot5OfNHtoLaDrLqz02LkDm' => array(
           'module' => 'facetapi',
@@ -119,7 +119,7 @@ function devtrac7_solr_search_act_item_feature_context_default_contexts() {
           'module' => 'facetapi',
           'delta' => 'yrRE28GaTXo7F09IvqpDh2nrR2YJa14p',
           'region' => 'sidebar_first',
-          'weight' => '-6',
+          'weight' => '-5',
         ),
         'facetapi-JuH0lIko1i0PKeepVDfE5JRI5goYRG57' => array(
           'module' => 'facetapi',
