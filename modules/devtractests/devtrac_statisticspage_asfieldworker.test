@@ -443,7 +443,12 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
             ' . date("d-m-Y") . '          </td>', t('Date Visited column is filled.'), t('Devtrac'));
     /*$this->assertRaw('/users/admin?display=list">admin</a>          </td>', t('Owner column is filled.'), t('Devtrac'));*/
 
-    $this->drupalGet('statistics/analyse/csv');
+    // CSV.
+    $this->drupalGet('');
+    $this->clickLink('Statistics', 0);
+
+    $this->clickLink('How would you rate this school?', 0);
+    $this->drupalGet('Export to CSV', 0);
 
     // Check for column names.
     $this->assertRaw('"Answer","Site report","Location Placetype","Admin Unit","Date created"', t('All column names are present.'), t('Devtrac'));
@@ -464,7 +469,11 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('"' . date("d-m-Y") . '"', t('Date Created field is filled.'), t('Devtrac'));
 
     // KML.
-    $this->drupalGet('statistics/analyse/kml');
+    $this->drupalGet('');
+    $this->clickLink('Statistics', 0);
+
+    $this->clickLink('How would you rate this school?', 0);
+    $this->drupalGet('Export to KML', 0);
     // Name : Title.
     $this->assertNoRaw('<name>
     <![CDATA[Education policy and administrative management]]>', t('Name field is mapped correctly.'), t('Devtrac'));
@@ -476,8 +485,13 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertNoRaw('<Point>
     <coordinates>,,0</coordinates>
   </Point>', t('Coordinates field is mapped correctly.'), t('Devtrac'));
-    
-    $this->drupalGet('statistics/analyse/rss');
+
+    // RSS.
+    $this->drupalGet('');
+    $this->clickLink('Statistics', 0);
+
+    $this->clickLink('How would you rate this school?', 0);
+    $this->drupalGet('Subscribe to RSS Feed', 0);
 
     // Core items.
     // Title : Answer All.
