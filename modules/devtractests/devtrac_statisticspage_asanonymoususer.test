@@ -446,7 +446,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('Statistics', 0);
 
     $this->clickLink('How would you rate this school?', 0);
-    $this->drupalGet('Export to CSV', 0);
+    $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
     $this->assertRaw('"Answer","Site report","Location Placetype","Admin Unit","Date created"', t('All column names are present.'), t('Devtrac'));
@@ -471,7 +471,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('Statistics', 0);
 
     $this->clickLink('How would you rate this school?', 0);
-    $this->drupalGet('Export to KML', 0);
+    $this->clickLink('Export to KML', 0);
     // Name : Title.
     $this->assertNoRaw('<name>
     <![CDATA[Education policy and administrative management]]>', t('Name field is mapped correctly.'), t('Devtrac'));
@@ -489,7 +489,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('Statistics', 0);
 
     $this->clickLink('How would you rate this school?', 0);
-    $this->drupalGet('Subscribe to RSS Feed', 0);
+    $this->clickLink('Subscribe to RSS Feed', 0);
 
     // Core items.
     // Title : Answer All.
