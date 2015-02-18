@@ -273,7 +273,7 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertNoRaw('<th data-hide="phone" class="views-field views-field-virtual-field" ></th>', t('Button table column and heading is not present on the page.'), t('Devtrac'));
 
     // Check that data is displayed in each column.
-    $this->assertRaw('/file/images/admin/11110png?display=list">11110.png</a></h2>', t('Image column is filled.'), t('Devtrac'));
+    $this->assertRaw('/file/images/site-admin/11110png?display=list">11110.png</a></h2>', t('Image column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-field-file-image-title-text" >
             Education policy and administrative management          </td>', t('Title column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-taxonomy-vocabulary-6-1" >
@@ -582,10 +582,10 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
-    $this->assertRaw('"File name","Title","Districts","Sectors","Date Visited","URL"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"File name","Title","Districts","Sectors","Date Visited","Owner","URL"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
-    $this->assertColumnCount(63, 6);
+    $this->assertColumnCount(70, 7);
 
     // Fields.
     // File Name.
