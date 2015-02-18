@@ -591,8 +591,8 @@ libraries[FirePHPCore][download][url] = "https://github.com/firephp/firephp-core
 libraries[FirePHPCore][directory_name] = "FirePHPCore"
 libraries[FirePHPCore][type] = "library"
 
-libraries[flexslider][download][type] = "file"
-libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/archive/master.zip"
+libraries[flexslider][download][type] = "get"
+libraries[flexslider][download][url] = "https://github.com/woothemes/FlexSlider/zipball/master"
 libraries[flexslider][directory_name] = "flexslider"
 libraries[flexslider][type] = "library"
 
