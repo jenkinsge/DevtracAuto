@@ -282,7 +282,7 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['fields']['question']['field'] = 'question';
   $handler->display->display_options['fields']['question']['exclude'] = TRUE;
   $handler->display->display_options['fields']['question']['link_to_entity'] = 0;
-  $handler->display->display_options['path'] = 'statistics/analyse/csv';
+  $handler->display->display_options['path'] = 'statistics/answers/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'graphs' => 'graphs',
@@ -340,7 +340,7 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
     'data' => 'full',
     'format' => 'decimal_degrees',
   );
-  $handler->display->display_options['path'] = 'statistics/analyse/kml';
+  $handler->display->display_options['path'] = 'statistics/answers/analyse/kml';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'graphs' => 'graphs',
@@ -494,7 +494,7 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['bypass_access'] = 0;
-  $handler->display->display_options['path'] = 'statistics/analyse/rss';
+  $handler->display->display_options['path'] = 'statistics/answers/analyse/rss';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'graphs' => 'graphs',
