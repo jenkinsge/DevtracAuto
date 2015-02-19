@@ -513,7 +513,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     // Type : Location Placetype.
     $this->assertRaw('/devtracorgtest/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</dc:type>', t('dc Type is mapped'), t('Devtrac'));
     // Identifier : Answer Id.
-    $this->assertRaw('<dc:identifier>2</dc:identifier>', t('dc Identifier is mapped'), t('Devtrac'));
+    $this->assertRaw('<dc:identifier>1</dc:identifier>', t('dc Identifier is mapped'), t('Devtrac'));
 
     // georss items.
     // Relationship Tag : Location Placetype.
