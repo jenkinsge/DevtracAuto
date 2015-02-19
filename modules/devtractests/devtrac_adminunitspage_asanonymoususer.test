@@ -108,7 +108,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('\u003Cdiv class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-field-district-category\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-district-index-block-field-district-category\u0022\u003E', t('Tags search list is present on the page'), t('Devtrac'));
 
     // Check for Admin Unit counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">18 Admin Units</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">19 Admin Units</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
     $this->assertRaw('\u003Cp\u003EThis is the first level of Admin Units. The district page has a list or map of the districts of Uganda. Click on the icons to have a small overview of the district including the site reports of users that have visited the district and the photos they have taken.\u003C\/p\u003E', t('Info pane is present on the page'), t('Devtrac'));
@@ -186,7 +186,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-district-category" id="facetapi-facet-search-apidevtrac-solr-district-index-block-field-district-category">', t('Tags search list is present on the page'), t('Devtrac'));
 
     // Check for Admin Unit counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">18 Admin Units</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">19 Admin Units</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
     $this->assertRaw('<p>This is the first level of Admin Units. The district page has a list or map of the districts of Uganda. Click on the icons to have a small overview of the district including the site reports of users that have visited the district and the photos they have taken.</p>', t('Info pane is present on the page'), t('Devtrac'));
@@ -224,7 +224,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLinkUsingXpath('Uganda', 0, '//*[@id="facetapi-link--8"]');
 
     // Check current search counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">15 Admin Units</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">16 Admin Units</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
 
     // Check for current search block.
     $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-districts-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
@@ -315,7 +315,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-district-category" id="facetapi-facet-search-apidevtrac-solr-district-index-block-field-district-category">', t('Tags search list is present on the page'), t('Devtrac'));
 
     // Check for Admin Unit counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">18 Admin Units</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">19 Admin Units</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
     $this->assertRaw('<p>This is the first level of Admin Units. The district page has a list or map of the districts of Uganda. Click on the icons to have a small overview of the district including the site reports of users that have visited the district and the photos they have taken.</p>', t('Info pane is present on the page'), t('Devtrac'));

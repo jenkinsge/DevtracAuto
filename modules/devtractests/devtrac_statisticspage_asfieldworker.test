@@ -460,7 +460,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     // Answer.
     $this->assertRaw('"Mediocre"', t('Answer field is filled.'), t('Devtrac'));
     // Site report.
-    $this->assertNoRaw('"Site Visit at test location"', t('Site report field is not filled.'), t('Devtrac'));
+    $this->assertRaw('"Site Visit at test location"', t('Site report field is not filled.'), t('Devtrac'));
     // Location Placetype.
     $this->assertRaw('"Public Government School"', t('Location Placetype field is filled.'), t('Devtrac'));
     // Admin Unit.
