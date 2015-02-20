@@ -239,7 +239,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">2 Answers</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
-    $this->assertRaw('<p>The statistics page is where summaries and graphical representation of the data in the system can be viewed. Try out different filter options to analyse the data graphically.</p>', t('Info pane is present on the page'), t('Devtrac'));
+    $this->assertRaw('<p>The answers page is where tabular and graphical representations of responses to questionnaires filled out during field reporting can be viewed. Try out different filter options to analyse the data graphically or download it for offline analysis.</p>', t('Info pane is present on the page'), t('Devtrac'));
 
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -255,8 +255,8 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     // Location block id block-facetapi-pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv
     $this->assertRaw('"block-facetapi-pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv":3', t('Location block is collapsed by default.'), t('Devtrac'));
 
-    // Information pane block id block-pane-statistics-info
-    $this->assertRaw('"block-pane-statistics-info":3', t('Information pane block is collapsed by default.'), t('Devtrac'));
+    // Information pane block id block-pane-answers-info
+    $this->assertRaw('"block-pane-answers-info":3', t('Information pane block is collapsed by default.'), t('Devtrac'));
 
     // Check for no : in Date Visited.
     // High level.
@@ -293,6 +293,9 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Statistics', 0);
 
     $this->clickLink('How would you rate this school?', 0);
+
+    // Assert Question Presence.
+    $this->assertText('How would you rate this school?', t('Question is present on the page.'), t('Devtrac'));
 
     // Districts.
     $this->assertRaw('/statistics/answers?f[0]=question%3A29&amp;qt-devtrac_statistics_graphs_tabs=2#qt-devtrac_statistics_graphs_tabs" id="quicktabs-tab-devtrac_statistics_graphs_tabs-2" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-f9c6d54f34c84f80e6bf9e37b776f138 active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
@@ -362,7 +365,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">2 Answers</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
-    $this->assertRaw('<p>The statistics page is where summaries and graphical representation of the data in the system can be viewed. Try out different filter options to analyse the data graphically.</p>', t('Info pane is present on the page'), t('Devtrac'));
+    $this->assertRaw('<p>The answers page is where tabular and graphical representations of responses to questionnaires filled out during field reporting can be viewed. Try out different filter options to analyse the data graphically or download it for offline analysis.</p>', t('Info pane is present on the page'), t('Devtrac'));
 
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -378,8 +381,8 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     // Location block id block-facetapi-pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv
     $this->assertRaw('"block-facetapi-pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv":3', t('Location block is collapsed by default.'), t('Devtrac'));
 
-    // Information pane block id block-pane-statistics-info
-    $this->assertRaw('"block-pane-statistics-info":3', t('Information pane block is collapsed by default.'), t('Devtrac'));
+    // Information pane block id block-pane-answers-info
+    $this->assertRaw('"block-pane-answers-info":3', t('Information pane block is collapsed by default.'), t('Devtrac'));
 
     // Check for no : in Date Visited.
     // High level.
@@ -421,6 +424,9 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
 
     $this->clickLink('How would you rate this school?', 0);
     $this->clickLink('List', 0);
+
+    // Assert Question Presence.
+    $this->assertText('How would you rate this school?', t('Question is present on the page.'), t('Devtrac'));
     
     // Check for table.
     // Columns and Headings.

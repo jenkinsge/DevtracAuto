@@ -502,7 +502,7 @@ table tbody tr.even td.active {
 }
 
 .block-without-title h2.views-field-questionnaire-answer-question {
-  display: none;
+  /* display: none; */
 }
 
 
