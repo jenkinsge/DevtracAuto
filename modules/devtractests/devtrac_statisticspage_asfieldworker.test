@@ -112,7 +112,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLink('How would you rate this water point?', 0, t('First question is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
-    $this->assertRaw('<p>The statistics page is where summaries and graphical representation of the data in the system can be viewed. Try out different filter options to analyse the data graphically.</p>', t('Info pane is present on the page'), t('Devtrac'));
+    $this->assertRaw('The statistics page is where summaries and graphical representation of the data in the system can be viewed. Try out different filter options to analyse the data graphically.', t('Info pane is present on the page'), t('Devtrac'));
 
     
     // Check for Facet default state (expanded or collapsed).
@@ -239,7 +239,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">2 Answers</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
-    $this->assertRaw('<p>The answers page is where tabular and graphical representations of responses to questionnaires filled out during field reporting can be viewed. Try out different filter options to analyse the data graphically or download it for offline analysis.</p>', t('Info pane is present on the page'), t('Devtrac'));
+    $this->assertRaw('The answers page is where tabular and graphical representations of responses to questionnaires filled out during field reporting can be viewed. Try out different filter options to analyse the data graphically or download it for offline analysis.', t('Info pane is present on the page'), t('Devtrac'));
 
     // Check for Facet default state (expanded or collapsed).
     // Check.
@@ -365,7 +365,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">2 Answers</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
-    $this->assertRaw('<p>The answers page is where tabular and graphical representations of responses to questionnaires filled out during field reporting can be viewed. Try out different filter options to analyse the data graphically or download it for offline analysis.</p>', t('Info pane is present on the page'), t('Devtrac'));
+    $this->assertRaw('The answers page is where tabular and graphical representations of responses to questionnaires filled out during field reporting can be viewed. Try out different filter options to analyse the data graphically or download it for offline analysis.', t('Info pane is present on the page'), t('Devtrac'));
 
     // Check for Facet default state (expanded or collapsed).
     // Check.
