@@ -1944,14 +1944,15 @@ div .collapsiblockCollapsed a {
   float: right;
   height: 26px;
   width: 30px;
-  background: #151515 url(../images/search-icon.png) no-repeat 50% 50%;
+  background: #151515 url(../images/search-icon.png) no-repeat 50% 18%;
   background-size: 16px 16px;
   color: transparent;
   border-radius: 0;
+  padding-top: 40px;
 }
 
 .block-facetapi form input[type='submit']:hover {
-  background: #151515 url(../images/search-icon.png) no-repeat 50% 50%;
+  background: #151515 url(../images/search-icon.png) no-repeat 50% 18%;
 }
 /*
 
