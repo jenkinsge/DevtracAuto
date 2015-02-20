@@ -471,6 +471,10 @@ function devtrac_install() {
   $default_theme = 'devtrac_classic';
   theme_enable(array($default_theme));
   variable_set('theme_default', $default_theme);
+  db_update('system')
+    ->fields(array('weight' => '1'))
+    ->condition('name', 'devtrac_classic')
+    ->execute();
 }
 
 /**

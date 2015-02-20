@@ -515,10 +515,6 @@ projects[telephone][version] = "1.0-alpha1"
 projects[telephone][type] = "module"
 projects[telephone][subdir] = "contrib"
 
-projects[flexslider][version] = "2.0-alpha3"
-projects[flexslider][type] = "module"
-projects[flexslider][subdir] = "contrib"
-
 projects[nodesinblock][version] = "1.0"
 projects[nodesinblock][type] = "module"
 projects[nodesinblock][subdir] = "contrib"
@@ -590,11 +586,6 @@ libraries[FirePHPCore][download][type] = "file"
 libraries[FirePHPCore][download][url] = "https://github.com/firephp/firephp-core/archive/master.zip"
 libraries[FirePHPCore][directory_name] = "FirePHPCore"
 libraries[FirePHPCore][type] = "library"
-
-libraries[flexslider][download][type] = "file"
-libraries[flexslider][download][url] = "https://codeload.github.com/woothemes/FlexSlider/zip/version/2.2"
-libraries[flexslider][directory_name] = "flexslider"
-libraries[flexslider][type] = "library"
 
 libraries[flot][download][type] = "file"
 libraries[flot][download][url] = "https://flot.googlecode.com/files/flot-0.7.tar.gz"
