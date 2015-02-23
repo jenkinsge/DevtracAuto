@@ -58,10 +58,6 @@ projects[collapsiblock][version] = "1.0"
 projects[collapsiblock][type] = "module"
 projects[collapsiblock][subdir] = "contrib"
 
-projects[colorbox][version] = "2.8"
-projects[colorbox][type] = "module"
-projects[colorbox][subdir] = "contrib"
-
 projects[content_access][version] = "1.2-beta2"
 projects[content_access][type] = "module"
 projects[content_access][subdir] = "contrib"
