@@ -58,7 +58,7 @@ function devtrac7_solr_search_answers_feature_default_search_api_index() {
       "cron_limit" : "50",
       "fields" : {
         "answernumber" : { "type" : "decimal" },
-        "answertext" : { "type" : "text" },
+        "answertext" : { "type" : "string" },
         "context_id" : { "type" : "integer" },
         "created" : { "type" : "date" },
         "question" : { "type" : "integer", "entity_type" : "node" },
