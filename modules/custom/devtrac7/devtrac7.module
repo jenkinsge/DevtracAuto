@@ -1498,8 +1498,8 @@ function devtrac7_createsubmitcomment($node) {
   $comment = new stdClass();
   $comment->cid = 0;
   $comment->pid = 0;
-  $comment->uid = $superior->uid;
-  $comment->name = $superior->name;
+  $comment->uid = $author->uid;
+  $comment->name = $author->name;
   $comment->language = LANGUAGE_NONE;
   $comment->nid = $node->nid;
   $comment->subject = t('Needs your approval');
