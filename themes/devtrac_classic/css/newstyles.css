@@ -2139,6 +2139,7 @@ div .collapsiblockCollapsed a {
 }
 
 .olControlPanel.olControlNoSelect .olButton[original-title='Site reports'] ,
+.olControlPanel.olControlNoSelect .olButton[original-title='Images'] ,
 .olControlPanel.olControlNoSelect .olButton[original-title='Admin Units'] ,
 .olControlPanel.olControlNoSelect .olButton[original-title='Locations'] ,
 .olControlPanel.olControlNoSelect .olButton[original-title='About DevTrac'] {
