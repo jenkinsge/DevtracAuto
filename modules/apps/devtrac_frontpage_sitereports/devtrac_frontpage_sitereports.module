@@ -33,6 +33,25 @@ function devtrac_frontpage_sitereports_app_configure_form() {
     '#required' => TRUE,
     '#description' => t('The name of your organisation that will be featured on your custom sitereports based front page.'),
   );
+  // Use the #managed_file FAPI element to upload a file.
+  $form['devtrac_frontpage_sitereports_organisation_logo'] = array(
+    '#type' => 'managed_file',
+    '#title' => t('Logo'),
+    '#description' => t('The logo of your organisation that will be featured on your custom sitereports based front page. Only files with extension gif, jpeg, jpg or png are allowed.'),
+    '#default_value' => variable_get('devtrac_frontpage_sitereports_organisation_logo', ''),
+    '#upload_validators' => array(
+      'file_validate_extensions' => array('gif jpeg jpg png'),
+    ),
+    '#upload_location' => 'public://',
+    '#process' => array('devtrac_frontpage_sitereports_file_element_process')
+  );
+  $form['devtrac_frontpage_sitereports_org_logo_alt_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Logo Alternative Text'),
+    '#default_value' => variable_get('devtrac_frontpage_sitereports_org_logo_alt_text', ''),
+    '#required' => TRUE,
+    '#description' => t('The alternative text to put in place of the organisation logo if that is not available.'),
+  );
   $form['devtrac_frontpage_sitereports_organisation_desc'] = array(
     '#type' => 'textarea',
     '#rows' => 5,
@@ -57,6 +76,13 @@ function devtrac_frontpage_sitereports_app_configure_form() {
 }
 
 /**
+ * Implements process callback defined earlier.
+ */
+function devtrac_frontpage_sitereports_file_element_process($element, &$form_state, $form) {
+  $element = file_managed_file_process($element, $form_state, $form);
+  return $element;
+}
+/**
  * Implements hook_app_configure_form_submit.
  * 
  * - Creates an Organisation and an About Us page to be placed
@@ -67,8 +93,28 @@ function devtrac_frontpage_sitereports_app_configure_form_submit($form, &$form_s
   // Get the data from the submitted form.
   $values = $form_state['values'];
   $organisation = $values['devtrac_frontpage_sitereports_organisation_name'];
+  $logo = $values['devtrac_frontpage_sitereports_organisation_logo'];
+    // Load the file.
+  $file = file_load($logo);
+  // Change status to permanent.
+//  $file->status = FILE_STATUS_PERMANENT;
+  // Save.
+  if (file_save($file)) {
+    drupal_set_message(t('The file has been uploaded.'));
+  }
+  else {
+    drupal_set_message(t('The file could not be uploaded. Please contact the site administrator.'), 'error');
+  }
+  $logo_alt_text = $values['devtrac_frontpage_sitereports_org_logo_alt_text'];
+  // Let's put the alt_text on the file object.
+  $file->alt = $logo_alt_text;
+  // While at it, also default the file title field to the alt_text.
+  $file->title = $logo_alt_text;
   $description = $values['devtrac_frontpage_sitereports_organisation_desc'];
   $about_us = $values['devtrac_frontpage_sitereports_about_us'];
+
+  // Do something with the $file object.
+  $file_path = $file->uri;
 
   $results = db_select('nodesinblock', 'nib')
     ->fields('nib', array('nid', 'delta'))
@@ -83,6 +129,7 @@ function devtrac_frontpage_sitereports_app_configure_form_submit($form, &$form_s
       }
       else {
         $node->title = $organisation;
+        $node->field_image[$node->language][0] = (array) $file;
         $node->body[$node->language][0]['value'] = $description;
         $node->body[$node->language][0]['summary'] = $description;
       }
@@ -143,11 +190,13 @@ function devtrac_frontpage_sitereports_app_configure_form_submit($form, &$form_s
     node_object_prepare($node);
     // Set the author/owner of the node.
     $node->uid = 1;
-    // Let's add standard body field
+    // Let's add standard body field.
     $node->body[$node->language][0]['value'] = $description;
     $node->body[$node->language][0]['summary'] = $description;
     // Define the default plain_text format for the body field.
     $node->body[$node->language][0]['format'] = 'plain_text';
+    // Let's add the image field.
+    $node->field_image[$node->language][0] = (array) $file;
     // Prepare node for a submit.
     $node = node_submit($node);
     // Add nodesinblock settings to the node.
