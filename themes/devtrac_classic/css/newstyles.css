@@ -3594,8 +3594,16 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
 
 .view-frontpage-recent-sitereports li .field-name-field-ftritem-images {
   display: inline-block;
+}
+
+.view-frontpage-recent-sitereports li.views-row-odd .field-name-field-ftritem-images {
   float: left;
   margin-right: 10px;
+}
+
+.view-frontpage-recent-sitereports li.views-row-even .field-name-field-ftritem-images {
+  float: right;
+  margin-left: 10px;
 }
 
 .field-name-field-ftritem-public-summary p {
@@ -3623,6 +3631,9 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
   background-color: #333333;
 }
 
+.view-frontpage-recent-sitereports .node-readmore {
+  float: right;
+}
 
 
 /*===================================================================================*\
