@@ -1292,7 +1292,7 @@ function devtrac7_node_presave($node) {
         unset($node->bulk_update);
       }
       // Demote the Site Report when the last image is removed from it.
-      if (($node->promote) && (!devtrac7_ftritem_imagesset($node))) {
+      if (isset($node->promote) && ($node->promote) && (!devtrac7_ftritem_imagesset($node))) {
         $node->promote = 0;
       }
       break;
