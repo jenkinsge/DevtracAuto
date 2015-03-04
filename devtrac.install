@@ -410,7 +410,7 @@ function devtrac_install() {
     'description' => st('Upload an image to go with this article.'),
     'required' => FALSE,
     'settings' => array(
-      'file_directory' => 'field/image',
+      'file_directory' => '',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
@@ -419,7 +419,7 @@ function devtrac_install() {
       'title_field' => '',
     ),
     'widget' => array(
-      'type' => 'image_image',
+      'type' => 'media_browser',
       'settings' => array(
         'progress_indicator' => 'throbber',
         'preview_image_style' => 'thumbnail',
@@ -446,42 +446,68 @@ function devtrac_install() {
   // Many of the following values will be defaulted, they're included here as an illustrative examples.
   // See http://api.drupal.org/api/function/field_create_instance/7
   $instance = array(
-    'field_name' => 'field_image',
-    'entity_type' => 'node',
-    'label' => 'Image',
     'bundle' => 'page',
+    'deleted' => 0,
     'description' => st('Upload an image to go with this page.'),
-    'required' => FALSE,
-    'settings' => array(
-      'file_directory' => 'field/image',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'alt_field' => TRUE,
-      'title_field' => '',
-    ),
-    'widget' => array(
-      'type' => 'image_image',
-      'settings' => array(
-        'progress_indicator' => 'throbber',
-        'preview_image_style' => 'thumbnail',
-      ),
-      'weight' => -1,
-    ),
     'display' => array(
       'default' => array(
         'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'large',
+        ),
         'type' => 'image',
-        'settings' => array('image_style' => 'large', 'image_link' => ''),
         'weight' => -1,
       ),
       'teaser' => array(
         'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'preview',
+        ),
         'type' => 'image',
-        'settings' => array('image_style' => 'medium', 'image_link' => 'content'),
         'weight' => -1,
       ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_image',
+    'label' => 'Image',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 1,
+      'default_image' => 0,
+      'file_directory' => '',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'media',
+      'settings' => array(
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'devtrac_media_browser_extensions--attached_files' => 0,
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'upload' => 0,
+        ),
+      ),
+      'type' => 'media_generic',
+      'weight' => -1,
     ),
   );
   field_create_instance($instance);

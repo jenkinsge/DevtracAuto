@@ -3520,7 +3520,7 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
   margin-bottom: 20px;
 }
 
-.page-frontpage-sitereports .block-nodesinblock-1 .field-name-body ,
+/*.page-frontpage-sitereports .block-nodesinblock-1 .field-name-body ,*/
 .page-frontpage-sitereports .block-nodesinblock-1 .block-title {
   display: none;
 }
@@ -3532,6 +3532,16 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
 
 .page-frontpage-sitereports .block-nodesinblock-1 .teaser-button {
   display: none;
+}
+
+.page-frontpage-sitereports .block-nodesinblock-1 header {
+  margin-left: 110px;
+}
+
+.page-frontpage-sitereports .block-nodesinblock-1 .field-name-field-image {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .page-frontpage-sitereports #block-system-main .view-footer p {

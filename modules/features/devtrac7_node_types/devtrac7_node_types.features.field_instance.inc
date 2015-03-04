@@ -3488,6 +3488,68 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-place-body'
+  $field_instances['node-place-body'] = array(
+    'bundle' => 'place',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+      'map_popup_view_mode' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'trim_length' => 600,
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 600,
+        ),
+        'trim_length' => 600,
+        'type' => 'text_summary_or_trimmed',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'body',
+    'label' => 'Description',
+    'required' => 0,
+    'settings' => array(
+      'display_summary' => TRUE,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 20,
+        'summary_rows' => 5,
+      ),
+      'type' => 'text_textarea_with_summary',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-place-field_fieldtrip_button'
   $field_instances['node-place-field_fieldtrip_button'] = array(
     'bundle' => 'place',
@@ -3535,7 +3597,7 @@ function devtrac7_node_types_field_default_field_instances() {
       'module' => 'virtual_field',
       'settings' => array(),
       'type' => 'hidden',
-      'weight' => 6,
+      'weight' => 7,
     ),
   );
 
