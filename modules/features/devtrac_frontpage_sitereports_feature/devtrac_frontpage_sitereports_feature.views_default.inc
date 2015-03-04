@@ -202,7 +202,8 @@ function devtrac_frontpage_sitereports_feature_views_default_views() {
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['pager']['options']['items_per_page'] = '6';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Field: File: Name */
@@ -224,6 +225,11 @@ function devtrac_frontpage_sitereports_feature_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'image' => 'image',
   );
+  /* Filter criterion: File Usage: Entity type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'file_usage';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['value'] = 'node';
 
   /* Display: Frontpage Slideshow */
   $handler = $view->new_display('block', 'Frontpage Slideshow', 'block');

@@ -3546,7 +3546,7 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
   margin-bottom: 20px;
 }
 
-.page-frontpage-sitereports .block-nodesinblock-1 .field-name-body ,
+/*.page-frontpage-sitereports .block-nodesinblock-1 .field-name-body ,*/
 .page-frontpage-sitereports .block-nodesinblock-1 .block-title {
   display: none;
 }
@@ -3558,6 +3558,16 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
 
 .page-frontpage-sitereports .block-nodesinblock-1 .teaser-button {
   display: none;
+}
+
+.page-frontpage-sitereports .block-nodesinblock-1 header {
+  margin-left: 110px;
+}
+
+.page-frontpage-sitereports .block-nodesinblock-1 .field-name-field-image {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .page-frontpage-sitereports #block-system-main .view-footer p {
@@ -3620,8 +3630,16 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
 
 .view-frontpage-recent-sitereports li .field-name-field-ftritem-images {
   display: inline-block;
+}
+
+.view-frontpage-recent-sitereports li.views-row-odd .field-name-field-ftritem-images {
   float: left;
   margin-right: 10px;
+}
+
+.view-frontpage-recent-sitereports li.views-row-even .field-name-field-ftritem-images {
+  float: right;
+  margin-left: 10px;
 }
 
 .field-name-field-ftritem-public-summary p {
@@ -3649,6 +3667,9 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
   background-color: #333333;
 }
 
+.view-frontpage-recent-sitereports .node-readmore {
+  float: right;
+}
 
 
 /*===================================================================================*\
