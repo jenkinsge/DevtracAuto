@@ -9,10 +9,7 @@ function devtrac_imports_migrate_api() {
 			'migrations' => array(
 					'DevtracImportsPurpose' => array('class_name' => 'DevtracImportsPurpose'),
 					'DevtracImportsFunction' => array('class_name' => 'DevtracImportsFunction'),
-					'DevtracImportsDepartment' => array('class_name' => 'DevtracImportsDepartment'),					
-					'DevtracImportsSectorsLevel0' => array('class_name' => 'DevtracImportsSectorsLevel0'),
-				  'DevtracImportsSectorsLevel1' => array('class_name' => 'DevtracImportsSectorslevel1'),
-					'DevtracImportsSectorIcons' => array('class_name' => 'DevtracImportsSectorIcons'),
+					'DevtracImportsDepartment' => array('class_name' => 'DevtracImportsDepartment'),
 					'DevtracImportsPlacetypeIcons' => array('class_name' => 'DevtracImportsPlacetypeIcons'),
 					'DevtracImportsSiteReportType' => array('class_name' => 'DevtracImportsSiteReportType'),	
 					'DevtracImportsPlacetypeLevel0' => array('class_name' => 'DevtracImportsPlacetypeLevel0'),
