@@ -223,12 +223,12 @@ function devtrac_frontpage_sitereports_feature_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'image' => 'image',
+  );
   /* Filter criterion: File Usage: Entity type */
   $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
   $handler->display->display_options['filters']['type_1']['table'] = 'file_usage';
   $handler->display->display_options['filters']['type_1']['field'] = 'type';
   $handler->display->display_options['filters']['type_1']['value'] = 'node';
-  );
 
   /* Display: Frontpage Slideshow */
   $handler = $view->new_display('block', 'Frontpage Slideshow', 'block');
