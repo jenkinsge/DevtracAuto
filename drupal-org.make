@@ -341,6 +341,11 @@ projects[questionnaire][subdir] = "contrib"
 projects[quicktabs][version] = "3.x-dev"
 projects[quicktabs][type] = "module"
 projects[quicktabs][subdir] = "contrib"
+projects[quicktabs][download][type] = "git"
+; without this refspec OpenLayers Quicktabs plugin throws an error. 
+; This error must be introduced between 2/12/2014 and 5/3/2015 in quicktabs
+projects[quicktabs][download][url] = "http://git.drupal.org/project/quicktabs.git"
+projects[quicktabs][download][refspec] = "84fc5b541e79684e2fcda9c981d0827b2b160fa2"
 ;projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs.user-interface.2108935-3.patch"
 projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs--machine_name-7.x-3.6.patch"
 
