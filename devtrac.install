@@ -747,6 +747,7 @@ function devtrac_install_additional_modules(&$install_state) {
   $modules = array(
     // 'devtrac7_profile_menu',
     'search_api_db',
+    'pathauto',
     'devtrac7_site_configuration_feature',
     'devtrac7_solr_search_feature',
     'devtrac7_solr_search_district_feature',
@@ -1000,6 +1001,7 @@ function devtrac_install_finished(&$install_state) {
   // Disable the devtrac_imports module.
   $modules = array(
     'devtrac_imports',
+    'devtrac_oecd_code_importer_feature',
   );
   module_disable($modules);
 
