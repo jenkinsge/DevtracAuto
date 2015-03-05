@@ -747,6 +747,7 @@ function devtrac_install_additional_modules(&$install_state) {
   $modules = array(
     // 'devtrac7_profile_menu',
     'search_api_db',
+    'pathauto',
     'devtrac7_site_configuration_feature',
     'devtrac7_solr_search_feature',
     'devtrac7_solr_search_district_feature',
@@ -759,7 +760,6 @@ function devtrac_install_additional_modules(&$install_state) {
     'devtrac7_solr_search_answers_feature',
     'devtrac7_field_permissions_feature',
     'devtrac7_admin_feature',
-    'devtrac_oecd_code_importer_feature',
     'devtrac_demo_phase',
     'hurricane',
     'hurricane_integration',
