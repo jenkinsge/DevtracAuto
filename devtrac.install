@@ -760,7 +760,8 @@ function devtrac_install_additional_modules(&$install_state) {
     'devtrac7_field_permissions_feature',
     'devtrac7_admin_feature',
     'devtrac_oecd_code_importer_feature',
-    'devtrac_demo_phase',
+    'devtrac_demo_phase'
+    'devtrac_imports',
     'hurricane',
     'hurricane_integration',
     'hurricane_raphael',
