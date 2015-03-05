@@ -41,6 +41,7 @@ projects[blockify][subdir] = "contrib"
 projects[charts_graphs][version] = "2.0"
 projects[charts_graphs][type] = "module"
 projects[charts_graphs][subdir] = "contrib"
+projects[charts_graphs][patch][] = "https://www.drupal.org/files/issues/charts_graphs-fix_for_customisable_default_series_colours.patch"
 
 projects[charts_graphs_flot][version] = "1.x-dev"
 projects[charts_graphs_flot][type] = "module"
