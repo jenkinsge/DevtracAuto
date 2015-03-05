@@ -41,6 +41,7 @@ projects[blockify][subdir] = "contrib"
 projects[charts_graphs][version] = "2.0"
 projects[charts_graphs][type] = "module"
 projects[charts_graphs][subdir] = "contrib"
+projects[charts_graphs][patch][] = "https://www.drupal.org/files/issues/charts_graphs-fix_for_customisable_default_series_colours.patch"
 
 projects[charts_graphs_flot][version] = "1.x-dev"
 projects[charts_graphs_flot][type] = "module"
@@ -140,6 +141,10 @@ projects[feeds_entityreference][subdir] = "contrib"
 projects[feeds_tamper][version] = "1.0"
 projects[feeds_tamper][type] = "module"
 projects[feeds_tamper][subdir] = "contrib"
+
+projects[feeds_ex][version] = "1.0-beta1"
+projects[feeds_ex][type] = "module"
+projects[feeds_ex][subdir] = "contrib"
 
 projects[field_collection_feeds][version] = "1.0-alpha3"
 projects[field_collection_feeds][type] = "module"
@@ -336,6 +341,11 @@ projects[questionnaire][subdir] = "contrib"
 projects[quicktabs][version] = "3.x-dev"
 projects[quicktabs][type] = "module"
 projects[quicktabs][subdir] = "contrib"
+projects[quicktabs][download][type] = "git"
+; without this refspec OpenLayers Quicktabs plugin throws an error. 
+; This error must be introduced between 2/12/2014 and 5/3/2015 in quicktabs
+projects[quicktabs][download][url] = "http://git.drupal.org/project/quicktabs.git"
+projects[quicktabs][download][refspec] = "84fc5b541e79684e2fcda9c981d0827b2b160fa2"
 ;projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs.user-interface.2108935-3.patch"
 projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs--machine_name-7.x-3.6.patch"
 

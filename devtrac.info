@@ -171,7 +171,6 @@ dependencies[] = devtrac7_views
 dependencies[] = devtrac7_realms
 dependencies[] = devtrac_custom_packages
 dependencies[] = devtrac_question_packages
-dependencies[] = devtrac_imports
 dependencies[] = devtrac_purl
 dependencies[] = devtrac7_services_user
 
@@ -180,7 +179,7 @@ dependencies[] = mountbatten_web_media
 dependencies[] = devtrac7_services_api
 dependencies[] = devtrac7_menu
 dependencies[] = devtrac7_views_feature
-dependencies[] = devtrac7_site_configuration_feature
+;dependencies[] = devtrac7_site_configuration_feature
 dependencies[] = devtrac7_taxonomy_feature
 dependencies[] = devtrac7_node_types
 dependencies[] = devtrac7_theme_feature

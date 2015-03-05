@@ -574,6 +574,10 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Install additional functionality'),
     'type' => 'batch',
   );
+  $tasks['devtrac_import_oecd_codes'] = array(
+    'display_name' => st('Import OECD Codes'),
+    'type' => 'batch',
+  );
   // All modules are enabled now.
   // Let's create the search_api_server.
   $tasks['devtrac_initialize_search_server'] = array(
@@ -743,6 +747,7 @@ function devtrac_install_additional_modules(&$install_state) {
   $modules = array(
     // 'devtrac7_profile_menu',
     'search_api_db',
+    'pathauto',
     'devtrac7_site_configuration_feature',
     'devtrac7_solr_search_feature',
     'devtrac7_solr_search_district_feature',
@@ -755,7 +760,9 @@ function devtrac_install_additional_modules(&$install_state) {
     'devtrac7_solr_search_answers_feature',
     'devtrac7_field_permissions_feature',
     'devtrac7_admin_feature',
+    'devtrac_oecd_code_importer_feature',
     'devtrac_demo_phase',
+    'devtrac_imports',
     'hurricane',
     'hurricane_integration',
     'hurricane_raphael',
@@ -792,6 +799,21 @@ function devtrac_install_additional_modules(&$install_state) {
     $operations[] = array('_devtrac_enable_module', array($module, $files[$module]->info['name']));
   }
   $operations[] = array('_devtrac_flush_caches', array(t('Flushed caches.')));
+
+  $batch = array(
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'devtrac') . '/devtrac.install_callbacks.inc',
+  );
+
+  return $batch;
+}
+/**
+ * Imports OECD codes.
+ */
+function devtrac_import_oecd_codes() {
+  $file = drupal_get_path('module', 'devtrac_imports') . '/data/sectors.xml';
+  $importers = array('sector_icon_importer_level_one', 'sector_icon_importer');
+  $operations[] = array('_devtrac_import_icons', array($file, $importers));
 
   $batch = array(
     'operations' => $operations,
@@ -979,6 +1001,7 @@ function devtrac_install_finished(&$install_state) {
   // Disable the devtrac_imports module.
   $modules = array(
     'devtrac_imports',
+    'devtrac_oecd_code_importer_feature',
   );
   module_disable($modules);
 
