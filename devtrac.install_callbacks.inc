@@ -48,11 +48,14 @@ function _devtrac_import_icons($file, $importers, &$context) {
     $myfeed->addConfig($config);
     $myfeed->save();
     try {
+      watchdog('OECD Codes Import', 'Starting Import : %importer', array('%importer' => $importer));
       $myfeed->startImport();
+      watchdog('OECD Codes Import', 'Done with Import : %importer', array('%importer' => $importer));
     }
     catch (Exception $exept) {
       drupal_set_message("error", $except->getMessage(), "error");
     }
   }
+  watchdog('OECD Codes Import', 'Done with Import task.');
   $context['message'] = st('OECD Codes Imported.');
 }

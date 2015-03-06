@@ -566,16 +566,16 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Configure Date Format'),
     'type' => 'form',
   );
-  $tasks['devtrac_import_codelists'] = array(
-    'display_name' => st('Import CodeLists'),
-    'type' => 'batch',
-  );  
   $tasks['devtrac_install_additional_modules'] = array(
     'display_name' => st('Install additional functionality'),
     'type' => 'batch',
   );
   $tasks['devtrac_import_oecd_codes'] = array(
     'display_name' => st('Import OECD Codes'),
+    'type' => 'batch',
+  );
+  $tasks['devtrac_import_codelists'] = array(
+    'display_name' => st('Import CodeLists'),
     'type' => 'batch',
   );
   // All modules are enabled now.
@@ -811,6 +811,7 @@ function devtrac_install_additional_modules(&$install_state) {
  * Imports OECD codes.
  */
 function devtrac_import_oecd_codes() {
+  watchdog('OECD Codes Import', 'Now in Import task');
   $file = drupal_get_path('module', 'devtrac_imports') . '/data/sectors.xml';
   $importers = array('sector_icon_importer_level_one', 'sector_icon_importer');
   $operations[] = array('_devtrac_import_icons', array($file, $importers));
