@@ -566,12 +566,12 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Configure Date Format'),
     'type' => 'form',
   );
-  $tasks['devtrac_import_codelists'] = array(
-    'display_name' => st('Import CodeLists'),
-    'type' => 'batch',
-  );  
   $tasks['devtrac_install_additional_modules'] = array(
     'display_name' => st('Install additional functionality'),
+    'type' => 'batch',
+  );
+  $tasks['devtrac_import_codelists'] = array(
+    'display_name' => st('Import CodeLists'),
     'type' => 'batch',
   );
   $tasks['devtrac_import_oecd_codes'] = array(
