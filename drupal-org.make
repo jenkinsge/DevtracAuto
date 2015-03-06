@@ -83,7 +83,7 @@ projects[diff][version] = "3.2"
 projects[diff][type] = "module"
 projects[diff][subdir] = "contrib"
 
-projects[draggableviews][version] = "2.0"
+projects[draggableviews][version] = "2.1"
 projects[draggableviews][type] = "module"
 projects[draggableviews][subdir] = "contrib"
 
@@ -237,7 +237,7 @@ projects[job_scheduler][version] = "2.0-alpha3"
 projects[job_scheduler][type] = "module"
 projects[job_scheduler][subdir] = "contrib"
 
-projects[jquery_update][version] = "2.x-dev"
+projects[jquery_update][version] = "2.5"
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
 
@@ -309,7 +309,7 @@ projects[openlayers_plus][version] = "3.x-dev"
 projects[openlayers_plus][type] = "module"
 projects[openlayers_plus][subdir] = "contrib"
 
-projects[pane][version] = "2.5"
+projects[pane][version] = "2.6"
 projects[pane][type] = "module"
 projects[pane][subdir] = "contrib"
 projects[pane][patch][] = "https://www.drupal.org/files/issues/pane-remove-wrapper-markup-2119593-3.patch"
@@ -345,7 +345,7 @@ projects[quicktabs][download][type] = "git"
 ; without this refspec OpenLayers Quicktabs plugin throws an error. 
 ; This error must be introduced between 2/12/2014 and 5/3/2015 in quicktabs
 projects[quicktabs][download][url] = "http://git.drupal.org/project/quicktabs.git"
-projects[quicktabs][download][refspec] = "84fc5b541e79684e2fcda9c981d0827b2b160fa2"
+projects[quicktabs][download][revision] = "84fc5b541e79684e2fcda9c981d0827b2b160fa2"
 ;projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs.user-interface.2108935-3.patch"
 projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs--machine_name-7.x-3.6.patch"
 
@@ -395,7 +395,7 @@ projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/iss
 ; projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-last_excuted-field-7.x-1.x-2142063_9.patch"
 projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/2346679-3--expose_search_status.patch"
 
-projects[search_api_solr][version] = "1.5"
+projects[search_api_solr][version] = "1.6"
 projects[search_api_solr][type] = "module"
 projects[search_api_solr][subdir] = "contrib"
 

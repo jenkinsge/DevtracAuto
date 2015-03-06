@@ -162,6 +162,7 @@ table tbody tr.even td.active {
 .zone-featured .nice-menu li ,
 .zone-featured .nice-menu li ul {
   border: none;
+  z-index: 12;
 }
 
 .zone-featured .nice-menu li {
