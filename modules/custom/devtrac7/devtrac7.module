@@ -540,7 +540,7 @@ function devtrac7_addfieldtrip_access() {
 function devtrac7_addactionitem_access($nid) {
   $arg0 = arg(0);
   $arg1 = arg(1);
-  if ($arg0 == 'node') {
+  if (($arg0 == 'node') || ($arg0 == 'sitereports')) {
     global $user;
     $node = node_load($nid);
     if ($node->type == 'ftritem') {
