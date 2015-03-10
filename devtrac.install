@@ -570,10 +570,6 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Install additional functionality'),
     'type' => 'batch',
   );
-  $tasks['devtrac_import_oecd_codes'] = array(
-    'display_name' => st('Import OECD Codes'),
-    'type' => 'batch',
-  );
   $tasks['devtrac_import_codelists'] = array(
     'display_name' => st('Import CodeLists'),
     'type' => 'batch',
