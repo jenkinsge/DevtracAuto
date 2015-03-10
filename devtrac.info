@@ -173,6 +173,7 @@ dependencies[] = devtrac_custom_packages
 dependencies[] = devtrac_question_packages
 dependencies[] = devtrac_purl
 dependencies[] = devtrac7_services_user
+dependencies[] = devtrac_imports
 
 ; Devtrac features
 dependencies[] = mountbatten_web_media
