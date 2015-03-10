@@ -142,10 +142,6 @@ projects[feeds_tamper][version] = "1.0"
 projects[feeds_tamper][type] = "module"
 projects[feeds_tamper][subdir] = "contrib"
 
-projects[feeds_ex][version] = "1.0-beta1"
-projects[feeds_ex][type] = "module"
-projects[feeds_ex][subdir] = "contrib"
-
 projects[field_collection_feeds][version] = "1.0-alpha3"
 projects[field_collection_feeds][type] = "module"
 projects[field_collection_feeds][subdir] = "contrib"
