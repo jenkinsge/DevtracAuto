@@ -566,16 +566,12 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Configure Date Format'),
     'type' => 'form',
   );
-  $tasks['devtrac_install_additional_modules'] = array(
-    'display_name' => st('Install additional functionality'),
-    'type' => 'batch',
-  );
-  $tasks['devtrac_import_oecd_codes'] = array(
-    'display_name' => st('Import OECD Codes'),
-    'type' => 'batch',
-  );
   $tasks['devtrac_import_codelists'] = array(
     'display_name' => st('Import CodeLists'),
+    'type' => 'batch',
+  );
+  $tasks['devtrac_install_additional_modules'] = array(
+    'display_name' => st('Install additional functionality'),
     'type' => 'batch',
   );
   // All modules are enabled now.
@@ -760,9 +756,7 @@ function devtrac_install_additional_modules(&$install_state) {
     'devtrac7_solr_search_answers_feature',
     'devtrac7_field_permissions_feature',
     'devtrac7_admin_feature',
-    'devtrac_oecd_code_importer_feature',
     'devtrac_demo_phase',
-    'devtrac_imports',
     'hurricane',
     'hurricane_integration',
     'hurricane_raphael',
@@ -807,22 +801,7 @@ function devtrac_install_additional_modules(&$install_state) {
 
   return $batch;
 }
-/**
- * Imports OECD codes.
- */
-function devtrac_import_oecd_codes() {
-  watchdog('OECD Codes Import', 'Now in Import task');
-  $file = drupal_get_path('module', 'devtrac_imports') . '/data/sectors.xml';
-  $importers = array('sector_icon_importer_level_one', 'sector_icon_importer');
-  $operations[] = array('_devtrac_import_icons', array($file, $importers));
 
-  $batch = array(
-    'operations' => $operations,
-    'file' => drupal_get_path('profile', 'devtrac') . '/devtrac.install_callbacks.inc',
-  );
-
-  return $batch;
-}
 /**
  * Imports devtrac_search_server.
  */
@@ -1002,7 +981,6 @@ function devtrac_install_finished(&$install_state) {
   // Disable the devtrac_imports module.
   $modules = array(
     'devtrac_imports',
-    'devtrac_oecd_code_importer_feature',
   );
   module_disable($modules);
 
