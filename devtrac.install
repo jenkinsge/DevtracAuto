@@ -760,6 +760,16 @@ function devtrac_install_additional_modules(&$install_state) {
     'hurricane_integration',
     'hurricane_raphael',
   );
+
+  // Pantheon - all operations.
+  if (defined('PANTHEON_ENVIRONMENT')) {
+    $modules[] = 'dblog';
+  }
+  else {
+    $modules[] = 'syslog';
+  }
+
+
   if (isset($install_state['parameters']['stats'])) {
     $modules[] = $install_state['parameters']['stats'];
   }
