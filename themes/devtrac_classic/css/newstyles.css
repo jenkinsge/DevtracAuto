@@ -1476,12 +1476,25 @@ form.comment-form .form-item.form-type-item {
   border: none;
 }
 
-.view-devtrac-solr-view-questions .view-grouping-content table tr:hover {
+.view-devtrac-solr-view-questions .view-grouping-content table td:hover {
   color: #333333;
+  background-color: #777777;
 }
 
 .view-devtrac-solr-view-questions .view-grouping-content table tr:hover a {
   color: #A52A2A;
+  text-decoration: none;
+}
+.view-devtrac-solr-view-questions .view-grouping-content table td:hover a {
+  color: #ffffff;
+  text-decoration-color: -moz-use-text-color;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
+/* This is mainly for the Questions Admin view */
+form table.draggable tbody tr:hover {
+ background-color:#777777;
 }
 
 .block-views-dvtrc-user-block-3 .view-dvtrc-user {
