@@ -22,7 +22,6 @@ dependencies[] = list
 dependencies[] = menu
 dependencies[] = number
 dependencies[] = path
-dependencies[] = syslog
 dependencies[] = text
 
 ; Contrib
@@ -192,3 +191,4 @@ dependencies[] = devtrac7_images_feature
 
 ; Devtrac apps
 dependencies[] = apps
+
