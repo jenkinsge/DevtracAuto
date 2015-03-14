@@ -34,10 +34,6 @@ projects[better_messages][version] = "1.x-dev"
 projects[better_messages][type] = "module"
 projects[better_messages][subdir] = "contrib"
 
-projects[blockify][version] = "1.2"
-projects[blockify][type] = "module"
-projects[blockify][subdir] = "contrib"
-
 projects[charts_graphs][version] = "2.0"
 projects[charts_graphs][type] = "module"
 projects[charts_graphs][subdir] = "contrib"
@@ -240,6 +236,10 @@ projects[jquery_update][subdir] = "contrib"
 projects[kml][version] = "1.x-dev"
 projects[kml][type] = "module"
 projects[kml][subdir] = "contrib"
+; We want to use the blockify module to display the feed icons in another region.
+; To be able to use blockify we have to NOT display the feed icons in the links attached to the view.
+; We do not use blockify anymore at the moment so this patch is on hold until we do again
+; Issue: https://www.drupal.org/node/2037183
 projects[kml][patch][] = "https://www.drupal.org/files/kml_blockify.patch"
 
 projects[mapit][version] = "1.x-dev"
@@ -447,8 +447,11 @@ projects[views_charts][subdir] = "contrib"
 projects[views_data_export][version] = "3.0-beta8"
 projects[views_data_export][type] = "module"
 projects[views_data_export][subdir] = "contrib"
-; projects[views_data_export][patch][] = "https://www.drupal.org/files/issues/views_data_export-blockify_3.0-beta7.patch"
-projects[views_data_export][patch][] = "https://www.drupal.org/files/issues/views_data_export-blockify_3.0-beta8-2037165-3.patch"
+; We want to use the blockify module to display the feed icons in another region.
+; To be able to use blockify we have to NOT display the feed icons in the links attached to the view.
+; We do not use blockify anymore. If we would we need this back
+; Issue: https://www.drupal.org/node/2037165
+; projects[views_data_export][patch][] = "https://www.drupal.org/files/issues/views_data_export-blockify_3.0-beta8-2037165-3.patch"
 projects[views_data_export][patch][] = "https://www.drupal.org/files/views_data_export-solr_export-1258390-13.patch"
 
 projects[views_field_view][version] = "1.1"

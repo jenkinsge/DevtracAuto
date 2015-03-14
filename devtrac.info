@@ -39,8 +39,6 @@ dependencies[] = date
 dependencies[] = date_popup
 dependencies[] = date_duration_formatter
 dependencies[] = diff
-dependencies[] = migrate
-dependencies[] = migrate_extras
 dependencies[] = ds
 dependencies[] = exif
 dependencies[] = features
@@ -56,7 +54,6 @@ dependencies[] = file_entity
 dependencies[] = token
 dependencies[] = me
 dependencies[] = adaptive_image
-dependencies[] = blockify
 dependencies[] = colorbox
 dependencies[] = commentblock
 dependencies[] = css_browser_selector
@@ -172,7 +169,6 @@ dependencies[] = devtrac_custom_packages
 dependencies[] = devtrac_question_packages
 dependencies[] = devtrac_purl
 dependencies[] = devtrac7_services_user
-dependencies[] = devtrac_imports
 
 ; Devtrac features
 dependencies[] = mountbatten_web_media

@@ -4,7 +4,6 @@ core = 7.x
 package = Devtrac
 version = 7.x-1.0-beta13
 project = devtrac7_solr_search_image_feature
-dependencies[] = blockify
 dependencies[] = context
 dependencies[] = ctools
 dependencies[] = current_search

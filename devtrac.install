@@ -759,6 +759,7 @@ function devtrac_install_additional_modules(&$install_state) {
     'hurricane',
     'hurricane_integration',
     'hurricane_raphael',
+    'search_api_db',
   );
 
   // Pantheon - all operations.
@@ -838,6 +839,7 @@ function devtrac_initialize_search_server() {
  * Import codelists using module devtrac_imports.
  */
 function devtrac_import_codelists() {
+  module_enable(array('devtrac_imports', 'migrate', 'migrate_extras'), FALSE);
   $batch = devtrac_imports_batch();
   // Remove any status messages that might have been set.
   // Migrate adds its messages under the wrong type, see #1659150.
@@ -990,8 +992,11 @@ function devtrac_install_finished(&$install_state) {
   // Disable the devtrac_imports module.
   $modules = array(
     'devtrac_imports',
+    'migrate',
+    'migrate_extras',
   );
   module_disable($modules);
+  drupal_uninstall_modules($modules);
 
   if (isset($messages['error'])) {
     $output = '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
