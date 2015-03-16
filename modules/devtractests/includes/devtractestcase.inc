@@ -395,10 +395,8 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $answers['30'] = "Needs more books in the library.";
     $answers['29'] = "Mediocre";
     $this->drupalPost(NULL, $answers, t('Submit'));
-    $this->clickLink('Add Questionnaire');
-    $answers['30'] = "Needs better books in the library.";
-    $answers['29'] = "Mediocre";
-    $this->drupalPost(NULL, $answers, t('Submit'));
+    $this->assertNoLink('Add Questionnaire', 'There is no longer an Add Questionnaire link on the page.');
+    $this->assertLink('Edit Questionnaire', 0, 'The Add Questionnaire Link has been replaced by an Edit Questionnaire link.');
     $this->addAnActionItem('Test Action Item', '57', 'Testing presence of Edit button.');
     $this->clickLink('Site Reports', 0);
     $this->clickLink('List', 0);
