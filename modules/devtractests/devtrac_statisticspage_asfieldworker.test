@@ -298,11 +298,11 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertText('How would you rate this school?', t('Question is present on the page.'), t('Devtrac'));
 
     // Districts.
-    $this->assertRaw('/statistics/answers?f[0]=question%3A29&amp;qt-devtrac_statistics_graphs_tabs=2#qt-devtrac_statistics_graphs_tabs" id="quicktabs-tab-devtrac_statistics_graphs_tabs-2" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-f9c6d54f34c84f80e6bf9e37b776f138 active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/statistics/answers?f[0]=question%3A29&amp;qt-devtrac_statistics_graphs_tabs=2#qt-devtrac_statistics_graphs_tabs" id="quicktabs-tab-devtrac_statistics_graphs_tabs-2" class="active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Districts', 0, t('Districts Quicktab is labeled'), t('Devtrac'));
 
     // Date Created.
-    $this->assertRaw('/statistics/answers?f[0]=question%3A29&amp;qt-devtrac_statistics_graphs_tabs=4#qt-devtrac_statistics_graphs_tabs" id="quicktabs-tab-devtrac_statistics_graphs_tabs-4" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-f85ecc1a53cf1f40cf95ba96395b7bae active">Date Created</a>', t('Date Created quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/statistics/answers?f[0]=question%3A29&amp;qt-devtrac_statistics_graphs_tabs=4#qt-devtrac_statistics_graphs_tabs" id="quicktabs-tab-devtrac_statistics_graphs_tabs-4" class="active">Date Created</a>', t('Date Created quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Date Created', 0, t('Date Created Quicktab is labeled'), t('Devtrac'));
 
     // LIST VIEW MODE.
