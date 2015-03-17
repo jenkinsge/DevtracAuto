@@ -40,16 +40,8 @@ function devtrac7_maps_image_default_styles() {
 
   // Exported image style: devtrac_oecd_icons_bw.
   $styles['devtrac_oecd_icons_bw'] = array(
-    'name' => 'devtrac_oecd_icons_bw',
     'effects' => array(
       2 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 50,
@@ -58,11 +50,6 @@ function devtrac7_maps_image_default_styles() {
         'weight' => 1,
       ),
       3 => array(
-        'label' => 'Desaturate',
-        'help' => 'Desaturate converts an image to grayscale.',
-        'effect callback' => 'image_desaturate_effect',
-        'dimensions passthrough' => TRUE,
-        'module' => 'image',
         'name' => 'image_desaturate',
         'data' => array(),
         'weight' => 2,
@@ -73,16 +60,8 @@ function devtrac7_maps_image_default_styles() {
 
   // Exported image style: devtrac_oecd_icons_bw_small.
   $styles['devtrac_oecd_icons_bw_small'] = array(
-    'name' => 'devtrac_oecd_icons_bw_small',
     'effects' => array(
       2 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 16,
@@ -91,11 +70,6 @@ function devtrac7_maps_image_default_styles() {
         'weight' => 1,
       ),
       3 => array(
-        'label' => 'Desaturate',
-        'help' => 'Desaturate converts an image to grayscale.',
-        'effect callback' => 'image_desaturate_effect',
-        'dimensions passthrough' => TRUE,
-        'module' => 'image',
         'name' => 'image_desaturate',
         'data' => array(),
         'weight' => 2,
@@ -106,16 +80,8 @@ function devtrac7_maps_image_default_styles() {
 
   // Exported image style: devtrac_oecd_icons_color.
   $styles['devtrac_oecd_icons_color'] = array(
-    'name' => 'devtrac_oecd_icons_color',
     'effects' => array(
       1 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 50,
@@ -129,16 +95,8 @@ function devtrac7_maps_image_default_styles() {
 
   // Exported image style: devtrac_oecd_icons_color_small.
   $styles['devtrac_oecd_icons_color_small'] = array(
-    'name' => 'devtrac_oecd_icons_color_small',
     'effects' => array(
       1 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 16,
