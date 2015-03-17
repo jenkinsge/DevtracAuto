@@ -28,17 +28,9 @@ function devtrac7_views_feature_image_default_styles() {
 
   // Exported image style: gallery.
   $styles['gallery'] = array(
-    'name' => 'gallery',
     'label' => 'gallery',
     'effects' => array(
       1 => array(
-        'label' => 'Adaptive',
-        'help' => 'Adaptive image scale according to client resolution.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'adaptive_image_scale_form',
-        'summary theme' => 'adaptive_image_scale_summary',
-        'module' => 'adaptive_image',
         'name' => 'adaptive_image',
         'data' => array(
           'resolutions' => '1382, 992, 768, 480',
@@ -50,13 +42,6 @@ function devtrac7_views_feature_image_default_styles() {
         'weight' => -10,
       ),
       2 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 200,
@@ -69,16 +54,8 @@ function devtrac7_views_feature_image_default_styles() {
 
   // Exported image style: gallery_popup_images.
   $styles['gallery_popup_images'] = array(
-    'name' => 'gallery_popup_images',
     'effects' => array(
       11 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 600,
@@ -92,17 +69,9 @@ function devtrac7_views_feature_image_default_styles() {
 
   // Exported image style: map_icon.
   $styles['map_icon'] = array(
-    'name' => 'map_icon',
     'label' => 'map_icon',
     'effects' => array(
       1 => array(
-        'label' => 'Scale',
-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
           'width' => 24,
@@ -116,17 +85,9 @@ function devtrac7_views_feature_image_default_styles() {
 
   // Exported image style: map_icon_bw.
   $styles['map_icon_bw'] = array(
-    'name' => 'map_icon_bw',
     'label' => 'map_icon_bw',
     'effects' => array(
       2 => array(
-        'label' => 'Scale',
-        'help' => 'Scaling will maintain the aspect-ratio of the original image. If only a single dimension is specified, the other dimension will be calculated.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'image_scale_form',
-        'summary theme' => 'image_scale_summary',
-        'module' => 'image',
         'name' => 'image_scale',
         'data' => array(
           'width' => 24,
@@ -136,11 +97,6 @@ function devtrac7_views_feature_image_default_styles() {
         'weight' => 1,
       ),
       3 => array(
-        'label' => 'Desaturate',
-        'help' => 'Desaturate converts an image to grayscale.',
-        'effect callback' => 'image_desaturate_effect',
-        'dimensions passthrough' => TRUE,
-        'module' => 'image',
         'name' => 'image_desaturate',
         'data' => array(),
         'weight' => 2,
@@ -150,17 +106,9 @@ function devtrac7_views_feature_image_default_styles() {
 
   // Exported image style: print_thumbnail.
   $styles['print_thumbnail'] = array(
-    'name' => 'print_thumbnail',
     'label' => 'print_thumbnail',
     'effects' => array(
       4 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 182,
@@ -169,11 +117,6 @@ function devtrac7_views_feature_image_default_styles() {
         'weight' => 1,
       ),
       5 => array(
-        'label' => 'Desaturate',
-        'help' => 'Desaturate converts an image to grayscale.',
-        'effect callback' => 'image_desaturate_effect',
-        'dimensions passthrough' => TRUE,
-        'module' => 'image',
         'name' => 'image_desaturate',
         'data' => array(),
         'weight' => 2,
@@ -183,16 +126,8 @@ function devtrac7_views_feature_image_default_styles() {
 
   // Exported image style: user_comment_img.
   $styles['user_comment_img'] = array(
-    'name' => 'user_comment_img',
     'effects' => array(
       7 => array(
-        'label' => 'Scale and crop',
-        'help' => 'Scale and crop will maintain the aspect-ratio of the original image, then crop the larger dimension. This is most useful for creating perfectly square thumbnails without stretching the image.',
-        'effect callback' => 'image_scale_and_crop_effect',
-        'dimensions callback' => 'image_resize_dimensions',
-        'form callback' => 'image_resize_form',
-        'summary theme' => 'image_resize_summary',
-        'module' => 'image',
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 50,
@@ -201,13 +136,6 @@ function devtrac7_views_feature_image_default_styles() {
         'weight' => 1,
       ),
       9 => array(
-        'label' => 'Adaptive',
-        'help' => 'Adaptive image scale according to client resolution.',
-        'effect callback' => 'image_scale_effect',
-        'dimensions callback' => 'image_scale_dimensions',
-        'form callback' => 'adaptive_image_scale_form',
-        'summary theme' => 'adaptive_image_scale_summary',
-        'module' => 'adaptive_image',
         'name' => 'adaptive_image',
         'data' => array(
           'resolutions' => '1382, 992, 768, 480',
