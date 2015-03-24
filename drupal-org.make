@@ -494,10 +494,6 @@ projects[views_rss_georss][version] = "1.0-rc1"
 projects[views_rss_georss][type] = "module"
 projects[views_rss_georss][subdir] = "contrib"
 
-projects[views_slideshow][version] = "3.x-dev"
-projects[views_slideshow][type] = "module"
-projects[views_slideshow][subdir] = "contrib"
-
 projects[virtual_field][version] = "1.2"
 projects[virtual_field][type] = "module"
 projects[virtual_field][subdir] = "contrib"
