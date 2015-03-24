@@ -72,9 +72,8 @@ class DevtracImportsSectorCategoryIcons extends XMLMigration {
     $fieldmappings = $this->getFieldMappings();
     $source_dir = $fieldmappings['source_dir']->getDefaultvalue();
     $file_full_path = DRUPAL_ROOT . '/' . $source_dir . '/' . $row->filename;
-    watchdog('Sector Icons Import', 'File @file : ', array('@file' => $file_full_path));
     if(!file_exists($file_full_path)) {
-      watchdog('Sector Icons Import', 'File @file doesn\'t exist', array('@file' => $file_full_path));
+      watchdog('Sector Category Icons Import', 'File @file doesn\'t exist', array('@file' => $file_full_path));
       return FALSE;
     }
 
