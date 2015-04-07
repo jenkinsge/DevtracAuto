@@ -359,11 +359,11 @@ The Users page contains a list of all users that can be filtered by the Zonal Of
 
     // Check for quick tabs.
     // Sectors.
-    $this->assertRaw('/users?display=graphs&amp;qt-devtrac_users_graphs_tabs=0#qt-devtrac_users_graphs_tabs" id="quicktabs-tab-devtrac_users_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-3eb56ed6ad1a73969960d6efb5377286 active">Sectors</a>', t('Sectors quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/users?display=graphs&amp;qt-devtrac_users_graphs_tabs=0#qt-devtrac_users_graphs_tabs" id="quicktabs-tab-devtrac_users_graphs_tabs-0" class="active">Sectors</a>', t('Sectors quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Sectors', 0, t('Sectors Quicktab is labeled'), t('Devtrac'));
 
     // Admin Units.
-    $this->assertRaw('/users?display=graphs&amp;qt-devtrac_users_graphs_tabs=1#qt-devtrac_users_graphs_tabs" id="quicktabs-tab-devtrac_users_graphs_tabs-1" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-a105031fbf3683c634e10ddef4862c64 active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/users?display=graphs&amp;qt-devtrac_users_graphs_tabs=1#qt-devtrac_users_graphs_tabs" id="quicktabs-tab-devtrac_users_graphs_tabs-1" class="active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Admin Units', 1, t('Admin Units Quicktab is labeled'), t('Devtrac'));
   }
 }

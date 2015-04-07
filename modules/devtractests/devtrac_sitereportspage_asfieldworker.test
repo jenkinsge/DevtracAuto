@@ -408,7 +408,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for the quicktabs.
     // Location Type.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=0#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-qtabs quicktabs-tab-qtabs-devtrac-sitereports-graphs-place active">Location Type</a>', t('Location Type quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=0#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-0" class="active">Location Type</a>', t('Location Type quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Location Type', 0, t('Location Type Quicktab is labeled'), t('Devtrac'));
     // Pie.
     $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_place=0#qt-devtrac_sitereports_graphs_place" id="quicktabs-tab-devtrac_sitereports_graphs_place-0"', t('Pie quicktab is present on the page'), t('Devtrac'));

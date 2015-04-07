@@ -363,23 +363,23 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for the quicktabs.
     // Status.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=0#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-qtabs quicktabs-tab-qtabs-devtrac-fieldtrips-graphs-status active">Status</a>', t('Status quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=0#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-0" class="active">Status</a>', t('Status quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Status', 0, t('Status Quicktab is labeled'), t('Devtrac'));
 
     // Purpose.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=1#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-1" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-d88ce268d9b5130026d64610348784a6 active">Purpose</a>', t('Purpose quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=1#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-1" class="active">Purpose</a>', t('Purpose quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Purpose', 0, t('Priority Quicktab is labeled'), t('Devtrac'));
 
     // Date Created.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=2#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-2" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-f6fbe85cdf0195cb058bf703d1f33181 active">Date Created</a>', t('Date Created quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=2#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-2" class="active">Date Created</a>', t('Date Created quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Date Created', 0, t('Date Created Quicktab is labeled'), t('Devtrac'));
 
     // Districts.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=3#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-3" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-37b9411771f798a6bdaf2145e2043865 active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=3#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-3" class="active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Districts', 0, t('Districts Quicktab is labeled'), t('Devtrac'));
 
     // Users.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=4#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-4" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-941745c7314247fa977f090d80c21eff active">Users</a>', t('Users quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=4#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-4" class="active">Users</a>', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
     $this->assertRaw('/fieldtrips?display=graphs&amp;f[0]=field_fieldtrip_status%3AApproved"', t('Filter by Approved Status link is present on the page.'), t('Devtrac'));

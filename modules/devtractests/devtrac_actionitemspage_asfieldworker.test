@@ -416,23 +416,23 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for the quicktabs.
     // Status.
-    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=0#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-0" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-b17325578dfba4f3abd318cd9efa7009 active">Status</a>', t('Status quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=0#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-0" class="active">Status</a>', t('Status quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Status', 0, t('Status Quicktab is labeled'), t('Devtrac'));
 
     // Priority.
-    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=1#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-1" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-31303ac46ed27b9166851e6e4c6895a7 active">Priority</a>', t('Priority quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=1#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-1" class="active">Priority</a>', t('Priority quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Priority', 0, t('Priority Quicktab is labeled'), t('Devtrac'));
 
     // Sectors.
-    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=2#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-2" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-acf17946f753cccc102716e4aca4b922 active">Sectors</a>', t('Sectors quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=2#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-2" class="active">Sectors</a>', t('Sectors quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Sectors', 0, t('Sectors Quicktab is labeled'), t('Devtrac'));
 
     // Districts.
-    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=3#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-3" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-39d8061cf74fab2d69eeca8b249f0881 active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=3#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-3" class="active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Districts', 0, t('Districts Quicktab is labeled'), t('Devtrac'));
 
     // Users.
-    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=4#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-4" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-451e1443d2a9f8b0784ab053cf4ac325 active">Users</a>', t('Users quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/actionitems?display=graphs&amp;qt-devtrac_actionitems_graph_tabs=4#qt-devtrac_actionitems_graph_tabs" id="quicktabs-tab-devtrac_actionitems_graph_tabs-4" class="active">Users</a>', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
     $this->assertLinkByHref('/actionitems?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
