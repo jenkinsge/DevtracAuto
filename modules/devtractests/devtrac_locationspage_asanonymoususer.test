@@ -363,11 +363,11 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // Check for quick tabs.
     // Location.
-    $this->assertRaw('locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=0#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-3e26345dd1c1606fc1b36c9b90809ecf active">Location</a>', t('Location quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=0#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-0" class="active">Location</a>', t('Location quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Location', 0, t('Location Quicktab is labeled'), t('Devtrac'));
 
     // Admin Units.
-    $this->assertRaw('/locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=1#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-1" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-82a5306a1b514674d9b0f3017f95a49f active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=1#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-1" class="active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Admin Units', 1, t('Admin Units Quicktab is labeled'), t('Devtrac'));
 
     // CSV.
@@ -403,7 +403,8 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('location/public-government-school/test-location">test location</a>]]>
   </name>', t('Name field is mapped correctly.'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('/district/undefined-area-0">Undefined Area</a>]]>
+    $this->assertRaw('
+    <![CDATA[<a href="/district/uganda/gulu">Gulu</a>]]>
   </description>', t('Description field is mapped correctly.'), t('Devtrac'));
     // Point : Lon - Lat.
     $this->assertRaw('<Point>
@@ -421,7 +422,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     // Link : Node Id (Subject to change).
     // this->assertRaw('/district/uganda&quot;&gt;Uganda&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('/district/undefined-area-0&quot;&gt;Undefined Area&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/district/uganda/gulu&quot;&gt;Gulu&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
 
     // dc items.
     // Title : Title.
@@ -429,11 +430,11 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     // Creator : Title.
     $this->assertRaw('/location/public-government-school/test-location&quot;&gt;test location&lt;/a&gt;</dc:creator>', t('dc Creator mapped correctly'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('/district/undefined-area-0&quot;&gt;Undefined Area&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/district/uganda/gulu&quot;&gt;Gulu&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
     // Subject : Location Type.
-    $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</dc:subject>', t('dc Category mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/255&quot;&gt;Primary School&lt;/a&gt;</dc:subject>', t('dc Category mapped correctly'), t('Devtrac'));
     // Type : Location Type.
-    $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</dc:type>', t('dc Type mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/255&quot;&gt;Primary School&lt;/a&gt;</dc:type>', t('dc Type mapped correctly'), t('Devtrac'));
 
     // georss items.
     // Point : Latitude, Longitude.

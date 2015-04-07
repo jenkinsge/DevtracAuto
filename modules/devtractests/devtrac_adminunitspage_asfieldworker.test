@@ -352,7 +352,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('graphs', 0);
 
     // Categories.
-    $this->assertRaw('adminunits?display=graphs&amp;qt-devtrac_admin_units_graphs_tabs=0#qt-devtrac_admin_units_graphs_tabs" id="quicktabs-tab-devtrac_admin_units_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-3b980188e82175398a55b4147d88409a active">Categories</a>', t('Categories quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/adminunits?display=graphs&amp;qt-devtrac_admin_units_graphs_tabs=0#qt-devtrac_admin_units_graphs_tabs" id="quicktabs-tab-devtrac_admin_units_graphs_tabs-0" class="active">Categories</a>', t('Categories quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Categories', 0, t('Categories Quicktab is labeled'), t('Devtrac'));
 
     // CSV.
@@ -405,9 +405,9 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Core items.
     // Title : Name.
-    $this->assertRaw('/district/uganda&quot;&gt;Uganda&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/district/undefined-area&quot;&gt;Undefined Area&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : Name.
-    $this->assertRaw('/district/uganda&quot;&gt;Uganda&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/district/undefined-area&quot;&gt;Undefined Area&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Description.
     $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
 </description>', t('Description mapped correctly'), t('Devtrac'));
@@ -416,7 +416,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // dc items.
     // Title : Name.
-    $this->assertRaw('/district/uganda&quot;&gt;Uganda&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/district/undefined-area&quot;&gt;Undefined Area&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Description : description.
     $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
 </dc:description>', t('dc Description mapped correctly'), t('Devtrac'));

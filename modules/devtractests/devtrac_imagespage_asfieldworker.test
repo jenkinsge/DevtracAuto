@@ -413,11 +413,11 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     // Check for the quicktabs.
 
     // Districts.
-    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=0#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-0" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-4a33a1be439577df138ed23cda8f823e active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=0#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-0" class="active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Districts', 0, t('Districts Quicktab is labeled'), t('Devtrac'));
 
     // Sector.
-    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=1#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-1" class="quicktabs-tab quicktabs-tab-block quicktabs-tab-block-508da681902654be84b6bca202ec6545 active">Sectors</a>', t('Sectors quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;qt-devtrac_images_graphs_tabs=1#qt-devtrac_images_graphs_tabs" id="quicktabs-tab-devtrac_images_graphs_tabs-1" class="active">Sectors</a>', t('Sectors quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Sectors', 0, t('Sectors Quicktab is labeled'), t('Devtrac'));
 
     // ENABLING A FILTER.
@@ -583,9 +583,9 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Fields.
     // File Name.
-    $this->assertRaw('"11110.png"', t('File Name field is filled.'), t('Devtrac'));
+    $this->assertRaw('"111.png"', t('File Name field is filled.'), t('Devtrac'));
     // Title.
-    $this->assertRaw('"Education policy and administrative management"', t('Title field is filled.'), t('Devtrac'));
+    $this->assertRaw('"Educational research"', t('Title field is filled.'), t('Devtrac'));
     // Admin Units.
     $this->assertRaw('"Undefined Area"', t('Admin Unit field is filled.'), t('Devtrac'));
     // Sectors.
@@ -593,9 +593,9 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     // Date Visited.
     $this->assertRaw('"01-02-2015"', t('Date Visited field is filled.'), t('Devtrac'));
     // Owner.
-    $this->assertRaw('admin', t('Owner field is filled.'), t('Devtrac'));
+    $this->assertRaw('Site Admin', t('Owner field is filled.'), t('Devtrac'));
     // URL.
-    $this->assertRaw('/sites/default/files/11110.png"',t('URL field is filled.'), t('Devtrac'));
+    $this->assertRaw('/sites/default/files/111.png"',t('URL field is filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');
@@ -603,9 +603,9 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Export to KML', 0);
     // Name : Title.
     $this->assertRaw('<name>
-    <![CDATA[Education policy and administrative management]]>', t('Name field is mapped correctly.'), t('Devtrac'));
+    <![CDATA[Educational research]]>', t('Name field is mapped correctly.'), t('Devtrac'));
     // Description : Report.
-    $this->assertRaw('alt="Education policy and administrative management" title="Education policy and administrative management" /></a>  </div>
+    $this->assertRaw('alt="Educational research" title="Educational research" /></a>  </div>
 
   
 </div>
@@ -623,11 +623,11 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Core items.
     // Title : title.
-    $this->assertRaw('<title>Education policy and administrative management</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<title>Educational research</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : site_info (Subject to change).
-    $this->assertRaw('<link>Education policy and administrative management</link>', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<link>Educational research</link>', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Image.
-    $this->assertRaw('/file/images/site-admin/11110png&quot;&gt;11110.png&lt;/a&gt;&lt;/h2&gt;
+    $this->assertRaw('/file/images/site-admin/111png&quot;&gt;111.png&lt;/a&gt;&lt;/h2&gt;
     
   
   &lt;div class=&quot;content&quot;&gt;', t('Description mapped correctly'), t('Devtrac'));
@@ -638,11 +638,11 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
 
     // dc items.
     // Title : title.
-    $this->assertRaw('<dc:title>Education policy and administrative management</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:title>Educational research</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Creator : owner.
     $this->assertRaw('/users/admin&quot;&gt;Site Admin&lt;/a&gt;</dc:creator>', t('dc Author is mapped'), t('Devtrac'));
     // Description : Image.
-    $this->assertRaw('/file/images/site-admin/11110png&quot;&gt;11110.png&lt;/a&gt;&lt;/h2&gt;
+    $this->assertRaw('/file/images/site-admin/111png&quot;&gt;111.png&lt;/a&gt;&lt;/h2&gt;
     
   
   &lt;div class=&quot;content&quot;&gt;', t('dc Description mapped correctly'), t('Devtrac'));
@@ -655,7 +655,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->drupalGet('images/json');
 
     // Title.
-    $this->assertRaw('"name":"11110.png"', t('Title field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('"name":"111.png"', t('Title field is present and filled in.'), t('Devtrac'));
 
     // Latitude.
     $this->assertRaw('"coordinates":[32.704498222317,', t('Latitude field is present and filled in.'), t('Devtrac'));
@@ -664,7 +664,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('0.556481550015]},', t('Longitude field is present and filled in.'), t('Devtrac'));
 
     // Rendered Node.
-    $this->assertRaw('alt=\u0022Education policy and administrative management\u0022 title=\u0022Education policy and administrative management\u0022 \/\u003E  \u003C\/div\u003E\n\n  \n\u003C\/div\u003E\n"', t('Rendered Node field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('alt=\u0022Educational research\u0022 title=\u0022Educational research\u0022 \/\u003E  \u003C\/div\u003E\n\n  \n\u003C\/div\u003E\n"', t('Rendered Node field is present and filled in.'), t('Devtrac'));
 
   }
 }
