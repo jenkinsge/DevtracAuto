@@ -236,7 +236,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1" id="facetapi-facet-search-apianswers-block-taxonomy-vocabulary-1">', t('Location search list is present on the page'), t('Devtrac'));
 
     // Check for Answer counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">2 Answers</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">1 Answer</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
     $this->assertRaw('The answers page is where tabular and graphical representations of responses to questionnaires filled out during field reporting can be viewed. Try out different filter options to analyse the data graphically or download it for offline analysis.', t('Info pane is present on the page'), t('Devtrac'));
@@ -275,7 +275,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLinkUsingXpath('Schools', 0, '//*[@id="facetapi-facet-search-apianswers-block-taxonomy-vocabulary-1"]/li/a');
 
     // Check current search counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">2 Answers</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">1 Answer</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
 
     // Check for current search block.
     $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-answers-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
@@ -362,7 +362,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<div class="item-list"><ul class="facetapi-search-api-swatches facetapi-facet-taxonomy-vocabulary-1" id="facetapi-facet-search-apianswers-block-taxonomy-vocabulary-1">', t('Location search list is present on the page'), t('Devtrac'));
 
     // Check for Answer counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">2 Answers</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">1 Answer</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for Info pane text.
     $this->assertRaw('The answers page is where tabular and graphical representations of responses to questionnaires filled out during field reporting can be viewed. Try out different filter options to analyse the data graphically or download it for offline analysis.', t('Info pane is present on the page'), t('Devtrac'));
@@ -402,7 +402,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLinkUsingXpath('Schools', 0, '//*[@id="facetapi-facet-search-apianswers-block-taxonomy-vocabulary-1"]/li/a');
 
     // Check current search counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">2 Answers</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-devtrac7-answers"><h3 class="">1 Answer</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
 
     // Check for current search block.
     $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-answers-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
@@ -485,7 +485,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     <![CDATA[Mediocre]]>
   </name>', t('Name field is mapped correctly.'), t('Devtrac'));
     // Description : Report.
-    $this->assertRaw('/question/how-would-you-rate-school">How would you rate this school?</a>]]>
+    $this->assertRaw('/node/29">How would you rate this school?</a>]]>
   </description>', t('Description field is mapped correctly.'), t('Devtrac'));
     // Point : Lon - Lat.
     $this->assertRaw('<Point>
@@ -503,9 +503,9 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     // Title : Answer All.
     $this->assertRaw('&quot;&gt;Mediocre&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Category : Location Placetype.
-    $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</category>', t('Category is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</category>', t('Category is mapped correctly'), t('Devtrac'));
     // Description : Question.
-    $this->assertRaw('/question/how-would-you-rate-school&quot;&gt;How would you rate this school?&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/node/29&quot;&gt;How would you rate this school?&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
     // Published Date : Date Created (Subject to change).
     $this->assertRaw('<pubDate>' . date("d-m-Y") . '</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
 
@@ -513,18 +513,18 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     // Title : Answer All.
     $this->assertRaw('&quot;&gt;Mediocre&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Category : Location Placetype.
-    $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</dc:subject>', t('dc Category is mapped'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</dc:subject>', t('dc Category is mapped'), t('Devtrac'));
     // Description : Question.
-    $this->assertRaw('/question/how-would-you-rate-school&quot;&gt;How would you rate this school?&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/node/29&quot;&gt;How would you rate this school?&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
     // Date : Date Created (Subject to change)..
     $this->assertRaw('<dc:date>' . date("d-m-Y") . '</dc:date>', t('Date is mapped correctly'), t('Devtrac'));
     // Type : Location Placetype.
-    $this->assertRaw('/devtracorgtest/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</dc:type>', t('dc Type is mapped'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</dc:type>', t('dc Type is mapped'), t('Devtrac'));
     // Identifier : Answer Id.
     $this->assertRaw('<dc:identifier>2</dc:identifier>', t('dc Identifier is mapped'), t('Devtrac'));
 
     // georss items.
     // Relationship Tag : Location Placetype.
-    $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</georss:relationshipTag>', t('dc Relationship Tag is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</georss:relationshipTag>', t('dc Relationship Tag is mapped correctly'), t('Devtrac'));
   }
 }

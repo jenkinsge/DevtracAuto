@@ -601,7 +601,7 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     $this->drupalGet('sitereports/json');
 
     // Title.
-    $this->assertRaw('\/sitereport\/2014-11-02t000000\/site-visit-loroo-piped-water\u0022\u003ESite Visit at Loroo Piped Water \u003C\/a\u003E', t('Title field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('\/node\/20\u0022\u003ESite Visit at Loroo Piped Water \u003C\/a\u003E"', t('Title field is present and filled in.'), t('Devtrac'));
 
     // Location Type.
     $this->assertRaw('"taxonomy_vocabulary_1":"Gfs or Tap"', t('Location Type field is present and filled in.'), t('Devtrac'));
