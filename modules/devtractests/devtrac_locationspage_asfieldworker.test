@@ -265,7 +265,7 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<th class="views-field views-field-virtual-field" >
                       </th>', t('Virtual field column and heading is present on the page..'), t('Devtrac'));
     
-    $this->assertRaw('/location/public-government-school/test-location?display=list">test location</a>          </td>', t('Title table column is filled.'), t('Devtrac'));
+    $this->assertRaw('/node/33?display=list">test location</a>          </td>', t('Title table column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-taxonomy-vocabulary-1" >
             Public Government School          </td>', t('Location type is filled.'), t('Devtrac'));
     $this->assertLink('Undefined Area', 0, t('Admin Unit is filled.'), t('Devtrac'));
@@ -366,11 +366,11 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for quick tabs.
     // Location.
-    $this->assertRaw('<a href="/locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=0#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-0" class="active">Location</a>', t('Location quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=0#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-0" class="active">Location</a>', t('Location quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Location', 0, t('Location Quicktab is labeled'), t('Devtrac'));
 
     // Admin Units.
-    $this->assertRaw('<a href="/locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=1#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-1" class="active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/locations?display=graphs&amp;qt-devtrac_locations_graphs_tabs=1#qt-devtrac_locations_graphs_tabs" id="quicktabs-tab-devtrac_locations_graphs_tabs-1" class="active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Admin Units', 1, t('Admin Units Quicktab is labeled'), t('Devtrac'));
 
     // CSV.
@@ -403,10 +403,10 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Locations', 0);
     $this->clickLink('Export to KML', 0);
     // Name : Title.
-    $this->assertRaw('location/public-government-school/test-location">test location</a>]]>
+    $this->assertRaw('/node/33">test location</a>]]>
   </name>', t('Name field is mapped correctly.'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('/district/undefined-area">Undefined Area</a>]]>
+    $this->assertRaw('/taxonomy/term/292">Undefined Area</a>]]>
   </description>', t('Description field is mapped correctly.'), t('Devtrac'));
     // Point : Lon - Lat.
     $this->assertRaw('<Point>
@@ -420,24 +420,22 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Core items.
     // Title : Title.
-    $this->assertRaw('/location/public-government-school/test-location&quot;&gt;test location&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/node/33&quot;&gt;test location&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : Node Id (Subject to change).
     // this->assertRaw('/district/uganda&quot;&gt;Uganda&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('/district/undefined-area-0&quot;&gt;Undefined Area&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
 
     // dc items.
     // Title : Title.
-    $this->assertRaw('/location/public-government-school/test-location&quot;&gt;test location&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/node/33&quot;&gt;test location&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Creator : Title.
-    $this->assertRaw('/location/public-government-school/test-location&quot;&gt;test location&lt;/a&gt;</dc:creator>', t('dc Creator mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/node/33&quot;&gt;test location&lt;/a&gt;</dc:creator>', t('dc Creator mapped correctly'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('/district/undefined-area&quot;&gt;Undefined Area&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
     // Subject : Location Type.
-    // $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</dc:subject>', t('dc Category mapped correctly'), t('Devtrac'));
     $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</dc:subject>', t('dc Category mapped correctly'), t('Devtrac'));
     // Type : Location Type.
-    // $this->assertRaw('/category/location-type/public-government-school&quot;&gt;Public Government School&lt;/a&gt;</dc:type>', t('dc Type mapped correctly'), t('Devtrac'));
     $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</dc:type>', t('dc Type mapped correctly'), t('Devtrac'));
 
     // georss items.
@@ -448,10 +446,10 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->drupalGet('locations/json');
 
     // Title.
-    $this->assertRaw('\/location\/public-government-school\/test-location\u0022\u003Etest location\u003C\/a\u003E"', t('Title field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('\/node\/33\u0022\u003Etest location\u003C\/a\u003E"', t('Title field is present and filled in.'), t('Devtrac'));
 
     // Description.
-    $this->assertRaw('\/location\/public-government-school\/test-location\u0022\u003ERead more\u003C\/a\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E', t('Description field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('\/node\/33\u0022\u003ERead more\u003C\/a\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E"', t('Description field is present and filled in.'), t('Devtrac'));
 
     // Latitude and Longitude.
     $this->assertRaw('"coordinates":[32.704498222317,0.55648155001529]}', t('Latitude and Longitude field is present and filled in.'), t('Devtrac'));

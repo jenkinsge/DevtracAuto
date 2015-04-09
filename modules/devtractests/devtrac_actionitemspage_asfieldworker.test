@@ -241,7 +241,7 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
             Closed          </td>', t('Status column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-field-actionitem-due-date" >
             <span class="date-display-single">31-01-2015</span>          </td>', t('Due Date column is filled.'), t('Devtrac'));
-    $this->assertRaw('/admin">Site Admin</a>          </td>', t('Responsible column is filled.'), t('Devtrac'));
+    $this->assertRaw('user/1">Site Admin</a>          </td>', t('Responsible column is filled.'), t('Devtrac'));
     // $this->assertRaw('<th class="views-field views-field-virtual-field" data-hide="phone"></th>',
     // t('Empty Button table heading is present on the page'), t('Devtrac'));
     $this->assertNoLink('Edit', t('Edit button is not present.'), t('Devtrac'));

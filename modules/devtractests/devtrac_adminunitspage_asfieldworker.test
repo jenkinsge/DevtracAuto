@@ -380,14 +380,14 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     // Longtitude.
     $this->assertRaw('"34.875816679152"', t('Longtitude field is filled.'), t('Devtrac'));
     // URL.
-    $this->assertRaw('/district/uganda/amudat"', t('URL field is filled.'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/306"', t('URL field is filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');
     $this->clickLink('Admin Units', 0);
     $this->clickLink('Export to KML', 0);
     // Name : Title.
-    $this->assertRaw('/district/uganda/amudat">Amudat</a>]]>
+    $this->assertRaw('/taxonomy/term/306">Amudat</a>]]>
   </name>', t('Name field is mapped correctly.'), t('Devtrac'));
     // Description : Category.
     $this->assertRaw('<description>
@@ -405,9 +405,9 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Core items.
     // Title : Name.
-    $this->assertRaw('/district/undefined-area&quot;&gt;Undefined Area&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : Name.
-    $this->assertRaw('/district/undefined-area&quot;&gt;Undefined Area&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Description.
     $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
 </description>', t('Description mapped correctly'), t('Devtrac'));
@@ -416,7 +416,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // dc items.
     // Title : Name.
-    $this->assertRaw('/district/undefined-area&quot;&gt;Undefined Area&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Description : description.
     $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
 </dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
@@ -433,10 +433,10 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->drupalGet('adminunits/json');
 
     // Title.
-    $this->assertRaw('\/district\/uganda\/amudat\u0022\u003EAmudat\u003C\/a\u003E"', t('Title field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('\/taxonomy\/term\/306\u0022\u003EAmudat\u003C\/a\u003E"', t('Title field is present and filled in.'), t('Devtrac'));
 
     // Description.
-    $this->assertRaw('\/district\/uganda\/amudat\u0022\u003ERead more\u003C\/a\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E"', t('Description field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('\/taxonomy\/term\/306\u0022\u003ERead more\u003C\/a\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E"', t('Description field is present and filled in.'), t('Devtrac'));
 
     // Latitude and Longitude.
     $this->assertRaw('"field_district_geo":1.805407161652,"field_district_geo_1":34.875816679152}', t('Latitude and Longitude field is present and filled in.'), t('Devtrac'));
