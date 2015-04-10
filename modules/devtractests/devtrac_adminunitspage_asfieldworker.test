@@ -221,28 +221,28 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // ENABLING A FILTER.
     $this->assertRaw('/adminunits?display=list&amp;f[0]=parents_all%3A3"', t('Filter by Uganda link is present on the page.'), t('Devtrac'));
-    $this->clickLinkUsingXpath('Uganda', 0, '//*[@id="facetapi-link--8"]');
+    $this->clickLinkUsingXpath('Uganda', 0, '//*[@id="facetapi-link--7"]');
 
     // Check current search counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">1 Admin Unit</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">2 Admin Units</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
 
     // Check for current search block.
     $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-districts-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
-    $this->assertRaw('Undefined Area<span class="remove">[-]</span></a>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
+    $this->assertRaw('Uganda<span class="remove">[-]</span></a>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
 
     // Check main menu links.
-    $this->assertLinkByHref('/sitereports?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/statistics?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/statistics?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
     $this->assertLinkByHref('/adminunits?display=list&f[0]=parents_all%3A3', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/locations?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/actionitems?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Action Items link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/fieldtrips?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Field Trips link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/actionitems?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Action Items link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/fieldtrips?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Field Trips link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('adminunits/analyse/csv?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Export to CSV link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('adminunits/analyse/kml?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Export to KML link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('adminunits/analyse/rss?display=list&f[0]=taxonomy_vocabulary_6%3A292', 0, t('Filtered Subscribe to RSS link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/csv?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/kml?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('adminunits/analyse/rss?display=list&f[0]=taxonomy_vocabulary_6%3A3', 0, t('Filtered Subscribe to RSS link is present on the page.'), t('Devtrac'));
 
     // Check for the columns.
     $this->drupalGet('');
@@ -410,7 +410,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     // Link : Name.
     $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Description.
-    $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
+    $this->assertRaw('Waiting for a value from the Mapit widget.&lt;/p&gt;
 </description>', t('Description mapped correctly'), t('Devtrac'));
     // Category : Category.
     $this->assertRaw('<category>Tag 1</category>', t('Category mapped correctly'), t('Devtrac'));
@@ -419,7 +419,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     // Title : Name.
     $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Description : description.
-    $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
+    $this->assertRaw('Waiting for a value from the Mapit widget.&lt;/p&gt;
 </dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
     // Subject : Category.
     $this->assertRaw('<dc:subject>Tag 1</dc:subject>', t('dc Category mapped correctly'), t('Devtrac'));
@@ -428,7 +428,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // georss items.
     // Point : Latitude, Longitude.
-    $this->assertRaw('<georss:point>Latitude: 1.281481078791 &lt;br/&gt;Longitude: 32.391387892363</georss:point>', t('dc Point is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<georss:point>Latitude: 1.805407161652 &lt;br/&gt;Longitude: 34.875816679152</georss:point>', t('geo rss Point is mapped correctly'), t('Devtrac'));
 
     // JSON.
     $this->drupalGet('adminunits/json');
