@@ -8866,6 +8866,8 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['text'] = 'Questions Answered';
+  $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['path'] = 'statistics?f[0]=author%3A!1';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['hide_empty'] = TRUE;
   /* Field: Content: Title */
@@ -8875,6 +8877,8 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['relationship'] = 'uid';
   $handler->display->display_options['fields']['title']['group_type'] = 'count';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = 'statistics?f[0]=author%3A!1';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
