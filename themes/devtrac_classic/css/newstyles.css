@@ -1521,7 +1521,8 @@ form table.draggable tbody tr:hover {
   padding: 0;
 }
 
-.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr td.views-field-name {
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr td.views-field-name ,
+.block-views-dvtrc-user-block-3 .view-dvtrc-user table tbody tr td.views-field-field-user-superior-1 {
   padding-left: 0;
 }
 
