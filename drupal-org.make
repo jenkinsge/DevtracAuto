@@ -537,6 +537,7 @@ projects[commentblock][download][url] = "http://git.drupal.org/sandbox/bc/144731
 projects[commentblock][download][branch] = "7.x-1.x"
 projects[commentblock][subdir] = "contrib"
 projects[commentblock][patch][] = "https://www.drupal.org/files/parameter-1-expected-to-be-a-reference.patch"
+projects[commentblock][patch][] = "https://www.drupal.org/files/issues/commentblock-fix_for_commentblock_block_view_error-2471441-1.patch"
 
 projects[OL_lat_long][type] = "module"
 projects[OL_lat_long][download][type] = "git"
