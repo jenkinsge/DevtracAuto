@@ -405,11 +405,12 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $answers2['31'] = "Mediocre";
     $this->drupalPost(NULL, $answers2, t('Submit'));
 
-    // Reindex Questions and Answers.
+    // Reindex Questions and Answers and Images.
     $this->drupalLogout();
     $this->drupalLogin($this->administrator);
     $this->reindex('admin/config/search/search_api/index/questions');
     $this->reindex('admin/config/search/search_api/index/answers');
+    $this->reindex('admin/config/search/search_api/index/devtrac_solr_image_index');
     $this->drupalLogout();
     $this->drupalLogin($this->fieldworker);
    }
