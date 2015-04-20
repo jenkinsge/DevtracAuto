@@ -309,7 +309,7 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: ActionItems List-FieldTrip */
   $handler = $view->new_display('block', 'ActionItems List-FieldTrip', 'block_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['display_description'] = 'List of action items on the fieldtrip page. Shows in the quick tabs';
+  $handler->display->display_options['display_description'] = 'List of action items on the field trip page. Shows in the quick tabs';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -2217,7 +2217,7 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: Field Trip P-3rd */
   $handler = $view->new_display('block', 'Field Trip P-3rd', 'block_3');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['display_description'] = 'Contains the progress of the FieldTrip in the last preface on the right';
+  $handler->display->display_options['display_description'] = 'Contains the progress of the Field Trip in the last preface on the right';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -2445,7 +2445,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler = $view->new_display('block', 'Field trip Description', 'block_6');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Description of the Fieldtrip';
-  $handler->display->display_options['display_description'] = 'Description of the field trip on the FieldTrip main page. Contains Public and narrative summary';
+  $handler->display->display_options['display_description'] = 'Description of the field trip on the Field Trip main page. Contains Public and narrative summary';
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Public Summary */
@@ -2584,7 +2584,7 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: Attachm't - SiteReports */
   $handler = $view->new_display('attachment', 'Attachm\'t - SiteReports', 'attachment_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['display_description'] = 'Attachment - Site Reports on the FieldTrip full Report';
+  $handler->display->display_options['display_description'] = 'Attachment - Site Reports on the Field Trip full Report';
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
@@ -2744,7 +2744,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'FieldTrip';
+  $handler->display->display_options['fields']['title']['label'] = 'Field Trip';
   $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['text'] = '[title]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
@@ -3110,7 +3110,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'FieldTrips';
+  $handler->display->display_options['fields']['title']['label'] = 'Field Trips';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Field: Content: Start and End Date */
@@ -3408,7 +3408,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'FieldTrips';
+  $handler->display->display_options['fields']['title']['label'] = 'Field Trips';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Field: Content: Start and End Date */
@@ -3489,8 +3489,8 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: Current FieldTrip */
   $handler = $view->new_display('block', 'Current FieldTrip', 'block_10');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Current FieldTrip';
-  $handler->display->display_options['display_description'] = 'Block outputs the latest current open fieldtrip that belong to a given user';
+  $handler->display->display_options['title'] = 'Current Field Trip';
+  $handler->display->display_options['display_description'] = 'Block outputs the latest current open field trip that belong to a given user';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -3531,7 +3531,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['label'] = 'Current FieldTrip';
+  $handler->display->display_options['fields']['title']['label'] = 'Current Field Trip';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_type'] = '0';
@@ -3590,7 +3590,7 @@ function devtrac7_views_feature_views_default_views() {
 
   /* Display: Current FieldTrip progress */
   $handler = $view->new_display('block', 'Current FieldTrip progress', 'block_11');
-  $handler->display->display_options['display_description'] = 'Block outputs the progress of the current open fieldtrip that belong to a given user';
+  $handler->display->display_options['display_description'] = 'Block outputs the progress of the current open field trip that belong to a given user';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '1';
@@ -3908,7 +3908,7 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: SiteReports Map */
   $handler = $view->new_display('attachment', 'SiteReports Map', 'attachment_5');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['display_description'] = 'Attachment - Map of Site Reports on the FieldTrip full Report';
+  $handler->display->display_options['display_description'] = 'Attachment - Map of Site Reports on the Field Trip full Report';
   $handler->display->display_options['defaults']['query'] = FALSE;
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['query_comment'] = FALSE;
@@ -4122,7 +4122,7 @@ function devtrac7_views_feature_views_default_views() {
 
   /* Display: Questions - Answers */
   $handler = $view->new_display('block', 'Questions - Answers', 'block_13');
-  $handler->display->display_options['display_description'] = 'Questions with there answers';
+  $handler->display->display_options['display_description'] = 'Questions with their answers';
   $handler->display->display_options['defaults']['group_by'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -6522,7 +6522,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler = $view->new_display('block', 'Sitevisits-FieldTrip', 'block_11');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Site Visits';
-  $handler->display->display_options['display_description'] = 'List of site visits under a given fieldtrip on the FieldTrip page';
+  $handler->display->display_options['display_description'] = 'List of site visits under a given fieldtrip on the Field Trip page';
   $handler->display->display_options['defaults']['use_ajax'] = FALSE;
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['query'] = FALSE;
@@ -8025,7 +8025,7 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: User Field Trips */
   $handler = $view->new_display('block', 'User Field Trips', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'My FieldTrips';
+  $handler->display->display_options['title'] = 'My Field Trips';
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
@@ -8111,7 +8111,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['relationship'] = 'reverse_field_fieldtrip_user_node';
-  $handler->display->display_options['fields']['title']['label'] = 'FieldTrip Title';
+  $handler->display->display_options['fields']['title']['label'] = 'Field Trip Title';
   /* Field: Content: Start and End Date */
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'field_data_field_fieldtrip_start_end_date';
@@ -8286,7 +8286,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = 'You do not have any FieldTrips yet';
+  $handler->display->display_options['empty']['area']['content'] = 'You do not have any Field Trips yet';
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: User: Content authored */
@@ -8308,7 +8308,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['name']['alter']['text'] = 'FieldTrips';
+  $handler->display->display_options['fields']['name']['alter']['text'] = 'Field Trips';
   $handler->display->display_options['fields']['name']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['name']['alter']['path'] = 'fieldtrips?f[0]=author%3A[uid]';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
@@ -8513,7 +8513,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['id'] = 'area';
   $handler->display->display_options['empty']['area']['table'] = 'views';
   $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['content'] = 'You do not have any ActionItems yet';
+  $handler->display->display_options['empty']['area']['content'] = 'You do not have any Action Items yet';
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: User: Content authored */
@@ -9266,19 +9266,15 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['empty']['area']['format'] = '1';
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_user_superior_user']['id'] = 'reverse_field_user_superior_user';
+  $handler->display->display_options['relationships']['reverse_field_user_superior_user']['table'] = 'users';
+  $handler->display->display_options['relationships']['reverse_field_user_superior_user']['field'] = 'reverse_field_user_superior_user';
+  $handler->display->display_options['relationships']['reverse_field_user_superior_user']['required'] = TRUE;
+  /* Relationship: Entity Reference: Referencing entity */
   $handler->display->display_options['relationships']['reverse_field_actionitem_responsible_node']['id'] = 'reverse_field_actionitem_responsible_node';
   $handler->display->display_options['relationships']['reverse_field_actionitem_responsible_node']['table'] = 'users';
   $handler->display->display_options['relationships']['reverse_field_actionitem_responsible_node']['field'] = 'reverse_field_actionitem_responsible_node';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['id'] = 'field_actionitem_responsible_target_id';
-  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['table'] = 'field_data_field_actionitem_responsible';
-  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['field'] = 'field_actionitem_responsible_target_id';
-  $handler->display->display_options['relationships']['field_actionitem_responsible_target_id']['relationship'] = 'reverse_field_actionitem_responsible_node';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['field_user_superior_target_id']['id'] = 'field_user_superior_target_id';
-  $handler->display->display_options['relationships']['field_user_superior_target_id']['table'] = 'field_data_field_user_superior';
-  $handler->display->display_options['relationships']['field_user_superior_target_id']['field'] = 'field_user_superior_target_id';
-  $handler->display->display_options['relationships']['field_user_superior_target_id']['label'] = 'Manager';
+  $handler->display->display_options['relationships']['reverse_field_actionitem_responsible_node']['relationship'] = 'reverse_field_user_superior_user';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
@@ -9303,14 +9299,15 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_superior_1']['id'] = 'field_user_superior_1';
   $handler->display->display_options['fields']['field_user_superior_1']['table'] = 'field_data_field_user_superior';
   $handler->display->display_options['fields']['field_user_superior_1']['field'] = 'field_user_superior';
-  $handler->display->display_options['fields']['field_user_superior_1']['relationship'] = 'field_actionitem_responsible_target_id';
+  $handler->display->display_options['fields']['field_user_superior_1']['relationship'] = 'reverse_field_user_superior_user';
   $handler->display->display_options['fields']['field_user_superior_1']['label'] = '';
   $handler->display->display_options['fields']['field_user_superior_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_user_superior_1']['alter']['text'] = 'My Team\'s Open Action Items';
   $handler->display->display_options['fields']['field_user_superior_1']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['field_user_superior_1']['alter']['path'] = 'actionitems?display=list&f[0]=field_actionitem_responsible%[uid]3Afield_user_superior%3A[field_user_superior_1-target_id]';
+  $handler->display->display_options['fields']['field_user_superior_1']['alter']['path'] = 'actionitems?display=list&f[0]=field_actionitem_responsible%253Afield_user_superior%3A[uid]';
   $handler->display->display_options['fields']['field_user_superior_1']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['field_user_superior_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_superior_1']['empty'] = 'The responsible user has no manager.';
   $handler->display->display_options['fields']['field_user_superior_1']['settings'] = array(
     'link' => 0,
   );
@@ -9322,20 +9319,20 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['group_type'] = 'count_distinct';
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['path'] = 'actionitems?display=list&f[0]=field_actionitem_responsible%[uid]3Afield_user_superior%3A[field_user_superior_1-target_id]';
+  $handler->display->display_options['fields']['title']['alter']['path'] = 'actionitems?display=list&f[0]=field_actionitem_responsible%253Afield_user_superior%3A[uid]';
   $handler->display->display_options['fields']['title']['alter']['absolute'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: User: Uid */
-  $handler->display->display_options['arguments']['uid']['id'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['table'] = 'users';
-  $handler->display->display_options['arguments']['uid']['field'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['relationship'] = 'field_user_superior_target_id';
-  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
-  $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: User: Manager (field_user_superior) */
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['id'] = 'field_user_superior_target_id';
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['table'] = 'field_data_field_user_superior';
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['field'] = 'field_user_superior_target_id';
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['default_argument_type'] = 'user';
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['default_argument_options']['user'] = FALSE;
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_user_superior_target_id']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: User: Active */
