@@ -837,7 +837,7 @@ function devtrac_initialize_search_server() {
  * Import codelists using module devtrac_imports.
  */
 function devtrac_import_codelists() {
-  module_enable(array('devtrac_imports', 'migrate', 'migrate_extras'), FALSE);
+  module_enable(array('devtrac_imports', 'migrate', 'migrate_extras'));
   $batch = devtrac_imports_batch();
   // Remove any status messages that might have been set.
   // Migrate adds its messages under the wrong type, see #1659150.

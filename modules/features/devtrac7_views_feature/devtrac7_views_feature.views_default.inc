@@ -8816,7 +8816,11 @@ function devtrac7_views_feature_views_default_views() {
   );
   $handler->display->display_options['attachment_position'] = 'after';
 
-  /* Display: NumbrAnswers */
+  /**
+   *  Display: NumbrAnswers
+   *
+   * Commenting this out because no one has asked for this feature yet.
+   *
   $handler = $view->new_display('attachment', 'NumbrAnswers', 'attachment_4');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Answers to Questions provided';
@@ -8853,12 +8857,12 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Relationship: User: Content authored */
+  /* Relationship: User: Content authored
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'users';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Questions Answered */
+  /* Field: Questions Answered
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
@@ -8870,7 +8874,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['alter']['path'] = 'statistics?f[0]=author%3A!1';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['hide_empty'] = TRUE;
-  /* Field: Content: Title */
+  /* Field: Content: Title
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -8882,7 +8886,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_empty'] = TRUE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: User: Uid */
+  /* Contextual filter: User: Uid
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -8894,14 +8898,14 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: User: Active */
+  /* Filter criterion: User: Active
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filter criterion: Content: Type
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -8921,6 +8925,7 @@ function devtrac7_views_feature_views_default_views() {
     'block_4' => 0,
   );
   $handler->display->display_options['attachment_position'] = 'after';
+   */
 
   /* Display: UserMap Overlay */
   $handler = $view->new_display('openlayers', 'UserMap Overlay', 'openlayers_1');
