@@ -1,9 +1,8 @@
 <?php
 class DevtracImportsPlacetypeLevel2 extends XMLMigration {
 
-  public function __construct(array $arguments) {
-    $this->arguments = $arguments;
-    parent::__construct();
+  public function __construct($arguments = array()) {
+    parent::__construct($arguments);
     
     $this->description = t('Imports placetype level2.');
     $this->dependencies = array(

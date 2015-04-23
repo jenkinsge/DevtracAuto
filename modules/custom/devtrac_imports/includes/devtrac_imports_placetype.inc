@@ -8,9 +8,8 @@
 *   sites/all/modules/a_wusel_migration/data_sources/
 */
 class DevtracImportsPlaceType extends DevtracImportsCsvBase {
-	public function __construct($arguments) {
-		$this->arguments = $arguments;
-		parent::__construct($arguments);
+	public function __construct($arguments = array()) {
+    parent::__construct($arguments);
 		$this->description = t('Import an CSV-file (only "Account"-fields)');
 		$columns = array(
 				// "Source": ('Fieldname', 'Description')

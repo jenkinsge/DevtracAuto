@@ -1,7 +1,7 @@
 <?php
 class DevtracImportsPlacetypeIcons extends XMLMigration   {
-  public function __construct() {
-    parent::__construct();
+  public function __construct($arguments = array()) {
+    parent::__construct($arguments);
     $this->description = t('Example migration of media images');
 
     $this->map = new MigrateSQLMap($this->machineName,
