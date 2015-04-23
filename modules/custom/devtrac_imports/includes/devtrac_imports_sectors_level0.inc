@@ -6,8 +6,8 @@ class DevtracImportsSectorsLevel0 extends XMLMigration {
   /**
    * Invoke the class constructor.
    */
-  public function __construct() {
-    parent::__construct();
+  public function __construct($arguments = array()) {
+    parent::__construct($arguments);
 
     // Do some general administration.
     $this->description = t('Imports terms of  Sector Level 0.');

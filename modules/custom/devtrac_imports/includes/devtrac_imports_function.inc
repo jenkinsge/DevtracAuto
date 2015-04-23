@@ -9,9 +9,8 @@
 /**
 */
 class DevtracImportsFunction extends DevtracImportsCsvBase {
-	public function __construct($arguments) {
-		$this->arguments = $arguments;
-		parent::__construct($arguments);
+	public function __construct($arguments = array()) {
+    parent::__construct($arguments);
 		$this->description = t('Fuction codelist');
 		$columns = array(
 				// "Source": ('Fieldname', 'Description')

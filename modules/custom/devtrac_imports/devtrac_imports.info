@@ -1,5 +1,5 @@
 name = devtrac imports
-description="Module will impor thte different taxonmies that are required by devtrac"
+description="Module will import the different taxonomies that are required by devtrac"
 core = "7.x"
 package = "Devtrac"
 

@@ -6,9 +6,8 @@
 *   sites/all/modules/a_wusel_migration/data_sources/
 */
 class DevtracImportsDepartment extends DevtracImportsCsvBase {
-	public function __construct($arguments) {
-		$this->arguments = $arguments;
-		parent::__construct($arguments);
+	public function __construct($arguments = array()) {
+    parent::__construct($arguments);
 		$this->description = t('Import Departments');
 		$columns = array(
 				0 => array('name', t('name')),
