@@ -557,6 +557,141 @@ function devtrac7_taxonomy_feature_views_default_views() {
   $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
+
+  /* Display: District Category outline */
+  $handler = $view->new_display('openlayers', 'District Category outline', 'openlayers_2');
+  $handler->display->display_options['display_description'] = 'District outline on District page according to District Category';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'openlayers_data';
+  $handler->display->display_options['style_options']['data_source'] = array(
+    'value' => 'wkt',
+    'other_lat' => 'name',
+    'other_lon' => 'name',
+    'wkt' => 'field_district_geo',
+    'other_top' => 'name',
+    'other_right' => 'name',
+    'other_bottom' => 'name',
+    'other_left' => 'name',
+    'name_field' => 'name',
+    'description_field' => 'description',
+    'style_field' => '',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_place_contact_info' => 'field_place_contact_info',
+    'field_place_website' => 'field_place_website',
+    'field_place_email' => 'field_place_email',
+    'field_place_phone' => 'field_place_phone',
+  );
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h5';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: Geo */
+  $handler->display->display_options['fields']['field_district_geo']['id'] = 'field_district_geo';
+  $handler->display->display_options['fields']['field_district_geo']['table'] = 'field_data_field_district_geo';
+  $handler->display->display_options['fields']['field_district_geo']['field'] = 'field_district_geo';
+  $handler->display->display_options['fields']['field_district_geo']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_district_geo']['settings'] = array(
+    'data' => 'full',
+  );
+  /* Field: Taxonomy term: Term description */
+  $handler->display->display_options['fields']['description']['id'] = 'description';
+  $handler->display->display_options['fields']['description']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['description']['field'] = 'description';
+  $handler->display->display_options['fields']['description']['label'] = '';
+  $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Taxonomy term: Tags (field_district_category) */
+  $handler->display->display_options['arguments']['field_district_category_tid']['id'] = 'field_district_category_tid';
+  $handler->display->display_options['arguments']['field_district_category_tid']['table'] = 'field_data_field_district_category';
+  $handler->display->display_options['arguments']['field_district_category_tid']['field'] = 'field_district_category_tid';
+  $handler->display->display_options['arguments']['field_district_category_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_district_category_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_district_category_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_district_category_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_district_category_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+
+  /* Display: District List */
+  $handler = $view->new_display('block', 'District List', 'block_4');
+  $handler->display->display_options['display_description'] = 'List of Districts with a common district category';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'footable';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'name' => 'name',
+    'field_district_geo' => 'field_district_geo',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_district_geo' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'name',
+    'icon' => '',
+    'icon_size' => '',
+    'hide' => array(
+      'name' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_district_geo' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Taxonomy term: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_type'] = 'h5';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  /* Field: Taxonomy term: Long Name */
+  $handler->display->display_options['fields']['field_long_name']['id'] = 'field_long_name';
+  $handler->display->display_options['fields']['field_long_name']['table'] = 'field_data_field_long_name';
+  $handler->display->display_options['fields']['field_long_name']['field'] = 'field_long_name';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Taxonomy term: Tags (field_district_category) */
+  $handler->display->display_options['arguments']['field_district_category_tid']['id'] = 'field_district_category_tid';
+  $handler->display->display_options['arguments']['field_district_category_tid']['table'] = 'field_data_field_district_category';
+  $handler->display->display_options['arguments']['field_district_category_tid']['field'] = 'field_district_category_tid';
+  $handler->display->display_options['arguments']['field_district_category_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_district_category_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_district_category_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_district_category_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_district_category_tid']['summary_options']['items_per_page'] = '25';
   $export['district'] = $view;
 
   return $export;

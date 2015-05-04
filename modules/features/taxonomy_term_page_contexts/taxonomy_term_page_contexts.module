@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Taxonomy term page contexts feature.
+ */
+
+include_once 'taxonomy_term_page_contexts.features.inc';
