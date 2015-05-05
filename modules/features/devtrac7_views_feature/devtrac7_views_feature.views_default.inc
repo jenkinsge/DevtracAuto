@@ -5287,6 +5287,70 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['arguments']['taxonomy_vocabulary_1_tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['taxonomy_vocabulary_1_tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['taxonomy_vocabulary_1_tid']['summary_options']['items_per_page'] = '25';
+  /* Display: Locations by Tag */
+  $handler = $view->new_display('block', 'Locations by Tag', 'block_7');
+  $handler->display->display_options['display_description'] = 'A table with loctions of a given location tag';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'footable';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'title' => 'title',
+    'taxonomy_vocabulary_6' => 'taxonomy_vocabulary_6',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'taxonomy_vocabulary_6' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'title',
+    'icon' => '',
+    'icon_size' => '',
+    'hide' => array(
+      'title' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'taxonomy_vocabulary_6' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Field: Admin Unit */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'field_data_taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Location Tags (field_location_tags) */
+  $handler->display->display_options['arguments']['field_location_tags_tid']['id'] = 'field_location_tags_tid';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['table'] = 'field_data_field_location_tags';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['field'] = 'field_location_tags_tid';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['summary_options']['items_per_page'] = '25';
   $export['dvtrc_locations'] = $view;
 
   $view = new view();
@@ -6698,6 +6762,116 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['term_node_tid_depth']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['term_node_tid_depth']['depth'] = '3';
+
+  /* Display: Location Tag Data Overlay */
+  $handler = $view->new_display('openlayers', 'Location Tag Data Overlay', 'openlayers_13');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'dvtrc maps(Location)';
+  $handler->display->display_options['display_description'] = 'Data Overlay for Locations/Places with a common location tag';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'openlayers_data';
+  $handler->display->display_options['style_options']['data_source'] = array(
+    'value' => 'wkt',
+    'other_lat' => 'title',
+    'other_lon' => 'title',
+    'wkt' => 'field_place_lat_long',
+    'other_top' => 'title',
+    'other_right' => 'title',
+    'other_bottom' => 'title',
+    'other_left' => 'title',
+    'name_field' => 'title',
+    'description_field' => '',
+    'view_mode' => 'full',
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Field: Location Type (taxonomy_vocabulary_1) */
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['id'] = 'taxonomy_vocabulary_1_tid';
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['table'] = 'field_data_taxonomy_vocabulary_1';
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['field'] = 'taxonomy_vocabulary_1_tid';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Lat-Long */
+  $handler->display->display_options['fields']['field_place_lat_long']['id'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['table'] = 'field_data_field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['field'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['click_sort_column'] = 'wkt';
+  $handler->display->display_options['fields']['field_place_lat_long']['settings'] = array(
+    'data' => 'full',
+  );
+  /* Field: Field: Location Type */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'field_data_taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = '';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['alter']['text'] = '/sites/default/themes/devtrack_theme/icons/[taxonomy_vocabulary_1]_c.png';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['type'] = 'taxonomy_term_reference_plain';
+  /* Field: Taxonomy term: Term Icon */
+  $handler->display->display_options['fields']['field_term_icon']['id'] = 'field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['table'] = 'field_data_field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['field'] = 'field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon']['relationship'] = 'taxonomy_vocabulary_1_tid';
+  $handler->display->display_options['fields']['field_term_icon']['label'] = '';
+  $handler->display->display_options['fields']['field_term_icon']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_term_icon']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_term_icon']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_term_icon']['settings'] = array(
+    'url_type' => '0',
+    'image_style' => 'map_icon',
+    'image_link' => '',
+  );
+  /* Field: Taxonomy term: Term Icon */
+  $handler->display->display_options['fields']['field_term_icon_1']['id'] = 'field_term_icon_1';
+  $handler->display->display_options['fields']['field_term_icon_1']['table'] = 'field_data_field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon_1']['field'] = 'field_term_icon';
+  $handler->display->display_options['fields']['field_term_icon_1']['relationship'] = 'taxonomy_vocabulary_1_tid';
+  $handler->display->display_options['fields']['field_term_icon_1']['label'] = '';
+  $handler->display->display_options['fields']['field_term_icon_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_term_icon_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_term_icon_1']['type'] = 'image_url';
+  $handler->display->display_options['fields']['field_term_icon_1']['settings'] = array(
+    'url_type' => '0',
+    'image_style' => 'map_icon_bw',
+    'image_link' => '',
+  );
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Location Tags (field_location_tags) */
+  $handler->display->display_options['arguments']['field_location_tags_tid']['id'] = 'field_location_tags_tid';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['table'] = 'field_data_field_location_tags';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['field'] = 'field_location_tags_tid';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_location_tags_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'place' => 'place',
+  );
   $export['dvtrc_maps'] = $view;
 
   $view = new view();

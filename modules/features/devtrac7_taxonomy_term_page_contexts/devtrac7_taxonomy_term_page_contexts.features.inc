@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * taxonomy_term_page_contexts.features.inc
+ * devtrac7_taxonomy_term_page_contexts.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function taxonomy_term_page_contexts_ctools_plugin_api($module = NULL, $api = NULL) {
+function devtrac7_taxonomy_term_page_contexts_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
@@ -25,6 +25,6 @@ function taxonomy_term_page_contexts_ctools_plugin_api($module = NULL, $api = NU
 /**
  * Implements hook_views_api().
  */
-function taxonomy_term_page_contexts_views_api($module = NULL, $api = NULL) {
+function devtrac7_taxonomy_term_page_contexts_views_api($module = NULL, $api = NULL) {
   return array("api" => "3.0");
 }

@@ -25,6 +25,14 @@ function devtrac7_node_types_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'location_tags' => array(
+      'name' => 'Location Tags',
+      'machine_name' => 'location_tags',
+      'description' => 'Tags on Locations',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'vocabulary_1' => array(
       'name' => 'Location Type',
       'machine_name' => 'vocabulary_1',

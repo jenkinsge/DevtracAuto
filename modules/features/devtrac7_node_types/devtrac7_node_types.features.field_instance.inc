@@ -3125,6 +3125,60 @@ function devtrac7_node_types_field_default_field_instances() {
     'widget_type' => 'geofield_wkt',
   );
 
+  // Exported field_instance: 'node-ftritem-field_other_documents'
+  $field_instances['node-ftritem-field_other_documents'] = array(
+    'bundle' => 'ftritem',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'file',
+        'settings' => array(),
+        'type' => 'file_default',
+        'weight' => 15,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'map_popup_view_mode' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_other_documents',
+    'label' => 'Other Documents',
+    'required' => 0,
+    'settings' => array(
+      'description_field' => 1,
+      'file_directory' => '',
+      'file_extensions' => 'txt doc docx pdf',
+      'max_filesize' => '',
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'file',
+      'settings' => array(
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'file_generic',
+      'weight' => 19,
+    ),
+  );
+
   // Exported field_instance: 'node-ftritem-field_progress_bar'
   $field_instances['node-ftritem-field_progress_bar'] = array(
     'bundle' => 'ftritem',
@@ -3598,6 +3652,58 @@ function devtrac7_node_types_field_default_field_instances() {
       'settings' => array(),
       'type' => 'hidden',
       'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-place-field_location_tags'
+  $field_instances['node-place-field_location_tags'] = array(
+    'bundle' => 'place',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 10,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'map_popup_view_mode' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_location_tags',
+    'label' => 'Location Tags',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => 1,
+        'content_taxonomy_opt_groups' => 0,
+      ),
+      'type' => 'options_select',
+      'weight' => 9,
     ),
   );
 
