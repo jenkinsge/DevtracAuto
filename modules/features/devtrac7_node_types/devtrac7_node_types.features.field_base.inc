@@ -1322,13 +1322,13 @@ function devtrac7_node_types_field_default_field_bases() {
     'type_name' => 'ftritem',
   );
 
-  // Exported field_base: 'field_location_tags'
-  $field_bases['field_location_tags'] = array(
+  // Exported field_base: 'field_place_tags'
+  $field_bases['field_place_tags'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_location_tags',
+    'field_name' => 'field_place_tags',
     'field_permissions' => array(
       'type' => 0,
     ),
@@ -1353,13 +1353,13 @@ function devtrac7_node_types_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_other_documents'
-  $field_bases['field_other_documents'] = array(
+  // Exported field_base: 'field_ftritem_documents'
+  $field_bases['field_ftritem_documents'] = array(
     'active' => 1,
     'cardinality' => -1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_other_documents',
+    'field_name' => 'field_ftritem_documents',
     'field_permissions' => array(
       'type' => 0,
     ),

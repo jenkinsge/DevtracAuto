@@ -3125,8 +3125,8 @@ function devtrac7_node_types_field_default_field_instances() {
     'widget_type' => 'geofield_wkt',
   );
 
-  // Exported field_instance: 'node-ftritem-field_other_documents'
-  $field_instances['node-ftritem-field_other_documents'] = array(
+  // Exported field_instance: 'node-ftritem-field_ftritem_documents'
+  $field_instances['node-ftritem-field_ftritem_documents'] = array(
     'bundle' => 'ftritem',
     'deleted' => 0,
     'description' => '',
@@ -3158,8 +3158,8 @@ function devtrac7_node_types_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_other_documents',
-    'label' => 'Other Documents',
+    'field_name' => 'field_ftritem_documents',
+    'label' => 'Documents',
     'required' => 0,
     'settings' => array(
       'description_field' => 1,
@@ -3655,8 +3655,8 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-place-field_location_tags'
-  $field_instances['node-place-field_location_tags'] = array(
+  // Exported field_instance: 'node-place-field_place_tags'
+  $field_instances['node-place-field_place_tags'] = array(
     'bundle' => 'place',
     'default_value' => NULL,
     'deleted' => 0,
@@ -3689,7 +3689,7 @@ function devtrac7_node_types_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'node',
-    'field_name' => 'field_location_tags',
+    'field_name' => 'field_place_tags',
     'label' => 'Location Tags',
     'required' => 0,
     'settings' => array(

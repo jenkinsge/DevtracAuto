@@ -55,7 +55,7 @@ function devtrac7_node_types_field_group_info() {
     'label' => 'Location Tags',
     'weight' => '12',
     'children' => array(
-      0 => 'field_location_tags',
+      0 => 'field_place_tags',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(

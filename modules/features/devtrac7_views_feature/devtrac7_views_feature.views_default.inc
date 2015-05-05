@@ -5342,15 +5342,15 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Location Tags (field_location_tags) */
-  $handler->display->display_options['arguments']['field_location_tags_tid']['id'] = 'field_location_tags_tid';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['table'] = 'field_data_field_location_tags';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['field'] = 'field_location_tags_tid';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Location Tags (field_place_tags) */
+  $handler->display->display_options['arguments']['field_place_tags_tid']['id'] = 'field_place_tags_tid';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['table'] = 'field_data_field_place_tags';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['field'] = 'field_place_tags_tid';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['summary_options']['items_per_page'] = '25';
   $export['dvtrc_locations'] = $view;
 
   $view = new view();
@@ -6847,15 +6847,15 @@ function devtrac7_views_feature_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Location Tags (field_location_tags) */
-  $handler->display->display_options['arguments']['field_location_tags_tid']['id'] = 'field_location_tags_tid';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['table'] = 'field_data_field_location_tags';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['field'] = 'field_location_tags_tid';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_location_tags_tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Location Tags (field_place_tags) */
+  $handler->display->display_options['arguments']['field_place_tags_tid']['id'] = 'field_place_tags_tid';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['table'] = 'field_data_field_place_tags';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['field'] = 'field_place_tags_tid';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_place_tags_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
