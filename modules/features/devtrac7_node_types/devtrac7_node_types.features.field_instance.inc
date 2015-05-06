@@ -3128,6 +3128,7 @@ function devtrac7_node_types_field_default_field_instances() {
   // Exported field_instance: 'node-ftritem-field_ftritem_documents'
   $field_instances['node-ftritem-field_ftritem_documents'] = array(
     'bundle' => 'ftritem',
+    'default_value' => array(),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -3163,8 +3164,8 @@ function devtrac7_node_types_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'description_field' => 1,
-      'file_directory' => '',
-      'file_extensions' => 'txt doc docx pdf',
+      'file_directory' => 'documents',
+      'file_extensions' => 'txt pdf',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
