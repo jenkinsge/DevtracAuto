@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * taxonomy_term_page_contexts.quicktabs.inc
+ * devtrac7_taxonomy_term_page_contexts.quicktabs.inc
  */
 
 /**
  * Implements hook_quicktabs_default_quicktabs().
  */
-function taxonomy_term_page_contexts_quicktabs_default_quicktabs() {
+function devtrac7_taxonomy_term_page_contexts_quicktabs_default_quicktabs() {
   $export = array();
 
   $quicktabs = new stdClass();
@@ -177,6 +177,34 @@ function taxonomy_term_page_contexts_quicktabs_default_quicktabs() {
   t('Images Tag');
 
   $export['images_tag'] = $quicktabs;
+
+  $quicktabs = new stdClass();
+  $quicktabs->disabled = FALSE; /* Edit this to true to make a default quicktabs disabled initially */
+  $quicktabs->api_version = 1;
+  $quicktabs->machine_name = 'location_tag';
+  $quicktabs->ajax = 0;
+  $quicktabs->hide_empty_tabs = TRUE;
+  $quicktabs->default_tab = 0;
+  $quicktabs->title = 'Location Tag';
+  $quicktabs->tabs = array(
+    0 => array(
+      'bid' => 'views_delta_dvtrc_locations-block_7',
+      'hide_title' => 1,
+      'title' => 'Locations',
+      'weight' => '-100',
+      'type' => 'block',
+    ),
+  );
+  $quicktabs->renderer = 'quicktabs';
+  $quicktabs->style = 'nostyle';
+  $quicktabs->options = array();
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Location Tag');
+  t('Locations');
+
+  $export['location_tag'] = $quicktabs;
 
   $quicktabs = new stdClass();
   $quicktabs->disabled = FALSE; /* Edit this to true to make a default quicktabs disabled initially */

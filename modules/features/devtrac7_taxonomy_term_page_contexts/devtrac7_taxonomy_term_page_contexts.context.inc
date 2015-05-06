@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * taxonomy_term_page_contexts.context.inc
+ * devtrac7_taxonomy_term_page_contexts.context.inc
  */
 
 /**
  * Implements hook_context_default_contexts().
  */
-function taxonomy_term_page_contexts_context_default_contexts() {
+function devtrac7_taxonomy_term_page_contexts_context_default_contexts() {
   $export = array();
 
   $context = new stdClass();
@@ -465,6 +465,81 @@ function taxonomy_term_page_contexts_context_default_contexts() {
   t('Image Tag pages');
   t('taxonomy');
   $export['context_term_image_tag'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
+  $context->name = 'context_term_location_tag';
+  $context->description = 'Location Tag pages';
+  $context->tag = 'taxonomy';
+  $context->conditions = array(
+    'taxonomy_term' => array(
+      'values' => array(
+        'location_tags' => 'location_tags',
+      ),
+      'options' => array(
+        'term_form' => '1',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'views-location_tags-block_5' => array(
+          'module' => 'views',
+          'delta' => 'location_tags-block_5',
+          'region' => 'highlighted',
+          'weight' => '-8',
+        ),
+        'views-location_tags-block_1' => array(
+          'module' => 'views',
+          'delta' => 'location_tags-block_1',
+          'region' => 'content',
+          'weight' => '-6',
+        ),
+        'views-location_tags-block_3' => array(
+          'module' => 'views',
+          'delta' => 'location_tags-block_3',
+          'region' => 'content',
+          'weight' => '-5',
+        ),
+        'quicktabs-location_tag' => array(
+          'module' => 'quicktabs',
+          'delta' => 'location_tag',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
+        ),
+        'views-location_tags-block_2' => array(
+          'module' => 'views',
+          'delta' => 'location_tags-block_2',
+          'region' => 'postscript_first',
+          'weight' => '-6',
+        ),
+        'delta_blocks-breadcrumb' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'breadcrumb',
+          'region' => 'breadcrumb',
+          'weight' => '-10',
+        ),
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'breadcrumb',
+          'weight' => '-9',
+        ),
+      ),
+    ),
+    'delta' => array(
+      'delta_template' => 'delta_node_page_layout',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Location Tag pages');
+  t('taxonomy');
+  $export['context_term_location_tag'] = $context;
 
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * taxonomy_term_page_contexts.openlayers_maps.inc
+ * devtrac7_taxonomy_term_page_contexts.openlayers_maps.inc
  */
 
 /**
  * Implements hook_openlayers_maps().
  */
-function taxonomy_term_page_contexts_openlayers_maps() {
+function devtrac7_taxonomy_term_page_contexts_openlayers_maps() {
   $export = array();
 
   $openlayers_maps = new stdClass();
@@ -295,7 +295,7 @@ function taxonomy_term_page_contexts_openlayers_maps() {
   $openlayers_maps = new stdClass();
   $openlayers_maps->disabled = FALSE; /* Edit this to true to make a default openlayers_maps disabled initially */
   $openlayers_maps->api_version = 1;
-  $openlayers_maps->name = 'clone_of_department_map';
+  $openlayers_maps->name = 'location_type_map';
   $openlayers_maps->title = 'Location Type Map';
   $openlayers_maps->description = 'Map of locations with a given type in common';
   $openlayers_maps->data = array(
@@ -554,7 +554,7 @@ function taxonomy_term_page_contexts_openlayers_maps() {
       'temporary' => 'devtrac_mapstyle_placetype_active',
     ),
   );
-  $export['clone_of_department_map'] = $openlayers_maps;
+  $export['location_type_map'] = $openlayers_maps;
 
   $openlayers_maps = new stdClass();
   $openlayers_maps->disabled = FALSE; /* Edit this to true to make a default openlayers_maps disabled initially */
@@ -1869,6 +1869,294 @@ function taxonomy_term_page_contexts_openlayers_maps() {
     ),
   );
   $export['function_map'] = $openlayers_maps;
+
+  $openlayers_maps = new stdClass();
+  $openlayers_maps->disabled = FALSE; /* Edit this to true to make a default openlayers_maps disabled initially */
+  $openlayers_maps->api_version = 1;
+  $openlayers_maps->name = 'location_tag_map';
+  $openlayers_maps->title = 'Location Tag Map';
+  $openlayers_maps->description = 'Map of locations with a given location tag in common';
+  $openlayers_maps->data = array(
+    'width' => 'auto',
+    'height' => '280px',
+    'image_path' => 'profiles/devtrac/themes/devtrac7_theme/openlayers/img/',
+    'css_path' => 'profiles/devtrac/themes/devtrac7_theme/css/openlayers_dummy.css',
+    'proxy_host' => '',
+    'hide_empty_map' => 0,
+    'center' => array(
+      'initial' => array(
+        'centerpoint' => '32.34374998701986, 1.4061088423676873',
+        'zoom' => '7',
+      ),
+      'restrict' => array(
+        'restrictextent' => 0,
+        'restrictedExtent' => '3255605.908139,-188340.837661,3901345.922977,484305.011128',
+      ),
+    ),
+    'behaviors' => array(
+      'openlayers_behavior_navigation' => array(
+        'zoomWheelEnabled' => 0,
+        'zoomBoxEnabled' => 0,
+        'documentDrag' => 0,
+      ),
+      'openlayers_plus_behavior_popup' => array(
+        'layers' => array(
+          'dvtrc_maps_openlayers_10' => 0,
+        ),
+        'hover' => 0,
+      ),
+      'openlayers_behavior_zoompanel' => array(),
+      'openlayers_behavior_zoomtolayer' => array(
+        'zoomtolayer' => array(
+          'osm_mapnik' => 0,
+          'dvtrc_maps_openlayers_10' => 0,
+        ),
+        'point_zoom_level' => '8',
+        'zoomtolayer_scale' => '1',
+      ),
+    ),
+    'default_layer' => 'osm_mapnik',
+    'layers' => array(
+      'osm_mapnik' => 'osm_mapnik',
+      'dvtrc_maps_openlayers_13' => 'dvtrc_maps_openlayers_13',
+    ),
+    'layer_weight' => array(
+      'dvtrc_maps_openlayers_11' => '0',
+      'dvtrc_maps_openlayers_12' => '0',
+      'dvtrc_maps_openlayers_13' => '0',
+      'dvtrc_maps_openlayers_9' => '0',
+      'dvtrc_maps_openlayers_8' => '0',
+      'dvtrc_maps_openlayers_5' => '0',
+      'dvtrc_maps_openlayers_6' => '0',
+      'dvtrc_maps_openlayers_7' => '0',
+      'devtrac_solr_view_districts_openlayers_1' => '0',
+      'devtrac_solr_view_locations_overlay' => '0',
+      'dvtrc_user_openlayers_3' => '0',
+      'site_reports_recent_site_reports_data' => '0',
+      'dvtrc_maps_openlayers_10' => '0',
+      'dvtrc_user_openlayers_2' => '0',
+      'dvtrc_user_openlayers_1' => '0',
+      'devtrac_zoom_distict_edit_pages_openlayers_1' => '0',
+      'dvtrc_field_trip_openlayers_1' => '0',
+      'dvtrc_maps_openlayers_4' => '0',
+      'dvtrc_maps_openlayers_3' => '0',
+      'image_tags_openlayers_1' => '0',
+      'geofield_formatter' => '0',
+      'openlayers_kml_example' => '0',
+      'devtrac_solr_view_sitevisits_json' => '0',
+      'devtrac_solr_view_locations_json' => '0',
+      'devtrac_solr_view_images_json' => '0',
+      'devtrac_solr_view_images_page_3' => '0',
+      'openlayers_geojson_picture_this' => '0',
+      'openlayers_searchresult_layer' => '0',
+      'district_openlayers_2' => '0',
+      'dvtrc_maps_openlayers_1' => '0',
+      'dvtrc_maps_openlayers_2' => '0',
+      'district_openlayers_1' => '0',
+      'images_data_overlay_openlayers_1' => '0',
+      'devtrac_solr_view_sitevisits_mapdata' => '0',
+      'devtrac_solr_view_images_dummy' => '0',
+      'devtrac_solr_view_districts_json' => '0',
+    ),
+    'layer_styles' => array(
+      'devtrac_solr_view_districts_json' => '0',
+      'devtrac_solr_view_images_json' => '0',
+      'devtrac_solr_view_images_page_3' => '0',
+      'devtrac_solr_view_locations_json' => '0',
+      'devtrac_solr_view_sitevisits_json' => '0',
+      'image_tags_openlayers_1' => '0',
+      'geofield_formatter' => '0',
+      'openlayers_kml_example' => '0',
+      'openlayers_geojson_picture_this' => '0',
+      'openlayers_searchresult_layer' => '0',
+      'devtrac_solr_view_sitevisits_mapdata' => '0',
+      'devtrac_solr_view_images_dummy' => '0',
+      'images_data_overlay_openlayers_1' => '0',
+      'district_openlayers_1' => '0',
+      'district_openlayers_2' => '0',
+      'dvtrc_maps_openlayers_1' => '0',
+      'dvtrc_maps_openlayers_2' => '0',
+      'dvtrc_maps_openlayers_3' => '0',
+      'dvtrc_maps_openlayers_4' => '0',
+      'dvtrc_maps_openlayers_5' => '0',
+      'dvtrc_maps_openlayers_6' => '0',
+      'dvtrc_maps_openlayers_7' => '0',
+      'dvtrc_maps_openlayers_8' => '0',
+      'dvtrc_maps_openlayers_9' => '0',
+      'dvtrc_maps_openlayers_11' => '0',
+      'dvtrc_maps_openlayers_12' => '0',
+      'dvtrc_maps_openlayers_13' => 'devtrac_mapstyle_placetype_default',
+      'devtrac_solr_view_districts_openlayers_1' => '0',
+      'devtrac_solr_view_locations_overlay' => '0',
+      'devtrac_zoom_distict_edit_pages_openlayers_1' => '0',
+      'dvtrc_field_trip_openlayers_1' => '0',
+      'dvtrc_user_openlayers_1' => '0',
+      'dvtrc_user_openlayers_2' => '0',
+      'dvtrc_user_openlayers_3' => '0',
+      'site_reports_recent_site_reports_data' => '0',
+      'dvtrc_maps_openlayers_10' => '0',
+    ),
+    'layer_styles_select' => array(
+      'devtrac_solr_view_districts_json' => '0',
+      'devtrac_solr_view_images_json' => '0',
+      'devtrac_solr_view_images_page_3' => '0',
+      'devtrac_solr_view_locations_json' => '0',
+      'devtrac_solr_view_sitevisits_json' => '0',
+      'image_tags_openlayers_1' => '0',
+      'geofield_formatter' => '0',
+      'openlayers_kml_example' => '0',
+      'openlayers_geojson_picture_this' => '0',
+      'openlayers_searchresult_layer' => '0',
+      'devtrac_solr_view_sitevisits_mapdata' => '0',
+      'devtrac_solr_view_images_dummy' => '0',
+      'images_data_overlay_openlayers_1' => '0',
+      'district_openlayers_1' => '0',
+      'district_openlayers_2' => '0',
+      'dvtrc_maps_openlayers_1' => '0',
+      'dvtrc_maps_openlayers_2' => '0',
+      'dvtrc_maps_openlayers_3' => '0',
+      'dvtrc_maps_openlayers_4' => '0',
+      'dvtrc_maps_openlayers_5' => '0',
+      'dvtrc_maps_openlayers_6' => '0',
+      'dvtrc_maps_openlayers_7' => '0',
+      'dvtrc_maps_openlayers_8' => '0',
+      'dvtrc_maps_openlayers_9' => '0',
+      'dvtrc_maps_openlayers_11' => '0',
+      'dvtrc_maps_openlayers_12' => '0',
+      'dvtrc_maps_openlayers_13' => 'devtrac_mapstyle_placetype_selected',
+      'devtrac_solr_view_districts_openlayers_1' => '0',
+      'devtrac_solr_view_locations_overlay' => '0',
+      'devtrac_zoom_distict_edit_pages_openlayers_1' => '0',
+      'dvtrc_field_trip_openlayers_1' => '0',
+      'dvtrc_user_openlayers_1' => '0',
+      'dvtrc_user_openlayers_2' => '0',
+      'dvtrc_user_openlayers_3' => '0',
+      'site_reports_recent_site_reports_data' => '0',
+      'dvtrc_maps_openlayers_10' => '0',
+    ),
+    'layer_styles_temporary' => array(
+      'devtrac_solr_view_districts_json' => '0',
+      'devtrac_solr_view_images_json' => '0',
+      'devtrac_solr_view_images_page_3' => '0',
+      'devtrac_solr_view_locations_json' => '0',
+      'devtrac_solr_view_sitevisits_json' => '0',
+      'image_tags_openlayers_1' => '0',
+      'geofield_formatter' => '0',
+      'openlayers_kml_example' => '0',
+      'openlayers_geojson_picture_this' => '0',
+      'openlayers_searchresult_layer' => '0',
+      'devtrac_solr_view_sitevisits_mapdata' => '0',
+      'devtrac_solr_view_images_dummy' => '0',
+      'images_data_overlay_openlayers_1' => '0',
+      'district_openlayers_1' => '0',
+      'district_openlayers_2' => '0',
+      'dvtrc_maps_openlayers_1' => '0',
+      'dvtrc_maps_openlayers_2' => '0',
+      'dvtrc_maps_openlayers_3' => '0',
+      'dvtrc_maps_openlayers_4' => '0',
+      'dvtrc_maps_openlayers_5' => '0',
+      'dvtrc_maps_openlayers_6' => '0',
+      'dvtrc_maps_openlayers_7' => '0',
+      'dvtrc_maps_openlayers_8' => '0',
+      'dvtrc_maps_openlayers_9' => '0',
+      'dvtrc_maps_openlayers_11' => '0',
+      'dvtrc_maps_openlayers_12' => '0',
+      'dvtrc_maps_openlayers_13' => 'devtrac_mapstyle_placetype_active',
+      'devtrac_solr_view_districts_openlayers_1' => '0',
+      'devtrac_solr_view_locations_overlay' => '0',
+      'devtrac_zoom_distict_edit_pages_openlayers_1' => '0',
+      'dvtrc_field_trip_openlayers_1' => '0',
+      'dvtrc_user_openlayers_1' => '0',
+      'dvtrc_user_openlayers_2' => '0',
+      'dvtrc_user_openlayers_3' => '0',
+      'site_reports_recent_site_reports_data' => '0',
+      'dvtrc_maps_openlayers_10' => '0',
+    ),
+    'layer_activated' => array(
+      'dvtrc_maps_openlayers_13' => 'dvtrc_maps_openlayers_13',
+      'dvtrc_maps_openlayers_10' => 0,
+      'devtrac_solr_view_districts_json' => 0,
+      'devtrac_solr_view_images_json' => 0,
+      'devtrac_solr_view_images_page_3' => 0,
+      'devtrac_solr_view_locations_json' => 0,
+      'devtrac_solr_view_sitevisits_json' => 0,
+      'image_tags_openlayers_1' => 0,
+      'geofield_formatter' => 0,
+      'openlayers_kml_example' => 0,
+      'openlayers_geojson_picture_this' => 0,
+      'openlayers_searchresult_layer' => 0,
+      'devtrac_solr_view_sitevisits_mapdata' => 0,
+      'devtrac_solr_view_images_dummy' => 0,
+      'images_data_overlay_openlayers_1' => 0,
+      'district_openlayers_1' => 0,
+      'district_openlayers_2' => 0,
+      'dvtrc_maps_openlayers_1' => 0,
+      'dvtrc_maps_openlayers_2' => 0,
+      'dvtrc_maps_openlayers_3' => 0,
+      'dvtrc_maps_openlayers_4' => 0,
+      'dvtrc_maps_openlayers_5' => 0,
+      'dvtrc_maps_openlayers_6' => 0,
+      'dvtrc_maps_openlayers_7' => 0,
+      'dvtrc_maps_openlayers_8' => 0,
+      'dvtrc_maps_openlayers_9' => 0,
+      'dvtrc_maps_openlayers_11' => 0,
+      'dvtrc_maps_openlayers_12' => 0,
+      'devtrac_solr_view_districts_openlayers_1' => 0,
+      'devtrac_solr_view_locations_overlay' => 0,
+      'devtrac_zoom_distict_edit_pages_openlayers_1' => 0,
+      'dvtrc_field_trip_openlayers_1' => 0,
+      'dvtrc_user_openlayers_1' => 0,
+      'dvtrc_user_openlayers_2' => 0,
+      'dvtrc_user_openlayers_3' => 0,
+      'site_reports_recent_site_reports_data' => 0,
+    ),
+    'layer_switcher' => array(
+      'dvtrc_maps_openlayers_10' => 0,
+      'devtrac_solr_view_districts_json' => 0,
+      'devtrac_solr_view_images_json' => 0,
+      'devtrac_solr_view_images_page_3' => 0,
+      'devtrac_solr_view_locations_json' => 0,
+      'devtrac_solr_view_sitevisits_json' => 0,
+      'image_tags_openlayers_1' => 0,
+      'geofield_formatter' => 0,
+      'openlayers_kml_example' => 0,
+      'openlayers_geojson_picture_this' => 0,
+      'openlayers_searchresult_layer' => 0,
+      'devtrac_solr_view_sitevisits_mapdata' => 0,
+      'devtrac_solr_view_images_dummy' => 0,
+      'images_data_overlay_openlayers_1' => 0,
+      'district_openlayers_1' => 0,
+      'district_openlayers_2' => 0,
+      'dvtrc_maps_openlayers_1' => 0,
+      'dvtrc_maps_openlayers_2' => 0,
+      'dvtrc_maps_openlayers_3' => 0,
+      'dvtrc_maps_openlayers_4' => 0,
+      'dvtrc_maps_openlayers_5' => 0,
+      'dvtrc_maps_openlayers_6' => 0,
+      'dvtrc_maps_openlayers_7' => 0,
+      'dvtrc_maps_openlayers_8' => 0,
+      'dvtrc_maps_openlayers_9' => 0,
+      'dvtrc_maps_openlayers_11' => 0,
+      'dvtrc_maps_openlayers_12' => 0,
+      'dvtrc_maps_openlayers_13' => 0,
+      'devtrac_solr_view_districts_openlayers_1' => 0,
+      'devtrac_solr_view_locations_overlay' => 0,
+      'devtrac_zoom_distict_edit_pages_openlayers_1' => 0,
+      'dvtrc_field_trip_openlayers_1' => 0,
+      'dvtrc_user_openlayers_1' => 0,
+      'dvtrc_user_openlayers_2' => 0,
+      'dvtrc_user_openlayers_3' => 0,
+      'site_reports_recent_site_reports_data' => 0,
+    ),
+    'projection' => 'EPSG:3857',
+    'displayProjection' => 'EPSG:4326',
+    'styles' => array(
+      'default' => 'devtrac_mapstyle_placetype_default',
+      'select' => 'devtrac_mapstyle_placetype_selected',
+      'temporary' => 'devtrac_mapstyle_placetype_active',
+    ),
+  );
+  $export['location_tag_map'] = $openlayers_maps;
 
   $openlayers_maps = new stdClass();
   $openlayers_maps->disabled = FALSE; /* Edit this to true to make a default openlayers_maps disabled initially */

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * taxonomy_term_page_contexts.openlayers_layers.inc
+ * devtrac7_taxonomy_term_page_contexts.openlayers_layers.inc
  */
 
 /**
  * Implements hook_openlayers_layers().
  */
-function taxonomy_term_page_contexts_openlayers_layers() {
+function devtrac7_taxonomy_term_page_contexts_openlayers_layers() {
   $export = array();
 
   $openlayers_layers = new stdClass();

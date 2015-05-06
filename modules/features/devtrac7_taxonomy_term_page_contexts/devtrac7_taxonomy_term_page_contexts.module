@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Devtrac7 Taxonomy term page contexts feature.
+ */
+
+include_once 'devtrac7_taxonomy_term_page_contexts.features.inc';
