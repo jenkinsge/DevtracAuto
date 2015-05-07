@@ -437,7 +437,8 @@ table tbody tr.even td.active {
   background: #EBEBEB;
 }
 
-.context-sitereport .zone-content .grid-4.region-content .action-links {
+.context-sitereport .zone-content .grid-4.region-content .action-links,
+div#region-content.grid-4.region.region-content div.region-inner.region-content-inner ul.action-links {
   display: none;
 }
 
@@ -821,34 +822,57 @@ li.level-4 ul.links {
   width: 185px;
 }
 
-.views-field-field-ftritem-images-3 {
+.views-field-field-ftritem-images-3,
+.views-field-field-ftritem-documents-1 {
   position: absolute;
   left: 5px;
   bottom: 10px;
 }
 
 .views-field-field-ftritem-images-3 ,
-.views-field-field-ftritem-images-3 a {
+.views-field-field-ftritem-images-3 a,
+.views-field-field-ftritem-documents-1 ,
+.views-field-field-ftritem-documents-1 a {
   width: 32px;
   height: 32px;
   display: inline-block;
 }
 
-.views-field-field-ftritem-images-3 a {
+.views-field-field-ftritem-images-3 a,
+.views-field-field-ftritem-documents-1 a{
   background: rgba(51, 51, 51, 0.7) url(../images/gallery-icon-download.png) no-repeat 50% 50%;
   background-size: 16px 16px;
+
+  /* Hide the text. */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-.views-field-field-ftritem-images-3 a:hover {
+.views-field-field-ftritem-images-3 a:hover,
+.views-field-field-ftritem-documents-1 a:hover{
   background-color: #111111;
 }
 
-.views-field-field-ftritem-images-3 img {
+.views-field-field-ftritem-images-3 img,
+.views-field-field-ftritem-documents-1 img{
   display: none;
 }
 
 .views-field-field-ftritem-images-1 ,
 .views-field-field-ftritem-images-2 {
+  display: none;
+}
+/* Document slideshow block. */
+#block-views-3db3286102d0116ca09930ed5f228ffc {
+  background-color: #fff;
+}
+
+#block-views-3db3286102d0116ca09930ed5f228ffc div h2.block-title {
+  color: #222222;
+}
+
+#block-views-3db3286102d0116ca09930ed5f228ffc span span.file-size {
   display: none;
 }
 
