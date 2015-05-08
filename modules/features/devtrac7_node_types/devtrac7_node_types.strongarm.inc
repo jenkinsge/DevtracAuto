@@ -1330,6 +1330,23 @@ function devtrac7_node_types_strongarm() {
           ),
         ),
       ),
+      6 => array(
+        'selector' => '.views-field-field-ftritem-documents-1',
+        'options' => array(
+          'fade' => 1,
+          'gravity' => 'w',
+          'trigger' => 'hover',
+          'delayIn' => '0',
+          'delayOut' => '0',
+          'opacity' => '0.8',
+          'offset' => '0',
+          'html' => 0,
+          'tooltip_content' => array(
+            'source' => 'child',
+            'selector' => 'a',
+          ),
+        ),
+      ),
     ),
   );
   $export['tipsy'] = $strongarm;

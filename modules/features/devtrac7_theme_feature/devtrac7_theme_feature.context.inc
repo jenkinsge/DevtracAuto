@@ -265,6 +265,12 @@ function devtrac7_theme_feature_context_default_contexts() {
           'region' => 'postscript_second',
           'weight' => '-10',
         ),
+        'views-3db3286102d0116ca09930ed5f228ffc' => array(
+          'module' => 'views',
+          'delta' => '3db3286102d0116ca09930ed5f228ffc',
+          'region' => 'postscript_second',
+          'weight' => -9,
+        ),
         'delta_blocks-messages' => array(
           'module' => 'delta_blocks',
           'delta' => 'messages',

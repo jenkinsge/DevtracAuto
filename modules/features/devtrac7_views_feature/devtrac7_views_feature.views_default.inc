@@ -9498,6 +9498,113 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['filters']['delta']['table'] = 'field_data_field_ftritem_images';
   $handler->display->display_options['filters']['delta']['field'] = 'delta';
   $handler->display->display_options['filters']['delta']['operator'] = 'not empty';
+
+  /* Display: sitevisit-document-slideshow */
+  $handler = $view->new_display('block', 'sitevisit-document-slideshow', 'block_documents');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Documents';
+  $handler->display->display_options['display_description'] = 'Gallery on the sitevisits for documents';
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'mini';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '6';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['label'] = '';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Gallery Image */
+  $handler->display->display_options['fields']['field_ftritem_documents']['id'] = 'field_ftritem_documents';
+  $handler->display->display_options['fields']['field_ftritem_documents']['table'] = 'field_data_field_ftritem_documents';
+  $handler->display->display_options['fields']['field_ftritem_documents']['field'] = 'field_ftritem_documents';
+  $handler->display->display_options['fields']['field_ftritem_documents']['ui_name'] = 'Gallery Image';
+  $handler->display->display_options['fields']['field_ftritem_documents']['label'] = '';
+  $handler->display->display_options['fields']['field_ftritem_documents']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ftritem_documents']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_ftritem_documents']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_ftritem_documents']['type'] = 'pdfpreview';
+  $handler->display->display_options['fields']['field_ftritem_documents']['settings'] = array(
+    'image_style' => 'gallery',
+    'image_link' => '',
+    'show_description' => 0,
+    'tag' => 'span',
+    'fallback_formatter' => 'file_default',
+  );
+  $handler->display->display_options['fields']['field_ftritem_documents']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_ftritem_documents']['delta_offset'] = '0';
+  /* Field: Download Link */
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['id'] = 'field_ftritem_documents_1';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['table'] = 'field_data_field_ftritem_documents';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['field'] = 'field_ftritem_documents';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['ui_name'] = 'Download Link';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['label'] = '';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['type'] = 'file_download_link';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['settings'] = array(
+    'text' => 'Download',
+  );
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Global: Random */
+  $handler->display->display_options['sorts']['random']['id'] = 'random';
+  $handler->display->display_options['sorts']['random']['table'] = 'views';
+  $handler->display->display_options['sorts']['random']['field'] = 'random';
+  $handler->display->display_options['sorts']['random']['expose']['label'] = 'Random';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['arguments']['nid']['validate']['type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['validate_options']['types'] = array(
+    'ftritem' => 'ftritem',
+  );
+  $handler->display->display_options['arguments']['nid']['validate']['fail'] = 'empty';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'ftritem' => 'ftritem',
+  );
+  /* Filter criterion: Content: Documents (field_ftritem_documents:delta) */
+  $handler->display->display_options['filters']['delta']['id'] = 'delta';
+  $handler->display->display_options['filters']['delta']['table'] = 'field_data_field_ftritem_documents';
+  $handler->display->display_options['filters']['delta']['field'] = 'delta';
+  $handler->display->display_options['filters']['delta']['operator'] = 'not empty';
   $export['dvtrc_site_visits'] = $view;
 
   $view = new view();
