@@ -184,6 +184,7 @@ dependencies[] = devtrac7_questionnaire_feature
 dependencies[] = devtrac7_users2
 dependencies[] = devtrac7_maps
 dependencies[] = devtrac7_images_feature
+dependencies[] = devtrac7_taxonomy_term_page_contexts
 
 ; Devtrac apps
 dependencies[] = apps
