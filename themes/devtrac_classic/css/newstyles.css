@@ -818,12 +818,17 @@ li.level-4 ul.links {
   margin-right: 0px;
 }
 
+.region-postscript-second .item-list ul li img {
+  height: 185px;
+}
+
+.region-postscript-second .item-list ul li img,
 .region-postscript-second .item-list ul li img.adaptive-image {
   width: 185px;
 }
 
 .views-field-field-ftritem-images-3,
-.views-field-field-ftritem-documents-1 {
+.views-field-field-ftritem-documents-2 {
   position: absolute;
   left: 5px;
   bottom: 10px;
@@ -831,15 +836,15 @@ li.level-4 ul.links {
 
 .views-field-field-ftritem-images-3 ,
 .views-field-field-ftritem-images-3 a,
-.views-field-field-ftritem-documents-1 ,
-.views-field-field-ftritem-documents-1 a {
+.views-field-field-ftritem-documents-2 ,
+.views-field-field-ftritem-documents-2 a {
   width: 32px;
   height: 32px;
   display: inline-block;
 }
 
 .views-field-field-ftritem-images-3 a,
-.views-field-field-ftritem-documents-1 a{
+.views-field-field-ftritem-documents-2 a{
   background: rgba(51, 51, 51, 0.7) url(../images/gallery-icon-download.png) no-repeat 50% 50%;
   background-size: 16px 16px;
 
@@ -850,12 +855,12 @@ li.level-4 ul.links {
 }
 
 .views-field-field-ftritem-images-3 a:hover,
-.views-field-field-ftritem-documents-1 a:hover{
+.views-field-field-ftritem-documents-2 a:hover{
   background-color: #111111;
 }
 
 .views-field-field-ftritem-images-3 img,
-.views-field-field-ftritem-documents-1 img{
+.views-field-field-ftritem-documents-2 img{
   display: none;
 }
 
@@ -876,6 +881,13 @@ li.level-4 ul.links {
   display: none;
 }
 
+#cboxLoadedContent div {
+    border: 0 none;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
 /*============================= Normal Pager ===============================*/
 
 .item-list ul.pager {

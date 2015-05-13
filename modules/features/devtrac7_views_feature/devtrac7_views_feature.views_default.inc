@@ -9519,6 +9519,11 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: File */
+  $handler->display->display_options['relationships']['field_ftritem_documents_fid']['id'] = 'field_ftritem_documents_fid';
+  $handler->display->display_options['relationships']['field_ftritem_documents_fid']['table'] = 'field_data_field_ftritem_documents';
+  $handler->display->display_options['relationships']['field_ftritem_documents_fid']['field'] = 'field_ftritem_documents_fid';
+  $handler->display->display_options['relationships']['field_ftritem_documents_fid']['ui_name'] = 'File';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: Site information */
   $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
@@ -9534,6 +9539,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_documents']['field'] = 'field_ftritem_documents';
   $handler->display->display_options['fields']['field_ftritem_documents']['ui_name'] = 'Gallery Image';
   $handler->display->display_options['fields']['field_ftritem_documents']['label'] = '';
+  $handler->display->display_options['fields']['field_ftritem_documents']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_ftritem_documents']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_documents']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_ftritem_documents']['click_sort_column'] = 'fid';
@@ -9543,25 +9549,67 @@ function devtrac7_views_feature_views_default_views() {
     'image_link' => '',
     'show_description' => 0,
     'tag' => 'span',
-    'fallback_formatter' => 'file_default',
+    'fallback_formatter' => 'media_large_icon',
   );
   $handler->display->display_options['fields']['field_ftritem_documents']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_documents']['delta_offset'] = '0';
-  /* Field: Download Link */
+  $handler->display->display_options['fields']['field_ftritem_documents']['multi_type'] = 'ul';
+  /* Field: PDF Reader */
   $handler->display->display_options['fields']['field_ftritem_documents_1']['id'] = 'field_ftritem_documents_1';
   $handler->display->display_options['fields']['field_ftritem_documents_1']['table'] = 'field_data_field_ftritem_documents';
   $handler->display->display_options['fields']['field_ftritem_documents_1']['field'] = 'field_ftritem_documents';
-  $handler->display->display_options['fields']['field_ftritem_documents_1']['ui_name'] = 'Download Link';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['ui_name'] = 'PDF Reader';
   $handler->display->display_options['fields']['field_ftritem_documents_1']['label'] = '';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_ftritem_documents_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_documents_1']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_ftritem_documents_1']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_ftritem_documents_1']['type'] = 'file_download_link';
+  $handler->display->display_options['fields']['field_ftritem_documents_1']['type'] = 'pdf_reader_file';
   $handler->display->display_options['fields']['field_ftritem_documents_1']['settings'] = array(
-    'text' => 'Download',
+    'pdf_width' => '100%',
+    'pdf_height' => '100%',
+    'renderer' => 'direct',
+    'download' => 0,
+    'colorbox' => 0,
+    'colorbox_link_text' => '',
   );
   $handler->display->display_options['fields']['field_ftritem_documents_1']['group_rows'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_documents_1']['delta_offset'] = '0';
+  /* Field: File: Name */
+  $handler->display->display_options['fields']['filename']['id'] = 'filename';
+  $handler->display->display_options['fields']['filename']['table'] = 'file_managed';
+  $handler->display->display_options['fields']['filename']['field'] = 'filename';
+  $handler->display->display_options['fields']['filename']['relationship'] = 'field_ftritem_documents_fid';
+  $handler->display->display_options['fields']['filename']['label'] = '';
+  $handler->display->display_options['fields']['filename']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['filename']['link_to_file'] = FALSE;
+  /* Field: Colorbox: Colorbox trigger */
+  $handler->display->display_options['fields']['colorbox']['id'] = 'colorbox';
+  $handler->display->display_options['fields']['colorbox']['table'] = 'colorbox';
+  $handler->display->display_options['fields']['colorbox']['field'] = 'colorbox';
+  $handler->display->display_options['fields']['colorbox']['label'] = '';
+  $handler->display->display_options['fields']['colorbox']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['colorbox']['trigger_field'] = 'field_ftritem_documents';
+  $handler->display->display_options['fields']['colorbox']['popup'] = '[field_ftritem_documents_1]';
+  $handler->display->display_options['fields']['colorbox']['caption'] = '[filename]';
+  $handler->display->display_options['fields']['colorbox']['gid'] = 0;
+  $handler->display->display_options['fields']['colorbox']['custom_gid'] = 'ftritem-document-colorbox';
+  $handler->display->display_options['fields']['colorbox']['width'] = '80%';
+  $handler->display->display_options['fields']['colorbox']['height'] = '80%';
+  /* Field: Download Link */
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['id'] = 'field_ftritem_documents_2';
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['table'] = 'field_data_field_ftritem_documents';
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['field'] = 'field_ftritem_documents';
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['ui_name'] = 'Download Link';
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['label'] = '';
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['type'] = 'file_download_link';
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['settings'] = array(
+    'text' => 'Download',
+  );
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['group_rows'] = FALSE;
+  $handler->display->display_options['fields']['field_ftritem_documents_2']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Global: Random */
   $handler->display->display_options['sorts']['random']['id'] = 'random';

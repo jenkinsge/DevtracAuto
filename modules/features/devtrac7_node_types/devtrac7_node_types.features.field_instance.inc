@@ -3130,7 +3130,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'bundle' => 'ftritem',
     'default_value' => array(),
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Please note that uploaded documents are visible on the Internet. If you would like to share confidential information, please use the \'Notes\' field.',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -3165,7 +3165,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'settings' => array(
       'description_field' => 1,
       'file_directory' => 'documents',
-      'file_extensions' => 'txt pdf',
+      'file_extensions' => 'txt pdf doc docx odt xsl xlsx ods',
       'max_filesize' => '',
       'user_register_form' => FALSE,
     ),
