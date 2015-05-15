@@ -51,7 +51,7 @@ projects[ckan_packages][version] = "1.x-dev"
 projects[ckan_packages][type] = "module"
 projects[ckan_packages][subdir] = "contrib"
 
-projects[collapsiblock][version] = "1.0"
+projects[collapsiblock][version] = "1.1"
 projects[collapsiblock][type] = "module"
 projects[collapsiblock][subdir] = "contrib"
 
@@ -146,7 +146,7 @@ projects[field_collection][version] = "1.0-beta8"
 projects[field_collection][type] = "module"
 projects[field_collection][subdir] = "contrib"
 
-projects[field_collection_table][version] = "1.0-beta1"
+projects[field_collection_table][version] = "1.0-beta2"
 projects[field_collection_table][type] = "module"
 projects[field_collection_table][subdir] = "contrib"
 
@@ -254,7 +254,7 @@ projects[masonry_views][version] = "1.0"
 projects[masonry_views][type] = "module"
 projects[masonry_views][subdir] = "contrib"
 
-projects[maxlength][version] = "3.0"
+projects[maxlength][version] = "3.2"
 projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"
 projects[maxlength][patch][] = "https://www.drupal.org/files/issues/maxlength-exclude-any-html-entity-and-token-1830182-6.patch"
@@ -310,6 +310,16 @@ projects[pane][type] = "module"
 projects[pane][subdir] = "contrib"
 projects[pane][patch][] = "https://www.drupal.org/files/issues/pane-remove-wrapper-markup-2119593-3.patch"
 
+projects[pdf_reader][version] = "1.0-rc6"
+projects[pdf_reader][type] = "module"
+projects[pdf_reader][subdir] = "contrib"
+projects[pdf_reader][patch][] = "https://www.drupal.org/files/issues/pdf_reader-fix_for_multivalue_fields_and_dual_link-1951310-7_0.patch"
+
+projects[pdfpreview][version] = "2.x-dev"
+projects[pdfpreview][type] = "module"
+projects[pdfpreview][subdir] = "contrib"
+projects[pdfpreview][patch][] = "https://www.drupal.org/files/issues/pdfpreview-media_large_filetype_icon_as_fallback_formatter-9921134-1.patch"
+
 projects[proj4js][version] = "1.2"
 projects[proj4js][type] = "module"
 projects[proj4js][subdir] = "contrib"
@@ -358,7 +368,7 @@ projects[role_delegation][type] = "module"
 projects[role_delegation][subdir] = "contrib"
 projects[role_delegation][patch][] = "https://www.drupal.org/files/issues/role_delegation-add-compatibility-with-permission_lock-582524-19.patch"
 
-projects[rules][version] = "2.8"
+projects[rules][version] = "2.9"
 projects[rules][type] = "module"
 projects[rules][subdir] = "contrib"
 
@@ -499,7 +509,7 @@ projects[virtual_field][type] = "module"
 projects[virtual_field][subdir] = "contrib"
 projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_field_views_support_1506376_11.patch"
 
-projects[addressfield][version] = "1.0"
+projects[addressfield][version] = "1.1"
 projects[addressfield][type] = "module"
 projects[addressfield][subdir] = "contrib"
 
@@ -549,7 +559,7 @@ projects[geocoder_geonames][version] = "1.0"
 projects[geocoder_geonames][type] = "module"
 projects[geocoder_geonames][subdir] = "contrib"
 
-projects[apps][version] = "1.0-beta20"
+projects[apps][version] = "1.0-rc1"
 projects[apps][subdir] = "contrib"
 ; Following patch just fails.
 ; projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"

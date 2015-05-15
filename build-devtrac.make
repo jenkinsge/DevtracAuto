@@ -7,7 +7,7 @@ core = 7.x
 ;includes[] = drupal-org-core.make
 
 projects[drupal][type] = core
-projects[drupal][version] = 7.34
+projects[drupal][version] = 7.37
 
 ; Patches for Core
 ;
@@ -25,7 +25,7 @@ projects[drupal][patch][] = https://www.drupal.org/files/issues/drupal_cron-user
 ; On the issue page the patch fails to apply.
 ; A try on a fresh 7.34 install on my local machine was successful.
 ; So here we go.
-projects[drupal][patch][] = https://www.drupal.org/files/issues/1260912-remove-robotstxt-7.30.patch
+projects[drupal][patch][] = https://www.drupal.org/files/issues/1260912-remove-robotstxt-7.36.patch
 ; Remove xmlrpc.php for security reasons since we are not using rpc on devtrac.
 projects[drupal][patch][] = https://www.drupal.org/files/issues/2430081-remove-xmlrpc.php-7.34.patch
 
