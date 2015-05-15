@@ -57,7 +57,6 @@ dependencies[] = adaptive_image
 dependencies[] = colorbox
 dependencies[] = commentblock
 dependencies[] = css_browser_selector
-dependencies[] = css_injector
 dependencies[] = entity
 dependencies[] = entity_token
 dependencies[] = file_entity_usage

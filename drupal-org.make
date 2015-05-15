@@ -67,10 +67,6 @@ projects[css_browser_selector][version] = "1.1"
 projects[css_browser_selector][type] = "module"
 projects[css_browser_selector][subdir] = "contrib"
 
-projects[css_injector][version] = "2.x-dev"
-projects[css_injector][type] = "module"
-projects[css_injector][subdir] = "contrib"
-
 projects[date_duration_formatter][version] = "1.x-dev"
 projects[date_duration_formatter][type] = "module"
 projects[date_duration_formatter][subdir] = "contrib"

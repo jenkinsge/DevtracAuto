@@ -888,6 +888,28 @@ li.level-4 ul.links {
     overflow: hidden;
     width: 100%;
 }
+
+/* Filename Styling*/
+.page-node .views-field-filename {
+    position: absolute;
+    width: 185px;
+/*    height: 185px;
+    display: block;*/
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #000;
+    opacity: .5;
+    pointer-events: none;
+}
+
+
+.page-node  .views-field-filename span {
+    color: white;
+    word-wrap: break-word;
+    font-size: small;
+    display: block;
+     pointer-events: none;
+}
 /*============================= Normal Pager ===============================*/
 
 .item-list ul.pager {
