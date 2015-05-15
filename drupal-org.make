@@ -67,6 +67,10 @@ projects[css_browser_selector][version] = "1.1"
 projects[css_browser_selector][type] = "module"
 projects[css_browser_selector][subdir] = "contrib"
 
+projects[css_injector][version] = "2.x-dev"
+projects[css_injector][type] = "module"
+projects[css_injector][subdir] = "contrib"
+
 projects[date_duration_formatter][version] = "1.x-dev"
 projects[date_duration_formatter][type] = "module"
 projects[date_duration_formatter][subdir] = "contrib"
@@ -309,6 +313,16 @@ projects[pane][version] = "2.6"
 projects[pane][type] = "module"
 projects[pane][subdir] = "contrib"
 projects[pane][patch][] = "https://www.drupal.org/files/issues/pane-remove-wrapper-markup-2119593-3.patch"
+
+projects[pdf_reader][version] = "1.0-rc6"
+projects[pdf_reader][type] = "module"
+projects[pdf_reader][subdir] = "contrib"
+projects[pdf_reader][patch][] = "https://www.drupal.org/files/issues/pdf_reader-fix_for_multivalue_fields_and_dual_link-1951310-7_0.patch"
+
+projects[pdfpreview][version] = "2.x-dev"
+projects[pdfpreview][type] = "module"
+projects[pdfpreview][subdir] = "contrib"
+projects[pdfpreview][patch][] = "https://www.drupal.org/files/issues/pdfpreview-media_large_filetype_icon_as_fallback_formatter-9921134-1.patch"
 
 projects[proj4js][version] = "1.2"
 projects[proj4js][type] = "module"

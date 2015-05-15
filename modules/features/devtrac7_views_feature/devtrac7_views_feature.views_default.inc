@@ -9583,10 +9583,11 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['filename']['label'] = '';
   $handler->display->display_options['fields']['filename']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['filename']['link_to_file'] = FALSE;
-  /* Field: Colorbox: Colorbox trigger */
+  /* Field: Colorbox Trigger */
   $handler->display->display_options['fields']['colorbox']['id'] = 'colorbox';
   $handler->display->display_options['fields']['colorbox']['table'] = 'colorbox';
   $handler->display->display_options['fields']['colorbox']['field'] = 'colorbox';
+  $handler->display->display_options['fields']['colorbox']['ui_name'] = 'Colorbox Trigger';
   $handler->display->display_options['fields']['colorbox']['label'] = '';
   $handler->display->display_options['fields']['colorbox']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['colorbox']['trigger_field'] = 'field_ftritem_documents';
