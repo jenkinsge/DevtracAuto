@@ -51,7 +51,7 @@ projects[ckan_packages][version] = "1.x-dev"
 projects[ckan_packages][type] = "module"
 projects[ckan_packages][subdir] = "contrib"
 
-projects[collapsiblock][version] = "1.0"
+projects[collapsiblock][version] = "1.1"
 projects[collapsiblock][type] = "module"
 projects[collapsiblock][subdir] = "contrib"
 
@@ -150,7 +150,7 @@ projects[field_collection][version] = "1.0-beta8"
 projects[field_collection][type] = "module"
 projects[field_collection][subdir] = "contrib"
 
-projects[field_collection_table][version] = "1.0-beta1"
+projects[field_collection_table][version] = "1.0-beta2"
 projects[field_collection_table][type] = "module"
 projects[field_collection_table][subdir] = "contrib"
 
@@ -258,7 +258,7 @@ projects[masonry_views][version] = "1.0"
 projects[masonry_views][type] = "module"
 projects[masonry_views][subdir] = "contrib"
 
-projects[maxlength][version] = "3.0"
+projects[maxlength][version] = "3.2"
 projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"
 projects[maxlength][patch][] = "https://www.drupal.org/files/issues/maxlength-exclude-any-html-entity-and-token-1830182-6.patch"
@@ -372,7 +372,7 @@ projects[role_delegation][type] = "module"
 projects[role_delegation][subdir] = "contrib"
 projects[role_delegation][patch][] = "https://www.drupal.org/files/issues/role_delegation-add-compatibility-with-permission_lock-582524-19.patch"
 
-projects[rules][version] = "2.8"
+projects[rules][version] = "2.9"
 projects[rules][type] = "module"
 projects[rules][subdir] = "contrib"
 
@@ -513,7 +513,7 @@ projects[virtual_field][type] = "module"
 projects[virtual_field][subdir] = "contrib"
 projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_field_views_support_1506376_11.patch"
 
-projects[addressfield][version] = "1.0"
+projects[addressfield][version] = "1.1"
 projects[addressfield][type] = "module"
 projects[addressfield][subdir] = "contrib"
 
@@ -563,7 +563,7 @@ projects[geocoder_geonames][version] = "1.0"
 projects[geocoder_geonames][type] = "module"
 projects[geocoder_geonames][subdir] = "contrib"
 
-projects[apps][version] = "1.0-beta20"
+projects[apps][version] = "1.0-rc1"
 projects[apps][subdir] = "contrib"
 ; Following patch just fails.
 ; projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"
