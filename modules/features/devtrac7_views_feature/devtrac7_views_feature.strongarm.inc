@@ -73,5 +73,40 @@ function devtrac7_views_feature_strongarm() {
   $strongarm->value = '/tmp';
   $export['file_temporary_path'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'image_toolkit';
+  $strongarm->value = 'imagemagick';
+  $export['image_toolkit'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pdfpreview_filenames';
+  $strongarm->value = '0';
+  $export['pdfpreview_filenames'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pdfpreview_pathtoimages';
+  $strongarm->value = 'pdfpreview';
+  $export['pdfpreview_pathtoimages'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pdfpreview_previewsize';
+  $strongarm->value = '1024x1024';
+  $export['pdfpreview_previewsize'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'pdfpreview_quality';
+  $strongarm->value = '75';
+  $export['pdfpreview_quality'] = $strongarm;
+
   return $export;
 }
