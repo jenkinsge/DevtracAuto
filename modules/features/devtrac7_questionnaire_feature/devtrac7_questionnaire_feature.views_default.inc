@@ -1572,5 +1572,524 @@ function devtrac7_questionnaire_feature_views_default_views() {
   $handler->display->display_options['menu']['context_only_inline'] = 0;
   $export['edit_questions'] = $view;
 
+  $view = new view();
+  $view->name = 'question_answers';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'questionnaire_answer';
+  $view->human_name = 'Question Answers';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Question Answers';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'charts';
+  $handler->display->display_options['style_options']['width'] = '100%';
+  $handler->display->display_options['style_options']['height'] = '300';
+  $handler->display->display_options['style_options']['type'] = array(
+    'bluff' => 'line',
+    'flot' => 'pointline',
+  );
+  $handler->display->display_options['style_options']['showlegend'] = 1;
+  $handler->display->display_options['style_options']['zoom'] = 0;
+  $handler->display->display_options['style_options']['views_charts_series_fields'] = array(
+    'answernumber' => 'answernumber',
+  );
+  $handler->display->display_options['style_options']['views_charts_x_labels'] = 'created';
+  $handler->display->display_options['style_options']['engine'] = 'flot';
+  $handler->display->display_options['style_options']['y_min'] = '';
+  $handler->display->display_options['style_options']['y_legend'] = '';
+  $handler->display->display_options['style_options']['series_colours'] = '#446622,#66aa44,#bb6677,#ff33aa,#ff88dd ';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Answer: Answer ID */
+  $handler->display->display_options['fields']['id']['id'] = 'id';
+  $handler->display->display_options['fields']['id']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['id']['field'] = 'id';
+  /* Field: Answer: Answer Number */
+  $handler->display->display_options['fields']['answernumber']['id'] = 'answernumber';
+  $handler->display->display_options['fields']['answernumber']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['answernumber']['field'] = 'answernumber';
+  /* Field: Answer: Question */
+  $handler->display->display_options['fields']['question']['id'] = 'question';
+  $handler->display->display_options['fields']['question']['table'] = 'views_entity_questionnaire_answer';
+  $handler->display->display_options['fields']['question']['field'] = 'question';
+  $handler->display->display_options['fields']['question']['label'] = '';
+  $handler->display->display_options['fields']['question']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['question']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['question']['display'] = 'id';
+  $handler->display->display_options['fields']['question']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['question']['bypass_access'] = 0;
+  /* Field: Answer: Date created */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'date_only';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'date_only';
+  /* Contextual filter: Answer: Question */
+  $handler->display->display_options['arguments']['question']['id'] = 'question';
+  $handler->display->display_options['arguments']['question']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['arguments']['question']['field'] = 'question';
+  $handler->display->display_options['arguments']['question']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['question']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['question']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['question']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['question']['summary_options']['items_per_page'] = '25';
+
+  /* Display: Question Answers Line Graph */
+  $handler = $view->new_display('block', 'Question Answers Line Graph', 'question_answers_line');
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Answer: Question */
+  $handler->display->display_options['relationships']['question']['id'] = 'question';
+  $handler->display->display_options['relationships']['question']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['relationships']['question']['field'] = 'question';
+  $handler->display->display_options['relationships']['question']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Answer: Answer Number */
+  $handler->display->display_options['fields']['answernumber']['id'] = 'answernumber';
+  $handler->display->display_options['fields']['answernumber']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['answernumber']['field'] = 'answernumber';
+  /* Field: Answer: Date created */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'date_only';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'date_only';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: The type of question. (questionnaire_question_type) */
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['id'] = 'questionnaire_question_type_value';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['table'] = 'field_data_questionnaire_question_type';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['field'] = 'questionnaire_question_type_value';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['relationship'] = 'question';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['value'] = array(
+    'number' => 'number',
+  );
+
+  /* Display: Debug Block */
+  $handler = $view->new_display('block', 'Debug Block', 'block_1');
+  $handler->display->display_options['display_description'] = 'Block for debugging answer data overlays';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'footable';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'id' => 'id',
+    'answernumber' => 'answernumber',
+    'question' => 'question',
+    'created' => 'created',
+    'field_place_lat_long' => 'field_place_lat_long',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'id' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'answernumber' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'question' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_place_lat_long' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'id',
+    'icon' => '',
+    'icon_size' => '',
+    'hide' => array(
+      'id' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'answernumber' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'question' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'created' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_place_lat_long' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Answer: Questionnaire */
+  $handler->display->display_options['relationships']['questionnaire_id']['id'] = 'questionnaire_id';
+  $handler->display->display_options['relationships']['questionnaire_id']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['relationships']['questionnaire_id']['field'] = 'questionnaire_id';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_actionitem_resp_place_target_id']['id'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['relationships']['field_actionitem_resp_place_target_id']['table'] = 'field_data_field_actionitem_resp_place';
+  $handler->display->display_options['relationships']['field_actionitem_resp_place_target_id']['field'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['relationships']['field_actionitem_resp_place_target_id']['relationship'] = 'questionnaire_id';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Answer: Answer ID */
+  $handler->display->display_options['fields']['id']['id'] = 'id';
+  $handler->display->display_options['fields']['id']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['id']['field'] = 'id';
+  /* Field: Answer: Answer Number */
+  $handler->display->display_options['fields']['answernumber']['id'] = 'answernumber';
+  $handler->display->display_options['fields']['answernumber']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['answernumber']['field'] = 'answernumber';
+  /* Field: Answer: Question */
+  $handler->display->display_options['fields']['question']['id'] = 'question';
+  $handler->display->display_options['fields']['question']['table'] = 'views_entity_questionnaire_answer';
+  $handler->display->display_options['fields']['question']['field'] = 'question';
+  $handler->display->display_options['fields']['question']['label'] = '';
+  $handler->display->display_options['fields']['question']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['question']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['question']['display'] = 'id';
+  $handler->display->display_options['fields']['question']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['question']['bypass_access'] = 0;
+  /* Field: Answer: Date created */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'date_only';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'date_only';
+  /* Field: Content: Lat-Long */
+  $handler->display->display_options['fields']['field_place_lat_long']['id'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['table'] = 'field_data_field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['field'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['relationship'] = 'field_actionitem_resp_place_target_id';
+  $handler->display->display_options['fields']['field_place_lat_long']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_place_lat_long']['settings'] = array(
+    'data' => 'full',
+  );
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'field_actionitem_resp_place_target_id';
+  /* Field: Field: Lat-Long */
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'field_data_field_ftritem_lat_long';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['relationship'] = 'questionnaire_id';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['label'] = 'Lat-Long (ftritem)';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['settings'] = array(
+    'data' => 'full',
+  );
+
+  /* Display: Question Answers Pie */
+  $handler = $view->new_display('block', 'Question Answers Pie', 'question_answers_pie');
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'charts';
+  $handler->display->display_options['style_options']['width'] = '100%';
+  $handler->display->display_options['style_options']['height'] = '300';
+  $handler->display->display_options['style_options']['type'] = array(
+    'bluff' => 'line',
+    'flot' => 'pie',
+  );
+  $handler->display->display_options['style_options']['showlegend'] = 1;
+  $handler->display->display_options['style_options']['zoom'] = 0;
+  $handler->display->display_options['style_options']['views_charts_series_fields'] = array(
+    'answer' => 'answer',
+  );
+  $handler->display->display_options['style_options']['views_charts_x_labels'] = 'answertext';
+  $handler->display->display_options['style_options']['engine'] = 'flot';
+  $handler->display->display_options['style_options']['y_min'] = '';
+  $handler->display->display_options['style_options']['y_max'] = '';
+  $handler->display->display_options['style_options']['y_step'] = '';
+  $handler->display->display_options['style_options']['y_legend'] = '';
+  $handler->display->display_options['style_options']['series_colours'] = '#446622,#66aa44,#bb6677,#ff33aa,#ff88dd ';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Answer: Question */
+  $handler->display->display_options['relationships']['question']['id'] = 'question';
+  $handler->display->display_options['relationships']['question']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['relationships']['question']['field'] = 'question';
+  $handler->display->display_options['relationships']['question']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Answer: Answer All */
+  $handler->display->display_options['fields']['answer']['id'] = 'answer';
+  $handler->display->display_options['fields']['answer']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['answer']['field'] = 'answer';
+  $handler->display->display_options['fields']['answer']['group_type'] = 'count';
+  $handler->display->display_options['fields']['answer']['label'] = '';
+  $handler->display->display_options['fields']['answer']['element_label_colon'] = FALSE;
+  /* Field: Answer: Answer Text */
+  $handler->display->display_options['fields']['answertext']['id'] = 'answertext';
+  $handler->display->display_options['fields']['answertext']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['answertext']['field'] = 'answertext';
+  $handler->display->display_options['fields']['answertext']['label'] = '';
+  $handler->display->display_options['fields']['answertext']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: The type of question. (questionnaire_question_type) */
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['id'] = 'questionnaire_question_type_value';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['table'] = 'field_data_questionnaire_question_type';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['field'] = 'questionnaire_question_type_value';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['relationship'] = 'question';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['value'] = array(
+    'radios' => 'radios',
+  );
+
+  /* Display: Question Answers Sidebar */
+  $handler = $view->new_display('block', 'Question Answers Sidebar', 'question_answers_sidebar');
+  $handler->display->display_options['defaults']['group_by'] = FALSE;
+  $handler->display->display_options['group_by'] = TRUE;
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'charts';
+  $handler->display->display_options['style_options']['width'] = '100%';
+  $handler->display->display_options['style_options']['height'] = '300';
+  $handler->display->display_options['style_options']['type'] = array(
+    'bluff' => 'line',
+    'flot' => 'sidebar',
+  );
+  $handler->display->display_options['style_options']['showlegend'] = 1;
+  $handler->display->display_options['style_options']['zoom'] = 0;
+  $handler->display->display_options['style_options']['views_charts_series_fields'] = array(
+    'answer' => 'answer',
+  );
+  $handler->display->display_options['style_options']['views_charts_x_labels'] = 'answertext';
+  $handler->display->display_options['style_options']['engine'] = 'flot';
+  $handler->display->display_options['style_options']['y_min'] = '';
+  $handler->display->display_options['style_options']['y_max'] = '';
+  $handler->display->display_options['style_options']['y_step'] = '';
+  $handler->display->display_options['style_options']['y_legend'] = '';
+  $handler->display->display_options['style_options']['series_colours'] = '#446622,#66aa44,#bb6677,#ff33aa,#ff88dd ';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Answer: Question */
+  $handler->display->display_options['relationships']['question']['id'] = 'question';
+  $handler->display->display_options['relationships']['question']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['relationships']['question']['field'] = 'question';
+  $handler->display->display_options['relationships']['question']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Answer: Answer All */
+  $handler->display->display_options['fields']['answer']['id'] = 'answer';
+  $handler->display->display_options['fields']['answer']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['answer']['field'] = 'answer';
+  $handler->display->display_options['fields']['answer']['group_type'] = 'count';
+  $handler->display->display_options['fields']['answer']['label'] = '';
+  $handler->display->display_options['fields']['answer']['element_label_colon'] = FALSE;
+  /* Field: Answer: Answer Text */
+  $handler->display->display_options['fields']['answertext']['id'] = 'answertext';
+  $handler->display->display_options['fields']['answertext']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['answertext']['field'] = 'answertext';
+  $handler->display->display_options['fields']['answertext']['label'] = '';
+  $handler->display->display_options['fields']['answertext']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: The type of question. (questionnaire_question_type) */
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['id'] = 'questionnaire_question_type_value';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['table'] = 'field_data_questionnaire_question_type';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['field'] = 'questionnaire_question_type_value';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['relationship'] = 'question';
+  $handler->display->display_options['filters']['questionnaire_question_type_value']['value'] = array(
+    'select' => 'select',
+    'checkboxes' => 'checkboxes',
+    'open' => 'open',
+    'taxonomy' => 'taxonomy',
+  );
+
+  /* Display: Question Answers Table */
+  $handler = $view->new_display('block', 'Question Answers Table', 'block_2');
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'footable';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'id' => 'id',
+    'answernumber' => 'answernumber',
+    'question' => 'question',
+    'created' => 'created',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'id' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'answernumber' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'question' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'created' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'id',
+    'icon' => '',
+    'icon_size' => '',
+    'hide' => array(
+      'id' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'answernumber' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'question' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'created' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+    ),
+  );
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Answer: Questionnaire */
+  $handler->display->display_options['relationships']['questionnaire_id']['id'] = 'questionnaire_id';
+  $handler->display->display_options['relationships']['questionnaire_id']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['relationships']['questionnaire_id']['field'] = 'questionnaire_id';
+  $handler->display->display_options['relationships']['questionnaire_id']['label'] = 'Questionnaire';
+  $handler->display->display_options['relationships']['questionnaire_id']['required'] = TRUE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Answer: Answer All */
+  $handler->display->display_options['fields']['answer']['id'] = 'answer';
+  $handler->display->display_options['fields']['answer']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['answer']['field'] = 'answer';
+  $handler->display->display_options['fields']['answer']['label'] = 'Answer';
+  /* Field: Answer: Date created */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'questionnaire_answer';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'date_only';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'date_only';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['relationship'] = 'questionnaire_id';
+  $handler->display->display_options['fields']['title']['label'] = 'Questionnaire';
+  $export['question_answers'] = $view;
+
+  $view = new view();
+  $view->name = 'question_view';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'node';
+  $view->human_name = 'Question view';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Question view';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'perm';
+  $handler->display->display_options['access']['perm'] = 'view questions';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['row_plugin'] = 'fields';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'questionnaire_question' => 'questionnaire_question',
+  );
+
+  /* Display: Question Base */
+  $handler = $view->new_display('block', 'Question Base', 'block');
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
+  $export['question_view'] = $view;
+
   return $export;
 }

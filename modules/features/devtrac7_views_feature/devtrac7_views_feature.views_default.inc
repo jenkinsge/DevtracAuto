@@ -9568,7 +9568,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_documents_1']['settings'] = array(
     'pdf_width' => '100%',
     'pdf_height' => '100%',
-    'renderer' => 'direct',
+    'renderer' => 'google',
     'download' => 0,
     'colorbox' => 0,
     'colorbox_link_text' => '',

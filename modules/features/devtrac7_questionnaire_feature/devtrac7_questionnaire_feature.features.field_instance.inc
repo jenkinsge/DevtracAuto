@@ -18,11 +18,11 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
     'description' => 'Select the appropriate Location Type.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
+        'label' => 'inline',
+        'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 10,
+        'type' => 'taxonomy_location_type_icon',
+        'weight' => 5,
       ),
       'full' => array(
         'label' => 'above',
@@ -74,11 +74,11 @@ function devtrac7_questionnaire_feature_field_default_field_instances() {
     'description' => 'Provide the correct sector. You may select more than one sector. You can read more about the codes we use on the <a href="http://www.devtrac.org/node/51">OECD Sector Codes</a> page.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
+        'label' => 'hidden',
+        'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 16,
+        'type' => 'taxonomy_sector_code_icon',
+        'weight' => 6,
       ),
       'full' => array(
         'label' => 'above',
