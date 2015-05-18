@@ -106,7 +106,7 @@ function devtrac7_solr_search_questions_feature_views_default_views() {
   $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
   $handler->display->display_options['fields']['site_info']['label'] = 'URL';
   $handler->display->display_options['fields']['site_info']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['site_info']['alter']['text'] = '[site_info] /statistics/answers?f[0]=questionnaire_answer_question%3A[nid]';
+  $handler->display->display_options['fields']['site_info']['alter']['text'] = '[site_info]/statistics/answers?f[0]=questionnaire_answer_question%3A[nid]';
   $handler->display->display_options['fields']['site_info']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
 
