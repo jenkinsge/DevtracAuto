@@ -225,6 +225,10 @@ projects[image_url_formatter][version] = "1.4"
 projects[image_url_formatter][type] = "module"
 projects[image_url_formatter][subdir] = "contrib"
 
+projects[imagemagick][version] = "1.0"
+projects[imagemagick][type] = "module"
+projects[imagemagick][subdir] = "contrib"
+
 projects[job_scheduler][version] = "2.0-alpha3"
 projects[job_scheduler][type] = "module"
 projects[job_scheduler][subdir] = "contrib"
