@@ -310,7 +310,7 @@ projects[pane][type] = "module"
 projects[pane][subdir] = "contrib"
 projects[pane][patch][] = "https://www.drupal.org/files/issues/pane-remove-wrapper-markup-2119593-3.patch"
 
-projects[pdf_reader][version] = "1.0-rc6"
+projects[pdf_reader][version] = "2.x-dev"
 projects[pdf_reader][type] = "module"
 projects[pdf_reader][subdir] = "contrib"
 projects[pdf_reader][patch][] = "https://www.drupal.org/files/issues/pdf_reader-fix_for_multivalue_fields_and_dual_link-1951310-7_0.patch"
