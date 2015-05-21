@@ -493,6 +493,7 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['bypass_access'] = 0;
   /* Field: Indexed Node: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';

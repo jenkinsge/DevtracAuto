@@ -491,6 +491,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['site_info']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['site_info']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
   $handler->display->display_options['fields']['site_info']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
   /* Field: Report: UUID (indexed) */
   $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['id'] = 'field_actionitem_ftreportitem_uuid';
   $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
