@@ -381,7 +381,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     // Longtitude.
     $this->assertRaw('"34.875816679152"', t('Longtitude field is filled.'), t('Devtrac'));
     // URL.
-    $this->assertRaw('/taxonomy/term/306"', t('URL field is filled.'), t('Devtrac'));
+    $this->assertPattern('/http:\/\/[a-zA-Z.]*\/uuid\/taxonomy_term\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');
@@ -406,9 +406,9 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Core items.
     // Title : Name.
-    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('Undefined Area</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : Name.
-    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<link>http:\/\/[a-zA-Z.]*\/uuid\/taxonomy_term\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Description.
     $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
 </description>', t('Description mapped correctly'), t('Devtrac'));
@@ -417,7 +417,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // dc items.
     // Title : Name.
-    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('Undefined Area</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Description : description.
     $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
 </dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
@@ -428,7 +428,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // georss items.
     // Point : Latitude, Longitude.
-    $this->assertRaw('<georss:point>Latitude: 1.805407161652 &lt;br/&gt;Longitude: 34.875816679152</georss:point>', t('geo rss Point is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<georss:point>Latitude: 1.805407161652 &lt;br/&gt;Longitude: 34.875816679152</georss:point>', t('dc Point is mapped correctly'), t('Devtrac'));
 
     // JSON.
     $this->drupalGet('adminunits/json');

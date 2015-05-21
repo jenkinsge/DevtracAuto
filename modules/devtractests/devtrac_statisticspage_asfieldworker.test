@@ -162,6 +162,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Fields.
     // UUID (subject to change).
+    $this->assertPattern('/[a-z0-9\-]*/', t('UUID field is filled.'), t('Devtrac'));
     // Question.
     $this->assertRaw('"How would you rate this school?"', t('Question field is filled.'), t('Devtrac'));
     // The type of Question.
@@ -173,7 +174,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     // Node Id.
     // $this->assertNoRaw('admin', t('Node Id field is not filled.'), t('Devtrac'));
     // URL.
-    $this->assertRaw('/statistics/answers?f[0]=questionnaire_answer_question%3A30"',t('URL field is filled.'), t('Devtrac'));
+    $this->assertPattern('/http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
 
     // ANSWERS.
     $this->drupalGet('');
@@ -501,30 +502,30 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Core items.
     // Title : Answer All.
-    $this->assertRaw('&quot;&gt;Mediocre&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<title>Mediocre</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Category : Location Placetype.
-    $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</category>', t('Category is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<category>Public Government School</category>', t('Category is mapped correctly'), t('Devtrac'));
     // Description : Question.
-    $this->assertRaw('/node/29&quot;&gt;How would you rate this school?&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<description>How would you rate this school?</description>', t('Description mapped correctly'), t('Devtrac'));
     // Published Date : Date Created (Subject to change).
     $this->assertRaw('<pubDate>' . date("d-m-Y") . '</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
 
     // dc items.
     // Title : Answer All.
-    $this->assertRaw('&quot;&gt;Mediocre&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:title>Mediocre</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Category : Location Placetype.
-    $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</dc:subject>', t('dc Category is mapped'), t('Devtrac'));
+    $this->assertRaw('<dc:subject>Public Government School</dc:subject>', t('dc Category is mapped'), t('Devtrac'));
     // Description : Question.
-    $this->assertRaw('/node/29&quot;&gt;How would you rate this school?&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:description>How would you rate this school?</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
     // Date : Date Created (Subject to change)..
     $this->assertRaw('<dc:date>' . date("d-m-Y") . '</dc:date>', t('Date is mapped correctly'), t('Devtrac'));
     // Type : Location Placetype.
-    $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</dc:type>', t('dc Type is mapped'), t('Devtrac'));
+    $this->assertRaw('<dc:type>Public Government School</dc:type>', t('dc Type is mapped'), t('Devtrac'));
     // Identifier : Answer Id.
     $this->assertRaw('<dc:identifier>2</dc:identifier>', t('dc Identifier is mapped'), t('Devtrac'));
 
     // georss items.
     // Relationship Tag : Location Placetype.
-    $this->assertRaw('/taxonomy/term/286&quot;&gt;Public Government School&lt;/a&gt;</georss:relationshipTag>', t('dc Relationship Tag is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<georss:relationshipTag>Public Government School</georss:relationshipTag>', t('dc Relationship Tag is mapped correctly'), t('Devtrac'));
   }
 }

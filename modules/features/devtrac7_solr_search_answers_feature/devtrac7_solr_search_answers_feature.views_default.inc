@@ -447,24 +447,27 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['fields']['answer']['id'] = 'answer';
   $handler->display->display_options['fields']['answer']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['answer']['field'] = 'answer';
-  $handler->display->display_options['fields']['answer']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['answer']['link_to_entity'] = 0;
   /* Field: Indexed Answer: Question */
   $handler->display->display_options['fields']['question']['id'] = 'question';
   $handler->display->display_options['fields']['question']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['question']['field'] = 'question';
+  $handler->display->display_options['fields']['question']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['question']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['question']['bypass_access'] = 0;
   /* Field: Node: Location */
   $handler->display->display_options['fields']['field_ftritem_place']['id'] = 'field_ftritem_place';
   $handler->display->display_options['fields']['field_ftritem_place']['table'] = 'entity_node';
   $handler->display->display_options['fields']['field_ftritem_place']['field'] = 'field_ftritem_place';
   $handler->display->display_options['fields']['field_ftritem_place']['relationship'] = 'questionnaire_id';
-  $handler->display->display_options['fields']['field_ftritem_place']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_ftritem_place']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_ftritem_place']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_ftritem_place']['bypass_access'] = 0;
   /* Field: Indexed Answer: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['bypass_access'] = 0;
   /* Field: Indexed Answer: Date created */
@@ -491,7 +494,7 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = 'Location Placetype';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['bypass_access'] = 0;
   $handler->display->display_options['path'] = 'statistics/answers/analyse/rss';
