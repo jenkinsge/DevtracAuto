@@ -34,6 +34,10 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['quantity'] = '9';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* Relationship: File: File usage (node) */
+  $handler->display->display_options['relationships']['node_usage']['id'] = 'node_usage';
+  $handler->display->display_options['relationships']['node_usage']['table'] = 'views_entity_file';
+  $handler->display->display_options['relationships']['node_usage']['field'] = 'node_usage';
   /* Field: File: Rendered File */
   $handler->display->display_options['fields']['rendered_entity']['id'] = 'rendered_entity';
   $handler->display->display_options['fields']['rendered_entity']['table'] = 'views_entity_file';
@@ -592,11 +596,26 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['owner']['field'] = 'owner';
   $handler->display->display_options['fields']['owner']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['owner']['view_mode'] = 'full';
-  /* Field: Indexed File: URL */
-  $handler->display->display_options['fields']['url']['id'] = 'url';
-  $handler->display->display_options['fields']['url']['table'] = 'search_api_index_devtrac_solr_image_index';
-  $handler->display->display_options['fields']['url']['field'] = 'url';
-  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
+  /* Field: Node: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['relationship'] = 'node_usage';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Content: Link */
+  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
+  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
+  $handler->display->display_options['fields']['view_node']['relationship'] = 'node_usage';
+  $handler->display->display_options['fields']['view_node']['label'] = 'Site Visit URL';
+  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['view_node']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
   $handler->display->display_options['path'] = 'images/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',

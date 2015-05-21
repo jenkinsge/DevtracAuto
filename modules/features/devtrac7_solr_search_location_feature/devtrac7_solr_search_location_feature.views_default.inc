@@ -426,7 +426,7 @@ function devtrac7_solr_search_location_feature_views_default_views() {
     'core' => array(
       'views_rss_core' => array(
         'title' => 'title',
-        'link' => 'nid',
+        'link' => 'uuid',
         'description' => 'taxonomy_vocabulary_6',
         'author' => '',
         'category' => '',
@@ -486,19 +486,20 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 0;
   /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
   /* Field: Indexed Node: Location Type */
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
-  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['bypass_access'] = 0;
   /* Field: Indexed Node: Lat-Long */
   $handler->display->display_options['fields']['field_place_lat_long']['id'] = 'field_place_lat_long';
   $handler->display->display_options['fields']['field_place_lat_long']['table'] = 'search_api_index_devtrac_solr_locations_index';
@@ -511,6 +512,20 @@ function devtrac7_solr_search_location_feature_views_default_views() {
     'format' => 'decimal_degrees',
     'labels' => 1,
   );
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Indexed Node: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = 'URL';
+  $handler->display->display_options['fields']['uuid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['uuid']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'locations/analyse/rss';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',

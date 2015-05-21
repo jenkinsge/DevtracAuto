@@ -468,15 +468,23 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_public_summary_value']['label'] = 'Summary';
   $handler->display->display_options['fields']['field_ftritem_public_summary_value']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_public_summary_value']['link_to_entity'] = 0;
-  /* Field: Sitevisit UUID URL */
+  /* Field: Global: Site information */
   $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
   $handler->display->display_options['fields']['site_info']['table'] = 'views';
   $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
-  $handler->display->display_options['fields']['site_info']['ui_name'] = 'Sitevisit UUID URL';
-  $handler->display->display_options['fields']['site_info']['label'] = 'URL';
-  $handler->display->display_options['fields']['site_info']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['site_info']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
+  $handler->display->display_options['fields']['site_info']['label'] = '';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Sitevisit UUID URL */
+  $handler->display->display_options['fields']['uuid_1']['id'] = 'uuid_1';
+  $handler->display->display_options['fields']['uuid_1']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['uuid_1']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_1']['ui_name'] = 'Sitevisit UUID URL';
+  $handler->display->display_options['fields']['uuid_1']['label'] = 'URL';
+  $handler->display->display_options['fields']['uuid_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['uuid_1']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
+  $handler->display->display_options['fields']['uuid_1']['link_to_entity'] = 0;
   /* Field: Location: UUID (indexed) */
   $handler->display->display_options['fields']['field_ftritem_place_uuid']['id'] = 'field_ftritem_place_uuid';
   $handler->display->display_options['fields']['field_ftritem_place_uuid']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
@@ -520,14 +528,15 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
   $handler->display->display_options['fields']['taxonomy_vocabulary_1']['bypass_access'] = 0;
-  /* Field: Global: Site information */
-  $handler->display->display_options['fields']['site_info_1']['id'] = 'site_info_1';
-  $handler->display->display_options['fields']['site_info_1']['table'] = 'views';
-  $handler->display->display_options['fields']['site_info_1']['field'] = 'site_info';
-  $handler->display->display_options['fields']['site_info_1']['label'] = 'Location URL';
-  $handler->display->display_options['fields']['site_info_1']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['site_info_1']['alter']['text'] = '[site_info]/uuid/node/[field_ftritem_place_uuid]';
-  $handler->display->display_options['fields']['site_info_1']['site_info'] = 'base_url';
+  /* Field: Location URL */
+  $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['id'] = 'field_ftritem_place_uuid_1';
+  $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['field'] = 'field_ftritem_place_uuid';
+  $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['ui_name'] = 'Location URL';
+  $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['label'] = 'Location URL';
+  $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['alter']['text'] = '[site_info]/uuid/node/[field_ftritem_place_uuid]';
+  $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'sitereports/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
@@ -651,7 +660,7 @@ function devtrac7_solr_search_feature_views_default_views() {
         'title' => 'title',
         'link' => 'site_info',
         'description' => 'field_ftritem_public_summary',
-        'author' => 'author',
+        'author' => 'site_info_1',
         'category' => 'taxonomy_vocabulary_8',
         'comments' => '',
         'enclosure' => '',
@@ -662,7 +671,7 @@ function devtrac7_solr_search_feature_views_default_views() {
     'dc' => array(
       'views_rss_dc' => array(
         'title' => 'title',
-        'creator' => 'author',
+        'creator' => 'site_info_1',
         'subject' => 'taxonomy_vocabulary_8',
         'description' => 'field_ftritem_public_summary',
         'publisher' => 'site_info_1',

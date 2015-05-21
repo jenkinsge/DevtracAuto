@@ -598,13 +598,13 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
     'core' => array(
       'views_rss_core' => array(
         'title' => 'title',
-        'link' => 'nid',
+        'link' => 'uuid_1',
         'description' => 'field_ftritem_public_summary',
         'author' => 'author',
         'category' => 'taxonomy_vocabulary_8',
         'comments' => '',
         'enclosure' => '',
-        'guid' => 'nid',
+        'guid' => 'uuid',
         'pubDate' => 'created',
       ),
     ),
@@ -614,12 +614,12 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
         'creator' => 'author',
         'subject' => 'taxonomy_vocabulary_8',
         'description' => 'field_ftritem_public_summary',
-        'publisher' => 'nid',
+        'publisher' => 'site_info',
         'contributor' => '',
         'date' => 'created',
         'type' => '',
         'format' => '',
-        'identifier' => 'nid',
+        'identifier' => 'uuid',
         'source' => '',
         'language' => '',
         'relation' => '',
@@ -715,20 +715,32 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['author']['field'] = 'author';
   $handler->display->display_options['fields']['author']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['author']['view_mode'] = 'full';
-  /* Field: Indexed Node: Node ID */
-  $handler->display->display_options['fields']['nid']['id'] = 'nid';
-  $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
-  $handler->display->display_options['fields']['nid']['field'] = 'nid';
-  $handler->display->display_options['fields']['nid']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['nid']['alter']['text'] = 'http://www.devtrac.ug/node/[nid]';
-  $handler->display->display_options['fields']['nid']['separator'] = '';
-  $handler->display->display_options['fields']['nid']['link_to_entity'] = 0;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
   /* Field: Indexed Node: Date created */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'search_api_index_devtrac_solr_action_items_index';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'long';
   $handler->display->display_options['fields']['created']['link_to_entity'] = 0;
+  /* Field: Indexed Node: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = 'Action item UUID';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
+  /* Field: Indexed Node: UUID */
+  $handler->display->display_options['fields']['uuid_1']['id'] = 'uuid_1';
+  $handler->display->display_options['fields']['uuid_1']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['uuid_1']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_1']['label'] = 'Action item URL';
+  $handler->display->display_options['fields']['uuid_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['uuid_1']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
+  $handler->display->display_options['fields']['uuid_1']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'actionitems/analyse/feed';
   $handler->display->display_options['displays'] = array(
     'list' => 'list',

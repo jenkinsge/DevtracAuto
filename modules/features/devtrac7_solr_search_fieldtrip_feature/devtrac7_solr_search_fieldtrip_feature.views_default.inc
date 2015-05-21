@@ -421,12 +421,21 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_user']['id'] = 'field_fieldtrip_user';
   $handler->display->display_options['fields']['field_fieldtrip_user']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_user']['field'] = 'field_fieldtrip_user';
-  $handler->display->display_options['fields']['field_fieldtrip_user']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_fieldtrip_user']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_fieldtrip_user']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_fieldtrip_user']['bypass_access'] = 0;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
   /* Field: Indexed Node: URL */
   $handler->display->display_options['fields']['url']['id'] = 'url';
   $handler->display->display_options['fields']['url']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['url']['field'] = 'url';
+  $handler->display->display_options['fields']['url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['url']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
   $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
   $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'fieldtrips/analyse/csv';
@@ -469,7 +478,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
     'core' => array(
       'views_rss_core' => array(
         'title' => 'title',
-        'link' => 'title',
+        'link' => 'uuid_1',
         'description' => 'field_fieldtrip_public_summary',
         'author' => 'field_fieldtrip_user',
         'category' => 'field_fieldtrip_status',
@@ -485,7 +494,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
         'creator' => 'field_fieldtrip_user',
         'subject' => 'field_fieldtrip_status',
         'description' => 'field_fieldtrip_public_summary',
-        'publisher' => 'field_fieldtrip_user',
+        'publisher' => 'site_info',
         'contributor' => '',
         'date' => 'field_fieldtrip_start_end_date',
         'type' => 'field_fieldtrip_status',
@@ -578,8 +587,28 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_user']['id'] = 'field_fieldtrip_user';
   $handler->display->display_options['fields']['field_fieldtrip_user']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_user']['field'] = 'field_fieldtrip_user';
-  $handler->display->display_options['fields']['field_fieldtrip_user']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_fieldtrip_user']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_fieldtrip_user']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_fieldtrip_user']['bypass_access'] = 0;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Indexed Node: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = 'Field Trip UUID';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
+  /* Field: Indexed Node: UUID */
+  $handler->display->display_options['fields']['uuid_1']['id'] = 'uuid_1';
+  $handler->display->display_options['fields']['uuid_1']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['uuid_1']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_1']['label'] = 'Field Trip URL';
+  $handler->display->display_options['fields']['uuid_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['uuid_1']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
+  $handler->display->display_options['fields']['uuid_1']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'fieldtrips/analyse/rss';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
