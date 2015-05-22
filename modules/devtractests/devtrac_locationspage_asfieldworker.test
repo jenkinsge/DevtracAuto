@@ -422,7 +422,7 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
     // Title : Title.
     $this->assertRaw('test location</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : Node Id (Subject to change).
-    $this->assertPattern('/<link>http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<link>http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Admin Unit.
     $this->assertRaw('<description>Undefined Area</description>', t('Description mapped correctly'), t('Devtrac'));
 

@@ -174,7 +174,7 @@ class VisitStatisticsAsFieldWorkerTestCase extends DevtracTestCase {
     // Node Id.
     // $this->assertNoRaw('admin', t('Node Id field is not filled.'), t('Devtrac'));
     // URL.
-    $this->assertPattern('/http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
+    $this->assertPattern('/http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
 
     // ANSWERS.
     $this->drupalGet('');

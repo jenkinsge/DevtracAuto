@@ -506,7 +506,7 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     // Location UUID (Subject to change).
     $this->assertPattern('/[a-z0-9\-]*/', t('Location UUID field is filled.'), t('Devtrac'));
     // URL (Subject to change).
-    $this->assertPattern('/http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*/',t('URL field is filled.'), t('Devtrac'));
+    $this->assertPattern('/http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*/',t('URL field is filled.'), t('Devtrac'));
     // "Sitereport UUID" (Subject to change).
     $this->assertPattern('/[a-z0-9\-]*/',t('"Sitereport UUID" field is filled.'), t('Devtrac'));
 
@@ -538,7 +538,7 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     // Title : title.
     $this->assertRaw('<title>Test Action Item</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : site_info (Subject to change).
-    $this->assertPattern('/<link>http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<link>http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
     // Author : author.
     $this->assertRaw('<author>Test Fieldworker</author>', t('Author is mapped correctly'), t('Devtrac'));
     // Category : taxonomy_vocabulary_8.
@@ -559,7 +559,7 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     // Subject : taxonomy_vocabulary_8.
     $this->assertRaw('<dc:subject>Undefined Area, Educational research</dc:subject>', t('dc Subject is mapped correctly'), t('Devtrac'));
     // Publisher : site_info_1 (Subject to change).
-    $this->assertPattern('/<dc:publisher>http:\/\/[a-zA-Z.]*<\/dc:publisher>/', t('dc Guid is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<dc:publisher>http:\/\/[a-zA-Z.\/]*<\/dc:publisher>/', t('dc Guid is mapped correctly'), t('Devtrac'));
     // Date : created (Subject to change).
     // Identifier : uuid (Subject to change).
     $this->assertPattern('/<dc:identifier>[a-z0-9\-]*<\/dc:identifier>/', t('dc Guid is mapped correctly'), t('Devtrac'));
