@@ -383,7 +383,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // Fields.
     // UUID (Subject to change).
-    // $this->assertRaw('"2b84250f-bb9e-42b1-8ddb-1f0c58bce24c"', t('UUID field is filled.'), t('Devtrac'));
+    $this->assertPattern('/[a-z0-9\-]*/', t('UUID field is filled.'), t('Devtrac'));
     // Title.
     $this->assertRaw('"test location"', t('Title field is filled.'), t('Devtrac'));
     // Admin Unit.
@@ -400,10 +400,10 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('Locations', 0);
     $this->clickLink('Export to KML', 0);
     // Name : Title.
-    $this->assertRaw('/node/3">Gulu PTC Demo PS</a>]]>
+    $this->assertRaw('/node/33">test location</a>]]>
   </name>', t('Name field is mapped correctly.'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('<![CDATA[<a href="/devtracorgtest/taxonomy/term/299">Gulu</a>]]>
+    $this->assertRaw('/taxonomy/term/292">Undefined Area</a>]]>
   </description>', t('Description field is mapped correctly.'), t('Devtrac'));
     // Point : Lon - Lat.
     $this->assertRaw('<Point>
@@ -417,23 +417,23 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // Core items.
     // Title : Title.
-    $this->assertRaw('/node/33&quot;&gt;test location&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('test location</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : Node Id (Subject to change).
-    // this->assertRaw('/district/uganda&quot;&gt;Uganda&lt;/a&gt;</link>', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<link>http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<description>Undefined Area</description>', t('Description mapped correctly'), t('Devtrac'));
 
     // dc items.
     // Title : Title.
-    $this->assertRaw('/node/33&quot;&gt;test location&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:title>test location</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Creator : Title.
-    $this->assertRaw('/node/33&quot;&gt;test location&lt;/a&gt;</dc:creator>', t('dc Creator mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:creator>test location</dc:creator>', t('dc Creator mapped correctly'), t('Devtrac'));
     // Description : Admin Unit.
-    $this->assertRaw('/taxonomy/term/292&quot;&gt;Undefined Area&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:description>Undefined Area</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
     // Subject : Location Type.
-    $this->assertRaw('/taxonomy/term/255&quot;&gt;Primary School&lt;/a&gt;</dc:subject>', t('dc Category mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:subject>Public Government School</dc:subject>', t('dc Category mapped correctly'), t('Devtrac'));
     // Type : Location Type.
-    $this->assertRaw('/taxonomy/term/255&quot;&gt;Primary School&lt;/a&gt;</dc:type>', t('dc Type mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:type>Public Government School</dc:type>', t('dc Type mapped correctly'), t('Devtrac'));
 
     // georss items.
     // Point : Latitude, Longitude.

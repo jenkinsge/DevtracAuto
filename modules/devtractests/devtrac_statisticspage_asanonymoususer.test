@@ -163,6 +163,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
 
     // Fields.
     // UUID (subject to change).
+    $this->assertPattern('/[a-z0-9\-]*/', t('UUID field is filled.'), t('Devtrac'));
     // Question.
     $this->assertRaw('"How would you rate this school?"', t('Question field is filled.'), t('Devtrac'));
     // The type of Question.
@@ -174,7 +175,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     // Node Id.
     // $this->assertNoRaw('admin', t('Node Id field is not filled.'), t('Devtrac'));
     // URL.
-    $this->assertRaw('/statistics/answers?f[0]=questionnaire_answer_question%3A30"',t('URL field is filled.'), t('Devtrac'));
+    $this->assertPattern('/http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
 
     // ANSWERS.
     $this->drupalGet('');
@@ -420,11 +421,11 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     $this->drupalGet('');
     $this->clickLink('Statistics', 0);
 
-    $this->clickLink('How would you rate this water point?', 0);
+    $this->clickLink('How would you rate this school?', 0);
     $this->clickLink('List', 0);
 
     // Assert Question Presence.
-    $this->assertText('How would you rate this water point?', t('Question is present on the page.'), t('Devtrac'));
+    $this->assertText('How would you rate this school?', t('Question is present on the page.'), t('Devtrac'));
     
     // Check for table.
     // Columns and Headings.
@@ -436,13 +437,13 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
             Site Visit          </th>', t('Site Visit table column and heading is present on the page.'), t('Devtrac'));
     $this->assertRaw('<th class="views-field views-field-taxonomy-vocabulary-6" >
             Admin Unit          </th>', t('Admin Unit table column and heading is present on the page.'), t('Devtrac'));
-    $this->assertRaw('/statistics/answers?f[0]=question%3A31&amp;display=list&amp;order=created&amp;sort=desc" title="sort by Date created" class="active">Date created<img src=', t('Date Created table column and heading is present on the page. This column is also sortable.'), t('Devtrac'));
+    $this->assertRaw('/statistics/answers?f[0]=question%3A29&amp;display=list&amp;order=created&amp;sort=desc" title="sort by Date created" class="active">Date created<img src=', t('Date Created table column and heading is present on the page. This column is also sortable.'), t('Devtrac'));
 
     // Check that data is displayed in each column.
     $this->assertRaw('Mediocre', t('Answer column is filled.'), t('Devtrac'));
-    $this->assertLink('Loroo Piped Water', 0, t('Location column is filled.'), t('Devtrac'));
-    $this->assertLink('Site Visit at Loroo Piped Water', 0, t('Site Visit column is filled'), t('Devtrac'));
-    $this->assertLink('Amudat', 0, t('Admin Unit column is filled.'), t('Devtrac'));
+    $this->assertLink('test location', 0, t('Location column is filled.'), t('Devtrac'));
+    $this->assertNoRaw('Site Visit at test location', t('Site Visit column is not filled'), t('Devtrac'));
+    $this->assertLink('Undefined Area', 0, t('Admin Unit column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-created active" >
             ' . date("d-m-Y") . '          </td>', t('Date Visited column is filled.'), t('Devtrac'));
     /*$this->assertRaw('/users/admin?display=list">admin</a>          </td>', t('Owner column is filled.'), t('Devtrac'));*/
@@ -464,7 +465,7 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     // Answer.
     $this->assertRaw('"Mediocre"', t('Answer field is filled.'), t('Devtrac'));
     // Site report.
-    $this->assertNoRaw('"Site Visit at test location"', t('Site report field is not filled for site visits to unapproved field trips.'), t('Devtrac'));
+    $this->assertNoRaw('"Site Visit at test location"', t('Site report field is not filled.'), t('Devtrac'));
     // Location Placetype.
     $this->assertRaw('"Public Government School"', t('Location Placetype field is filled.'), t('Devtrac'));
     // Admin Unit.
@@ -472,75 +473,57 @@ class VisitStatisticsAsAnonymousTestCase extends DevtracTestCase {
     // Date Created (Subject to change).
     $this->assertRaw('"' . date("d-m-Y") . '"', t('Date Created field is filled.'), t('Devtrac'));
 
-    // An approved field trip.
-    $this->drupalGet('');
-    $this->clickLink('Statistics', 0);
-    $this->clickLink('How would you rate this water point?', 0);
-    $this->clickLink('Export to CSV', 0);
-
-    // Fields.
-    // Answer.
-    $this->assertRaw('"Mediocre"', t('Answer field is filled.'), t('Devtrac'));
-    // Site report.
-    $this->assertNoRaw('"Site Visit at Loroo Piped Water"', t('Site report field is not filled for site visits to unapproved field trips.'), t('Devtrac'));
-    // Location Placetype.
-    $this->assertRaw('"Gfs or Tap"', t('Location Placetype field is filled.'), t('Devtrac'));
-    // Admin Unit.
-    $this->assertRaw('"Amudat"', t('Admin Unit field is filled.'), t('Devtrac'));
-    // Date Created (Subject to change).
-    $this->assertRaw('"' . date("d-m-Y") . '"', t('Date Created field is filled.'), t('Devtrac'));
-
     // KML.
     $this->drupalGet('');
     $this->clickLink('Statistics', 0);
 
-    $this->clickLink('How would you rate this water point?', 0);
+    $this->clickLink('How would you rate this school?', 0);
     $this->clickLink('Export to KML', 0);
     // Name : Title.
     $this->assertRaw('<name>
     <![CDATA[Mediocre]]>
   </name>', t('Name field is mapped correctly.'), t('Devtrac'));
     // Description : Report.
-    $this->assertRaw('/node/31">How would you rate this water point?</a>]]>
+    $this->assertRaw('/node/29">How would you rate this school?</a>]]>
   </description>', t('Description field is mapped correctly.'), t('Devtrac'));
     // Point : Lon - Lat.
     $this->assertRaw('<Point>
-    <coordinates>34.876800537100,2.126319885300,0</coordinates>
+    <coordinates>32.704498222317,0.556481550015,0</coordinates>
   </Point>', t('Coordinates field is mapped correctly.'), t('Devtrac'));
 
     // RSS.
     $this->drupalGet('');
     $this->clickLink('Statistics', 0);
 
-    $this->clickLink('How would you rate this water point?', 0);
+    $this->clickLink('How would you rate this school?', 0);
     $this->clickLink('Subscribe to RSS Feed', 0);
 
     // Core items.
     // Title : Answer All.
-    $this->assertRaw('&quot;&gt;Mediocre&lt;/a&gt;</title>', t('Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<title>Mediocre</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Category : Location Placetype.
-    $this->assertRaw('/taxonomy/term/261&quot;&gt;Gfs or Tap&lt;/a&gt;</category>', t('Category is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<category>Public Government School</category>', t('Category is mapped correctly'), t('Devtrac'));
     // Description : Question.
-    $this->assertRaw('/node/31&quot;&gt;How would you rate this water point?&lt;/a&gt;</description>', t('Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<description>How would you rate this school?</description>', t('Description mapped correctly'), t('Devtrac'));
     // Published Date : Date Created (Subject to change).
     $this->assertRaw('<pubDate>' . date("d-m-Y") . '</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
 
     // dc items.
     // Title : Answer All.
-    $this->assertRaw('&quot;&gt;Mediocre&lt;/a&gt;</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:title>Mediocre</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Category : Location Placetype.
-    $this->assertRaw('/taxonomy/term/261&quot;&gt;Gfs or Tap&lt;/a&gt;</dc:subject>', t('dc Category is mapped'), t('Devtrac'));
+    $this->assertRaw('<dc:subject>Public Government School</dc:subject>', t('dc Category is mapped'), t('Devtrac'));
     // Description : Question.
-    $this->assertRaw('/node/31&quot;&gt;How would you rate this water point?&lt;/a&gt;</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:description>How would you rate this school?</dc:description>', t('dc Description mapped correctly'), t('Devtrac'));
     // Date : Date Created (Subject to change)..
     $this->assertRaw('<dc:date>' . date("d-m-Y") . '</dc:date>', t('Date is mapped correctly'), t('Devtrac'));
     // Type : Location Placetype.
-    $this->assertRaw('/taxonomy/term/261&quot;&gt;Gfs or Tap&lt;/a&gt;</dc:type>', t('dc Type is mapped'), t('Devtrac'));
+    $this->assertRaw('<dc:type>Public Government School</dc:type>', t('dc Type is mapped'), t('Devtrac'));
     // Identifier : Answer Id.
-    $this->assertRaw('<dc:identifier>3</dc:identifier>', t('dc Identifier is mapped'), t('Devtrac'));
+    $this->assertRaw('<dc:identifier>2</dc:identifier>', t('dc Identifier is mapped'), t('Devtrac'));
 
     // georss items.
     // Relationship Tag : Location Placetype.
-    $this->assertRaw('/taxonomy/term/261&quot;&gt;Gfs or Tap&lt;/a&gt;</georss:relationshipTag>', t('dc Relationship Tag is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<georss:relationshipTag>Public Government School</georss:relationshipTag>', t('dc Relationship Tag is mapped correctly'), t('Devtrac'));
   }
 }

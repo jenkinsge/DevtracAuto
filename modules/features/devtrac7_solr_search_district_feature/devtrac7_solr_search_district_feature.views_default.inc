@@ -292,11 +292,20 @@ function devtrac7_solr_search_district_feature_views_default_views() {
     'data' => 'full',
     'format' => 'decimal_degrees',
   );
-  /* Field: Indexed Taxonomy term: URL */
-  $handler->display->display_options['fields']['url']['id'] = 'url';
-  $handler->display->display_options['fields']['url']['table'] = 'search_api_index_devtrac_solr_district_index';
-  $handler->display->display_options['fields']['url']['field'] = 'url';
-  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Indexed Taxonomy term: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_district_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = 'URL';
+  $handler->display->display_options['fields']['uuid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['uuid']['alter']['text'] = '[site_info]/uuid/taxonomy_term/[uuid]';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   $handler->display->display_options['path'] = 'adminunits/analyse/csv';
@@ -340,7 +349,7 @@ function devtrac7_solr_search_district_feature_views_default_views() {
     'core' => array(
       'views_rss_core' => array(
         'title' => 'name',
-        'link' => 'name',
+        'link' => 'uuid',
         'description' => 'description',
         'author' => '',
         'category' => 'field_district_category',
@@ -400,7 +409,7 @@ function devtrac7_solr_search_district_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'search_api_index_devtrac_solr_district_index';
   $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['name']['link_to_entity'] = 0;
   /* Field: Indexed Taxonomy term: Tags */
   $handler->display->display_options['fields']['field_district_category']['id'] = 'field_district_category';
   $handler->display->display_options['fields']['field_district_category']['table'] = 'search_api_index_devtrac_solr_district_index';
@@ -427,6 +436,20 @@ function devtrac7_solr_search_district_feature_views_default_views() {
   $handler->display->display_options['fields']['description']['label'] = '';
   $handler->display->display_options['fields']['description']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['description']['link_to_entity'] = 0;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Indexed Taxonomy term: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_district_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = 'URL';
+  $handler->display->display_options['fields']['uuid']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['uuid']['alter']['text'] = '[site_info]/uuid/taxonomy_term/[uuid]';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   $handler->display->display_options['path'] = 'adminunits/analyse/rss';

@@ -502,15 +502,13 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     // Tags (Categories).
     $this->assertRaw('"Urgent"', t('Tags (Categories) field is filled.'), t('Devtrac'));
     // UUID (Subject to change).
-    // $this->assertRaw('"72262913-b484-4252-b6fc-935a3638bc63"',t('UUID field is filled.'), t('Devtrac'));
+    $this->assertPattern('/[a-z0-9\-]*/',t('UUID field is filled.'), t('Devtrac'));
     // Location UUID (Subject to change).
-    // $this->assertRaw('"e8d12f48-5b5d-439e-85ea-d1785ffbf7d6"', t('Location UUID field is filled.'), t('Devtrac'));
+    $this->assertPattern('/[a-z0-9\-]*/', t('Location UUID field is filled.'), t('Devtrac'));
     // URL (Subject to change).
-    // $this->assertRaw('/uuid/node/72262913-b484-4252-b6fc-935a3638bc63"',
-    // t('URL field is filled.'), t('Devtrac'));
+    $this->assertPattern('/http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*/',t('URL field is filled.'), t('Devtrac'));
     // "Sitereport UUID" (Subject to change).
-    // $this->assertRaw('72262913-b484-4252-b6fc-935a3638bc63/uuid/node/e8d12f48-5b5d-439e-85ea-d1785ffbf7d6"',
-    // t('"Sitereport UUID" field is filled.'), t('Devtrac'));
+    $this->assertPattern('/[a-z0-9\-]*/',t('"Sitereport UUID" field is filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');
@@ -540,14 +538,13 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     // Title : title.
     $this->assertRaw('<title>Test Action Item</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : site_info (Subject to change).
-    // $this->assertRaw('<link>http://www.devtrac.ug/node/26</link>', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<link>http:\/\/[a-zA-Z.]*\/uuid\/node\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
     // Author : author.
     $this->assertRaw('<author>Test Fieldworker</author>', t('Author is mapped correctly'), t('Devtrac'));
     // Category : taxonomy_vocabulary_8.
     $this->assertRaw('<category>Undefined Area, Educational research</category>', t('Category is mapped correctly'), t('Devtrac'));
     // Guid : uuid (Subject to change).
-    // $this->assertRaw('<guid isPermaLink="false">http://www.devtrac.ug/node/26</guid>',
-    // t('Guid is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<guid isPermaLink="false">[a-z0-9\-]*<\/guid>/',t('Guid is mapped correctly'), t('Devtrac'));
     // Published Date : created (Subject to change).
     // $this->assertRaw('<pubDate>Friday, January 23, 2015 - 10:19</pubDate>',
     // t('Published Date is mapped correctly'), t('Devtrac'));
@@ -562,10 +559,10 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     // Subject : taxonomy_vocabulary_8.
     $this->assertRaw('<dc:subject>Undefined Area, Educational research</dc:subject>', t('dc Subject is mapped correctly'), t('Devtrac'));
     // Publisher : site_info_1 (Subject to change).
+    $this->assertPattern('/<dc:publisher>http:\/\/[a-zA-Z.]*<\/dc:publisher>/', t('dc Guid is mapped correctly'), t('Devtrac'));
     // Date : created (Subject to change).
     // Identifier : uuid (Subject to change).
-    // $this->assertRaw('<dc:identifier>http://www.devtrac.ug/node/26</dc:identifier>',
-    // t('dc Guid is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<dc:identifier>[a-z0-9\-]*<\/dc:identifier>/', t('dc Guid is mapped correctly'), t('Devtrac'));
     // Coverage : taxonomy_vocabulary_6.
     $this->assertRaw('<dc:coverage>Undefined Area</dc:coverage>', t('dc Coverage is mapped correctly'), t('Devtrac'));
 
