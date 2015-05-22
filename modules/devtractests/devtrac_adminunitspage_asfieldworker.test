@@ -381,7 +381,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     // Longtitude.
     $this->assertRaw('"34.875816679152"', t('Longtitude field is filled.'), t('Devtrac'));
     // URL.
-    $this->assertPattern('/http:\/\/[a-zA-Z.]*\/uuid\/taxonomy_term\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
+    $this->assertPattern('/http:\/\/[a-zA-Z.\/]*\/uuid\/taxonomy_term\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');
@@ -408,7 +408,7 @@ class VisitAdminUnitsAsFieldWorkerTestCase extends DevtracTestCase {
     // Title : Name.
     $this->assertRaw('Undefined Area</title>', t('Title is mapped correctly'), t('Devtrac'));
     // Link : Name.
-    $this->assertPattern('/<link>http:\/\/[a-zA-Z.]*\/uuid\/taxonomy_term\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
+    $this->assertPattern('/<link>http:\/\/[a-zA-Z.\/]*\/uuid\/taxonomy_term\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Description.
     $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.&lt;/p&gt;
 </description>', t('Description mapped correctly'), t('Devtrac'));
