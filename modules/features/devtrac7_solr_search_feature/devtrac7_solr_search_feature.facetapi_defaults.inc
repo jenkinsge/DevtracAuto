@@ -252,6 +252,79 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
   $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_site_visits_index::field_ftritem_purpose';
+  $facet->searcher = 'search_api@devtrac_solr_site_visits_index';
+  $facet->realm = '';
+  $facet->facet = 'field_ftritem_purpose';
+  $facet->enabled = FALSE;
+  $facet->settings = array(
+    'operator' => 'and',
+    'hard_limit' => '10',
+    'dependencies' => array(
+      'roles' => array(
+        1 => 0,
+        3 => 0,
+        4 => 0,
+        5 => 0,
+        6 => 0,
+        2 => 0,
+        7 => 0,
+      ),
+      'bundle' => 'none',
+      'bundle_selected' => array(
+        'actionitem' => 0,
+        'article' => 0,
+        'page' => 0,
+        'fieldtrip' => 0,
+        'ftritem' => 0,
+        'place' => 0,
+        'questionnaire_question' => 0,
+        'questionnaire' => 0,
+      ),
+      'facets' => array(
+        'taxonomy_vocabulary_6:field_district_category' => 0,
+        'author:field_user_superior' => 0,
+        'taxonomy_vocabulary_1:parents_all' => 0,
+        'search_api_aggregation_1' => 0,
+        'author' => 0,
+        'taxonomy_vocabulary_1' => 0,
+        'status' => 0,
+        'taxonomy_vocabulary_8' => 0,
+        'taxonomy_vocabulary_6' => 0,
+        'taxonomy_vocabulary_7' => 0,
+        'field_ftritem_status' => 0,
+        'field_ftritem_date_visited' => 0,
+      ),
+      'force_deactivation' => 1,
+      'regex' => 0,
+      'facet_items_taxonomy_vocabulary_6:field_district_category' => '',
+      'facet_items_author:field_user_superior' => '',
+      'facet_items_taxonomy_vocabulary_1:parents_all' => '',
+      'facet_items_search_api_aggregation_1' => '',
+      'facet_items_author' => '',
+      'facet_items_taxonomy_vocabulary_1' => '',
+      'facet_items_status' => '',
+      'facet_items_taxonomy_vocabulary_8' => '',
+      'facet_items_taxonomy_vocabulary_6' => '',
+      'facet_items_taxonomy_vocabulary_7' => '',
+      'facet_items_field_ftritem_status' => '',
+      'facet_items_field_ftritem_date_visited' => '',
+    ),
+    'facet_mincount' => '1',
+    'facet_missing' => '0',
+    'flatten' => '0',
+    'individual_parent' => '0',
+    'query_type' => 'term',
+    'limit_active_items' => 0,
+    'default_true' => '1',
+    'facet_search_ids' => array(),
+    'exclude' => 0,
+  );
+  $export['search_api@devtrac_solr_site_visits_index::field_ftritem_purpose'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
   $facet->name = 'search_api@devtrac_solr_site_visits_index::field_ftritem_status';
   $facet->searcher = 'search_api@devtrac_solr_site_visits_index';
   $facet->realm = '';
@@ -859,6 +932,113 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'graphsflot' => 'point',
   );
   $export['search_api@devtrac_solr_site_visits_index:block:field_ftritem_date_visited'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_site_visits_index:block:field_ftritem_purpose';
+  $facet->searcher = 'search_api@devtrac_solr_site_visits_index';
+  $facet->realm = 'block';
+  $facet->facet = 'field_ftritem_purpose';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_links',
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-48',
+      ),
+      'exclude_inaccessible_items' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'rewrite_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-44',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-43',
+      ),
+      'graph_combo_filter' => array(
+        'status' => 0,
+        'weight' => '-42',
+      ),
+    ),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+      'natural' => 0,
+      'indexed' => 0,
+    ),
+    'sort_weight' => array(
+      'active' => '-50',
+      'count' => '-49',
+      'display' => '-48',
+      'natural' => '0',
+      'indexed' => '0',
+    ),
+    'sort_order' => array(
+      'active' => '3',
+      'count' => '3',
+      'display' => '4',
+      'natural' => '4',
+      'indexed' => '4',
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'soft_limit' => '5',
+    'nofollow' => 1,
+    'show_expanded' => 0,
+    'graphs_combotitle' => NULL,
+    'graphs_comboshowzoom' => 0,
+    'graphs_comboengine' => 'flot',
+    'graphs_combonofollow' => 1,
+    'graphs_combowidth' => '500',
+    'graphs_comboheight' => '400',
+    'graphs_comboy_min' => NULL,
+    'graphs_comboy_max' => NULL,
+    'graphs_comboy_step' => NULL,
+    'graphs_comboy_legend' => NULL,
+    'graphs_combobackground_colour' => '#fff',
+    'graphs_comboseries_colours' => NULL,
+    'graphs_comboshowlegend' => 1,
+    'tagcloud_levels' => '6',
+    'swatch_field' => '',
+    'swatch_imagestyle' => 'apps_logo',
+    'swatch_showtext' => 0,
+    'swatch_shownoimage' => 1,
+    'swatch_imagestyle_select' => 'apps_logo',
+    'empty_text' => array(
+      'value' => '',
+      'format' => 'filtered_html',
+    ),
+    'exclude' => '',
+    'regex' => 0,
+    'inaccessible' => 0,
+    'show_minimum_items' => 2,
+    'yfacet' => '',
+  );
+  $export['search_api@devtrac_solr_site_visits_index:block:field_ftritem_purpose'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
@@ -1885,6 +2065,63 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'show_expanded' => 0,
   );
   $export['search_api@devtrac_solr_site_visits_index:block:type'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_site_visits_index:devtrac7_graph_bar:field_ftritem_purpose';
+  $facet->searcher = 'search_api@devtrac_solr_site_visits_index';
+  $facet->realm = 'devtrac7_graph_bar';
+  $facet->facet = 'field_ftritem_purpose';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+      'natural' => 0,
+      'indexed' => 0,
+    ),
+    'sort_weight' => array(
+      'active' => '-50',
+      'count' => '-49',
+      'display' => '-48',
+      'natural' => '0',
+      'indexed' => '0',
+    ),
+    'sort_order' => array(
+      'active' => '3',
+      'count' => '3',
+      'display' => '4',
+      'natural' => '4',
+      'indexed' => '4',
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => '',
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '100%',
+    'graphsheight' => '400',
+    'graphsy_min' => '',
+    'graphsy_max' => '',
+    'graphsy_step' => '',
+    'graphsy_legend' => '',
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => '',
+    'graphsshowlegend' => 1,
+    'graphsflot' => 'sidebarstack',
+    'empty_text' => array(
+      'value' => '',
+      'format' => 'filtered_html',
+    ),
+  );
+  $export['search_api@devtrac_solr_site_visits_index:devtrac7_graph_bar:field_ftritem_purpose'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
@@ -2942,6 +3179,105 @@ function devtrac7_solr_search_feature_facetapi_default_facet_settings() {
     'submit_realm' => 'Save and go back to realm settings',
   );
   $export['search_api@devtrac_solr_site_visits_index:devtrac7_graph_combo_3:taxonomy_vocabulary_1'] = $facet;
+
+  $facet = new stdClass();
+  $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */
+  $facet->api_version = 1;
+  $facet->name = 'search_api@devtrac_solr_site_visits_index:devtrac7_graph_pie:field_ftritem_purpose';
+  $facet->searcher = 'search_api@devtrac_solr_site_visits_index';
+  $facet->realm = 'devtrac7_graph_pie';
+  $facet->facet = 'field_ftritem_purpose';
+  $facet->enabled = TRUE;
+  $facet->settings = array(
+    'weight' => 0,
+    'widget' => 'facetapi_graphs',
+    'filters' => array(
+      'active_items' => array(
+        'status' => 0,
+        'weight' => '-50',
+      ),
+      'current_depth' => array(
+        'status' => 0,
+        'weight' => '-49',
+      ),
+      'exclude_items' => array(
+        'status' => 0,
+        'weight' => '-48',
+      ),
+      'exclude_inaccessible_items' => array(
+        'status' => 0,
+        'weight' => '-47',
+      ),
+      'rewrite_items' => array(
+        'status' => 0,
+        'weight' => '-46',
+      ),
+      'narrow_results' => array(
+        'status' => 0,
+        'weight' => '-45',
+      ),
+      'show_if_minimum_items' => array(
+        'status' => 0,
+        'weight' => '-44',
+      ),
+      'deepest_level_items' => array(
+        'status' => 0,
+        'weight' => '-43',
+      ),
+      'graph_combo_filter' => array(
+        'status' => 0,
+        'weight' => '-42',
+      ),
+    ),
+    'active_sorts' => array(
+      'active' => 'active',
+      'count' => 'count',
+      'display' => 'display',
+      'natural' => 0,
+      'indexed' => 0,
+    ),
+    'sort_weight' => array(
+      'active' => '-50',
+      'count' => '-49',
+      'display' => '-48',
+      'natural' => '0',
+      'indexed' => '0',
+    ),
+    'sort_order' => array(
+      'active' => '3',
+      'count' => '3',
+      'display' => '4',
+      'natural' => '4',
+      'indexed' => '4',
+    ),
+    'empty_behavior' => 'none',
+    'facet_more_text' => 'Show more',
+    'facet_fewer_text' => 'Show fewer',
+    'graphstitle' => '',
+    'graphsshowzoom' => 0,
+    'graphsengine' => 'flot',
+    'graphsnofollow' => 1,
+    'graphswidth' => '100%',
+    'graphsheight' => '400',
+    'graphsy_min' => '',
+    'graphsy_max' => '',
+    'graphsy_step' => '',
+    'graphsy_legend' => '',
+    'graphsbackground_colour' => '#fff',
+    'graphsseries_colours' => '',
+    'graphsshowlegend' => 1,
+    'graphsflot' => 'pie',
+    'empty_text' => array(
+      'value' => '',
+      'format' => 'filtered_html',
+    ),
+    'exclude' => '',
+    'regex' => 0,
+    'inaccessible' => 0,
+    'show_minimum_items' => 2,
+    'yfacet' => '',
+  );
+  $export['search_api@devtrac_solr_site_visits_index:devtrac7_graph_pie:field_ftritem_purpose'] = $facet;
 
   $facet = new stdClass();
   $facet->disabled = FALSE; /* Edit this to true to make a default facet disabled initially */

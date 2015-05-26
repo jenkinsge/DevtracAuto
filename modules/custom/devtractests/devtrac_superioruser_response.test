@@ -189,10 +189,10 @@ class FieldtripFeedbackCase extends SimpleTestCloneTestCase {
     // $fullReportSubmitozyq['taxonomy_vocabulary_6[und][]'] = array(80, 81, 82, 83);
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District Field is removd');
     $fullReportSubmitozyq['title'] = 'YES WE CAN';
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fullReportSubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmitozyq, t('Save'), array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));

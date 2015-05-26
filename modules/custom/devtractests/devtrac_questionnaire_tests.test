@@ -393,17 +393,17 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'Devtrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form
     // $field_addreport_item['taxonomy_vocabulary_6[und][]'] = 81;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     $field_addreport_item['title'] = 'YES WE CAN';
     $this->assertText('Internal ID', 'Internal id field is found');
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $field_addreport_item['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(3);
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $field_addreport_item, t('Save'), array(
@@ -475,15 +475,15 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'Devtrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     $field_addreport_item['title'] = 'YES WE CAN';
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $field_addreport_item['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(4);
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 3;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $field_addreport_item, t('Save'), array(
@@ -566,16 +566,16 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'Devtrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     // $field_addreport_item['taxonomy_vocabulary_6[und][]'] = 81;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     $field_addreport_item['title'] = 'YES WE CAN';
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $field_addreport_item['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(4);
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $field_addreport_item, t('Save'), array(
@@ -667,16 +667,16 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'Devtrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     // $field_addreport_item['taxonomy_vocabulary_6[und][]'] = 81;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     $field_addreport_item['title'] = 'YES WE CAN';
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $field_addreport_item['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 3;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2014';
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2014';
     $this->drupalPost(NULL, $field_addreport_item, t('Save'), array(
@@ -752,16 +752,16 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
       'field_fieldtrip_user' => $this->fieldWorker->uid,
       'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'Devtrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' => 78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' => 78);
     // Populating the fieldtrip create form.
     // $field_addreport_item['taxonomy_vocabulary_6[und][]'] = 81;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field trip form');
     $field_addreport_item['title'] = 'YES WE CAN';
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $field_addreport_item['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(3);
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 3;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2014';
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2014';
     $this->drupalPost(NULL, $field_addreport_item, t('Save'), array(
@@ -845,10 +845,10 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // $field_addreport_item ['taxonomy_vocabulary_6[und][]'] = 81;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field tri form');
     $field_addreport_item['title'] = 'YES WE CAN';
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_addreport_item['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(4);
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 3;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $field_addreport_item, t('Save'), array(
@@ -930,11 +930,11 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // $field_addreport_item['taxonomy_vocabulary_6[und][]'] = 81;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field tri form');
     $field_addreport_item['title'] = 'YES WE CAN';
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $field_addreport_item['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomName(2);
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $field_addreport_item, t('Save'), array(
@@ -1014,11 +1014,11 @@ class testfieldWorkerQuestionnaireCase extends SimpleTestCloneTestCase {
     // $field_addreport_item['taxonomy_vocabulary_6[und][]'] = 81;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field is removed from the add field tri form');
     $field_addreport_item['title'] = 'YES WE CAN';
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $field_addreport_item['field_fieldtrip_internal_id[und][0][value]'] = 76 . $this->randomString(4);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $field_addreport_item['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $field_addreport_item['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $field_addreport_item['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $field_addreport_item, t('Save'), array(

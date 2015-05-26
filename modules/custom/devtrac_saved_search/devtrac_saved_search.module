@@ -86,8 +86,8 @@ function devtrac_saved_search_manager_weekly_reminder_fieldtrip_submited($uid) {
                   'min_count' => '1',
                   'missing' => '1',
               ),
-              'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps' => Array(
-                  'field' => 'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps',
+              'field_ftritem_purpose:field_ftritem_purpose_purps' => Array(
+                  'field' => 'field_ftritem_purpose:field_ftritem_purpose_purps',
                   'limit' => '10',
                   'operator' => 'and',
                   'min_count' => '1',
@@ -222,8 +222,8 @@ function devtrac_saved_search_manager_notify_fieldtrip_submited($uid) {
                   'min_count' => '1',
                   'missing' => '1',
               ),
-              'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps' => Array(
-                  'field' => 'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps',
+              'field_ftritem_purpose:field_ftritem_purpose_purps' => Array(
+                  'field' => 'field_ftritem_purpose:field_ftritem_purpose_purps',
                   'limit' => '10',
                   'operator' => 'and',
                   'min_count' => '1',
@@ -357,8 +357,8 @@ function devtrac_saved_search_user_notify_fieldtrip_rejected($uid) {
                   'min_count' => '1',
                   'missing' => '1',
               ),
-              'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps' => Array(
-                  'field' => 'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps',
+              'field_ftritem_purpose:field_ftritem_purpose_purps' => Array(
+                  'field' => 'field_ftritem_purpose:field_ftritem_purpose_purps',
                   'limit' => '10',
                   'operator' => 'and',
                   'min_count' => '1',
@@ -484,8 +484,8 @@ function devtrac_saved_search_user_weekly_reminder_fieldtrip_rejected($uid) {
                   'min_count' => '1',
                   'missing' => '1',
               ),
-              'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps' => Array(
-                  'field' => 'field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps',
+              'field_ftritem_purpose:field_ftritem_purpose_purps' => Array(
+                  'field' => 'field_ftritem_purpose:field_ftritem_purpose_purps',
                   'limit' => '10',
                   'operator' => 'and',
                   'min_count' => '1',

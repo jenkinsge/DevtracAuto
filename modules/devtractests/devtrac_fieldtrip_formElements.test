@@ -110,7 +110,7 @@ class FieldTripFormElementTestCase extends SimpleTestCloneTestCase {
   public function testPurposeFieldExisttest() {
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
     $this->assertResponse(200, 'resquest is positively responded to');
-    $this->assertField(t('field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'), t('Field trip purpose field does exist'), 'DevTrac');
+    $this->assertField(t('field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'), t('Field trip purpose field does exist'), 'DevTrac');
     $this->assertText(t('Purpose'), t('Purpose label is showing'), 'DevTrac');
     $this->assertText(t('Create Field Trip'), t('Create Filed Trip form exists'), 'DevTrac');
     $title['title'] = $this->randomName(20);
@@ -130,7 +130,7 @@ class FieldTripFormElementTestCase extends SimpleTestCloneTestCase {
    */
  public function testPurposeRemoveFieldExisttest() {
     $this->drupalGet('node/add/fieldtrip');
-    $this->assertField(t('field_fieldtrip_fc_purpose_und_0_remove_button'), t('Field purpose remove is found'), 'DevTrac');
+    $this->assertField(t('field_ftritem_purpose_und_0_remove_button'), t('Field purpose remove is found'), 'DevTrac');
     $this->assertText(t('Internal ID'), t('Internal ID is showing'), 'DevTrac');
     $this->assertText(t('Create Field Trip'), t('Create Filed Trip form exists'), 'DevTrac');  
   }
@@ -140,7 +140,7 @@ class FieldTripFormElementTestCase extends SimpleTestCloneTestCase {
    */
   public function testPercentageFieldExisttest() {
      $this->drupalGet('node/add/fieldtrip');
-     $this->assertField(t('field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'), t('Field trip purpose parcent field does exist'), 'DevTrac');
+     $this->assertField(t('field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'), t('Field trip purpose parcent field does exist'), 'DevTrac');
      $this->assertText(t('Percentage'), t('Purpose label is showing'), 'DevTrac');
      $this->assertText(t('Create Field Trip'), t('Create Filed Trip form exists'), 'DevTrac');  
   }

@@ -436,6 +436,13 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['taxonomy_vocabulary_7']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['taxonomy_vocabulary_7']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['taxonomy_vocabulary_7']['view_mode'] = 'full';
+  /* Field: Indexed Node: Purpose */
+  $handler->display->display_options['fields']['field_ftritem_purpose']['id'] = 'field_ftritem_purpose';
+  $handler->display->display_options['fields']['field_ftritem_purpose']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['field_ftritem_purpose']['field'] = 'field_ftritem_purpose';
+  $handler->display->display_options['fields']['field_ftritem_purpose']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_ftritem_purpose']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_ftritem_purpose']['bypass_access'] = 0;
   /* Field: Indexed Node: Admin Unit */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_site_visits_index';

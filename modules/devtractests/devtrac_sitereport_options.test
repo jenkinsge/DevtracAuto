@@ -93,12 +93,12 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
     // Populating the fieldtrip create for.
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field was removed from fieldtrip add form');
     $fullReportSubmit['title'] = 'YES WE CAN';
-    $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $fullReportSubmit['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $this->assertNoField(t('field_fieldtrip_proms_ta_id[und][0][value]'), 'TA Number field was removed');
     $fullReportSubmit['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(13);
-    $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6;
-    $fullReportSubmit['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fullReportSubmit['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 6;
+    $fullReportSubmit['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmit['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmit['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmit, t('Save'), array(
@@ -150,16 +150,16 @@ class CustomTestingExtensionCase extends SimpleTestCloneTestCase {
   public function testSiteReportSubmitInvalidPhoto() {
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
     // Populating the fieldtrip create form.
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District field was removed from fieldtrip add form');
     $fullReportSubmit1['title'] = 'YES WE CAN';
-    $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $fullReportSubmit1['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fullReportSubmit1['field_fieldtrip_internal_id[und][0][value]'] = 100;
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta Field was renamed');
-    $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
-    $fullReportSubmit1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fullReportSubmit1['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 7;
+    $fullReportSubmit1['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmit1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmit1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost('node/add/fieldtrip', $fullReportSubmit1, t('Save'), array('query' => array('field_fieldtrip_user' => $this->fieldWorker->uid, 'field_fieldtrip_places' => '')));

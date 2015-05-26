@@ -157,118 +157,6 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'field_collection_item-field_fieldtrip_fc_purpose-field_fieldtrip_fc_purpose_purps'
-  $field_instances['field_collection_item-field_fieldtrip_fc_purpose-field_fieldtrip_fc_purpose_purps'] = array(
-    'bundle' => 'field_fieldtrip_fc_purpose',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'taxonomy',
-        'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
-        'weight' => 0,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_fieldtrip_fc_purpose_purps',
-    'label' => 'Purpose',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'apply_chosen' => 1,
-        'content_taxonomy_opt_groups' => 0,
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'options_select',
-      'weight' => 0,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_fieldtrip_fc_purpose-field_fieldtrip_purpose_descr'
-  $field_instances['field_collection_item-field_fieldtrip_fc_purpose-field_fieldtrip_purpose_descr'] = array(
-    'bundle' => 'field_fieldtrip_fc_purpose',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_fieldtrip_purpose_descr',
-    'label' => 'Description',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'size' => 60,
-      ),
-      'type' => 'text_textfield',
-      'weight' => 2,
-    ),
-  );
-
-  // Exported field_instance: 'field_collection_item-field_fieldtrip_fc_purpose-field_fieldtrip_purpose_percent'
-  $field_instances['field_collection_item-field_fieldtrip_fc_purpose-field_fieldtrip_purpose_percent'] = array(
-    'bundle' => 'field_fieldtrip_fc_purpose',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'number',
-        'settings' => array(
-          'decimal_separator' => '.',
-          'prefix_suffix' => TRUE,
-          'scale' => 0,
-          'thousand_separator' => ' ',
-        ),
-        'type' => 'number_integer',
-        'weight' => 1,
-      ),
-    ),
-    'ds_extras_field_template' => '',
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_fieldtrip_purpose_percent',
-    'label' => 'Percentage',
-    'required' => 1,
-    'settings' => array(
-      'max' => 100,
-      'min' => 0,
-      'prefix' => '',
-      'suffix' => '%',
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'number',
-      'settings' => array(),
-      'type' => 'number',
-      'weight' => 1,
-    ),
-  );
-
   // Exported field_instance: 'field_collection_item-field_place_contact_info-field_contact_email'
   $field_instances['field_collection_item-field_place_contact_info-field_contact_email'] = array(
     'bundle' => 'field_place_contact_info',
@@ -1540,50 +1428,6 @@ function devtrac7_node_types_field_default_field_instances() {
       'settings' => array(),
       'type' => 'hidden',
       'weight' => 13,
-    ),
-  );
-
-  // Exported field_instance: 'node-fieldtrip-field_fieldtrip_fc_purpose'
-  $field_instances['node-fieldtrip-field_fieldtrip_fc_purpose'] = array(
-    'bundle' => 'fieldtrip',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => 'Add the purpose to the field trip. You can add more than one purpose. Make sure that the percentage equates to 100% for you to save the Field Trip. Whenever possible, add a relevant description to the purposes.',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
-      ),
-      'full' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 21,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_fieldtrip_fc_purpose',
-    'label' => 'Purpose(s) of the Fieldtrip',
-    'required' => 1,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 0,
-      'module' => 'field_collection',
-      'settings' => array(
-        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
-      ),
-      'type' => 'field_collection_embed',
-      'weight' => 9,
     ),
   );
 
@@ -3509,6 +3353,42 @@ function devtrac7_node_types_field_default_field_instances() {
       ),
       'type' => 'options_select',
       'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance: 'node-ftritem-field_ftritem_purpose'
+  $field_instances['node-ftritem-field_ftritem_purpose'] = array(
+    'bundle' => 'ftritem',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 0,
+      ),
+    ),
+    'ds_extras_field_template' => '',
+    'entity_type' => 'node',
+    'field_name' => 'field_ftritem_purpose',
+    'label' => 'Purpose',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'apply_chosen' => 1,
+        'content_taxonomy_opt_groups' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+      ),
+      'type' => 'options_select',
+      'weight' => 0,
     ),
   );
 

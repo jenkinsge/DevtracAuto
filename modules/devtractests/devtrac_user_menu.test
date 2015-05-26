@@ -84,15 +84,15 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
   public function testGeosearchBlock() {	
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
     // Populating the fieldtrip create form.
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'district field is placed back');
     $fullReportSubmitozyq['title'] = 'YES WE CAN';
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fullReportSubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = 76;
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta field was renamed');
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmitozyq, t('Save'), array('query' => array(
@@ -120,15 +120,15 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
   public function testGeoSearch() {
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
    // Populating the fieldtrip create form.
     $this->assertNoField('placetype', 'place type field is no longer found');
     $fullReportSubmitozyq['title'] = 'YES WE CAN';
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta number field was renamed');
     $fullReportSubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = 76;
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmitozyq, t('Save'), array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));
@@ -154,16 +154,16 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
   public function testActualGeoSearch() {
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is not found'), 'DevTrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
     // populating the fieldtrip create form
     //$fullReportSubmitozyq['taxonomy_vocabulary_6[und][]'] = array(80, 81, 82, 83);
     $this->assertNoField('placetype', 'place type field is no longer found');
     $fullReportSubmitozyq['title'] = 'YES WE CAN';
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms Ta id field was renamed');
     $fullReportSubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = 76 . 'war';
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmitozyq, t('Save'), array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));
@@ -190,16 +190,16 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
   public function testGeoRandomTextSearch() {
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
     // Populating the fieldtrip create form.
     // $fullReportSubmitozyq['taxonomy_vocabulary_6[und][]'] = array(80, 81, 82, 83);
     $this->assertNoField('placetype', 'place type field is no longer found');
     $fullReportSubmitozyq['title'] = 'YES WE CAN';
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $fullReportSubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = 76;
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms ta was renamed');
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 3;
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 3;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmitozyq, t('Save'), array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));
@@ -229,15 +229,15 @@ class SecondUserMenuTestCase extends SimpleTestCloneTestCase {
   public function testValidGeoSearch() {
     $this->drupalGet('node/add/fieldtrip', array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));
     $this->assertNoText(t('TA Number'), t('TA number field is found'), 'DevTrac');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
     // Populating the fieldtrip create form.
     $this->assertNoField('placetype', 'place type field is no longer found');
     $fullReportSubmitozyq['title'] = 'YES WE CAN';
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms ta was renamed');
     $fullReportSubmitozyq['field_fieldtrip_internal_id[und][0][value]'] = $this->randomString(4);
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 2;
-    $fullReportSubmitozyq['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 2;
+    $fullReportSubmitozyq['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $fullReportSubmitozyq['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost(NULL, $fullReportSubmitozyq, t('Save'), array('query' => array('field_fieldtrip_user' => $this->admin_user->uid, 'field_fieldtrip_places' => '')));

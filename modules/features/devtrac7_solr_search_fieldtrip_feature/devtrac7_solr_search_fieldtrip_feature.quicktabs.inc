@@ -62,27 +62,20 @@ function devtrac7_solr_search_fieldtrip_feature_quicktabs_default_quicktabs() {
       'type' => 'qtabs',
     ),
     1 => array(
-      'bid' => 'devtrac7_realms_delta_QAZ8yCAfqInWVRu8K46kmwkrbtNqdIsb',
-      'hide_title' => 1,
-      'title' => 'Purpose',
-      'weight' => '-98',
-      'type' => 'block',
-    ),
-    2 => array(
       'bid' => 'devtrac7_realms_delta_HXj5U2jfevVIT1oX00lp0hlBhJxTsPTp',
       'hide_title' => 1,
       'title' => 'Date Created',
       'weight' => '-96',
       'type' => 'block',
     ),
-    3 => array(
+    2 => array(
       'bid' => 'devtrac7_realms_delta_GcmCZiYVQB1Q4TCRLXB5y6iUlrDdJP2Q',
       'hide_title' => 1,
       'title' => 'Districts',
       'weight' => '-94',
       'type' => 'block',
     ),
-    4 => array(
+    3 => array(
       'bid' => 'devtrac7_realms_delta_TAgRtI6WUcpBA2FXVimbO6oPxdEPAnGs',
       'hide_title' => 1,
       'title' => 'Users',
