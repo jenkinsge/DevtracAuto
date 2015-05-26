@@ -1768,7 +1768,7 @@ function devtrac7_block_view_alter(&$data, $block) {
           case 'Filter by tags:':
             $data['subject'] = 'Tags';
             break;
-          case 'Filter by purpose(s) of the fieldtrip » purpose:':
+          case 'Filter by purpose:':
             $data['subject'] = 'Purpose';
             break;
           case 'Filter by relation iati_organisation_role » organisation role:':
