@@ -85,14 +85,14 @@ function devtrac_saved_search_manager_weekly_reminder_fieldtrip_submited($uid) {
                   'operator' => 'and',
                   'min_count' => '1',
                   'missing' => '1',
-              ),
+              ),/*
               'field_ftritem_purpose:field_ftritem_purpose_purps' => Array(
                   'field' => 'field_ftritem_purpose:field_ftritem_purpose_purps',
                   'limit' => '10',
                   'operator' => 'and',
                   'min_count' => '1',
                   'missing' => '0',
-              ),
+              ),*/
               'field_fieldtriptags' => Array(
                   'field' => 'field_fieldtriptags',
                   'limit' => '20',
@@ -221,14 +221,14 @@ function devtrac_saved_search_manager_notify_fieldtrip_submited($uid) {
                   'operator' => 'and',
                   'min_count' => '1',
                   'missing' => '1',
-              ),
+              ),/*
               'field_ftritem_purpose:field_ftritem_purpose_purps' => Array(
                   'field' => 'field_ftritem_purpose:field_ftritem_purpose_purps',
                   'limit' => '10',
                   'operator' => 'and',
                   'min_count' => '1',
                   'missing' => '0',
-              ),
+              ),*/
               'field_fieldtriptags' => Array(
                   'field' => 'field_fieldtriptags',
                   'limit' => '20',
@@ -356,14 +356,14 @@ function devtrac_saved_search_user_notify_fieldtrip_rejected($uid) {
                   'operator' => 'and',
                   'min_count' => '1',
                   'missing' => '1',
-              ),
+              ),/*
               'field_ftritem_purpose:field_ftritem_purpose_purps' => Array(
                   'field' => 'field_ftritem_purpose:field_ftritem_purpose_purps',
                   'limit' => '10',
                   'operator' => 'and',
                   'min_count' => '1',
                   'missing' => '0',
-              ),
+              ),*/
               'field_fieldtriptags' => Array(
                   'field' => 'field_fieldtriptags',
                   'limit' => '20',
@@ -483,14 +483,14 @@ function devtrac_saved_search_user_weekly_reminder_fieldtrip_rejected($uid) {
                   'operator' => 'and',
                   'min_count' => '1',
                   'missing' => '1',
-              ),
+              ),/*
               'field_ftritem_purpose:field_ftritem_purpose_purps' => Array(
                   'field' => 'field_ftritem_purpose:field_ftritem_purpose_purps',
                   'limit' => '10',
                   'operator' => 'and',
                   'min_count' => '1',
                   'missing' => '0',
-              ),
+              ),*/
               'field_fieldtriptags' => Array(
                   'field' => 'field_fieldtriptags',
                   'limit' => '20',

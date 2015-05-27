@@ -113,9 +113,6 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     // Tags block id block-facetapi-56c5qjfqxuogmgg1mnjmochfouokxduj.
     $this->assertRaw('"block-facetapi-56c5qjfqxuogmgg1mnjmochfouokxduj":3', t('Tags block is collapsed by default.'), t('Devtrac'));
 
-    // Purpose block id block-facetapi-jzaixysynllh9txga8mdmsyr86v1sxlw.
-    $this->assertRaw('"block-facetapi-jzaixysynllh9txga8mdmsyr86v1sxlw":3', t('Purpose block is collapsed by default.'), t('Devtrac'));
-
     // User block id block-facetapi-uzhphpemgadagavmb0mebpqcl9o6wagc.
     $this->assertRaw('"block-facetapi-uzhphpemgadagavmb0mebpqcl9o6wagc":3', t('User block is collapsed by default.'), t('Devtrac'));
 
@@ -140,7 +137,7 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Field trips');
 
     // Check for order of Facets.
-    $order = array('Status', 'Admin Unit', 'Admin Unit Tags', 'Purpose', 'Tags', 'Date', 'User', 'Manager');
+    $order = array('Status', 'Admin Unit', 'Admin Unit Tags', 'Tags', 'Date', 'User', 'Manager');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Search Api Elements.
@@ -166,9 +163,6 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<h2 class="block-title">Tags</h2>', t('Tags Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-fieldtriptags" id="facetapi-facet-search-apidevtrac-solr-field-trip-index-block-field-fieldtriptags">', t('Tags search list is present on the page'), t('Devtrac'));
 
-    // Purpose.
-    $this->assertRaw('<h2 class="block-title">Purpose</h2>', t('Purpose Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-fieldtrip-fc-purposefield-fieldtrip-fc-purpose-purps" id="facetapi-facet-search-apidevtrac-solr-field-trip-index-block-field-fieldtrip-fc-purposefield-fieldtrip-fc-purpose-purps">', t('Purpose search list is present on the page'), t('Devtrac'));
 
     // User.
     $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));
@@ -282,9 +276,6 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     // Tags block id block-facetapi-56c5qjfqxuogmgg1mnjmochfouokxduj.
     $this->assertRaw('"block-facetapi-56c5qjfqxuogmgg1mnjmochfouokxduj":3', t('Tags block is collapsed by default.'), t('Devtrac'));
 
-    // Purpose block id block-facetapi-jzaixysynllh9txga8mdmsyr86v1sxlw.
-    $this->assertRaw('"block-facetapi-jzaixysynllh9txga8mdmsyr86v1sxlw":3', t('Purpose block is collapsed by default.'), t('Devtrac'));
-
     // User block id block-facetapi-uzhphpemgadagavmb0mebpqcl9o6wagc.
     $this->assertRaw('"block-facetapi-uzhphpemgadagavmb0mebpqcl9o6wagc":3', t('User block is collapsed by default.'), t('Devtrac'));
 
@@ -311,7 +302,7 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('graphs');
 
     // Check for order of Facets.
-    $order = array('Status', 'Admin Unit', 'Admin Unit Tags', 'Purpose', 'Tags', 'Date', 'User', 'Manager');
+    $order = array('Status', 'Admin Unit', 'Admin Unit Tags', 'Tags', 'Date', 'User', 'Manager');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Search Api Elements.
@@ -337,9 +328,6 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('<h2 class="block-title">Tags</h2>', t('Tags Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-fieldtriptags" id="facetapi-facet-search-apidevtrac-solr-field-trip-index-block-field-fieldtriptags">', t('Tags search list is present on the page'), t('Devtrac'));
 
-    // Purpose.
-    $this->assertRaw('<h2 class="block-title">Purpose</h2>', t('Purpose Heading is present on the page'), t('Devtrac'));
-    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-fieldtrip-fc-purposefield-fieldtrip-fc-purpose-purps" id="facetapi-facet-search-apidevtrac-solr-field-trip-index-block-field-fieldtrip-fc-purposefield-fieldtrip-fc-purpose-purps">', t('Purpose search list is present on the page'), t('Devtrac'));
 
     // User.
     $this->assertRaw('<h2 class="block-title">User</h2>', t('User Heading is present on the page'), t('Devtrac'));
@@ -366,25 +354,21 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=0#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-0" class="active">Status</a>', t('Status quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Status', 0, t('Status Quicktab is labeled'), t('Devtrac'));
 
-    // Purpose.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=1#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-1" class="active">Purpose</a>', t('Purpose quicktab is present on the page'), t('Devtrac'));
-    $this->assertLink('Purpose', 0, t('Priority Quicktab is labeled'), t('Devtrac'));
-
     // Date Created.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=2#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-2" class="active">Date Created</a>', t('Date Created quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=1#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-1" class="active">Date Created</a>', t('Date Created quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Date Created', 0, t('Date Created Quicktab is labeled'), t('Devtrac'));
 
     // Districts.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=3#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-3" class="active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=2#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-2" class="active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Districts', 0, t('Districts Quicktab is labeled'), t('Devtrac'));
 
     // Users.
-    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=4#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-4" class="active">Users</a>', t('Users quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/fieldtrips?display=graphs&amp;qt-devtrac_fieldtrips_graphs_tabs=3#qt-devtrac_fieldtrips_graphs_tabs" id="quicktabs-tab-devtrac_fieldtrips_graphs_tabs-3" class="active">Users</a>', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
     $this->assertRaw('/fieldtrips?display=graphs&amp;f[0]=field_fieldtrip_status%3AApproved"', t('Filter by Approved Status link is present on the page.'), t('Devtrac'));
     // $this->drupalGet('?display=graphs&f[0]=field_fieldtrip_status%3AApproved');
-    $this->clickLinkUsingXpath('Approved', 0, '//*[@id="facetapi-link--12"]');
+    $this->clickLinkUsingXpath('Approved', 0, '//*[@id="facetapi-link--11"]');
 
     // Check for current search block.
     $this->assertRaw('<div class="block block-current-search block-devtrac7-fieldtrips-activefacets block-current-search-devtrac7-fieldtrips-activefacets odd block-without-title" id="block-current-search-devtrac7-fieldtrips-activefacets">
@@ -413,7 +397,6 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->drupalGet('');
     $this->clickLink('Field trips');
     $this->clickLink('graphs');
-
     // EXPORTS.
     // CSV.
     $this->clickLink('Export to CSV', 0);

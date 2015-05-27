@@ -210,12 +210,12 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   /**
    * Add a Field Trip.
    */
-  public function addAFieldtrip($title, $tags, $purpose, $percentage, $startdate = NULL, $enddate = NULL) {
+  public function addAFieldtrip($title, $tags, $startdate = NULL, $enddate = NULL) {
     $this->clickLink('Add Field Trip', 0);
     $fieldtrip['title'] = $title;
-    $fieldtrip['field_fieldtriptags[und]'] = $tags;
+    $fieldtrip['field_fieldtriptags[und]'] = $tags;/*
     $fieldtrip['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = $purpose;
-    $fieldtrip['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = $percentage;
+    $fieldtrip['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = $percentage;*/
     if (isset($startdate)) {
       $fieldtrip['field_fieldtrip_start_end_date[und][0][value][date]'] = $startdate;
     }
@@ -243,10 +243,13 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   /**
    * Edit a Site Visit.
    */
-  public function editASiteVisit($title = NULL, $locationtype = NULL, $sector = NULL, $visitedon = NULL, $report = NULL, $notes = NULL) {
+  public function editASiteVisit($title = NULL, $purpose = NULL, $locationtype = NULL, $sector = NULL, $visitedon = NULL, $report = NULL, $notes = NULL) {
     $this->clickLink('Edit', 0);
     if (isset($title)) {
       $edit['title'] = $title;
+    }
+    if (isset($purpose)) {
+      $edit['field_ftritem_purpose[und][]'] = $purpose;
     }
     if (isset($locationtype)) {
       $edit['taxonomy_vocabulary_1[und][0][tid]'] = $locationtype;
@@ -384,12 +387,13 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $this->fillInProfile($this->administrator->uid, '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
 
     // Create a Site Report for edit button test.
-    $this->addAFieldtrip('Test Title', 'Test Tag', '9', 100, '01/02/2015');
+    // $this->addAFieldtrip('Test Title', 'Test Tag', '9', 100, '01/02/2015');
+    $this->addAFieldtrip('Test Title', 'Test Tag','01/02/2015');
     $this->addASiteVisit('3', 'test location', '286', '0.5564815500152875', '32.70449822231746');
     
     $this->clickLink('Site Reports', 1);
     $this->clickLink('Site Visit at test location', 0);
-    $this->editASiteVisit(NULL, NULL, '57', NULL, NULL, NULL);
+    $this->editASiteVisit(NULL, '9', NULL, '57', NULL, NULL, NULL);
     $this->addImagestoSiteVisit(array('1', '2', '3'));
     $this->clickLink('Add Questionnaire');
     $answers['30'] = "Needs more books in the library.";

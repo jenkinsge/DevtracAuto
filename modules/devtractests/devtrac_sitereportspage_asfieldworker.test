@@ -109,6 +109,10 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EReport\u003C\/h2\u003E\n', t('Report Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('div class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-taxonomy-vocabulary-7\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-7\u0022\u003E\u003C', t('Report search list is present on the page'), t('Devtrac'));
 
+    // Purpose.
+    $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EPurpose\u003C\/h2\u003E\n', t('Purpose Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('div class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-field-ftritem-purpose\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-field-ftritem-purpose\u0022\u003E\u003C', t('Purpose search list is present on the page'), t('Devtrac'));
+
     // Admin Unit.
     $this->assertRaw('\u003Ch2 class=\u0022block-title\u0022\u003EAdmin Unit\u003C\/h2\u003E\n', t('Admin Unit Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('div class=\u0022item-list\u0022\u003E\u003Cul class=\u0022facetapi-facetapi-links facetapi-facet-taxonomy-vocabulary-6\u0022 id=\u0022facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-6\u0022\u003E\u003C', t('Admin Unit search list is present on the page'), t('Devtrac'));
@@ -143,6 +147,9 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // 2 is collapsible, default open.
     // 3 is collapisble, default closed.
     $this->assertRaw('"block-facetapi-lxcsjuspi4hstsg0c8hcqgwn6vgs7poa":2', t('Report block is expanded by default.'), t('Devtrac'));
+
+    // Purpose block id block-facetapi-w77toc1wmf6hl32q5drrh8ri1j0vn1xv.
+    $this->assertRaw('"block-facetapi-w77toc1wmf6hl32q5drrh8ri1j0vn1xv":3', t('Purpose block is expanded by default.'), t('Devtrac'));
 
     // Admin Unit block id block-facetapi-amvw0eoro22vgnzwzxrzohrprftqkd3s.
     $this->assertRaw('"block-facetapi-amvw0eoro22vgnzwzxrzohrprftqkd3s":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
@@ -194,7 +201,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('List');
 
     // Check for order of Facets.
-    $order = array('Report', 'Sector', 'Admin Unit', 'Admin Unit Tags', 'Status', 'Date Visited', 'Location', 'User', 'Manager');
+    $order = array('Report', 'Purpose', 'Sector', 'Admin Unit', 'Admin Unit Tags', 'Status', 'Date Visited', 'Location', 'User', 'Manager');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
@@ -230,6 +237,10 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // Report.
     $this->assertRaw('<h2 class="block-title">Report</h2>', t('Report Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-taxonomy-vocabulary-7" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-7">', t('Report search list is present on the page'), t('Devtrac'));
+
+    // Purpose.
+    $this->assertRaw('<h2 class="block-title">Purpose</h2>', t('Purpose Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-ftritem-purpose" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-field-ftritem-purpose">', t('Purpose search list is present on the page'), t('Devtrac'));
 
     // Admin Unit.
     $this->assertRaw('<h2 class="block-title">Admin Unit</h2>', t('Admin Unit Heading is present on the page'), t('Devtrac'));
@@ -326,7 +337,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Graphs');
 
     // Check for order of Facets.
-    $order = array('Report', 'Sector', 'Admin Unit', 'Admin Unit Tags', 'Status', 'Date Visited', 'Location', 'User', 'Manager');
+    $order = array('Report', 'Purpose', 'Sector', 'Admin Unit', 'Admin Unit Tags', 'Status', 'Date Visited', 'Location', 'User', 'Manager');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
@@ -365,6 +376,10 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // Report.
     $this->assertRaw('<h2 class="block-title">Report</h2>', t('Report Heading is present on the page'), t('Devtrac'));
     $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-taxonomy-vocabulary-7" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-taxonomy-vocabulary-7">', t('Report search list is present on the page'), t('Devtrac'));
+
+    // Purpose.
+    $this->assertRaw('<h2 class="block-title">Purpose</h2>', t('Purpose Heading is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="item-list"><ul class="facetapi-facetapi-links facetapi-facet-field-ftritem-purpose" id="facetapi-facet-search-apidevtrac-solr-site-visits-index-block-field-ftritem-purpose">', t('Purpose search list is present on the page'), t('Devtrac'));
 
     // Admin Unit.
     $this->assertRaw('<h2 class="block-title">Admin Unit</h2>', t('Admin Unit Heading is present on the page'), t('Devtrac'));
@@ -411,22 +426,32 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=0#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-0" class="active">Location Type</a>', t('Location Type quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Location Type', 0, t('Location Type Quicktab is labeled'), t('Devtrac'));
     // Pie.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_place=0#qt-devtrac_sitereports_graphs_place" id="quicktabs-tab-devtrac_sitereports_graphs_place-0"', t('Pie quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_place=0#qt-devtrac_sitereports_graphs_place" id="quicktabs-tab-devtrac_sitereports_graphs_place-0" class="active">Pie</a>', t('Pie quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Pie', 0, t('Pie Quicktab is labeled'), t('Devtrac'));
     // Bar.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_place=1#qt-devtrac_sitereports_graphs_place" id="quicktabs-tab-devtrac_sitereports_graphs_place-1"', t('Bar quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_place=1#qt-devtrac_sitereports_graphs_place" id="quicktabs-tab-devtrac_sitereports_graphs_place-1" class="active">Bar</a>', t('Bar quicktab is present on the page'), t('Devtrac'));
+    $this->assertLink('Bar', 0, t('Bar Quicktab is labeled'), t('Devtrac'));
+
+    // Purpose.
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=1#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-1" class="active">Purpose</a>', t('Purpose quicktab is present on the page'), t('Devtrac'));
+    $this->assertLink('Purpose', 0, t('Location Type Quicktab is labeled'), t('Devtrac'));
+    // Pie.
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitevisits_graphs_purpos=0#qt-devtrac_sitevisits_graphs_purpos" id="quicktabs-tab-devtrac_sitevisits_graphs_purpos-0" class="active">Pie</a>', t('Pie quicktab is present on the page'), t('Devtrac'));
+    $this->assertLink('Pie', 0, t('Pie Quicktab is labeled'), t('Devtrac'));
+    // Bar.
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitevisits_graphs_purpos=1#qt-devtrac_sitevisits_graphs_purpos" id="quicktabs-tab-devtrac_sitevisits_graphs_purpos-1" class="active">Bar</a>', t('Bar quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Bar', 0, t('Bar Quicktab is labeled'), t('Devtrac'));
 
     // Sector.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=1#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-1"', t('Sectors quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=2#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-2" class="active">Sectors</a>', t('Sectors quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Sectors', 0, t('Sectors Quicktab is labeled'), t('Devtrac'));
 
     // Districts.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=2#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-2"', t('Districts quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=3#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-3" class="active">Districts</a>', t('Districts quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Districts', 0, t('Districts Quicktab is labeled'), t('Devtrac'));
 
     // User.
-    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=3#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-3"', t('Users quicktab is present on the page'), t('Devtrac'));
+    $this->assertRaw('/sitereports?display=graphs&amp;qt-devtrac_sitereports_graphs_tabs=4#qt-devtrac_sitereports_graphs_tabs" id="quicktabs-tab-devtrac_sitereports_graphs_tabs-4" class="active">User</a>', t('Users quicktab is present on the page'), t('Devtrac'));
 
     // ENABLING A FILTER.
     $this->assertLinkByHref('/sitereports?display=graphs&f[0]=taxonomy_vocabulary_8%3A18', 0, t('Filtered by Basic Education link is present on the page.'), t('Devtrac'));
@@ -466,6 +491,9 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     // 3 is collapisble, default closed.
     $this->assertRaw('"block-facetapi-lxcsjuspi4hstsg0c8hcqgwn6vgs7poa":2', t('Report block is expanded by default.'), t('Devtrac'));
 
+    // Purpose block id block-facetapi-w77toc1wmf6hl32q5drrh8ri1j0vn1xv.
+    $this->assertRaw('"block-facetapi-w77toc1wmf6hl32q5drrh8ri1j0vn1xv":3', t('Purpose block is expanded by default.'), t('Devtrac'));
+
     // Admin Unit block id block-facetapi-amvw0eoro22vgnzwzxrzohrprftqkd3s.
     $this->assertRaw('"block-facetapi-amvw0eoro22vgnzwzxrzohrprftqkd3s":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
 
@@ -495,16 +523,18 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
-    $this->assertRaw('"UUID","Title","Site Report Type","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Types","Location URL"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
-    $this->assertColumnCount(180, 14);
+    $this->assertColumnCount(191, 15);
 
     // Fields.
     // UUID (Subject to change).
     $this->assertPattern('/[a-z0-9\-]*/', t('UUID field is filled.'), t('Devtrac'));
     // Title.
     $this->assertRaw('"Site Visit at Loroo Piped Water "', t('Title field is filled.'), t('Devtrac'));
+    // Purpose.
+    $this->assertRaw('"Leisure"',t('Purpose field is filled.'), t('Devtrac'));
     // Site Report Type.
     $this->assertRaw('"Site Visit"',t('Site Report Type field is filled.'), t('Devtrac'));
     // Admin Unit.
