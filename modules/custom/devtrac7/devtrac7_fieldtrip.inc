@@ -126,7 +126,7 @@ function devtrac7_fieldtrip_statusset($node) {
  * and makes sure it adds up to 100%.
  */
 function devtrac7_fieldtrip_percentagesset($node) {
-  if (!empty($node->field_fieldtrip_fc_purpose) && isset($node->field_fieldtrip_fc_purpose[$node->language])) {
+  if (!empty($node->field_ftritem_purpose) && isset($node->field_ftritem_purpose[$node->language])) {
     // If the sum of the percentages <> 100 fail
     if (devtrac7_fieldtrip_percentagessum($node) <> 100) {
 //      watchdog('admin_feature', 'The sum of the percentages does NOT equal 100.');
@@ -143,7 +143,7 @@ function devtrac7_fieldtrip_percentagesset($node) {
 
 function devtrac7_fieldtrip_percentagessum($node) {
   $sum = 0;
-  $purposes = $node->field_fieldtrip_fc_purpose[$node->language];
+  $purposes = $node->field_ftritem_purpose[$node->language];
   // Now go over them and calculate the sum of the percentages
   foreach ($purposes as $delta => $value) {
     $purpose = entity_load('field_collection_item', array($value['value']));

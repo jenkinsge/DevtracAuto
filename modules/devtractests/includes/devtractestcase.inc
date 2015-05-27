@@ -214,8 +214,8 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $this->clickLink('Add Field Trip', 0);
     $fieldtrip['title'] = $title;
     $fieldtrip['field_fieldtriptags[und]'] = $tags;
-    $fieldtrip['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = $purpose;
-    $fieldtrip['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = $percentage;
+    $fieldtrip['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = $purpose;
+    $fieldtrip['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = $percentage;
     if (isset($startdate)) {
       $fieldtrip['field_fieldtrip_start_end_date[und][0][value][date]'] = $startdate;
     }

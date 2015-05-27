@@ -1768,7 +1768,7 @@ function devtrac7_block_view_alter(&$data, $block) {
           case 'Filter by tags:':
             $data['subject'] = 'Tags';
             break;
-          case 'Filter by purpose(s) of the fieldtrip » purpose:':
+          case 'Filter by purpose:':
             $data['subject'] = 'Purpose';
             break;
           case 'Filter by relation iati_organisation_role » organisation role:':
@@ -2149,7 +2149,7 @@ function devtrac7_field_attach_form($entity_type, $entity, &$form, &$form_state,
   if ($entity_type == 'node') {
     // Change text on add button of purpose field collection on fieldtrip
     if ($entity->type == 'fieldtrip') {
-      $form['field_fieldtrip_fc_purpose']['und']['add_more']['#value'] = 'Add another purpose';
+      $form['field_ftritem_purpose']['und']['add_more']['#value'] = 'Add another purpose';
     }
     // Change text on add button of contact info field collection on place
     if ($entity->type == 'place') {

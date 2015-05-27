@@ -407,9 +407,9 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'create field_fieldtrip_fc_purpose'.
-  $permissions['create field_fieldtrip_fc_purpose'] = array(
-    'name' => 'create field_fieldtrip_fc_purpose',
+  // Exported permission: 'create field_ftritem_purpose'.
+  $permissions['create field_ftritem_purpose'] = array(
+    'name' => 'create field_ftritem_purpose',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -1119,9 +1119,9 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit field_fieldtrip_fc_purpose'.
-  $permissions['edit field_fieldtrip_fc_purpose'] = array(
-    'name' => 'edit field_fieldtrip_fc_purpose',
+  // Exported permission: 'edit field_ftritem_purpose'.
+  $permissions['edit field_ftritem_purpose'] = array(
+    'name' => 'edit field_ftritem_purpose',
     'roles' => array(
       'administrator' => 'administrator',
       'authenticated user' => 'authenticated user',
@@ -1529,9 +1529,9 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_fieldtrip_fc_purpose'.
-  $permissions['edit own field_fieldtrip_fc_purpose'] = array(
-    'name' => 'edit own field_fieldtrip_fc_purpose',
+  // Exported permission: 'edit own field_ftritem_purpose'.
+  $permissions['edit own field_ftritem_purpose'] = array(
+    'name' => 'edit own field_ftritem_purpose',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -2173,9 +2173,9 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_fieldtrip_fc_purpose'.
-  $permissions['view field_fieldtrip_fc_purpose'] = array(
-    'name' => 'view field_fieldtrip_fc_purpose',
+  // Exported permission: 'view field_ftritem_purpose'.
+  $permissions['view field_ftritem_purpose'] = array(
+    'name' => 'view field_ftritem_purpose',
     'roles' => array(
       'administrator' => 'administrator',
       'anonymous user' => 'anonymous user',
@@ -2605,9 +2605,9 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_fieldtrip_fc_purpose'.
-  $permissions['view own field_fieldtrip_fc_purpose'] = array(
-    'name' => 'view own field_fieldtrip_fc_purpose',
+  // Exported permission: 'view own field_ftritem_purpose'.
+  $permissions['view own field_ftritem_purpose'] = array(
+    'name' => 'view own field_ftritem_purpose',
     'roles' => array(
       'administrator' => 'administrator',
     ),

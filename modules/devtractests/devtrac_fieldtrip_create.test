@@ -153,9 +153,9 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
     $this->assertText(t('Purpose'), t('Purpose provision found'), 'Devtrac');
     $this->assertNoText(t('District'), t('District provision not found'), 'Devtrac');
     $this->assertNoRaw('<title>' . 'Create Field Trip | DevTrac'  . '</title>');
-    $this->assertField(t('field_fieldtrip_fc_purpose_und_0_remove_button'), t('remove field button found'), 'DevTrac');
+    $this->assertField(t('field_ftritem_purpose_und_0_remove_button'), t('remove field button found'), 'DevTrac');
     $this->assertField(t('op'), t('Save button is found'), 'Save');
-    $this->assertField(t('field_fieldtrip_fc_purpose_add_more'), t('Add more field found'), 'DevTrac');
+    $this->assertField(t('field_ftritem_purpose_add_more'), t('Add more field found'), 'DevTrac');
   }
   /**
    * Assess 'Fieldtrip Submission' with empty "Title" field.
@@ -172,7 +172,7 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
         'field_fieldtrip_user' => $this->fieldWorker->uid,
         'field_fieldtrip_places' => '')));
     $emptytitle['title'] = '';
-    $emptytitle['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = '';
+    $emptytitle['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = '';
     // Now create a node field trip. 
     $this->drupalPost('node/add/fieldtrip', $emptytitle, t('Save'), array(
       'query' => array(
@@ -242,7 +242,7 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
    */
   public function testFieldtripCreateEmptyPurposetest() {
   	$this->drupalGet('node/add/fieldtrip');
-    $descr['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = '';
+    $descr['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = '';
     $this->drupalPost('node/add/fieldtrip', $descr, t('Save'), array(
     'query' => array(
       'field_fieldtrip_user' => $this->fieldWorker->uid,
@@ -268,7 +268,7 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
    */
   public function testFieldtripCreateEmptyPercentagetest() {
   	$this->drupalGet('node/add/fieldtrip');
-    $parce['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = '';
+    $parce['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = '';
     $this->drupalPost('node/add/fieldtrip', $parce, t('Save'), array(
     'query' => array(
       'field_fieldtrip_user' => $this->fieldWorker->uid,
@@ -294,11 +294,11 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
     $purpose['title'] = $rn1;
     $purpose['title'] = 'My future fieldtrip';
     $purpose['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $purpose['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7; 
-    $purpose['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = '';
+    $purpose['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 7; 
+    $purpose['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = '';
     $purpose['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $purpose['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $purpose['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = '';
+    $purpose['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = '';
     $this->drupalPost('node/add/fieldtrip', $purpose, t('Save'), array(
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
@@ -324,8 +324,8 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'taxonomy_vocabulary_6[und][] ws remaoved');
     $fill['title'] = $rname1;
     $fill['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $fill['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6; 
-    $fill['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $fill['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 6; 
+    $fill['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $this->drupalPost('node/add/fieldtrip', $fill, t('Save'), array(
       'query' => array(
         'field_fieldtrip_user' => $this->fieldWorker->uid,
@@ -346,13 +346,13 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
     $this->drupalGet('node/add/fieldtrip');
     $this->assertNoText(t('TA Number'), t('TA number field is not found'), 'DevTrac'); 
      //
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'taxonomy_vocabulary_6[und][] iis removed');
     $field['title'] = 'My future fieldtrip';
-    $field['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(10);
+    $field['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(10);
     $field['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(10);
-    $field['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7; 
-    $field['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $field['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 7; 
+    $field['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $field['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2014';
     $field['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2014';
     $this->drupalPost('node/add/fieldtrip', $field, t('Save'), array(
@@ -383,16 +383,16 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
     $rname3 = $this->randomName(32);
     $rn3 = array('field_fieldtrip_proms_ta_id[und][0][value]' => $rname3);
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'proms ta id is not found');
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
      //$input1['taxonomy_vocabulary_6[und][]'] = 81;
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'taxonomy_vocabulary_6[und][] is removed');
     $input1['title'] = $rn1;
     $input1['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $input1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 6; 
-    $input1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $input1['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 6; 
+    $input1['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
     $input1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $input1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $input1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
+    $input1['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(32);
     $this->drupalPost('node/add/fieldtrip', $input1, t('Save'));
     $this->assertNoText(t('has been created.'), ('field trip is not created successfully ta is long'), 'DevTrac');
     // This will be marked as a fail because the TA number is more than 24 needed length.
@@ -410,14 +410,14 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
   	$this->drupalGet('node/add/fieldtrip');
     $rname1 = $this->randomName(32);
     $rname3 = $this->randomName(32);
-    $percentage = array('field_fieldtrip_fc_purpose_percent[und][0][value]' =>78);
+    $percentage = array('field_ftritem_purpose_percent[und][0][value]' =>78);
     $this->assertNoField('taxonomy_vocabulary_6[und][]', 'District filed is removed');
     $name1['title'] = 'My fieldtrip title';
     $this->assertField('field_fieldtrip_internal_id[und][0][value]', 'Internal id field is found');
     $this->assertNoField('field_fieldtrip_proms_ta_id[und][0][value]', 'Proms at field is removed');
-    $name1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7; 
-    $name1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
-    $name1['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(12);
+    $name1['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 7; 
+    $name1['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 100;
+    $name1['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = $this->randomName(12);
     $name1['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $name1['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
     $this->drupalPost('node/add/fieldtrip', $name1, t('Save'), array(
@@ -445,11 +445,11 @@ class FieldtripCreatePermittedTestCase extends SimpleTestCloneTestCase {
     $purpose['title'] = $rn1;
     $purpose['title'] = 'My future fieldtrip';
     $purpose['field_fieldtrip_internal_id[und][0][value]'] = $this->randomName(32);
-    $purpose['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_fc_purpose_purps][und]'] = 7;
-    $purpose['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 1000;
+    $purpose['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = 7;
+    $purpose['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = 1000;
     $purpose['field_fieldtrip_start_end_date[und][0][value][date]'] = '26/09/2012';
     $purpose['field_fieldtrip_start_end_date[und][0][value2][date]'] = '26/10/2012';
-    $purpose['field_fieldtrip_fc_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = '';
+    $purpose['field_ftritem_purpose[und][0][field_fieldtrip_purpose_descr][und][0][value]'] = '';
     $this->drupalPost('node/add/fieldtrip', $purpose, t('Save'), array(
       'query' => array(
       'field_fieldtrip_user' => $this->fieldWorker->uid,

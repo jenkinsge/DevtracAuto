@@ -76,7 +76,6 @@ function devtrac7_solr_search_fieldtrip_feature_default_search_api_index() {
         "created" : { "type" : "date" },
         "field_fieldtrip_approval_date" : { "type" : "date" },
         "field_fieldtrip_approved_by" : { "type" : "integer", "entity_type" : "user" },
-        "field_fieldtrip_fc_purpose:field_fieldtrip_fc_purpose_purps" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_fieldtrip_narrative:value" : { "type" : "text" },
         "field_fieldtrip_public_summary:value" : { "type" : "text" },
         "field_fieldtrip_start_end_date:value" : { "type" : "date" },

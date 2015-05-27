@@ -47,7 +47,7 @@ function devtrac7_fieldtrip_progress_progress_field_getmenuitems($entitytype, $e
 //          devtrac7_progress_field_addmenuitem($items, 'devtrac7_progress_field-changelocation', $menu, $destination);
 //        }
         if (!devtrac7_fieldtrip_percentagesset($node)) {
-          $progress['fields']['field_fieldtrip_fc_purpose'] = 'field_fieldtrip_fc_purpose';
+          $progress['fields']['field_ftritem_purpose'] = 'field_ftritem_purpose';
           $menu['weight'] = 2;
           $menu['title'] = t('Change Purposes');
           $menu['href'] = 'node/' . $entityid . '/edit';
