@@ -37,6 +37,15 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
     parent::setUp(array('devtractests'));
 
     $this->setUpFieldWorker();
+    $this->clickLink('Test Title', 0);
+    $this->clickLink('Submit the Field Trip to the manager', 0);
+    $this->assertText('Field Trip submitted for approval.');
+    $this->drupalLogout();
+    $this->drupalLogin($this->administrator);
+    $this->clickLink('Test Title', 0);
+    $this->clickLink('Approve the Field Trip for publishing', 0);
+    $comment["comment_body"] = 'Testing Approval of Fieldtrips';
+    $this->drupalPost(NULL, $comment, t('Approve'));
     $this->drupalLogout();
 
   }
@@ -151,7 +160,7 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('"block-facetapi-lxcsjuspi4hstsg0c8hcqgwn6vgs7poa":2', t('Report block is expanded by default.'), t('Devtrac'));
 
     // Purpose block id block-facetapi-w77toc1wmf6hl32q5drrh8ri1j0vn1xv.
-    $this->assertRaw('"block-facetapi-w77toc1wmf6hl32q5drrh8ri1j0vn1xv":3', t('Purpose block is expanded by default.'), t('Devtrac'));
+    $this->assertRaw('"block-facetapi-w77toc1wmf6hl32q5drrh8ri1j0vn1xv":3', t('Purpose block is collapsed by default.'), t('Devtrac'));
 
     // Admin Unit block id block-facetapi-amvw0eoro22vgnzwzxrzohrprftqkd3s.
     $this->assertRaw('"block-facetapi-amvw0eoro22vgnzwzxrzohrprftqkd3s":2', t('Admin Unit block is expanded by default.'), t('Devtrac'));
@@ -175,7 +184,7 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('\u003Cform id=\u0022facetapi-textfield-widget-form\u0022 class=\u0022facetapi-textfield-widget-form\u0022 action=\u0022sitereports\u0022 method=\u0022GET\u0022 onsubmit=\u0022return Drupal.facetapiTextfieldWidget.submitForm(search_api_aggregation_1)\u0022\u003E\n  \u003Cinput type=\u0022textfield\u0022 name=\u0022search_api_aggregation_1\u0022 value=\u0022\u0022 \/\u003E\n  \u003Cdiv id=\u0022edit-actions\u0022 class=\u0022form-actions form-wrapper\u0022\u003E\n    \u003Cinput type=\u0022submit\u0022 class=\u0022form-submit\u0022 value=\u0022Search\u0022 \/\u003E\n  \u003C\/div\u003E\n\u003C\/form\u003E', t('Full text search block is present on the page'), t('Devtrac'));
 
     // Check for Site Report counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">6 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">7 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // LIST VIEW MODE.
     // Check that link to list view mode goes to the right page.
@@ -197,7 +206,7 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('List');
 
     // Check for order of Facets.
-    $order = array('Report', 'Purpose', 'Sector', 'Admin Unit', 'Admin Unit Tags', 'Status', 'Date Visited', 'Location');
+    $order = array('Report', 'Purpose', 'Sector', 'Admin Unit', 'Admin Unit Tags', 'Date Visited', 'Location');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
@@ -276,7 +285,7 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
 </form>', t('Full text search block is present on the page'), t('Devtrac'));
 
     // Check for Site Report counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">6 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">7 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for table.
     // Columns and Headings.
@@ -332,7 +341,7 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('Graphs');
 
     // Check for order of Facets.
-    $order = array('Report', 'Purpose', 'Sector', 'Admin Unit', 'Admin Unit Tags', 'Status', 'Date Visited', 'Location');
+    $order = array('Report', 'Purpose', 'Sector', 'Admin Unit', 'Admin Unit Tags', 'Date Visited', 'Location');
     $this->assertFacetOrder($order, t('Facets are in the correct order.'), t('Devtrac'));
 
     // Check for generic Main Menu Links.
@@ -414,7 +423,7 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
 </form>', t('Full text search block is present on the page'), t('Devtrac'));
 
     // Check for Site Report counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">6 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">7 Site Reports</h3></div>', t('Current search counter is present on the page'), t('Devtrac'));
 
     // Check for the quicktabs.
     // Location Type.

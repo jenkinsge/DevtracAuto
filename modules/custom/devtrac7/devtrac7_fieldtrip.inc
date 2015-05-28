@@ -124,7 +124,7 @@ function devtrac7_fieldtrip_statusset($node) {
 /**
  * Checks on the percentages on the Purpose(s) of the Field Trip
  * and makes sure it adds up to 100%.
- */
+ *
 function devtrac7_fieldtrip_percentagesset($node) {
   if (!empty($node->field_ftritem_purpose) && isset($node->field_ftritem_purpose[$node->language])) {
     // If the sum of the percentages <> 100 fail
@@ -140,7 +140,7 @@ function devtrac7_fieldtrip_percentagesset($node) {
   // There are no percentages set
   return FALSE;
 }
-
+/*
 function devtrac7_fieldtrip_percentagessum($node) {
   $sum = 0;
   $purposes = $node->field_ftritem_purpose[$node->language];
@@ -490,7 +490,7 @@ function devtrac7_fieldtrip_devtrac7_progress_field_checks_info() {
     'filename' => 'devtrac7_fieldtrip.inc',
     'required' => TRUE,
     'required_function' => '',
-  );
+  );/*
   $progress_checks['devtrac7_fieldtrip_percentagesset'] = array(
     'name' => t('devtrac7_fieldtrip_percentagesset'),
     'label' => t('devtrac7_fieldtrip_percentagesset'),
@@ -514,7 +514,7 @@ function devtrac7_fieldtrip_devtrac7_progress_field_checks_info() {
     'filename' => 'devtrac7_fieldtrip.inc',
     'required' => TRUE,
     'required_function' => '',
-  );
+  );*/
   $progress_checks['devtrac7_fieldtrip_statusset'] = array(
     'name' => t('devtrac7_fieldtrip_statusset'),
     'label' => t('devtrac7_fieldtrip_statusset'),

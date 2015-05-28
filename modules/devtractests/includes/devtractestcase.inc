@@ -393,7 +393,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     
     $this->clickLink('Site Reports', 1);
     $this->clickLink('Site Visit at test location', 0);
-    $this->editASiteVisit(NULL, '9', NULL, '57', NULL, NULL, NULL);
+    $this->editASiteVisit(NULL, '9', NULL, '57', NULL, $this->randomString($length = 125), NULL);
     $this->addImagestoSiteVisit(array('1', '2', '3'));
     $this->clickLink('Add Questionnaire');
     $answers['30'] = "Needs more books in the library.";
