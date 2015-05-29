@@ -45,6 +45,8 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('Test Title', 0);
     $this->clickLink('Approve the Field Trip for publishing', 0);
     $comment["comment_body"] = 'Testing Approval of Fieldtrips';
+    $this->reindex('admin/config/search/search_api/index/devtrac_solr_site_visits_index');
+    drupal_flush_all_caches();
     $this->drupalPost(NULL, $comment, t('Approve'));
     $this->drupalLogout();
 

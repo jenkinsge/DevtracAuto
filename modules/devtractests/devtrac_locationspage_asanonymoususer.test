@@ -37,6 +37,9 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     $this->setUpFieldWorker();
     $this->drupalLogout();
+    $this->drupalLogin($this->administrator);
+    drupal_flush_all_caches();
+    $this->drupalLogout();
 
   }
 

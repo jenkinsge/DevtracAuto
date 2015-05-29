@@ -36,6 +36,11 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
     parent::setUp(array('devtractests'));
 
     $this->setUpFieldWorker();
+    $this->drupalLogout();
+    $this->drupalLogin($this->administrator);
+    drupal_flush_all_caches();
+    $this->drupalLogout();
+    $this->drupalLogin($this->fieldworker);
 
   }
 
