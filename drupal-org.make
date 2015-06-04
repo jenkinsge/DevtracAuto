@@ -403,7 +403,6 @@ projects[search_api_saved_searches][type] = "module"
 projects[search_api_saved_searches][subdir] = "contrib"
 projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-7.x-1.2-reminders-3.patch"
 ; projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-last_excuted-field-7.x-1.x-2142063_9.patch"
-projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/2346679-3--expose_search_status.patch"
 
 projects[search_api_solr][version] = "1.6"
 projects[search_api_solr][type] = "module"
