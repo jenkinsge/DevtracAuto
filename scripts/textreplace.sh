@@ -209,7 +209,7 @@ echo 'questions facets'
 #location type
  grep -rl 'yttgmzsted723wjneg6ebrh6pzk1shjp' ../modules | xargs sed -i 's/yttgmzsted723wjneg6ebrh6pzk1shjp/wkfafyfnzcmqzcsotoz10igyhhzs4lox/g'
  grep -rl 'yttgmzsted723wjneg6ebrh6pzk1shjp' ../test  | xargs sed -i 's/yttgmzsted723wjneg6ebrh6pzk1shjp/wkfafyfnzcmqzcsotoz10igyhhzs4lox/g'
- grep -rl 'yttgmzsted723wjneg6ebrh6pzk1shjp' ../themes  | xargs sed -i's/yttgmzsted723wjneg6ebrh6pzk1shjp/wkfafyfnzcmqzcsotoz10igyhhzs4lox/g'
+ grep -rl 'yttgmzsted723wjneg6ebrh6pzk1shjp' ../themes  | xargs sed -i 's/yttgmzsted723wjneg6ebrh6pzk1shjp/wkfafyfnzcmqzcsotoz10igyhhzs4lox/g'
 
  grep -rl 'YtTGmzsTed723wjNeg6EbRh6pzk1SHJP' ../modules | xargs sed -i 's/YtTGmzsTed723wjNeg6EbRh6pzk1SHJP/wKFAFyfNzcMQzCsOTOz10igYHhZS4lOX/g'
  grep -rl 'YtTGmzsTed723wjNeg6EbRh6pzk1SHJP' ../test  | xargs sed -i 's/YtTGmzsTed723wjNeg6EbRh6pzk1SHJP/wKFAFyfNzcMQzCsOTOz10igYHhZS4lOX/g'
