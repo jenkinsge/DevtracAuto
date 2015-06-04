@@ -524,6 +524,7 @@ class VisitSiteReportsAsAnonymousTestCase extends DevtracTestCase {
 
     // EXPORTS.
     // CSV.
+    drupal_flush_all_caches();
     $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
