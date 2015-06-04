@@ -104,9 +104,9 @@
  grep -rl 'pTRO3d6ZZTSp4x2G0recyLN6CAHMBoqp' ../themes  | xargs sed -i 's/pTRO3d6ZZTSp4x2G0recyLN6CAHMBoqp/bUSltVtTZVZ2GjazY5IOy0ocW7a9lvef/g'
 
 #location type
- grep -rl '1mowyanjknrdopbts0c089qkom59umzk' ../modules | xargs sed 's/1mowyanjknrdopbts0c089qkom59umzk/zvx0v3qtwaes31konofdipjxgstytszp/g'
- grep -rl '1mowyanjknrdopbts0c089qkom59umzk' ../test  | xargs sed 's/1mowyanjknrdopbts0c089qkom59umzk/zvx0v3qtwaes31konofdipjxgstytszp/g'
- grep -rl '1mowyanjknrdopbts0c089qkom59umzk' ../themes  | xargs sed 's/1mowyanjknrdopbts0c089qkom59umzk/zvx0v3qtwaes31konofdipjxgstytszp/g'
+ grep -rl '1mowyanjknrdopbts0c089qkom59umzk' ../modules | xargs sed -i 's/1mowyanjknrdopbts0c089qkom59umzk/zvx0v3qtwaes31konofdipjxgstytszp/g'
+ grep -rl '1mowyanjknrdopbts0c089qkom59umzk' ../test  | xargs sed -i 's/1mowyanjknrdopbts0c089qkom59umzk/zvx0v3qtwaes31konofdipjxgstytszp/g'
+ grep -rl '1mowyanjknrdopbts0c089qkom59umzk' ../themes  | xargs sed -i 's/1mowyanjknrdopbts0c089qkom59umzk/zvx0v3qtwaes31konofdipjxgstytszp/g'
 
  grep -rl '1MOwyanJkNRdOpBtS0C089qkom59uMzK' ../modules | xargs sed -i 's/1MOwyanJkNRdOpBtS0C089qkom59uMzK/ZVX0V3QtWaEs31kONoFDIPJXgstytsZp/g'
  grep -rl '1MOwyanJkNRdOpBtS0C089qkom59uMzK' ../test  | xargs sed -i 's/1MOwyanJkNRdOpBtS0C089qkom59uMzK/ZVX0V3QtWaEs31kONoFDIPJXgstytsZp/g'
@@ -174,9 +174,9 @@
  grep -rl 'qvgb2ckccz2g8sbizployqz5lounyrty' ../test  | xargs sed -i 's/qvgb2ckccz2g8sbizployqz5lounyrty/zamixbrzoztcsfq5jhokbndhz0x2jsmq/g'
  grep -rl 'qvgb2ckccz2g8sbizployqz5lounyrty' ../themes  | xargs sed -i 's/qvgb2ckccz2g8sbizployqz5lounyrty/zamixbrzoztcsfq5jhokbndhz0x2jsmq/g'
 
- grep -rl 'QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty' ../modules | xargs sed 's/QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty/zAMiXbRzozTCsFq5JhOkbnDhz0X2jsMQ/g'
- grep -rl 'QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty' ../test  | xargs sed 's/QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty/zAMiXbRzozTCsFq5JhOkbnDhz0X2jsMQ/g'
- grep -rl 'QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty' ../themes  | xargs sed 's/QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty/zAMiXbRzozTCsFq5JhOkbnDhz0X2jsMQ/g'
+ grep -rl 'QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty' ../modules | xargs sed -i 's/QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty/zAMiXbRzozTCsFq5JhOkbnDhz0X2jsMQ/g'
+ grep -rl 'QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty' ../test  | xargs sed -i 's/QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty/zAMiXbRzozTCsFq5JhOkbnDhz0X2jsMQ/g'
+ grep -rl 'QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty' ../themes  | xargs sed -i 's/QvGB2CkcCz2G8sbizpLOYqZ5LoUNYRty/zAMiXbRzozTCsFq5JhOkbnDhz0X2jsMQ/g'
 
 #admin unit
  grep -rl 'p874lkjf183h8nuvpjuzqb0hg1bjebo7' ../modules | xargs sed -i 's/p874lkjf183h8nuvpjuzqb0hg1bjebo7/vnflr7e6kk2k1qasfjvdtdau2g8k7shf/g'
@@ -202,9 +202,9 @@
  grep -rl 'fsx63uliwbaiwskuqwaksqmetz0lfzxq' ../test  | xargs sed -i 's/fsx63uliwbaiwskuqwaksqmetz0lfzxq/zi03pyfh0haf7sgesfoevliwetm1lf52/g'
  grep -rl 'fsx63uliwbaiwskuqwaksqmetz0lfzxq' ../themes  | xargs sed -i 's/fsx63uliwbaiwskuqwaksqmetz0lfzxq/zi03pyfh0haf7sgesfoevliwetm1lf52/g'
 
- grep -rl 'fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq' ../modules | xargs sed 's/fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq/Zi03PyFH0HaF7SGesfOevLIwEtM1Lf52/g'
- grep -rl 'fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq' ../test  | xargs sed 's/fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq/Zi03PyFH0HaF7SGesfOevLIwEtM1Lf52/g'
- grep -rl 'fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq' ../themes  | xargs sed 's/fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq/Zi03PyFH0HaF7SGesfOevLIwEtM1Lf52/g'
+ grep -rl 'fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq' ../modules | xargs sed -i 's/fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq/Zi03PyFH0HaF7SGesfOevLIwEtM1Lf52/g'
+ grep -rl 'fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq' ../test  | xargs sed -i 's/fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq/Zi03PyFH0HaF7SGesfOevLIwEtM1Lf52/g'
+ grep -rl 'fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq' ../themes  | xargs sed -i 's/fSX63uLiWBaiwSKUQwAKSQmEtz0LfZxq/Zi03PyFH0HaF7SGesfOevLIwEtM1Lf52/g'
 
 #location type
  grep -rl 'yttgmzsted723wjneg6ebrh6pzk1shjp' ../modules | xargs sed -i 's/yttgmzsted723wjneg6ebrh6pzk1shjp/wkfafyfnzcmqzcsotoz10igyhhzs4lox/g'
