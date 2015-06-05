@@ -58,6 +58,8 @@
  grep -rl 'vocabulary-9' ../themes  | xargs sed -i 's/vocabulary-9/purpose/g'
  
  grep -rl 'iteviisit' ../modules | xargs sed -i 's/iteviisit/itevisit/g'
+
+ grep -rl 'place' ../modules | xargs sed -i 's/place/location/g'
  
  grep -rl 'district_category' ../modules | xargs sed -i 's/district_category/field_district_tags/g'
  grep -rl 'district_category' ../test  | xargs sed -i 's/district_category/field_district_tags/g'
@@ -102,6 +104,16 @@ echo 'site visit facets'
  grep -rl 'pTRO3d6ZZTSp4x2G0recyLN6CAHMBoqp' ../modules | xargs sed -i 's/pTRO3d6ZZTSp4x2G0recyLN6CAHMBoqp/bUSltVtTZVZ2GjazY5IOy0ocW7a9lvef/g'
  grep -rl 'pTRO3d6ZZTSp4x2G0recyLN6CAHMBoqp' ../test  | xargs sed -i 's/pTRO3d6ZZTSp4x2G0recyLN6CAHMBoqp/bUSltVtTZVZ2GjazY5IOy0ocW7a9lvef/g'
  grep -rl 'pTRO3d6ZZTSp4x2G0recyLN6CAHMBoqp' ../themes  | xargs sed -i 's/pTRO3d6ZZTSp4x2G0recyLN6CAHMBoqp/bUSltVtTZVZ2GjazY5IOy0ocW7a9lvef/g'
+
+#location type combo action item
+ grep -rl '19dqfdk2pfqdjcrh9c971eh0qn9ivhvv' ../modules | xargs sed -i 's/19dqfdk2pfqdjcrh9c971eh0qn9ivhvv/vmgudxene1foox6idk7i2qqlgmo5dkff/g'
+ grep -rl '19dqfdk2pfqdjcrh9c971eh0qn9ivhvv' ../test  | xargs sed -i 's/19dqfdk2pfqdjcrh9c971eh0qn9ivhvv/vmgudxene1foox6idk7i2qqlgmo5dkff/g'
+ grep -rl '19dqfdk2pfqdjcrh9c971eh0qn9ivhvv' ../themes  | xargs sed -i 's/19dqfdk2pfqdjcrh9c971eh0qn9ivhvv/vmgudxene1foox6idk7i2qqlgmo5dkff/g'
+
+ grep -rl '19dqfDK2pFqdJCRH9C971eH0QN9IVhvV' ../modules | xargs sed -i 's/19dqfDK2pFqdJCRH9C971eH0QN9IVhvV/VMGudXEne1FoOX6IDk7I2qQlgMO5dKFf/g'
+ grep -rl '19dqfDK2pFqdJCRH9C971eH0QN9IVhvV' ../test  | xargs sed -i 's/19dqfDK2pFqdJCRH9C971eH0QN9IVhvV/VMGudXEne1FoOX6IDk7I2qQlgMO5dKFf/g'
+ grep -rl '19dqfDK2pFqdJCRH9C971eH0QN9IVhvV' ../themes  | xargs sed -i 's/19dqfDK2pFqdJCRH9C971eH0QN9IVhvV/VMGudXEne1FoOX6IDk7I2qQlgMO5dKFf/g'
+
 
 #location type
  grep -rl '1mowyanjknrdopbts0c089qkom59umzk' ../modules | xargs sed -i 's/1mowyanjknrdopbts0c089qkom59umzk/zvx0v3qtwaes31konofdipjxgstytszp/g'
