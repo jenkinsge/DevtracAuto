@@ -59,17 +59,6 @@
  
  grep -rl 'iteviisit' ../modules | xargs sed -i 's/iteviisit/itevisit/g'
 
- grep -rl 'field_place_responsible_person' ../modules | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
- grep -rl 'field_place_responsible_person' ../test  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
- grep -rl 'field_place_responsible_person' ../themes  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
-
- grep -rl 'place' ../modules/custom | xargs sed -i 's/place/location/g'
- grep -rl 'place' ../modules/apps | xargs sed -i 's/place/location/g'
- grep -rl 'place' ../modules/features | xargs sed -i 's/place/location/g'
- grep -rl 'place' ../modules/devtractests | xargs sed -i 's/place/location/g'
- grep -rl 'place' ../test | xargs sed -i 's/place/location/g'
- grep -rl 'place' ../themes | xargs sed -i 's/place/location/g'
- 
  grep -rl 'district_category' ../modules | xargs sed -i 's/district_category/field_district_tags/g'
  grep -rl 'district_category' ../test  | xargs sed -i 's/district_category/field_district_tags/g'
  grep -rl 'district_category' ../themes  | xargs sed -i 's/district_category/field_district_tags/g'
@@ -427,3 +416,88 @@ echo 'statistics quicktabs'
  grep -rl 'WpXoeseP1IJefOFyEIeL1Xupj60wa2LZ' ../modules | xargs sed -i 's/WpXoeseP1IJefOFyEIeL1Xupj60wa2LZ/v1TRB1E2I3O6od1uZYBcwfHpu0ndXUwR/g'
  grep -rl 'WpXoeseP1IJefOFyEIeL1Xupj60wa2LZ' ../test  | xargs sed -i 's/WpXoeseP1IJefOFyEIeL1Xupj60wa2LZ/v1TRB1E2I3O6od1uZYBcwfHpu0ndXUwR/g'
  grep -rl 'WpXoeseP1IJefOFyEIeL1Xupj60wa2LZ' ../themes  | xargs sed -i 's/WpXoeseP1IJefOFyEIeL1Xupj60wa2LZ/v1TRB1E2I3O6od1uZYBcwfHpu0ndXUwR/g'
+
+echo 'Renaming place to location'
+#Place to Location
+ grep -rl '/place/' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's|/place/|/location/|g'
+ grep -rl '/place/' ../test | xargs sed -i 's|/place/|/location/|g'
+ grep -rl '/place/' ../themes | xargs sed -i s|/place/|/location/|g'
+
+ grep -rl '/place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's|/place|/location|g'
+ grep -rl '/place' ../test | xargs sed -i 's|/place|/location|g'
+ grep -rl '/place' ../themes | xargs sed -i s|/place|/location|g'
+
+ grep -rl '_place_' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/_place_/_location_/g'
+ grep -rl '_place_' ../test | xargs sed -i 's/_place_/_location_/g'
+ grep -rl '_place_' ../themes | xargs sed -i 's/_place_/_location_/g'
+
+ grep -rl '_place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/_place/_location/g'
+ grep -rl '_place' ../test | xargs sed -i 's/_place/_location/g'
+ grep -rl '_place' ../themes | xargs sed -i 's/_place/_location/g'
+
+ grep -rl 'place_' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/place_/location_/g'
+ grep -rl 'place_' ../test | xargs sed -i 's/place_/location_/g'
+ grep -rl 'place_' ../themes | xargs sed -i 's/place_/location_/g'
+
+ grep -rl \'place\' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\'place\'/\'location\'/g'
+ grep -rl \'place\' ../test | xargs sed -i 's/\'place\'/\'location\'/g'
+ grep -rl \'place\' ../themes | xargs sed -i 's/\'place\'/\'location\'/g'
+
+ grep -rl 'placetype' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placetype/locationtype/g'
+ grep -rl 'placetype' ../test | xargs sed -i 's/placetype/locationtype/g'
+ grep -rl 'placetype' ../themes | xargs sed -i 's/placetype/locationtype/g'
+
+ grep -rl 'placenid' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placenid/locationnid/g'
+ grep -rl 'placenid' ../test | xargs sed -i 's/placenid/locationnid/g'
+ grep -rl 'placenid' ../themes | xargs sed -i 's/placenid/locationnid/g'
+
+ grep -rl 'addplace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/addplace/addlocation/g'
+ grep -rl 'addplace' ../test | xargs sed -i 's/addplace/addlocation/g'
+ grep -rl 'addplace' ../themes | xargs sed -i 's/addplace/addlocation/g'
+
+ grep -rl 'updateplace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/updateplace/updatelocation/g'
+ grep -rl 'updateplace' ../test | xargs sed -i 's/updateplace/updatelocation/g'
+ grep -rl 'updateplace' ../themes | xargs sed -i 's/updateplace/updatelocation/g'
+
+ grep -rl '\$place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\$place/\$location/g'
+ grep -rl '\$place' ../test | xargs sed -i 's/\$place/\$location/g'
+ grep -rl '\$place' ../themes | xargs sed -i 's/\$place/\$location/g'
+
+ grep -rl 'respplace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/respplace/resplocation/g'
+ grep -rl 'respplace' ../test | xargs sed -i 's/respplace/resplocation/g'
+ grep -rl 'respplace' ../themes | xargs sed -i 's/respplace/resplocation/g'
+
+ grep -rl '-place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/-place/-location/g'
+ grep -rl '-place' ../test | xargs sed -i 's/-place/-location/g'
+ grep -rl '-place' ../themes | xargs sed -i 's/-place/-location/g'
+
+ grep -rl 'placeid' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placeid/locationid/g'
+ grep -rl 'placeid' ../test | xargs sed -i 's/placeid/locationid/g'
+ grep -rl 'placeid' ../themes | xargs sed -i 's/placeid/locationid/g'
+
+ grep -rl '\$tpplace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\$tpplace/\$tplocation/g'
+ grep -rl '\$tpplace' ../test | xargs sed -i 's/\$tpplace/\$tplocation/g'
+ grep -rl '\$tpplace' ../themes | xargs sed -i 's/\$tpplace/\$tplocation/g'
+
+ grep -rl '\$tplace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\$tplace/\$tlocation/g'
+ grep -rl '\$tplace' ../test | xargs sed -i 's/\$tplace/\$tlocation/g'
+ grep -rl '\$tplace' ../themes | xargs sed -i 's/\$tplace/\$tlocation/g'
+
+ grep -rl 'findplace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/findplace/findlocation/g'
+ grep -rl 'findplace' ../test | xargs sed -i 's/findplace/findlocation/g'
+ grep -rl 'findplace' ../themes | xargs sed -i 's/findplace/findlocation/g'
+
+ grep -rl 'field_place_responsible_person' ../modules | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+ grep -rl 'field_place_responsible_person' ../test  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+ grep -rl 'field_place_responsible_person' ../themes  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+
+ mv ../modules/custom/devtrac_imports/data/placetype.xml ../modules/custom/devtrac_imports/data/locationtype.xml
+ mv ../modules/custom/devtrac_imports/data/placetype.csv ../modules/custom/devtrac_imports/data/locationtype.csv
+
+ mv ../modules/custom/devtrac_imports/includes/devtrac_imports_placetype.inc ../modules/custom/devtrac_imports/includes/devtrac_imports_locationtype.inc
+ mv ../modules/custom/devtrac_imports/includes/devtrac_imports_placetype_icons.inc ../modules/custom/devtrac_imports/includes/devtrac_imports_locationtype_icons.inc
+ mv ../modules/custom/devtrac_imports/includes/devtrac_imports_placetype_level0.inc ../modules/custom/devtrac_imports/includes/devtrac_imports_locationtype_level0.inc
+ mv ../modules/custom/devtrac_imports/includes/devtrac_imports_placetype_level1.inc ../modules/custom/devtrac_imports/includes/devtrac_imports_locationtype_level1.inc
+ mv ../modules/custom/devtrac_imports/includes/devtrac_imports_placetype_level2.inc ../modules/custom/devtrac_imports/includes/devtrac_imports_locationtype_level2.inc
+
+ mv ../modules/custom/devtrac7/devtrac7_place.inc ../modules/custom/devtrac7/devtrac7_location.inc
