@@ -59,6 +59,10 @@
  
  grep -rl 'iteviisit' ../modules | xargs sed -i 's/iteviisit/itevisit/g'
 
+ grep -rl 'field_place_responsible_person' ../modules | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+ grep -rl 'field_place_responsible_person' ../test  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+ grep -rl 'field_place_responsible_person' ../themes  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+
  grep -rl 'place' ../modules/custom | xargs sed -i 's/place/location/g'
  grep -rl 'place' ../modules/apps | xargs sed -i 's/place/location/g'
  grep -rl 'place' ../modules/features | xargs sed -i 's/place/location/g'
