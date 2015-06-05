@@ -479,9 +479,9 @@ echo 'Renaming place to location'
  grep -rl 'respplace' ../test | xargs sed -i 's/respplace/resplocation/g'
  grep -rl 'respplace' ../themes | xargs sed -i 's/respplace/resplocation/g'
 
- grep -rl '-place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/-place/-location/g'
- grep -rl '-place' ../test | xargs sed -i 's/-place/-location/g'
- grep -rl '-place' ../themes | xargs sed -i 's/-place/-location/g'
+ grep -rl '\-place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/-place/-location/g'
+ grep -rl '\-place' ../test | xargs sed -i 's/-place/-location/g'
+ grep -rl '\-place' ../themes | xargs sed -i 's/-place/-location/g'
 
  grep -rl 'placeid' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placeid/locationid/g'
  grep -rl 'placeid' ../test | xargs sed -i 's/placeid/locationid/g'
