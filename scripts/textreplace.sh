@@ -447,9 +447,9 @@ echo 'Renaming place to location'
  grep -rl 'place_' ../test | xargs sed -i 's/place_/location_/g'
  grep -rl 'place_' ../themes | xargs sed -i 's/place_/location_/g'
 
- grep -rl \'place\' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/'place'/'location'/g'
- grep -rl \'place\' ../test | xargs sed -i 's/'place'/'location'/g'
- grep -rl \'place\' ../themes | xargs sed -i 's/'place'/'location'/g'
+ grep -rl \'place\' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/['place']/['location']/g'
+ grep -rl \'place\' ../test | xargs sed -i 's/['place']/['location']/g'
+ grep -rl \'place\' ../themes | xargs sed -i 's/['place']/['location']/g'
 
  grep -rl 'placetype' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placetype/locationtype/g'
  grep -rl 'placetype' ../test | xargs sed -i 's/placetype/locationtype/g'
