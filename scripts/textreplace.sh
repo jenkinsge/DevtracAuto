@@ -455,6 +455,10 @@ echo 'Renaming place to location'
  grep -rl 'placetype' ../test | xargs sed -i 's/placetype/locationtype/g'
  grep -rl 'placetype' ../themes | xargs sed -i 's/placetype/locationtype/g'
 
+ grep -rl 'Placetype' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/Placetype/Locationtype/g'
+ grep -rl 'Placetype' ../test | xargs sed -i 's/Placetype/Locationtype/g'
+ grep -rl 'Placetype' ../themes | xargs sed -i 's/Placetype/Locationtype/g'
+
  grep -rl 'placenid' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placenid/locationnid/g'
  grep -rl 'placenid' ../test | xargs sed -i 's/placenid/locationnid/g'
  grep -rl 'placenid' ../themes | xargs sed -i 's/placenid/locationnid/g'
