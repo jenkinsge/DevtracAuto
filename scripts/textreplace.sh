@@ -419,6 +419,10 @@ echo 'statistics quicktabs'
 
 echo 'Renaming place to location'
 #Place to Location
+ grep -rl 'field_place_responsible_person' ../modules | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+ grep -rl 'field_place_responsible_person' ../test  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+ grep -rl 'field_place_responsible_person' ../themes  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
+
  grep -rl '/place/' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's|/place/|/location/|g'
  grep -rl '/place/' ../test | xargs sed -i 's|/place/|/location/|g'
  grep -rl '/place/' ../themes | xargs sed -i s|/place/|/location/|g'
@@ -486,10 +490,6 @@ echo 'Renaming place to location'
  grep -rl 'findplace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/findplace/findlocation/g'
  grep -rl 'findplace' ../test | xargs sed -i 's/findplace/findlocation/g'
  grep -rl 'findplace' ../themes | xargs sed -i 's/findplace/findlocation/g'
-
- grep -rl 'field_place_responsible_person' ../modules | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
- grep -rl 'field_place_responsible_person' ../test  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
- grep -rl 'field_place_responsible_person' ../themes  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
 
  mv ../modules/custom/devtrac_imports/data/placetype.xml ../modules/custom/devtrac_imports/data/locationtype.xml
  mv ../modules/custom/devtrac_imports/data/placetype.csv ../modules/custom/devtrac_imports/data/locationtype.csv
