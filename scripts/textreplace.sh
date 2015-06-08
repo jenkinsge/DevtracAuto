@@ -577,6 +577,10 @@ echo 'Renaming questions and answers indices'
  grep -rl 'search_api_index_answers' ../test | xargs sed -i 's/search_api_index_answers/search_api_index_devtrac_solr_answers_index/g'
  grep -rl 'search_api_index_answers' ../themes | xargs sed -i 's/search_api_index_answers/search_api_index_devtrac_solr_answers_index/g'
 
+ grep -rl 'search_api\/index\/answers' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
+ grep -rl 'search_api\/index\/answers' ../test | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
+ grep -rl 'search_api\/index\/answers' ../themes | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
+
 #questions
  grep -rl 'search_api@questions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api@questions/search_api@devtrac_solr_questions_index/g'
  grep -rl 'search_api@questions' ../test | xargs sed -i 's/search_api@questions/search_api@devtrac_solr_questions_index/g'
@@ -597,3 +601,7 @@ echo 'Renaming questions and answers indices'
  grep -rl 'search_api_index_questions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api_index_questions/search_api_index_devtrac_solr_questions_index/g'
  grep -rl 'search_api_index_questions' ../test | xargs sed -i 's/search_api_index_questions/search_api_index_devtrac_solr_questions_index/g'
  grep -rl 'search_api_index_questions' ../themes | xargs sed -i 's/search_api_index_questions/search_api_index_devtrac_solr_questions_index/g'
+
+ grep -rl 'search_api\/index\/questions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
+ grep -rl 'search_api\/index\/questions' ../test | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
+ grep -rl 'search_api\/index\/questions' ../themes | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
