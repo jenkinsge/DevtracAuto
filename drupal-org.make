@@ -398,7 +398,7 @@ projects[search_api_file_source_bundle_filter][version] = "1.x-dev"
 projects[search_api_file_source_bundle_filter][type] = "module"
 projects[search_api_file_source_bundle_filter][subdir] = "contrib"
 
-projects[search_api_saved_searches][version] = "1.x-dev"
+projects[search_api_saved_searches][version] = "1.5"
 projects[search_api_saved_searches][type] = "module"
 projects[search_api_saved_searches][subdir] = "contrib"
 projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-7.x-1.2-reminders-3.patch"

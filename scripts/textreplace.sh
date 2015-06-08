@@ -451,6 +451,14 @@ echo 'Renaming place to location'
  grep -rl \'place\' ../test | xargs sed -i 's/\x27place\x27/\x27location\x27/g'
  grep -rl \'place\' ../themes | xargs sed -i 's/\x27place\x27/\x27location\x27/g'
 
+ grep -rl \'Place\' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
+ grep -rl \'Place\' ../test | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
+ grep -rl \'Place\' ../themes | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
+
+ grep -rl \"place\" ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\"place\"/\"location\"/g'
+ grep -rl \"place\" ../test | xargs sed -i 's/\"place\"/\"location\"/g'
+ grep -rl \"place\" ../themes | xargs sed -i 's/\"place\"/\"location\"/g'
+
  grep -rl 'placetype' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placetype/locationtype/g'
  grep -rl 'placetype' ../test | xargs sed -i 's/placetype/locationtype/g'
  grep -rl 'placetype' ../themes | xargs sed -i 's/placetype/locationtype/g'
@@ -510,6 +518,22 @@ echo 'Renaming place to location'
  grep -rl 'addPlace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/addPlace/addLocation/g'
  grep -rl 'addPlace' ../test | xargs sed -i 's/addPlace/addLocation/g'
  grep -rl 'addPlace' ../themes | xargs sed -i 's/addPlace/addLocation/g'
+
+ grep -rl 'place content' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/place content/location content/g'
+ grep -rl 'place content' ../test | xargs sed -i 's/place content/location content/g'
+ grep -rl 'place content' ../themes | xargs sed -i 's/place content/location content/g'
+
+ grep -rl '|place|' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/|place|/|location|/g'
+ grep -rl '|place|' ../test | xargs sed -i 's/|place|/|location|/g'
+ grep -rl '|place|' ../themes | xargs sed -i 's/|place|/|location|/g'
+
+ grep -rl '\[\] = place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\[\] = place/\[\] = location/g'
+ grep -rl '\[\] = place' ../test | xargs sed -i 's/\[\] = place/\[\] = location/g'
+ grep -rl '\[\] = place' ../themes | xargs sed -i 's/\[\] = place/\[\] = location/g'
+
+ grep -rl ':place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/:place/:location/g'
+ grep -rl ':place' ../test | xargs sed -i 's/:place/:location/g'
+ grep -rl ':place' ../themes | xargs sed -i 's/:place/:location/g'
 
  grep -rl 'relocation' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/relocation/replace/g'
  grep -rl 'relocation' ../test | xargs sed -i 's/relocation/replace/g'
