@@ -451,6 +451,14 @@ echo 'Renaming place to location'
  grep -rl \'place\' ../test | xargs sed -i 's/\x27place\x27/\x27location\x27/g'
  grep -rl \'place\' ../themes | xargs sed -i 's/\x27place\x27/\x27location\x27/g'
 
+ grep -rl \'Place\' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
+ grep -rl \'Place\' ../test | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
+ grep -rl \'Place\' ../themes | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
+
+ grep -rl \"place\" ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\"place\"/\"location\"/g'
+ grep -rl \"place\" ../test | xargs sed -i 's/\"place\"/\"location\"/g'
+ grep -rl \"place\" ../themes | xargs sed -i 's/\"place\"/\"location\"/g'
+
  grep -rl 'placetype' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placetype/locationtype/g'
  grep -rl 'placetype' ../test | xargs sed -i 's/placetype/locationtype/g'
  grep -rl 'placetype' ../themes | xargs sed -i 's/placetype/locationtype/g'
@@ -458,6 +466,10 @@ echo 'Renaming place to location'
  grep -rl 'Placetype' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/Placetype/Locationtype/g'
  grep -rl 'Placetype' ../test | xargs sed -i 's/Placetype/Locationtype/g'
  grep -rl 'Placetype' ../themes | xargs sed -i 's/Placetype/Locationtype/g'
+
+ grep -rl 'PlaceType' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/PlaceType/LocationType/g'
+ grep -rl 'PlaceType' ../test | xargs sed -i 's/PlaceType/LocationType/g'
+ grep -rl 'PlaceType' ../themes | xargs sed -i 's/PlaceType/LocationType/g'
 
  grep -rl 'placenid' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placenid/locationnid/g'
  grep -rl 'placenid' ../test | xargs sed -i 's/placenid/locationnid/g'
@@ -499,6 +511,34 @@ echo 'Renaming place to location'
  grep -rl 'findplace' ../test | xargs sed -i 's/findplace/findlocation/g'
  grep -rl 'findplace' ../themes | xargs sed -i 's/findplace/findlocation/g'
 
+ grep -rl 'place\[' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/place\[/location\[/g'
+ grep -rl 'place\[' ../test | xargs sed -i 's/place\[/location\[/g'
+ grep -rl 'place\[' ../themes | xargs sed -i 's/place\[/location\[/g'
+
+ grep -rl 'addPlace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/addPlace/addLocation/g'
+ grep -rl 'addPlace' ../test | xargs sed -i 's/addPlace/addLocation/g'
+ grep -rl 'addPlace' ../themes | xargs sed -i 's/addPlace/addLocation/g'
+
+ grep -rl 'place content' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/place content/location content/g'
+ grep -rl 'place content' ../test | xargs sed -i 's/place content/location content/g'
+ grep -rl 'place content' ../themes | xargs sed -i 's/place content/location content/g'
+
+ grep -rl '|place|' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/|place|/|location|/g'
+ grep -rl '|place|' ../test | xargs sed -i 's/|place|/|location|/g'
+ grep -rl '|place|' ../themes | xargs sed -i 's/|place|/|location|/g'
+
+ grep -rl '\[\] = place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\[\] = place/\[\] = location/g'
+ grep -rl '\[\] = place' ../test | xargs sed -i 's/\[\] = place/\[\] = location/g'
+ grep -rl '\[\] = place' ../themes | xargs sed -i 's/\[\] = place/\[\] = location/g'
+
+ grep -rl ':place' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/:place/:location/g'
+ grep -rl ':place' ../test | xargs sed -i 's/:place/:location/g'
+ grep -rl ':place' ../themes | xargs sed -i 's/:place/:location/g'
+
+ grep -rl 'relocation' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/relocation/replace/g'
+ grep -rl 'relocation' ../test | xargs sed -i 's/relocation/replace/g'
+ grep -rl 'relocation' ../themes | xargs sed -i 's/relocation/replace/g'
+
  mv ../modules/custom/devtrac_imports/data/placetype.xml ../modules/custom/devtrac_imports/data/locationtype.xml
  mv ../modules/custom/devtrac_imports/data/placetype.csv ../modules/custom/devtrac_imports/data/locationtype.csv
 
@@ -509,3 +549,59 @@ echo 'Renaming place to location'
  mv ../modules/custom/devtrac_imports/includes/devtrac_imports_placetype_level2.inc ../modules/custom/devtrac_imports/includes/devtrac_imports_locationtype_level2.inc
 
  mv ../modules/custom/devtrac7/devtrac7_place.inc ../modules/custom/devtrac7/devtrac7_location.inc
+
+echo 'Renaming Devtrac Site Visit Answers block'
+ grep -rl 'devtrac_sitevisit_answer_subjects' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/devtrac_sitevisit_answer_subjects/devtrac_sitevisit_answer_sectors/g'
+ grep -rl 'devtrac_sitevisit_answer_subjects' ../test | xargs sed -i 's/devtrac_sitevisit_answer_subjects/devtrac_sitevisit_answer_sectors/g'
+ grep -rl 'devtrac_sitevisit_answer_subjects' ../themes | xargs sed -i 's/devtrac_sitevisit_answer_subjects/devtrac_sitevisit_answer_sectors/g'
+
+echo 'Renaming questions and answers indices'
+#answers
+ grep -rl 'search_api@answers' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+ grep -rl 'search_api@answers' ../test | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+ grep -rl 'search_api@answers' ../themes | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+
+ grep -rl 'features\[search_api_index\]\[\] = answers' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/features\[search_api_index\]\[\] = answers/features\[search_api_index\]\[\] = devtrac_solr_answers_index/g'
+ grep -rl 'features\[search_api_index\]\[\] = answers' ../test | xargs sed -i 's/features\[search_api_index\]\[\] = answers/features\[search_api_index\]\[\] = devtrac_solr_answers_index/g'
+ grep -rl 'features\[search_api_index\]\[\] = answers' ../themes | xargs sed -i 's/features\[search_api_index\]\[\] = answers/features\[search_api_index\]\[\] = devtrac_solr_answers_index/g'
+
+ grep -rl \'answers\' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\x27answers\x27/\x27devtrac_solr_answers_index\x27/g'
+ grep -rl \'answers\' ../test | xargs sed -i 's/\x27answers\x27/\x27devtrac_solr_answers_index\x27/g'
+ grep -rl \'answers\' ../themes | xargs sed -i 's/\x27answers\x27/\x27devtrac_solr_answers_index\x27/g'
+
+ grep -rl '"machine_name" : "answers"' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/"machine_name" : "answers"/"machine_name" : "devtrac_solr_answers_index"/g'
+ grep -rl '"machine_name" : "answers"' ../test | xargs sed -i 's/"machine_name" : "answers"/"machine_name" : "devtrac_solr_answers_index"/g'
+ grep -rl '"machine_name" : "answers"' ../themes | xargs sed -i 's/"machine_name" : "answers"/"machine_name" : "devtrac_solr_answers_index"/g'
+
+ grep -rl 'search_api_index_answers' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api_index_answers/search_api_index_devtrac_solr_answers_index/g'
+ grep -rl 'search_api_index_answers' ../test | xargs sed -i 's/search_api_index_answers/search_api_index_devtrac_solr_answers_index/g'
+ grep -rl 'search_api_index_answers' ../themes | xargs sed -i 's/search_api_index_answers/search_api_index_devtrac_solr_answers_index/g'
+
+ grep -rl 'search_api\/index\/answers' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
+ grep -rl 'search_api\/index\/answers' ../test | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
+ grep -rl 'search_api\/index\/answers' ../themes | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
+
+#questions
+ grep -rl 'search_api@questions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api@questions/search_api@devtrac_solr_questions_index/g'
+ grep -rl 'search_api@questions' ../test | xargs sed -i 's/search_api@questions/search_api@devtrac_solr_questions_index/g'
+ grep -rl 'search_api@questions' ../themes | xargs sed -i 's/search_api@questions/search_api@devtrac_solr_questions_index/g'
+
+ grep -rl 'features\[search_api_index\]\[\] = questions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/features\[search_api_index\]\[\] = questions/features\[search_api_index\]\[\] = devtrac_solr_questions_index/g'
+ grep -rl 'features\[search_api_index\]\[\] = questions' ../test | xargs sed -i 's/features\[search_api_index\]\[\] = questions/features\[search_api_index\]\[\] = devtrac_solr_questions_index/g'
+ grep -rl 'features\[search_api_index\]\[\] = questions' ../themes | xargs sed -i 's/features\[search_api_index\]\[\] = questions/features\[search_api_index\]\[\] = devtrac_solr_questions_index/g'
+
+ grep -rl \'questions\' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\x27questions\x27/\x27devtrac_solr_questions_index\x27/g'
+ grep -rl \'questions\' ../test | xargs sed -i 's/\x27questions\x27/\x27devtrac_solr_questions_index\x27/g'
+ grep -rl \'questions\' ../themes | xargs sed -i 's/\x27questions\x27/\x27devtrac_solr_questions_index\x27/g'
+
+ grep -rl '"machine_name" : "questions"' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/"machine_name" : "questions"/"machine_name" : "devtrac_solr_questions_index"/g'
+ grep -rl '"machine_name" : "questions"' ../test | xargs sed -i 's/"machine_name" : "questions"/"machine_name" : "devtrac_solr_questions_index"/g'
+ grep -rl '"machine_name" : "questions"' ../themes | xargs sed -i 's/"machine_name" : "questions"/"machine_name" : "devtrac_solr_questions_index"/g'
+
+ grep -rl 'search_api_index_questions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api_index_questions/search_api_index_devtrac_solr_questions_index/g'
+ grep -rl 'search_api_index_questions' ../test | xargs sed -i 's/search_api_index_questions/search_api_index_devtrac_solr_questions_index/g'
+ grep -rl 'search_api_index_questions' ../themes | xargs sed -i 's/search_api_index_questions/search_api_index_devtrac_solr_questions_index/g'
+
+ grep -rl 'search_api\/index\/questions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
+ grep -rl 'search_api\/index\/questions' ../test | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
+ grep -rl 'search_api\/index\/questions' ../themes | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
