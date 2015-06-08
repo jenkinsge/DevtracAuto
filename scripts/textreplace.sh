@@ -503,6 +503,14 @@ echo 'Renaming place to location'
  grep -rl 'findplace' ../test | xargs sed -i 's/findplace/findlocation/g'
  grep -rl 'findplace' ../themes | xargs sed -i 's/findplace/findlocation/g'
 
+ grep -rl 'place\[' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/place\[/location\[/g'
+ grep -rl 'place\[' ../test | xargs sed -i 's/place\[/location\[/g'
+ grep -rl 'place\[' ../themes | xargs sed -i 's/place\[/location\[/g'
+
+ grep -rl 'addPlace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/addPlace/addLocation/g'
+ grep -rl 'addPlace' ../test | xargs sed -i 's/addPlace/addLocation/g'
+ grep -rl 'addPlace' ../themes | xargs sed -i 's/addPlace/addLocation/g'
+
  grep -rl 'relocation' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/relocation/replace/g'
  grep -rl 'relocation' ../test | xargs sed -i 's/relocation/replace/g'
  grep -rl 'relocation' ../themes | xargs sed -i 's/relocation/replace/g'
