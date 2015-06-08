@@ -459,6 +459,10 @@ echo 'Renaming place to location'
  grep -rl 'Placetype' ../test | xargs sed -i 's/Placetype/Locationtype/g'
  grep -rl 'Placetype' ../themes | xargs sed -i 's/Placetype/Locationtype/g'
 
+ grep -rl 'PlaceType' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/PlaceType/LocationType/g'
+ grep -rl 'PlaceType' ../test | xargs sed -i 's/PlaceType/LocationType/g'
+ grep -rl 'PlaceType' ../themes | xargs sed -i 's/PlaceType/LocationType/g'
+
  grep -rl 'placenid' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/placenid/locationnid/g'
  grep -rl 'placenid' ../test | xargs sed -i 's/placenid/locationnid/g'
  grep -rl 'placenid' ../themes | xargs sed -i 's/placenid/locationnid/g'
@@ -498,6 +502,10 @@ echo 'Renaming place to location'
  grep -rl 'findplace' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/findplace/findlocation/g'
  grep -rl 'findplace' ../test | xargs sed -i 's/findplace/findlocation/g'
  grep -rl 'findplace' ../themes | xargs sed -i 's/findplace/findlocation/g'
+
+ grep -rl 'relocation' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/relocation/replace/g'
+ grep -rl 'relocation' ../test | xargs sed -i 's/relocation/replace/g'
+ grep -rl 'relocation' ../themes | xargs sed -i 's/relocation/replace/g'
 
  mv ../modules/custom/devtrac_imports/data/placetype.xml ../modules/custom/devtrac_imports/data/locationtype.xml
  mv ../modules/custom/devtrac_imports/data/placetype.csv ../modules/custom/devtrac_imports/data/locationtype.csv
