@@ -581,6 +581,8 @@ echo 'Renaming questions and answers indices'
  grep -rl 'search_api\/index\/answers' ../test | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
  grep -rl 'search_api\/index\/answers' ../themes | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
 
+ grep -rin 'answers' ../ --include=devtrac.install | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+
 echo 'answer facets'
 #admin unit
 # grep -rl 'n08gih08ukiw30y73lucrvcs3tdwojf0' ../modules | xargs sed -i 's/n08gih08ukiw30y73lucrvcs3tdwojf0/cujp6qdreq73hkyfo3c0tghvi5elcqps/g'
@@ -654,6 +656,8 @@ echo 'answer quicktabs'
  grep -rl 'search_api\/index\/questions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
  grep -rl 'search_api\/index\/questions' ../test | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
  grep -rl 'search_api\/index\/questions' ../themes | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
+
+ grep -rin 'questions' ../ --include=devtrac.install | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_questions_index/g'
 
 echo 'questions facets'
 #sector
