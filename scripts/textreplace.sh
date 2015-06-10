@@ -451,6 +451,9 @@ echo 'Renaming place to location'
  grep -rl \'place\' ../test | xargs sed -i 's/\x27place\x27/\x27location\x27/g'
  grep -rl \'place\' ../themes | xargs sed -i 's/\x27place\x27/\x27location\x27/g'
 
+# required change for devtrac_install_additional_modules() function in devtrac.install
+ grep -rl \'place\' ../ --include=devtrac.install | xargs sed -i 's/\x27place\x27/\x27location\x27/g'
+
  grep -rl \'Place\' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
  grep -rl \'Place\' ../test | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
  grep -rl \'Place\' ../themes | xargs sed -i 's/\x27Place\x27/\x27Location\x27/g'
