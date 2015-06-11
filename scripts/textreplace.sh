@@ -584,7 +584,7 @@ echo 'Renaming questions and answers indices'
  grep -rl 'search_api\/index\/answers' ../test | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
  grep -rl 'search_api\/index\/answers' ../themes | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
 
- grep -rin 'search_api@answers' ../ --include=devtrac.install | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+ grep -rl 'search_api@answers' ../ --include=devtrac.install | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
 
  grep -rl 'facetapi-facet-search-apianswers' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/facetapi-facet-search-apianswers/facetapi-facet-search-apidevtrac-solr-answers-index/g'
  grep -rl 'facetapi-facet-search-apianswers' ../test | xargs sed -i 's/facetapi-facet-search-apianswers/facetapi-facet-search-apidevtrac-solr-answers-index/g'
@@ -668,7 +668,7 @@ echo 'answer quicktabs'
  grep -rl 'search_api\/index\/questions' ../test | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
  grep -rl 'search_api\/index\/questions' ../themes | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
 
- grep -rin 'search_api@questions' ../ --include=devtrac.install | xargs sed -i 's/search_api@questions/search_api@devtrac_solr_questions_index/g'
+ grep -rl 'search_api@questions' ../ --include=devtrac.install | xargs sed -i 's/search_api@questions/search_api@devtrac_solr_questions_index/g'
 
  grep -rl 'facetapi-facet-search-apiquestions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/facetapi-facet-search-apiquestions/facetapi-facet-search-apidevtrac-solr-questions-index/g'
  grep -rl 'facetapi-facet-search-apiquestions' ../test | xargs sed -i 's/facetapi-facet-search-apiquestions/facetapi-facet-search-apidevtrac-solr-questions-index/g'
