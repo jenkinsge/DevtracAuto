@@ -692,3 +692,10 @@ echo 'questions facets'
  grep -rl 'YtTGmzsTed723wjNeg6EbRh6pzk1SHJP' ../modules | xargs sed -i 's/YtTGmzsTed723wjNeg6EbRh6pzk1SHJP/6axBEoXAzcFhAC6dUvw9bsQATWPoikcX/g'
  grep -rl 'YtTGmzsTed723wjNeg6EbRh6pzk1SHJP' ../test  | xargs sed -i 's/YtTGmzsTed723wjNeg6EbRh6pzk1SHJP/6axBEoXAzcFhAC6dUvw9bsQATWPoikcX/g'
  grep -rl 'YtTGmzsTed723wjNeg6EbRh6pzk1SHJP' ../themes  | xargs sed -i 's/YtTGmzsTed723wjNeg6EbRh6pzk1SHJP/6axBEoXAzcFhAC6dUvw9bsQATWPoikcX/g'
+
+echo 'Making place, action item and ftritem use the same geofield'
+# actionitem
+grep -rl "'field_name' => 'field_actionitem_lat_long'" ../modules/features/devtrac7_node_types --include=devtrac7_node_types.features.field_instance.inc | xargs sed -i 's/\x27field_name\x27 => \x27field_actionitem_lat_long\x27/\x27field_name\x27 => \x27field_location_lat_long\x27/g'
+
+# ftritem
+grep -rl "'field_name' => 'field_ftritem_lat_long'" ../modules/features/devtrac7_node_types --include=devtrac7_node_types.features.field_instance.inc | xargs sed -i 's/\x27field_name\x27 => \x27field_ftritem_lat_long\x27/\x27field_name\x27 => \x27field_location_lat_long\x27/g'
