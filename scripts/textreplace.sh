@@ -584,7 +584,15 @@ echo 'Renaming questions and answers indices'
  grep -rl 'search_api\/index\/answers' ../test | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
  grep -rl 'search_api\/index\/answers' ../themes | xargs sed -i 's/search_api\/index\/answers/search_api\/index\/devtrac_solr_answers_index/g'
 
- grep -rin 'answers' ../ --include=devtrac.install | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+ grep -rl 'search_api@answers' ../ --include=devtrac.install | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+
+ grep -rl 'facetapi-facet-search-apianswers' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/facetapi-facet-search-apianswers/facetapi-facet-search-apidevtrac-solr-answers-index/g'
+ grep -rl 'facetapi-facet-search-apianswers' ../test | xargs sed -i 's/facetapi-facet-search-apianswers/facetapi-facet-search-apidevtrac-solr-answers-index/g'
+ grep -rl 'facetapi-facet-search-apianswers' ../themes | xargs sed -i 's/facetapi-facet-search-apianswers/facetapi-facet-search-apidevtrac-solr-answers-index/g'
+
+ grep -rl 'search_api@answers' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+ grep -rl 'search_api@answers' ../test | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
+ grep -rl 'search_api@answers' ../themes | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_answers_index/g'
 
 echo 'answer facets'
 #admin unit
@@ -597,22 +605,22 @@ echo 'answer facets'
  grep -rl 'N08gIh08uKIW30Y73lucrvcS3TdWOjF0' ../themes  | xargs sed -i 's/N08gIh08uKIW30Y73lucrvcS3TdWOjF0/DJ7sXo5XPjCr9iC43sk0GZdsaOtIAvip/g'
 
 #location type
- grep -rl 'pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv' ../modules | xargs sed -i 's/pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv/imhzxhpdo1hnn7ihjg5igaxtgcf05ckj/g'
- grep -rl 'pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv' ../test  | xargs sed -i 's/pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv/imhzxhpdo1hnn7ihjg5igaxtgcf05ckj/g'
- grep -rl 'pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv' ../themes  | xargs sed -i 's/pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv/imhzxhpdo1hnn7ihjg5igaxtgcf05ckj/g'
+ grep -rl 'pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv' ../modules | xargs sed -i 's/pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv/ybbyesmkrymgn7ij9n29wrtjviyfhtyi/g'
+ grep -rl 'pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv' ../test  | xargs sed -i 's/pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv/ybbyesmkrymgn7ij9n29wrtjviyfhtyi/g'
+ grep -rl 'pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv' ../themes  | xargs sed -i 's/pafqvo6lfcmew1sqgy8d2nzm6kt7n8tv/ybbyesmkrymgn7ij9n29wrtjviyfhtyi/g'
 
- grep -rl 'paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV' ../modules | xargs sed -i 's/paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV/ImHzXHpdO1hNn7IHjg5Igaxtgcf05Ckj/g'
- grep -rl 'paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV' ../test  | xargs sed -i 's/paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV/ImHzXHpdO1hNn7IHjg5Igaxtgcf05Ckj/g'
- grep -rl 'paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV' ../themes  | xargs sed -i 's/paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV/ImHzXHpdO1hNn7IHjg5Igaxtgcf05Ckj/g'
+ grep -rl 'paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV' ../modules | xargs sed -i 's/paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV/YbByEsmKRYMGN7Ij9n29wrTjViYfHTYI/g'
+ grep -rl 'paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV' ../test  | xargs sed -i 's/paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV/YbByEsmKRYMGN7Ij9n29wrTjViYfHTYI/g'
+ grep -rl 'paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV' ../themes  | xargs sed -i 's/paFQVO6LfCmEW1SqGY8d2NZM6kt7n8TV/YbByEsmKRYMGN7Ij9n29wrTjViYfHTYI/g'
 
 #date created
- grep -rl 'ofxuzvvxp7anyivbx2gfb4goepganblo' ../modules | xargs sed -i 's/ofxuzvvxp7anyivbx2gfb4goepganblo/ybbyesmkrymgn7ij9n29wrtjviyfhtyi/g'
- grep -rl 'ofxuzvvxp7anyivbx2gfb4goepganblo' ../test  | xargs sed -i 's/ofxuzvvxp7anyivbx2gfb4goepganblo/ybbyesmkrymgn7ij9n29wrtjviyfhtyi/g'
- grep -rl 'ofxuzvvxp7anyivbx2gfb4goepganblo' ../themes  | xargs sed -i 's/ofxuzvvxp7anyivbx2gfb4goepganblo/ybbyesmkrymgn7ij9n29wrtjviyfhtyi/g'
+ grep -rl 'ofxuzvvxp7anyivbx2gfb4goepganblo' ../modules | xargs sed -i 's/ofxuzvvxp7anyivbx2gfb4goepganblo/imhzxhpdo1hnn7ihjg5igaxtgcf05ckj/g'
+ grep -rl 'ofxuzvvxp7anyivbx2gfb4goepganblo' ../test  | xargs sed -i 's/ofxuzvvxp7anyivbx2gfb4goepganblo/imhzxhpdo1hnn7ihjg5igaxtgcf05ckj/g'
+ grep -rl 'ofxuzvvxp7anyivbx2gfb4goepganblo' ../themes  | xargs sed -i 's/ofxuzvvxp7anyivbx2gfb4goepganblo/imhzxhpdo1hnn7ihjg5igaxtgcf05ckj/g'
 
- grep -rl 'OfXUzvVxP7aNYIVbx2GFb4gOePGANblo' ../modules | xargs sed -i 's/OfXUzvVxP7aNYIVbx2GFb4gOePGANblo/YbByEsmKRYMGN7Ij9n29wrTjViYfHTYI/g'
- grep -rl 'OfXUzvVxP7aNYIVbx2GFb4gOePGANblo' ../test  | xargs sed -i 's/OfXUzvVxP7aNYIVbx2GFb4gOePGANblo/YbByEsmKRYMGN7Ij9n29wrTjViYfHTYI/g'
- grep -rl 'OfXUzvVxP7aNYIVbx2GFb4gOePGANblo' ../themes  | xargs sed -i 's/OfXUzvVxP7aNYIVbx2GFb4gOePGANblo/YbByEsmKRYMGN7Ij9n29wrTjViYfHTYI/g'
+ grep -rl 'OfXUzvVxP7aNYIVbx2GFb4gOePGANblo' ../modules | xargs sed -i 's/OfXUzvVxP7aNYIVbx2GFb4gOePGANblo/ImHzXHpdO1hNn7IHjg5Igaxtgcf05Ckj/g'
+ grep -rl 'OfXUzvVxP7aNYIVbx2GFb4gOePGANblo' ../test  | xargs sed -i 's/OfXUzvVxP7aNYIVbx2GFb4gOePGANblo/ImHzXHpdO1hNn7IHjg5Igaxtgcf05Ckj/g'
+ grep -rl 'OfXUzvVxP7aNYIVbx2GFb4gOePGANblo' ../themes  | xargs sed -i 's/OfXUzvVxP7aNYIVbx2GFb4gOePGANblo/ImHzXHpdO1hNn7IHjg5Igaxtgcf05Ckj/g'
 
 echo 'answer quicktabs'
 #admin units
@@ -660,7 +668,11 @@ echo 'answer quicktabs'
  grep -rl 'search_api\/index\/questions' ../test | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
  grep -rl 'search_api\/index\/questions' ../themes | xargs sed -i 's/search_api\/index\/questions/search_api\/index\/devtrac_solr_questions_index/g'
 
- grep -rin 'questions' ../ --include=devtrac.install | xargs sed -i 's/search_api@answers/search_api@devtrac_solr_questions_index/g'
+ grep -rl 'search_api@questions' ../ --include=devtrac.install | xargs sed -i 's/search_api@questions/search_api@devtrac_solr_questions_index/g'
+
+ grep -rl 'facetapi-facet-search-apiquestions' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/facetapi-facet-search-apiquestions/facetapi-facet-search-apidevtrac-solr-questions-index/g'
+ grep -rl 'facetapi-facet-search-apiquestions' ../test | xargs sed -i 's/facetapi-facet-search-apiquestions/facetapi-facet-search-apidevtrac-solr-questions-index/g'
+ grep -rl 'facetapi-facet-search-apiquestions' ../themes | xargs sed -i 's/facetapi-facet-search-apiquestions/facetapi-facet-search-apidevtrac-solr-questions-index/g'
 
 echo 'questions facets'
 #sector
