@@ -37,6 +37,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     parent::setUp(array('devtractests'));
 
     $this->setUpFieldWorker();
+    drupal_flush_all_caches();
   }
 
   /**
@@ -520,10 +521,11 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // EXPORTS.
     // CSV.
+    drupal_flush_all_caches();
     $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
-    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Types","Location URL"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
     $this->assertColumnCount(191, 15);
