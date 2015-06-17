@@ -94,7 +94,7 @@ function devtrac7_solr_user_feature_default_search_api_index() {
               "taxonomy_vocabulary_6:parent" : "taxonomy_vocabulary_6:parent",
               "taxonomy_vocabulary_6:parents_all" : "taxonomy_vocabulary_6:parents_all",
               "taxonomy_vocabulary_8:parent" : "taxonomy_vocabulary_8:parent",
-              "taxonomy_vocabulary_8:parents_all" : "taxonomy_vocabulary_8:parents_all",
+              "taxonomy_vocabulary_8:parents_all" : "taxonomy_vocabulary_8:parents_all"
             }
           }
         },
@@ -192,6 +192,7 @@ function devtrac7_solr_user_feature_default_search_api_index() {
             "suffix" : "\\u003C\\/strong\\u003E",
             "excerpt" : 1,
             "excerpt_length" : "256",
+            "exclude_fields" : [],
             "highlight" : "always"
           }
         }
