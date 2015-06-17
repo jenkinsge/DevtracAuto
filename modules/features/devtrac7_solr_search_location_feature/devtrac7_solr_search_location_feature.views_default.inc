@@ -719,6 +719,94 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['filters']['field_place_lat_long_lon']['field'] = 'field_place_lat_long_lon';
   $handler->display->display_options['filters']['field_place_lat_long_lon']['operator'] = 'not empty';
   $handler->display->display_options['path'] = 'locations/json';
+
+  /* Display: CSV Field Worker */
+  $handler = $view->new_display('views_data_export', 'CSV Field Worker', 'views_data_export_1');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'CSV';
+  $handler->display->display_options['display_description'] = 'CSV export of locations with the author emails';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    5 => '5',
+  );
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['quote'] = 1;
+  $handler->display->display_options['style_options']['trim'] = 0;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Indexed Node: Author */
+  $handler->display->display_options['relationships']['author']['id'] = 'author';
+  $handler->display->display_options['relationships']['author']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['relationships']['author']['field'] = 'author';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed Node: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Field: Indexed Node: Admin Unit */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
+  /* Field: Indexed Node: Location Type */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
+  /* Field: Indexed Node: Lat-Long */
+  $handler->display->display_options['fields']['field_place_lat_long']['id'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['field_place_lat_long']['field'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long']['label'] = 'Lat';
+  $handler->display->display_options['fields']['field_place_lat_long']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_place_lat_long']['type'] = 'geofield_lat';
+  $handler->display->display_options['fields']['field_place_lat_long']['settings'] = array(
+    'data' => 'centroid',
+    'format' => 'decimal_degrees',
+  );
+  /* Field: Indexed Node: Lat-Long */
+  $handler->display->display_options['fields']['field_place_lat_long_1']['id'] = 'field_place_lat_long_1';
+  $handler->display->display_options['fields']['field_place_lat_long_1']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['field_place_lat_long_1']['field'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long_1']['label'] = 'Lon';
+  $handler->display->display_options['fields']['field_place_lat_long_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_place_lat_long_1']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_place_lat_long_1']['type'] = 'geofield_lon';
+  $handler->display->display_options['fields']['field_place_lat_long_1']['settings'] = array(
+    'data' => 'centroid',
+    'format' => 'decimal_degrees',
+  );
+  /* Field: User: Email */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['relationship'] = 'author';
+  $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
+  $handler->display->display_options['path'] = 'locations/analyse/csvfieldworker';
+  $handler->display->display_options['displays'] = array(
+    'default' => 'default',
+    'map' => 'map',
+    'json' => 0,
+  );
+  $handler->display->display_options['sitename_title'] = 0;
+  $handler->display->display_options['use_batch'] = 'batch';
+  $handler->display->display_options['segment_size'] = '100';
   $export['devtrac_solr_view_locations'] = $view;
 
   return $export;

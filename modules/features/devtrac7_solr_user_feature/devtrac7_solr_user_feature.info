@@ -15,6 +15,7 @@ dependencies[] = quicktabs
 dependencies[] = search_api
 dependencies[] = search_api_autocomplete
 dependencies[] = views
+dependencies[] = views_data_export
 dependencies[] = views_infinite_scroll
 dependencies[] = views_modes
 features[context][] = devtrac7_solr_user_context

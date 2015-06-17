@@ -747,6 +747,132 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
     'list' => 'list',
     'default' => 0,
   );
+
+  /* Display: CSV Field Worker */
+  $handler = $view->new_display('views_data_export', 'CSV Field Worker', 'views_data_export_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'CSV Field Worker';
+  $handler->display->display_options['display_description'] = 'CSV export of action items with the author emails';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['quote'] = 1;
+  $handler->display->display_options['style_options']['trim'] = 0;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Indexed Node: Author */
+  $handler->display->display_options['relationships']['author']['id'] = 'author';
+  $handler->display->display_options['relationships']['author']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['relationships']['author']['field'] = 'author';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed Node: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 1;
+  /* Field: Indexed Node: Admin Unit */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
+  /* Field: Indexed Node: Sector */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['id'] = 'taxonomy_vocabulary_8';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['field'] = 'taxonomy_vocabulary_8';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['view_mode'] = 'full';
+  /* Field: Indexed Node: Status */
+  $handler->display->display_options['fields']['field_actionitem_status']['id'] = 'field_actionitem_status';
+  $handler->display->display_options['fields']['field_actionitem_status']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_status']['field'] = 'field_actionitem_status';
+  $handler->display->display_options['fields']['field_actionitem_status']['element_label_colon'] = FALSE;
+  /* Field: Indexed Node: Due Date */
+  $handler->display->display_options['fields']['field_actionitem_due_date']['id'] = 'field_actionitem_due_date';
+  $handler->display->display_options['fields']['field_actionitem_due_date']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_due_date']['field'] = 'field_actionitem_due_date';
+  $handler->display->display_options['fields']['field_actionitem_due_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_actionitem_due_date']['settings'] = array(
+    'format_type' => 'export_only',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Indexed Node: Responsible */
+  $handler->display->display_options['fields']['field_actionitem_responsible']['id'] = 'field_actionitem_responsible';
+  $handler->display->display_options['fields']['field_actionitem_responsible']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_responsible']['field'] = 'field_actionitem_responsible';
+  $handler->display->display_options['fields']['field_actionitem_responsible']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_actionitem_responsible']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_actionitem_responsible']['view_mode'] = 'full';
+  /* Field: Follow-up Task: Text (indexed) */
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['id'] = 'field_actionitem_followuptask_value';
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['field'] = 'field_actionitem_followuptask_value';
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['label'] = 'Task';
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_actionitem_followuptask_value']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Tags */
+  $handler->display->display_options['fields']['field_action_items_tags']['id'] = 'field_action_items_tags';
+  $handler->display->display_options['fields']['field_action_items_tags']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_action_items_tags']['field'] = 'field_action_items_tags';
+  $handler->display->display_options['fields']['field_action_items_tags']['label'] = 'Tags (Categories)';
+  $handler->display->display_options['fields']['field_action_items_tags']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_action_items_tags']['view_mode'] = 'full';
+  /* Field: Indexed Node: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
+  /* Field: Location: UUID (indexed) */
+  $handler->display->display_options['fields']['field_actionitem_resp_place_uuid']['id'] = 'field_actionitem_resp_place_uuid';
+  $handler->display->display_options['fields']['field_actionitem_resp_place_uuid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_resp_place_uuid']['field'] = 'field_actionitem_resp_place_uuid';
+  $handler->display->display_options['fields']['field_actionitem_resp_place_uuid']['label'] = 'Location UUID';
+  $handler->display->display_options['fields']['field_actionitem_resp_place_uuid']['link_to_entity'] = 0;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['label'] = 'URL';
+  $handler->display->display_options['fields']['site_info']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
+  $handler->display->display_options['fields']['site_info']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Report: UUID (indexed) */
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['id'] = 'field_actionitem_ftreportitem_uuid';
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['field'] = 'field_actionitem_ftreportitem_uuid';
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['label'] = 'Sitereport UUID';
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_actionitem_ftreportitem_uuid']['link_to_entity'] = 0;
+  /* Field: User: Email */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['relationship'] = 'author';
+  $handler->display->display_options['fields']['mail']['label'] = 'Author Email';
+  $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Indexed Node: Status */
+  $handler->display->display_options['sorts']['field_actionitem_status']['id'] = 'field_actionitem_status';
+  $handler->display->display_options['sorts']['field_actionitem_status']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['sorts']['field_actionitem_status']['field'] = 'field_actionitem_status';
+  $handler->display->display_options['path'] = 'actionitems/analyse/csvfieldworker';
+  $handler->display->display_options['displays'] = array(
+    'list' => 'list',
+    'default' => 0,
+  );
+  $handler->display->display_options['sitename_title'] = 0;
+  $handler->display->display_options['use_batch'] = '0';
   $export['devtrac_solr_view_actionitems'] = $view;
 
   return $export;

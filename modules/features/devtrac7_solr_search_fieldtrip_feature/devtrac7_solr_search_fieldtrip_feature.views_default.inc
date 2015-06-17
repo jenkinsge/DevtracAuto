@@ -615,6 +615,126 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
     'list' => 'list',
   );
   $handler->display->display_options['sitename_title'] = 0;
+
+  /* Display: CSV Field Worker */
+  $handler = $view->new_display('views_data_export', 'CSV Field Worker', 'views_data_export_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'CSV';
+  $handler->display->display_options['display_description'] = 'CSV export of field trips with the author emails';
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['quote'] = 1;
+  $handler->display->display_options['style_options']['trim'] = 1;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Indexed Node: Author */
+  $handler->display->display_options['relationships']['author']['id'] = 'author';
+  $handler->display->display_options['relationships']['author']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['relationships']['author']['field'] = 'author';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed Node: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Narrative */
+  $handler->display->display_options['fields']['field_fieldtrip_narrative']['id'] = 'field_fieldtrip_narrative';
+  $handler->display->display_options['fields']['field_fieldtrip_narrative']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_narrative']['field'] = 'field_fieldtrip_narrative';
+  /* Field: Indexed Node: Public Summary */
+  $handler->display->display_options['fields']['field_fieldtrip_public_summary']['id'] = 'field_fieldtrip_public_summary';
+  $handler->display->display_options['fields']['field_fieldtrip_public_summary']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_public_summary']['field'] = 'field_fieldtrip_public_summary';
+  /* Field: Indexed Node: Admin Unit */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
+  /* Field: Indexed Node: Locations */
+  $handler->display->display_options['fields']['field_fieldtrip_places']['id'] = 'field_fieldtrip_places';
+  $handler->display->display_options['fields']['field_fieldtrip_places']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_places']['field'] = 'field_fieldtrip_places';
+  $handler->display->display_options['fields']['field_fieldtrip_places']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['field_fieldtrip_places']['view_mode'] = 'full';
+  /* Field: Indexed Node: Status */
+  $handler->display->display_options['fields']['field_fieldtrip_status']['id'] = 'field_fieldtrip_status';
+  $handler->display->display_options['fields']['field_fieldtrip_status']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_status']['field'] = 'field_fieldtrip_status';
+  /* Field: Indexed Node: Approval Date */
+  $handler->display->display_options['fields']['field_fieldtrip_approval_date']['id'] = 'field_fieldtrip_approval_date';
+  $handler->display->display_options['fields']['field_fieldtrip_approval_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_approval_date']['field'] = 'field_fieldtrip_approval_date';
+  $handler->display->display_options['fields']['field_fieldtrip_approval_date']['type'] = 'format_interval';
+  $handler->display->display_options['fields']['field_fieldtrip_approval_date']['settings'] = array(
+    'interval' => '2',
+    'interval_display' => 'time ago',
+  );
+  /* Field: Indexed Node: Approved By */
+  $handler->display->display_options['fields']['field_fieldtrip_approved_by']['id'] = 'field_fieldtrip_approved_by';
+  $handler->display->display_options['fields']['field_fieldtrip_approved_by']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_approved_by']['field'] = 'field_fieldtrip_approved_by';
+  $handler->display->display_options['fields']['field_fieldtrip_approved_by']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_fieldtrip_approved_by']['view_mode'] = 'full';
+  /* Field: Indexed Node: Start and End Date */
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
+    'format_type' => 'export_only',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Indexed Node: User */
+  $handler->display->display_options['fields']['field_fieldtrip_user']['id'] = 'field_fieldtrip_user';
+  $handler->display->display_options['fields']['field_fieldtrip_user']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_user']['field'] = 'field_fieldtrip_user';
+  $handler->display->display_options['fields']['field_fieldtrip_user']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_fieldtrip_user']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_fieldtrip_user']['bypass_access'] = 0;
+  /* Field: Global: Site information */
+  $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['table'] = 'views';
+  $handler->display->display_options['fields']['site_info']['field'] = 'site_info';
+  $handler->display->display_options['fields']['site_info']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['site_info']['site_info'] = 'base_url';
+  /* Field: Indexed Node: URL */
+  $handler->display->display_options['fields']['url']['id'] = 'url';
+  $handler->display->display_options['fields']['url']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['url']['field'] = 'url';
+  $handler->display->display_options['fields']['url']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['url']['alter']['text'] = '[site_info]/uuid/node/[uuid]';
+  $handler->display->display_options['fields']['url']['display_as_link'] = FALSE;
+  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
+  /* Field: User: Email */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['relationship'] = 'author';
+  $handler->display->display_options['fields']['mail']['label'] = 'Author Email';
+  $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
+  $handler->display->display_options['path'] = 'fieldtrips/analyse/csvfieldworker';
+  $handler->display->display_options['displays'] = array(
+    'default' => 'default',
+    'list' => 'list',
+  );
+  $handler->display->display_options['sitename_title'] = 0;
+  $handler->display->display_options['use_batch'] = 'batch';
+  $handler->display->display_options['return_path'] = 'fieldtrips';
+  $handler->display->display_options['segment_size'] = '100';
   $export['devtrac_solr_view_fieldtrips'] = $view;
 
   return $export;

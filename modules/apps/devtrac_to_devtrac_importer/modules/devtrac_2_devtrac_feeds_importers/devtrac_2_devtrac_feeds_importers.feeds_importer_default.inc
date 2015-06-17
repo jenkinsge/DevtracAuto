@@ -94,6 +94,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'target' => 'field_actionitem_ftreportitem',
             'unique' => FALSE,
           ),
+          10 => array(
+            'source' => 'Author Email',
+            'target' => 'user_mail',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '0',
         'input_format' => 'plain_text',
@@ -187,6 +192,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'target' => 'field_fieldtrip_places:label',
             'unique' => FALSE,
           ),
+          9 => array(
+            'source' => 'Author Email',
+            'target' => 'user_mail',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',
@@ -259,6 +269,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           4 => array(
             'source' => 'Lon',
             'target' => 'field_place_lat_long:lon',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'Author Email',
+            'target' => 'user_mail',
             'unique' => FALSE,
           ),
         ),
@@ -382,6 +397,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'target' => 'field_ftritem_narrative',
             'unique' => FALSE,
           ),
+          14 => array(
+            'source' => 'Author Email',
+            'target' => 'user_mail',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',
@@ -434,16 +454,71 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           7 => 0,
         ),
         'status' => '1',
-        'defuse_mail' => 1,
+        'defuse_mail' => 0,
         'mappings' => array(
           0 => array(
-            'source' => 'EMAIL',
-            'target' => 'mail',
+            'source' => 'UUID',
+            'target' => 'guid',
             'unique' => 1,
           ),
           1 => array(
-            'source' => 'USERNAME',
+            'source' => 'Username',
             'target' => 'name',
+            'unique' => FALSE,
+          ),
+          2 => array(
+            'source' => 'Email',
+            'target' => 'mail',
+            'unique' => 1,
+          ),
+          3 => array(
+            'source' => 'Title',
+            'target' => 'field_user_title',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'Function',
+            'target' => 'taxonomy_vocabulary_5',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'Academic Degree(s)',
+            'target' => 'field_user_degree',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'Department',
+            'target' => 'taxonomy_vocabulary_4',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'First Name',
+            'target' => 'field_user_firstname',
+            'unique' => FALSE,
+          ),
+          8 => array(
+            'source' => 'Surname',
+            'target' => 'field_user_surname',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'About Me',
+            'target' => 'field_user_aboutme',
+            'unique' => FALSE,
+          ),
+          10 => array(
+            'source' => 'Admin Units',
+            'target' => 'taxonomy_vocabulary_6',
+            'unique' => FALSE,
+          ),
+          11 => array(
+            'source' => 'Sectors',
+            'target' => 'taxonomy_vocabulary_8',
+            'unique' => FALSE,
+          ),
+          12 => array(
+            'source' => 'Manager UUID',
+            'target' => 'field_user_superior',
             'unique' => FALSE,
           ),
         ),
