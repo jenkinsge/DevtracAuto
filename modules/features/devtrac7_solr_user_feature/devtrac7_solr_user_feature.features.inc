@@ -66,6 +66,7 @@ function devtrac7_solr_user_feature_default_search_api_index() {
         "field_user_firstname" : { "type" : "text" },
         "field_user_superior" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "user" },
         "field_user_surname" : { "type" : "text" },
+        "field_user_superior:uuid" : { "type" : "string" },
         "last_access" : { "type" : "date" },
         "mail" : { "type" : "text" },
         "name" : { "type" : "text" },
@@ -77,7 +78,8 @@ function devtrac7_solr_user_feature_default_search_api_index() {
         "taxonomy_vocabulary_5" : { "type" : "integer", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_6" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "taxonomy_vocabulary_6:field_district_category" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
-        "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" }
+        "taxonomy_vocabulary_8" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
+        "uuid" : { "type" : "string" }
       },
       "data_alter_callbacks" : {
         "search_api_alter_role_filter" : {
@@ -93,7 +95,6 @@ function devtrac7_solr_user_feature_default_search_api_index() {
               "taxonomy_vocabulary_6:parents_all" : "taxonomy_vocabulary_6:parents_all",
               "taxonomy_vocabulary_8:parent" : "taxonomy_vocabulary_8:parent",
               "taxonomy_vocabulary_8:parents_all" : "taxonomy_vocabulary_8:parents_all",
-              "field_user_superior:field_user_superior" : "field_user_superior:field_user_superior"
             }
           }
         },

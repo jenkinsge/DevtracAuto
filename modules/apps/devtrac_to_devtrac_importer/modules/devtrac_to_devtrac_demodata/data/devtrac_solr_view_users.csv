@@ -1,3 +1,3 @@
-EMAIL,USERNAME
-"demo123@devtracdemo.com","demo123"
-"manager123@devtracdemo.com","manager123"
+"UUID","Username","Email","Title","Function","Academic Degree(s)","Department","Manager","First Name","Surname","About Me","Admin Units","Sectors","Manager UUID"
+"74e0f2b7-06ce-48cf-8fab-315fd213f772","manager123","manager123@devtracdemo.com","Manager","Evaluator","Business Administration","Health","Manager 123","Manager","123","manager 123","Nakasongola","Debt buy-back","74e0f2b7-06ce-48cf-8fab-315fd213f772"
+"b4354433-acab-47f2-a7e6-bf3aae353a23","demo123","demo123@devtracdemo.com","Field Worker","Field Officer","Civil Engineering","Education","Manager 123","Demo","123","demo 123","Nakasongola","Debt buy-back","74e0f2b7-06ce-48cf-8fab-315fd213f772"

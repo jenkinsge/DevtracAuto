@@ -25,7 +25,7 @@ function devtrac7_solr_user_feature_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    2 => '2',
+    5 => '5',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -270,6 +270,124 @@ function devtrac7_solr_user_feature_views_default_views() {
   );
   $handler->display->display_options['mode_id'] = 'graphs';
   $handler->display->display_options['mode_name'] = 'graphs';
+
+  /* Display: User Data export */
+  $handler = $view->new_display('views_data_export', 'User Data export', 'csv');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'CSV';
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['quote'] = 1;
+  $handler->display->display_options['style_options']['trim'] = 0;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Indexed User: Manager */
+  $handler->display->display_options['relationships']['field_user_superior']['id'] = 'field_user_superior';
+  $handler->display->display_options['relationships']['field_user_superior']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['relationships']['field_user_superior']['field'] = 'field_user_superior';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed User: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
+  /* Field: Indexed User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'Username';
+  $handler->display->display_options['fields']['name']['link_to_entity'] = 1;
+  /* Field: Indexed User: Email */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
+  /* Field: Indexed User: Title */
+  $handler->display->display_options['fields']['field_user_title']['id'] = 'field_user_title';
+  $handler->display->display_options['fields']['field_user_title']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['field_user_title']['field'] = 'field_user_title';
+  /* Field: Indexed User: Function */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_5']['id'] = 'taxonomy_vocabulary_5';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_5']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_5']['field'] = 'taxonomy_vocabulary_5';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_5']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_5']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_5']['bypass_access'] = 0;
+  /* Field: Indexed User: Academic Degree(s) */
+  $handler->display->display_options['fields']['field_user_degree']['id'] = 'field_user_degree';
+  $handler->display->display_options['fields']['field_user_degree']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['field_user_degree']['field'] = 'field_user_degree';
+  /* Field: Indexed User: Department */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_4']['id'] = 'taxonomy_vocabulary_4';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_4']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_4']['field'] = 'taxonomy_vocabulary_4';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_4']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_4']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_4']['bypass_access'] = 0;
+  /* Field: Indexed User: Manager */
+  $handler->display->display_options['fields']['field_user_superior']['id'] = 'field_user_superior';
+  $handler->display->display_options['fields']['field_user_superior']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['field_user_superior']['field'] = 'field_user_superior';
+  $handler->display->display_options['fields']['field_user_superior']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_user_superior']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_user_superior']['bypass_access'] = 0;
+  /* Field: Indexed User: First Name */
+  $handler->display->display_options['fields']['field_user_firstname']['id'] = 'field_user_firstname';
+  $handler->display->display_options['fields']['field_user_firstname']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['field_user_firstname']['field'] = 'field_user_firstname';
+  /* Field: Indexed User: Surname */
+  $handler->display->display_options['fields']['field_user_surname']['id'] = 'field_user_surname';
+  $handler->display->display_options['fields']['field_user_surname']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['field_user_surname']['field'] = 'field_user_surname';
+  /* Field: Indexed User: About Me */
+  $handler->display->display_options['fields']['field_user_aboutme']['id'] = 'field_user_aboutme';
+  $handler->display->display_options['fields']['field_user_aboutme']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['field_user_aboutme']['field'] = 'field_user_aboutme';
+  /* Field: Indexed User: Admin Units */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['bypass_access'] = 0;
+  /* Field: Indexed User: Subjects */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['id'] = 'taxonomy_vocabulary_8';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['field'] = 'taxonomy_vocabulary_8';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['label'] = 'Sectors';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_8']['bypass_access'] = 0;
+  /* Field: Manager: UUID (indexed) */
+  $handler->display->display_options['fields']['field_user_superior_uuid']['id'] = 'field_user_superior_uuid';
+  $handler->display->display_options['fields']['field_user_superior_uuid']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['field_user_superior_uuid']['field'] = 'field_user_superior_uuid';
+  $handler->display->display_options['fields']['field_user_superior_uuid']['label'] = 'Manager UUID';
+  $handler->display->display_options['fields']['field_user_superior_uuid']['link_to_entity'] = 0;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Indexed User: User roles */
+  $handler->display->display_options['filters']['roles']['id'] = 'roles';
+  $handler->display->display_options['filters']['roles']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['filters']['roles']['field'] = 'roles';
+  $handler->display->display_options['filters']['roles']['operator'] = '<>';
+  $handler->display->display_options['filters']['roles']['value'] = array(
+    1 => '1',
+  );
+  $handler->display->display_options['path'] = 'users/analyse/csv';
+  $handler->display->display_options['displays'] = array(
+    'page' => 'page',
+    'default' => 0,
+  );
+  $handler->display->display_options['sitename_title'] = 0;
+  $handler->display->display_options['use_batch'] = 'batch';
+  $handler->display->display_options['return_path'] = '<front>';
+  $handler->display->display_options['segment_size'] = '100';
   $export['devtrac7_solr_user_view'] = $view;
 
   return $export;
