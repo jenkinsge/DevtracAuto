@@ -69,34 +69,34 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'unique' => FALSE,
           ),
           5 => array(
-            'source' => 'Responsible',
-            'target' => 'field_actionitem_responsible:label',
-            'unique' => FALSE,
-          ),
-          6 => array(
             'source' => 'Follow-up Task',
             'target' => 'field_actionitem_followuptask',
             'unique' => FALSE,
           ),
-          7 => array(
+          6 => array(
             'source' => 'Tags (Categories)',
             'target' => 'field_action_items_tags',
             'term_search' => '0',
             'autocreate' => 1,
           ),
-          8 => array(
+          7 => array(
             'source' => 'Location UUID',
             'target' => 'field_actionitem_resp_place',
             'unique' => FALSE,
           ),
-          9 => array(
+          8 => array(
             'source' => 'Sitereport UUID',
             'target' => 'field_actionitem_ftreportitem',
             'unique' => FALSE,
           ),
-          10 => array(
+          9 => array(
             'source' => 'Author Email',
             'target' => 'user_mail',
+            'unique' => FALSE,
+          ),
+          10 => array(
+            'source' => 'Responsible UUID',
+            'target' => 'field_actionitem_responsible',
             'unique' => FALSE,
           ),
         ),

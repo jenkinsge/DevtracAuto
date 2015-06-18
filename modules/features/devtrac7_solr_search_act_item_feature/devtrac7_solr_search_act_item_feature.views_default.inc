@@ -509,7 +509,9 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
     'list' => 'list',
     'default' => 0,
   );
-  $handler->display->display_options['use_batch'] = '0';
+  $handler->display->display_options['use_batch'] = 'batch';
+  $handler->display->display_options['return_path'] = 'actionitems';
+  $handler->display->display_options['segment_size'] = '100';
 
   /* Display: KML */
   $handler = $view->new_display('feed', 'KML', 'kml');
@@ -862,6 +864,11 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['mail']['label'] = 'Author Email';
   $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Field: Responsible: UUID (indexed) */
+  $handler->display->display_options['fields']['field_actionitem_responsible_uuid']['id'] = 'field_actionitem_responsible_uuid';
+  $handler->display->display_options['fields']['field_actionitem_responsible_uuid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_responsible_uuid']['field'] = 'field_actionitem_responsible_uuid';
+  $handler->display->display_options['fields']['field_actionitem_responsible_uuid']['link_to_entity'] = 0;
   /* Sort criterion: Indexed Node: Status */
   $handler->display->display_options['sorts']['field_actionitem_status']['id'] = 'field_actionitem_status';
   $handler->display->display_options['sorts']['field_actionitem_status']['table'] = 'search_api_index_devtrac_solr_action_items_index';
@@ -872,7 +879,9 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
     'default' => 0,
   );
   $handler->display->display_options['sitename_title'] = 0;
-  $handler->display->display_options['use_batch'] = '0';
+  $handler->display->display_options['use_batch'] = 'batch';
+  $handler->display->display_options['return_path'] = 'actionitems';
+  $handler->display->display_options['segment_size'] = '100';
   $export['devtrac_solr_view_actionitems'] = $view;
 
   return $export;
