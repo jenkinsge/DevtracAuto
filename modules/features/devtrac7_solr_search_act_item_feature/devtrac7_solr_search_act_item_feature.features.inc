@@ -85,6 +85,7 @@ function devtrac7_solr_search_act_item_feature_default_search_api_index() {
         "field_actionitem_resp_place:uuid" : { "type" : "string" },
         "field_actionitem_responsible" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "user" },
         "field_actionitem_responsible:field_user_superior" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "user" },
+        "field_actionitem_responsible:uuid" : { "type" : "list\u003Cstring\u003E" },
         "field_actionitem_severity" : { "type" : "integer" },
         "field_actionitem_status" : { "type" : "string" },
         "field_fieldtrip_user:field_user_superior" : { "type" : "integer", "entity_type" : "user" },
@@ -193,6 +194,7 @@ function devtrac7_solr_search_act_item_feature_default_search_api_index() {
             "suffix" : "\\u003C\\/strong\\u003E",
             "excerpt" : 1,
             "excerpt_length" : "256",
+            "exclude_fields" : [],
             "highlight" : "always"
           }
         }
