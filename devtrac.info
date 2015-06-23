@@ -121,6 +121,7 @@ dependencies[] = views_data_export
 dependencies[] = views_field_view
 dependencies[] = views_flipped_table
 dependencies[] = views_infinite_scroll
+dependencies[] = views_merge_rows
 dependencies[] = views_rss
 dependencies[] = views_rss_core
 dependencies[] = views_rss_dc
