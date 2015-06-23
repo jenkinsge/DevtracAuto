@@ -495,6 +495,10 @@ projects[views_modes][version] = "1.x-dev"
 projects[views_modes][type] = "module"
 projects[views_modes][subdir] = "contrib"
 
+projects[views_merge_rows][version] = "1.0-rc1"
+projects[views_merge_rows][type] = "module"
+projects[views_merge_rows][subdir] = "contrib"
+
 projects[views_rss][version] = "2.0-rc4"
 projects[views_rss][type] = "module"
 projects[views_rss][subdir] = "contrib"

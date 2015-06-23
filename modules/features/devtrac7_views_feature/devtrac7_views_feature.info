@@ -19,6 +19,7 @@ dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = views
 dependencies[] = views_data_export
+dependencies[] = views_merge_rows
 dependencies[] = views_infinite_scroll
 dependencies[] = views_slideshow
 dependencies[] = virtual_field
