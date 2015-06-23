@@ -69,7 +69,7 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'unique' => FALSE,
           ),
           5 => array(
-            'source' => 'Follow-up Task',
+            'source' => 'Task',
             'target' => 'field_actionitem_followuptask',
             'unique' => FALSE,
           ),

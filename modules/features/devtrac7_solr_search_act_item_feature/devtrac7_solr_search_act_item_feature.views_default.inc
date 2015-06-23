@@ -864,11 +864,23 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['mail']['label'] = 'Author Email';
   $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Field: Responsible: UUID (indexed) */
-  $handler->display->display_options['fields']['field_actionitem_responsible_uuid']['id'] = 'field_actionitem_responsible_uuid';
-  $handler->display->display_options['fields']['field_actionitem_responsible_uuid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
-  $handler->display->display_options['fields']['field_actionitem_responsible_uuid']['field'] = 'field_actionitem_responsible_uuid';
-  $handler->display->display_options['fields']['field_actionitem_responsible_uuid']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Node ID */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['nid']['link_to_entity'] = 0;
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view']['id'] = 'view';
+  $handler->display->display_options['fields']['view']['table'] = 'views';
+  $handler->display->display_options['fields']['view']['field'] = 'view';
+  $handler->display->display_options['fields']['view']['label'] = 'Responsible UUID';
+  $handler->display->display_options['fields']['view']['view'] = 'dvtrc_action_items';
+  $handler->display->display_options['fields']['view']['display'] = 'views_data_export_1';
+  $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Indexed Node: Status */
   $handler->display->display_options['sorts']['field_actionitem_status']['id'] = 'field_actionitem_status';
   $handler->display->display_options['sorts']['field_actionitem_status']['table'] = 'search_api_index_devtrac_solr_action_items_index';
