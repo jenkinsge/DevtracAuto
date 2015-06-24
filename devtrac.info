@@ -36,7 +36,6 @@ dependencies[] = charts_graphs_flot
 dependencies[] = context
 dependencies[] = date_api
 dependencies[] = date
-dependencies[] = date_popup
 dependencies[] = date_duration_formatter
 dependencies[] = diff
 dependencies[] = ds
