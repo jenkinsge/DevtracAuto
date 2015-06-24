@@ -576,6 +576,16 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'create field_ftritem_user'.
+  $permissions['create field_ftritem_user'] = array(
+    'name' => 'create field_ftritem_user',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'create field_organisation'.
   $permissions['create field_organisation'] = array(
     'name' => 'create field_organisation',
@@ -1278,6 +1288,16 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit field_ftritem_user'.
+  $permissions['edit field_ftritem_user'] = array(
+    'name' => 'edit field_ftritem_user',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'edit field_organisation'.
   $permissions['edit field_organisation'] = array(
     'name' => 'edit field_organisation',
@@ -1681,6 +1701,15 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
   // Exported permission: 'edit own field_ftritem_status'.
   $permissions['edit own field_ftritem_status'] = array(
     'name' => 'edit own field_ftritem_status',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'edit own field_ftritem_user'.
+  $permissions['edit own field_ftritem_user'] = array(
+    'name' => 'edit own field_ftritem_user',
     'roles' => array(
       'administrator' => 'administrator',
     ),
@@ -2357,6 +2386,17 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'view field_ftritem_user'.
+  $permissions['view field_ftritem_user'] = array(
+    'name' => 'view field_ftritem_user',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
+      'authenticated user' => 'authenticated user',
+    ),
+    'module' => 'field_permissions',
+  );
+
   // Exported permission: 'view field_organisation'.
   $permissions['view field_organisation'] = array(
     'name' => 'view field_organisation',
@@ -2743,6 +2783,15 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
   // Exported permission: 'view own field_ftritem_status'.
   $permissions['view own field_ftritem_status'] = array(
     'name' => 'view own field_ftritem_status',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'field_permissions',
+  );
+
+  // Exported permission: 'view own field_ftritem_user'.
+  $permissions['view own field_ftritem_user'] = array(
+    'name' => 'view own field_ftritem_user',
     'roles' => array(
       'administrator' => 'administrator',
     ),

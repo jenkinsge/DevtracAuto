@@ -52,6 +52,7 @@ features[quicktabs][] = site_visit_quicktabs
 features[quicktabs][] = user_profile
 features[variable][] = admin_theme
 features[variable][] = better_messages
+features[variable][] = chosen_minimum_width
 features[variable][] = colorbox_caption_trim
 features[variable][] = colorbox_caption_trim_length
 features[variable][] = colorbox_compression_type

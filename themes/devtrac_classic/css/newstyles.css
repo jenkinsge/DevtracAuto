@@ -560,7 +560,8 @@ div#region-content.grid-4.region.region-content div.region-inner.region-content-
   background-image: url(../images/summary-icon-date.png);
 }
 
-.field-name-field-fieldtrip-user .field-label {
+.field-name-field-fieldtrip-user .field-label,
+.field-name-field-ftritem-user .field-label{
   background-image: url(../images/summary-icon-user.png);
 }
 
