@@ -829,6 +829,10 @@ function devtrac7_ftritem_create($placenid, $fieldtripnid = NULL, $reporttype = 
           $ftr->language = LANGUAGE_NONE;
           $ftr->status = 1;
           $ftr->comment = 0;
+          // Assign the field trip user to the user field on the ftritem,
+          // because a different user may prepare the fieldtrip for the current
+          //  user.
+          $ftr->field_ftritem_user[LANGUAGE_NONE][0]['target_id'] = $fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'];
 
           node_save($ftr);
 

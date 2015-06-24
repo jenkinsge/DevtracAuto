@@ -226,6 +226,7 @@ function devtrac7_node_types_ds_layout_settings_info() {
         5 => 'field_ftritem_date_visited',
         6 => 'field_ftritem_field_trip',
         7 => 'taxonomy_vocabulary_8',
+        8 => 'field_ftritem_user',
       ),
     ),
     'fields' => array(
@@ -237,6 +238,7 @@ function devtrac7_node_types_ds_layout_settings_info() {
       'field_ftritem_date_visited' => 'ds_content',
       'field_ftritem_field_trip' => 'ds_content',
       'taxonomy_vocabulary_8' => 'ds_content',
+      'field_ftritem_user' => 'ds_content',
     ),
     'classes' => array(),
   );
