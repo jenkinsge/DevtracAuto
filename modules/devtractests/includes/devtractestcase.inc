@@ -410,8 +410,8 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $this->fieldworker = $this->drupalCreateUserWithRole('field worker');
     $this->drupalLogin($this->fieldworker);
     // $this->verbose(var_export($this->administrator, TRUE));
-    // $this->fillInProfile($this->administrator->uid, '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
-    $this->fillInProfile('1', '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
+    $this->fillInProfile($this->administrator->uid, '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
+    // $this->fillInProfile('1', '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
 
     // Create a Site Report for edit button test.
     // $this->addAFieldtrip('Test Title', 'Test Tag', '9', 100, '01/02/2015');
