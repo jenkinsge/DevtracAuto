@@ -18,6 +18,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $index = array_search('administrator', $roles);
     $user = $this->drupalCreateUser($permissions);
     $user->roles[$index] = 'administrator';
+    // $this->verbose(var_export($user, TRUE));
     return user_save($user);
   }
 
@@ -210,17 +211,29 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   /**
    * Add a Field Trip.
    */
-  public function addAFieldtrip($title, $tags, $startdate = NULL, $enddate = NULL) {
+  public function addAFieldtrip($title, $tags, $startdateday = NULL, $startdatemonth = NULL, $startdateyear = NULL, $enddateday = NULL, $enddatemonth = NULL, $enddateyear = NULL) {
     $this->clickLink('Add Field Trip', 0);
     $fieldtrip['title'] = $title;
     $fieldtrip['field_fieldtriptags[und]'] = $tags;/*
     $fieldtrip['field_ftritem_purpose[und][0][field_ftritem_purpose_purps][und]'] = $purpose;
     $fieldtrip['field_ftritem_purpose[und][0][field_fieldtrip_purpose_percent][und][0][value]'] = $percentage;*/
-    if (isset($startdate)) {
-      $fieldtrip['field_fieldtrip_start_end_date[und][0][value][date]'] = $startdate;
+    if (isset($startdateday)) {
+      $fieldtrip['field_fieldtrip_start_end_date[und][0][value][day]'] = $startdateday;
     }
-    if (isset($enddate))  {
-      $fieldtrip['field_fieldtrip_start_end_date[und][0][value2][date]'] = $enddate;
+    if (isset($startdatemonth)) {
+      $fieldtrip['field_fieldtrip_start_end_date[und][0][value][month]'] = $startdatemonth;
+    }
+    if (isset($startdateyear)) {
+      $fieldtrip['field_fieldtrip_start_end_date[und][0][value][year]'] = $startdateyear;
+    }
+    if (isset($enddateday))  {
+      $fieldtrip['field_fieldtrip_start_end_date[und][0][value2][day]'] = $enddateday;
+    }
+    if (isset($enddatemonth))  {
+      $fieldtrip['field_fieldtrip_start_end_date[und][0][value2][month]'] = $enddatemonth;
+    }
+    if (isset($enddateyear))  {
+      $fieldtrip['field_fieldtrip_start_end_date[und][0][value2][year]'] = $enddateyear;
     }
     $this->drupalPost(NULL, $fieldtrip, t('Save'));
   }
@@ -243,7 +256,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   /**
    * Edit a Site Visit.
    */
-  public function editASiteVisit($title = NULL, $purpose = NULL, $locationtype = NULL, $sector = NULL, $visitedon = NULL, $report = NULL, $notes = NULL) {
+  public function editASiteVisit($title = NULL, $purpose = NULL, $locationtype = NULL, $sector = NULL, $visitedonday = NULL, $visitedonmonth = NULL, $visitedonyear = NULL, $report = NULL, $notes = NULL) {
     $this->clickLink('Edit', 0);
     if (isset($title)) {
       $edit['title'] = $title;
@@ -257,8 +270,14 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     if (isset($sector)) {
       $edit['taxonomy_vocabulary_8[und][]'] = $sector;
     }
-    if (isset($visitedon)) {
-      $edit['field_ftritem_date_visited[und][0][value][date]'] = $visitedon;
+    if (isset($visitedonday)) {
+      $edit['field_ftritem_date_visited[und][0][value][day]'] = $visitedonday;
+    }
+    if (isset($visitedonmonth)) {
+      $edit['field_ftritem_date_visited[und][0][value][month]'] = $visitedonmonth;
+    }
+    if (isset($visitedonyear)) {
+      $edit['field_ftritem_date_visited[und][0][value][year]'] = $visitedonyear;
     }
     if (isset($report)) {
       $edit['field_ftritem_public_summary[und][0][value]'] = $report;
@@ -292,7 +311,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   /**
    * Add an Action Item.
    */
-  public function addAnActionItem($title, $sector, $followuptask, $status = NULL, $priority = NULL, $duedate = NULL, $responsible = NULL, $report = NULL) {
+  public function addAnActionItem($title, $sector, $followuptask, $status = NULL, $priority = NULL, $duedateday = NULL, $duedatemonth = NULL, $duedateyear = NULL, $responsible = NULL, $report = NULL) {
     $this->clickLink('Add Actionitem', 0);
     $actionitem['title'] = $title;
     $actionitem['taxonomy_vocabulary_8[und][]'] = $sector;
@@ -302,8 +321,14 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     if (isset($priority)) {
       $actionitem['field_actionitem_severity[und]'] = $priority;
     }
-    if (isset($duedate)) {
-      $actionitem['field_actionitem_due_date[und][0][value][date]'] = $duedate;
+    if (isset($duedateday)) {
+      $actionitem['field_actionitem_due_date[und][0][value][day]'] = $duedateday;
+    }
+    if (isset($duedatemonth)) {
+      $actionitem['field_actionitem_due_date[und][0][value][month]'] = $duedatemonth;
+    }
+    if (isset($duedateyear)) {
+      $actionitem['field_actionitem_due_date[und][0][value][year]'] = $duedateyear;
     }
     if (isset($responsible)) {
       if (is_array($responsible)) {
@@ -384,16 +409,19 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     // Create a field worker.
     $this->fieldworker = $this->drupalCreateUserWithRole('field worker');
     $this->drupalLogin($this->fieldworker);
-    $this->fillInProfile($this->administrator->uid, '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
+    // $this->verbose(var_export($this->administrator, TRUE));
+    // $this->fillInProfile($this->administrator->uid, '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
+    $this->fillInProfile('1', '11', '16', 'Test', 'Fieldworker', '...', '306', '57');
 
     // Create a Site Report for edit button test.
     // $this->addAFieldtrip('Test Title', 'Test Tag', '9', 100, '01/02/2015');
-    $this->addAFieldtrip('Test Title', 'Test Tag','01/02/2015');
+    // $this->addAFieldtrip('Test Title', 'Test Tag','01/02/2015');
+    $this->addAFieldtrip('Test Title', 'Test Tag');
     $this->addASiteVisit('3', 'test location', '286', '0.5564815500152875', '32.70449822231746');
     
     $this->clickLink('Site Reports', 1);
     $this->clickLink('Site Visit at test location', 0);
-    $this->editASiteVisit(NULL, '9', NULL, '57', NULL, $this->randomString($length = 125), NULL);
+    $this->editASiteVisit(NULL, '9', NULL, '57', NULL, NULL, NULL, $this->randomString($length = 125), NULL);
     $this->addImagestoSiteVisit(array('1', '2', '3'));
     $this->clickLink('Add Questionnaire');
     $answers['30'] = "Needs more books in the library.";

@@ -36,6 +36,12 @@ class VisitUsersAsFieldWorkerTestCase extends DevtracTestCase {
     parent::setUp(array('devtractests'));
 
     $this->setUpFieldWorker();
+    $this->drupalLogout();
+    $this->drupalLogin($this->administrator);
+    $this->reindex('admin/config/search/search_api/index/devtrac7_user_index');
+    drupal_flush_all_caches();
+    $this->drupalLogout();
+    $this->drupalLogin($this->fieldworker);
 
   }
 
@@ -179,10 +185,10 @@ The Users page contains a list of all users that can be filtered by the Zonal Of
 
     // ENABLING A FILTER.
     $this->assertRaw('/users?f[0]=taxonomy_vocabulary_5%3A11"', t('Filter by Schools link is present on the page.'), t('Devtrac'));
-    $this->clickLinkUsingXpath('Field Officer', 0, '//*[@id="facetapi-link--2"]');
+    $this->clickLinkUsingXpath('Field Officer', 0, '//*[@id="facetapi-link"]');
 
     // Check current search counter.
-    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">2 Users</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
+    $this->assertRaw('<div class="current-search-item current-search-item-text current-search-item-results"><h3 class="">3 Users</h3></div>', t('Search count changes after filter is enabled.'), t('Devtrac'));
 
     // Check for current search block.
     $this->assertRaw('<div class="current-search-item current-search-item-devtracgroup current-search-item-devtrac7-users-fieldgroup">', t('Current search block is visible when a filter is clicked.'), t('Devtrac'));
