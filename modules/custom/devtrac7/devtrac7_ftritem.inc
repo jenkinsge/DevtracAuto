@@ -829,10 +829,6 @@ function devtrac7_ftritem_create($placenid, $fieldtripnid = NULL, $reporttype = 
           $ftr->language = LANGUAGE_NONE;
           $ftr->status = 1;
           $ftr->comment = 0;
-          // Assign the field trip user to the user field on the ftritem,
-          // because a different user may prepare the fieldtrip for the current
-          //  user.
-          $ftr->field_ftritem_user[LANGUAGE_NONE][0]['target_id'] = $fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'];
 
           node_save($ftr);
 
@@ -1261,4 +1257,24 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
  */
   $progress_checks['referencing_fields'] = array('field_actionitem_ftreportitem');
   return $progress_checks;
+}
+
+/**
+ * Copy user from fieldtrip.
+ *
+ * Assign the field trip user to the user field on the ftritem, because
+ * a different user may prepare the fieldtrip for the current user.
+ *
+ * @param $node
+ *   The ftritem node to copy the user to.
+ */
+function devtrac_ftritem_copyuserfromfieldtrip($node) {
+  if (!isset($node->field_ftritem_field_trip)) {
+    // this happens when there is no fieldtrip.
+    // for example when we load ftritems via feeds
+    return;
+  }
+  $fieldtrip = node_load($node->field_ftritem_field_trip[$node->language][0]['target_id']);
+  $node->field_ftritem_user[$node->language][0]['target_id'] = $fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'];
+  return $node;
 }

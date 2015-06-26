@@ -806,7 +806,7 @@ function devtrac7_addplaceform_submit($form, &$form_state) {
         'edit[taxonomy_vocabulary_7][und]' => $reporttypes[$form_state['values']['reporttype']],
       );
       // Redirect to the original redirect after submitting the form
-      $destination = array('destination' => 'node/' . $form_state['values']['nid'] . '/' . $district);
+      $destination = array('destination' => 'node/' . $form_state['values']['nid']);
       unset($_GET['destination']);
       $form_state['redirect'] = array('node/add/ftritem/' . $district, array('query' => array_merge($destination, $prepopulate))); // send along the /tid of the district to zoom the map on that page
       break;
@@ -1295,6 +1295,7 @@ function devtrac7_node_presave($node) {
       if (isset($node->promote) && ($node->promote) && (!devtrac7_ftritem_imagesset($node))) {
         $node->promote = 0;
       }
+      devtrac_ftritem_copyuserfromfieldtrip($node);
       break;
     case 'fieldtrip':
       break;
