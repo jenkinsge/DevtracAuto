@@ -203,7 +203,9 @@ function devtrac7_place_devtrac7_progress_field_checks_info() {
     $fieldtripnid = $path[$count - 2];
   }
   $term = taxonomy_term_load($path[$count - 1]);
-  if ($term->vid == 7) { // Vocabulary for report types = 7
+  $vocabulary = taxonomy_vocabulary_load($term->vid);
+  // Vocabulary name for reportype is vocabulary_7.
+  if ($vocabulary->machine_name == 'vocabulary_7') {
     $reporttype = $path[$count - 1];
   }
   $progress_checks['devtrac7_place_addfofieldtrip'] = array(

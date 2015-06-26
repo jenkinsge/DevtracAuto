@@ -276,7 +276,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
             Undefined Area          </td>', t('Districts column is filled'), t('Devtrac'));
     $this->assertRaw('width="16" height="16" alt="Educational research" title="Educational research" /></a></div></div></div></div>          </td>', t('Sector column is filled.'), t('Devtrac'));
     $this->assertRaw('<td class="views-field views-field-field-ftritem-date-visited active" >
-            <span class="date-display-single">01-02-2015</span>          </td>', t('Date Visited column is filled.'), t('Devtrac'));
+            <span class="date-display-single">' . date("d-m-Y") . '</span>          </td>', t('Date Visited column is filled.'), t('Devtrac'));
     $this->assertRaw('/user/1?display=list">Site Admin</a>          </td>', t('Owner column is filled.'), t('Devtrac'));
 
     // Check for date format.
@@ -591,7 +591,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     // Sectors.
     $this->assertRaw('"Educational research"', t('Sector field is filled.'), t('Devtrac'));
     // Date Visited.
-    $this->assertRaw('"01-02-2015"', t('Date Visited field is filled.'), t('Devtrac'));
+    $this->assertRaw('"' . date("d-m-Y") . '"', t('Date Visited field is filled.'), t('Devtrac'));
     // Owner.
     $this->assertNoRaw('"admin"', t('Owner field is not filled.'), t('Devtrac'));
     // URL.
@@ -634,7 +634,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     // Author : owner.
     $this->assertPattern('/<author>http:\/\/[a-zA-Z.\/]*<\/author>/', t('Author is not mapped'), t('Devtrac'));
     // Published Date : Date Visited (Subject to change).
-    $this->assertRaw('<pubDate>&lt;span class=&quot;date-display-single&quot;&gt;01-02-2015&lt;/span&gt;</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<pubDate>&lt;span class=&quot;date-display-single&quot;&gt;' . date("d-m-Y") . '&lt;/span&gt;</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
 
     // dc items.
     // Title : title.
@@ -649,7 +649,7 @@ class VisitImagesAsFieldWorkerTestCase extends DevtracTestCase {
     // Contributor : owner.
     $this->assertPattern('/<dc:contributor>http:\/\/[a-zA-Z.\/]*<\/dc:contributor>/', t('dc Contributor is not mapped'), t('Devtrac'));
     // Date : Date Visited.
-    $this->assertRaw('<dc:date>&lt;span class=&quot;date-display-single&quot;&gt;01-02-2015&lt;/span&gt;</dc:date>', t('Date is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:date>&lt;span class=&quot;date-display-single&quot;&gt;' . date("d-m-Y") . '&lt;/span&gt;</dc:date>', t('Date is mapped correctly'), t('Devtrac'));
 
     // JSON view.
     $this->drupalGet('images/json');
