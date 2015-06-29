@@ -65,8 +65,8 @@ function devtrac7_solr_user_feature_default_search_api_index() {
       "fields" : {
         "field_user_firstname" : { "type" : "text" },
         "field_user_superior" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "user" },
-        "field_user_surname" : { "type" : "text" },
         "field_user_superior:uuid" : { "type" : "string" },
+        "field_user_surname" : { "type" : "text" },
         "last_access" : { "type" : "date" },
         "mail" : { "type" : "text" },
         "name" : { "type" : "text" },

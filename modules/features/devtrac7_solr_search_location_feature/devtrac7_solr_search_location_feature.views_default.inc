@@ -385,6 +385,11 @@ function devtrac7_solr_search_location_feature_views_default_views() {
     'data' => 'centroid',
     'format' => 'decimal_degrees',
   );
+  /* Field: Indexed Node: The main body text */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = 'Description';
   $handler->display->display_options['path'] = 'locations/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
@@ -800,6 +805,11 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['mail']['relationship'] = 'author';
   $handler->display->display_options['fields']['mail']['label'] = 'Author Email';
   $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
+  /* Field: Indexed Node: The main body text */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = 'Description';
   $handler->display->display_options['path'] = 'locations/analyse/csvfieldworker';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',

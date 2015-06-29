@@ -1015,6 +1015,15 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['style_options']['keep_html'] = 0;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Relationship: Indexed Node: Author */
+  $handler->display->display_options['relationships']['author']['id'] = 'author';
+  $handler->display->display_options['relationships']['author']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['relationships']['author']['field'] = 'author';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Relationship: Indexed Node: User */
+  $handler->display->display_options['relationships']['field_ftritem_user']['id'] = 'field_ftritem_user';
+  $handler->display->display_options['relationships']['field_ftritem_user']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['relationships']['field_ftritem_user']['field'] = 'field_ftritem_user';
   /* Field: Indexed Node: UUID */
   $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
   $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
@@ -1144,6 +1153,26 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['label'] = 'Field Trip UUID';
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['link_to_entity'] = 0;
+  /* Field: User: Email */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['relationship'] = 'author';
+  $handler->display->display_options['fields']['mail']['label'] = 'Author Email';
+  $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
+  /* Field: User: UUID */
+  $handler->display->display_options['fields']['uuid_2']['id'] = 'uuid_2';
+  $handler->display->display_options['fields']['uuid_2']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['uuid_2']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_2']['relationship'] = 'field_ftritem_user';
+  $handler->display->display_options['fields']['uuid_2']['label'] = 'User UUID';
+  $handler->display->display_options['fields']['uuid_2']['link_to_entity'] = 0;
+  /* Field: Field Trip: UUID (indexed) */
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['id'] = 'field_ftritem_field_trip_uuid';
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['field'] = 'field_ftritem_field_trip_uuid';
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['label'] = 'Field Trip UUID';
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'sitereports/analyse/csvadmin';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
@@ -1181,6 +1210,10 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['relationships']['author']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
   $handler->display->display_options['relationships']['author']['field'] = 'author';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Relationship: Indexed Node: User */
+  $handler->display->display_options['relationships']['field_ftritem_user']['id'] = 'field_ftritem_user';
+  $handler->display->display_options['relationships']['field_ftritem_user']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['relationships']['field_ftritem_user']['field'] = 'field_ftritem_user';
   /* Field: Indexed Node: UUID */
   $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
   $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
@@ -1316,6 +1349,19 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['mail']['relationship'] = 'author';
   $handler->display->display_options['fields']['mail']['label'] = 'Author Email';
   $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
+  /* Field: User: UUID */
+  $handler->display->display_options['fields']['uuid_2']['id'] = 'uuid_2';
+  $handler->display->display_options['fields']['uuid_2']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['uuid_2']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_2']['relationship'] = 'field_ftritem_user';
+  $handler->display->display_options['fields']['uuid_2']['label'] = 'User UUID';
+  $handler->display->display_options['fields']['uuid_2']['link_to_entity'] = 0;
+  /* Field: Field Trip: UUID (indexed) */
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['id'] = 'field_ftritem_field_trip_uuid';
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['field'] = 'field_ftritem_field_trip_uuid';
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['label'] = 'Field Trip UUID';
+  $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'sitereports/analyse/csvfieldworker';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',

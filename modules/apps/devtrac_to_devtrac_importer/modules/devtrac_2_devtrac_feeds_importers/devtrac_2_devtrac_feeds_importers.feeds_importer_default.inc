@@ -197,6 +197,16 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'target' => 'user_mail',
             'unique' => FALSE,
           ),
+          10 => array(
+            'source' => 'User UUID',
+            'target' => 'field_fieldtrip_user',
+            'unique' => FALSE,
+          ),
+          11 => array(
+            'source' => 'Approved By UUID',
+            'target' => 'field_fieldtrip_approved_by',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',
@@ -256,10 +266,9 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'unique' => 0,
           ),
           2 => array(
-            'source' => 'Location Types',
+            'source' => 'Location Type',
             'target' => 'taxonomy_vocabulary_1',
-            'term_search' => '0',
-            'autocreate' => 1,
+            'unique' => FALSE,
           ),
           3 => array(
             'source' => 'Lat',
@@ -274,6 +283,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           5 => array(
             'source' => 'Author Email',
             'target' => 'user_mail',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'Description',
+            'target' => 'body',
             'unique' => FALSE,
           ),
         ),
@@ -400,6 +414,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           14 => array(
             'source' => 'Author Email',
             'target' => 'user_mail',
+            'unique' => FALSE,
+          ),
+          15 => array(
+            'source' => 'User UUID',
+            'target' => 'field_ftritem_user',
             'unique' => FALSE,
           ),
         ),
