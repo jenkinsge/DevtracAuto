@@ -1275,6 +1275,8 @@ function devtrac_ftritem_copyuserfromfieldtrip($node) {
     return;
   }
   $fieldtrip = node_load($node->field_ftritem_field_trip[$node->language][0]['target_id']);
-  $node->field_ftritem_user[$node->language][0]['target_id'] = $fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'];
+  if (isset($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'])) {
+    $node->field_ftritem_user[$node->language][0]['target_id'] = $fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'];
+  }
   return $node;
 }
