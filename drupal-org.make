@@ -126,7 +126,7 @@ projects[features_override][version] = "2.0-rc2"
 projects[features_override][type] = "module"
 projects[features_override][subdir] = "contrib"
 
-projects[feeds][version] = "2.0-alpha8"
+projects[feeds][version] = "2.0-alpha9"
 projects[feeds][type] = "module"
 projects[feeds][subdir] = "contrib"
 
@@ -233,7 +233,7 @@ projects[job_scheduler][version] = "2.0-alpha3"
 projects[job_scheduler][type] = "module"
 projects[job_scheduler][subdir] = "contrib"
 
-projects[jquery_update][version] = "2.5"
+projects[jquery_update][version] = "2.6"
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
 
@@ -263,7 +263,7 @@ projects[maxlength][type] = "module"
 projects[maxlength][subdir] = "contrib"
 projects[maxlength][patch][] = "https://www.drupal.org/files/issues/maxlength-exclude-any-html-entity-and-token-1830182-6.patch"
 
-projects[me][version] = "1.1"
+projects[me][version] = "1.2"
 projects[me][type] = "module"
 projects[me][subdir] = "contrib"
 

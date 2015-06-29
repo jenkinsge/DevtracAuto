@@ -395,10 +395,12 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_approval_date']['id'] = 'field_fieldtrip_approval_date';
   $handler->display->display_options['fields']['field_fieldtrip_approval_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_approval_date']['field'] = 'field_fieldtrip_approval_date';
-  $handler->display->display_options['fields']['field_fieldtrip_approval_date']['type'] = 'format_interval';
   $handler->display->display_options['fields']['field_fieldtrip_approval_date']['settings'] = array(
-    'interval' => '2',
-    'interval_display' => 'time ago',
+    'format_type' => 'export_only',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
   );
   /* Field: Indexed Node: Approved By */
   $handler->display->display_options['fields']['field_fieldtrip_approved_by']['id'] = 'field_fieldtrip_approved_by';
@@ -410,9 +412,22 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
     'format_type' => 'export_only',
-    'fromto' => 'both',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Indexed Node: Start and End Date */
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['id'] = 'field_fieldtrip_start_end_date_1';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
+    'format_type' => 'export_only',
+    'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -637,6 +652,14 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['relationships']['author']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['relationships']['author']['field'] = 'author';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Relationship: Indexed Node: User */
+  $handler->display->display_options['relationships']['field_fieldtrip_user']['id'] = 'field_fieldtrip_user';
+  $handler->display->display_options['relationships']['field_fieldtrip_user']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['relationships']['field_fieldtrip_user']['field'] = 'field_fieldtrip_user';
+  /* Relationship: Indexed Node: Approved By */
+  $handler->display->display_options['relationships']['field_fieldtrip_approved_by']['id'] = 'field_fieldtrip_approved_by';
+  $handler->display->display_options['relationships']['field_fieldtrip_approved_by']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['relationships']['field_fieldtrip_approved_by']['field'] = 'field_fieldtrip_approved_by';
   /* Field: Indexed Node: UUID */
   $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
   $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
@@ -676,10 +699,12 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_approval_date']['id'] = 'field_fieldtrip_approval_date';
   $handler->display->display_options['fields']['field_fieldtrip_approval_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_approval_date']['field'] = 'field_fieldtrip_approval_date';
-  $handler->display->display_options['fields']['field_fieldtrip_approval_date']['type'] = 'format_interval';
   $handler->display->display_options['fields']['field_fieldtrip_approval_date']['settings'] = array(
-    'interval' => '2',
-    'interval_display' => 'time ago',
+    'format_type' => 'export_only',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
   );
   /* Field: Indexed Node: Approved By */
   $handler->display->display_options['fields']['field_fieldtrip_approved_by']['id'] = 'field_fieldtrip_approved_by';
@@ -691,9 +716,22 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['id'] = 'field_fieldtrip_start_end_date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['field'] = 'field_fieldtrip_start_end_date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['label'] = 'Start Date';
   $handler->display->display_options['fields']['field_fieldtrip_start_end_date']['settings'] = array(
     'format_type' => 'export_only',
-    'fromto' => 'both',
+    'fromto' => 'value',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  /* Field: Indexed Node: Start and End Date */
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['id'] = 'field_fieldtrip_start_end_date_1';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['table'] = 'search_api_index_devtrac_solr_field_trip_index';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['field'] = 'field_fieldtrip_start_end_date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['label'] = 'End Date';
+  $handler->display->display_options['fields']['field_fieldtrip_start_end_date_1']['settings'] = array(
+    'format_type' => 'export_only',
+    'fromto' => 'value2',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
@@ -726,6 +764,20 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['mail']['relationship'] = 'author';
   $handler->display->display_options['fields']['mail']['label'] = 'Author Email';
   $handler->display->display_options['fields']['mail']['link_to_entity'] = 0;
+  /* Field: User: UUID */
+  $handler->display->display_options['fields']['uuid_1']['id'] = 'uuid_1';
+  $handler->display->display_options['fields']['uuid_1']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['uuid_1']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_1']['relationship'] = 'field_fieldtrip_user';
+  $handler->display->display_options['fields']['uuid_1']['label'] = 'User UUID';
+  $handler->display->display_options['fields']['uuid_1']['link_to_entity'] = 0;
+  /* Field: User: UUID */
+  $handler->display->display_options['fields']['uuid_2']['id'] = 'uuid_2';
+  $handler->display->display_options['fields']['uuid_2']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['uuid_2']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_2']['relationship'] = 'field_fieldtrip_approved_by';
+  $handler->display->display_options['fields']['uuid_2']['label'] = 'Approved By UUID';
+  $handler->display->display_options['fields']['uuid_2']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'fieldtrips/analyse/csvfieldworker';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',

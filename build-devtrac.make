@@ -7,7 +7,7 @@ core = 7.x
 ;includes[] = drupal-org-core.make
 
 projects[drupal][type] = core
-projects[drupal][version] = 7.37
+projects[drupal][version] = 7.38
 
 ; Patches for Core
 ;
