@@ -134,7 +134,7 @@ projects[feeds_entityreference][version] = "1.x-dev"
 projects[feeds_entityreference][type] = "module"
 projects[feeds_entityreference][subdir] = "contrib"
 
-projects[feeds_tamper][version] = "1.0"
+projects[feeds_tamper][version] = "1.1"
 projects[feeds_tamper][type] = "module"
 projects[feeds_tamper][subdir] = "contrib"
 
@@ -376,12 +376,12 @@ projects[rules][version] = "2.9"
 projects[rules][type] = "module"
 projects[rules][subdir] = "contrib"
 
-projects[search_api][version] = "1.14"
+projects[search_api][version] = "1.15"
 projects[search_api][type] = "module"
 projects[search_api][subdir] = "contrib"
 projects[search_api][patch][] = "https://www.drupal.org/files/issues/search_api-drush-user-do-not-test.patch"
 
-projects[search_api_autocomplete][version] = "1.1"
+projects[search_api_autocomplete][version] = "1.2"
 projects[search_api_autocomplete][type] = "module"
 projects[search_api_autocomplete][subdir] = "contrib"
 
@@ -404,7 +404,7 @@ projects[search_api_saved_searches][subdir] = "contrib"
 projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-7.x-1.2-reminders-3.patch"
 ; projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-last_excuted-field-7.x-1.x-2142063_9.patch"
 
-projects[search_api_solr][version] = "1.6"
+projects[search_api_solr][version] = "1.8"
 projects[search_api_solr][type] = "module"
 projects[search_api_solr][subdir] = "contrib"
 
@@ -566,7 +566,7 @@ projects[geocoder_geonames][version] = "1.0"
 projects[geocoder_geonames][type] = "module"
 projects[geocoder_geonames][subdir] = "contrib"
 
-projects[apps][version] = "1.0-rc1"
+projects[apps][version] = "1.0"
 projects[apps][subdir] = "contrib"
 ; Following patch just fails.
 ; projects[apps][patch][] = "https://www.drupal.org/files/issues/apps-post-enabled-disabled-callback-1990512-8.patch"

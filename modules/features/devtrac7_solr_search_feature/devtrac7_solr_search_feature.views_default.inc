@@ -997,6 +997,7 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler = $view->new_display('views_data_export', 'CSV Admin', 'csv_admin');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'CSV Admin';
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['display_description'] = 'Exports all available fields so they can be imported into the next Devtrac instance';
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
@@ -1273,6 +1274,16 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_public_summary_value']['label'] = 'Summary';
   $handler->display->display_options['fields']['field_ftritem_public_summary_value']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_ftritem_public_summary_value']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Notes */
+  $handler->display->display_options['fields']['field_ftritem_narrative']['id'] = 'field_ftritem_narrative';
+  $handler->display->display_options['fields']['field_ftritem_narrative']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['field_ftritem_narrative']['field'] = 'field_ftritem_narrative';
+  $handler->display->display_options['fields']['field_ftritem_narrative']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_ftritem_narrative']['type'] = 'services';
+  $handler->display->display_options['fields']['field_ftritem_narrative']['settings'] = array(
+    'skip_safe' => 0,
+    'skip_empty_values' => 0,
+  );
   /* Field: Global: Site information */
   $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
   $handler->display->display_options['fields']['site_info']['table'] = 'views';
@@ -1362,7 +1373,7 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['field'] = 'field_ftritem_field_trip_uuid';
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['label'] = 'Field Trip UUID';
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['link_to_entity'] = 0;
-  $handler->display->display_options['path'] = 'sitereports/analyse/csvfieldworker';
+  $handler->display->display_options['path'] = 'sitereports/analyse/csvadmin';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'map' => 'map',
