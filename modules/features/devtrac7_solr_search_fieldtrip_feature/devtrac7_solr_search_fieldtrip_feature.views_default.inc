@@ -344,6 +344,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler = $view->new_display('views_data_export', 'CSV', 'views_data_export_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'CSV';
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
@@ -778,7 +779,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler->display->display_options['fields']['uuid_2']['relationship'] = 'field_fieldtrip_approved_by';
   $handler->display->display_options['fields']['uuid_2']['label'] = 'Approved By UUID';
   $handler->display->display_options['fields']['uuid_2']['link_to_entity'] = 0;
-  $handler->display->display_options['path'] = 'fieldtrips/analyse/csvfieldworker';
+  $handler->display->display_options['path'] = 'fieldtrips/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
     'list' => 'list',

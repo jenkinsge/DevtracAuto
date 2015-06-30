@@ -402,6 +402,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler = $view->new_display('views_data_export', 'CSV', 'csv');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'CSV';
+  $handler->display->display_options['enabled'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
@@ -885,7 +886,7 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['sorts']['field_actionitem_status']['id'] = 'field_actionitem_status';
   $handler->display->display_options['sorts']['field_actionitem_status']['table'] = 'search_api_index_devtrac_solr_action_items_index';
   $handler->display->display_options['sorts']['field_actionitem_status']['field'] = 'field_actionitem_status';
-  $handler->display->display_options['path'] = 'actionitems/analyse/csvfieldworker';
+  $handler->display->display_options['path'] = 'actionitems/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'list' => 'list',
     'default' => 0,
