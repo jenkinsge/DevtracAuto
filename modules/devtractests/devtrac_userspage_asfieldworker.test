@@ -89,6 +89,10 @@ class VisitUsersAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
     $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
+    // Check for Export links.
+    $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+
     // Search Api Elements.
     // Check for Facets.
 
@@ -272,6 +276,10 @@ The Users page contains a list of all users that can be filtered by the Zonal Of
     $this->assertLink('Add Field Trip', 0, t('Add Field Trip link is present on the page.'), t('Devtrac'));
     $this->assertLink('Edit My Profile', 0, t('Edit My Profile link is present on the page.'), t('Devtrac'));
 
+    // Check for Export links.
+    $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
+    $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+
     // Search Api Elements.
     // Check for Facets.
 
@@ -371,5 +379,40 @@ The Users page contains a list of all users that can be filtered by the Zonal Of
     // Admin Units.
     $this->assertRaw('/users?display=graphs&amp;qt-devtrac_users_graphs_tabs=1#qt-devtrac_users_graphs_tabs" id="quicktabs-tab-devtrac_users_graphs_tabs-1" class="active">Admin Units</a>', t('Admin Units quicktab is present on the page'), t('Devtrac'));
     $this->assertLink('Admin Units', 1, t('Admin Units Quicktab is labeled'), t('Devtrac'));
+
+    // EXPORTS.
+    // CSV.
+    // drupal_flush_all_caches();
+    $this->clickLink('Export to CSV', 0);
+
+    // Check for column names.
+    $this->assertRaw('"UUID","Username","Email","Title","Function","Academic Degree(s)","Department","Manager","First Name","Surname","About Me","Admin Units","Sectors","Manager UUID"', t('All column names are present.'), t('Devtrac'));
+
+    // Check for count of column names.
+    $this->assertColumnCount(161, 14);
+
+    // Fields.
+    // UUID, Username and Email (Subject to change).
+    $this->assertPattern('/"[a-z0-9\-]*","[a-zA-Z0-9\-]*","[a-zA-Z0-9.]*@example.com"/', t('UUID, Username and Email fields are filled.'), t('Devtrac'));
+    // Title.
+    $this->assertRaw('"Field Worker"', t('Title field is filled.'), t('Devtrac'));
+    // Function.
+    $this->assertRaw('"Field Officer"',t('Function field is filled.'), t('Devtrac'));
+    // Department.
+    $this->assertRaw('"Education"',t('Department field is filled.'), t('Devtrac'));
+    // Admin Units.
+    $this->assertRaw('"Central 1"',t('Admin Units field is filled.'), t('Devtrac'));
+    // Sectors.
+    $this->assertRaw('"Educational research"', t('Sectors field is filled.'), t('Devtrac'));
+    // First Name.
+    $this->assertRaw('"Test"', t('First Name field is filled.'), t('Devtrac'));
+    // Surname.
+    $this->assertRaw('"Fieldworker"', t('Surname field is filled.'), t('Devtrac'));
+    // About Me.
+    $this->assertPattern('"..."', t('About Me field is filled.'), t('Devtrac'));
+    // Academic Degree(s).
+    $this->assertPattern('"Civil Engineering"', t('Academic Degree(s) field is filled.'), t('Devtrac'));
+    // Manager UUID (Subject to change).
+    $this->assertPattern('/[a-z0-9\-]*/', t('Manager UUID field is filled.'), t('Devtrac'));
   }
 }
