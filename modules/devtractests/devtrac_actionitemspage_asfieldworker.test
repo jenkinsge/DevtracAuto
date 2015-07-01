@@ -469,15 +469,15 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
-    $this->assertRaw('"Title","Admin Unit","Sector","Status","Due Date","Responsible","Task","Tags (Categories)","UUID","Location UUID","URL","Sitereport UUID"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"Title","Admin Unit","Sector","Status","Due Date","Responsible","Task","Tags (Categories)","UUID","Location UUID","URL","Sitereport UUID","Author Email","Responsible UUID"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
-    $length = 140;
+    $length = 171;
     $column_names_line = substr($this->drupalGetContent(), 0, $length);
     $this->verbose($column_names_line);
     $column_names = preg_split("/[,]+/", $column_names_line);
     $this->verbose(var_export($column_names, TRUE));
-    if (count($column_names) == 12) {
+    if (count($column_names) == 14) {
       $this->pass(t('CSV Column count is correct.'), t('Devtrac'));
     }
     else {
@@ -509,6 +509,8 @@ class VisitActionItemsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertPattern('/http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*/',t('URL field is filled.'), t('Devtrac'));
     // "Sitereport UUID" (Subject to change).
     $this->assertPattern('/[a-z0-9\-]*/',t('"Sitereport UUID" field is filled.'), t('Devtrac'));
+    // Author Email and Responsible UUID (Subject to change).
+    $this->assertPattern('/[a-zA-Z0-9.]*@example.com","[a-z0-9\-]*/', t('Author Email and  Responsible UUID fields are filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');

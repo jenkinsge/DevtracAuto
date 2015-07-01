@@ -89,7 +89,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', t('Export to CSV (administrator version) link is not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/csvfieldworker', t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -228,7 +228,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/csvfieldworker', t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -364,7 +364,7 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('/sitereports/analyse/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports/analyse/csvfieldworker', t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -565,6 +565,52 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     $this->assertRaw('"Gfs or Tap"', t('Location Type field is filled.'), t('Devtrac'));
     // Location URL (Subject to change).
     $this->assertPattern('/http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*/', t('Location URL field is filled.'), t('Devtrac'));
+
+    $this->drupalGet('sitereports/analyse/csvfieldworker');
+
+    // Check for column names.
+    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL","Author Email","User UUID","Field Trip UUID"', t('All column names are present.'), t('Devtrac'));
+
+    // Check for count of column names.
+    $this->assertColumnCount(234, 15);
+
+    // Fields.
+    // UUID (Subject to change).
+    $this->assertPattern('/[a-z0-9\-]*/', t('UUID field is filled.'), t('Devtrac'));
+    // Title.
+    $this->assertRaw('"Site Visit at Loroo Piped Water "', t('Title field is filled.'), t('Devtrac'));
+    // Purpose.
+    $this->assertRaw('"Leisure"',t('Purpose field is filled.'), t('Devtrac'));
+    // Site Report Type.
+    $this->assertRaw('"Site Visit"',t('Site Report Type field is filled.'), t('Devtrac'));
+    // Admin Unit.
+    $this->assertRaw('"Amudat"',t('Admin Unit field is filled.'), t('Devtrac'));
+    // Sector.
+    $this->assertRaw('"Basic drinking water supply and basic sanitation"', t('Sector field is filled.'), t('Devtrac'));
+    // Visited on.
+    $this->assertRaw('"02-11-2014"', t('Visited on field is filled.'), t('Devtrac'));
+    // Summary.
+    $this->assertRaw('"Monitoring Loroo Water System 11/2/14
+Issues:
+Borehole discharge is 2.2 m3/h, which would contribute to about 22 m3/d. The reservoir tank of 90 cubic metre capacity would require more than 4 days of pumping to fill. Population is 1,500 people. Demand per day would be 30,000 m3, at¬†20 l/p/d. This is inadequate.
+Together with LC III Chairman and¬†Parish Chief , attempted to identify other water sourcesto be connected to the system but with no success. There are 2 water sources that are broken down but both holes require fishing.
+"', t('Summary field is filled.'), t('Devtrac'));
+    // URL (Subject to change).
+    $this->assertPattern('/http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
+    // Location UUID (Subject to change).
+    $this->assertPattern('/[a-z0-9\-]*/', t('Location UUID field is filled.'), t('Devtrac'));
+    // Site Visit Lat.
+    $this->assertRaw('"2.126319885300"', t('Site Visit Lat field is filled.'), t('Devtrac'));
+    // Site Visit Lon.
+    $this->assertRaw('"34.876800537100"', t('Site Visit Lon field is filled.'), t('Devtrac'));
+    // Location Name.
+    $this->assertRaw('"Loroo Piped Water"', t('Location Name field is filled.'), t('Devtrac'));
+    // Location Type.
+    $this->assertRaw('"Gfs or Tap"', t('Location Type field is filled.'), t('Devtrac'));
+    // Location URL (Subject to change).
+    $this->assertPattern('/http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*/', t('Location URL field is filled.'), t('Devtrac'));
+    // Author Email , User UUID and Field Trip UUID (Subject to change).
+    $this->assertPattern('/[a-zA-Z0-9.]*@example.com","[a-z0-9\-]*","[a-z0-9\-]*"/', t('Author Email , User UUID and Field Trip UUID fields are filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');

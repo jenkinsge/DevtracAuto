@@ -402,10 +402,10 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
-    $this->assertRaw('"UUID","Title","Narrative","Public Summary","Admin Unit","Locations","Status","Approval Date","Approved By","Start and End Date","User","URL"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"UUID","Title","Narrative","Public Summary","Admin Unit","Locations","Status","Approval Date","Approved By","Start Date","End Date","User","URL","Author Email","User UUID","Approved By UUID"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
-    $this->assertColumnCount(141, 12);
+    $this->assertColumnCount(190, 16);
 
     // Fields.
     // UUID (Subject to change).
@@ -427,12 +427,16 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     //$this->assertRaw('"31-01-2015"', t('Approval Date field is filled.'), t('Devtrac'));
     // Approved By.
     //$this->assertRaw('"31-01-2015"', t('Approved By field is filled.'), t('Devtrac'));
-    // Start and End date.
-    $this->assertRaw('"27-03-2014 to 29-03-2014"', t('Start and End date field is filled.'), t('Devtrac'));
+    // Start date.
+    $this->assertRaw('"27-03-2014"', t('Start date field is filled.'), t('Devtrac'));
+    // End date.
+    $this->assertRaw('"29-03-2014"', t('End date field is filled.'), t('Devtrac'));
     // User.
     $this->assertRaw('"Test Fieldworker"', t('User field is filled.'), t('Devtrac'));
     // URL (Subject to change).
     $this->assertPattern('/http:\/\/[a-zA-Z.\/]*\/uuid\/node\/[a-z0-9\-]*/', t('URL field is filled.'), t('Devtrac'));
+    // Author Email and User UUID (Subject to change).
+    $this->assertPattern('/[a-zA-Z0-9.]*@example.com","[a-z0-9\-]*/', t('Author Email and  User UUID fields are filled.'), t('Devtrac'));
 
     // RSS Feeds.
     $this->drupalGet('');

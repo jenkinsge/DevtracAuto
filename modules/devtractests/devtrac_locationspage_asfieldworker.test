@@ -95,7 +95,7 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('statistics/questions/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('locations/analyse/csvadmin', t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -179,7 +179,7 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('statistics/questions/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('locations/analyse/csvadmin', t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -317,7 +317,7 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertNoLinkByHref('statistics/questions/csvadmin', t('Export to CSV (administrator version) link is  not present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('locations/analyse/csvadmin', t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -402,6 +402,31 @@ class VisitLocationsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->assertRaw('"0.556481550015"', t('Latitude field is filled.'), t('Devtrac'));
     // Longtitude.
     $this->assertRaw('"32.704498222317"', t('Longtitude field is filled.'), t('Devtrac'));
+
+    // Fieldworker CSV.
+    $this->drupalGet('locations/analyse/csvfieldworker');
+
+    // Check for column names.
+    $this->assertRaw('"UUID","Title","Admin Unit","Location Type","Lat","Lon","Author Email","Description"', t('All column names are present.'), t('Devtrac'));
+
+    // Check for count of column names.
+    $this->assertColumnCount(84, 8);
+
+    // Fields.
+    // UUID (Subject to change).
+    $this->assertPattern('/[a-z0-9\-]*/', t('UUID field is filled.'), t('Devtrac'));
+    // Title.
+    $this->assertRaw('"test location"', t('Title field is filled.'), t('Devtrac'));
+    // Admin Unit.
+    $this->assertRaw('"Undefined Area"', t('Admin Unit field is filled.'), t('Devtrac'));
+    // Location Type.
+    $this->assertRaw('"Public Government School"', t('Location Type field is filled.'), t('Devtrac'));
+    // Latitude.
+    $this->assertRaw('"0.556481550015"', t('Latitude field is filled.'), t('Devtrac'));
+    // Longtitude.
+    $this->assertRaw('"32.704498222317"', t('Longtitude field is filled.'), t('Devtrac'));
+    // Author Email (Subject to change).
+    $this->assertPattern('/[a-zA-Z0-9.]*@example.com/', t('Author Email field is filled.'), t('Devtrac'));
 
     // KML.
     $this->drupalGet('');
