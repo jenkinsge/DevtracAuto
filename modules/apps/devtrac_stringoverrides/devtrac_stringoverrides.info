@@ -1,0 +1,9 @@
+apps[server] = "development"
+name = "Devtrac String Overrides"
+description = "Adds capability for users to override strings in Devtrac."
+core = "7.x"
+package = "Devtrac Apps"
+
+files[] = devtrac_stringoverrides.module
+dependencies[] = stringoverrides
+
