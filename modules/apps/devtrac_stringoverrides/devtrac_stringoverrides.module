@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Creates Devtrac Stringoverrides form.
+ *
+ * The setttings form allows users to override strings in devtrac.
+ */
+
+/**
+ * Implements of hook_menu()
+ */
+function devtrac_stringoverrides_menu(){
+  $items['admin/devtrac7/stringreplacement'] = array(
+    'title' => 'String Replacement',
+    'description' => 'Management of the String Overrides in Devtrac.',
+    'page callback' => 'devtrac_stringoverrides_getform',
+    'access arguments' => array('administer string overrides'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+
+
+/**
+ * Menu Callback.
+ *
+ * Retrieves and returns the string overrides form.
+ */
+function devtrac_stringoverrides_getform() {
+  if (module_exists('stringoverrides')) {
+    module_load_include('inc', 'stringoverrides', 'stringoverrides.admin');
+    return drupal_get_form('stringoverrides_admin');
+  }
+} 
+
+/**
+ * Implements hook_apps_app_info()
+ * Making Devtrac String Overrides an app.
+ */
+function devtrac_stringoverrides_apps_app_info() {
+  module_load_include('inc', 'stringoverrides', 'stringoverrides.admin');
+  return array(
+    // This form will be rendered on the app config page:
+    'configure form' => 'stringoverrides_admin',
+  );
+}
