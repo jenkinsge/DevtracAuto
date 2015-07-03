@@ -1,7 +1,7 @@
 name = Devtrac7 Developer Feature
 description = NEVER RUN IN PRODUCTION
 core = 7.x
-package = Features
+package = Devtrac
 version = 7.x-1.0-beta
 project = devtrac7_developer_feature
 dependencies[] = context

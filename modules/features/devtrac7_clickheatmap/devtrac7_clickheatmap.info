@@ -1,7 +1,7 @@
 name = DevTrac7_Clickheatmap
 description = Contains configuration for the heatmap functionality
 core = 7.x
-package = Features
+package = Devtrac
 dependencies[] = click_heatmap
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1

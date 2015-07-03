@@ -1,0 +1,9 @@
+apps[server] = "development"
+name = "Devtrac Max Length"
+description = "Adds capability for users to set the maximum length for fields in Devtrac."
+core = "7.x"
+package = "Devtrac Apps"
+
+files[] = devtrac_maxlength.module
+dependencies[] = maxlength
+
