@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @file
+ * Creates Devtrac Maxlength form.
+ *
+ * The setttings form allows users to set maxlength for Follow-UP Task,
+ * Narrative, Public Summary, Notes, Report and Description fields in devtrac.
+ */
+
+/**
+ * Implements hook_form().
+ */
+function devtrac_maxlength_form($form, &$form_state) {
+  $field_instances = field_read_instances($params = array('entity_type' => 'node', 'bundle' => array('place', 'fieldtrip', 'ftritem', 'actionitem')));
+
+  // Add settings for textarea widgets.
+  $fields = array('text_textarea_with_summary', 'text_textarea');
+  foreach ($field_instances as $field_instance) {
+    if (in_array($field_instance['widget']['type'], $fields)) {
+      $form[$field_instance['field_name'] . '_name'] = array(
+        '#type' => 'markup',
+        '#prefix' => '<h3>',
+        '#markup' => $field_instance['label'],
+        '#suffix' => '</h3>',
+      );
+      $form[$field_instance['field_name'] . '_maxlength_js'] = array(
+        '#type' => 'textfield',
+        '#title' => 'Maxlength JS',
+        '#description' => t('The maximum length of the field in characters.'),
+        '#default_value' => isset($field_instance['widget']['settings']['maxlength_js']) ? $field_instance['widget']['settings']['maxlength_js'] : NULL,
+      );
+      $form[$field_instance['field_name'] . '_maxlength_js_label'] = array(
+      '#type' => 'textarea',
+      '#rows' => 2,
+      '#title' => t('Count down message'),
+      '#default_value' => isset($field_instance['widget']['settings']['maxlength_js_label']) ? $field_instance['widget']['settings']['maxlength_js_label'] : MAXLENGTH_DEFAULT_JS_LABEL,
+      '#description' => t('The text used in the Javascript message under the input, where "@limit", "@remaining" and "@count" are replaced by the appropriate numbers.'),
+        );
+      if ($field_instance['widget']['type'] == 'text_textarea_with_summary') {
+        $form[$field_instance['field_name'] . '_maxlength_js_summary'] = array(
+          '#type' => 'textfield',
+          '#title' => 'Summary Maxlength JS',
+          '#description' => t('The maximum length of the field in characters.'),
+          '#default_value' => isset($field_instance['widget']['settings']['maxlength_js_summary']) ? $field_instance['widget']['settings']['maxlength_js_summary'] : NULL,
+        );
+
+        $form[$field_instance['field_name'] . '_maxlength_js_label_summary'] = array(
+          '#type' => 'textarea',
+          '#rows' => 2,
+          '#title' => t('Summary count down message'),
+          '#default_value' => isset($field_instance['widget']['settings']['maxlength_js_label_summary']) ? $field_instance['widget']['settings']['maxlength_js_label_summary'] : MAXLENGTH_DEFAULT_JS_LABEL,
+          '#description' => t('The text used in the Javascript message under the input, where "@limit", "@remaining" and "@count" are replaced by the appropriate numbers.'),
+        );
+      }
+    }
+  }
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+  );
+  return $form;
+}
+
+/**
+ * Implements hook_form_validate().
+ *
+ * @see devtrac_maxlength_form().
+ */
+function devtrac_maxlength_form_validate($form, &$form_state) {
+  foreach ($form_state['values'] as $key => $value) {
+    if ((stripos(strrev($key), strrev('maxlength_js')) === 0) || (stripos(strrev($key), strrev('maxlength_js_summary')) === 0)) {
+      if (!empty($value) && !is_numeric($value)) {
+        form_error($form[$key], t('The maxlength needs to be numeric'));
+      }
+      if ($value < 0) {
+        form_error($form[$key], t('The maxlength needs to be a positive number'));
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_submit().
+ *
+ * @see devtrac_maxlength_form_validate().
+ */
+function devtrac_maxlength_form_submit($form, &$form_state) {
+  $field_instances = field_read_instances($params = array('entity_type' => 'node', 'bundle' => array('place', 'fieldtrip', 'ftritem', 'actionitem')));
+  $values = $form_state['values'];
+  // Add settings for textarea widgets.
+  $fields = array('text_textarea_with_summary', 'text_textarea');
+  foreach ($field_instances as $field_instance) {
+    if (in_array($field_instance['widget']['type'], $fields)) {
+      $instance = $field_instance;
+      $instance['widget']['settings']['maxlength_js'] = $values[$instance['field_name'] . '_maxlength_js'];
+      $instance['widget']['settings']['maxlength_js_label'] = $values[$instance['field_name'] . '_maxlength_js_label'];
+      $instance['widget']['settings']['maxlength_js_enforce'] = TRUE;
+      $instance['widget']['settings']['maxlength_js_truncate_html'] = TRUE;
+      if ($field_instance['widget']['type'] == 'text_textarea_with_summary') {
+        $instance['widget']['settings']['maxlength_js_summary'] = $values[$instance['field_name'] . '_maxlength_js_summary'];
+        $instance['widget']['settings']['maxlength_js_label_summary'] = $values[$instance['field_name'] . '_maxlength_js_label_summary'];
+      }
+      // Update the instance.
+      field_update_instance($instance);
+    }
+  }
+}
+
+/**
+ * Implements hook_apps_app_info()
+ * Making Devtrac String Maxlength an app.
+ */
+function devtrac_maxlength_apps_app_info() {
+  module_load_include('inc', 'maxlength', 'maxlength.admin');
+  return array(
+    // This form will be rendered on the app config page:
+    'configure form' => 'devtrac_maxlength_form',
+  );
+}
