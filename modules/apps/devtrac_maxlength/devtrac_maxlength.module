@@ -9,6 +9,23 @@
  */
 
 /**
+ * Implements of hook_menu()
+ */
+function devtrac_maxlength_menu(){
+  $items['admin/devtrac7/maxlength'] = array(
+    'title' => 'Maximum Length',
+    'description' => 'Management of the maximum lengths for text area fields in Devtrac.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('devtrac_maxlength_form'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
  * Implements hook_form().
  */
 function devtrac_maxlength_form($form, &$form_state) {
@@ -31,11 +48,11 @@ function devtrac_maxlength_form($form, &$form_state) {
         '#default_value' => isset($field_instance['widget']['settings']['maxlength_js']) ? $field_instance['widget']['settings']['maxlength_js'] : NULL,
       );
       $form[$field_instance['field_name'] . '_maxlength_js_label'] = array(
-      '#type' => 'textarea',
-      '#rows' => 2,
-      '#title' => t('Count down message'),
-      '#default_value' => isset($field_instance['widget']['settings']['maxlength_js_label']) ? $field_instance['widget']['settings']['maxlength_js_label'] : MAXLENGTH_DEFAULT_JS_LABEL,
-      '#description' => t('The text used in the Javascript message under the input, where "@limit", "@remaining" and "@count" are replaced by the appropriate numbers.'),
+        '#type' => 'textarea',
+        '#rows' => 2,
+        '#title' => t('Count down message'),
+        '#default_value' => isset($field_instance['widget']['settings']['maxlength_js_label']) ? $field_instance['widget']['settings']['maxlength_js_label'] : MAXLENGTH_DEFAULT_JS_LABEL,
+        '#description' => t('The text used in the Javascript message under the input, where "@limit", "@remaining" and "@count" are replaced by the appropriate numbers.'),
         );
       if ($field_instance['widget']['type'] == 'text_textarea_with_summary') {
         $form[$field_instance['field_name'] . '_maxlength_js_summary'] = array(
@@ -93,14 +110,16 @@ function devtrac_maxlength_form_submit($form, &$form_state) {
   foreach ($field_instances as $field_instance) {
     if (in_array($field_instance['widget']['type'], $fields)) {
       $instance = $field_instance;
-      $instance['widget']['settings']['maxlength_js'] = $values[$instance['field_name'] . '_maxlength_js'];
-      $instance['widget']['settings']['maxlength_js_label'] = $values[$instance['field_name'] . '_maxlength_js_label'];
+      foreach ($instance['widget']['settings'] as $key => $setting) {
+        if ((strpos($key, 'maxlength')) !== FALSE && isset($values[$instance['field_name'] . '_' . $key])) {
+          $instance['widget']['settings'][$key] = $values[$instance['field_name'] . '_' . $key];
+          variable_set('dm_' . $instance['field_name'] . '_' . $key, $values[$instance['field_name'] . '_' . $key]);
+        }
+      }
       $instance['widget']['settings']['maxlength_js_enforce'] = TRUE;
       $instance['widget']['settings']['maxlength_js_truncate_html'] = TRUE;
-      if ($field_instance['widget']['type'] == 'text_textarea_with_summary') {
-        $instance['widget']['settings']['maxlength_js_summary'] = $values[$instance['field_name'] . '_maxlength_js_summary'];
-        $instance['widget']['settings']['maxlength_js_label_summary'] = $values[$instance['field_name'] . '_maxlength_js_label_summary'];
-      }
+      variable_set('dm_' . $instance['field_name'] . '_maxlength_js_enforce', TRUE);
+      variable_set('dm_' . $instance['field_name'] . '_maxlength_js_truncate_html', TRUE);
       // Update the instance.
       field_update_instance($instance);
     }
@@ -117,4 +136,58 @@ function devtrac_maxlength_apps_app_info() {
     // This form will be rendered on the app config page:
     'configure form' => 'devtrac_maxlength_form',
   );
+}
+
+/**
+ * Implements hook_field_default_field_instances_alter().
+ */
+function devtrac_maxlength_field_default_field_instances_alter(&$overrides) {
+  $field_instances = field_read_instances($params = array('entity_type' => 'node', 'bundle' => array('place', 'fieldtrip', 'ftritem', 'actionitem')));
+  // Add settings for textarea widgets.
+  $fields = array('text_textarea_with_summary', 'text_textarea');
+  foreach ($field_instances as $field_instance) {
+    if (in_array($field_instance['widget']['type'], $fields)) {
+      $override_name = $field_instance['entity_type'] . '-' . $field_instance['bundle'] . '-' . $field_instance['field_name'];
+      if (isset($overrides[$override_name])) {
+        $overrides[$override_name]['widget']['settings']['maxlength_js'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js', ''); /* WAS: '' */
+        $overrides[$override_name]['widget']['settings']['maxlength_js_enforce'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_enforce', 0); /* WAS: 0 */
+        $overrides[$override_name]['widget']['settings']['maxlength_js_label'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_label', 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'); /* WAS: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>' */
+        $overrides[$override_name]['widget']['settings']['maxlength_js_truncate_html'] =  variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_truncate_html', 0); /* WAS: 1 */
+        if ($field_instance['widget']['type'] == 'text_textarea_with_summary') {
+          $overrides[$override_name]['widget']['settings']['maxlength_js_label_summary'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_label_summary', 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'); /* WAS: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'  */
+          $overrides[$override_name]['widget']['settings']['maxlength_js_summary'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_summary', ''); /* WAS: '' */
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_features_override_default_overrides().
+ */
+function devtrac_maxlength_feature_features_override_default_overrides() {
+  // This code is only used for UI in features. Exported alters hooks do the magic.
+  $overrides = array();
+
+  $field_instances = field_read_instances($params = array('entity_type' => 'node', 'bundle' => array('place', 'fieldtrip', 'ftritem', 'actionitem')));
+  // Add settings for textarea widgets.
+  $fields = array('text_textarea_with_summary', 'text_textarea');
+  foreach ($field_instances as $field_instance) {
+    if (in_array($field_instance['widget']['type'], $fields)) {
+      $override_name = "field_instance." . $field_instance['entity_type'] . '-' . $field_instance['bundle'] . '-' . $field_instance['field_name'];
+      if (isset($overrides[$override_name])) {
+        $overrides[$override_name . '.widget|settings|maxlength_js'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js', ''); /* WAS: '' */
+        $overrides[$override_name . '.widget|settings|maxlength_js_enforce'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_enforce', 0); /* WAS: 0 */
+        $overrides[$override_name . '.widget|settings|maxlength_js_label'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_label', 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'); /* WAS: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>' */
+        $overrides[$override_name . '.widget|settings|maxlength_js_truncate_html'] =  variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_truncate_html', 0); /* WAS: 1 */
+        if ($field_instance['widget']['type'] == 'text_textarea_with_summary') {
+          $overrides[$override_name . '.widget|settings|maxlength_js_label_summary'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_label_summary', 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'); /* WAS: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'  */
+          $overrides[$override_name . '.widget|settings|maxlength_js_summary'] = variable_get('dm_' . $field_instance['field_name'] . '_maxlength_js_summary', ''); /* WAS: '' */
+        }
+      }
+    }
+  }
+
+ return $overrides;
 }

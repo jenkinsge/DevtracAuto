@@ -94,7 +94,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('locations/analyse/csvfieldworker', 0, t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('locations/analyse/csvfieldworker', t('Export to CSV (administrator version) link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -178,7 +178,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('locations/analyse/csvfieldworker', 0, t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('locations/analyse/csvfieldworker', t('Export to CSV (administrator version) link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
@@ -312,7 +312,7 @@ class VisitLocationsAsAnonymousTestCase extends DevtracTestCase {
 
     // Check for Export links.
     $this->assertLink('Export', 0, t('Export link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('locations/analyse/csvfieldworker', 0, t('Export to CSV (administrator version) link is present on the page.'), t('Devtrac'));
+    $this->assertNoLinkByHref('locations/analyse/csvfieldworker', t('Export to CSV (administrator version) link is not present on the page.'), t('Devtrac'));
     $this->assertLink('Export to CSV', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
     $this->assertLink('Export to KML', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
     $this->assertLink('Subscribe to RSS Feed', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
