@@ -1,0 +1,237 @@
+<?php
+
+/**
+ * @file
+ * Test Devtrac Features After Install.
+ */
+
+// Make sure simpletest_clone and devtractestcase are available.
+module_load_include('test', 'simpletest_clone');
+module_load_include('inc', 'devtractests', 'includes/devtractestcase');
+
+/**
+ * Test Devtrac Features After Install.
+ */
+class TestDevtracFeaturesAfterInstallTestCase extends DevtracTestCase {
+  protected $profile = 'devtrac';
+
+  /**
+   * The getInfo function.
+   */
+  public static function getInfo() {
+    return array(
+      'name' => 'Test Devtrac Features After Install',
+      'description' => 'Test Devtrac Features After Install and check that all is as should be.',
+      'group' => 'Devtrac2',
+    );
+  }
+
+  /**
+   * The setUp function.
+   */
+  public function setUp() {
+    $this->public_files_directory = variable_get('file_public_path');
+    parent::setUp(array('devtractests'));
+
+    $this->administrator = $this->drupalCreateAdminUser();
+    $this->drupalLogin($this->administrator);
+
+  }
+
+  /**
+   * Test Devtrac Features After Install.
+   */
+  public function testDevtracFeaturesAfterInstall() {
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Admin Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('DevTrac7_Clickheatmap');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Developer Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('DevTrac7 Field Permissions Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Images Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('DevTrac7 Maps');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('DevTrac7_menus');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('DevTrac7 Node Types');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Pathauto Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('DevTrac7_Questionnaire_Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('devtrac7_services_api');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Site Configuration Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr Search Actionitem Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr Search Answers Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr Search District Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr Search Site Report Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr Search Fieldtrip Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr Search Image Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr Search Location Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr Questions Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Solr User Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Taxonomy Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Taxonomy term page contexts');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('DevTrac7 Theme Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 theme settings');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac7 Users2');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('DevTrac7 Views Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac All Data Importers Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Devtrac OECD Code Importer Feature');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Mountbatten SEO');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Mountbatten Web Analytics');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+
+    $this->drupalGet('admin/structure/features');
+    $this->clickLink('Mountbatten Web Media');
+    // Check for Overridden Messages.
+    $this->assertNoLink('Overridden', t('There is no overridden message on this page'), t('Devtrac'));
+    $this->assertNoPattern('/\/diff">Review overrides<\/a><\/li>/', t('There is no Review overrides tab on this page'), t('Devtrac'));
+  }
+}
