@@ -11,24 +11,26 @@
  * Implements of hook_menu()
  */
 function devtrac_mapbox_menu(){
-  $items['admin/config/devtrac'] = array(
-      'title' => t("Devtrac"),
-      'description' => t("Devtrac Settings."),
-      'position' => 'right',
-      'weight' => -6,
-      'access arguments' => array('administer devtrac'),
-      'page callback' => 'system_admin_menu_block_page',
-      'file' => 'system.admin.inc',
-      'file path' => drupal_get_path('module', 'system'),
-  );
-  $items['admin/config/devtrac/mapbox'] = array(
-      'title' => t('Mapbox'),
-      'description' => t('Devtrac Mapbox Settings.'),
-      'page callback' => 'drupal_get_form',
-      'page arguments' => array('devtrac_mapbox_settings_form'),
-      'access arguments' => array('administer Mapbox'),
+  $items['admin/devtrac7/mapbox'] = array(
+    'title' => t('Mapbox'),
+    'description' => t('Devtrac Mapbox Settings.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('devtrac_mapbox_settings_form'),
+    'access arguments' => array('administer mapbox'),
   );
   return $items;
+}
+
+/**
+ * Implementation of hook_permission().
+ */
+function devtrac_mapbox_permission() {
+  return array(
+    'administer mapbox' => array(
+      'title' => t('Administer Mapbox'),
+      'description' => t('Add, delete and edit the settings for Devtrac Mapbox.'),
+    ),
+  );
 }
 
 /**
