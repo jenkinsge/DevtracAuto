@@ -1326,7 +1326,7 @@ function devtrac7_node_types_field_default_field_bases() {
     'entity_types' => array(),
     'field_name' => 'field_ftritem_purpose',
     'field_permissions' => array(
-      'type' => 0,
+      'type' => 2,
     ),
     'indexes' => array(
       'tid' => array(

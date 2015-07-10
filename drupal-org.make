@@ -309,7 +309,7 @@ projects[openlayers_plus][version] = "3.x-dev"
 projects[openlayers_plus][type] = "module"
 projects[openlayers_plus][subdir] = "contrib"
 
-projects[pane][version] = "2.6"
+projects[pane][version] = "2.7"
 projects[pane][type] = "module"
 projects[pane][subdir] = "contrib"
 projects[pane][patch][] = "https://www.drupal.org/files/issues/pane-remove-wrapper-markup-2119593-3.patch"
