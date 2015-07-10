@@ -117,6 +117,19 @@ function devtrac7_menu() {
     'access arguments' => array(1),
     'weight' => 4,
   );
+  // Menu item for adding an ftritem from a location.
+  $items['node/%node/addftritem'] = array(
+    'title' => 'Add Site Report',
+    'description' => 'Create a new Site Report',
+    'title callback' => 'check_plain',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('devtrac7_addftritemform',1),
+    'access callback' => 'devtrac7_addftritemtolocation_access',
+    'access arguments' => array(1),
+    'type' => MENU_LOCAL_ACTION,
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+    'weight' => 4,
+  );
   $items['node/%/%/fieldtripcommentform/ajax/%ctools_js/go'] = array(
     'title callback' => 'devtrac7_fieldtripcommentform_title',
     'title arguments' => array(2),
@@ -1878,6 +1891,23 @@ function devtrac7_form_fieldtrip_node_form_alter(&$form, &$form_state, $form_id)
   unset($form['field_fieldtrip_approval_date']);
   // Hide the book vertical tab for anyone but admin and administrators
   $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
+
+  // Add Hidden form elements for reporttype and locationid and an exra submit handler.
+  // These are only used when creating a new field trip from a location.
+  $query_params =  drupal_get_query_parameters();
+  if (!empty($query_params['reporttype']) && is_numeric($query_params['reporttype'])) {
+    $form['reporttype'] = array(
+      '#type' => 'hidden',
+      '#value' => $query_params['reporttype'],
+    );
+  }
+  if (!empty($query_params['locationnid']) && is_numeric($query_params['locationnid'])) {
+    $form['locationnid'] = array(
+      '#type' => 'hidden',
+      '#value' => $query_params['locationnid'],
+    );
+  }
+  $form['actions']['submit']['#submit'][] = 'devtrac7_createftritemfromfieldtrip';
 }
 
 /* implement hook_form_alter for ftritem
@@ -2749,5 +2779,152 @@ function devtrac7_views_pre_render(&$view) {
   // The description quicktab on the Location detail pages.
   if (($view->name == 'dvtrc_locations') && ($view->current_display == 'location_description') && empty($view->result[0]->field_body[0]['rendered']['#markup'])) {
     unset($view->result[0]);
+  }
+}
+
+/**
+ * Implements hook_access().
+ */
+function devtrac7_addftritemtolocation_access($location) {
+  global $user;
+  // only show if user has create ftritem and fieldtrip permissions.
+  return (($location->type == 'place')
+            && user_access('create fieldtrip content', $user)
+            && user_access('create ftritem content', $user));
+}
+
+/**
+ * Form for adding an ftritem from a location.
+ */
+function devtrac7_addftritemform($form, &$form_state, $place) {
+
+  drupal_set_title("Select Site Report Type");
+  $form['description'] = array (
+    '#markup' => t("Select Field Trip to which to add this location: :location.", Array(':location' => $place->title)),
+  );
+
+  $vocabularies = taxonomy_get_vocabularies('ftritem'); // ALERT: Hardcoded node_type machine name
+  foreach ($vocabularies as $vocabulary) {
+    if ($vocabulary->name == 'Site Report Type') {
+      $vid = $vocabulary->vid;
+    }
+  }
+  $reporttypes = array();
+
+  $terms = db_query("SELECT * FROM {taxonomy_term_data} WHERE vid = :vid AND name != :name ORDER BY weight ASC", array(':vid' => $vid, ':name' => 'Roadside Observation'));
+  foreach ($terms as $term) {
+    $reporttypes[$term->tid] = $term->name;
+  }
+
+  $form['reporttype'] = array(
+    '#title' => t('Site Report Type'),
+    '#type' => 'radios',
+    '#description' => t('Select the type of report you want to create.'),
+    '#options' => $reporttypes,
+    '#default_value' => 0,
+  );
+
+  $nodes = node_load_multiple(NULL, array('type' => "fieldtrip"));
+  $fieldtrips = array();
+  foreach ($nodes as $nid => $node) {
+    if ($node->field_fieldtrip_status[$node->language][0]['value'] != 'Approved') {
+      $fieldtrip_user = user_load($node->field_fieldtrip_user[$node->language][0]['target_id']);
+      $language = ($fieldtrip_user->language !== "") ? $fieldtrip_user->language : 'und';
+      if(!empty($fieldtrip_user->field_user_firstname[$language][0]['value']) && !empty($fieldtrip_user->field_user_surname[$language][0]['value'])) {
+        $fieldtrips[$nid] = $fieldtrip_user->field_user_firstname[$language][0]['value'] . ' ' .
+          $fieldtrip_user->field_user_surname[$language][0]['value'] . ' - ' .
+          $node->title;
+      }
+      else {
+        $fieldtrips[$nid] = $fieldtrip_user->name . ' - ' . $node->title;
+      }
+    }
+  }
+
+  $fieldripnids = array_keys($fieldtrips);
+  $form['fieldtrip'] = array(
+    '#title' => t('Field Trip'),
+    '#type' => 'select',
+    '#description' => t('Select the Field Trip to which you want to add this Site Report.'),
+    '#options' => $fieldtrips,
+    '#default_value' => $fieldripnids[0],
+    '#properties' => array('empty_option' => FALSE),
+    '#value_key' => 'nid',
+  );
+
+  $form['nid'] = array(
+    '#type' => 'hidden',
+    '#value' => $place->nid,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+
+  $form['create_fieldtrip'] = array(
+    '#type' => 'submit',
+    '#value' => t('Create A Field Trip'),
+    '#submit' => array('devtrac7_addfieldtrip_fromlocation'),
+  );
+
+  return $form;
+}
+
+/**
+ * @see devtrac7_addftritemform().
+ */
+function devtrac7_addftritemform_submit($form, &$form_state) {
+  module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+  $message = devtrac7_ftritem_create($form_state['values']['nid'], $form_state['values']['fieldtrip'], $form_state['values']['reporttype']);
+  if (strpos($message, 'Attached location') === 0) {
+    drupal_set_message(t($message));
+  }
+  else {
+    drupal_set_message(t($message), 'error');
+  }
+}
+
+/**
+ * Submit handler for Create Fieldtrip button on Create Ftritem from Location
+ * form.
+ *
+ * @see devtrac7_addftritemform().
+ */
+function devtrac7_addfieldtrip_fromlocation($form, &$form_state) {
+  global $user;
+  $id = $user->uid;
+  $placenid = $form_state['values']['nid'];
+  $reporttype = $form_state['values']['reporttype'];
+  // Prepopulate.
+  $prepopulate = array(
+    'field_fieldtrip_user' => $id,
+    'reporttype' => $reporttype,
+    'locationnid' => $placenid,
+  );
+  $destination =  drupal_get_destination();
+  unset($_GET['destination']);
+  drupal_goto('node/add/fieldtrip', array('query' => array_merge($destination, $prepopulate)));
+}
+
+/**
+ * Extra submit handler for add field trip form that creates an ftritem.
+ *
+ * @see devtrac7_form_place_node_form_alter().
+ */
+function devtrac7_createftritemfromfieldtrip($form, &$form_state) {
+  // Only act if both reporttype and locationnid are set.
+  if(isset($form['reporttype']) && isset($form['locationnid'])) {
+    $locationnid = $form['locationnid']['#value'];
+    $reporttype = $form['reporttype']['#value'];
+    $fieldtripnid = $form_state['node']->nid;
+    module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+    $message = devtrac7_ftritem_create($locationnid, $fieldtripnid, $reporttype);
+    if (strpos($message, 'Attached location') === 0) {
+      drupal_set_message(t($message));
+    }
+    else {
+      drupal_set_message(t($message), 'error');
+    }
   }
 }
