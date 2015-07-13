@@ -703,8 +703,7 @@ function devtrac7_solr_search_location_feature_views_default_views() {
     'image_style' => 'map_icon_bw',
     'image_link' => '',
   );
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Custom: Bounding box */
   $handler->display->display_options['arguments']['bbox_argument']['id'] = 'bbox_argument';
   $handler->display->display_options['arguments']['bbox_argument']['table'] = 'views';
