@@ -703,8 +703,7 @@ function devtrac7_solr_search_location_feature_views_default_views() {
     'image_style' => 'map_icon_bw',
     'image_link' => '',
   );
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Custom: Bounding box */
   $handler->display->display_options['arguments']['bbox_argument']['id'] = 'bbox_argument';
   $handler->display->display_options['arguments']['bbox_argument']['table'] = 'views';
@@ -714,6 +713,8 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['arguments']['bbox_argument']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['bbox_argument']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['bbox_argument']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Lat-Long: Latitude (indexed) */
   $handler->display->display_options['filters']['field_place_lat_long_lat']['id'] = 'field_place_lat_long_lat';
   $handler->display->display_options['filters']['field_place_lat_long_lat']['table'] = 'search_api_index_devtrac_solr_locations_index';

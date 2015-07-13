@@ -94,6 +94,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['arguments']['nid']['field'] = 'nid';
   $handler->display->display_options['arguments']['nid']['relationship'] = 'reverse_field_ftritem_images_node';
   $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
@@ -6643,11 +6644,11 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['table'] = 'field_data_taxonomy_vocabulary_1';
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['field'] = 'taxonomy_vocabulary_1_tid';
   $handler->display->display_options['relationships']['taxonomy_vocabulary_1_tid']['relationship'] = 'field_ftritem_place_target_id';
-  /* Relationship: Content: Purpose(s) of the Fieldtrip (field_ftritem_purpose) */
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['id'] = 'field_ftritem_purpose_value';
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['table'] = 'field_data_field_ftritem_purpose';
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['field'] = 'field_ftritem_purpose_value';
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['delta'] = '-1';
+  /* Relationship: Content: Purpose (field_ftritem_purpose) */
+  $handler->display->display_options['relationships']['field_ftritem_purpose_tid']['id'] = 'field_ftritem_purpose_tid';
+  $handler->display->display_options['relationships']['field_ftritem_purpose_tid']['table'] = 'field_data_field_ftritem_purpose';
+  $handler->display->display_options['relationships']['field_ftritem_purpose_tid']['field'] = 'field_ftritem_purpose_tid';
+  $handler->display->display_options['relationships']['field_ftritem_purpose_tid']['relationship'] = 'reverse_field_ftritem_field_trip_node';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -6706,16 +6707,16 @@ function devtrac7_views_feature_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Field collection item: Purpose (field_ftritem_purpose_purps) */
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['id'] = 'field_ftritem_purpose_purps_tid';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['table'] = 'field_data_field_ftritem_purpose_purps';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['field'] = 'field_ftritem_purpose_purps_tid';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['relationship'] = 'field_ftritem_purpose_value';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Purpose (field_ftritem_purpose) */
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['id'] = 'field_ftritem_purpose_tid';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['table'] = 'field_data_field_ftritem_purpose';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['field'] = 'field_ftritem_purpose_tid';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['relationship'] = 'reverse_field_ftritem_field_trip_node';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['summary']['format'] = 'default_summary';
+$handler->display->display_options['arguments']['field_ftritem_purpose_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
