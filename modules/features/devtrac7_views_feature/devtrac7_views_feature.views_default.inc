@@ -3246,7 +3246,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_resp_place']['id'] = 'field_actionitem_resp_place';
   $handler->display->display_options['fields']['field_actionitem_resp_place']['table'] = 'field_data_field_actionitem_resp_place';
   $handler->display->display_options['fields']['field_actionitem_resp_place']['field'] = 'field_actionitem_resp_place';
-  $handler->display->display_options['fields']['field_actionitem_resp_place']['label'] = 'Place';
+  // $handler->display->display_options['fields']['field_actionitem_resp_place']['label'] = 'Place';
   $handler->display->display_options['fields']['field_actionitem_resp_place']['settings'] = array(
     'link' => 0,
   );
