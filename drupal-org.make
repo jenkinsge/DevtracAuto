@@ -436,6 +436,10 @@ projects[special_menu_items][version] = "2.0"
 projects[special_menu_items][type] = "module"
 projects[special_menu_items][subdir] = "contrib"
 
+projects[stringoverrides][version] = "1.8"
+projects[stringoverrides][type] = "module"
+projects[stringoverrides][subdir] = "contrib"
+
 projects[taxonomy_access][version] = "1.0-rc1"
 projects[taxonomy_access][type] = "module"
 projects[taxonomy_access][subdir] = "contrib"

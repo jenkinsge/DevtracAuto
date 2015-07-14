@@ -3246,7 +3246,7 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_resp_place']['id'] = 'field_actionitem_resp_place';
   $handler->display->display_options['fields']['field_actionitem_resp_place']['table'] = 'field_data_field_actionitem_resp_place';
   $handler->display->display_options['fields']['field_actionitem_resp_place']['field'] = 'field_actionitem_resp_place';
-  $handler->display->display_options['fields']['field_actionitem_resp_place']['label'] = 'Place';
+  // $handler->display->display_options['fields']['field_actionitem_resp_place']['label'] = 'Place';
   $handler->display->display_options['fields']['field_actionitem_resp_place']['settings'] = array(
     'link' => 0,
   );
@@ -4718,12 +4718,16 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['relationships']['field_ftritem_field_trip_target_id']['table'] = 'field_data_field_ftritem_field_trip';
   $handler->display->display_options['relationships']['field_ftritem_field_trip_target_id']['field'] = 'field_ftritem_field_trip_target_id';
   $handler->display->display_options['relationships']['field_ftritem_field_trip_target_id']['label'] = 'field_ftritem_field_trip';
-  /* Relationship: Content: Purpose(s) of the Fieldtrip (field_ftritem_purpose) */
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['id'] = 'field_ftritem_purpose_value';
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['table'] = 'field_data_field_ftritem_purpose';
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['field'] = 'field_ftritem_purpose_value';
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['relationship'] = 'field_ftritem_field_trip_target_id';
-  $handler->display->display_options['relationships']['field_ftritem_purpose_value']['delta'] = '-1';
+  /* Relationship: Entity Reference: Referencing entity */
+  $handler->display->display_options['relationships']['reverse_field_ftritem_field_trip_node']['id'] = 'reverse_field_ftritem_field_trip_node';
+  $handler->display->display_options['relationships']['reverse_field_ftritem_field_trip_node']['table'] = 'node';
+  $handler->display->display_options['relationships']['reverse_field_ftritem_field_trip_node']['field'] = 'reverse_field_ftritem_field_trip_node';
+  $handler->display->display_options['relationships']['reverse_field_ftritem_field_trip_node']['relationship'] = 'field_ftritem_field_trip_target_id';
+  /* Relationship: Content: Purpose (field_ftritem_purpose) */
+  $handler->display->display_options['relationships']['field_ftritem_purpose_tid']['id'] = 'field_ftritem_purpose_tid';
+  $handler->display->display_options['relationships']['field_ftritem_purpose_tid']['table'] = 'field_data_field_ftritem_purpose';
+  $handler->display->display_options['relationships']['field_ftritem_purpose_tid']['field'] = 'field_ftritem_purpose_tid';
+  $handler->display->display_options['relationships']['field_ftritem_purpose_tid']['relationship'] = 'reverse_field_ftritem_field_trip_node';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Gallery Image */
   $handler->display->display_options['fields']['field_ftritem_images']['id'] = 'field_ftritem_images';
@@ -4802,16 +4806,16 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['sorts']['random']['table'] = 'views';
   $handler->display->display_options['sorts']['random']['field'] = 'random';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Field collection item: Purpose (field_ftritem_purpose_purps) */
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['id'] = 'field_ftritem_purpose_purps_tid';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['table'] = 'field_data_field_ftritem_purpose_purps';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['field'] = 'field_ftritem_purpose_purps_tid';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['relationship'] = 'field_ftritem_purpose_value';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['default_argument_type'] = 'taxonomy_tid';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['field_ftritem_purpose_purps_tid']['summary_options']['items_per_page'] = '25';
+  /* Contextual filter: Content: Purpose (field_ftritem_purpose) */
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['id'] = 'field_ftritem_purpose_tid';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['table'] = 'field_data_field_ftritem_purpose';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['field'] = 'field_ftritem_purpose_tid';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['relationship'] = 'reverse_field_ftritem_field_trip_node';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['default_argument_type'] = 'taxonomy_tid';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */

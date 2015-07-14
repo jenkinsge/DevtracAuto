@@ -1378,6 +1378,10 @@ function devtrac7_node_update($node) {
     case 'place':
       module_load_include('inc', 'devtrac7', 'devtrac7_place');
       devtrac7_place_updatedistrict($node);
+      $destination = devtrac7_trim_destination('/\/json\?zoom=[0-9]*/');
+      if ($destination) {
+        $_GET ['destination'] = $destination['destination'];
+      }
       break;
   }
 }
@@ -2798,11 +2802,6 @@ function devtrac7_addftritemtolocation_access($location) {
  */
 function devtrac7_addftritemform($form, &$form_state, $place) {
 
-  drupal_set_title("Select Site Report Type");
-  $form['description'] = array (
-    '#markup' => t("Select Field Trip to which to add this location: :location.", Array(':location' => $place->title)),
-  );
-
   $vocabularies = taxonomy_get_vocabularies('ftritem'); // ALERT: Hardcoded node_type machine name
   foreach ($vocabularies as $vocabulary) {
     if ($vocabulary->name == 'Site Report Type') {
@@ -2815,14 +2814,6 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
   foreach ($terms as $term) {
     $reporttypes[$term->tid] = $term->name;
   }
-
-  $form['reporttype'] = array(
-    '#title' => t('Site Report Type'),
-    '#type' => 'radios',
-    '#description' => t('Select the type of report you want to create.'),
-    '#options' => $reporttypes,
-    '#default_value' => 0,
-  );
 
   $nodes = node_load_multiple(NULL, array('type' => "fieldtrip"));
   $fieldtrips = array();
@@ -2841,30 +2832,47 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
     }
   }
 
-  $fieldripnids = array_keys($fieldtrips);
-  $form['fieldtrip'] = array(
-    '#title' => t('Field Trip'),
-    '#type' => 'select',
-    '#description' => t('Select the Field Trip to which you want to add this Site Report.'),
-    '#options' => $fieldtrips,
-    '#default_value' => $fieldripnids[0],
-    '#properties' => array('empty_option' => FALSE),
-    '#value_key' => 'nid',
-  );
+  drupal_set_title("Select Site Report Type");
 
   $form['nid'] = array(
     '#type' => 'hidden',
     '#value' => $place->nid,
   );
 
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Submit'),
+  $form['description'] = array (
+    '#markup' => (!empty($fieldtrips)) ? t("Select or create the Field Trip to which to add this location: :location.", Array(':location' => $place->title)) : 
+                                          t("Create the Field Trip to which to add this location: :location.", Array(':location' => $place->title)),
   );
+
+  $form['reporttype'] = array(
+    '#title' => t('Site Report Type'),
+    '#type' => 'radios',
+    '#description' => t('Select the type of report you want to create.'),
+    '#options' => $reporttypes,
+    '#default_value' => 0,
+  );
+
+  if(!empty($fieldtrips)) {
+    $fieldripnids = array_keys($fieldtrips);
+    $form['fieldtrip'] = array(
+      '#title' => t('Select existing Field Trip.'),
+      '#type' => 'select',
+      '#description' => t('Select the Field Trip to which you want to add this Site Report.'),
+      '#options' => $fieldtrips,
+      '#default_value' => $fieldripnids[0],
+      '#properties' => array('empty_option' => FALSE),
+      '#value_key' => 'nid',
+    );
+
+    $form['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+    );
+  }
 
   $form['create_fieldtrip'] = array(
     '#type' => 'submit',
-    '#value' => t('Create A Field Trip'),
+    '#value' => t('Create a Field Trip'),
     '#submit' => array('devtrac7_addfieldtrip_fromlocation'),
   );
 
@@ -2876,6 +2884,11 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
  */
 function devtrac7_addftritemform_submit($form, &$form_state) {
   module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+  $destination = devtrac7_trim_destination('/\/json\?zoom=[0-9]*/');
+  if ($destination) {
+    $form_state['redirect'] = $destination['destination'];
+    unset($_GET['destination']);
+  }
   $message = devtrac7_ftritem_create($form_state['values']['nid'], $form_state['values']['fieldtrip'], $form_state['values']['reporttype']);
   if (strpos($message, 'Attached location') === 0) {
     drupal_set_message(t($message));
@@ -2902,7 +2915,10 @@ function devtrac7_addfieldtrip_fromlocation($form, &$form_state) {
     'reporttype' => $reporttype,
     'locationnid' => $placenid,
   );
-  $destination =  drupal_get_destination();
+  $destination = devtrac7_trim_destination('/\/json\?zoom=[0-9]*/');
+  if (empty($destination)) {
+    $destination = drupal_get_destination();
+  }
   unset($_GET['destination']);
   drupal_goto('node/add/fieldtrip', array('query' => array_merge($destination, $prepopulate)));
 }
@@ -2927,4 +2943,16 @@ function devtrac7_createftritemfromfieldtrip($form, &$form_state) {
       drupal_set_message(t($message), 'error');
     }
   }
+}
+
+/**
+ * Helper function that trims $_GET['destination']
+ */
+function devtrac7_trim_destination($pattern) {
+  $destination = drupal_get_destination();
+  if (preg_match($pattern, $destination['destination'])) {
+    $destination['destination'] = preg_replace($pattern, '', $destination['destination']);
+    return $destination;
+  }
+  return FALSE;
 }
