@@ -47,6 +47,7 @@ dependencies[] = field_permissions
 dependencies[] = field_group
 dependencies[] = link
 dependencies[] = maxlength
+dependencies[] = stringoverrides
 dependencies[] = virtual_field
 dependencies[] = behavior_weights
 dependencies[] = file_entity
