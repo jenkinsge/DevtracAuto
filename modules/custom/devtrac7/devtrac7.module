@@ -117,19 +117,7 @@ function devtrac7_menu() {
     'access arguments' => array(1),
     'weight' => 4,
   );
-  // Menu item for adding an ftritem from a location.
-//  $items['node/%node/addftritem'] = array(
-//    'title' => 'Add Site Report',
-//    'description' => 'Create a new Site Report',
-//    'title callback' => 'check_plain',
-//    'page callback' => 'drupal_get_form',
-//    'page arguments' => array('devtrac7_addftritemform',1),
-//    'access callback' => 'devtrac7_addftritemtolocation_access',
-//    'access arguments' => array(1),
-//    'type' => MENU_LOCAL_ACTION,
-//    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
-//    'weight' => 4,
-//  );
+  // Menu item for adding an ftritem from a location modal form.
   $items['node/%/addftritemform/ajax/%ctools_js/go'] = array(
     'page callback' => 'devtrac7_addftritemform_modal',
     'page arguments' => array(1, 4),
@@ -889,7 +877,7 @@ function devtrac7_menu_local_tasks_alter(&$data, $router_item, $root_path) {
       //   $data['actions']['output'][$key]['#link']['options']['attributes']['class'] = Array('ctools-use-modal');
       //   $data['actions']['output'][$key]['#link']['localized_options']['attributes']['class'] = Array('ctools-use-modal');
       // }
-      if ($data['actions']['output'][$key]['#link']['path'] == 'node/%/addftritem/%ctools_js/go') {
+      if ($data['actions']['output'][$key]['#link']['path'] == 'node/%/addftritemform/%ctools_js/go') {
         $data['actions']['output'][$key]['#link']['options']['attributes']['class'] = Array('ctools-use-modal');
         $data['actions']['output'][$key]['#link']['localized_options']['attributes']['class'] = Array('ctools-use-modal');
       }
@@ -1388,6 +1376,8 @@ function devtrac7_node_update($node) {
     case 'place':
       module_load_include('inc', 'devtrac7', 'devtrac7_place');
       devtrac7_place_updatedistrict($node);
+      // This is added for instances when the user clicks Edit while on a map
+      // page, he/she should redirected to json output.
       $destination = devtrac7_trim_destination('/\/json\?zoom=[0-9]*/');
       if ($destination) {
         $_GET ['destination'] = $destination['destination'];
@@ -2820,13 +2810,19 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
   }
   $reporttypes = array();
 
+  // Get all reporttypes except Roadside Observation.
   $terms = db_query("SELECT * FROM {taxonomy_term_data} WHERE vid = :vid AND name != :name ORDER BY weight ASC", array(':vid' => $vid, ':name' => 'Roadside Observation'));
   foreach ($terms as $term) {
     $reporttypes[$term->tid] = $term->name;
   }
 
+  // Load all the fieldtrips.
   $nodes = node_load_multiple(NULL, array('type' => "fieldtrip"));
   $fieldtrips = array();
+
+  // Create an array of the form:
+  // $fieldtrips[$nid] = fieldtrip user's realname or username & the fieldtrip
+  // title
   foreach ($nodes as $nid => $node) {
     if ($node->field_fieldtrip_status[$node->language][0]['value'] != 'Approved') {
       $fieldtrip_user = user_load($node->field_fieldtrip_user[$node->language][0]['target_id']);
@@ -2844,6 +2840,7 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
 
   drupal_set_title("Select Site Report Type");
 
+  // save the $location nid in the form for later.
   $form['nid'] = array(
     '#type' => 'hidden',
     '#value' => $place->nid,
@@ -2854,14 +2851,16 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
                                           t("Create the Field Trip to which to add this location: :location.", Array(':location' => $place->title)),
   );
 
+  $rtkeys = array_keys($reporttypes);
   $form['reporttype'] = array(
     '#title' => t('Site Report Type'),
     '#type' => 'radios',
     '#description' => t('Select the type of report you want to create.'),
     '#options' => $reporttypes,
-    '#default_value' => 0,
+    '#default_value' => $rtkeys[0],
   );
 
+  // If there are no fieldtrips, don't show these controls.
   if(!empty($fieldtrips)) {
     $fieldripnids = array_keys($fieldtrips);
     $form['fieldtrip'] = array(
@@ -2880,6 +2879,7 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
     );
   }
 
+  // Additional submit button for adding a fieldtrip on the fly.
   $form['create_fieldtrip'] = array(
     '#type' => 'submit',
     '#value' => t('Create a Field Trip'),
@@ -2894,11 +2894,14 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
  */
 function devtrac7_addftritemform_submit($form, &$form_state) {
   module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+  // This is necessary for instances when the Add Site Report button is clicked
+  // on the locations map page.
   $destination = devtrac7_trim_destination('/\/json\?zoom=[0-9]*/');
   if ($destination) {
     $form_state['redirect'] = $destination['destination'];
     unset($_GET['destination']);
   }
+  // Get message of successful creation of the ftritem or the error.
   $message = devtrac7_ftritem_create($form_state['values']['nid'], $form_state['values']['fieldtrip'], $form_state['values']['reporttype']);
   if (strpos($message, 'Attached location') === 0) {
     drupal_set_message(t($message));
@@ -2925,16 +2928,12 @@ function devtrac7_addfieldtrip_fromlocation($form, &$form_state) {
     'reporttype' => $reporttype,
     'locationnid' => $placenid,
   );
-//  $destination = devtrac7_trim_destination('/\/json\?zoom=[0-9]*/');
-//  if (empty($destination)) {
-//    $destination = drupal_get_destination();
-//  }
+  // Unset the destination and set the form's redirect.
   unset($_GET['destination']);
   $form_state['redirect'] = array(
     'node/add/fieldtrip',
-    array('query' => array($prepopulate)),
+     array('query' => array($prepopulate)),
   );
-//  drupal_goto('node/add/fieldtrip', array('query' => array_merge($destination, $prepopulate)));
 }
 
 /**
@@ -2964,6 +2963,7 @@ function devtrac7_createftritemfromfieldtrip($form, &$form_state) {
  */
 function devtrac7_trim_destination($pattern) {
   $destination = drupal_get_destination();
+  // If the pattern exists, remove it.
   if (preg_match($pattern, $destination['destination'])) {
     $destination['destination'] = preg_replace($pattern, '', $destination['destination']);
     return $destination;
@@ -3005,11 +3005,3 @@ function devtrac7_addftritemform_modal($node, $js = FALSE) {
   print ajax_render($output);
   exit;
 }
-
-//function devtrac7_addftritemformpage($node) {
-//  ctools_include('ajax');
-//  ctools_include('modal');
-//  ctools_modal_add_js();
-//  $output = ctools_modal_text_button(t('Add Site Report Modal'), 'node/' . $node->nid . '/addftritem/ajax/nojs/go', '$alt');
-//  return array('markup' => array('#markup' => $output));
-//}

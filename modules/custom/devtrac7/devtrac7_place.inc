@@ -216,8 +216,8 @@ function devtrac7_place_devtrac7_progress_field_checks_info() {
     ),
     'success_text' => 'At least one site report is available.',
     'fail_text' => 'You have to add at least one site report.',
-    'function' => 'devtrac7_place_addfieldtripcheck',
-    'filename' => 'devtrac7_place.inc',
+    'function' => 'devtrac7_addftritemtolocation_access',
+    'filename' => 'devtrac7.module',
     'required' => TRUE,
     'required_function' => '',
     );
