@@ -118,17 +118,23 @@ function devtrac7_menu() {
     'weight' => 4,
   );
   // Menu item for adding an ftritem from a location.
-  $items['node/%node/addftritem'] = array(
-    'title' => 'Add Site Report',
-    'description' => 'Create a new Site Report',
-    'title callback' => 'check_plain',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('devtrac7_addftritemform',1),
-    'access callback' => 'devtrac7_addftritemtolocation_access',
-    'access arguments' => array(1),
-    'type' => MENU_LOCAL_ACTION,
-    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
-    'weight' => 4,
+//  $items['node/%node/addftritem'] = array(
+//    'title' => 'Add Site Report',
+//    'description' => 'Create a new Site Report',
+//    'title callback' => 'check_plain',
+//    'page callback' => 'drupal_get_form',
+//    'page arguments' => array('devtrac7_addftritemform',1),
+//    'access callback' => 'devtrac7_addftritemtolocation_access',
+//    'access arguments' => array(1),
+//    'type' => MENU_LOCAL_ACTION,
+//    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
+//    'weight' => 4,
+//  );
+  $items['node/%/addftritemform/ajax/%ctools_js/go'] = array(
+    'page callback' => 'devtrac7_addftritemform_modal',
+    'page arguments' => array(1, 4),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
   );
   $items['node/%/%/fieldtripcommentform/ajax/%ctools_js/go'] = array(
     'title callback' => 'devtrac7_fieldtripcommentform_title',
@@ -883,6 +889,10 @@ function devtrac7_menu_local_tasks_alter(&$data, $router_item, $root_path) {
       //   $data['actions']['output'][$key]['#link']['options']['attributes']['class'] = Array('ctools-use-modal');
       //   $data['actions']['output'][$key]['#link']['localized_options']['attributes']['class'] = Array('ctools-use-modal');
       // }
+      if ($data['actions']['output'][$key]['#link']['path'] == 'node/%/addftritem/%ctools_js/go') {
+        $data['actions']['output'][$key]['#link']['options']['attributes']['class'] = Array('ctools-use-modal');
+        $data['actions']['output'][$key]['#link']['localized_options']['attributes']['class'] = Array('ctools-use-modal');
+      }
     }
   }
 }
@@ -2956,3 +2966,46 @@ function devtrac7_trim_destination($pattern) {
   }
   return FALSE;
 }
+
+/**
+ * Modal callback for Add Place to Field Trip form.
+ */
+function devtrac7_addftritemform_modal($node, $js = FALSE) {
+  module_load_include('inc', 'node', 'node.pages');
+  module_load_include('inc', 'node', '');
+  $node = node_load($node);
+  // Fall back if $js is not set.
+  if (!$js) {
+    return drupal_get_form('devtrac7_addftritemform', $node);
+  }
+  ctools_include('modal');
+  ctools_include('ajax');
+  $form_state = array(
+    'title' => t('Add a Location'),
+    'ajax' => TRUE,
+  );
+  $form_state['build_info']['args'] = array($node);
+  $output = ctools_modal_form_wrapper('devtrac7_addftritemform', $form_state);
+  if (!empty($form_state['executed'])) {
+    // We'll just overwrite the form output if it was successful.
+    $output = array();
+    ctools_add_js('ajax-responder');
+    if (isset($form_state['redirect'])) {
+      $output[] = ctools_modal_command_loading();
+      $output[] = ctools_ajax_command_redirect($form_state['redirect'][0], 50, $form_state['redirect'][1]);
+    }
+    else {
+      $output[] = ctools_ajax_command_reload();
+    }
+  }
+  print ajax_render($output);
+  exit;
+}
+
+//function devtrac7_addftritemformpage($node) {
+//  ctools_include('ajax');
+//  ctools_include('modal');
+//  ctools_modal_add_js();
+//  $output = ctools_modal_text_button(t('Add Site Report Modal'), 'node/' . $node->nid . '/addftritem/ajax/nojs/go', '$alt');
+//  return array('markup' => array('#markup' => $output));
+//}

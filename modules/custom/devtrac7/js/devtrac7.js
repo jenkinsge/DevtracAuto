@@ -24,6 +24,14 @@ Drupal.behaviors.initModalFieldTrip = {
   }
 };
 
+Drupal.behaviors.initModalPlace = {
+  attach: function (context, settings) {
+    $("a[href*='addftritemform/ajax//go']", context).once('init-modal-place', function () {
+      this.href = this.href.replace('ajax//','ajax/nojs/');
+    });
+  }
+};
+
 Drupal.behaviors.addPlace = {
 	attach: function (context, settings) {
 	  /** Finder Page
