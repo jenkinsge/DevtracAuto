@@ -2925,12 +2925,16 @@ function devtrac7_addfieldtrip_fromlocation($form, &$form_state) {
     'reporttype' => $reporttype,
     'locationnid' => $placenid,
   );
-  $destination = devtrac7_trim_destination('/\/json\?zoom=[0-9]*/');
-  if (empty($destination)) {
-    $destination = drupal_get_destination();
-  }
+//  $destination = devtrac7_trim_destination('/\/json\?zoom=[0-9]*/');
+//  if (empty($destination)) {
+//    $destination = drupal_get_destination();
+//  }
   unset($_GET['destination']);
-  drupal_goto('node/add/fieldtrip', array('query' => array_merge($destination, $prepopulate)));
+  $form_state['redirect'] = array(
+    'node/add/fieldtrip',
+    array('query' => array($prepopulate)),
+  );
+//  drupal_goto('node/add/fieldtrip', array('query' => array_merge($destination, $prepopulate)));
 }
 
 /**
