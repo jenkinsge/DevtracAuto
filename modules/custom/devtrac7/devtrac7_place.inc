@@ -196,7 +196,32 @@ function devtrac7_place_devtrac7_progress_field_checks_info() {
   $path = explode('/', $fullpath);
   $count = count($path);
   if (($count < 5) || ($path[$count - 5] != 'node') || ($path[$count - 4] != 'add') || ($path[$count - 3] != 'place') || !is_numeric($path[$count - 2]) || !is_numeric($path[$count - 1])) {
-    return array();
+//    return array();
+    $destination = current_path();
+    $progress_checks['devtrac7_place_placesset'] = array(
+    'name' => t('devtrac7_place_placesset'),
+    'label' => t('devtrac7_place_placesset'),
+    'description' => 'Add this location to a Site Report.',
+    'finished_condition' => 'none',
+    'url' => array(
+    'text' => t('Add Site Report'),
+    'path' => 'node/%/addftritemform/ajax/%ctools_js/go',
+    'attributes' => array(),
+    'query' => array(
+    'destination' => $destination,
+    ),
+    'fragment' => '',
+    'contextual' => TRUE,
+    'override' => TRUE,
+    ),
+    'success_text' => 'At least one site report is available.',
+    'fail_text' => 'You have to add at least one site report.',
+    'function' => 'devtrac7_addftritemtolocation_access',
+    'filename' => 'devtrac7.module',
+    'required' => TRUE,
+    'required_function' => '',
+    );
+    return $progress_checks;
   }
   $fieldtrip = node_load($path[$count - 2]);
   if ($fieldtrip->type == 'fieldtrip') {
@@ -233,4 +258,8 @@ function devtrac7_place_devtrac7_progress_field_checks_info() {
     'required_function' => '',
   );
   return $progress_checks;
+}
+
+function devtrac7_place_addfieldtripcheck() {
+  return TRUE;
 }
