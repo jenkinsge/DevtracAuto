@@ -4461,8 +4461,8 @@ The \'Search Address\' box will only help you to do an initial search on a rough
         'label' => 'hidden',
         'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_location_type_icon',
-        'weight' => 1,
+        'type' => 'taxonomy_labeled_location_type_icon',
+        'weight' => 5,
       ),
       'mobile' => array(
         'label' => 'above',
@@ -4529,7 +4529,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
         'weight' => 2,
       ),
       'map_popup_view_mode' => array(
-        'label' => 'inline',
+        'label' => 'hidden',
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',

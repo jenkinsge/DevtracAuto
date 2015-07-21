@@ -553,6 +553,8 @@ echo 'Renaming place to location'
 
  mv ../modules/custom/devtrac7/devtrac7_place.inc ../modules/custom/devtrac7/devtrac7_location.inc
 
+ mv ../themes/devtrac_classic/images/summary-icon-placetype.png ../themes/devtrac_classic/images/summary-icon-locationtype.png
+
 echo 'Renaming Devtrac Site Visit Answers block'
  grep -rl 'devtrac_sitevisit_answer_subjects' ../modules --exclude-dir=../modules/contrib | xargs sed -i 's/devtrac_sitevisit_answer_subjects/devtrac_sitevisit_answer_sectors/g'
  grep -rl 'devtrac_sitevisit_answer_subjects' ../test | xargs sed -i 's/devtrac_sitevisit_answer_subjects/devtrac_sitevisit_answer_sectors/g'

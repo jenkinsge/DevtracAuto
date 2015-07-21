@@ -2982,6 +2982,7 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'name' => 'view taxonomy_vocabulary_6',
     'roles' => array(
       'administrator' => 'administrator',
+      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'field worker' => 'field worker',
     ),
