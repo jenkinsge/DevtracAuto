@@ -34,6 +34,9 @@ function devtrac7_taxonomy_feature_strongarm() {
       'location_type_icon' => array(
         'custom_settings' => TRUE,
       ),
+      'labeled_location_type_icon' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -55,6 +58,10 @@ function devtrac7_taxonomy_feature_strongarm() {
           ),
           'location_type_icon' => array(
             'weight' => '2',
+            'visible' => FALSE,
+          ),
+          'labeled_location_type_icon' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),

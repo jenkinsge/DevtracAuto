@@ -581,6 +581,18 @@ div#region-content.grid-4.region.region-content div.region-inner.region-content-
   background-image: url(../images/summary-icon-priority.png);
 }
 
+.field-name-field-place-responsible-person .field-items {
+  text-indent: 10px;
+}
+
+.field-name-field-place-responsible-person .field-label {
+  background-image: url(../images/person.svg);
+  background-size: 16px 16px;
+  background-color: #aaa;
+  border-radius: 10px;
+  background-position: 2px;
+}
+
 .vocabulary-vocabulary-8 ,
 .field-name-taxonomy-vocabulary-8 .field-item {
   display: inline-block;
@@ -2358,6 +2370,15 @@ div.olControlAttribution a:link {
 
 .olMapViewport .olControlMaptext .field {
   padding: 5px 10px;
+}
+
+.view-mode-labeled_location_type_icon .field-name-field-term-icon{
+  float: left;
+}
+
+.view-mode-labeled_location_type_icon{
+  background-color: #aaa;
+  padding:10px;
 }
 
 .olMapViewport .olControlMaptext .block-pane .block-inner {

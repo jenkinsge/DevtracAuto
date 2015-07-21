@@ -26,6 +26,16 @@ function devtrac7_taxonomy_feature_field_default_field_instances() {
         'type' => 'image',
         'weight' => 0,
       ),
+      'labeled_location_type_icon' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => 'content',
+          'image_style' => 'map_icon',
+        ),
+        'type' => 'image',
+        'weight' => 0,
+      ),
       'location_type_icon' => array(
         'label' => 'hidden',
         'module' => 'image',

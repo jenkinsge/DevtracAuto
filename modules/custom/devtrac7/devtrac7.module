@@ -3005,3 +3005,18 @@ function devtrac7_addftritemform_modal($node, $js = FALSE) {
   print ajax_render($output);
   exit;
 }
+
+/**
+ * Implements hook__entity_view_alter().
+ *
+ * Force the taxonomy term description fields to trim their text to 600
+ * characters before they are diisplayed.
+ * This is done here because desription is a property of the taxonomy term
+ * entity.
+ */
+function devtrac7_entity_view_alter(&$build, $type) {
+  if ($type == 'taxonomy_term' && $build ['#view_mode'] == 'map_popup_view_mode' && isset($build ['description'])) {
+    // Change its markup.
+    $build ['description']['#markup'] = text_summary($build ['description']['#markup'], $format = 'filtered_html', $size = 600);
+  }
+}
