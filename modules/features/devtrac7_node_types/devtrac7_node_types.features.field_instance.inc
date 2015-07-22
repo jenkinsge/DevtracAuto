@@ -201,7 +201,7 @@ function devtrac7_node_types_field_default_field_instances() {
     'description' => 'Indicate the mailing address of the contact person. This may be a street address or a P.O. Box. You can add more than one mailing address by pressing the \'Add another mailing address\' button below.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -2205,7 +2205,7 @@ function devtrac7_node_types_field_default_field_instances() {
         'weight' => 5,
       ),
       'map_popup_view_mode' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -2215,7 +2215,7 @@ function devtrac7_node_types_field_default_field_instances() {
           'multiple_to' => '',
         ),
         'type' => 'date_default',
-        'weight' => 2,
+        'weight' => 1,
       ),
       'mobile' => array(
         'label' => 'inline',
@@ -2433,7 +2433,7 @@ function devtrac7_node_types_field_default_field_instances() {
           'image_style' => 'map-pop-image',
         ),
         'type' => 'image',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'rss' => array(
         'label' => 'hidden',
@@ -2793,9 +2793,11 @@ function devtrac7_node_types_field_default_field_instances() {
       'map_popup_view_mode' => array(
         'label' => 'hidden',
         'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_plain',
-        'weight' => 3,
+        'settings' => array(
+          'trim_length' => 300,
+        ),
+        'type' => 'text_trimmed',
+        'weight' => 2,
       ),
       'rss' => array(
         'label' => 'above',
@@ -4012,7 +4014,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
         'weight' => 4,
       ),
       'map_popup_view_mode' => array(
-        'label' => 'hidden',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -4452,9 +4454,9 @@ The \'Search Address\' box will only help you to do an initial search on a rough
       ),
       'full' => array(
         'label' => 'inline',
-        'module' => 'taxonomy',
+        'module' => 'ds',
         'settings' => array(),
-        'type' => 'taxonomy_term_reference_link',
+        'type' => 'taxonomy_location_type_icon',
         'weight' => 1,
       ),
       'map_popup_view_mode' => array(

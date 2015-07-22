@@ -581,16 +581,48 @@ div#region-content.grid-4.region.region-content div.region-inner.region-content-
   background-image: url(../images/summary-icon-priority.png);
 }
 
-.field-name-field-place-responsible-person .field-items {
+.field-name-field-place-responsible-person .field-items,
+.field-name-field-contact-person-name .field-items,
+.field-name-field-contact-telephone .field-items,
+.field-name-field-contact-email .field-items,
+.field-name-field-contact-organisation .field-items,
+.field-name-field-contact-mailing-address .field-items{
   text-indent: 10px;
 }
 
-.field-name-field-place-responsible-person .field-label {
+.field-name-field-place-responsible-person .field-label{
   background-image: url(../images/person.svg);
   background-size: 16px 16px;
   background-color: #aaa;
   border-radius: 10px;
   background-position: 2px;
+}
+
+.field-name-field-contact-person-name .field-label  {
+  background-image: url(../images/person.svg);
+  background-size: 16px 16px;
+}
+
+.field-name-field-contact-email .field-label {
+  background-image: url(../images/envelope-closed.svg);
+  background-size: 16px 16px;
+}
+
+.field-name-field-contact-telephone .field-label {
+  background-image: url(../images/phone.svg);
+  background-size: 16px 16px;
+}
+
+
+.field-name-field-contact-organisation .field-label {
+  background-image: url(../images/people.svg);
+  background-size: 16px 16px;
+}
+
+
+.field-name-field-contact-mailing-address .field-label {
+  background-image: url(../images/info.svg);
+  background-size: 16px 16px;
 }
 
 .vocabulary-vocabulary-8 ,
