@@ -11,6 +11,152 @@ function devtrac7_views_feature_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'contact_person';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'field_collection_item';
+  $view->human_name = 'Contact Person';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Contact Person';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['pager']['type'] = 'full';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '10';
+  $handler->display->display_options['style_plugin'] = 'footable';
+  $handler->display->display_options['style_options']['columns'] = array(
+    'field_contact_organisation' => 'field_contact_organisation',
+    'field_contact_person_name' => 'field_contact_person_name',
+    'field_contact_telephone' => 'field_contact_telephone',
+    'field_contact_email' => 'field_contact_email',
+    'field_contact_mailing_address' => 'field_contact_mailing_address',
+    'virtual_field' => 'virtual_field',
+  );
+  $handler->display->display_options['style_options']['default'] = '-1';
+  $handler->display->display_options['style_options']['info'] = array(
+    'field_contact_organisation' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_contact_person_name' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_contact_telephone' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_contact_email' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_contact_mailing_address' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'virtual_field' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['footable'] = array(
+    'expand' => 'field_contact_organisation',
+    'icon' => '',
+    'icon_size' => '',
+    'hide' => array(
+      'field_contact_organisation' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_contact_person_name' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_contact_telephone' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+      'field_contact_email' => array(
+        'phone' => 'phone',
+        'tablet' => 'tablet',
+      ),
+      'field_contact_mailing_address' => array(
+        'phone' => 'phone',
+        'tablet' => 'tablet',
+      ),
+      'virtual_field' => array(
+        'phone' => 0,
+        'tablet' => 0,
+      ),
+    ),
+  );
+  /* Relationship: Field collection item: Entity with the Contact Persons (field_place_contact_info) */
+  $handler->display->display_options['relationships']['field_place_contact_info_node']['id'] = 'field_place_contact_info_node';
+  $handler->display->display_options['relationships']['field_place_contact_info_node']['table'] = 'field_collection_item';
+  $handler->display->display_options['relationships']['field_place_contact_info_node']['field'] = 'field_place_contact_info_node';
+  /* Field: Field collection item: Organisation */
+  $handler->display->display_options['fields']['field_contact_organisation']['id'] = 'field_contact_organisation';
+  $handler->display->display_options['fields']['field_contact_organisation']['table'] = 'field_data_field_contact_organisation';
+  $handler->display->display_options['fields']['field_contact_organisation']['field'] = 'field_contact_organisation';
+  /* Field: Field collection item: Person Name */
+  $handler->display->display_options['fields']['field_contact_person_name']['id'] = 'field_contact_person_name';
+  $handler->display->display_options['fields']['field_contact_person_name']['table'] = 'field_data_field_contact_person_name';
+  $handler->display->display_options['fields']['field_contact_person_name']['field'] = 'field_contact_person_name';
+  /* Field: Field collection item: Telephone */
+  $handler->display->display_options['fields']['field_contact_telephone']['id'] = 'field_contact_telephone';
+  $handler->display->display_options['fields']['field_contact_telephone']['table'] = 'field_data_field_contact_telephone';
+  $handler->display->display_options['fields']['field_contact_telephone']['field'] = 'field_contact_telephone';
+  $handler->display->display_options['fields']['field_contact_telephone']['delta_offset'] = '0';
+  /* Field: Field collection item: Email */
+  $handler->display->display_options['fields']['field_contact_email']['id'] = 'field_contact_email';
+  $handler->display->display_options['fields']['field_contact_email']['table'] = 'field_data_field_contact_email';
+  $handler->display->display_options['fields']['field_contact_email']['field'] = 'field_contact_email';
+  $handler->display->display_options['fields']['field_contact_email']['delta_offset'] = '0';
+  /* Field: Field collection item: Mailing Address */
+  $handler->display->display_options['fields']['field_contact_mailing_address']['id'] = 'field_contact_mailing_address';
+  $handler->display->display_options['fields']['field_contact_mailing_address']['table'] = 'field_data_field_contact_mailing_address';
+  $handler->display->display_options['fields']['field_contact_mailing_address']['field'] = 'field_contact_mailing_address';
+  $handler->display->display_options['fields']['field_contact_mailing_address']['delta_offset'] = '0';
+  /* Field: Virtual Field: virtual_field */
+  $handler->display->display_options['fields']['virtual_field']['id'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field']['table'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field']['field'] = 'virtual_field';
+  $handler->display->display_options['fields']['virtual_field']['label'] = '';
+  $handler->display->display_options['fields']['virtual_field']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['virtual_field']['virtual_field'] = 'field_fieldtrip_button';
+  /* Contextual filter: Content: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['relationship'] = 'field_place_contact_info_node';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $export['contact_person'] = $view;
+
+  $view = new view();
   $view->name = 'devtrac_media_browser_extensions';
   $view->description = 'View that implements extra media browser tabs.';
   $view->tag = 'default';
@@ -685,21 +831,21 @@ function devtrac7_views_feature_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Contact Persons */
-  $handler->display->display_options['fields']['field_place_contact_info']['id'] = 'field_place_contact_info';
-  $handler->display->display_options['fields']['field_place_contact_info']['table'] = 'field_data_field_place_contact_info';
-  $handler->display->display_options['fields']['field_place_contact_info']['field'] = 'field_place_contact_info';
-  $handler->display->display_options['fields']['field_place_contact_info']['label'] = '';
-  $handler->display->display_options['fields']['field_place_contact_info']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_place_contact_info']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_place_contact_info']['settings'] = array(
-    'edit' => 'Edit',
-    'delete' => 'Delete',
-    'add' => 'Add',
-    'description' => 1,
-    'view_mode' => 'full',
-  );
-  $handler->display->display_options['fields']['field_place_contact_info']['delta_offset'] = '0';
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view']['id'] = 'view';
+  $handler->display->display_options['fields']['view']['table'] = 'views';
+  $handler->display->display_options['fields']['view']['field'] = 'view';
+  $handler->display->display_options['fields']['view']['label'] = '';
+  $handler->display->display_options['fields']['view']['view'] = 'contact_person';
+  $handler->display->display_options['fields']['view']['display'] = 'page';
+  $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';

@@ -221,6 +221,27 @@ function devtrac7_place_devtrac7_progress_field_checks_info() {
     'required' => TRUE,
     'required_function' => '',
     );
+    $progress_checks['devtrac7_place_contact_details_set'] = array(
+    'name' => t('devtrac7_place_contact_details_set'),
+    'label' => t('devtrac7_place_contact_details_set'),
+    'description' => 'Add New Contact Details to this Location.',
+    'finished_condition' => 'none',
+    'url' => array(
+    'text' => t('Add New Contact'),
+    'path' => 'modal/field-collection/field_place_contact_info/%/add/0/%ctools_js/go',
+    'attributes' => array(),
+    'query' => array(),
+    'fragment' => '',
+    'contextual' => TRUE,
+    'override' => TRUE,
+    ),
+    'success_text' => 'At least one contact is available.',
+    'fail_text' => 'You have to add at least one contact.',
+    'function' => 'devtrac7_place_contact_details_setcheck',
+    'filename' => 'devtrac7_place.inc',
+    'required' => TRUE,
+    'required_function' => '',
+    );
     return $progress_checks;
   }
   $fieldtrip = node_load($path[$count - 2]);
@@ -263,3 +284,8 @@ function devtrac7_place_devtrac7_progress_field_checks_info() {
 function devtrac7_place_addfieldtripcheck() {
   return TRUE;
 }
+
+function devtrac7_place_contact_details_setcheck() {
+  return TRUE;
+}
+

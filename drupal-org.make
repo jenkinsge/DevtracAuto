@@ -518,7 +518,7 @@ projects[views_rss_georss][subdir] = "contrib"
 projects[virtual_field][version] = "1.2"
 projects[virtual_field][type] = "module"
 projects[virtual_field][subdir] = "contrib"
-projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_field_views_support_1506376_11.patch"
+projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_field_views_support_1506376_13.patch"
 
 projects[addressfield][version] = "1.1"
 projects[addressfield][type] = "module"

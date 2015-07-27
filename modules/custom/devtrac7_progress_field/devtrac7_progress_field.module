@@ -18,7 +18,7 @@ function devtrac7_progress_field_field_info() {
       'default_widget' => 'hidden',
       'default_formatter' => 'devtrac7_progress_field_field_formatter',
       'virtual_field' => array(
-        'entity_types' => array('node', 'user'),
+        'entity_types' => array('node', 'user', 'field_collection_item'),
         'add_widget' => TRUE,
       ),
     ),
@@ -95,6 +95,12 @@ function devtrac7_progress_field_field_load($entity_type, $entities, $field, $in
         $items[$entity->uid] = array('dummy');
       }
   	}
+    if ($entity_type == 'field_collection_item') {
+      if (isset($entity->item_id)) {
+       // Just put some arbitrary value in the field.
+        $items[$entity->item_id] = array('dummy');
+      }
+    }
   }
   return;
 }
@@ -386,6 +392,9 @@ function devtrac7_progress_field_field_formatter_view($entity_type, $entity, $fi
             if ($entity_type == 'user') {
               $entity = entity_load_single($entity_type, $entity->uid);
             }
+            if ($entity_type == 'field_collection_item') {
+              $entity = entity_load_single($entity_type, $entity->item_id);
+            }
             $function = $link['check']['url']['override_function'];
             $override = $function($entity);
           }
@@ -532,7 +541,7 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
   $items = array();
   $items['links'] = array();
   $entity = entity_load_single($entity_type, $entity_id);
-  if (!in_array($entity_type, array('node', 'user'))) {
+  if (!in_array($entity_type, array('node', 'user', 'field_collection_item'))) {
   	// Bail out if the entity is neither a node nor a user
     return $items;
   }
@@ -561,7 +570,7 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
   }
 
   if ($level == 0) {
-    // Add al standard contextual links of the entity to the progress field
+    // Add all standard contextual links of the entity to the progress field
     $menus = menu_contextual_links('devtrac7_progress_field', $entity_type, array($entity_id));
     $destination = devtrac7_progress_field_getdestination();
     foreach ($menus as $key => $menu) {
@@ -612,6 +621,16 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
       return $items;
     }
   }
+  elseif ($entity_type == 'field_collection_item') {
+    if (in_array('field_collection_item', array_keys($allchecks))) {
+      $checks = $allchecks['field_collection_item'];
+    }
+    else {
+      // The field_collection_item entity does not implement progress.
+      // So bail out now.
+      return $items;
+    }
+  }
   else {
   	// Entity type is not supported by progress_field module.
   	return $items;
@@ -654,6 +673,10 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
           }
         }
         if ($entity_type == 'user') {
+          // Add the link to the start of the array so it shows first/on top.
+          devtrac7_progress_field_addlink($entity_type, $entity_id, $level, $checks[$key], $items);
+        }
+        if ($entity_type == 'field_collection_item') {
           // Add the link to the start of the array so it shows first/on top.
           devtrac7_progress_field_addlink($entity_type, $entity_id, $level, $checks[$key], $items);
         }
@@ -720,6 +743,18 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
         // Add the link to the start of the array so it shows first/on top.
         devtrac7_progress_field_addlink($entity_type, $entity_id, $level, $checks[$key], $items, 'start');
       }
+      if (($entity_type == 'field_collection_item') && ($field_collection_item->item_id == $entity->item_id)) {
+        // Add the link to the start of the array so it shows first/on top.
+        devtrac7_progress_field_addlink($entity_type, $entity_id, $level, $checks[$key], $items, 'start');
+      }
+    }
+  }
+  // Make sure Delete is the last link in the links list.
+  foreach ($items['links'] as $key => $link) {
+    if (strpos($key, 'devtrac7_progress_field-delete') !== FALSE) {
+      $l = $items['links'][$key];
+      unset($items['links'][$key]);
+      $items['links'][$key] = $l;
     }
   }
   return $items;
@@ -750,7 +785,19 @@ function devtrac7_progress_field_addlink($entity_type, $entity_id, $level, &$che
     $href = str_replace('%ctools_js', '', $check['url']['path']);
     $check['url']['attributes']['class'][] = 'ctools-use-modal';
   }
-  $href = str_replace('%', $entity_id, $href);
+  $entity = entity_load_single($entity_type, $entity_id);
+  // Field Collection Item Urls are different so we need to do some extra
+  // replacements.
+  if ($entity_type == 'field_collection_item') {
+    $href = explode('/', $href);
+    $href[2] = str_replace('_', '-', $entity->field_name);
+    $href[5] = $entity_id;
+    $href = implode('/', $href);
+  }
+  else {
+    $href = str_replace('%', $entity_id, $href);
+  }
+
   // Add some classes to the links so they can be styled properly.
   $check['url']['attributes']['class'][] = 'devtrac7-progress-field-level-' . $level;
   if ($check['finished']) {
@@ -794,7 +841,7 @@ function devtrac7_progress_field_addlink($entity_type, $entity_id, $level, &$che
       'level' => $level,
     ),
   );
-  if ($mode = 'start') {
+  if ($mode == 'start') {
     // Add the link at the start of the array.
     $links = array_merge($link, $items['links']);
   }

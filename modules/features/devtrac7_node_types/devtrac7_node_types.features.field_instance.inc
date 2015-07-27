@@ -339,6 +339,50 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'field_collection_item-field_place_contact_info-field_contact_telephone'
+  $field_instances['field_collection_item-field_place_contact_info-field_fieldtrip_button'] = array(
+    'bundle' => 'field_place_contact_info',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'devtrac7_progress_field',
+        'settings' => array(),
+        'type' => 'devtrac7_progress_field_field_formatter',
+        'weight' => 2,
+      ),
+      'full' => array(
+        'label' => 'hidden',
+        'module' => 'devtrac7_progress_field',
+        'settings' => array(),
+        'type' => 'devtrac7_progress_field_field_formatter',
+        'weight' => 1,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_fieldtrip_button',
+    'label' => 'Button',
+    'required' => FALSE,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'virtual_field',
+      'settings' => array(),
+      'type' => 'hidden',
+      'weight' => 11,
+    ),
+  );
+
   // Exported field_instance: 'node-actionitem-field_action_items_tags'
   $field_instances['node-actionitem-field_action_items_tags'] = array(
     'bundle' => 'actionitem',

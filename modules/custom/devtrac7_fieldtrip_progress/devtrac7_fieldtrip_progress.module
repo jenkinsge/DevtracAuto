@@ -326,6 +326,7 @@ function devtrac7_fieldtrip_progress_devtrac7_progress_field_checks_info() {
   module_load_include('inc', 'devtrac7', 'devtrac7_organisation');
   module_load_include('inc', 'devtrac7', 'devtrac7_place');
   module_load_include('inc', 'devtrac7', 'devtrac7_user');
+  module_load_include('inc', 'devtrac7', 'devtrac7_field_collection_item');
   $links = array(
     'actionitem' => devtrac7_actionitem_devtrac7_progress_field_checks_info(),
     'ftritem' => devtrac7_ftritem_devtrac7_progress_field_checks_info(),
@@ -334,6 +335,7 @@ function devtrac7_fieldtrip_progress_devtrac7_progress_field_checks_info() {
     'organisation' => devtrac7_organisation_devtrac7_progress_field_checks_info(),
     'place' => devtrac7_place_devtrac7_progress_field_checks_info(),
     'user' => devtrac7_user_devtrac7_progress_field_checks_info(),
+    'field_collection_item' => devtrac7_field_collection_item_devtrac7_progress_field_checks_info(),
   );
   return $links;
 }

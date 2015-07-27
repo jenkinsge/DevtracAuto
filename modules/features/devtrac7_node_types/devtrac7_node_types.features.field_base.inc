@@ -606,6 +606,7 @@ function devtrac7_node_types_field_default_field_bases() {
     'entity_types' => array(
       0 => 'node',
       1 => 'user',
+      2 => 'field_collection_item',
     ),
     'field_name' => 'field_fieldtrip_button',
     'field_permissions' => array(

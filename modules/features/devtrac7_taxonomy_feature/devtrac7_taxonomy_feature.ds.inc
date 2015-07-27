@@ -12,6 +12,26 @@ function devtrac7_taxonomy_feature_ds_field_settings_info() {
 
   $ds_fieldsetting = new stdClass();
   $ds_fieldsetting->api_version = 1;
+  $ds_fieldsetting->id = 'taxonomy_term|vocabulary_1|labeled_location_type_icon';
+  $ds_fieldsetting->entity_type = 'taxonomy_term';
+  $ds_fieldsetting->bundle = 'vocabulary_1';
+  $ds_fieldsetting->view_mode = 'labeled_location_type_icon';
+  $ds_fieldsetting->settings = array(
+    'title' => array(
+      'weight' => '1',
+      'label' => 'hidden',
+      'format' => 'default',
+      'formatter_settings' => array(
+        'link' => '0',
+        'wrapper' => '',
+        'class' => '',
+      ),
+    ),
+  );
+  $export['taxonomy_term|vocabulary_1|labeled_location_type_icon'] = $ds_fieldsetting;
+
+  $ds_fieldsetting = new stdClass();
+  $ds_fieldsetting->api_version = 1;
   $ds_fieldsetting->id = 'taxonomy_term|vocabulary_6|full';
   $ds_fieldsetting->entity_type = 'taxonomy_term';
   $ds_fieldsetting->bundle = 'vocabulary_6';
@@ -60,26 +80,6 @@ function devtrac7_taxonomy_feature_ds_field_settings_info() {
   );
   $export['taxonomy_term|vocabulary_6|map_popup_view_mode'] = $ds_fieldsetting;
 
-  $ds_fieldsetting = new stdClass();
-  $ds_fieldsetting->api_version = 1;
-  $ds_fieldsetting->id = 'taxonomy_term|location_type|labeled_location_type_icon';
-  $ds_fieldsetting->entity_type = 'taxonomy_term';
-  $ds_fieldsetting->bundle = 'location_type';
-  $ds_fieldsetting->view_mode = 'labeled_location_type_icon';
-  $ds_fieldsetting->settings = array(
-    'title' => array(
-      'weight' => '1',
-      'label' => 'hidden',
-      'format' => 'default',
-      'formatter_settings' => array(
-        'link' => '0',
-        'wrapper' => '',
-        'class' => '',
-      ),
-    ),
-  );
-  $export['taxonomy_term|location_type|labeled_location_type_icon'] = $ds_fieldsetting;
-
   return $export;
 }
 
@@ -113,31 +113,7 @@ function devtrac7_taxonomy_feature_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
-  $ds_layout->id = 'taxonomy_term|vocabulary_1|location_type_icon';
-  $ds_layout->entity_type = 'taxonomy_term';
-  $ds_layout->bundle = 'vocabulary_1';
-  $ds_layout->view_mode = 'location_type_icon';
-  $ds_layout->layout = 'ds_1col';
-  $ds_layout->settings = array(
-    'hide_empty_regions' => 0,
-    'hide_sidebars' => 0,
-    'regions' => array(
-      'ds_content' => array(
-        0 => 'field_term_icon',
-      ),
-    ),
-    'fields' => array(
-      'field_term_icon' => 'ds_content',
-    ),
-    'classes' => array(),
-    'wrappers' => array(),
-    'layout_wrapper' => 'div',
-  );
-  $export['taxonomy_term|vocabulary_1|location_type_icon'] = $ds_layout;
-
-  $ds_layout = new stdClass();
-  $ds_layout->api_version = 1;
-  $ds_layout->id = 'taxonomy_term|location_type|labeled_location_type_icon';
+  $ds_layout->id = 'taxonomy_term|vocabulary_1|labeled_location_type_icon';
   $ds_layout->entity_type = 'taxonomy_term';
   $ds_layout->bundle = 'vocabulary_1';
   $ds_layout->view_mode = 'labeled_location_type_icon';
@@ -161,7 +137,31 @@ function devtrac7_taxonomy_feature_ds_layout_settings_info() {
       ),
     ),
   );
-  $export['taxonomy_term|location_type|labeled_location_type_icon'] = $ds_layout;
+  $export['taxonomy_term|vocabulary_1|labeled_location_type_icon'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'taxonomy_term|vocabulary_1|location_type_icon';
+  $ds_layout->entity_type = 'taxonomy_term';
+  $ds_layout->bundle = 'vocabulary_1';
+  $ds_layout->view_mode = 'location_type_icon';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'hide_empty_regions' => 0,
+    'hide_sidebars' => 0,
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_term_icon',
+      ),
+    ),
+    'fields' => array(
+      'field_term_icon' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(),
+    'layout_wrapper' => 'div',
+  );
+  $export['taxonomy_term|vocabulary_1|location_type_icon'] = $ds_layout;
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
