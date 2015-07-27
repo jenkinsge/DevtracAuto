@@ -32,6 +32,14 @@ Drupal.behaviors.initModalPlace = {
   }
 };
 
+Drupal.behaviors.initModalFieldCollectionItem = {
+  attach: function (context, settings) {
+    $("a[href*='modal/field-collection']", context).once('init-modal-field_collection-item', function () {
+      this.href = this.href.replace('//go','/nojs/go');
+    });
+  }
+};
+
 Drupal.behaviors.addPlace = {
 	attach: function (context, settings) {
 	  /** Finder Page

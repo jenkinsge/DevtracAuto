@@ -12,5 +12,6 @@ files[] = devtrac7_actionitem.inc
 files[] = devtrac7_activity.inc
 files[] = devtrac7_organisation.inc
 files[] = devtrac7_user.inc
+files[] = devtrac7_field_collection_item.inc
 
 scripts[] = js/devtrac7.js

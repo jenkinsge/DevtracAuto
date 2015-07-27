@@ -1252,8 +1252,10 @@ function devtrac7_field_collection_item_access($op, $item, $node) {
   $result = field_collection_item_access($op, $item);
   $result = $result && ($node->uid == $user->uid);
   $result = $result && node_access('update', $node);
-  $result = $result && isset($node->field_fieldtrip_status[$node->language][0]['value']);
-  $result = $result && ($node->field_fieldtrip_status[$node->language][0]['value'] == 'In Progress');
+  if ($node->type == 'fieldtrip') {
+    $result = $result && isset($node->field_fieldtrip_status[$node->language][0]['value']);
+    $result = $result && ($node->field_fieldtrip_status[$node->language][0]['value'] == 'In Progress');
+  }
   return $result;
 }
 

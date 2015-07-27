@@ -423,6 +423,10 @@ echo 'Renaming place to location'
  grep -rl 'field_place_responsible_person' ../test  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
  grep -rl 'field_place_responsible_person' ../themes  | xargs sed -i 's/field_place_responsible_person/field_locat_responsible_person/g'
 
+ grep -rl 'field-place-responsible-person' ../modules | xargs sed -i 's/field-place-responsible-person/field-locat-responsible-person/g'
+ grep -rl 'field-place-responsible-person' ../test  | xargs sed -i 's/field-place-responsible-person/field-locat-responsible-person/g'
+ grep -rl 'field-place-responsible-person' ../themes  | xargs sed -i 's/field-place-responsible-person/field-locat-responsible-person/g'
+
  grep -rl 'devtrac_sitereports_graphs_place' ../modules | xargs sed -i 's/devtrac_sitereports_graphs_place/devtrac_sitereports_graphs_locat/g'
  grep -rl 'devtrac_sitereports_graphs_place' ../test  | xargs sed -i 's/devtrac_sitereports_graphs_place/devtrac_sitereports_graphs_locat/g'
  grep -rl 'devtrac_sitereports_graphs_place' ../themes  | xargs sed -i 's/devtrac_sitereports_graphs_place/devtrac_sitereports_graphs_locat/g'
