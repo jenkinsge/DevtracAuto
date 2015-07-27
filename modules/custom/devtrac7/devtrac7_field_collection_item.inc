@@ -27,28 +27,8 @@ function devtrac7_field_collection_item_devtrac7_progress_field_checks_info() {
     return array();
   }
   $nid = $path[1];
-  $progress_checks['devtrac7_field_collection_items_delete'] = array(
-    'name' => t('devtrac7_field_collection_items_delete'),
-    'label' => t('devtrac7_field_collection_items_delete'),
-    'description' => 'Delete Contact Details.',
-    'finished_condition' => 'none',
-    'url' => array(
-      'text' => t('Delete Contact'),
-      'path' => 'modal/field-collection/%/' . $nid . '/delete/%/%ctools_js/go',
-      'attributes' => array(),
-      'query' => array(
-      ),
-      'fragment' => '',
-      'contextual' => TRUE,
-      'override' => TRUE,
-    ),
-    'success_text' => 'At least one site report is available.',
-    'fail_text' => 'You have to add at least one site report.',
-    'function' => 'devtrac7_field_collection_items_delete_check',
-    'filename' => 'devtrac7_field_collection_item.inc',
-    'required' => TRUE,
-    'required_function' => '',
-  );
+  // At the moment we're only using this for the contacts field collection on a
+  // location.
   $progress_checks['devtrac7_field_collection_item_edit'] = array(
     'name' => t('devtrac7_field_collection_item_edit'),
     'label' => t('devtrac7_field_collection_item_edit'),
@@ -64,9 +44,31 @@ function devtrac7_field_collection_item_devtrac7_progress_field_checks_info() {
       'contextual' => TRUE,
       'override' => TRUE,
     ),
-    'success_text' => 'At least one site report is available.',
-    'fail_text' => 'You have to add at least one site report.',
+    'success_text' => 'Contact Edited',
+    'fail_text' => 'Could not edit contact.',
     'function' => 'devtrac7_field_collection_item_edit_check',
+    'filename' => 'devtrac7_field_collection_item.inc',
+    'required' => TRUE,
+    'required_function' => '',
+  );
+  $progress_checks['devtrac7_field_collection_items_delete'] = array(
+    'name' => t('devtrac7_field_collection_items_delete'),
+    'label' => t('devtrac7_field_collection_items_delete'),
+    'description' => 'Delete Contact Details.',
+    'finished_condition' => 'none',
+    'url' => array(
+      'text' => t('Delete Contact'),
+      'path' => 'modal/field-collection/%/' . $nid . '/delete/%/%ctools_js/go',
+      'attributes' => array(),
+      'query' => array(
+      ),
+      'fragment' => '',
+      'contextual' => TRUE,
+      'override' => TRUE,
+    ),
+    'success_text' => 'Contact Deleted.',
+    'fail_text' => 'Could not delete contact.',
+    'function' => 'devtrac7_field_collection_items_delete_check',
     'filename' => 'devtrac7_field_collection_item.inc',
     'required' => TRUE,
     'required_function' => '',

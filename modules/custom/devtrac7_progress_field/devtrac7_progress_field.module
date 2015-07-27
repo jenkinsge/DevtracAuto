@@ -570,7 +570,7 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
   }
 
   if ($level == 0) {
-    // Add al standard contextual links of the entity to the progress field
+    // Add all standard contextual links of the entity to the progress field
     $menus = menu_contextual_links('devtrac7_progress_field', $entity_type, array($entity_id));
     $destination = devtrac7_progress_field_getdestination();
     foreach ($menus as $key => $menu) {
@@ -749,6 +749,14 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
       }
     }
   }
+  // Make sure Delete is the last link in the links list.
+  foreach ($items['links'] as $key => $link) {
+    if (strpos($key, 'devtrac7_progress_field-delete') !== FALSE) {
+      $l = $items['links'][$key];
+      unset($items['links'][$key]);
+      $items['links'][$key] = $l;
+    }
+  }
   return $items;
 }
 
@@ -833,7 +841,7 @@ function devtrac7_progress_field_addlink($entity_type, $entity_id, $level, &$che
       'level' => $level,
     ),
   );
-  if ($mode = 'start') {
+  if ($mode == 'start') {
     // Add the link at the start of the array.
     $links = array_merge($link, $items['links']);
   }

@@ -3142,6 +3142,11 @@ td.delta-order select.form-select {
   margin-right: 40px;
 }
 
+table#field-contact-mailing-address-values label,
+table#field-contact-email-values label,
+table#field-contact-telephone-values label {
+  padding-left: 20px;
+}
 /*=======================================================================================*/
 
 .collapsible .fieldset-wrapper table.field-multiple-table tbody .form-wrapper tr.draggable td .form-item {

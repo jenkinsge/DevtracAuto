@@ -1097,33 +1097,9 @@ function devtrac7_modal_operator_callback($field_name, $nid, $operator, $id = 0,
 
     //If the form is executed will need to dismiss the form and reload the page
     if ($form_state['executed']) {
-      $commands = array();
-
-      //Load the new output
-      $node = node_load($nid, NULL, false);
-      //Render the newly saved field collection set
-      //Here is how to render a single field:http://dominiquedecooman.com/blog/drupal-7-tip-theming-render-only-single-field-your-entities
-//      $field_to_render = field_view_field('node', $node, str_replace('-', '_', $field_name), 'full');
-      // Make field_collection_table_view the formatter to use.
-      // TODO: It is neater to select the display from the field instance configuration settings.
-      $display = array(
-        'label' => 'hidden',
-        'type' => 'field_collection_table_view',
-        'settings' => array(),
-        'weight' => 0,
-      );
-      $field_to_render = field_view_field('node', $node, str_replace('-', '_', $field_name), $display);
-      // Remove the prefix and suffix, which contain unneeded div's and actions links.
-      unset($field_to_render['#prefix']);
-      unset($field_to_render['#suffix']);
-      $output = render($field_to_render);
-
-      //We will replace the fieldcollection with the new output
-      $commands[] = ajax_command_html('.field-name-' . $field_name, $output);
-      //close the frame
-      $commands[] = ctools_modal_command_dismiss();
-
-      $output = $commands;
+      $output = array();
+      ctools_add_js('ajax-responder');
+      $output[] = ctools_ajax_command_reload();
     }
     //Render the output
     print ajax_render($output);
