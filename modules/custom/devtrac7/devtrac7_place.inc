@@ -230,7 +230,9 @@ function devtrac7_place_devtrac7_progress_field_checks_info() {
     'text' => t('Add New Contact'),
     'path' => 'modal/field-collection/field_place_contact_info/%/add/0/%ctools_js/go',
     'attributes' => array(),
-    'query' => array(),
+    'query' => array(
+      'destination' => $destination,
+    ),
     'fragment' => '',
     'contextual' => TRUE,
     'override' => TRUE,

@@ -21,6 +21,7 @@
  *     required or not. Overrides required.
  */
 function devtrac7_field_collection_item_devtrac7_progress_field_checks_info() {
+  $destination = current_path();
   $path = explode('/', $_GET['q']);
   $count = count($path);
   if (($count != 2) || $path[0] != 'node' || preg_match('/[0-9]+/',$path[1]) !== 1) {
@@ -39,6 +40,7 @@ function devtrac7_field_collection_item_devtrac7_progress_field_checks_info() {
       'path' => 'modal/field-collection/%/' . $nid . '/edit/%/%ctools_js/go',
       'attributes' => array(),
       'query' => array(
+        'destination' => $destination,
       ),
       'fragment' => '',
       'contextual' => TRUE,
@@ -61,6 +63,7 @@ function devtrac7_field_collection_item_devtrac7_progress_field_checks_info() {
       'path' => 'modal/field-collection/%/' . $nid . '/delete/%/%ctools_js/go',
       'attributes' => array(),
       'query' => array(
+        'destination' => $destination,
       ),
       'fragment' => '',
       'contextual' => TRUE,
