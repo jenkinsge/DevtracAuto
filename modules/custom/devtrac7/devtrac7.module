@@ -1842,6 +1842,8 @@ function devtrac7_form_place_node_form_alter(&$form, &$form_state, $form_id) {
   global $user;
   // Hide the book vertical tab for anyone but admin and administrators
   $form['additional_settings']['#access'] = ((in_array('administrator', $user->roles)) || ($user->uid === 1));
+  // Remove the place contact info field collection field from the form.
+  unset($form['field_place_contact_info']);
 }
 
 /* Implements hook_form_alter()

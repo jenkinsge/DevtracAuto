@@ -130,6 +130,7 @@ features[field_instance][] = field_collection_item-field_place_contact_info-fiel
 features[field_instance][] = field_collection_item-field_place_contact_info-field_contact_organisation
 features[field_instance][] = field_collection_item-field_place_contact_info-field_contact_person_name
 features[field_instance][] = field_collection_item-field_place_contact_info-field_contact_telephone
+features[field_instance][] = field_collection_item-field_place_contact_info-field_fieldtrip_button
 features[field_instance][] = node-actionitem-field_action_items_tags
 features[field_instance][] = node-actionitem-field_actionitem_due_date
 features[field_instance][] = node-actionitem-field_actionitem_followuptask
