@@ -408,7 +408,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     // Link : Name.
     $this->assertPattern('/<link>http:\/\/[a-zA-Z.\/]*\/uuid\/taxonomy_term\/[a-z0-9\-]*<\/link>/', t('Link is mapped correctly'), t('Devtrac'));
     // Description : Description.
-    $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.', t('Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni', t('Description mapped correctly'), t('Devtrac'));
     // Category : Category.
     $this->assertRaw('<category>Tag 1</category>', t('Category mapped correctly'), t('Devtrac'));
 
@@ -416,7 +416,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     // Title : Name.
     $this->assertRaw('Undefined Area</dc:title>', t('dc Title is mapped correctly'), t('Devtrac'));
     // Description : description.
-    $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni who came to power in a coup in 1986.', t('dc Description mapped correctly'), t('Devtrac'));
+    $this->assertRaw('The current President of Uganda is Yoweri Kaguta Museveni', t('dc Description mapped correctly'), t('Devtrac'));
     // Subject : Category.
     $this->assertRaw('<dc:subject>Tag 1</dc:subject>', t('dc Category mapped correctly'), t('Devtrac'));
     // Type : Category.
