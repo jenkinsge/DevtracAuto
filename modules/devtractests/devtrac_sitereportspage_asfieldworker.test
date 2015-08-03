@@ -700,7 +700,7 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     $this->assertRaw('2.1263198853]},', t('Longitude field is present and filled in.'), t('Devtrac'));
 
     // Rendered Node.
-    $this->assertRaw('\u003EMonitoring Loroo Water System 11\/2\/14\nIssues:\nBorehole discharge is 2.2 m3\/h, which would contribute to about 22 m3\/d. The reservoir tank of 90 cubic metre capacity would require more than 4 days of pumping to fill. Population is 1,500 people. Demand per day would be 30,000 m3, at\u00ac\u202020 l\/p\/d. This is inadequate.\nTogether with LC III Chairman and\u00ac\u2020Parish Chief , attempted to identify other water sourcesto be connected to the system but with no success. There are 2 water sources that are broken down but both holes require fishing.\n\u003C\/div\u003E', t('Rendered Node field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('Monitoring Loroo Water System 11\/2\/14\u003Cbr \/\u003E\nIssues:\u003Cbr \/\u003E\u003C\/p\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022field field-name-node-link field-type-ds field-label-hidden\u0022\u003E\u003Cdiv class=\u0022field-items\u0022\u003E\u003Cdiv class=\u0022field-item even\u0022\u003E\u003Ca href=\u0022\/node\/20\u0022\u003ERead full report\u003C\/a\u003E\u003C\/div\u003E\u003C\/', t('Rendered Node field is present and filled in.'), t('Devtrac'));
 
     // Location Type Term Icon 1.
     $this->assertRaw('\/sites\/default\/files\/styles\/map_icon\/public\/Gfs%20or%20Tap_c.png', t('Location Type Term Icon 1 field is present and filled in.'), t('Devtrac'));
