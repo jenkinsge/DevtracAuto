@@ -700,7 +700,7 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     $this->assertRaw('2.1263198853]},', t('Longitude field is present and filled in.'), t('Devtrac'));
 
     // Rendered Node.
-    $this->assertRaw('Monitoring Loroo Water System 11\/2\/14\u003Cbr \/\u003E\nIssues:\u003Cbr \/\u003E\u003C\/p\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022field field-name-node-link field-type-ds field-label-hidden\u0022\u003E\u003Cdiv class=\u0022field-items\u0022\u003E\u003Cdiv class=\u0022field-item even\u0022\u003E\u003Ca href=\u0022\/node\/20\u0022\u003ERead full report\u003C\/a\u003E\u003C\/div\u003E\u003C\/', t('Rendered Node field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('\u003ESaturday, May 3, 2014\u003C\/span\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E\u003Cdiv class=\u0022field field-name-field-ftritem-report field-type-text-long field-label-hidden\u0022\u003E\u003Cdiv class=\u0022field-items\u0022\u003E\u003Cdiv class=\u0022field-item even\u0022\u003E\u003Cp\u003EThe project was funded through the Government of Japan under the GoU and UNICEF Country Programme with support from the MoWE and Amudat DLG. The implementation of the project started in August 2013 and completion is expected at end of April, 2014.', t('Rendered Node field is present and filled in.'), t('Devtrac'));
 
     // Location Type Term Icon 1.
     $this->assertRaw('\/sites\/default\/files\/styles\/map_icon\/public\/Gfs%20or%20Tap_c.png', t('Location Type Term Icon 1 field is present and filled in.'), t('Devtrac'));
