@@ -1684,6 +1684,7 @@ function devtrac7_views_feature_views_default_views() {
     2 => 'AND',
     3 => 'AND',
     4 => 'AND',
+    5 => 'AND',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Type */
@@ -1790,6 +1791,35 @@ function devtrac7_views_feature_views_default_views() {
     'Submitted' => 'Submitted',
   );
   $handler->display->display_options['filters']['field_fieldtrip_status_value_1']['group'] = 4;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_4']['id'] = 'type_4';
+  $handler->display->display_options['filters']['type_4']['table'] = 'node';
+  $handler->display->display_options['filters']['type_4']['field'] = 'type';
+  $handler->display->display_options['filters']['type_4']['value'] = array(
+    'ftritem' => 'ftritem',
+  );
+  $handler->display->display_options['filters']['type_4']['group'] = 5;
+  /* Filter criterion: User: Manager (field_user_superior) */
+  $handler->display->display_options['filters']['field_user_superior_target_id_1']['id'] = 'field_user_superior_target_id_1';
+  $handler->display->display_options['filters']['field_user_superior_target_id_1']['table'] = 'field_data_field_user_superior';
+  $handler->display->display_options['filters']['field_user_superior_target_id_1']['field'] = 'field_user_superior_target_id';
+  $handler->display->display_options['filters']['field_user_superior_target_id_1']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['field_user_superior_target_id_1']['value']['value'] = 'blue_smurf';
+  $handler->display->display_options['filters']['field_user_superior_target_id_1']['group'] = 5;
+  /* Filter criterion: Content: Status (field_ftritem_status) */
+  $handler->display->display_options['filters']['field_ftritem_status_value']['id'] = 'field_ftritem_status_value';
+  $handler->display->display_options['filters']['field_ftritem_status_value']['table'] = 'field_data_field_ftritem_status';
+  $handler->display->display_options['filters']['field_ftritem_status_value']['field'] = 'field_ftritem_status_value';
+  $handler->display->display_options['filters']['field_ftritem_status_value']['value'] = array(
+    'Submitted' => 'Submitted',
+  );
+  $handler->display->display_options['filters']['field_ftritem_status_value']['group'] = 5;
+  /* Filter criterion: Content: Field Trip (field_ftritem_field_trip) */
+  $handler->display->display_options['filters']['field_ftritem_field_trip_target_id']['id'] = 'field_ftritem_field_trip_target_id';
+  $handler->display->display_options['filters']['field_ftritem_field_trip_target_id']['table'] = 'field_data_field_ftritem_field_trip';
+  $handler->display->display_options['filters']['field_ftritem_field_trip_target_id']['field'] = 'field_ftritem_field_trip_target_id';
+  $handler->display->display_options['filters']['field_ftritem_field_trip_target_id']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_ftritem_field_trip_target_id']['group'] = 5;
 
   /* Display: Action Items morelink */
   $handler = $view->new_display('attachment', 'Action Items morelink', 'attachment_1');
@@ -7748,7 +7778,7 @@ $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['su
   $handler->display->display_options['filters']['field_ftritem_status_value']['field'] = 'field_ftritem_status_value';
   $handler->display->display_options['filters']['field_ftritem_status_value']['operator'] = 'not';
   $handler->display->display_options['filters']['field_ftritem_status_value']['value'] = array(
-    'Submitted' => 'Submitted',
+    'Approved' => 'Approved',
   );
 
   /* Display: Description */

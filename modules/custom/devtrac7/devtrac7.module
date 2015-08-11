@@ -78,6 +78,16 @@ function devtrac7_menu() {
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
     'weight' => 4,
   );
+  // Devtrac Settings Form.
+  $items['admin/devtrac7/settings'] = array(
+    'title' => 'Devtrac Settings',
+    'description' => 'Management of the Devtrac Settings.',
+    'position' => 'left',
+    'weight' => -3,
+    'access arguments' => array('access administration pages'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('devtrac7_settings_form'),
+  );
   $items['devtrac/mycurrentfieldtrip'] = array(
     'title' => 'My Current Fieldtrip',
     'page callback' => 'devtrac7_gotofieldtrip',
@@ -130,6 +140,17 @@ function devtrac7_menu() {
     'page callback' => 'devtrac7_fieldtripcommentform_modal',
     'page arguments' => array(1, 2, 5),
     'access callback' => array('devtrac7_update_fieldtrip_access'),
+    'access arguments' => array(1),
+    'weight' => 4,
+  );
+  // menu item for submitting comments when submitting ftritems for approval
+  // Used when fieldrips are optional or not enabled.
+  $items['node/%/%/ftritemcommentform/ajax/%ctools_js/go'] = array(
+    'title callback' => 'devtrac7_ftritemcommentform_title',
+    'title arguments' => array(2),
+    'page callback' => 'devtrac7_ftritemcommentform_modal',
+    'page arguments' => array(1, 2, 5),
+    'access callback' => array('devtrac7_update_ftritem_access'),
     'access arguments' => array(1),
     'weight' => 4,
   );
@@ -213,6 +234,22 @@ function devtrac7_menu() {
   return $items;
 }
 
+/**
+ * Implements hook_settings_form().
+ */
+function devtrac7_settings_form() {
+  $form = array();
+  module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
+  $values = array(DEVTRAC_FIELDTRIPS_OFF => t('No Field Trips'), DEVTRAC_OPTIONAL_FIELDTRIPS => t('Optional Field Trips'), DEVTRAC_MANDATORY_FIELDTRIPS => t('Mandatory Field Trips'));
+  $form['devtrac_fieldtrips_on'] = array(
+    '#type' => 'radios',
+    '#title' => t('Switch On Devtrac Field Trips.'),
+    '#description' => t('Select how field trips should be included in your Devtrac installation.'),
+    '#options' => $values,
+    '#default_value' => variable_get("devtrac_fieldtrips_on", FALSE) ? variable_get("devtrac_fieldtrips_on"): 2,
+  );
+  return system_settings_form($form);
+}
 /**
  * 
  * @param type $js
@@ -423,6 +460,15 @@ function devtrac7_menu_contextual_links_alter(&$links, $router_item, $root_path)
  */
 function devtrac7_fieldtripcommentform_title($method) {
   return t('@method Fieldtrip', array('@method' => ucfirst($method)));
+}
+
+/**
+ * Set the title of an ftritem.
+ *
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_ftritemcommentform_title($method) {
+  return t('@method Field Trip Report Item', array('@method' => ucfirst($method)));
 }
 
 /*
@@ -644,6 +690,28 @@ function devtrac7_update_fieldtrip_access($nid = NULL) {
     $result = $result && isset($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id']);
     // $result = $result && ($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'] == $user->uid);
     $result = $result && node_access("update", $fieldtrip);
+  }
+  return $result;
+}
+
+/**
+ * Implements hook_access()
+ *
+ * Used when fieldrips are optional or not enabled.
+ * Determines if you have access to the ftritem passed in $nid
+ */
+function devtrac7_update_ftritem_access($nid = NULL) {
+  global $user;
+  $result = FALSE;
+  $ftritem = node_load($nid);
+//  if (isset($ftritem)) {
+  if ($ftritem) {
+    $result = ($ftritem->type == "ftritem");
+    $result = $result && isset($ftritem->field_ftritem_status[$ftritem->language][0]['value']);
+    $result = $result && ($ftritem->field_ftritem_status[$ftritem->language][0]['value'] != 'Approved');
+    $result = $result && isset($ftritem->field_ftritem_user[$ftritem->language][0]['target_id']);
+    // $result = $result && ($ftritem->field_ftritem_user[$ftritem->language][0]['target_id'] == $user->uid);
+    $result = $result && node_access("update", $ftritem);
   }
   return $result;
 }
@@ -1036,6 +1104,112 @@ function devtrac7_fieldtrip_comment_form_submit($form, &$form_state) {
 
   $fieldtrip = node_load($fieldtripnid);
   devtrac7_fieldtrip_setstatus($fieldtrip, $method);
+}
+
+/**
+ * Modal callback for Comment form for Field Trip Report Item workflow approval
+ * and rejection
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_ftritemcommentform_modal($ftritem, $method, $js = FALSE) {
+  module_load_include('inc', 'node', 'node.pages');
+  module_load_include('inc', 'node', '');
+  watchdog('devtrac7', 'modal ftritem workflow comment ' . $ftritem);
+  $node = node_load($ftritem);
+  // Fall back if $js is not set.
+  if (!$js) {
+    return drupal_get_form('devtrac7_ftritem_comment_form', $node, $method);
+  }
+  ctools_include('modal');
+  ctools_include('ajax');
+  $form_state = array(
+    'ajax' => TRUE,
+  );
+  // Save the node object in form_state
+  // method and nid of ftritem are on the node and node comment resp.
+  $form_state['build_info']['args'] = array($node, $method);
+
+  $form_state['redirect'] = FALSE;
+  $output = ctools_modal_form_wrapper('devtrac7_ftritem_comment_form', $form_state);
+  if (!empty($form_state['executed'])) {
+    // We'll just overwrite the form output if it was successful.
+    $output = array();
+    ctools_add_js('ajax-responder');
+    if (isset($form_state['redirect'])) {
+      $output[] = ctools_modal_command_loading();
+      $output[] = ctools_ajax_command_redirect($form_state['redirect'][0], 50, $form_state['redirect'][1]);
+    }
+    else {
+      $output[] = ctools_ajax_command_reload();
+    }
+    $output[] = ctools_modal_command_dismiss();
+  }
+  print ajax_render($output);
+  exit;
+}
+
+/**
+ * Form for submitting reason for approving or rejecting an ftritem.
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_ftritem_comment_form($form, &$form_state, $node = NULL, $method = '') {
+  $form['comment_body'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Comment'),
+    '#required' => TRUE,
+    '#description' => t('Please enter your reasons to @method the Field Trip Report Item in the comment field and click the @button button.', array('@method' => $method, '@button' => ucfirst($method))),
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('@method', array('@method' => ucfirst($method))),
+  );
+
+  return $form;
+}
+
+/**
+ * @see devtrac7_ftritem_comment_form().
+ */
+function devtrac7_ftritem_comment_form_validate($form, &$form_state) {
+
+}
+
+/**
+ * @see devtrac7_ftritem_comment_form().
+ */
+function devtrac7_ftritem_comment_form_submit($form, &$form_state) {
+  global $user;
+  $comment_body = $form_state['values']['comment_body'];
+  $ftritemnid = $form_state['build_info']['args'][0]->nid;
+  $method = $form_state['build_info']['args'][1];
+  $subject = t('@method Field Trip Report Item', array('@method' => ucfirst($method)));
+
+  // Add a comment, and configure the first easy fields.
+  $comment = (object) array(
+    'nid' => $ftritemnid,
+    'cid' => NULL,
+    'pid' => NULL,
+    'uid' => $user->uid,
+    'mail' => '',
+    'is_anonymous' => 0,
+    'homepage' => '',
+    'status' => COMMENT_PUBLISHED,
+    'language' => LANGUAGE_NONE,
+  );
+  $comment->subject = $subject;
+
+  if(!empty($comment_body) || $comment_body != '') {
+    $comment->comment_body[LANGUAGE_NONE][0]['value'] = t('@comment_body', array('@comment_body' => $comment_body));
+    $comment->comment_body[LANGUAGE_NONE][0]['format'] = 1;
+  }
+
+  comment_submit($comment);
+  comment_save($comment);
+  $form_state['redirect'][0] = 'node/' . $ftritemnid;
+  $form_state['redirect'][1] = array();
+
+  $ftritem = node_load($ftritemnid);
+  devtrac7_fieldtrip_setstatus($ftritem, $method);
 }
 
 /**
@@ -1511,7 +1685,17 @@ function devtrac7_fieldtrip_setstatus_access($node, $method) {
 }
 */
 function devtrac7_fieldtrip_setstatus($node, $method) {
-  $status = $node->field_fieldtrip_status[$node->language][0]['value'];
+  // This function is also called when setting the status for ftritems if
+  // fieldtrips are optional or not enabled.
+  switch($node->type) {
+    case 'fieldtrip':
+      $status_field = 'field_fieldtrip_status';
+      break;
+    case 'ftritem':
+      $status_field = 'field_ftritem_status';
+      break;
+  }
+  $status = $node->{$status_field}[$node->language][0]['value'];
   // drupal_set_message('Set Status to '. $status);
   switch ($method) {
     case 'submit':
@@ -1520,7 +1704,7 @@ function devtrac7_fieldtrip_setstatus($node, $method) {
         // drupal_set_message('changing value');
         // Auto create a comment and assign it to the manager so it will show up in the managers inbox
         devtrac7_createsubmitcomment($node);
-        $node->field_fieldtrip_status[$node->language][0]['value'] = 'Submitted';
+        $node->{$status_field}[$node->language][0]['value'] = 'Submitted';
         node_save($node);
       }
       else {
@@ -1529,7 +1713,7 @@ function devtrac7_fieldtrip_setstatus($node, $method) {
       break;
     case 'approve':
       if ($status == 'Submitted') {
-        $node->field_fieldtrip_status[$node->language][0]['value'] = 'Approved';
+        $node->{$status_field}[$node->language][0]['value'] = 'Approved';
         node_save($node);
       }
       else {
@@ -1543,7 +1727,7 @@ function devtrac7_fieldtrip_setstatus($node, $method) {
       break;
     case 'reject':
       if ($status == 'Submitted') {
-        $node->field_fieldtrip_status[$node->language][0]['value'] = 'In Progress';
+        $node->{$status_field}[$node->language][0]['value'] = 'In Progress';
         node_save($node);
       }
       else {
@@ -1564,7 +1748,7 @@ function devtrac7_fieldtrip_setstatus($node, $method) {
 /**
  * Create a new comment
  *
- * Copied and udjusted from node.test
+ * Copied and adjusted from node.test
  * class NodeAccessPagerTestCase
  * public function testCommentPager()
  */
@@ -1588,14 +1772,26 @@ function devtrac7_createsubmitcomment($node) {
   $comment->language = LANGUAGE_NONE;
   $comment->nid = $node->nid;
   $comment->subject = t('Needs your approval');
+
+  // Since we have optional field trips now and ftritems may be submitted as
+  // well, add an extra arguement for the node type.
+  switch ($node->type) {
+    case 'ftritem':
+      $type = 'field trip report item';
+      break;
+    default :
+      $type = 'field trip';
+      break;
+  }
   $args = array(
     '@name' => $author->name,
     '@title' => $node->title,
+    '@nodetype' => $type,
   );
   $comment->comment_body = array(
     LANGUAGE_NONE => array(
       array(
-        'value' => t('Your team member @name submitted fieldtrip @title for your approval.', $args),
+        'value' => t('Your team member @name submitted @nodetype @title for your approval.', $args),
         'format' => 1,
       ),
     ),
@@ -2781,6 +2977,7 @@ function devtrac7_addftritemtolocation_access($location) {
  * Form for adding an ftritem from a location.
  */
 function devtrac7_addftritemform($form, &$form_state, $place) {
+  module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
 
   $vocabularies = taxonomy_get_vocabularies('ftritem'); // ALERT: Hardcoded node_type machine name
   foreach ($vocabularies as $vocabulary) {
@@ -2840,32 +3037,42 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
     '#default_value' => $rtkeys[0],
   );
 
-  // If there are no fieldtrips, don't show these controls.
-  if(!empty($fieldtrips)) {
-    $fieldripnids = array_keys($fieldtrips);
-    $form['fieldtrip'] = array(
-      '#title' => t('Select existing Field Trip.'),
-      '#type' => 'select',
-      '#description' => t('Select the Field Trip to which you want to add this Site Report.'),
-      '#options' => $fieldtrips,
-      '#default_value' => $fieldripnids[0],
-      '#properties' => array('empty_option' => FALSE),
-      '#value_key' => 'nid',
-    );
+  // Show these controls as long as field trips are enabled.
+  if (variable_get("devtrac_fieldtrips_on", FALSE)) {
+    // If there are no fieldtrips, don't show these controls.
+    if(!empty($fieldtrips)) {
+      $fieldripnids = array_keys($fieldtrips);
+      $form['fieldtrip'] = array(
+        '#title' => t('Select existing Field Trip.'),
+        '#type' => 'select',
+        '#description' => t('Select the Field Trip to which you want to add this Site Report.'),
+        '#options' => $fieldtrips,
+        '#default_value' => $fieldripnids[0],
+        '#properties' => array('empty_option' => FALSE),
+        '#value_key' => 'nid',
+      );
 
-    $form['submit'] = array(
+      $form['submit'] = array(
+        '#type' => 'submit',
+        '#value' => t('Submit'),
+      );
+    }
+
+    // Additional submit button for adding a fieldtrip on the fly.
+    $form['create_fieldtrip'] = array(
       '#type' => 'submit',
-      '#value' => t('Submit'),
+      '#value' => t('Create a Field Trip'),
+      '#submit' => array('devtrac7_addfieldtrip_fromlocation'),
     );
   }
-
-  // Additional submit button for adding a fieldtrip on the fly.
-  $form['create_fieldtrip'] = array(
-    '#type' => 'submit',
-    '#value' => t('Create a Field Trip'),
-    '#submit' => array('devtrac7_addfieldtrip_fromlocation'),
-  );
-
+ // As long as field trips are not mandatory, show this control.
+ if (variable_get("devtrac_fieldtrips_on", FALSE) != DEVTRAC_MANDATORY_FIELDTRIPS) {
+    $form['create_ftritem'] = array(
+      '#type' => 'submit',
+      '#value' => t('Add Site Report'),
+      '#submit' => array('devtrac7_addsitevisit_fromlocation'),
+    );
+  }
   return $form;
 }
 
@@ -2914,6 +3121,27 @@ function devtrac7_addfieldtrip_fromlocation($form, &$form_state) {
     'node/add/fieldtrip',
      array('query' => array($prepopulate)),
   );
+}
+
+/**
+ * Submit handler for Create Site Report button on Create Ftritem from Location
+ * form.
+ *
+ * Used when fieldrips are optional or not enabled.
+ * @see devtrac7_addftritemform().
+ */
+function devtrac7_addsitevisit_fromlocation($form, &$form_state) {
+  module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+  // Get message of successful creation of the ftritem or the error.
+  $result = devtrac7_ftritem_create($form_state['values']['nid'], NULL, $form_state['values']['reporttype']);
+  $form_state['new_ftritem'] = $result['node'];
+  
+  if (strpos($result['message'], 'Attached location') === 0) {
+    drupal_set_message(t($result['message']));
+  }
+  else {
+    drupal_set_message(t($result['message']), 'error');
+  }
 }
 
 /**
@@ -2978,6 +3206,12 @@ function devtrac7_addftritemform_modal($node, $js = FALSE) {
       $output[] = ctools_modal_command_loading();
       $output[] = ctools_ajax_command_redirect($form_state['redirect'][0], 50, $form_state['redirect'][1]);
     }
+    // If this is a new ftritem, that is not attached to a field trip, go to its
+    // edit form. Used when fieldrips are optional or not enabled.
+    elseif (isset($form_state['new_ftritem'])) {
+      $output[] = ctools_modal_command_loading();
+      $output[] = ctools_ajax_command_redirect('node/' . $form_state['new_ftritem']->nid . '/edit', 50);
+    }
     else {
       $output[] = ctools_ajax_command_reload();
     }
@@ -3007,7 +3241,7 @@ function devtrac7_entity_view_alter(&$build, $type) {
  *
  * Sets the skip result count option to FALSE on the SearchApiViewsQuery object
  * when using the Search API DB Service.
- * Thise fixes the count in the current search block.
+ * This fixes the count in the current search block.
  */
 function devtrac7_search_api_views_query_alter(&$view, &$query) {
   // Since this was only a problem when using the search API DB service, check
@@ -3021,6 +3255,12 @@ function devtrac7_search_api_views_query_alter(&$view, &$query) {
       // is supplied in the call.
       if ($query->getOption('skip result count') == NULL) {
         $query->setOption('skip result count', FALSE);
+      }
+      // If this is the json feed for site visits, unset the check for the lat
+      // long because the sub query this check creates is not handled properly
+      // by drupal Core at present, see https://www.drupal.org/node/886588
+      if ($view->name == 'devtrac_solr_view_sitevisits' && $view->current_display == 'json') {
+        unset($query->where['1']);
       }
     }
   }

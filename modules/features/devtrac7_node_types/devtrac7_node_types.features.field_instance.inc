@@ -157,6 +157,44 @@ function devtrac7_node_types_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'comment-comment_node_ftritem-comment_body'
+  $field_instances['comment-comment_node_ftritem-comment_body'] = array(
+    'bundle' => 'comment_node_ftritem',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'comment',
+    'field_name' => 'comment_body',
+    'label' => 'Comment',
+    'required' => 1,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'maxlength_js' => '',
+        'maxlength_js_enforce' => 0,
+        'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
+        'maxlength_js_truncate_html' => 0,
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 0,
+    ),
+  );
+
   // Exported field_instance: 'field_collection_item-field_place_contact_info-field_contact_email'
   $field_instances['field_collection_item-field_place_contact_info-field_contact_email'] = array(
     'bundle' => 'field_place_contact_info',
@@ -2425,7 +2463,9 @@ function devtrac7_node_types_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_ftritem_field_trip',
     'label' => 'Field Trip',
-    'required' => 1,
+    // Setting this to FALSE so optional field trips and field trips turned off
+    // works.
+    'required' => 0,
     'settings' => array(
       'behaviors' => array(
         'prepopulate' => array(

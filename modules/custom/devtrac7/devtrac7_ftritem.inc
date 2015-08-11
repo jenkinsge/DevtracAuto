@@ -260,6 +260,11 @@ function devtrac7_ftritem_datevisitedset($node) {
         }
         // Either the Start or the End date is missing on the fieldtrip.
       }
+      // Return true when date is set and optional field trips or field trips
+      // are turned off.
+      elseif (isset($datevisited) && variable_get("devtrac_fieldtrips_on", FALSE) != DEVTRAC_MANDATORY_FIELDTRIPS) {
+        return TRUE;
+      }
       // The fieldtrip is not set on the ftritem
     }
     // There is no Date Visited
@@ -722,29 +727,37 @@ function devtrac7_ftritem_updatedatevisited($node) {
     // drupal_set_message('Set Date Visited on Site Report.', 'status');
     return TRUE;
   }
-  // There still is no Date Visited
-  if (isset($node->field_ftritem_field_trip[$node->language]) && (count($node->field_ftritem_field_trip[$node->language]) > 0)) {
-    // There is a Field Trip attached so copy the Start Date from the Field Trip onto the Site Report
-    $fieldtrip = node_load($node->field_ftritem_field_trip[$node->language][0]['target_id']);
-    $startdate = $fieldtrip->field_fieldtrip_start_end_date;
-    // Date Visited is a single value date field, so do some cleanup
-    $startdate[$node->language][0]['show_todate'] = FALSE;
-    unset($startdate[$node->language][0]['value2']);
-    unset($startdate[$node->language][0]['offset2']);
-    $node->field_ftritem_date_visited = $startdate;
-    if (isset($node->nid)) {
-      watchdog('admin_feature', 'Set Date Visited to Start Date of Field Trip on Site Report: ' . $node->nid);
+
+  module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
+  // Check whether fieldtrips are switched on in Devtrac
+  if (variable_get("devtrac_fieldtrips_on", FALSE) != DEVTRAC_FIELDTRIPS_OFF) {
+    // There still is no Date Visited
+    if (isset($node->field_ftritem_field_trip[$node->language]) && (count($node->field_ftritem_field_trip[$node->language]) > 0)) {
+      // There is a Field Trip attached so copy the Start Date from the Field Trip onto the Site Report
+      $fieldtrip = node_load($node->field_ftritem_field_trip[$node->language][0]['target_id']);
+      $startdate = $fieldtrip->field_fieldtrip_start_end_date;
+      // Date Visited is a single value date field, so do some cleanup
+      $startdate[$node->language][0]['show_todate'] = FALSE;
+      unset($startdate[$node->language][0]['value2']);
+      unset($startdate[$node->language][0]['offset2']);
+      $node->field_ftritem_date_visited = $startdate;
+      if (isset($node->nid)) {
+        watchdog('admin_feature', 'Set Date Visited to Start Date of Field Trip on Site Report: ' . $node->nid);
+      }
+      else {
+        watchdog('admin_feature', 'Set Date Visited to Start Date of Field Trip on new Site Report');
+      }
+      // drupal_set_message('Defaulted Date Visited to Start Date of Field Trip.', 'warning');
+      return TRUE;
     }
-    else {
-      watchdog('admin_feature', 'Set Date Visited to Start Date of Field Trip on new Site Report');
+    // Check whether fieldtrips are switched on in Devtrac
+    if (variable_get("devtrac_fieldtrips_on", FALSE) == DEVTRAC_MANDATORY_FIELDTRIPS) {
+      // There is no Field Trip attached which should not be possible
+      watchdog('admin_feature', 'Field Trip needs to be attached to Site Report: ' . $node->nid);
+      drupal_set_message('Please attach a Field Trip to the Site Report.', 'error');
+      return FALSE;
     }
-    // drupal_set_message('Defaulted Date Visited to Start Date of Field Trip.', 'warning');
-    return TRUE;
   }
-  // There is no Field Trip attached which should not be possible
-  watchdog('admin_feature', 'Field Trip needs to be attached to Site Report: ' . $node->nid);
-  drupal_set_message('Please attach a Field Trip to the Site Report.', 'error');
-  return FALSE;
 }
 
 /*
@@ -835,6 +848,36 @@ function devtrac7_ftritem_create($placenid, $fieldtripnid = NULL, $reporttype = 
           // for when we go ajax messages:  $message .= "Attached the " .$place->title . ' to '. l($fieldtrip->title, 'node/'. $fieldtrip->nid);
           $message .= 'Attached location ' . $place->title . ' to ' . $fieldtrip->title;
         }
+      }
+    }
+    // Used when fieldrips are optional or not enabled.
+    elseif (!isset($fieldtripnid) && isset($reporttype)  && variable_get("devtrac_fieldtrips_on", FALSE) != DEVTRAC_MANDATORY_FIELDTRIPS) {
+      if ($message == "") {
+        $ftr = new stdClass();
+        $ftr->type = 'ftritem';
+        $term = taxonomy_term_load($reporttype);
+        $ftr->title = $term->name . ' at ' . $place->title;
+        $ftr->taxonomy_vocabulary_7[LANGUAGE_NONE][0]['tid'] = $reporttype;
+        $ftr->field_ftritem_place[LANGUAGE_NONE][0]['target_id'] = $placenid;
+        $ftr->field_ftritem_place[LANGUAGE_NONE][0]['target_type'] = 'node';
+        $ftr->field_ftritem_public_summary[LANGUAGE_NONE][0]['value'] = t('Please provide the public report.');
+        $ftr->field_ftritem_narrative[LANGUAGE_NONE][0]['value'] = t('Please provide private notes.');
+        $ftr->field_ftritem_status[LANGUAGE_NONE][0]['value'] = 'In Progress';
+        $ftr->uid = $user->uid;
+        // The ftritem user in this scenario is the user who creates he ftritem.
+        $ftr->field_ftritem_user[LANGUAGE_NONE][0]['target_id'] = $user->uid;
+        $ftr->language = LANGUAGE_NONE;
+        $ftr->status = 1;
+        // Allow comments on ftritems if fieldtrips are not mandatory so that,
+        // reject and approval comments can be properly reported.
+        $ftr->comment = 2;
+
+        node_save($ftr);
+
+        // Return an array of the node and message. Returning the node lets us
+        // set the $formstate redirect property after the ajax executes.
+        $message .= 'Attached location ' . $place->title . ' to ' . $ftr->title;
+        return array('node' => $ftr, 'message' => $message);
       }
     }
   }
@@ -1011,30 +1054,34 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
     'required' => TRUE,
     'required_function' => '',
   );
-  $progress_checks['devtrac7_ftritem_datevisitedset'] = array(
-    'name' => t('devtrac7_ftritem_datevisitedset'),
-    'label' => t('devtrac7_ftritem_datevisitedset'),
-    'description' => 'Change the date visited of the Site Report. It has to fall inbetween the start and end date of the Field Trip.',
-    'finished_condition' => 'none',
-    'url' => array(
-      'text' => t('Edit Date Visited'),
-      'path' => 'node/%/edit',
-      'attributes' => array(),
-      'query' => array(
-        'destination' => $destination,
+  module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
+  // Perform this check as long as field trips are not enabled.
+  if (variable_get("devtrac_fieldtrips_on", FALSE) != DEVTRAC_FIELDTRIPS_OFF) {
+    $progress_checks['devtrac7_ftritem_datevisitedset'] = array(
+      'name' => t('devtrac7_ftritem_datevisitedset'),
+      'label' => t('devtrac7_ftritem_datevisitedset'),
+      'description' => 'Change the date visited of the Site Report. It has to fall inbetween the start and end date of the Field Trip.',
+      'finished_condition' => 'none',
+      'url' => array(
+        'text' => t('Edit Date Visited'),
+        'path' => 'node/%/edit',
+        'attributes' => array(),
+        'query' => array(
+          'destination' => $destination,
+        ),
+        'fragment' => 'edit-field-ftritem-date-visited',
+        'contextual' => TRUE,
+        'override' => FALSE,
+        'override_function' => '',
       ),
-      'fragment' => 'edit-field-ftritem-date-visited',
-      'contextual' => TRUE,
-      'override' => FALSE,
-      'override_function' => '',
-    ),
-    'success_text' => 'The date visited is given.',
-    'fail_text' => 'You have to provide an appropriate date visited.',
-    'function' => 'devtrac7_ftritem_datevisitedset',
-    'filename' => 'devtrac7_ftritem.inc',
-    'required' => TRUE,
-    'required_function' => '',
-  );
+      'success_text' => 'The date visited is given.',
+      'fail_text' => 'You have to provide an appropriate date visited.',
+      'function' => 'devtrac7_ftritem_datevisitedset',
+      'filename' => 'devtrac7_ftritem.inc',
+      'required' => TRUE,
+      'required_function' => '',
+    );
+  }
   $progress_checks['devtrac7_ftritem_placeset'] = array(
     'name' => t('devtrac7_ftritem_placeset'),
     'label' => t('devtrac7_ftritem_placeset'),
@@ -1059,30 +1106,33 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
     'required' => FALSE,
     'required_function' => 'devtrac7_ftritem_place_required',
   );
-  $progress_checks['devtrac7_ftritem_fieldtripset'] = array(
-    'name' => t('devtrac7_ftritem_fieldtripset'),
-    'label' => t('devtrac7_ftritem_fieldtripset'),
-    'description' => 'Change the Field Trip of the Site Report.',
-    'finished_condition' => 'none',
-    'url' => array(
-      'text' => t('Edit Fieldtrip'),
-      'path' => 'node/%/edit',
-      'attributes' => array(),
-      'query' => array(
-        'destination' => $destination,
+  // Perform this check only when fieldtrips are mandatory.
+  if (variable_get("devtrac_fieldtrips_on", FALSE) == DEVTRAC_MANDATORY_FIELDTRIPS) {
+    $progress_checks['devtrac7_ftritem_fieldtripset'] = array(
+      'name' => t('devtrac7_ftritem_fieldtripset'),
+      'label' => t('devtrac7_ftritem_fieldtripset'),
+      'description' => 'Change the Field Trip of the Site Report.',
+      'finished_condition' => 'none',
+      'url' => array(
+        'text' => t('Edit Fieldtrip'),
+        'path' => 'node/%/edit',
+        'attributes' => array(),
+        'query' => array(
+          'destination' => $destination,
+        ),
+        'fragment' => 'edit-field-ftritem-field-trip',
+        'contextual' => TRUE,
+        'override' => FALSE,
+        'override_function' => '',
       ),
-      'fragment' => 'edit-field-ftritem-field-trip',
-      'contextual' => TRUE,
-      'override' => FALSE,
-      'override_function' => '',
-    ),
-    'success_text' => '',
-    'fail_text' => '',
-    'function' => 'devtrac7_ftritem_fieldtripset',
-    'filename' => 'devtrac7_ftritem.inc',
-    'required' => FALSE,
-    'required_function' => '',
-  );
+      'success_text' => '',
+      'fail_text' => '',
+      'function' => 'devtrac7_ftritem_fieldtripset',
+      'filename' => 'devtrac7_ftritem.inc',
+      'required' => FALSE,
+      'required_function' => '',
+    );
+  }
   $progress_checks['devtrac7_ftritem_oecdcodesset'] = array(
     'name' => t('devtrac7_ftritem_oecdcodesset'),
     'label' => t('devtrac7_ftritem_oecdcodesset'),
@@ -1256,6 +1306,83 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
   );
  */
   $progress_checks['referencing_fields'] = array('field_actionitem_ftreportitem');
+
+  // Checks for submitting an ftritem, only available if Mandatory Field Trips
+  //  is switched off.
+  if (variable_get("devtrac_fieldtrips_on", FALSE) != DEVTRAC_MANDATORY_FIELDTRIPS) {
+    $progress_checks['devtrac7_ftritem_approvable'] = array(
+      'name' => t('devtrac7_ftritem_approvable'),
+      'label' => t('devtrac7_ftritem_approvable'),
+      'description' => 'Approve the Field Trip Report Item for publishing',
+      'finished_condition' => 'required',
+      'url' => array(
+        'text' => t('Approve'),
+        'path' => 'node/%/approve/ftritemcommentform/ajax/%ctools_js/go',
+        'attributes' => array(),
+        'query' => array(
+          'destination' => $destination,
+        ),
+        'fragment' => '',
+        'contextual' => TRUE,
+        'override' => FALSE,
+        'override_function' => '',
+      ),
+      'success_text' => 'Approved and published.',
+      'fail_text' => 'Failed to approve.',
+      'function' => 'devtrac7_ftritem_approvable',
+      'filename' => 'devtrac7_ftritem.inc',
+      'required' => TRUE,
+      'required_function' => '',
+    );
+    $progress_checks['devtrac7_ftritem_rejectable'] = array(
+      'name' => t('devtrac7_ftritem_rejectable'),
+      'label' => t('devtrac7_ftritem_rejectable'),
+      'description' => 'Reject the Field Trip Report Item',
+      'finished_condition' => 'required',
+      'url' => array(
+        'text' => t('Reject'),
+        'path' => 'node/%/reject/ftritemcommentform/ajax/%ctools_js/go',
+        'attributes' => array(),
+        'query' => array(
+          'destination' => $destination,
+        ),
+        'fragment' => '',
+        'contextual' => TRUE,
+        'override' => FALSE,
+        'override_function' => '',
+      ),
+      'success_text' => 'Rejected and send back to the author.',
+      'fail_text' => 'Failed to reject.',
+      'function' => 'devtrac7_ftritem_rejectable',
+      'filename' => 'devtrac7_ftritem.inc',
+      'required' => TRUE,
+      'required_function' => '',
+    );
+    $progress_checks['devtrac7_ftritem_submittable'] = array(
+      'name' => t('devtrac7_ftritem_submittable'),
+      'label' => t('devtrac7_ftritem_submittable'),
+      'description' => 'Submit the Field Trip Report Item to the manager',
+      'finished_condition' => 'required',
+      'url' => array(
+        'text' => t('Submit'),
+        'path' => 'node/%/setstatus/submit',
+        'attributes' => array(),
+        'query' => array(
+          'destination' => $destination,
+        ),
+        'fragment' => '',
+        'contextual' => TRUE,
+        'override' => FALSE,
+        'override_function' => '',
+      ),
+      'success_text' => 'Submitted to manager.',
+      'fail_text' => 'Failed to submit.',
+      'function' => 'devtrac7_ftritem_submittable',
+      'filename' => 'devtrac7_ftritem.inc',
+      'required' => TRUE,
+      'required_function' => '',
+    );
+  }
   return $progress_checks;
 }
 
@@ -1275,8 +1402,62 @@ function devtrac_ftritem_copyuserfromfieldtrip($node) {
     return;
   }
   $fieldtrip = node_load($node->field_ftritem_field_trip[$node->language][0]['target_id']);
-  if (isset($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'])) {
+  if (isset($fieldtrip) && isset($fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'])) {
     $node->field_ftritem_user[$node->language][0]['target_id'] = $fieldtrip->field_fieldtrip_user[$fieldtrip->language][0]['target_id'];
   }
   return $node;
+}
+
+/**
+ * This function checks if the ftritem is ready to be submitted,
+ * It returns TRUE if it does.
+ * It returns FALSE if it doesn't.
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_ftritem_submittable($node) {
+  if (!empty($node->field_ftritem_status) && isset($node->field_ftritem_status[$node->language]) && !empty($node->field_ftritem_user) && isset($node->field_ftritem_user[$node->language]) && empty($node->field_ftritem_field_trip)) {
+    global $user;
+    return (($node->uid == $user->uid) && ($user->uid == $node->field_ftritem_user[$node->language][0]['target_id']) && ($node->field_ftritem_status[$node->language][0]['value'] == 'In Progress') && node_access('update', $node));
+  }
+  return FALSE;
+}
+
+/**
+ * This function checks if the ftritem is ready to be rejected,
+ * It returns TRUE if it does.
+ * It returns FALSE if it doesn't.
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_ftritem_rejectable($node) {
+  if (!empty($node->field_ftritem_status) && isset($node->field_ftritem_status[$node->language]) && !empty($node->field_ftritem_user) && isset($node->field_ftritem_user[$node->language]) && empty($node->field_ftritem_field_trip)) {
+    global $user;
+    $localuser = user_load($node->field_ftritem_user[$node->language][0]['target_id']);
+    if (isset($localuser->field_user_superior[$localuser->language]) && (count($localuser->field_user_superior[$localuser->language]) > 0)) {
+      return (($node->uid == $localuser->uid) && ($user->uid == $localuser->field_user_superior[$localuser->language][0]['target_id']) && ($node->field_ftritem_status[$node->language][0]['value'] == 'Submitted') && node_access('update', $node));
+    }
+    else { // User does not have a manager. So allow your own managing.
+      return (($node->uid == $localuser->uid) && ($node->field_ftritem_status[$node->language][0]['value'] == 'Submitted') && node_access('update', $node));
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * This function checks if the ftritem is ready to be approved,
+ * It returns TRUE if it does.
+ * It returns FALSE if it doesn't.
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_ftritem_approvable($node) {
+  if (!empty($node->field_ftritem_status) && isset($node->field_ftritem_status[$node->language]) && !empty($node->field_ftritem_user) && isset($node->field_ftritem_user[$node->language]) && empty($node->field_ftritem_field_trip)) {
+    global $user;
+    $localuser = user_load($node->field_ftritem_user[$node->language][0]['target_id']);
+    if (isset($localuser->field_user_superior[$localuser->language]) && (count($localuser->field_user_superior[$localuser->language]) > 0)) {
+      return (($node->uid == $localuser->uid) && ($user->uid == $localuser->field_user_superior[$localuser->language][0]['target_id']) && ($node->field_ftritem_status[$node->language][0]['value'] == 'Submitted') && node_access('update', $node));
+    }
+    else { // User does not have a manager. So allow user to do all managing.
+      return (($node->uid == $localuser->uid) && ($node->field_ftritem_status[$node->language][0]['value'] == 'Submitted') && node_access('update', $node));
+    }
+  }
+  return FALSE;
 }
