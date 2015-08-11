@@ -17,6 +17,18 @@ function devtrac7_access_init() {
       // $content_access_settings['priority']['fieldtrip'] = 1;
       content_access_set_settings($content_access_settings, 'fieldtrip');
     }
+    // Make sure the content_access per_node option is set for node type
+    // ftritem if fieldtrips are not mandatory.
+    // It is required for the ftritem approval workflow.
+    module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
+    if (variable_get('devtrac_fieldtrips_on', FALSE) != DEVTRAC_MANDATORY_FIELDTRIPS) {
+      $setting1 = content_access_get_settings('per_node', 'ftritem');
+      if (!isset($setting1) || ($setting1 == 0)) {
+        $content_access_settings = content_access_get_settings('all', 'ftritem');
+        $content_access_settings['per_node']['ftritem'] = 1;
+        content_access_set_settings($content_access_settings, 'ftritem');
+      }
+    }
   }
 }
 
@@ -47,10 +59,20 @@ function devtrac7_access_publishcontent_publish_access($node, $token = FALSE) {
         }
         break;
       case 'ftritem':
-        // Disallow access for all site reports that have status 'Submitted'.
-        if (isset($node->field_ftritem_status['und'][0]['value']) && $node->field_ftritem_status['und'][0]['value'] == 'Submitted') {
-          return FALSE;
+        module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
+        if (variable_get('devtrac_fieldtrips_on', FALSE) == DEVTRAC_MANDATORY_FIELDTRIPS) {
+          // Disallow access for all site reports that have status 'Submitted'.
+          if (isset($node->field_ftritem_status['und'][0]['value']) && $node->field_ftritem_status['und'][0]['value'] == 'Submitted') {
+            return FALSE;
+          }
         }
+        else {
+          // Disallow access for all site reports that have status 'Approved'.
+          if (isset($node->field_ftritem_status['und'][0]['value']) && $node->field_ftritem_status['und'][0]['value'] == 'Approved') {
+            return FALSE;
+          }
+        }
+        break;
     }
   }
   // Apply access settings from the publishcontent module.
@@ -68,10 +90,20 @@ function devtrac7_access_publishcontent_unpublish_access($node, $token = FALSE) 
         }
         break;
       case 'ftritem':
-        // Disallow access for all site reports that have status 'Submitted'.
-        if (isset($node->field_ftritem_status['und'][0]['value']) && $node->field_ftritem_status['und'][0]['value'] == 'Submitted') {
-          return FALSE;
+        module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
+        if (variable_get('devtrac_fieldtrips_on', FALSE) == DEVTRAC_MANDATORY_FIELDTRIPS) {
+          // Disallow access for all site reports that have status 'Submitted'.
+          if (isset($node->field_ftritem_status['und'][0]['value']) && $node->field_ftritem_status['und'][0]['value'] == 'Submitted') {
+            return FALSE;
+          }
         }
+        else {
+          // Disallow access for all site reports that have status 'Approved'.
+          if (isset($node->field_ftritem_status['und'][0]['value']) && $node->field_ftritem_status['und'][0]['value'] == 'Approved') {
+            return FALSE;
+          }
+        }
+        break;
     }
   }
   // Apply access settings from the publishcontent module.
@@ -131,6 +163,14 @@ function devtrac7_access_node_load($nodes, $types) {
     if ($node->type == 'fieldtrip') {
       if (isset($node->field_fieldtrip_status['und'][0]['value'])) {
         $node->oldstatus = $node->field_fieldtrip_status['und'][0]['value'];
+        $node->oldpublishingstatus = $node->status;
+      }
+    }
+    // Used when fieldrips are optional or not enabled.
+    module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
+    if ($node->type == 'ftritem' && empty($node->field_ftritem_field_trip) && variable_get('devtrac_fieldtrips_on', FALSE) != DEVTRAC_MANDATORY_FIELDTRIPS) {
+      if (isset($node->field_ftritem_status['und'][0]['value'])) {
+        $node->oldstatus = $node->field_ftritem_status['und'][0]['value'];
         $node->oldpublishingstatus = $node->status;
       }
     }
@@ -236,20 +276,53 @@ function devtrac7_access_node_presave($node) {
     }
  */
   }
+  if ($node->type == 'ftritem') {
+    if ((isset($node->oldpublishingstatus)) && ($node->oldpublishingstatus == 1)) {
+      if ($node->status == 0) { // Ftritem is being unpublished, so unpublish all action items as well.
+        $actionitemnids = db_select('field_data_field_actionitem_ftreportitem', 'ftr')
+          ->fields('ftr', array('entity_id'))
+          ->condition('field_actionitem_ftreportitem_target_id', $node->nid)
+          ->execute();
+        while ($actionitemnid = $actionitemnids->fetchAssoc()) {
+          $actionitem = node_load($actionitemnid['entity_id']);
+          $actionitem->status = 0;
+          node_save($actionitem);
+        }
+      }
+    }
+  }
 }
 
 function devtrac7_access_node_update($node) {
-  if ($node->type == 'fieldtrip') {
+  if ($node->type == 'fieldtrip' || $node->type == 'ftritem' ) {
     if (!isset($node->oldstatus)) {
       return;
     }
+    switch($node->type) {
+      case 'fieldtrip':
+        $status_field = 'field_fieldtrip_status';
+        $user_field = 'field_fieldtrip_user';
+        $revoke_update = 'devtrac7_access_fieldtrip_revoke_update';
+        $grant_update = 'devtrac7_access_fieldtrip_grant_update';
+        $publish_access = 'devtrac7_access_fieldtrip_publish';
+        $named_type = 'Field Trip';
+        break;
+      case 'ftritem':
+        $status_field = 'field_ftritem_status';
+        $user_field = 'field_ftritem_user';
+        $revoke_update = 'devtrac7_access_ftritem_revoke_update';
+        $grant_update = 'devtrac7_access_ftritem_grant_update';
+        $publish_access = 'devtrac7_access_ftritem_publish';
+        $named_type = 'Field Trip Report Item';
+        break;
+    }
 //    drupal_set_message('Status was '. $node->oldstatus);
-    $status = $node->field_fieldtrip_status['und'][0]['value'];
+    $status = $node->{$status_field}['und'][0]['value'];
     if ($node->oldstatus != $status) {
 //      drupal_set_message('Status changed to '. $status);
       $owner = user_load($node->uid);
-      if (isset($node->field_fieldtrip_user['und'][0]['target_id'])) {
-        $localuser = user_load($node->field_fieldtrip_user['und'][0]['target_id']);
+      if (isset($node->{$user_field}['und'][0]['target_id'])) {
+        $localuser = user_load($node->{$user_field}['und'][0]['target_id']);
       }
       if (isset($localuser->field_user_superior['und'][0]['target_id'])) {
         $manager = user_load($localuser->field_user_superior['und'][0]['target_id']);
@@ -258,13 +331,13 @@ function devtrac7_access_node_update($node) {
       switch ($status) {
         case 'In Progress':
           if (isset($manager)) {
-            devtrac7_access_fieldtrip_revoke_update($node, $manager);
+            $revoke_update($node, $manager);
           }
           if (isset($localuser)) {
-            devtrac7_access_fieldtrip_grant_update($node, $localuser);
+            $grant_update($node, $localuser);
           }
-          devtrac7_access_fieldtrip_grant_update($node, $owner);
-          drupal_set_message(t("Field Trip is editable."));
+          $grant_update($node, $owner);
+          drupal_set_message(t($named_type . " is editable."));
           break;
         case 'Submitted':
           // if (isset($localuser)) {
@@ -272,23 +345,23 @@ function devtrac7_access_node_update($node) {
           // }
           if (isset($manager)) {
             // devtrac7_access_fieldtrip_revoke_update($node, $owner);
-          	devtrac7_access_fieldtrip_grant_update($node, $manager);
+            $grant_update($node, $manager);
           }
-          drupal_set_message(t("Field Trip submitted for approval."));
+          drupal_set_message(t($named_type . " submitted for approval."));
           break;
         case 'Approved':
           if (isset($manager)) {
-            devtrac7_access_fieldtrip_revoke_update($node, $manager);
+            $revoke_update($node, $manager);
           }
           if (isset($localuser)) {
-            devtrac7_access_fieldtrip_revoke_update($node, $localuser);
+            $revoke_update($node, $localuser);
           }
-          devtrac7_access_fieldtrip_revoke_update($node, $owner);
+          $revoke_update($node, $owner);
           // drupal_set_message(t("Field Trip approved for publishing."));
           break;
       }
     }
-    $status = $node->field_fieldtrip_status['und'][0]['value'];
+    $status = $node->{$status_field}['und'][0]['value'];
 //    drupal_set_message('Status changed to '. $status);
     if ($node->oldstatus != $status) {
       switch ($status) {
@@ -297,8 +370,8 @@ function devtrac7_access_node_update($node) {
         case 'Submitted':
           break;
         case 'Approved':
-          devtrac7_access_fieldtrip_publish($node);
-          drupal_set_message(t("Field Trip Published."));
+          $publish_access($node);
+          drupal_set_message(t($named_type . " Published."));
           break;
       }
     }
@@ -328,6 +401,12 @@ function devtrac7_access_node_update($node) {
 }
 
 function devtrac7_access_fieldtrip_setstatus_access($node, $status) {
+  return TRUE;
+}
+/**
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_access_ftritem_setstatus_access($node, $status) {
   return TRUE;
 }
 
@@ -360,6 +439,24 @@ function devtrac7_access_fieldtrip_grant_update($node, $user, $op = NULL) {
   }
 }
 
+/**
+ * Grant access rights to user.
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_access_ftritem_grant_update($node, $user, $op = NULL) {
+  if ($node->type == 'ftritem') {
+    $perm = 'update';
+    module_load_include('inc', 'content_access', 'content_access.admin');
+    $sitereport = $node;
+    $acl_id = content_access_get_acl_id($sitereport, $perm);
+    if (isset($acl_id)) {
+      acl_add_user($acl_id, $user->uid);
+      acl_node_add_acl($sitereport->nid, $acl_id, $perm == 'view', $perm == 'update', $perm == 'delete', content_access_get_settings('priority', $node->type));
+    }
+    node_access_acquire_grants($sitereport);
+  }
+}
+
 function devtrac7_access_fieldtrip_revoke_update($node, $user, $op = NULL) {
   if ($node->type == 'fieldtrip') {
     $sitereportnids = db_select('field_data_field_ftritem_field_trip', 'ft')
@@ -384,6 +481,24 @@ function devtrac7_access_fieldtrip_revoke_update($node, $user, $op = NULL) {
       acl_node_remove_acl($node->nid, $acl_id);
     }
     node_access_acquire_grants($node);
+  }
+}
+
+/**
+ * Revoke access rights of user.
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_access_ftritem_revoke_update($node, $user, $op = NULL) {
+  if ($node->type == 'ftritem') {
+    module_load_include('inc', 'content_access', 'content_access.admin');
+    $perm = 'update';
+    $sitereport = $node;
+    $acl_id = content_access_get_acl_id($sitereport, $perm);
+    if (isset($acl_id)) {
+      acl_remove_user($acl_id, $user->uid);
+      acl_node_remove_acl($sitereport->nid, $acl_id);
+    }
+    node_access_acquire_grants($sitereport);
   }
 }
 
@@ -437,6 +552,18 @@ function devtrac7_access_fieldtrip_publish(&$node) {
       node_access_acquire_grants($sitereport);
     }
     $node->field_fieldtrip_status['und'][0]['value'] = 'Approved';
+    $node->status = 1;
+    node_access_acquire_grants($node);
+  }
+}
+
+/**
+ * Grant rights after publishing.
+ * Used when fieldrips are optional or not enabled.
+ */
+function devtrac7_access_ftritem_publish(&$node) {
+  if ($node->type == 'ftritem') {
+    $node->field_ftritem_status['und'][0]['value'] = 'Approved';
     $node->status = 1;
     node_access_acquire_grants($node);
   }
@@ -597,60 +724,205 @@ function devtrac7_access_node_access_records($node) {
     if (isset($node->field_ftritem_field_trip['und'][0]['target_id'])) {
       $fieldtrip = node_load($node->field_ftritem_field_trip['und'][0]['target_id'], NULL, TRUE);
     }
-    if (isset($fieldtrip->field_fieldtrip_status['und'][0]['value'])) {
-      if ((!isset($fieldtrip->field_fieldtrip_user)) || (!isset($fieldtrip->field_fieldtrip_user['und']))) {
-        // This may happen when field trips are anonymously imported using feeds
-        return;
-      }
+    if (!empty($fieldtrip)) {
+      if (isset($fieldtrip->field_fieldtrip_status['und'][0]['value'])) {
+        if ((!isset($fieldtrip->field_fieldtrip_user)) || (!isset($fieldtrip->field_fieldtrip_user['und']))) {
+          // This may happen when field trips are anonymously imported using feeds
+          return;
+        }
 
-      $localuser = user_load($fieldtrip->field_fieldtrip_user['und'][0]['target_id']);
-      $role = user_role_load_by_name('field worker');
-      $rid = $role->rid;
-      switch ($fieldtrip->field_fieldtrip_status['und'][0]['value']) {
-        case 'In Progress':
-        case 'Submitted':
-          // Deny all access to role anonymous user
-          $grants[] = array(
-            'realm' => 'devtrac_rid',
-            'gid' => 1,
-            'grant_view' => 0,
-            'grant_update' => 0,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          // Grant view access to role field worker
-          $grants[] = array(
-            'realm' => 'devtrac_rid',
-            'gid' => $rid,
-            'grant_view' => 1,
-            'grant_update' => 0,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          // Grant update access to the owner/creator
-          $grants[] = array(
-            'realm' => 'devtrac_owner',
-            'gid' => $node->uid,
-            'grant_view' => 0,
-            'grant_update' => 1,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          // Deny all access to the manager of the user going on the fieldtrip (still has view access through it's role)
-          if (isset($localuser->field_user_superior['und']) && (count($localuser->field_user_superior['und']) > 0)) {
+        $localuser = user_load($fieldtrip->field_fieldtrip_user['und'][0]['target_id']);
+        $role = user_role_load_by_name('field worker');
+        $rid = $role->rid;
+        switch ($fieldtrip->field_fieldtrip_status['und'][0]['value']) {
+          case 'In Progress':
+          case 'Submitted':
+            // Deny all access to role anonymous user
             $grants[] = array(
-              'realm' => 'devtrac_author',
-              'gid' => $localuser->field_user_superior['und'][0]['target_id'],
+              'realm' => 'devtrac_rid',
+              'gid' => 1,
               'grant_view' => 0,
               'grant_update' => 0,
               'grant_delete' => 0,
               'priority' => 26,
             );
-          }
-          break;
-        case 'Approved':
-          // Grant default access (view) to all users
-          break;
+            // Grant view access to role field worker
+            $grants[] = array(
+              'realm' => 'devtrac_rid',
+              'gid' => $rid,
+              'grant_view' => 1,
+              'grant_update' => 0,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            // Grant update access to the owner/creator
+            $grants[] = array(
+              'realm' => 'devtrac_owner',
+              'gid' => $node->uid,
+              'grant_view' => 0,
+              'grant_update' => 1,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            // Deny all access to the manager of the user going on the fieldtrip (still has view access through it's role)
+            if (isset($localuser->field_user_superior['und']) && (count($localuser->field_user_superior['und']) > 0)) {
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $localuser->field_user_superior['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+            }
+            break;
+          case 'Approved':
+            // Grant default access (view) to all users
+            break;
+        }
+      }
+    }
+    // Used when fieldrips are optional or not enabled.
+    elseif (empty($fieldtrip) && variable_get('devtrac_fieldtrips_on', FALSE) != DEVTRAC_MANDATORY_FIELDTRIPS) {
+      $ftritem = $node;
+      if (isset($ftritem->field_ftritem_status['und'][0]['value'])) {
+        if ((!isset($ftritem->field_ftritem_user)) || (!isset($ftritem->field_ftritem_user['und']))) {
+          // This may happen when ftritems are anonymously imported using feeds
+          return;
+        }
+
+        $localuser = user_load($ftritem->field_ftritem_user['und'][0]['target_id']);
+        $role = user_role_load_by_name('field worker');
+        $rid = $role->rid;
+        switch ($ftritem->field_ftritem_status['und'][0]['value']) {
+          case 'In Progress':
+            // Deny all access to role anonymous user
+            $grants[] = array(
+              'realm' => 'devtrac_rid',
+              'gid' => 1,
+              'grant_view' => 0,
+              'grant_update' => 0,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            // Grant view access to role field worker
+            $grants[] = array(
+              'realm' => 'devtrac_rid',
+              'gid' => $rid,
+              'grant_view' => 1,
+              'grant_update' => 0,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            // Grant update access to the user going on the ftritem
+            $grants[] = array(
+              'realm' => 'devtrac_author',
+              'gid' => $ftritem->field_ftritem_user['und'][0]['target_id'],
+              'grant_view' => 0,
+              'grant_update' => 1,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            // Grant update access to the owner/creator
+            $grants[] = array(
+              'realm' => 'devtrac_owner',
+              'gid' => $ftritem->uid,
+              'grant_view' => 0,
+              'grant_update' => 1,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            if (isset($localuser->field_user_superior['und']) && (count($localuser->field_user_superior['und']) > 0)) {
+              // Deny all access to the manager of the user going on the ftritem
+              // (still has view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $localuser->field_user_superior['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+            }
+            break;
+          case 'Submitted':
+            // Deny all access to role anonymous user
+            $grants[] = array(
+              'realm' => 'devtrac_rid',
+              'gid' => 1,
+              'grant_view' => 0,
+              'grant_update' => 0,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            // Grant view access to role field worker
+            $grants[] = array(
+              'realm' => 'devtrac_rid',
+              'gid' => $rid,
+              'grant_view' => 1,
+              'grant_update' => 0,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            if (isset($localuser->field_user_superior['und']) && (count($localuser->field_user_superior['und']) > 0)) {
+              // Deny all access to the user going on the ftritem
+              // (still has view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $ftritem->field_ftritem_user['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+              // Deny all access to the owner/creator
+              //  (still has view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_owner',
+                'gid' => $ftritem->uid,
+                'grant_view' => 0,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+              // Grant update access to the manager of the user going on the
+              //  ftritem
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $localuser->field_user_superior['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 1,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+            }
+            else { // There is no manager, so user/owner does own management
+              // Grant update access to the user going on the ftritem (still has
+              //  view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $ftritem->field_ftritem_user['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 1,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+              // Grant update access to the owner/creator (still has view access
+              // through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_owner',
+                'gid' => $ftritem->uid,
+                'grant_view' => 0,
+                'grant_update' => 1,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+            }
+            break;
+          case 'Approved':
+            // Grant default access (view) to all users
+            break;
+        }
       }
     }
   }

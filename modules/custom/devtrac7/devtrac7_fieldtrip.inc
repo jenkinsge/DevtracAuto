@@ -1,6 +1,13 @@
 <?php
 
 /**
+ * Three constants that represent the states of field trips in DevTrac.
+ */
+define('DEVTRAC_FIELDTRIPS_OFF', 0);
+define('DEVTRAC_OPTIONAL_FIELDTRIPS', 1);
+define('DEVTRAC_MANDATORY_FIELDTRIPS', 2);
+
+/**
  * This function checks if at least one Place is set on the Field Trip.
  * It returns TRUE if it does.
  * It returns FALSE if it doesn't.

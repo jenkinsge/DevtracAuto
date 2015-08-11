@@ -548,8 +548,19 @@ function devtrac7_progress_field_progress_field_getprogress($entity_type, $entit
   if ($entity_type == 'node') {
     // TODO: This is a quick fix for the devtrac system
     // Remove this before contributing to drupal.org
-    if (($entity->type == 'ftritem') && isset($entity->field_ftritem_status[$entity->language][0]['value']) && ($entity->field_ftritem_status[$entity->language][0]['value'] == 'Submitted')) {
+    module_load_include('inc', 'devtrac7', 'devtrac7_fieldtrip');
+    if (($entity->type == 'ftritem') && isset($entity->field_ftritem_status[$entity->language][0]['value']) && ($entity->field_ftritem_status[$entity->language][0]['value'] == 'Submitted')
+           && (variable_get('devtrac_fieldtrips_on', FALSE) == DEVTRAC_MANDATORY_FIELDTRIPS || !empty($entity->field_ftritem_field_trip))) {
       // Bail out if site report is submitted (progress is 100%, so holds no info)
+      // And Field Trips are Mandatory or if it has a fieldtrip attached, this
+      // is necessary for optional field trips.
+      return $items;
+    }
+    if (($entity->type == 'ftritem') && isset($entity->field_ftritem_status[$entity->language][0]['value']) && ($entity->field_ftritem_status[$entity->language][0]['value'] == 'Approved')
+           && variable_get('devtrac_fieldtrips_on', FALSE) != DEVTRAC_MANDATORY_FIELDTRIPS && empty($entity->field_ftritem_field_trip)) {
+      // Bail out if ftritem is approved (progress is 100%, so holds no info)
+      // And Field Trips are Optional and it has no fieldtrip attached, this
+      // is necessary for optional field trips.
       return $items;
     }
     if (($entity->type == 'fieldtrip') && isset($entity->field_fieldtrip_status[$entity->language][0]['value']) && ($entity->field_fieldtrip_status[$entity->language][0]['value'] == 'Approved')) {

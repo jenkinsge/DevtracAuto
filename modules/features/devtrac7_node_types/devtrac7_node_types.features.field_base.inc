@@ -1248,7 +1248,9 @@ function devtrac7_node_types_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
+        'Approved' => 'Approved',
         'In Progress' => 'In Progress',
+        'Published' => 'Published',
         'Submittable' => 'Submittable',
         'Submitted' => 'Submitted',
       ),

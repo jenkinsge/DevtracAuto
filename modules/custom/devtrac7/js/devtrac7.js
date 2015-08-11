@@ -21,6 +21,11 @@ Drupal.behaviors.initModalFieldTrip = {
     $("a[href*='fieldtripcommentform/ajax//go']", context).once('init-modal-fieldtrip', function () {
       this.href = this.href.replace('ajax//','ajax/nojs/');
     });
+
+    // Used when fieldrips are optional or not enabled.
+    $("a[href*='ftritemcommentform/ajax//go']", context).once('init-modal-ftritem', function () {
+      this.href = this.href.replace('ajax//','ajax/nojs/');
+    });
   }
 };
 

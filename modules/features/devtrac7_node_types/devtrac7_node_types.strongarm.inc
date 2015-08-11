@@ -168,7 +168,7 @@ function devtrac7_node_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_ftritem';
-  $strongarm->value = '1';
+  $strongarm->value = '2';
   $export['comment_ftritem'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -245,7 +245,7 @@ function devtrac7_node_types_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'comment_subject_field_ftritem';
-  $strongarm->value = 1;
+  $strongarm->value = 0;
   $export['comment_subject_field_ftritem'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -268,6 +268,13 @@ function devtrac7_node_types_strongarm() {
   $strongarm->name = 'date_format_devtrac_format';
   $strongarm->value = 'd/m/Y';
   $export['date_format_devtrac_format'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'devtrac_fieldtrips_on';
+  $strongarm->value = '2';
+  $export['devtrac_fieldtrips_on'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

@@ -34,6 +34,10 @@ function devtrac7_views_views_query_alter(&$view, &$query) {
     if (isset($query->table_queue['field_data_field_fieldtrip_status']['join'])) {
       $query->table_queue['field_data_field_fieldtrip_status']['join']->type = 'LEFT';
     }
+    // Additional filter for the manager of the ftritems user uses this.
+    if (isset($query->table_queue['field_data_field_ftritem_status']['join'])) {
+      $query->table_queue['field_data_field_ftritem_status']['join']->type = 'LEFT';
+    }
 //    if (isset($query->table_queue['node_comment_statistics']['join'])) {
 //      $query->table_queue['node_comment_statistics']['join']->type = 'LEFT';
 //    }
@@ -142,6 +146,8 @@ function devtrac7_views_views_pre_view(&$view, &$display_id, &$args){
        $view->display['block_12']->handler->options['filters']['uid_raw_1']['value']['value']  = $account->uid;
 //       $view->display['block_12']->handler->options['filters']['uid_raw_2']['value']['value'] = $account->uid;
        $view->display['block_12']->handler->options['filters']['uid_raw_3']['value']['value'] = $account->uid;
+       // Additional filter for the manager of the ftritems user uses this.
+       $view->display['block_12']->handler->options['filters']['field_user_superior_target_id_1']['value']['value'] = $account->uid;
 
      }
    }
