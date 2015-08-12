@@ -876,7 +876,7 @@ function devtrac7_ftritem_create($placenid, $fieldtripnid = NULL, $reporttype = 
 
         // Return an array of the node and message. Returning the node lets us
         // set the $formstate redirect property after the ajax executes.
-        $message .= 'Attached location ' . $place->title . ' to ' . $ftr->title;
+        $message .= 'Created ' . $ftr->title;
         return array('node' => $ftr, 'message' => $message);
       }
     }
