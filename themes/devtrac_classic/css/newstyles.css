@@ -79,6 +79,7 @@ table tbody tr.even td.active {
   vertical-align: top;
 }
 
+div.contextual-links-wrapper { display:none; }
 /*=============================================================================
  * Header Sytles
  * ==========================================================================*/

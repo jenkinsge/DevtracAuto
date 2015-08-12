@@ -246,7 +246,7 @@ function devtrac7_settings_form() {
     '#title' => t('Switch On Devtrac Field Trips.'),
     '#description' => t('Select how field trips should be included in your Devtrac installation.'),
     '#options' => $values,
-    '#default_value' => variable_get("devtrac_fieldtrips_on", FALSE) ? variable_get("devtrac_fieldtrips_on"): 2,
+    '#default_value' => (variable_get("devtrac_fieldtrips_on") !== null) ? variable_get("devtrac_fieldtrips_on"): 2,
   );
   return system_settings_form($form);
 }
@@ -1489,15 +1489,23 @@ function devtrac7_node_insert($node) {
       break;
     case 'place':
       /*
-       * Places can only be insterted if the full URL is
+       * If places are insterted using a URL of the form
        * node/add/place/fieldtripnid/reporttype
+       * Set the new field trip as the destination.
        *
+       * Otherwise unset the $_GET destination, so users are redirected to the
+       * new locations node page.
        */
       $fieldtripnid = arg(3);
       $reporttype = arg(4);
-      module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
-      devtrac7_ftritem_create($node->nid, $fieldtripnid, $reporttype);
-      $_GET['destination'] = 'node/' . $fieldtripnid;
+      if (isset($fieldtripnid) && isset($reporttype)) {
+        module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+        devtrac7_ftritem_create($node->nid, $fieldtripnid, $reporttype);
+        $_GET['destination'] = 'node/' . $fieldtripnid;
+      }
+      else {
+        unset($_GET['destination']);
+      }
       break;
     case 'questionnaire_question':
       $question_view = db_insert('draggableviews_structure')
@@ -2117,26 +2125,28 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
   // Remove option "- None -" from Subject/Sector multi-select field.
   unset($form['taxonomy_vocabulary_8'][LANGUAGE_NONE]['#options']['_none']);
 
-  if (!isset($form['#node']->vocabulary_7) ||
-      ((isset($form['#node']->vocabulary_7) && (empty($form['#node']->vocabulary_7['und'][0]['tid']))))) {
+//  if (!isset($form['#node']->taxonomy_vocabulary_7) ||
+//      ((isset($form['#node']->taxonomy_vocabulary_7) && (empty($form['#node']->taxonomy_vocabulary_7['und'][0]['tid']))))) {
 
-    if (((isset($form['#node']->vocabulary_7)) && ($form['#node']->vocabulary_7['und'][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) || // Roadside Observation
-    (!isset($form['#node']->vocabulary_7))) { // new node
+    if (((isset($form['#node']->taxonomy_vocabulary_7)) && ($form['#node']->taxonomy_vocabulary_7['und'][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) || // Roadside Observation
+    (!isset($form['#node']->taxonomy_vocabulary_7))) { // new node
       $form['taxonomy_vocabulary_6']['und']['#type'] = "select";
       $form['taxonomy_vocabulary_6']['und']['#multiple'] = FALSE;
     }
     else {
       // Show Site Visit Type as text
-      $type = taxonomy_term_load($form['#node']->vocabulary_7['und'][0]['tid']);
+      $type = taxonomy_term_load($form['#node']->taxonomy_vocabulary_7['und'][0]['tid']);
       $form['sitevisittype'] = Array (
         '#type' => "markup",
         '#markup' => $type->name,
+        '#prefix' => '<label>Site Report Type  <span class="form-required" original-title="This field is required.">*</span></label>',
        );
        $form['taxonomy_vocabulary_6']['#type'] = "hidden"; // District
-       $form['taxonomy_vocabulary_1']['#type'] = "hidden";
+       $form['taxonomy_vocabulary_1']['#type'] = "hidden"; // Location Type
+       $form['taxonomy_vocabulary_7']['#type'] = "hidden"; // Site Report Type
        $form['field_ftritem_lat_long']['#type'] = "hidden";
     }
-  }
+//  }
 
   $form['field_ftritem_images']['und']['#file_upload_title'] = t("Add a new Image");
 
@@ -2165,6 +2175,19 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
   // Declare a new validation function to see if Date visited is between 
   // start and end date of fieldtrip
   $form['#validate'][] = 'devtrac7_ftritem_datevisited_validate';
+
+  // If the default value for the date is not set, set one.
+  $field_language = $form['field_ftritem_date_visited']['#language'];
+  $field_deltas = array_keys($form['field_ftritem_date_visited'][$field_language]);
+  $instance = field_info_instance('node', 'field_ftritem_date_visited', 'ftritem');
+  $field = field_info_field('field_ftritem_date_visited');
+  module_load_include('inc', 'date', 'date_elements');
+  $items = date_default_value($field, $instance, $field_language);
+  foreach($field_deltas as $delta) {
+    if (is_numeric($delta) && empty($form['field_ftritem_date_visited'][$field_language][$delta]['#default_value'])) {
+      $form['field_ftritem_date_visited'][$field_language][$delta]['#default_value'] = $items[$delta];
+    }
+  }
 }
 
 /**
@@ -3022,10 +3045,29 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
     '#type' => 'hidden',
     '#value' => $place->nid,
   );
+  switch (true) {
+    // Devtrac field trips OFF
+    case (variable_get("devtrac_fieldtrips_on") == 0):
+      $description = t("You may create the Site Report to which location :location will be added.", Array(':location' => $place->title));
+      break;
+    // Optional Field trips.
+    case (variable_get("devtrac_fieldtrips_on") == 1 && !empty($fieldtrips)):
+      $description = t("You may select or create the Field Trip to which location :location will be added, or you may add a Site Report to which it will be attached.", Array(':location' => $place->title));
+      break;
+    case (variable_get("devtrac_fieldtrips_on") == 1 && empty($fieldtrips)):
+      $description = t("You may create the Field Trip to which location :location will be added, or you may add a Site Report to which it will be attached.", Array(':location' => $place->title));
+      break;
+    // Mandatory Field trips.
+    case (variable_get("devtrac_fieldtrips_on") == 2 && !empty($fieldtrips)):
+      $description = t("You may select or create the Field Trip to which location :location will be added.", Array(':location' => $place->title));
+      break;
+    case (variable_get("devtrac_fieldtrips_on") == 2 && empty($fieldtrips)):
+      $description = t("You may create the Field Trip to which location :location will be added.", Array(':location' => $place->title));
+      break;
+  }
 
   $form['description'] = array (
-    '#markup' => (!empty($fieldtrips)) ? t("Select or create the Field Trip to which to add this location: :location.", Array(':location' => $place->title)) : 
-                                          t("Create the Field Trip to which to add this location: :location.", Array(':location' => $place->title)),
+    '#markup' => $description,
   );
 
   $rtkeys = array_keys($reporttypes);
@@ -3135,8 +3177,8 @@ function devtrac7_addsitevisit_fromlocation($form, &$form_state) {
   // Get message of successful creation of the ftritem or the error.
   $result = devtrac7_ftritem_create($form_state['values']['nid'], NULL, $form_state['values']['reporttype']);
   $form_state['new_ftritem'] = $result['node'];
-  
-  if (strpos($result['message'], 'Attached location') === 0) {
+
+  if (strpos($result['message'], 'Created') === 0) {
     drupal_set_message(t($result['message']));
   }
   else {
@@ -3193,7 +3235,7 @@ function devtrac7_addftritemform_modal($node, $js = FALSE) {
   ctools_include('modal');
   ctools_include('ajax');
   $form_state = array(
-    'title' => t('Add a Location'),
+    'title' => t('Add a Site Report to ' . $node->title),
     'ajax' => TRUE,
   );
   $form_state['build_info']['args'] = array($node);
