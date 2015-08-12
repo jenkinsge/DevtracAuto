@@ -3132,7 +3132,7 @@ function devtrac7_addftritemform_submit($form, &$form_state) {
   }
   // Get message of successful creation of the ftritem or the error.
   $message = devtrac7_ftritem_create($form_state['values']['nid'], $form_state['values']['fieldtrip'], $form_state['values']['reporttype']);
-  if (strpos($message, 'Created') === 0) {
+  if (strpos($message, 'Attached location') === 0) {
     drupal_set_message(t($message));
   }
   else {
