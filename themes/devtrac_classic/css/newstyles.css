@@ -515,7 +515,8 @@ div#region-content.grid-4.region.region-content div.region-inner.region-content-
 .node-place .field-label ,
 .node-ftritem .field-label ,
 .node-fieldtrip .field-label ,
-.node-actionitem .field-label {
+.node-actionitem .field-label,
+.field-name-field-actionitem-status .field-label{
   padding-left: 20px;
   background-size: auto 14px;
   background-repeat: no-repeat;
@@ -592,12 +593,12 @@ div#region-content.grid-4.region.region-content div.region-inner.region-content-
 }
 
 .field-name-field-place-responsible-person .field-label{
-  background-image: url(../images/person.svg);
-  background-repeat:no-repeat;
-  background-size: 16px 16px;
-  background-color: #aaa;
-  border-radius: 10px;
-  background-position: 2px;
+  background-image: url(../images/person.svg) !important;
+  background-repeat:no-repeat !important;
+  background-size: 16px 16px !important;
+  background-color: #aaa !important;
+  border-radius: 10px !important;
+  background-position: 2px !important;
 }
 
 .field-name-field-contact-person-name .field-label  {
@@ -3857,3 +3858,10 @@ html .not-logged-in.page-user.context-user .zone-content .region-content-inner #
   opacity: 1.0;
 }
 
+/*===================================================================================*\
+ * Hide the error image that appears behind the Browse button when uploading a
+ * document or image fails.
+\*===================================================================================*/
+div#edit-upload-upload .NFI-wrapper.form-file.error {
+  background-image:none;
+}

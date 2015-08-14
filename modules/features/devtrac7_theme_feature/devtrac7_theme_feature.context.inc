@@ -69,6 +69,66 @@ function devtrac7_theme_feature_context_default_contexts() {
   $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
+  $context->name = 'context_comments';
+  $context->description = 'Comment Reply Pages';
+  $context->tag = 'Comments';
+  $context->conditions = array(
+    'path' => array(
+      'values' => array(
+        'comment/reply/*/*' => 'comment/reply/*/*',
+      ),
+    ),
+  );
+  $context->reactions = array(
+    'block' => array(
+      'blocks' => array(
+        'delta_blocks-messages' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'messages',
+          'region' => 'branding',
+          'weight' => '-9',
+        ),
+        'pane-action_items_info' => array(
+          'module' => 'pane',
+          'delta' => 'action_items_info',
+          'region' => 'featured',
+          'weight' => '-80',
+        ),
+        'system-main' => array(
+          'module' => 'system',
+          'delta' => 'main',
+          'region' => 'content',
+          'weight' => '-10',
+        ),
+        'views-dvtrc_action_items-block_2' => array(
+          'module' => 'views',
+          'delta' => 'dvtrc_action_items-block_2',
+          'region' => 'preface_third',
+          'weight' => '-10',
+        ),
+        'delta_blocks-breadcrumb' => array(
+          'module' => 'delta_blocks',
+          'delta' => 'breadcrumb',
+          'region' => 'breadcrumb',
+          'weight' => '-10',
+        ),
+      ),
+    ),
+    'delta' => array(
+      'delta_template' => 'actionitems_page_layout',
+    ),
+  );
+  $context->condition_mode = 0;
+
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('Comment Reply Pages');
+  t('Comments');
+  $export['context_comments'] = $context;
+
+  $context = new stdClass();
+  $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
+  $context->api_version = 3;
   $context->name = 'context_node_view_actionitem';
   $context->description = 'Blocks on Action Items';
   $context->tag = 'nodetype';
@@ -79,6 +139,11 @@ function devtrac7_theme_feature_context_default_contexts() {
       ),
       'options' => array(
         'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '~comment/reply/*/*' => '~comment/reply/*/*',
       ),
     ),
   );
@@ -133,7 +198,7 @@ function devtrac7_theme_feature_context_default_contexts() {
       'delta_template' => 'actionitems_page_layout',
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -154,6 +219,11 @@ function devtrac7_theme_feature_context_default_contexts() {
       ),
       'options' => array(
         'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '~comment/reply/*/*' => '~comment/reply/*/*',
       ),
     ),
   );
@@ -229,6 +299,11 @@ function devtrac7_theme_feature_context_default_contexts() {
       ),
       'options' => array(
         'node_form' => '0',
+      ),
+    ),
+    'path' => array(
+      'values' => array(
+        '~comment/reply/*/*' => '~comment/reply/*/*',
       ),
     ),
   );

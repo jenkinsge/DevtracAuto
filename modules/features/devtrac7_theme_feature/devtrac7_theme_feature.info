@@ -22,6 +22,7 @@ dependencies[] = strongarm
 dependencies[] = views
 dependencies[] = views_modes
 features[context][] = context_all_pages
+features[context][] = context_comments
 features[context][] = context_node_view_actionitem
 features[context][] = context_node_view_field_trip
 features[context][] = context_node_view_ftritem
