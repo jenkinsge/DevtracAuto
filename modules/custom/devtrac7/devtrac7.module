@@ -1224,6 +1224,13 @@ function devtrac7_modal_operator_callback($field_name, $nid, $operator, $id = 0,
     case 'add':
       $result = devtrac7_field_collection_item_add(str_replace('-', '_', $field_name), 'node', $nid);
       if (is_numeric($result) && ($result == MENU_NOT_FOUND || $result == MENU_ACCESS_DENIED)) {
+        // Render an access denied message. This will prevent future errors in
+        // case the user does not have enough permissions to perform the action.
+        $title = ($result == MENU_NOT_FOUND)? "Page Not Found" : "Access Denied";
+        $output = ($result == MENU_NOT_FOUND)?
+          "We can not find the page you were looking for." :
+          "Sorry to say, but this part of the site is off-limits for you.";
+        print ctools_modal_render($title, $output);
         exit();
       }
       break;
@@ -1400,7 +1407,9 @@ function devtrac7_field_attach_view_alter(&$output, $context) {
 function devtrac7_field_collection_item_access($op, $item, $node) {
   global $user;
   $result = field_collection_item_access($op, $item);
-  $result = $result && ($node->uid == $user->uid);
+  if ($node->type != 'place') {
+    $result = $result && ($node->uid == $user->uid);
+  }
   $result = $result && node_access('update', $node);
   if ($node->type == 'fieldtrip') {
     $result = $result && isset($node->field_fieldtrip_status[$node->language][0]['value']);
