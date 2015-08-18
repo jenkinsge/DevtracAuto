@@ -890,7 +890,7 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['filters']['taxonomy_vocabulary_8_tid']['vocabulary'] = 'vocabulary_8';
   $handler->display->display_options['path'] = 'admin/devtrac7/quality/reports/ai-no-oecd-codes';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'ActionItems without Sector';
+  $handler->display->display_options['menu']['title'] = 'Action Items without Sector';
   $handler->display->display_options['menu']['description'] = 'ActionItems that are missing OECD Sector codes';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'management';

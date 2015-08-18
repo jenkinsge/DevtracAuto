@@ -5,3 +5,4 @@ dependencies[] = "views"
 package = "Devtrac"
 
 files[] = devtrac7_views.module
+files[] = plugins/devtrac7_views_access_plugin.inc

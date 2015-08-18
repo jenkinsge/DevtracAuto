@@ -2463,7 +2463,7 @@ function devtrac7_views_feature_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['type'] = 'devtrac_fieldtrips_roles';
   $handler->display->display_options['access']['role'] = array(
     2 => '2',
   );
@@ -10070,7 +10070,7 @@ $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['su
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'My Field Trips';
   $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['type'] = 'devtrac_fieldtrips_roles';
   $handler->display->display_options['access']['role'] = array(
     2 => '2',
   );
@@ -10284,14 +10284,14 @@ $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['su
   $handler->display->display_options['filters']['uid_current']['value'] = '1';
 
   /* Display: NumbrFieldTrip */
-  $handler = $view->new_display('block', 'NumbrFieldTrip', 'block_3');
+  $handler = $view->new_display('attachment', 'NumbrFieldTrip', 'attachment_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Overview';
   $handler->display->display_options['display_description'] = 'Fieldtrips';
   $handler->display->display_options['defaults']['group_by'] = FALSE;
   $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['type'] = 'devtrac_fieldtrips_roles';
   $handler->display->display_options['access']['role'] = array(
     2 => '2',
   );
@@ -10395,9 +10395,21 @@ $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['su
   $handler->display->display_options['filters']['type']['value'] = array(
     'fieldtrip' => 'fieldtrip',
   );
+  $handler->display->display_options['displays'] = array(
+    'block_3' => 'block_3',
+    'default' => 0,
+    'page_1' => 0,
+    'block' => 0,
+    'block_1' => 0,
+    'block_2' => 0,
+    'page_5' => 0,
+    'page_6' => 0,
+    'block_4' => 0,
+  );
+  $handler->display->display_options['attachment_position'] = 'before';
 
   /* Display: NumbrSitevisits */
-  $handler = $view->new_display('attachment', 'NumbrSitevisits', 'attachment_1');
+  $handler = $view->new_display('block', 'NumbrSitevisits', 'block_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['display_description'] = 'Site Reports';
   $handler->display->display_options['defaults']['group_by'] = FALSE;
@@ -10500,18 +10512,6 @@ $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['su
   $handler->display->display_options['filters']['type']['value'] = array(
     'ftritem' => 'ftritem',
   );
-  $handler->display->display_options['displays'] = array(
-    'block_3' => 'block_3',
-    'default' => 0,
-    'page_1' => 0,
-    'block' => 0,
-    'block_1' => 0,
-    'block_2' => 0,
-    'page_5' => 0,
-    'page_6' => 0,
-    'block_4' => 0,
-  );
-  $handler->display->display_options['attachment_position'] = 'after';
 
   /* Display: NumbrActionItems */
   $handler = $view->new_display('attachment', 'NumbrActionItems', 'attachment_2');

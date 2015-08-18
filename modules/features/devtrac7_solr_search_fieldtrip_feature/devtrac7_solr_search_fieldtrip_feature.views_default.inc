@@ -24,7 +24,7 @@ function devtrac7_solr_search_fieldtrip_feature_views_default_views() {
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Fieldtrips: Graphs';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['type'] = 'devtrac_fieldtrips_roles';
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
     5 => '5',
