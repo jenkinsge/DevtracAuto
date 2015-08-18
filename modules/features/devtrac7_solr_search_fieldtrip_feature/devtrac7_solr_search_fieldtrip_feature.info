@@ -8,6 +8,7 @@ dependencies[] = context
 dependencies[] = ctools
 dependencies[] = current_search
 dependencies[] = devtrac7_realms
+dependencies[] = devtrac7_views
 dependencies[] = entity
 dependencies[] = facetapi
 dependencies[] = footable

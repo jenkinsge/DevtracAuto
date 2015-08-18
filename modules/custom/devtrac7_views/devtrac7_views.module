@@ -209,3 +209,51 @@ function devtrac7_views_views_pre_render(&$view) {
     $view->field['title']->options['alter']['path'] = $view->field['title']->options['alter']['path'] . '/' . $view->args[1] . '/' . $view->args[2];
   }
 }
+
+/**
+ * Adding custom views access plugin that we will use to hide field trip views
+ * when Devtrac fieldtrips are switched off.
+ */
+
+/**
+ * Implements hook_views_plugins()
+ */
+function devtrac7_views_views_plugins() {
+  $plugins = array(
+    'access' => array(
+      'devtrac_fieldtrips_roles' => array(
+        'title' => t('Devtrac Field Trips Roles Access'),
+        'help' => t('This is a custom access plugin that checks whether field trips are switched on in Devtrac and a user has a certain role.'),
+        'handler' => 'devtrac7_views_plugin_access_fieldtrips_roles',
+        'path' => drupal_get_path('module', 'devtrac7_views') . '/plugins/devtrac7_views_access_plugin.inc',
+        'uses options' => TRUE,
+        'help topic' => 'access-role',
+        ),
+      ),
+    );
+  return $plugins;
+  }
+
+
+/**
+ * Access callback for the devtrac7_views_plugin_access_fieldtrips_roles access
+ * plugin.
+ *
+ * Determine if the specified user has access to a view on the basis of any of
+ * the requested roles and whether Devtrac Field Trips are switched on.
+ *
+ * If the $account argument is omitted, the current user is used.
+ * Required for Optional Field Trips.
+ */
+function devtrac7_fieldtrips_views_access_roles($rids, $account = NULL) {
+  global $user;
+  $account = isset($account) ? $account : $user;
+  $roles = array_keys($account->roles);
+  $roles[] = $account->uid ? DRUPAL_AUTHENTICATED_RID : DRUPAL_ANONYMOUS_RID;
+  if (variable_get('devtrac_fieldtrips_on', FALSE)) {
+    if (user_access('access all views', $account) || array_intersect(array_filter($rids), $roles)) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}

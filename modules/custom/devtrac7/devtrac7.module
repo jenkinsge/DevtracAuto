@@ -371,8 +371,21 @@ function devtrac7_menu_alter(&$items) {
   // to the taxonomy access and the user permissions pages.
   $items['admin/config/people/taxonomy_access']['access callback'] = 'devtrac7_limit_user_configuration_access';
   $items['admin/people/permissions']['access callback'] = 'devtrac7_limit_user_configuration_access';
+  // Add an extra access callback to my profile menu field trip items.
+  // Required for Optional Field Trips.
+  $items['node/add/fieldtrip']['access callback'] = 'devtrac7_fieldtrips_access';
+  $items['devtrac/mycurrentfieldtrip']['access callback'] = 'devtrac7_fieldtrips_access';
 }
 
+/**
+ * Access callback that checks whether Devtrac field trips are switched on.
+ */
+function devtrac7_fieldtrips_access() {
+  if (variable_get('devtrac_fieldtrips_on', FALSE)) {
+    return TRUE;
+  }
+  return FALSE;
+}
 /**
  * Implements the new title callback defined in hook_menu_alter().
  */

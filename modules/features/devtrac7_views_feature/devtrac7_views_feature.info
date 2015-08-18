@@ -8,6 +8,7 @@ dependencies[] = adaptive_image
 dependencies[] = colorbox
 dependencies[] = comment
 dependencies[] = ctools
+dependencies[] = devtrac7_views
 dependencies[] = entity
 dependencies[] = field_collection
 dependencies[] = footable
