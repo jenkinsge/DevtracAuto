@@ -248,8 +248,26 @@ function devtrac7_settings_form() {
     '#options' => $values,
     '#default_value' => (variable_get("devtrac_fieldtrips_on") !== null) ? variable_get("devtrac_fieldtrips_on"): 2,
   );
-  return system_settings_form($form);
+  $form = system_settings_form($form);
+  $form['old_settings'] = array(
+      '#type' => 'hidden',
+      '#value' => variable_get("devtrac_fieldtrips_on", FALSE),
+    );
+  $form['#submit'][] = 'devtrac7_node_access_rebuild';
+  return $form;
 }
+
+/**
+ * Rebuild node access rights when fieldtrips are switched on or off.
+ */
+function devtrac7_node_access_rebuild($form, &$form_state) {
+  // Only rebuild permissions if switching field trips off or on.
+  if(($form_state['input']['old_settings'] == 0 &&  $form_state['input']['devtrac_fieldtrips_on'] > 0)
+    || ($form_state['input']['old_settings'] > 0 &&  $form_state['input']['devtrac_fieldtrips_on'] == 0)) {
+    node_access_rebuild();
+  }
+}
+
 /**
  * 
  * @param type $js
@@ -374,7 +392,6 @@ function devtrac7_menu_alter(&$items) {
   // Add an extra access callback to my profile menu field trip items.
   // Required for Optional Field Trips.
   $items['node/add/fieldtrip']['access callback'] = 'devtrac7_fieldtrips_access';
-  $items['devtrac/mycurrentfieldtrip']['access callback'] = 'devtrac7_fieldtrips_access';
 }
 
 /**
@@ -543,7 +560,10 @@ function devtrac7_gotofieldtrip($format = "html") {
  * @see http://drupal.org/node/1354
  */
 function devtrac7_currentfieldtrip_access() {
-  $result = devtrac7_getcurrentfieldtrip() > 0;
+  $result = FALSE;
+  if (variable_get('devtrac_fieldtrips_on', FALSE)) {
+    $result = devtrac7_getcurrentfieldtrip() > 0;
+  }
   return ($result);
 }
 

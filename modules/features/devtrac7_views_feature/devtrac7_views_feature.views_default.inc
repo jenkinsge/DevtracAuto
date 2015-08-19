@@ -10295,7 +10295,6 @@ $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['su
   $handler->display->display_options['access']['role'] = array(
     2 => '2',
   );
-  $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -10406,7 +10405,6 @@ $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['su
     'page_6' => 0,
     'block_4' => 0,
   );
-  $handler->display->display_options['attachment_position'] = 'before';
 
   /* Display: NumbrSitevisits */
   $handler = $view->new_display('block', 'NumbrSitevisits', 'block_3');
@@ -10416,6 +10414,7 @@ $handler->display->display_options['arguments']['field_ftritem_purpose_tid']['su
   $handler->display->display_options['group_by'] = TRUE;
   $handler->display->display_options['defaults']['access'] = FALSE;
   $handler->display->display_options['access']['type'] = 'none';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';

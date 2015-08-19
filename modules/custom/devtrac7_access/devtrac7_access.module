@@ -588,112 +588,34 @@ function devtrac7_access_node_access_records($node) {
   $rid = $role->rid;
   if ($node->type == 'fieldtrip') {
     $fieldtrip = $node;
-    if (isset($fieldtrip->field_fieldtrip_status['und'][0]['value'])) {
-     if ((!isset($fieldtrip->field_fieldtrip_user)) || (!isset($fieldtrip->field_fieldtrip_user['und']))) {
-       // This may happen when field trips are anonymously imported using feeds
-       return;
-     }
-      $localuser = user_load($fieldtrip->field_fieldtrip_user['und'][0]['target_id']);
-      switch ($fieldtrip->field_fieldtrip_status['und'][0]['value']) {
-        case 'In Progress':
-          // Deny all access to role anonymous user
-          $grants[] = array(
-            'realm' => 'devtrac_rid',
-            'gid' => 1,
-            'grant_view' => 0,
-            'grant_update' => 0,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          // Grant view access to role field worker
-          $grants[] = array(
-            'realm' => 'devtrac_rid',
-            'gid' => $rid,
-            'grant_view' => 1,
-            'grant_update' => 0,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          // Grant update access to the user going on the fieldtrip
-          $grants[] = array(
-            'realm' => 'devtrac_author',
-            'gid' => $fieldtrip->field_fieldtrip_user['und'][0]['target_id'],
-            'grant_view' => 0,
-            'grant_update' => 1,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          // Grant update access to the owner/creator
-          $grants[] = array(
-            'realm' => 'devtrac_owner',
-            'gid' => $fieldtrip->uid,
-            'grant_view' => 0,
-            'grant_update' => 1,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          if (isset($localuser->field_user_superior['und']) && (count($localuser->field_user_superior['und']) > 0)) {
-            // Deny all access to the manager of the user going on the fieldtrip (still has view access through it's role)
-          	$grants[] = array(
-              'realm' => 'devtrac_author',
-              'gid' => $localuser->field_user_superior['und'][0]['target_id'],
+    if (variable_get('devtrac_fieldtrips_on', FALSE)) {
+      if (isset($fieldtrip->field_fieldtrip_status['und'][0]['value'])) {
+       if ((!isset($fieldtrip->field_fieldtrip_user)) || (!isset($fieldtrip->field_fieldtrip_user['und']))) {
+         // This may happen when field trips are anonymously imported using feeds
+         return;
+       }
+        $localuser = user_load($fieldtrip->field_fieldtrip_user['und'][0]['target_id']);
+        switch ($fieldtrip->field_fieldtrip_status['und'][0]['value']) {
+          case 'In Progress':
+            // Deny all access to role anonymous user
+            $grants[] = array(
+              'realm' => 'devtrac_rid',
+              'gid' => 1,
               'grant_view' => 0,
               'grant_update' => 0,
               'grant_delete' => 0,
               'priority' => 26,
             );
-          }
-          break;
-        case 'Submitted':
-          // Deny all access to role anonymous user
-          $grants[] = array(
-            'realm' => 'devtrac_rid',
-            'gid' => 1,
-            'grant_view' => 0,
-            'grant_update' => 0,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          // Grant view access to role field worker
-          $grants[] = array(
-            'realm' => 'devtrac_rid',
-            'gid' => $rid,
-            'grant_view' => 1,
-            'grant_update' => 0,
-            'grant_delete' => 0,
-            'priority' => 26,
-          );
-          if (isset($localuser->field_user_superior['und']) && (count($localuser->field_user_superior['und']) > 0)) {
-            // Deny all access to the user going on the fieldtrip (still has view access through it's role)
+            // Grant view access to role field worker
             $grants[] = array(
-              'realm' => 'devtrac_author',
-              'gid' => $fieldtrip->field_fieldtrip_user['und'][0]['target_id'],
-              'grant_view' => 0,
+              'realm' => 'devtrac_rid',
+              'gid' => $rid,
+              'grant_view' => 1,
               'grant_update' => 0,
               'grant_delete' => 0,
               'priority' => 26,
             );
-            // Deny all access to the owner/creator (still has view access through it's role)
-            $grants[] = array(
-              'realm' => 'devtrac_owner',
-              'gid' => $fieldtrip->uid,
-              'grant_view' => 0,
-              'grant_update' => 0,
-              'grant_delete' => 0,
-              'priority' => 26,
-            );
-            // Grant update access to the manager of the user going on the fieldtrip
-            $grants[] = array(
-              'realm' => 'devtrac_author',
-              'gid' => $localuser->field_user_superior['und'][0]['target_id'],
-              'grant_view' => 0,
-              'grant_update' => 1,
-              'grant_delete' => 0,
-              'priority' => 26,
-            );
-          }
-          else { // There is no manager, so user/owner does own management
-            // Grant update access to the user going on the fieldtrip (still has view access through it's role)
+            // Grant update access to the user going on the fieldtrip
             $grants[] = array(
               'realm' => 'devtrac_author',
               'gid' => $fieldtrip->field_fieldtrip_user['und'][0]['target_id'],
@@ -702,7 +624,7 @@ function devtrac7_access_node_access_records($node) {
               'grant_delete' => 0,
               'priority' => 26,
             );
-            // Grant update access to the owner/creator (still has view access through it's role)
+            // Grant update access to the owner/creator
             $grants[] = array(
               'realm' => 'devtrac_owner',
               'gid' => $fieldtrip->uid,
@@ -711,12 +633,103 @@ function devtrac7_access_node_access_records($node) {
               'grant_delete' => 0,
               'priority' => 26,
             );
-          }
-          break;
-        case 'Approved':
-          // Grant default access (view) to all users
-          break;
+            if (isset($localuser->field_user_superior['und']) && (count($localuser->field_user_superior['und']) > 0)) {
+              // Deny all access to the manager of the user going on the fieldtrip (still has view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $localuser->field_user_superior['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+            }
+            break;
+          case 'Submitted':
+            // Deny all access to role anonymous user
+            $grants[] = array(
+              'realm' => 'devtrac_rid',
+              'gid' => 1,
+              'grant_view' => 0,
+              'grant_update' => 0,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            // Grant view access to role field worker
+            $grants[] = array(
+              'realm' => 'devtrac_rid',
+              'gid' => $rid,
+              'grant_view' => 1,
+              'grant_update' => 0,
+              'grant_delete' => 0,
+              'priority' => 26,
+            );
+            if (isset($localuser->field_user_superior['und']) && (count($localuser->field_user_superior['und']) > 0)) {
+              // Deny all access to the user going on the fieldtrip (still has view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $fieldtrip->field_fieldtrip_user['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+              // Deny all access to the owner/creator (still has view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_owner',
+                'gid' => $fieldtrip->uid,
+                'grant_view' => 0,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+              // Grant update access to the manager of the user going on the fieldtrip
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $localuser->field_user_superior['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 1,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+            }
+            else { // There is no manager, so user/owner does own management
+              // Grant update access to the user going on the fieldtrip (still has view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_author',
+                'gid' => $fieldtrip->field_fieldtrip_user['und'][0]['target_id'],
+                'grant_view' => 0,
+                'grant_update' => 1,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+              // Grant update access to the owner/creator (still has view access through it's role)
+              $grants[] = array(
+                'realm' => 'devtrac_owner',
+                'gid' => $fieldtrip->uid,
+                'grant_view' => 0,
+                'grant_update' => 1,
+                'grant_delete' => 0,
+                'priority' => 26,
+              );
+            }
+            break;
+          case 'Approved':
+            // Grant default access (view) to all users
+            break;
+        }
       }
+    }
+    else {
+      // If field trips are switched off. Deny all access to every user.
+      $grants[] = array(
+        'realm' => 'all',
+        'gid' => 0,
+        'grant_view' => 0,
+        'grant_update' => 0,
+        'grant_delete' => 0,
+        'priority' => 26,
+      );
     }
   }
 
