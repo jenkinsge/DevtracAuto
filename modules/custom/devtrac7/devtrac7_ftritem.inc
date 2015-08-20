@@ -5,6 +5,14 @@
  * Functions that manage the ftritem. Called from various places
  */
 
+/**
+ * Three constants that represent the states of locations on ftritems
+ * in DevTrac.
+ */
+define('DEVTRAC_MANDATORY_LOCATION', 1);
+define('DEVTRAC_OPTIONAL_LOCATION', 2);
+define('DEVTRAC_LOCATION_NONE', 3);
+
 function devtrac7_ftritem_addplacetofieldtrip($node) {
   if (!isset($node->field_ftritem_field_trip)) {
     // this happens when there is no fieldtrip.
@@ -129,11 +137,15 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
  */
 function devtrac7_ftritem_placetypeset($node) {
   if (!empty($node->taxonomy_vocabulary_7) && isset($node->taxonomy_vocabulary_7[$node->language])) {
-    if ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation')) {
-      // It's a Roadside Observation, it does not need it's own Place Type to be set
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      // It's a report type does not require a location like Roadside
+      // Observation, it does not need it's own Place Type to be set.
       return TRUE;
     }
-    // It's either a Site Visit or a Human Interest Story, they need the Place Type to be set
+    // It's a report type that requires a location like a Site Visit or a Human
+    // Interest Story, they need the Place Type to be set
     return TRUE;
   }
   return FALSE;
@@ -141,7 +153,9 @@ function devtrac7_ftritem_placetypeset($node) {
 
 function devtrac7_ftritem_placetype_required($node) {
   if (!empty($node->taxonomy_vocabulary_7) && isset($node->taxonomy_vocabulary_7[$node->language])) {
-    return ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] != _devtrac7_site_report_tid('Roadside Observation'));
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    return ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] != DEVTRAC_LOCATION_NONE);
   }
   return FALSE;
 }
@@ -153,14 +167,18 @@ function devtrac7_ftritem_placetype_required($node) {
  */
 function devtrac7_ftritem_districtset($node) {
   if (!empty($node->taxonomy_vocabulary_7) && isset($node->taxonomy_vocabulary_7[$node->language])) {
-    if ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation')) {
-      // It's a Roadside Observation, it needs it's own District to be set
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      // It's a report type does not require a location like Roadside
+      // Observation, it needs it's own District to be set
       if (!empty($node->taxonomy_vocabulary_6) && isset($node->taxonomy_vocabulary_6[$node->language])) {
         return (count($node->taxonomy_vocabulary_6[$node->language]) > 0);
       }
       return FALSE;
     }
-    // It's either a Site Visit or a Human Interest Story, they need the District to be set
+    // It's a report type that requires a location like a Site Visit or a Human
+    // Interest Story, they need the District to be set
     return TRUE;
   }
   return FALSE;
@@ -168,13 +186,15 @@ function devtrac7_ftritem_districtset($node) {
 
 function devtrac7_ftritem_district_required($node) {
   if (!empty($node->taxonomy_vocabulary_7) && isset($node->taxonomy_vocabulary_7[$node->language])) {
-    return ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'));
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    return ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE);
   }
   return FALSE;
 }
 
 /**
- * This function checks if the Place Type on the Site Report is set.
+ * This function checks if the Report Type on the Site Report is set.
  * It returns TRUE if it does.
  * It returns FALSE if it doesn't.
  */
@@ -216,14 +236,18 @@ function devtrac7_ftritem_fieldtripset($node) {
  */
 function devtrac7_ftritem_placeset($node) {
   if (!empty($node->taxonomy_vocabulary_7) && isset($node->taxonomy_vocabulary_7[$node->language])) {
-    if ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] != _devtrac7_site_report_tid('Roadside Observation')) {
-      // It's either a Site Visit or a Human Interest Story, they need the Place to be set
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] != DEVTRAC_LOCATION_NONE) {
+      // It's  a report type that requires a location like a Site Visit
+      // or a Human Interest Story, they need the Place to be set
       if (!empty($node->field_ftritem_place) && isset($node->field_ftritem_place[$node->language])) {
         return (count($node->field_ftritem_place[$node->language]) > 0);
       }
       return FALSE;
     }
-    // It's a Roadside Observation, it does not need the Place to be set
+    // It's a report type that does not require a location like Roadside
+    // Observation, it does not need the Place to be set
     return TRUE;
   }
   return FALSE;    
@@ -231,7 +255,9 @@ function devtrac7_ftritem_placeset($node) {
 
 function devtrac7_ftritem_place_required($node) {
   if (!empty($node->taxonomy_vocabulary_7) && isset($node->taxonomy_vocabulary_7[$node->language])) {
-    return ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] != _devtrac7_site_report_tid('Roadside Observation'));
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    return ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] != DEVTRAC_LOCATION_NONE);
   }
   return FALSE;
 }
@@ -332,14 +358,18 @@ function devtrac7_ftritem_questionnaireset($node) {
  */
 function devtrac7_ftritem_latlonset($node) {
   if (!empty($node->taxonomy_vocabulary_7) && isset($node->taxonomy_vocabulary_7[$node->language])) {
-    if ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation')) {
-      // It's a Roadside Observation, it needs it's own Lat-Lon to be set
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      // It's a report type does not require a location like Roadside
+      // Observation, it needs it's own Lat-Lon to be set
       if (!empty($node->field_ftritem_lat_long) && isset($node->field_ftritem_lat_long[$node->language])) {
         return (count($node->field_ftritem_lat_long[$node->language]) > 0);
       }
       return FALSE;
     }
-    // It's either a Site Visit or a Human Interest Story, they need the Place to be set
+    // It's a report type requires a location like a Site Visit or a Human
+    // Interest Story, they need the Lat Lon to be set
     return TRUE;
   }
   return FALSE;
@@ -347,7 +377,9 @@ function devtrac7_ftritem_latlonset($node) {
 
 function devtrac7_ftritem_latlon_required($node) {
   if (!empty($node->taxonomy_vocabulary_7) && isset($node->taxonomy_vocabulary_7[$node->language])) {
-    return ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'));
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    return ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE);
   }
   return FALSE;
 }
@@ -456,16 +488,20 @@ function devtrac7_ftritem_updatelatlon($node) {
     return TRUE;
   }
   // There is no place attached
-  if (isset($node->taxonomy_vocabulary_7[$node->language]) && (count($node->taxonomy_vocabulary_7[$node->language]) > 0) && ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) {
-    // It's a Roadside Observation (tid: _devtrac7_site_report_tid('Roadside Observation'))
-    // It needs its Lat-Lon to be set
-    watchdog('admin_feature', 'Lat-Lon needs to be set for Roadside Observation: ' . $node->nid);
-    drupal_set_message('Please provide the Lat-Lon for the Site Report.', 'error');
-    return FALSE;
+  if (isset($node->taxonomy_vocabulary_7[$node->language]) && (count($node->taxonomy_vocabulary_7[$node->language]) > 0)) {
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      // It's a report type does not require a location like Roadside
+      // Observation, it needs it's own Lat-Lon to be set
+      watchdog('admin_feature', "Lat-Lon needs to be set for $reporttype_term->name: " . $node->nid);
+      drupal_set_message('Please provide the Lat-Lon for the Site Report.', 'error');
+      return FALSE;
+    }
+    // It's a report type requires a location like a Site Visit or a Human
+    // Interest Story, they need the Place to be set
+  watchdog('admin_feature', "Place needs to be attached to $reporttype_term->name: " . $node->nid);
   }
-  // It's either a Site Visit (tid: 209) or a Human Interest Story (tid: 211)
-  // It needs a place to be attached
-  watchdog('admin_feature', 'Place needs to be attached to Site Visit or Human Interest Story: ' . $node->nid);
   drupal_set_message('Please attach a Place to the Site Report.', 'error');
   return FALSE;
 }
@@ -534,16 +570,20 @@ function devtrac7_ftritem_updatedistrict($node) {
     return TRUE;
   }
   // There is no place attached
-  if (isset($node->taxonomy_vocabulary_7[$node->language]) && (count($node->taxonomy_vocabulary_7[$node->language]) > 0) && ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) {
-    // It's a Roadside Observation (tid: _devtrac7_site_report_tid('Roadside Observation'))
-    // It needs its District to be set
-    watchdog('admin_feature', 'District needs to be set for Roadside Observation: ' . $node->nid);
-    drupal_set_message('Please provide the District for the Site Report.', 'error');
-    return FALSE;
+  if (isset($node->taxonomy_vocabulary_7[$node->language]) && (count($node->taxonomy_vocabulary_7[$node->language]) > 0)) {
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      // It's a report type does not require a location like Roadside
+      // Observation, it needs it's own District to be set
+      watchdog('admin_feature', "Lat-Lon needs to be set for $reporttype_term->name: " . $node->nid);
+      drupal_set_message('Please provide the District for the Site Report.', 'error');
+      return FALSE;
+    }
+    // It's a report type requires a location like a Site Visit or a Human
+    // Interest Story, it needs a place to be attached
+    watchdog('admin_feature', "Place needs to be attached to $reporttype_term->name: " . $node->nid);
   }
-  // It's either a Site Visit (tid: 209) or a Human Interest Story (tid: 211)
-  // It needs a place to be attached
-  watchdog('admin_feature', 'Place needs to be attached to Site Visit or Human Interest Story: ' . $node->nid);
   drupal_set_message('Please attach a Place to the Site Report.', 'error');
   return FALSE;
 }
@@ -605,16 +645,16 @@ function devtrac7_ftritem_updateplacetype($node) {
     return TRUE;
   }
   // There is no place attached
-  if (isset($node->taxonomy_vocabulary_7[$node->language]) && (count($node->taxonomy_vocabulary_7[$node->language]) > 0) && ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) {
-    // It's a Roadside Observation (tid: _devtrac7_site_report_tid('Roadside Observation'))
-    // It needs its Place Type to be set
-//    watchdog('admin_feature', 'Place Type needs to be set for Roadside Observation: ' . $node->nid);
-//    drupal_set_message('Please provide the Place Type for the Site Report.', 'error');
-    return TRUE;
+  if (isset($node->taxonomy_vocabulary_7[$node->language]) && (count($node->taxonomy_vocabulary_7[$node->language]) > 0)) {
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      return TRUE;
+    }
+    // It's a report type requires a location like a Site Visit or a Human
+    // Interest Story, it needs a place to be attached
+    watchdog('admin_feature', "Place needs to be attached to $reporttype_term->name: " . $node->nid);
   }
-  // It's either a Site Visit (tid: 209) or a Human Interest Story (tid: 211)
-  // It needs a place to be attached
-  watchdog('admin_feature', 'Place needs to be attached to Site Visit or Human Interest Story: ' . $node->nid);
   drupal_set_message('Please attach a Place to the Site Report.', 'error');
   return FALSE;
 }
@@ -670,17 +710,17 @@ function devtrac7_ftritem_updateoecdcodes($node) {
     // drupal_set_message('Place Type copied.', 'status');
     return TRUE;
   }
-  // There are no action items attached
-  if (isset($node->taxonomy_vocabulary_7[$node->language]) && (count($node->taxonomy_vocabulary_7[$node->language]) > 0) && ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) {
-    // It's a Roadside Observation (tid: _devtrac7_site_report_tid('Roadside Observation'))
-    // It needs its Place Type to be set
-//    watchdog('admin_feature', 'Place Type needs to be set for Roadside Observation: ' . $node->nid);
-//    drupal_set_message('Please provide the Place Type.', 'error');
-    return TRUE;
+  // There is no place attached
+  if (isset($node->taxonomy_vocabulary_7[$node->language]) && (count($node->taxonomy_vocabulary_7[$node->language]) > 0)) {
+    $reporttype = $node->taxonomy_vocabulary_7[$node->language][0]['tid'];
+    $reporttype_term =  taxonomy_term_load($reporttype);
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      return TRUE;
+    }
+    // It's a report type requires a location like a Site Visit or a Human
+    // Interest Story, it needs a place to be attached
+    watchdog('admin_feature', "Place needs to be attached to $reporttype_term->name: " . $node->nid);
   }
-  // It's either a Site Visit (tid: 209) or a Human Interest Story (tid: 211)
-  // It needs a place to be attached
-  watchdog('admin_feature', 'Place needs to be attached to Site Visit or Human Interest Story: ' . $node->nid);
   drupal_set_message('Please attach a Place.', 'error');
   return FALSE;
 }

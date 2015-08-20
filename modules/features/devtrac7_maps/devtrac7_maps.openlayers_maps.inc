@@ -979,7 +979,7 @@ function devtrac7_maps_openlayers_maps() {
   $openlayers_maps->api_version = 1;
   $openlayers_maps->name = 'devtrac_roadside_geofield_widget_map';
   $openlayers_maps->title = 'Devtrac Roadside Observation Geofield Widget Map';
-  $openlayers_maps->description = 'A Map Used for Geofield Input only for the roadside observation, so without WMS and getfeatureinfo and even locations.';
+  $openlayers_maps->description = 'A Map Used for Geofield Input only for the site report types that don\'t require a location like roadside observation, so without WMS and getfeatureinfo and even locations.';
   $openlayers_maps->data = array(
     'width' => 'auto',
     'height' => '400px',

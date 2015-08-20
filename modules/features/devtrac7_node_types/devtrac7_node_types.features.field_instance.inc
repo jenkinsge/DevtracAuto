@@ -4656,6 +4656,38 @@ The \'Search Address\' box will only help you to do an initial search on a rough
     ),
   );
 
+  // Exported field_instance:
+  // 'taxonomy_term-vocabulary_7-field_location_required'
+  $field_instances['taxonomy_term-vocabulary_7-field_location_required'] = array(
+    'bundle' => 'vocabulary_7',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => 'Specify whether locations are mandatory for reports of this type.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_location_required',
+    'label' => 'Location Required',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 1,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t(' Hold the \'Control\' key on your keyboard to select multiple districts.');
@@ -4697,6 +4729,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('Internal ID');
   t('Lat-Long');
   t('Location');
+  t('Location Required');
   t('Location Type');
   t('Location Types');
   t('Locations');
@@ -4740,6 +4773,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('Site Report Type');
   t('SourceLayer');
   t('SoureURI');
+  t('Specify whether locations are mandatory for reports of this type.');
   t('Start and End Date');
   t('Status');
   t('Subject');

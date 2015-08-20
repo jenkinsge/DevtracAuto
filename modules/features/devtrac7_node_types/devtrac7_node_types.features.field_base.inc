@@ -1388,6 +1388,35 @@ function devtrac7_node_types_field_default_field_bases() {
     'type' => 'entityreference',
   );
 
+  // Exported field_base: 'field_location_required'
+  $field_bases['field_location_required'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_location_required',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        1 => 'Mandatory',
+        2 => 'Optional',
+        3 => 'Not Possible',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_text',
+  );
+
   // Exported field_base: 'field_place_contact_info'
   $field_bases['field_place_contact_info'] = array(
     'active' => 1,

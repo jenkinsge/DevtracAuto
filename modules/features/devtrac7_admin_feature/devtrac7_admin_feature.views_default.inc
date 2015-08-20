@@ -728,6 +728,12 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['title'] = 'Unpublished Site Reports ';
   $handler->display->display_options['display_comment'] = 'We exclude Roadside Observations as these will never have a location';
   $handler->display->display_options['display_description'] = 'Site Reports that are not yet published';
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Content: Site Report Type (taxonomy_vocabulary_7) */
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_7_tid']['id'] = 'taxonomy_vocabulary_7_tid';
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_7_tid']['table'] = 'field_data_taxonomy_vocabulary_7';
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_7_tid']['field'] = 'taxonomy_vocabulary_7_tid';
+  $handler->display->display_options['relationships']['taxonomy_vocabulary_7_tid']['required'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Global: View result counter */
   $handler->display->display_options['fields']['counter']['id'] = 'counter';
@@ -780,16 +786,17 @@ function devtrac7_admin_feature_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'ftritem' => 'ftritem',
   );
-  /* Filter criterion: Content: Site Report Type (taxonomy_vocabulary_7) */
-  $handler->display->display_options['filters']['taxonomy_vocabulary_7_tid']['id'] = 'taxonomy_vocabulary_7_tid';
-  $handler->display->display_options['filters']['taxonomy_vocabulary_7_tid']['table'] = 'field_data_taxonomy_vocabulary_7';
-  $handler->display->display_options['filters']['taxonomy_vocabulary_7_tid']['field'] = 'taxonomy_vocabulary_7_tid';
-  $handler->display->display_options['filters']['taxonomy_vocabulary_7_tid']['operator'] = 'not';
-  $handler->display->display_options['filters']['taxonomy_vocabulary_7_tid']['value'] = array(
-    11 => '11',
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Taxonomy term: Location Required (field_location_required) */
+  $handler->display->display_options['filters']['field_location_required_value']['id'] = 'field_location_required_value';
+  $handler->display->display_options['filters']['field_location_required_value']['table'] = 'field_data_field_location_required';
+  $handler->display->display_options['filters']['field_location_required_value']['field'] = 'field_location_required_value';
+  $handler->display->display_options['filters']['field_location_required_value']['relationship'] = 'taxonomy_vocabulary_7_tid';
+  $handler->display->display_options['filters']['field_location_required_value']['operator'] = 'not';
+  $handler->display->display_options['filters']['field_location_required_value']['value'] = array(
+    3 => '3',
   );
-  $handler->display->display_options['filters']['taxonomy_vocabulary_7_tid']['type'] = 'select';
-  $handler->display->display_options['filters']['taxonomy_vocabulary_7_tid']['vocabulary'] = 'vocabulary_7';
+  $handler->display->display_options['filters']['field_location_required_value']['group'] = 1;
   $handler->display->display_options['path'] = 'admin/devtrac7/quality/reports/unpublished-sitevisits';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Unpublished Site Reports';
