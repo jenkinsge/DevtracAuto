@@ -843,9 +843,13 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
  * @param unknown_type $form_state
  */
 function devtrac7_node_validate($node, $form, &$form_state) {
-  if(($node->type == 'ftritem') && ($node->taxonomy_vocabulary_7['und'][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) {
-    if(empty($form_state['values']['field_ftritem_lat_long']['und'][0]['geom'])) {
-      form_set_error('field_ftritem_lat_long', t("Please provide the lat/lon for the site report"));
+  if($node->type == 'ftritem') {
+    $reporttype_term = taxonomy_term_load($node->taxonomy_vocabulary_7['und'][0]['tid']);
+    module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      if(empty($form_state['values']['field_ftritem_lat_long']['und'][0]['geom'])) {
+        form_set_error('field_ftritem_lat_long', t("Please provide the lat/lon for the site report"));
+      }
     }
   }
 }
@@ -880,15 +884,17 @@ function devtrac7_addplaceform_submit($form, &$form_state) {
   $district = reset($form_state['values']['district'][0]);
   $fieldtripnid = $form_state['values']['nid'];
   $reporttype = $reporttypes[$form_state['values']['reporttype']];
-
+  $reporttype_term = taxonomy_term_load($reporttype);
+  // load te report type and check wheher locations are mandatory or not.
   unset($_GET['destination']);
-  switch ($form_state['values']['reporttype']) {
+  module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+  switch ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value']) {
       // Site Visit
-    case 0:
+    case DEVTRAC_MANDATORY_LOCATION:
       // Human Interest Story
-    case 2:
+    case DEVTRAC_OPTIONAL_LOCATION:
       /*
-       * Places can only be insterted if the full URL is
+       * Places can only be inserted if the full URL is
        * node/add/place/fieldtripnid/reporttype
        *
        */
@@ -907,7 +913,7 @@ function devtrac7_addplaceform_submit($form, &$form_state) {
 
       $form_state['redirect'] =array('node/add/place/' . $fieldtripnid . '/' . $reporttype, array('query' => $prepopulate));
       break;
-    case 1:
+    case DEVTRAC_LOCATION_NONE:
       $prepopulate = array(
         'field_ftritem_field_trip' => $form_state['values']['nid'],
         'edit[taxonomy_vocabulary_6][und]' => $district,
@@ -2170,24 +2176,32 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
 //  if (!isset($form['#node']->taxonomy_vocabulary_7) ||
 //      ((isset($form['#node']->taxonomy_vocabulary_7) && (empty($form['#node']->taxonomy_vocabulary_7['und'][0]['tid']))))) {
 
-    if (((isset($form['#node']->taxonomy_vocabulary_7)) && ($form['#node']->taxonomy_vocabulary_7['und'][0]['tid'] == _devtrac7_site_report_tid('Roadside Observation'))) || // Roadside Observation
-    (!isset($form['#node']->taxonomy_vocabulary_7))) { // new node
-      $form['taxonomy_vocabulary_6']['und']['#type'] = "select";
-      $form['taxonomy_vocabulary_6']['und']['#multiple'] = FALSE;
+  if (isset($form['#node']->taxonomy_vocabulary_7)) {
+    $reporttype_term = taxonomy_term_load($form['#node']->taxonomy_vocabulary_7[LANGUAGE_NONE][0]['tid']);
+    module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+    if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
+      $location_not_required_for_report_type = TRUE;
     }
-    else {
-      // Show Site Visit Type as text
-      $type = taxonomy_term_load($form['#node']->taxonomy_vocabulary_7['und'][0]['tid']);
-      $form['sitevisittype'] = Array (
-        '#type' => "markup",
-        '#markup' => $type->name,
-        '#prefix' => '<label>Site Report Type  <span class="form-required" original-title="This field is required.">*</span></label>',
-       );
-       $form['taxonomy_vocabulary_6']['#type'] = "hidden"; // District
-       $form['taxonomy_vocabulary_1']['#type'] = "hidden"; // Location Type
-       $form['taxonomy_vocabulary_7']['#type'] = "hidden"; // Site Report Type
-       $form['field_ftritem_lat_long']['#type'] = "hidden";
-    }
+  }
+
+  if ((isset($location_not_required_for_report_type) && $location_not_required_for_report_type) || // like Roadside Observation
+  (!isset($form['#node']->taxonomy_vocabulary_7))) { // new node
+    $form['taxonomy_vocabulary_6']['und']['#type'] = "select";
+    $form['taxonomy_vocabulary_6']['und']['#multiple'] = FALSE;
+  }
+  else {
+    // Show Site Visit Type as text
+    $type = taxonomy_term_load($form['#node']->taxonomy_vocabulary_7['und'][0]['tid']);
+    $form['sitevisittype'] = Array (
+      '#type' => "markup",
+      '#markup' => $type->name,
+      '#prefix' => '<label>Site Report Type  <span class="form-required" original-title="This field is required.">*</span></label>',
+     );
+     $form['taxonomy_vocabulary_6']['#type'] = "hidden"; // District
+     $form['taxonomy_vocabulary_1']['#type'] = "hidden"; // Location Type
+     $form['taxonomy_vocabulary_7']['#type'] = "hidden"; // Site Report Type
+     $form['field_ftritem_lat_long']['#type'] = "hidden";
+  }
 //  }
 
   $form['field_ftritem_images']['und']['#file_upload_title'] = t("Add a new Image");
@@ -3052,10 +3066,14 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
   }
   $reporttypes = array();
 
-  // Get all reporttypes except Roadside Observation.
-  $terms = db_query("SELECT * FROM {taxonomy_term_data} WHERE vid = :vid AND name != :name ORDER BY weight ASC", array(':vid' => $vid, ':name' => 'Roadside Observation'));
+  // Get all reporttypes except those that don't require a location e.g Roadside
+  // Observation.
+  $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vid));
   foreach ($terms as $term) {
-    $reporttypes[$term->tid] = $term->name;
+    module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
+    if ($term->field_location_required[LANGUAGE_NONE][0]['value'] != DEVTRAC_LOCATION_NONE) {
+      $reporttypes[$term->tid] = $term->name;
+    }
   }
 
   // Load all the fieldtrips.
