@@ -11,6 +11,7 @@ class DevtracImportsSiteReportType extends DevtracImportsCsvBase {
 		$this->description = t('Import Site Report Types');
 		$columns = array(
 				0 => array('name', t('name')),
+        1 => array('field_location_required', t('Location Required field'))
 		);
 		// TIP: delete ", array('header_rows' => 1)" in the next line, if the CSV-file has NO header-line
 		$this->source = new MigrateSourceCSV(DRUPAL_ROOT . '/' . drupal_get_path('module', 'devtrac_imports') . '/data/sitereporttype.csv', $columns, array('header_rows' => 1));
@@ -31,6 +32,8 @@ class DevtracImportsSiteReportType extends DevtracImportsCsvBase {
 		$this->addFieldMapping('name', 'name')
 		->defaultValue('')
 		->description(t('Name'));
+    $this->addFieldMapping('field_location_required', 'field_location_required')
+          ->description(t('This is the value for the field_location_required field'));
 		
 	}
 }
