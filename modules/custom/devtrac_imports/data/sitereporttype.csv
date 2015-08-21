@@ -1,4 +1,4 @@
-SiteReportType
-"Site Visit"
-"Roadside Observation"
-"Human Interest Story"
+SiteReportType,field_location_required
+"Site Visit","1"
+"Roadside Observation","3"
+"Human Interest Story","2"
