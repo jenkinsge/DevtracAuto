@@ -13,7 +13,7 @@ includes[mountbatten_sitewide] = https://raw.githubusercontent.com/Mountbatten/m
 includes[mountbatten_developer] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_developer.make
 
 ; Modules
-projects[acl][version] = "1.0"
+projects[acl][version] = "1.1"
 projects[acl][type] = "module"
 projects[acl][subdir] = "contrib"
 
@@ -376,12 +376,12 @@ projects[rules][version] = "2.9"
 projects[rules][type] = "module"
 projects[rules][subdir] = "contrib"
 
-projects[search_api][version] = "1.15"
+projects[search_api][version] = "1.16"
 projects[search_api][type] = "module"
 projects[search_api][subdir] = "contrib"
 projects[search_api][patch][] = "https://www.drupal.org/files/issues/search_api-drush-user-do-not-test.patch"
 
-projects[search_api_autocomplete][version] = "1.2"
+projects[search_api_autocomplete][version] = "1.4"
 projects[search_api_autocomplete][type] = "module"
 projects[search_api_autocomplete][subdir] = "contrib"
 
@@ -404,7 +404,7 @@ projects[search_api_saved_searches][subdir] = "contrib"
 projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-7.x-1.2-reminders-3.patch"
 ; projects[search_api_saved_searches][patch][] = "https://www.drupal.org/files/issues/search_api_saved_searches-last_excuted-field-7.x-1.x-2142063_9.patch"
 
-projects[search_api_solr][version] = "1.8"
+projects[search_api_solr][version] = "1.9"
 projects[search_api_solr][type] = "module"
 projects[search_api_solr][subdir] = "contrib"
 
@@ -424,7 +424,7 @@ projects[services][version] = "3.x-dev"
 projects[services][type] = "module"
 projects[services][subdir] = "contrib"
 
-projects[services_views][version] = "1.0"
+projects[services_views][version] = "1.1"
 projects[services_views][type] = "module"
 projects[services_views][subdir] = "contrib"
 
