@@ -13,7 +13,7 @@ includes[mountbatten_sitewide] = https://raw.githubusercontent.com/Mountbatten/m
 includes[mountbatten_developer] = https://raw.githubusercontent.com/Mountbatten/mountbatten_makefiles/master/mountbatten_developer.make
 
 ; Modules
-projects[acl][version] = "1.0"
+projects[acl][version] = "1.1"
 projects[acl][type] = "module"
 projects[acl][subdir] = "contrib"
 
