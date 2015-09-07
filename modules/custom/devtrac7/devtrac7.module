@@ -2385,31 +2385,51 @@ function devtrac7_addplacetofieldtrip_access($fieldtripnid) {
  */
 function devtrac7_questionnaire_getquestions($contexts) {
   $result = array();
-  
+
   if (isset($contexts['node'])) {
     foreach ($contexts['node'] as $place) {
-      if (isset($place->taxonomy_vocabulary_1['und'][0]['tid']) && (!is_null($place->taxonomy_vocabulary_1['und'][0]['tid']))) {
-        $placetype = $place->taxonomy_vocabulary_1['und'][0]['tid'];
-        $placetypes = taxonomy_get_parents_all($placetype);
-        foreach ($placetypes as $placetype) {
-          $query = db_select('node', 'n');
-          $query->join('field_data_taxonomy_vocabulary_1', 'p', 'n.nid = p.entity_id');
-          $query->join('draggableviews_structure', 'd', 'n.nid = d.entity_id');
-          $query->fields('n', array('nid'));
-          $query->fields('d', array('weight'));
-          $query->condition('p.taxonomy_vocabulary_1_tid', $placetype->tid)
-            ->condition('p.bundle', 'questionnaire_question')
-            ->condition('n.status', 1)
-            ->orderBy('d.weight', 'ASC');
-          $qresult = $query->execute();
-          foreach($qresult as $question) {
-              $result[$question->nid] = array(
-                      'node' => node_load($question->nid),
-                      'context_type' => 'node',
-                      'context_id' => $place->nid,
-                      'questionnaire_id' => $place->nid,
-                    );
-          }
+      $questionnaire_node = node_load($node->nid);
+      $vocabulary_name = variable_get('questionnaire_question_vocabulary_' . $questionnaire->type, 0);
+      // First we get the array of conditions that will be added to our query.
+      $question_conditions = questionnaire_question_get_query_conditions($vocabulary_name);
+      // Then we build the conditions into a DatabasCondition and get the
+      // necessary joins.
+      $question_query_condition =  questionnaire_question_build_condition($questionnaire_node, $question_conditions);
+      // Then we build the query:
+      // We are selecting the nid from the node table.
+      $query = db_select('node', 'n');
+      // We add the joins required by the DatabaseCondition.
+      foreach ($question_query_condition['joins'] as $join) {
+        $query->leftJoin($join['table_name'], $join['alias'], $join['connection']);
+      }
+      // Join draggableviews.
+      $query->join('draggableviews_structure', 'd', 'n.nid = d.entity_id');
+      // Add fields.
+      $query->fields('n', array('nid'));
+      $query->fields('d', array('weight'));
+      // We add the DatabaseCondition.
+      $query->condition($question_query_condition['condition']);
+      // Add the final condition that we are only looking for questionnaire
+      // questions.
+      $query->condition('n.type', 'questionnaire_question');
+      // The node must be published.
+      $query->condition('n.status', 1)
+          ->orderBy('d.weight', 'ASC');
+      // Execute the array.
+      $qresult = $query->execute();
+      if (!empty($qresult)) {
+        foreach ($qresult as $question) {
+          $questions[$question->nid] = array(
+            'node' => node_load($question->nid),
+            'context_type' => 'node',
+            'context_id' => $node->nid,
+            'questionnaire_id' => $node->nid,
+          );
+        }
+      }
+      else {
+        if (variable_get('questionnaire_question_isquestionnaire_' . $node->type, FALSE)) {
+          drupal_set_message(t('The vocabulary that connects questions to this node is not set. Please go to admin/structure/types/manage/' . check_plain($node->type) . ' and set it.' ), 'error');
         }
       }
     }
