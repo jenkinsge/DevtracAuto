@@ -2383,12 +2383,12 @@ function devtrac7_addplacetofieldtrip_access($fieldtripnid) {
 /*
  *  Implements hook_questionnaire_getquestions().
  */
-function devtrac7_questionnaire_getquestions($contexts) {
+function devtrac7_questionnaire_getquestions($contexts, $recipient, $questionnaire = NULL) {
   $result = array();
 
   if (isset($contexts['node'])) {
     foreach ($contexts['node'] as $place) {
-      $questionnaire_node = node_load($node->nid);
+      $questionnaire_node = node_load($place->nid);
       $vocabulary_name = variable_get('questionnaire_question_vocabulary_' . $questionnaire->type, 0);
       // First we get the array of conditions that will be added to our query.
       $question_conditions = questionnaire_question_get_query_conditions($vocabulary_name);
