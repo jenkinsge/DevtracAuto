@@ -1264,6 +1264,36 @@ function devtrac7_node_types_field_default_field_bases() {
     'type_name' => 'ftritem',
   );
 
+  // Exported field_base: 'field_ftritem_tags'
+  $field_bases['field_ftritem_tags'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ftritem_tags',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'site_report_tags',
+          'parent' => 0,
+        ),
+      ),
+      'options_list_callback' => '_taxonomy_access_term_options',
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
+  );
+
   // Exported field_base: 'field_place_tags'
   $field_bases['field_place_tags'] = array(
     'active' => 1,

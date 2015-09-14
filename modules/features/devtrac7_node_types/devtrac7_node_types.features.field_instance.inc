@@ -3051,6 +3051,58 @@ function devtrac7_node_types_field_default_field_instances() {
     'widget_type' => 'geofield_wkt',
   );
 
+  // Exported field_instance: 'node-ftritem-field_ftritem_tags'
+  $field_instances['node-ftritem-field_ftritem_tags'] = array(
+    'bundle' => 'ftritem',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_link',
+        'weight' => 17,
+      ),
+      'full' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'map_popup_view_mode' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_ftritem_tags',
+    'label' => 'Site Report Tags',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 21,
+    ),
+  );
+
   // Exported field_instance: 'node-ftritem-field_ftritem_documents'
   $field_instances['node-ftritem-field_ftritem_documents'] = array(
     'bundle' => 'ftritem',

@@ -33,6 +33,14 @@ function devtrac7_node_types_taxonomy_default_vocabularies() {
       'module' => 'taxonomy',
       'weight' => 0,
     ),
+    'site_report_tags' => array(
+      'name' => 'Site Report Tags',
+      'machine_name' => 'site_report_tags',
+      'description' => 'Free tagging on site reports.',
+      'hierarchy' => 0,
+      'module' => 'taxonomy',
+      'weight' => 0,
+    ),
     'vocabulary_1' => array(
       'name' => 'Location Type',
       'machine_name' => 'vocabulary_1',
