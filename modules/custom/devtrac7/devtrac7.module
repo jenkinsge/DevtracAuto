@@ -2394,7 +2394,7 @@ function devtrac7_questionnaire_getquestions($contexts, $recipient, $questionnai
       $question_conditions = questionnaire_question_get_query_conditions($vocabulary_name);
       // Then we build the conditions into a DatabasCondition and get the
       // necessary joins.
-      $question_query_condition =  questionnaire_question_build_condition($context_node, $question_conditions);
+      $question_query_condition =  questionnaire_question_build_condition($context_node, $question_conditions, $questionnaire);
       // Then we build the query:
       // We are selecting the nid from the node table.
       $query = db_select('node', 'n');
