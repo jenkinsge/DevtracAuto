@@ -11,7 +11,8 @@ class DevtracImportsSiteReportType extends DevtracImportsCsvBase {
 		$this->description = t('Import Site Report Types');
 		$columns = array(
 				0 => array('name', t('name')),
-        1 => array('field_location_required', t('Location Required field'))
+        1 => array('field_location_required', t('Location Required field')),
+        2 => array('field_action_item_possible', t('Action Item Possible field')),
 		);
 		// TIP: delete ", array('header_rows' => 1)" in the next line, if the CSV-file has NO header-line
 		$this->source = new MigrateSourceCSV(DRUPAL_ROOT . '/' . drupal_get_path('module', 'devtrac_imports') . '/data/sitereporttype.csv', $columns, array('header_rows' => 1));
