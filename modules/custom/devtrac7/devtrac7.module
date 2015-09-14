@@ -630,8 +630,9 @@ function devtrac7_addactionitem_access($nid) {
     global $user;
     $node = node_load($nid);
     if ($node->type == 'ftritem') {
+      $reporttype_term = taxonomy_term_load($node->taxonomy_vocabulary_7['und'][0]['tid']);
       // return (in_array('administrator', $user->roles) || (($user->uid == $arg1) && user_access('create fieldtrip content')));
-      $terms = taxonomy_get_term_by_name('Site Visit', 'vocabulary_7');
+      $terms = taxonomy_get_term_by_name($reporttype_term->name, 'vocabulary_7');
       $term = reset($terms);
       if ($node->taxonomy_vocabulary_7[$node->language][0]['tid'] == $term->tid) {
         return (($user->uid == $node->uid) && user_access('create actionitem content'));
