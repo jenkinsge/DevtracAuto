@@ -58,6 +58,34 @@ function devtrac7_node_types_field_default_field_bases() {
     'type' => 'text_long',
   );
 
+  // Exported field_base: 'field_action_item_possible'
+  $field_bases['field_action_item_possible'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_action_item_possible',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'Not Possible',
+        1 => 'Possible',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_action_items_tags'
   $field_bases['field_action_items_tags'] = array(
     'active' => 1,
@@ -1262,6 +1290,36 @@ function devtrac7_node_types_field_default_field_bases() {
     'translatable' => 0,
     'type' => 'list_text',
     'type_name' => 'ftritem',
+  );
+
+  // Exported field_base: 'field_ftritem_tags'
+  $field_bases['field_ftritem_tags'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_ftritem_tags',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'tid' => array(
+        0 => 'tid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'taxonomy',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => array(
+          'vocabulary' => 'site_report_tags',
+          'parent' => 0,
+        ),
+      ),
+      'options_list_callback' => '_taxonomy_access_term_options',
+    ),
+    'translatable' => 0,
+    'type' => 'taxonomy_term_reference',
   );
 
   // Exported field_base: 'field_place_tags'
