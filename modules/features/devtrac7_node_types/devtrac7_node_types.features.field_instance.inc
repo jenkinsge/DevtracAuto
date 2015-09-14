@@ -4709,6 +4709,38 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   );
 
   // Exported field_instance:
+  // 'taxonomy_term-vocabulary_7-field_action_item_possible'
+  $field_instances['taxonomy_term-vocabulary_7-field_action_item_possible'] = array(
+    'bundle' => 'vocabulary_7',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_action_item_possible',
+    'label' => 'Action Item Possible',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
   // 'taxonomy_term-vocabulary_7-field_location_required'
   $field_instances['taxonomy_term-vocabulary_7-field_location_required'] = array(
     'bundle' => 'vocabulary_7',

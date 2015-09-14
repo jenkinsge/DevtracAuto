@@ -34,6 +34,8 @@ class DevtracImportsSiteReportType extends DevtracImportsCsvBase {
 		->description(t('Name'));
     $this->addFieldMapping('field_location_required', 'field_location_required')
           ->description(t('This is the value for the field_location_required field'));
+    $this->addFieldMapping('field_action_item_possible', 'field_action_item_possible')
+          ->description(t('This is the value for the field_action_item_possible field'));
 		
 	}
 }
