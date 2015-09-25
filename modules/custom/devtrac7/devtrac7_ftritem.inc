@@ -14,7 +14,7 @@ define('DEVTRAC_OPTIONAL_LOCATION', 2);
 define('DEVTRAC_LOCATION_NONE', 3);
 
 function devtrac7_ftritem_addplacetofieldtrip($node) {
-  if (!isset($node->field_ftritem_field_trip)) {
+  if (!isset($node->field_ftritem_field_trip) || empty($node->field_ftritem_field_trip[$node->language])) {
     // this happens when there is no fieldtrip.
     // for example when we load ftritems via feeds
     return;
@@ -1436,7 +1436,7 @@ function devtrac7_ftritem_devtrac7_progress_field_checks_info() {
  *   The ftritem node to copy the user to.
  */
 function devtrac_ftritem_copyuserfromfieldtrip($node) {
-  if (!isset($node->field_ftritem_field_trip)) {
+  if (!isset($node->field_ftritem_field_trip) || empty($node->field_ftritem_field_trip[$node->language])) {
     // this happens when there is no fieldtrip.
     // for example when we load ftritems via feeds
     return;
