@@ -407,7 +407,7 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'unique' => FALSE,
           ),
           13 => array(
-            'source' => 'Full Report',
+            'source' => 'Notes',
             'target' => 'field_ftritem_narrative',
             'unique' => FALSE,
           ),
@@ -420,6 +420,18 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'source' => 'User UUID',
             'target' => 'field_ftritem_user',
             'unique' => FALSE,
+          ),
+          16 => array(
+            'source' => 'Purpose',
+            'target' => 'field_ftritem_purpose',
+            'term_search' => '0',
+            'autocreate' => 1,
+          ),
+          17 => array(
+            'source' => 'Site Report Tags',
+            'target' => 'field_ftritem_tags',
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
         ),
         'update_existing' => '2',
