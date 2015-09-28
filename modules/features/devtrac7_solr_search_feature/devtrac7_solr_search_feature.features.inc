@@ -92,6 +92,7 @@ function devtrac7_solr_search_feature_default_search_api_index() {
         "field_ftritem_public_summary:value" : { "type" : "text" },
         "field_ftritem_purpose" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "field_ftritem_status" : { "type" : "string" },
+        "field_ftritem_tags" : { "type" : "list\\u003Cinteger\\u003E", "entity_type" : "taxonomy_term" },
         "nid" : { "type" : "integer" },
         "promote" : { "type" : "boolean" },
         "search_api_access_node" : { "type" : "list\\u003Cstring\\u003E" },

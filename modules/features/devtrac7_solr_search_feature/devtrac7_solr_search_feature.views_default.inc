@@ -544,6 +544,12 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['alter']['text'] = '[site_info]/uuid/node/[field_ftritem_place_uuid]';
   $handler->display->display_options['fields']['field_ftritem_place_uuid_1']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Site Report Tags */
+  $handler->display->display_options['fields']['field_ftritem_tags']['id'] = 'field_ftritem_tags';
+  $handler->display->display_options['fields']['field_ftritem_tags']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['field_ftritem_tags']['field'] = 'field_ftritem_tags';
+  $handler->display->display_options['fields']['field_ftritem_tags']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_ftritem_tags']['view_mode'] = 'full';
   $handler->display->display_options['path'] = 'sitereports/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
@@ -1373,6 +1379,12 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['field'] = 'field_ftritem_field_trip_uuid';
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['label'] = 'Field Trip UUID';
   $handler->display->display_options['fields']['field_ftritem_field_trip_uuid']['link_to_entity'] = 0;
+  /* Field: Indexed Node: Site Report Tags */
+  $handler->display->display_options['fields']['field_ftritem_tags']['id'] = 'field_ftritem_tags';
+  $handler->display->display_options['fields']['field_ftritem_tags']['table'] = 'search_api_index_devtrac_solr_site_visits_index';
+  $handler->display->display_options['fields']['field_ftritem_tags']['field'] = 'field_ftritem_tags';
+  $handler->display->display_options['fields']['field_ftritem_tags']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_ftritem_tags']['view_mode'] = 'full';
   $handler->display->display_options['path'] = 'sitereports/analyse/csvadmin';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
