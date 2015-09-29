@@ -524,10 +524,10 @@ class VisitSiteReportsAsFieldWorkerTestCase extends DevtracTestCase {
     $this->clickLink('Export to CSV', 0);
 
     // Check for column names.
-    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL","Site Report Tags"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
-    $this->assertColumnCount(191, 15);
+    $this->assertColumnCount(209, 16);
 
     // Fields.
     // UUID (Subject to change).
@@ -569,10 +569,10 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     $this->clickLinkUsingXpath('Export to CSV', 0, '//*[@id="nice-menu-2"]/li[1]/ul/li[2]/a');
 
     // Check for column names.
-    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","Notes","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL","Author Email","User UUID","Field Trip UUID"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","Notes","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL","Author Email","User UUID","Field Trip UUID""UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL","Site Report Tags"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
-    $this->assertColumnCount(242, 19);
+    $this->assertColumnCount(261, 20);
 
     // Fields.
     // UUID (Subject to change).
