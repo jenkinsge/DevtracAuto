@@ -781,9 +781,16 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
   }
   $reporttypes = array();
 
-  $terms = db_query("SELECT * FROM {taxonomy_term_data} WHERE vid = :vid ORDER BY weight ASC", array(':vid' => $vid));
+//  $terms = db_query("SELECT * FROM {taxonomy_term_data} WHERE vid = :vid ORDER BY weight ASC", array(':vid' => $vid));
+  $query = db_select('taxonomy_term_data', 'td');
+  $query->fields('td');
+  $query->leftJoin('field_data_field_reporttype_isactive', 'ta', 'td.tid = ta.entity_id');
+  $query->condition('td.vid', $vid);
+  $query->condition('ta.field_reporttype_isactive_value', 1);
+  $query->orderby('weight', 'ASC');
+  $terms =  $query->execute();
   foreach ($terms as $term) {
-    $reporttypes[] = $term->name;
+    $reporttypes[$term->tid] = $term->name;
   }
   $vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_6');
   $vocabulary = reset($vocabulary);
@@ -818,12 +825,13 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
    * fit in the window
    * 
    */
+  $rtkeys = array_keys($reporttypes);
   $form['reporttype'] = array(
     '#title' => t('Site Report Type'),
     '#type' => 'radios',
     '#description' => t('Select the type of report you want to create.'),
     '#options' => $reporttypes,
-    '#default_value' => 0,
+    '#default_value' => $rtkeys[0],
   );
 
   $form['nid'] = array(
@@ -879,15 +887,10 @@ function devtrac7_addplaceform_submit($form, &$form_state) {
   foreach ($terms as $term) {
     $placetypes[] = $term->tid;
   }
-  $reporttypes = array();
-  $terms = db_query("SELECT * FROM {taxonomy_term_data} WHERE vid = :vid ORDER BY weight ASC", array(':vid' => $vidsrt));
-  foreach ($terms as $term) {
-    $reporttypes[] = $term->tid;
-  }
 
   $district = reset($form_state['values']['district'][0]);
   $fieldtripnid = $form_state['values']['nid'];
-  $reporttype = $reporttypes[$form_state['values']['reporttype']];
+  $reporttype = $form_state['values']['reporttype'];
   $reporttype_term = taxonomy_term_load($reporttype);
   // load te report type and check wheher locations are mandatory or not.
   unset($_GET['destination']);
@@ -921,7 +924,7 @@ function devtrac7_addplaceform_submit($form, &$form_state) {
       $prepopulate = array(
         'field_ftritem_field_trip' => $form_state['values']['nid'],
         'edit[taxonomy_vocabulary_6][und]' => $district,
-        'edit[taxonomy_vocabulary_7][und]' => $reporttypes[$form_state['values']['reporttype']],
+        'edit[taxonomy_vocabulary_7][und]' => $reporttype,
       );
       // Redirect to the original redirect after submitting the form
       $destination = array('destination' => 'node/' . $form_state['values']['nid']);
@@ -2180,8 +2183,10 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
 //  if (!isset($form['#node']->taxonomy_vocabulary_7) ||
 //      ((isset($form['#node']->taxonomy_vocabulary_7) && (empty($form['#node']->taxonomy_vocabulary_7['und'][0]['tid']))))) {
 
-  if (isset($form['#node']->taxonomy_vocabulary_7)) {
-    $reporttype_term = taxonomy_term_load($form['#node']->taxonomy_vocabulary_7[LANGUAGE_NONE][0]['tid']);
+  // get query params
+  $query_params =  drupal_get_query_parameters();
+  if (!empty($query_params['edit']['taxonomy_vocabulary_7']['und']) && is_numeric($query_params['edit']['taxonomy_vocabulary_7']['und'])) {
+    $reporttype_term = taxonomy_term_load($query_params['edit']['taxonomy_vocabulary_7']['und']);
     module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
     if ($reporttype_term->field_location_required[LANGUAGE_NONE][0]['value'] == DEVTRAC_LOCATION_NONE) {
       $location_not_required_for_report_type = TRUE;
@@ -2194,19 +2199,22 @@ function devtrac7_form_ftritem_node_form_alter(&$form, &$form_state, $form_id) {
     $form['taxonomy_vocabulary_6']['und']['#multiple'] = FALSE;
   }
   else {
+     $form['taxonomy_vocabulary_6']['#type'] = "hidden"; // District
+     $form['taxonomy_vocabulary_1']['#type'] = "hidden"; // Location Type
+     $form['field_ftritem_lat_long']['#type'] = "hidden";
+  }
+//  }
+
+  if (isset($form['#node']->taxonomy_vocabulary_7) || $location_not_required_for_report_type) {
     // Show Site Visit Type as text
-    $type = taxonomy_term_load($form['#node']->taxonomy_vocabulary_7['und'][0]['tid']);
+    $type = isset($reporttype_term)? $reporttype_term : taxonomy_term_load($form['#node']->taxonomy_vocabulary_7['und'][0]['tid']);
     $form['sitevisittype'] = Array (
       '#type' => "markup",
       '#markup' => $type->name,
       '#prefix' => '<label>Site Report Type  <span class="form-required" original-title="This field is required.">*</span></label>',
      );
-     $form['taxonomy_vocabulary_6']['#type'] = "hidden"; // District
-     $form['taxonomy_vocabulary_1']['#type'] = "hidden"; // Location Type
-     $form['taxonomy_vocabulary_7']['#type'] = "hidden"; // Site Report Type
-     $form['field_ftritem_lat_long']['#type'] = "hidden";
+     $form['taxonomy_vocabulary_7']['#disabled'] = TRUE; // Site Report Type
   }
-//  }
 
   $form['field_ftritem_images']['und']['#file_upload_title'] = t("Add a new Image");
 
@@ -3090,13 +3098,15 @@ function devtrac7_addftritemform($form, &$form_state, $place) {
   }
   $reporttypes = array();
 
-  // Get all reporttypes except those that don't require a location e.g Roadside
-  // Observation.
+  // Get all currently active reporttypes except those that don't require a
+  // location e.g Roadside Observation.
   $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vid));
   foreach ($terms as $term) {
     module_load_include('inc', 'devtrac7', 'devtrac7_ftritem');
-    if ($term->field_location_required[LANGUAGE_NONE][0]['value'] != DEVTRAC_LOCATION_NONE) {
-      $reporttypes[$term->tid] = $term->name;
+    if ($term->field_reporttype_isactive[LANGUAGE_NONE][0]['value']) {
+      if ($term->field_location_required[LANGUAGE_NONE][0]['value'] != DEVTRAC_LOCATION_NONE) {
+        $reporttypes[$term->tid] = $term->name;
+      }
     }
   }
 

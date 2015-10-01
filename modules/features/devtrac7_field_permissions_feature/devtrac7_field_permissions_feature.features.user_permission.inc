@@ -1920,6 +1920,16 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'edit terms in vocabulary_7'.
+  $permissions['edit terms in vocabulary_7'] = array(
+    'name' => 'edit terms in vocabulary_7',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'devtrac admin' => 'devtrac admin',
+    ),
+    'module' => 'taxonomy',
+  );
+
   // Exported permission: 'get any binary files'.
   $permissions['get any binary files'] = array(
     'name' => 'get any binary files',

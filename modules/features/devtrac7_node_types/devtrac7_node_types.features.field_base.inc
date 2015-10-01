@@ -86,6 +86,34 @@ function devtrac7_node_types_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
+  // Exported field_base: 'field_reporttype_isactive'
+  $field_bases['field_reporttype_isactive'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_reporttype_isactive',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'Inactive',
+        1 => 'Active',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   // Exported field_base: 'field_action_items_tags'
   $field_bases['field_action_items_tags'] = array(
     'active' => 1,

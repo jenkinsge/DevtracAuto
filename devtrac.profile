@@ -201,19 +201,9 @@ function devtrac_initialize_taxonomy_access() {
           $admin_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
           break;
         case 'editor':
-          // Allow only Devtrac Admin Role to add terms to Site Report Type vocabulary.
-          if ($vocabulary->machine_name == 'vocabulary_7') {
-            $editor_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $view_and_list, TRUE);
-            break;
-          }
           $editor_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
           break;
         case 'field worker':
-          // Allow only Devtrac Admin Role to add terms to Site Report Type vocabulary.
-          if ($vocabulary->machine_name == 'vocabulary_7') {
-            $worker_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $view_and_list, TRUE);
-            break;
-          }
           $worker_vocabulary_defaults[$vid] = _taxonomy_access_format_grant_record($vid, $rid, $create_and_list, TRUE);
           break;
         default:

@@ -324,6 +324,11 @@ projects[pdfpreview][type] = "module"
 projects[pdfpreview][subdir] = "contrib"
 projects[pdfpreview][patch][] = "https://www.drupal.org/files/issues/pdfpreview-media_large_filetype_icon_as_fallback_formatter-9921134-1.patch"
 
+projects[prepopulate][version] = "2.0"
+projects[prepopulate][type] = "module"
+projects[prepopulate][subdir] = "contrib"
+projects[prepopulate][patch][] = "https://www.drupal.org/files/issues/prepopulate_undefined_index_type-1090930-4.patch"
+
 projects[proj4js][version] = "1.2"
 projects[proj4js][type] = "module"
 projects[proj4js][subdir] = "contrib"
