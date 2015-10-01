@@ -80,6 +80,7 @@ dependencies[] = pdfpreview
 ; dependencies[] = pathauto
 dependencies[] = purl
 dependencies[] = purl_search_api
+dependencies[] = prepopulate
 dependencies[] = proj4js
 dependencies[] = publishcontent
 dependencies[] = quicktabs

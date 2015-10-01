@@ -4772,6 +4772,42 @@ The \'Search Address\' box will only help you to do an initial search on a rough
     ),
   );
 
+  // Exported field_instance:
+  // 'taxonomy_term-vocabulary_7-field_reporttype_isactive'
+  $field_instances['taxonomy_term-vocabulary_7-field_reporttype_isactive'] = array(
+    'bundle' => 'vocabulary_7',
+    'default_value' => array(
+      0 => array(
+        'value' => 1,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'This field specifies whether a site report type is shown in the list of site report types that shows up when a user tries to create a site report and whether a user can create a report of this type.',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'taxonomy_term',
+    'field_name' => 'field_reporttype_isactive',
+    'label' => 'Active',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 3,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t(' Hold the \'Control\' key on your keyboard to select multiple districts.');
@@ -4867,6 +4903,7 @@ The \'Search Address\' box will only help you to do an initial search on a rough
   t('The person who approves the Field Trip. (Normally the manager)');
   t('The status field determines if an Action Item is still active. ');
   t('This field can be used to store an internal ID from your project management or accounting system.');
+  t('This field specifies whether a site report type is shown in the list of site report types that shows up when a user tries to create a site report and whether a user can create a report of this type.');
   t('This is the Site Report where this Action Item is based on.');
   t('This is the source URI of the origin of the location. This points to the server or service where the original layer where the point was imported from resides. If you are not sure, please insert http://www.devtrac.ug/places');
   t('Unique ID');
