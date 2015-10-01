@@ -569,7 +569,7 @@ Together with LC III Chairman and¬†Parish Chief , attempted to identify other
     $this->clickLinkUsingXpath('Export to CSV', 0, '//*[@id="nice-menu-2"]/li[1]/ul/li[2]/a');
 
     // Check for column names.
-    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","Notes","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL","Author Email","User UUID","Field Trip UUID""UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL","Site Report Tags"', t('All column names are present.'), t('Devtrac'));
+    $this->assertRaw('"UUID","Title","Site Report Type","Purpose","District","Sector","Visited on","Summary","Notes","URL","Location UUID","Site Visit Lat","Site Visit Lon","Location Name","Location Type","Location URL","Author Email","User UUID","Field Trip UUID","Site Report Tags"', t('All column names are present.'), t('Devtrac'));
 
     // Check for count of column names.
     $this->assertColumnCount(261, 20);
