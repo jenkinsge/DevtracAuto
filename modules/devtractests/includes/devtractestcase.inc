@@ -244,7 +244,7 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
   public function addASiteVisit($district, $locationname, $locationtype, $lat, $lon) {
     $this->clickLink('Add Site Report');
     $sitereporttype['district'] = $district;
-    $sitereporttype['reporttype'] = '2';
+    $sitereporttype['reporttype'] = '248';
     $this->drupalPost(NULL, $sitereporttype, t('Submit'));
     $location['title'] = $locationname;
     $location['taxonomy_vocabulary_1[und][0][tid]'] = $locationtype;
