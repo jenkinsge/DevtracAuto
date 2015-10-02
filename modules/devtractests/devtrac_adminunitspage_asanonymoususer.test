@@ -386,7 +386,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->clickLink('Admin Units', 0);
     $this->clickLink('Export to KML', 0);
     // Name : Title.
-    $this->assertRaw('/taxonomy/term/306">Amudat</a>]]>
+    $this->assertRaw('/taxonomy/term/308">Amudat</a>]]>
   </name>', t('Name field is mapped correctly.'), t('Devtrac'));
     // Description : Category.
     $this->assertRaw('<description>
@@ -430,7 +430,7 @@ class VisitAdminUnitsAsAnonymousTestCase extends DevtracTestCase {
     $this->drupalGet('adminunits/json');
 
     // Title.
-    $this->assertRaw('\/taxonomy\/term\/306\u0022\u003EAmudat\u003C\/a\u003E"', t('Title field is present and filled in.'), t('Devtrac'));
+    $this->assertRaw('\/taxonomy\/term\/308\u0022\u003EAmudat\u003C\/a\u003E"', t('Title field is present and filled in.'), t('Devtrac'));
 
     // Description.
     $this->assertRaw('\/taxonomy\/term\/306\u0022\u003ERead more\u003C\/a\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E\u003C\/div\u003E"', t('Description field is present and filled in.'), t('Devtrac'));

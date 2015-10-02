@@ -401,7 +401,7 @@ The Users page contains a list of all users that can be filtered by the Zonal Of
     // Department.
     $this->assertRaw('"Education"',t('Department field is filled.'), t('Devtrac'));
     // Admin Units.
-    $this->assertRaw('"Central 1"',t('Admin Units field is filled.'), t('Devtrac'));
+    $this->assertRaw('"Mubende"',t('Admin Units field is filled.'), t('Devtrac'));
     // Sectors.
     $this->assertRaw('"Educational research"', t('Sectors field is filled.'), t('Devtrac'));
     // First Name.

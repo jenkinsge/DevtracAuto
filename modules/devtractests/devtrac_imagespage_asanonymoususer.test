@@ -428,7 +428,7 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertLink('Sectors', 0, t('Sectors Quicktab is labeled'), t('Devtrac'));
 
     // ENABLING A FILTER.
-    $this->assertRaw('/images?display=graphs&amp;f[0]=field_taxonomy_image_tags%3A311" rel="nofollow" class="facetapi-inactive image-tag-1" id="facetapi-link">Image Tag 1 <span class="count">(1)</span><span class="element-invisible"> Apply Image Tag 1 filter </span></a>', t('Filter by Image Tag 1 link is present on the page.'), t('Devtrac'));
+    $this->assertRaw('/images?display=graphs&amp;f[0]=field_taxonomy_image_tags%3A313" rel="nofollow" class="facetapi-inactive image-tag-1" id="facetapi-link">Image Tag 1 <span class="count">(1)</span><span class="element-invisible"> Apply Image Tag 1 filter </span></a>', t('Filter by Image Tag 1 link is present on the page.'), t('Devtrac'));
     $this->clickLinkUsingXpath('Basic education', 0, '//*[@id="facetapi-link"]');
 
     // Check current search counter.
@@ -439,21 +439,21 @@ class VisitImagesAsAnonymousTestCase extends DevtracTestCase {
     $this->assertRaw('Image Tag 1 [X] <span class="element-invisible"> Remove Image Tag 1 filter </span></a>', t('Current search link to remove the filter  is present after a filter is clicked.'), t('Devtrac'));
 
     // Check main menu links.
-    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/statistics?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/adminunits?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/locations?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/sitereports?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Filtered Site Reports link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/statistics?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Filtered Statistics link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/adminunits?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Filtered Admin Units link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/locations?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Filtered Locations link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Filtered Images link is present on the page.'), t('Devtrac'));
 
     // Check for view mode button links.
-    $this->assertLinkByHref('/images?display=default&f[0]=field_taxonomy_image_tags%3A311', 0, t('Default display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images?display=list&f[0]=field_taxonomy_image_tags%3A311', 0, t('List display link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=default&f[0]=field_taxonomy_image_tags%3A313', 0, t('Default display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=list&f[0]=field_taxonomy_image_tags%3A313', 0, t('List display link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Graphs display link is present on the page.'), t('Devtrac'));
 
     // Check for Export links.
-    $this->assertLinkByHref('/images/analyse/csv?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images/analyse/kml?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
-    $this->assertLinkByHref('/images/analyse/rss?display=graphs&f[0]=field_taxonomy_image_tags%3A311', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images/analyse/csv?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Export to CSV link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images/analyse/kml?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Export to KML link is present on the page.'), t('Devtrac'));
+    $this->assertLinkByHref('/images/analyse/rss?display=graphs&f[0]=field_taxonomy_image_tags%3A313', 0, t('Subscribe to RSS Feed link is present on the page.'), t('Devtrac'));
 
     // GRID VIEW MODE.
     // Check that link to graphs view mode goes to the right page.
