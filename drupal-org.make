@@ -70,6 +70,7 @@ projects[css_browser_selector][subdir] = "contrib"
 projects[date_duration_formatter][version] = "1.x-dev"
 projects[date_duration_formatter][type] = "module"
 projects[date_duration_formatter][subdir] = "contrib"
+projects[date_duration_formatter][patch][] = "https://www.drupal.org/files/issues/date_duration_formatter-fix_for_undefined_index_show_remaining_days_notice-2580361-1-7.patch"
 
 projects[delta][version] = "3.0-beta11"
 projects[delta][type] = "module"
