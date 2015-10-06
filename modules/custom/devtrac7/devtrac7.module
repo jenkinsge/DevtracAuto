@@ -53,6 +53,20 @@ function devtrac7_menu() {
     'file' => 'system.admin.inc',
     'file path' => drupal_get_path('module', 'system'),
   );
+  $vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_7');
+  $items['admin/devtrac7/report_types'] = array(
+    'title' => 'Site Report Types',
+    'page callback' => 'devtrac7_reporttype_list',
+    'access arguments' => array("edit terms in $vocabulary->vid"),
+    'position' => 'left',
+    'weight' => 5,
+  );
+  $items['admin/devtrac7/report_types/add'] = array(
+    'title' => 'Add Report Type',
+    'page callback' => 'devtrac7_reporttype_add',
+    'access arguments' => array("edit terms in $vocabulary->vid"),
+    'type' => MENU_LOCAL_ACTION,
+  );
   $items['admin/devtrac7/questions'] = array(
     'title' => 'Questionnaire',
     'description' => 'Management of the Questionnaire module.',
@@ -232,6 +246,28 @@ function devtrac7_menu() {
   );
 
   return $items;
+}
+
+/**
+ * Returns list of all terms of the Site Report Type vocabulary.
+ */
+function devtrac7_reporttype_list() {
+  module_load_include('inc', 'taxonomy', 'taxonomy.admin');
+  if ($vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_7')) {
+    $form = drupal_get_form('taxonomy_overview_terms', $vocabulary);
+    return $form;
+  }
+}
+
+/**
+ * Returns form for adding a report type to the Site Report Type vocabulary.
+ */
+function devtrac7_reporttype_add() {
+  module_load_include('inc', 'taxonomy', 'taxonomy.admin');
+  if ($vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_7')) {
+    $form = drupal_get_form('taxonomy_form_term', $vocabulary);
+    return $form;
+  }
 }
 
 /**
