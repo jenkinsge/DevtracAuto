@@ -53,15 +53,17 @@ function devtrac7_menu() {
     'file' => 'system.admin.inc',
     'file path' => drupal_get_path('module', 'system'),
   );
+  // Menu item for editing Site Report types.
   $vocabulary = taxonomy_vocabulary_machine_name_load('vocabulary_7');
-  $items['admin/devtrac7/report_types'] = array(
-    'title' => 'Site Report Types',
+  $items['admin/devtrac7/taxonomy/edit/report_types'] = array(
+    'title' => 'Edit Site Report Types',
     'page callback' => 'devtrac7_reporttype_list',
     'access arguments' => array("edit terms in $vocabulary->vid"),
     'position' => 'left',
     'weight' => 5,
+    'type' => MENU_LOCAL_TASK,
   );
-  $items['admin/devtrac7/report_types/add'] = array(
+  $items['admin/devtrac7/taxonomy/edit/report_types/add'] = array(
     'title' => 'Add Report Type',
     'page callback' => 'devtrac7_reporttype_add',
     'access arguments' => array("edit terms in $vocabulary->vid"),
