@@ -456,7 +456,7 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     // Category : Status.
     $this->assertRaw('<category>Approved</category>', t('Category is mapped correctly'), t('Devtrac'));
     // Published Date : Start and End Date (Subject to change).
-    $this->assertRaw('<pubDate>&lt;span class=&quot;date-display-start&quot;&gt;27-03-2014&lt;/span&gt; to &lt;span class=&quot;date-display-end&quot;&gt;29-03-2014&lt;/span&gt;</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<pubDate>&lt;div class=&quot;date-display-range&quot;&gt;&lt;span class=&quot;date-display-start&quot;&gt;27-03-2014&lt;/span&gt; to &lt;span class=&quot;date-display-end&quot;&gt;29-03-2014&lt;/span&gt;&lt;/div&gt;</pubDate>', t('Published Date is mapped correctly'), t('Devtrac'));
 
     // dc items.
     // Title : title.
@@ -470,7 +470,7 @@ class VisitFieldTripsAsFieldWorkerTestCase extends DevtracTestCase {
     // Publisher : User.
     $this->assertRaw('<author>Test Fieldworker</author>', t('Publisher is mapped correctly'), t('Devtrac'));
     // Date : Start and End Date (Subject to change).
-    $this->assertRaw('<dc:date>&lt;span class=&quot;date-display-start&quot;&gt;27-03-2014&lt;/span&gt; to &lt;span class=&quot;date-display-end&quot;&gt;29-03-2014&lt;/span&gt;</dc:date>', t('Published Date is mapped correctly'), t('Devtrac'));
+    $this->assertRaw('<dc:date>&lt;div class=&quot;date-display-range&quot;&gt;&lt;span class=&quot;date-display-start&quot;&gt;27-03-2014&lt;/span&gt; to &lt;span class=&quot;date-display-end&quot;&gt;29-03-2014&lt;/span&gt;&lt;/div&gt;</dc:date>', t('Published Date is mapped correctly'), t('Devtrac'));
     // Type : Status.
     $this->assertRaw('<dc:type>Approved</dc:type>', t('Type is mapped correctly'), t('Devtrac'));
 
