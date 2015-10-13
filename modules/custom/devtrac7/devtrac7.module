@@ -436,7 +436,9 @@ function devtrac7_menu_alter(&$items) {
  * Access callback that checks whether Devtrac field trips are switched on.
  */
 function devtrac7_fieldtrips_access() {
-  if (variable_get('devtrac_fieldtrips_on', FALSE)) {
+  global $user;
+  $rid = array_search('field worker', user_roles());
+  if (variable_get('devtrac_fieldtrips_on', FALSE) && (user_has_role($rid, $user) || $user->uid == 1)) {
     return TRUE;
   }
   return FALSE;
@@ -598,8 +600,10 @@ function devtrac7_gotofieldtrip($format = "html") {
  * @see http://drupal.org/node/1354
  */
 function devtrac7_currentfieldtrip_access() {
+  global $user;
   $result = FALSE;
-  if (variable_get('devtrac_fieldtrips_on', FALSE)) {
+  $rid = array_search('field worker', user_roles());
+  if (variable_get('devtrac_fieldtrips_on', FALSE) && (user_has_role($rid, $user) || $user->uid == 1)) {
     $result = devtrac7_getcurrentfieldtrip() > 0;
   }
   return ($result);

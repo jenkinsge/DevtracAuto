@@ -41,7 +41,7 @@ function devtrac_mapbox_settings_form() {
   $form['devtrac_mapbox_layers'] = array(
     '#type' => 'textarea',
     '#title' => t('Your layers'),
-    '#description' => t('Put in all your layers in the format: <b> mapboxid|title|description|class </b>,
+    '#description' => t('Put in all your layers in the format: <b> mapboxid|title|description|class|access_token </b>,
                           where class is the class of the base layer e.g. natural, satellite or street.
                           Incase you wish to leave a certain value empty, leave  the space between the vertical bars(|) empty
                           e.g in case you wish description to be empty, your input should have the format id|title||class'),
@@ -68,7 +68,7 @@ function devtrac_mapbox_settings_form_validate($form, &$form_state) {
       $input_elements = explode ("|", $row);
 
       // The input elements array cannot have less than 4 strings.
-      if (sizeof($input_elements) < 4) {
+      if (sizeof($input_elements) < 5) {
         form_set_error('Layer string ' . $input_elements[0] . ' missing some elements',
             t('Please enter a value for all the elements of the layer string with id ' . $input_elements[0] .  '.'));
         return;
@@ -83,6 +83,12 @@ function devtrac_mapbox_settings_form_validate($form, &$form_state) {
       if ($input_elements[1]  == "") {
         form_set_error('Layer string ' . $input_elements[1] . ' missing',
             t('Please enter a title for the layer with id ' . $input_elements[0] .  '.'));
+        return;
+      }
+      // The access token has to have a value.
+      if ($input_elements[4]  == "") {
+        form_set_error('Layer string ' . $input_elements[1] . ' missing',
+            t('Please enter an access token for the layer with id ' . $input_elements[0] .  '.'));
         return;
       }
     }
@@ -111,7 +117,7 @@ function devtrac_mapbox_openlayers_map_preprocess_alter(&$map = array()) {
 
   if(!empty($layers)) {
     foreach($layers as $layer) {
-      // Add the layer name to a temmporary layers array.
+      // Add the layer name to a temporary layers array.
       $custom[$layer['name']] = $layer['name'];
       array_push($layer_names, $layer['name']);
     }
@@ -191,6 +197,7 @@ function devtrac_mapbox_getlayers() {
       $layer['name'] = $machine_name;
       $layer['description'] = $layer_elements[2];
       $layer['class'] = $layer_elements[3];
+      $layer['access_token'] = $layer_elements[4];
       
       // Add this layer array to the array of layers.
       $layers[$layer['name']] = $layer;
