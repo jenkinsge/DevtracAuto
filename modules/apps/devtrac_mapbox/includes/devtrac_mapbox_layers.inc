@@ -30,12 +30,12 @@ function _devtrac_mapbox_openlayers_layers() {
     $openlayers_layers->title = $layer['title'];
     $openlayers_layers->description = $layer['description'];
     $openlayers_layers->data = array(
-      'url' => array(
-        0 => 'http://a.tiles.mapbox.com/v1',
-        1 => 'http://b.tiles.mapbox.com/v1',
-        2 => 'http://c.tiles.mapbox.com/v1',
-        3 => 'http://d.tiles.mapbox.com/v1',
-      ),
+//      'url' => array(
+//        0 => 'http://a.tiles.mapbox.com/v1',
+//        1 => 'http://b.tiles.mapbox.com/v1',
+//        2 => 'http://c.tiles.mapbox.com/v1',
+//        3 => 'http://d.tiles.mapbox.com/v1',
+//      ),
       'layername' => $layer['id'],
       'type' => 'png',
       'resolutions' => array(
@@ -59,7 +59,7 @@ function _devtrac_mapbox_openlayers_layers() {
         17 => 1.1943285667418999,
         18 => 0.59716428337097005,
       ),
-      'wrapDateLine' => FALSE,
+      'wrapDateLine' => TRUE,
       'serviceVersion' => '',
       'zoomOffset' => 0,
       'maptiler' => FALSE,
@@ -69,8 +69,9 @@ function _devtrac_mapbox_openlayers_layers() {
         1 => 'EPSG:900913',
       ),
       'isBaseLayer' => 1,
-      'layer_type' => 'openlayers_layer_type_tms',
-      'layer_handler' => 'tms',
+      'layer_type' => 'openlayers_layer_type_xyz',
+      'url' => 'http://a.tiles.mapbox.com/v4/' . $layer['id'] . '/${z}/${x}/${y}.png?access_token=' . $layer['access_token'],
+//      'layer_handler' => 'tms',
       'serverResolutions' => array(
         0 => 156543.03390000001,
         1 => 78271.516950000005,
