@@ -29,9 +29,9 @@ function devtrac_install_configure_form_submit_country(&$form, $form_state) {
   $countries = country_get_list();
   $country_code = $form_state['values']['site_default_country'];
   if(empty($countries[$country_code])) {
-    drupal_set_message("Country code provided in default country can not be identified.", 'error');
-     return;
-   
+    // When installing using drush site-install this value is not filled, so we default it to Uganda
+    // We like Uganda.
+    $country_code = 'UG';
   }
 
   if(!module_exists("mapit")) {
