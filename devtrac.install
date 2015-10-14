@@ -995,7 +995,10 @@ function devtrac_install_finished(&$install_state) {
   );
   module_disable($modules);
   drupal_uninstall_modules($modules);
-
+  // in aegir the system tries to send an email right after this before the full cache is cleared. 
+  // Migrate has an email class active that we must remove. So reset to defaults here.
+  variable_set('mail_system', array('default-system' => 'DefaultMailSystem'));
+  
   if (isset($messages['error'])) {
     $output = '<p>' . (isset($messages['error']) ? st('Review the messages above before visiting <a href="@url">your new site</a>.', array('@url' => url(''))) : st('<a href="@url">Visit your new site</a>.', array('@url' => url('')))) . '</p>';
     return $output;
