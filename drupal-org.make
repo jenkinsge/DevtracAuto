@@ -67,7 +67,7 @@ projects[css_browser_selector][version] = "1.1"
 projects[css_browser_selector][type] = "module"
 projects[css_browser_selector][subdir] = "contrib"
 
-projects[date_duration_formatter][version] = "1.x-dev"
+projects[date_duration_formatter][version] = "1.0"
 projects[date_duration_formatter][type] = "module"
 projects[date_duration_formatter][subdir] = "contrib"
 
@@ -122,7 +122,7 @@ projects[facetapi_textfield_widget][version] = "1.x-dev"
 projects[facetapi_textfield_widget][type] = "module"
 projects[facetapi_textfield_widget][subdir] = "contrib"
 
-projects[features_override][version] = "2.0-rc2"
+projects[features_override][version] = "2.0-rc3"
 projects[features_override][type] = "module"
 projects[features_override][subdir] = "contrib"
 
@@ -390,7 +390,7 @@ projects[search_api_autocomplete][version] = "1.4"
 projects[search_api_autocomplete][type] = "module"
 projects[search_api_autocomplete][subdir] = "contrib"
 
-projects[search_api_db][version] = "1.4"
+projects[search_api_db][version] = "1.5"
 projects[search_api_db][type] = "module"
 projects[search_api_db][subdir] = "contrib"
 
@@ -445,10 +445,10 @@ projects[stringoverrides][version] = "1.8"
 projects[stringoverrides][type] = "module"
 projects[stringoverrides][subdir] = "contrib"
 
-projects[taxonomy_access][version] = "1.0-rc1"
+projects[taxonomy_access][version] = "1.0"
 projects[taxonomy_access][type] = "module"
 projects[taxonomy_access][subdir] = "contrib"
-projects[taxonomy_access][patch][] = "https://www.drupal.org/files/1313912-5.patch"
+#projects[taxonomy_access][patch][] = "https://www.drupal.org/files/1313912-5.patch"
 
 projects[tipsy][version] = "1.0-rc1"
 projects[tipsy][type] = "module"
@@ -458,7 +458,7 @@ projects[transliteration][version] = "3.2"
 projects[transliteration][type] = "module"
 projects[transliteration][subdir] = "contrib"
 
-projects[uuid][version] = "1.0-alpha6"
+projects[uuid][version] = "1.0-beta1"
 projects[uuid][type] = "module"
 projects[uuid][subdir] = "contrib"
 
@@ -476,7 +476,7 @@ projects[views_data_export][subdir] = "contrib"
 ; projects[views_data_export][patch][] = "https://www.drupal.org/files/issues/views_data_export-blockify_3.0-beta8-2037165-3.patch"
 projects[views_data_export][patch][] = "https://www.drupal.org/files/views_data_export-solr_export-1258390-13.patch"
 
-projects[views_field_view][version] = "1.1"
+projects[views_field_view][version] = "1.2"
 projects[views_field_view][type] = "module"
 projects[views_field_view][subdir] = "contrib"
 
@@ -525,7 +525,7 @@ projects[virtual_field][type] = "module"
 projects[virtual_field][subdir] = "contrib"
 projects[virtual_field][patch][] = "https://www.drupal.org/files/issues/virtual_field_views_support_1506376_15.patch"
 
-projects[addressfield][version] = "1.1"
+projects[addressfield][version] = "1.2"
 projects[addressfield][type] = "module"
 projects[addressfield][subdir] = "contrib"
 
