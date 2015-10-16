@@ -351,7 +351,7 @@ projects[questionnaire][type] = "module"
 projects[questionnaire][subdir] = "contrib"
 projects[questionnaire][download][type] = "git"
 ;projects[questionnaire][download][url] = "http://git.drupal.org/project/questionnaire.git"
-projects[questionnaire][download][branch] = "7.x-1.x-multiple-vocabularies"
+projects[questionnaire][download][branch] = "7.x-1.x"
 
 projects[quicktabs][version] = "3.x-dev"
 projects[quicktabs][type] = "module"
