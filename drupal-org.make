@@ -229,6 +229,10 @@ projects[imagemagick][version] = "1.0"
 projects[imagemagick][type] = "module"
 projects[imagemagick][subdir] = "contrib"
 
+projects[inline_entity_form][version] = "1.6"
+projects[inline_entity_form][type] = "module"
+projects[inline_entity_form][subdir] = "contrib"
+
 projects[job_scheduler][version] = "2.0-alpha3"
 projects[job_scheduler][type] = "module"
 projects[job_scheduler][subdir] = "contrib"
@@ -367,6 +371,10 @@ projects[quicktabs][patch][] = "https://www.drupal.org/files/quicktabs--machine_
 projects[realname][version] = "1.2"
 projects[realname][type] = "module"
 projects[realname][subdir] = "contrib"
+
+projects[registry_autoload][version] = "1.3"
+projects[registry_autoload][type] = "module"
+projects[registry_autoload][subdir] = "contrib"
 
 projects[robotstxt][version] = "1.3"
 projects[robotstxt][type] = "module"
