@@ -574,12 +574,18 @@ function devtrac_install_tasks(&$install_state) {
     'display_name' => st('Install additional functionality'),
     'type' => 'batch',
   );
+
   // All modules are enabled now.
   // Let's create the search_api_server.
   $tasks['devtrac_initialize_search_server'] = array(
     'display_name' => st('Initialize Search Server'),
     'display' => FALSE,
     'type' => 'normal',
+  );
+
+  $tasks['devtrac_enable_devtrac_features'] = array(
+    'display_name' => st('Enable the Devtrac features'),
+    'type' => 'batch',
   );
 
   // We're not going to initialize the taxonomy access settings now. Instead we
@@ -697,6 +703,7 @@ function devtrac_install_welcome_submit($form, &$form_state) {
   $install_state['parameters']['welcome'] = 'done';
   $install_state['parameters']['locale'] = 'en';
 }
+
 /**
  * Task callback: uses Batch API to import modules based on user selection.
  * Installs a site statistics module if requested, or any modules providing
@@ -742,6 +749,11 @@ function devtrac_install_additional_modules(&$install_state) {
   $modules = array(
     // 'devtrac7_profile_menu',
     'search_api_db',
+    'hurricane',
+    'hurricane_integration',
+    'hurricane_raphael',
+  );
+  $features = array(
     'devtrac7_solr_search_feature',
     'devtrac7_solr_search_district_feature',
     'devtrac7_solr_search_location_feature',
@@ -751,13 +763,9 @@ function devtrac_install_additional_modules(&$install_state) {
     'devtrac7_solr_search_image_feature',
     'devtrac7_solr_search_questions_feature',
     'devtrac7_solr_search_answers_feature',
-    'devtrac7_field_permissions_feature',
+    'devtrac7_field_permissions_feature',  
     'devtrac7_admin_feature',
     'devtrac_demo_phase',
-    'hurricane',
-    'hurricane_integration',
-    'hurricane_raphael',
-    'search_api_db',
   );
 
   // Pantheon - all operations.
@@ -768,11 +776,6 @@ function devtrac_install_additional_modules(&$install_state) {
     $modules[] = 'syslog';
   }
 
-
-  if (isset($install_state['parameters']['stats'])) {
-    $modules[] = $install_state['parameters']['stats'];
-  }
-  
   // Resolve the dependencies now, so that module_enable() doesn't need
   // to do it later for each individual module (which kills performance).
   $files = system_rebuild_module_data();
@@ -786,7 +789,10 @@ function devtrac_install_additional_modules(&$install_state) {
       $modules = array_merge($modules, $dependencies);
     }
   }
+
   $modules = array_unique($modules);
+  // Do NOT enable the features yet, only the modules they depend upon
+  $modules = array_diff($modules, $features);
   foreach ($modules as $module) {
     $modules_sorted[$module] = $files[$module]->sort;
   }
@@ -832,6 +838,49 @@ function devtrac_initialize_search_server() {
   );
   search_api_server_insert($devtrac_search_server);
 }
+
+/**
+ *  Enable the Devtrac specific Features
+ *  We do this after enabling all modules
+ *  So that we can insert the index before these features
+ */
+function devtrac_enable_devtrac_features(&$install_state) {
+  $files = system_rebuild_module_data();
+  $features_sorted = array();
+  $features = array(
+    'devtrac7_solr_search_feature',
+    'devtrac7_solr_search_district_feature',
+    'devtrac7_solr_search_location_feature',
+    'devtrac7_solr_search_act_item_feature',
+    'devtrac7_solr_user_feature',
+    'devtrac7_solr_search_fieldtrip_feature',
+    'devtrac7_solr_search_image_feature',
+    'devtrac7_solr_search_questions_feature',
+    'devtrac7_solr_search_answers_feature',
+    'devtrac7_field_permissions_feature',
+    'devtrac7_admin_feature',
+    'devtrac_demo_phase',
+  );
+
+  foreach ($features as $feature) {
+    $features_sorted[$feature] = $files[$feature]->sort;
+  }
+  arsort($features_sorted);
+
+  // Enable the selected modules.
+  foreach ($features_sorted as $feature => $weight) {
+    $operations[] = array('_devtrac_enable_module', array($feature, $files[$feature]->info['name']));
+  }
+  $operations[] = array('_devtrac_flush_caches', array(t('Flushed caches.')));
+
+  $batch = array(
+    'operations' => $operations,
+    'file' => drupal_get_path('profile', 'devtrac') . '/devtrac.install_callbacks.inc',
+  );
+
+  return $batch;
+}
+
 
 /**
  * Import codelists using module devtrac_imports.
