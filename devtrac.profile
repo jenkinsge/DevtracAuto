@@ -31,6 +31,7 @@ function devtrac_install_configure_form_submit_country(&$form, $form_state) {
   if(empty($countries[$country_code])) {
     // When installing using drush site-install this value is not filled, so we default it to Uganda
     // We like Uganda.
+    variable_set("site_default_country", "UG");
     $country_code = 'UG';
   }
 
