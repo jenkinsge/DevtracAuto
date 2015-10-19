@@ -39,3 +39,4 @@ features[views_view][] = frontpage_slideshow
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][openlayers] = openlayers
 features_exclude[dependencies][views] = views
+features[user_permission][] = deny configuration on node form

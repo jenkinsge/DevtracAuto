@@ -859,7 +859,19 @@ function devtrac7_addplaceform($form, &$form_state, $fieldtrip = NULL) {
     '#value_key' => 'tid', // Picked 'tid' because District is a vocabulary.
   );
 
-  _taxonomy_access_configure_options_widget($element, 1000);
+//  _taxonomy_access_configure_options_widget($element, 1000);
+
+  // Enforce that list grants do not filter our queries.
+  taxonomy_access_disable_list();
+
+  // Add create grant handling.
+  module_load_include('inc', 'taxonomy_access', 'taxonomy_access.create');
+  $context['instance']['entity_type'] = 'taxonomy_term_reference';
+  $context['field']['cardinality'] = 1;
+  _taxonomy_access_options_alter($element, $form_state, $context);
+
+  // Re-enable list grants.
+  taxonomy_access_enable_list();
 
   $form['district'] = $element;
   /*
