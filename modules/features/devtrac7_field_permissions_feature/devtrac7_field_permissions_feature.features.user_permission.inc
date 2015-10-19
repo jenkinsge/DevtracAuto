@@ -893,20 +893,6 @@ function devtrac7_field_permissions_feature_user_default_permissions() {
     'module' => 'node',
   );
 
-  // Exported permission: 'deny configuration on node form'.
-  $permissions['deny configuration on node form'] = array(
-    'name' => 'deny configuration on node form',
-    'roles' => array(
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-      'devtrac admin' => 'devtrac admin',
-      'editor' => 'editor',
-      'field worker' => 'field worker',
-      'iati manager' => 'iati manager',
-    ),
-    'module' => 'nodesinblock',
-  );
-
   // Exported permission: 'edit any actionitem content'.
   $permissions['edit any actionitem content'] = array(
     'name' => 'edit any actionitem content',
