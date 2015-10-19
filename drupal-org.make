@@ -612,11 +612,6 @@ libraries[chosen][download][url] = "https://github.com/harvesthq/chosen/releases
 libraries[chosen][directory_name] = "chosen"
 libraries[chosen][type] = "library"
 
-libraries[colorbox][download][type] = "file"
-libraries[colorbox][download][url] = "https://github.com/jackmoore/colorbox/archive/1.5.14.zip"
-libraries[colorbox][directory_name] = "colorbox"
-libraries[colorbox][type] = "library"
-
 libraries[FirePHPCore][download][type] = "file"
 libraries[FirePHPCore][download][url] = "https://github.com/firephp/firephp-core/archive/master.zip"
 libraries[FirePHPCore][directory_name] = "FirePHPCore"
