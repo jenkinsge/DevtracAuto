@@ -401,9 +401,9 @@ class DevtracTestCase extends SimpleTestCloneTestCase {
     $this->drupalPost('file/1/edit', $tag, t('Save'));
 
     // Add questions.
-    $this->createQuestion('How would you rate this school?', 'radios', $options = array('Good', 'Mediocre', 'Bad'), NULL, '57', '286', array());
-    $this->createQuestion('Any further comments about this school?', 'open', array(), NULL, '57', '286', array());
-    $this->createQuestion('How would you rate this water point?', 'select', $options = array('Good', 'Mediocre', 'Bad'), NULL, '85', '261', array());
+    $this->createQuestion('How would you rate this school?', 'Radios', $options = array('Good', 'Mediocre', 'Bad'), NULL, '57', '286', array());
+    $this->createQuestion('Any further comments about this school?', 'Open', array(), NULL, '57', '286', array());
+    $this->createQuestion('How would you rate this water point?', 'Select', $options = array('Good', 'Mediocre', 'Bad'), NULL, '85', '261', array());
     $this->drupalLogout();
 
     // Create a field worker.
