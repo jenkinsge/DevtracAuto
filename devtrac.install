@@ -765,7 +765,6 @@ function devtrac_install_additional_modules(&$install_state) {
     'devtrac7_solr_search_answers_feature',
     'devtrac7_field_permissions_feature',  
     'devtrac7_admin_feature',
-    'devtrac_demo_phase',
   );
 
   // Pantheon - all operations.
@@ -859,7 +858,6 @@ function devtrac_enable_devtrac_features(&$install_state) {
     'devtrac7_solr_search_answers_feature',
     'devtrac7_field_permissions_feature',
     'devtrac7_admin_feature',
-    'devtrac_demo_phase',
   );
 
   foreach ($features as $feature) {
