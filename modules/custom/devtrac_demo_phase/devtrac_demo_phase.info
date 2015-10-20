@@ -1,5 +1,0 @@
-name = "Devtrac Demo Phase Module"
-description = "Alters pager settings for view displays when using the db indexing service."
-core = "7.x"
-
-files[] = devtrac_demo_phase.module

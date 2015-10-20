@@ -36,11 +36,6 @@ features[image][] = map_icon_bw
 features[image][] = print_thumbnail
 features[image][] = user_comment_img
 features[variable][] = ais_adaptive_styles
-features[variable][] = file_default_scheme
-features[variable][] = file_private_path
-features[variable][] = file_public_path
-features[variable][] = file_temporary_path
-features[variable][] = filefield_paths_schema_version
 features[variable][] = image_toolkit
 features[variable][] = imagemagick_convert
 features[variable][] = imagemagick_debug
@@ -60,3 +55,11 @@ features[views_view][] = dvtrc_site_visits
 features[views_view][] = dvtrc_user
 features[views_view][] = inbox
 features[views_view][] = oecd_sector_code
+
+
+; Information added by drush on 2015-10-19
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "devtrac"
+datestamp = "1445239178"
+
