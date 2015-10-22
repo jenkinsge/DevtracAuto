@@ -99,6 +99,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'target' => 'field_actionitem_responsible',
             'unique' => FALSE,
           ),
+          11 => array(
+            'source' => 'Priority',
+            'target' => 'field_actionitem_severity',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '0',
         'input_format' => 'plain_text',
@@ -207,6 +212,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'target' => 'field_fieldtrip_approved_by',
             'unique' => FALSE,
           ),
+          12 => array(
+            'source' => 'Tags',
+            'target' => 'field_fieldtriptags',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',
@@ -288,6 +298,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           6 => array(
             'source' => 'Description',
             'target' => 'body',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'Location Tags',
+            'target' => 'field_place_tags',
             'unique' => FALSE,
           ),
         ),
@@ -510,7 +525,8 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           4 => array(
             'source' => 'Function',
             'target' => 'taxonomy_vocabulary_5',
-            'unique' => FALSE,
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
           5 => array(
             'source' => 'Academic Degree(s)',
@@ -520,7 +536,8 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           6 => array(
             'source' => 'Department',
             'target' => 'taxonomy_vocabulary_4',
-            'unique' => FALSE,
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
           7 => array(
             'source' => 'First Name',
@@ -540,12 +557,14 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           10 => array(
             'source' => 'Admin Units',
             'target' => 'taxonomy_vocabulary_6',
-            'unique' => FALSE,
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
           11 => array(
             'source' => 'Sectors',
             'target' => 'taxonomy_vocabulary_8',
-            'unique' => FALSE,
+            'term_search' => '0',
+            'autocreate' => 0,
           ),
           12 => array(
             'source' => 'Manager UUID',
