@@ -390,6 +390,13 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['body']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = 'Description';
+  /* Field: Indexed Node: Location Tags */
+  $handler->display->display_options['fields']['field_place_tags']['id'] = 'field_place_tags';
+  $handler->display->display_options['fields']['field_place_tags']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['field_place_tags']['field'] = 'field_place_tags';
+  $handler->display->display_options['fields']['field_place_tags']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_place_tags']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_place_tags']['bypass_access'] = 0;
   $handler->display->display_options['path'] = 'locations/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
@@ -811,6 +818,13 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['body']['table'] = 'search_api_index_devtrac_solr_locations_index';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = 'Description';
+  /* Field: Indexed Node: Location Tags */
+  $handler->display->display_options['fields']['field_place_tags']['id'] = 'field_place_tags';
+  $handler->display->display_options['fields']['field_place_tags']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['field_place_tags']['field'] = 'field_place_tags';
+  $handler->display->display_options['fields']['field_place_tags']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['field_place_tags']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['field_place_tags']['bypass_access'] = 0;
   $handler->display->display_options['path'] = 'locations/analyse/csvfieldworker';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',

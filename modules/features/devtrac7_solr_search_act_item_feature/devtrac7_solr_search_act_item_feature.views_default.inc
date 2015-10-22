@@ -882,6 +882,11 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['view']['display'] = 'views_data_export_1';
   $handler->display->display_options['fields']['view']['arguments'] = '[!nid]';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Field: Indexed Node: Priority */
+  $handler->display->display_options['fields']['field_actionitem_severity']['id'] = 'field_actionitem_severity';
+  $handler->display->display_options['fields']['field_actionitem_severity']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['field_actionitem_severity']['field'] = 'field_actionitem_severity';
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Indexed Node: Status */
   $handler->display->display_options['sorts']['field_actionitem_status']['id'] = 'field_actionitem_status';
   $handler->display->display_options['sorts']['field_actionitem_status']['table'] = 'search_api_index_devtrac_solr_action_items_index';
