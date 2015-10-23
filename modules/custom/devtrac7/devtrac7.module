@@ -2455,47 +2455,49 @@ function devtrac7_questionnaire_getquestions($contexts, $recipient, $questionnai
   if (isset($contexts['node'])) {
     foreach ($contexts['node'] as $place) {
       $context_node = node_load($place->nid);
-      $vocabulary_name = variable_get('questionnaire_question_vocabulary_' . $questionnaire->type, 0);
+      $vocabulary_filter = variable_get('questionnaire_question_vocabulary_' . $questionnaire->type, 0);
       // First we get the array of conditions that will be added to our query.
-      $question_conditions = questionnaire_question_get_query_conditions($vocabulary_name);
+      $question_conditions = questionnaire_question_get_query_conditions($vocabulary_filter);
       // Then we build the conditions into a DatabasCondition and get the
       // necessary joins.
       $question_query_condition =  questionnaire_question_build_condition($context_node, $question_conditions, $questionnaire);
-      // Then we build the query:
-      // We are selecting the nid from the node table.
-      $query = db_select('node', 'n');
-      // We add the joins required by the DatabaseCondition.
-      foreach ($question_query_condition['joins'] as $join) {
-        $query->leftJoin($join['table_name'], $join['alias'], $join['connection']);
-      }
-      // Join draggableviews.
-      $query->join('draggableviews_structure', 'd', 'n.nid = d.entity_id');
-      // Add fields.
-      $query->fields('n', array('nid'));
-      $query->fields('d', array('weight'));
-      // We add the DatabaseCondition.
-      $query->condition($question_query_condition['condition']);
-      // Add the final condition that we are only looking for questionnaire
-      // questions.
-      $query->condition('n.type', 'questionnaire_question');
-      // The node must be published.
-      $query->condition('n.status', 1)
-          ->orderBy('d.weight', 'ASC');
-      // Execute the array.
-      $qresult = $query->execute();
-      if (!empty($qresult)) {
-        foreach ($qresult as $question) {
-          $questions[$question->nid] = array(
-            'node' => node_load($question->nid),
-            'context_type' => 'node',
-            'context_id' => $context_node->nid,
-            'questionnaire_id' => $questionnaire->nid,
-          );
+      if ($question_query_condition) {
+        // Then we build the query:
+        // We are selecting the nid from the node table.
+        $query = db_select('node', 'n');
+        // We add the joins required by the DatabaseCondition.
+        foreach ($question_query_condition['joins'] as $join) {
+          $query->leftJoin($join['table_name'], $join['alias'], $join['connection']);
         }
-      }
-      else {
-        if (variable_get('questionnaire_question_isquestionnaire_' . $node->type, FALSE)) {
-          drupal_set_message(t('The vocabulary that connects questions to this node is not set. Please go to admin/structure/types/manage/' . check_plain($node->type) . ' and set it.' ), 'error');
+        // Join draggableviews.
+        $query->join('draggableviews_structure', 'd', 'n.nid = d.entity_id');
+        // Add fields.
+        $query->fields('n', array('nid'));
+        $query->fields('d', array('weight'));
+        // We add the DatabaseCondition.
+        $query->condition($question_query_condition['condition']);
+        // Add the final condition that we are only looking for questionnaire
+        // questions.
+        $query->condition('n.type', 'questionnaire_question');
+        // The node must be published.
+        $query->condition('n.status', 1)
+            ->orderBy('d.weight', 'ASC');
+        // Execute the array.
+        $qresult = $query->execute();
+        if (!empty($qresult)) {
+          foreach ($qresult as $question) {
+            $questions[$question->nid] = array(
+              'node' => node_load($question->nid),
+              'context_type' => 'node',
+              'context_id' => $context_node->nid,
+              'questionnaire_id' => $questionnaire->nid,
+            );
+          }
+        }
+        else {
+          if (variable_get('questionnaire_question_isquestionnaire_' . $node->type, FALSE)) {
+            drupal_set_message(t('The vocabulary that connects questions to this node is not set. Please go to admin/structure/types/manage/' . check_plain($node->type) . ' and set it.' ), 'error');
+          }
         }
       }
     }

@@ -278,7 +278,8 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           2 => array(
             'source' => 'Location Type',
             'target' => 'taxonomy_vocabulary_1',
-            'unique' => FALSE,
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
           3 => array(
             'source' => 'Lat',
@@ -303,7 +304,8 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
           7 => array(
             'source' => 'Location Tags',
             'target' => 'field_place_tags',
-            'unique' => FALSE,
+            'term_search' => '0',
+            'autocreate' => 1,
           ),
         ),
         'update_existing' => '2',
@@ -564,7 +566,7 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'source' => 'Sectors',
             'target' => 'taxonomy_vocabulary_8',
             'term_search' => '0',
-            'autocreate' => 0,
+            'autocreate' => 1,
           ),
           12 => array(
             'source' => 'Manager UUID',
