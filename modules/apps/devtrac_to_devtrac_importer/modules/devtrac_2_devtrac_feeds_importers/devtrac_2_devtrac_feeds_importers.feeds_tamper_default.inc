@@ -13,6 +13,99 @@ function devtrac_2_devtrac_feeds_importers_feeds_tamper_default() {
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_detvrac_question_importer-options-explode';
+  $feeds_tamper->importer = 'devtrac_2_detvrac_question_importer';
+  $feeds_tamper->source = 'Options';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',%s',
+    'limit' => '',
+    'real_separator' => ', ',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Explode';
+  $export['devtrac_2_detvrac_question_importer-options-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_detvrac_question_importer-options-trim';
+  $feeds_tamper->importer = 'devtrac_2_detvrac_question_importer';
+  $feeds_tamper->source = 'Options';
+  $feeds_tamper->plugin_id = 'trim';
+  $feeds_tamper->settings = array(
+    'mask' => '',
+    'side' => 'trim',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Trim';
+  $export['devtrac_2_detvrac_question_importer-options-trim'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_detvrac_question_importer-questions_on-explode';
+  $feeds_tamper->importer = 'devtrac_2_detvrac_question_importer';
+  $feeds_tamper->source = 'Questions on';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',%s',
+    'limit' => '',
+    'real_separator' => ', ',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Explode';
+  $export['devtrac_2_detvrac_question_importer-questions_on-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_detvrac_question_importer-questions_on-trim';
+  $feeds_tamper->importer = 'devtrac_2_detvrac_question_importer';
+  $feeds_tamper->source = 'Questions on';
+  $feeds_tamper->plugin_id = 'trim';
+  $feeds_tamper->settings = array(
+    'mask' => '',
+    'side' => 'trim',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Trim';
+  $export['devtrac_2_detvrac_question_importer-questions_on-trim'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_detvrac_question_importer-sector-explode';
+  $feeds_tamper->importer = 'devtrac_2_detvrac_question_importer';
+  $feeds_tamper->source = 'Sector';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',%s',
+    'limit' => '',
+    'real_separator' => ', ',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Explode';
+  $export['devtrac_2_detvrac_question_importer-sector-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_detvrac_question_importer-sector-trim';
+  $feeds_tamper->importer = 'devtrac_2_detvrac_question_importer';
+  $feeds_tamper->source = 'Sector';
+  $feeds_tamper->plugin_id = 'trim';
+  $feeds_tamper->settings = array(
+    'mask' => '',
+    'side' => 'trim',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Trim';
+  $export['devtrac_2_detvrac_question_importer-sector-trim'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
   $feeds_tamper->id = 'devtrac_2_devtrac_action_item_import-responsible-explode';
   $feeds_tamper->importer = 'devtrac_2_devtrac_action_item_import';
   $feeds_tamper->source = 'Responsible';
