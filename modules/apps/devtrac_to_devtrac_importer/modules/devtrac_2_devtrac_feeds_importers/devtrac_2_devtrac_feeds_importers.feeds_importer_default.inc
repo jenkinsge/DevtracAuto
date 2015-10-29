@@ -13,9 +13,9 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
   $feeds_importer = new stdClass();
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
   $feeds_importer->api_version = 1;
-  $feeds_importer->id = 'devtrac_2_detvrac_question_importer';
+  $feeds_importer->id = 'devtrac_2_detvrac_question_import';
   $feeds_importer->config = array(
-    'name' => 'Devtrac 2 Detvrac Question Importer',
+    'name' => 'Devtrac 2 Detvrac Question Import',
     'description' => 'Imports questions from another Devtrac installation csv export',
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
@@ -88,7 +88,7 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
     'import_on_create' => 1,
     'process_in_background' => 0,
   );
-  $export['devtrac_2_detvrac_question_importer'] = $feeds_importer;
+  $export['devtrac_2_detvrac_question_import'] = $feeds_importer;
 
   $feeds_importer = new stdClass();
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
@@ -402,6 +402,211 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
     'process_in_background' => 0,
   );
   $export['devtrac_2_devtrac_location_import'] = $feeds_importer;
+
+  $feeds_importer = new stdClass();
+  $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
+  $feeds_importer->api_version = 1;
+  $feeds_importer->id = 'devtrac_2_devtrac_questionnaire_answer';
+  $feeds_importer->config = array(
+    'name' => 'Devtrac 2 Devtrac Questionnaire Answer Import',
+    'description' => 'Imports questionnaire answers from another Devtrac installation csv export',
+    'fetcher' => array(
+      'plugin_key' => 'FeedsFileFetcher',
+      'config' => array(
+        'allowed_extensions' => 'csv',
+        'direct' => 0,
+        'directory' => 'public://feeds',
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+      ),
+    ),
+    'parser' => array(
+      'plugin_key' => 'FeedsCSVParser',
+      'config' => array(
+        'delimiter' => ',',
+        'no_headers' => 0,
+      ),
+    ),
+    'processor' => array(
+      'plugin_key' => 'FeedsQuestionnaireAnswerProcessor',
+      'config' => array(
+        'mappings' => array(
+          0 => array(
+            'source' => 'Answer ID',
+            'target' => 'id',
+            'unique' => 0,
+          ),
+          1 => array(
+            'source' => 'Answer',
+            'target' => 'answer',
+            'unique' => FALSE,
+          ),
+          2 => array(
+            'source' => 'Answer Text',
+            'target' => 'answertext',
+            'unique' => FALSE,
+          ),
+          3 => array(
+            'source' => 'Answer Number',
+            'target' => 'answernumber',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'Date created',
+            'target' => 'created',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'Date changed',
+            'target' => 'changed',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'Recepient UUID',
+            'target' => 'recipient',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'Recipient Type',
+            'target' => 'recipient_type',
+            'unique' => FALSE,
+          ),
+          8 => array(
+            'source' => 'Question UUID',
+            'target' => 'question',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'Questionnaire UUID',
+            'target' => 'questionnaire_id',
+            'unique' => FALSE,
+          ),
+          10 => array(
+            'source' => 'Context UUID',
+            'target' => 'context_id',
+            'unique' => FALSE,
+          ),
+          11 => array(
+            'source' => 'Context Type',
+            'target' => 'context_type',
+            'unique' => FALSE,
+          ),
+          12 => array(
+            'source' => 'Submission GUID',
+            'target' => 'sid',
+            'unique' => FALSE,
+          ),
+          13 => array(
+            'source' => 'Answer GUID',
+            'target' => 'guid',
+            'unique' => 1,
+          ),
+        ),
+        'update_existing' => '2',
+        'input_format' => 'plain_text',
+        'skip_hash_check' => 0,
+        'bundle' => 'questionnaire_answer',
+      ),
+    ),
+    'content_type' => '',
+    'update' => 0,
+    'import_period' => '-1',
+    'expire_period' => 3600,
+    'import_on_create' => 1,
+    'process_in_background' => 0,
+  );
+  $export['devtrac_2_devtrac_questionnaire_answer'] = $feeds_importer;
+
+  $feeds_importer = new stdClass();
+  $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
+  $feeds_importer->api_version = 1;
+  $feeds_importer->id = 'devtrac_2_devtrac_questionnaire_submission';
+  $feeds_importer->config = array(
+    'name' => 'Devtrac 2 Devtrac Questionnaire Submission Import',
+    'description' => 'Imports questionnaire submissions from another Devtrac installation csv export',
+    'fetcher' => array(
+      'plugin_key' => 'FeedsFileFetcher',
+      'config' => array(
+        'allowed_extensions' => 'csv',
+        'direct' => 0,
+        'directory' => 'public://feeds',
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+      ),
+    ),
+    'parser' => array(
+      'plugin_key' => 'FeedsCSVParser',
+      'config' => array(
+        'delimiter' => ',',
+        'no_headers' => 0,
+      ),
+    ),
+    'processor' => array(
+      'plugin_key' => 'FeedsQuestionnaireSubmissionProcessor',
+      'config' => array(
+        'mappings' => array(
+          0 => array(
+            'source' => 'Submission GUID',
+            'target' => 'guid',
+            'unique' => 1,
+          ),
+          1 => array(
+            'source' => 'Submission ID',
+            'target' => 'sid',
+            'unique' => 1,
+          ),
+          2 => array(
+            'source' => 'Context UUID',
+            'target' => 'context_id',
+            'unique' => FALSE,
+          ),
+          3 => array(
+            'source' => 'Questionnaire UUID',
+            'target' => 'questionnaire_id',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'Recepient UUID',
+            'target' => 'recipient',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'Date created',
+            'target' => 'created',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'Date changed',
+            'target' => 'changed',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'Context Type',
+            'target' => 'context_type',
+            'unique' => FALSE,
+          ),
+          8 => array(
+            'source' => 'Recipient Type',
+            'target' => 'recipient_type',
+            'unique' => FALSE,
+          ),
+        ),
+        'update_existing' => '2',
+        'input_format' => 'plain_text',
+        'skip_hash_check' => 0,
+        'bundle' => 'QuestionnaireSubmission',
+      ),
+    ),
+    'content_type' => '',
+    'update' => 0,
+    'import_period' => '-1',
+    'expire_period' => 3600,
+    'import_on_create' => 1,
+    'process_in_background' => 0,
+  );
+  $export['devtrac_2_devtrac_questionnaire_submission'] = $feeds_importer;
 
   $feeds_importer = new stdClass();
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
