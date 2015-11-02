@@ -856,6 +856,7 @@ function devtrac_enable_devtrac_features(&$install_state) {
     'devtrac7_solr_search_image_feature',
     'devtrac7_solr_search_questions_feature',
     'devtrac7_solr_search_answers_feature',
+    'devtrac7_solr_search_submissions_feature',
     'devtrac7_field_permissions_feature',
     'devtrac7_admin_feature',
   );
