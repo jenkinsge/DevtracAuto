@@ -229,25 +229,56 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
   $handler->display->display_options['style_options']['provide_file'] = 1;
   $handler->display->display_options['style_options']['parent_sort'] = 0;
-  $handler->display->display_options['style_options']['feed_in_links'] = 0;
   $handler->display->display_options['style_options']['quote'] = 1;
   $handler->display->display_options['style_options']['trim'] = 0;
   $handler->display->display_options['style_options']['replace_newlines'] = 0;
   $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
   $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Indexed Answer: Submission */
+  $handler->display->display_options['relationships']['sid']['id'] = 'sid';
+  $handler->display->display_options['relationships']['sid']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['relationships']['sid']['field'] = 'sid';
+  /* Relationship: Indexed Answer: Question */
+  $handler->display->display_options['relationships']['question']['id'] = 'question';
+  $handler->display->display_options['relationships']['question']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['relationships']['question']['field'] = 'question';
+  /* Relationship: Indexed Answer: Questionnaire */
+  $handler->display->display_options['relationships']['questionnaire_id']['id'] = 'questionnaire_id';
+  $handler->display->display_options['relationships']['questionnaire_id']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['relationships']['questionnaire_id']['field'] = 'questionnaire_id';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed Answer: Uuid */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = 'Answer GUID';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
   /* Field: Indexed Answer: Answer ID */
   $handler->display->display_options['fields']['id']['id'] = 'id';
   $handler->display->display_options['fields']['id']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['id']['field'] = 'id';
   $handler->display->display_options['fields']['id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['id']['separator'] = '';
+  $handler->display->display_options['fields']['id']['link_to_entity'] = 0;
   /* Field: Indexed Answer: Answer All */
   $handler->display->display_options['fields']['answer']['id'] = 'answer';
   $handler->display->display_options['fields']['answer']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['answer']['field'] = 'answer';
   $handler->display->display_options['fields']['answer']['label'] = 'Answer';
   $handler->display->display_options['fields']['answer']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Answer Text */
+  $handler->display->display_options['fields']['answertext']['id'] = 'answertext';
+  $handler->display->display_options['fields']['answertext']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['answertext']['field'] = 'answertext';
+  $handler->display->display_options['fields']['answertext']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Answer Number */
+  $handler->display->display_options['fields']['answernumber']['id'] = 'answernumber';
+  $handler->display->display_options['fields']['answernumber']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['answernumber']['field'] = 'answernumber';
+  $handler->display->display_options['fields']['answernumber']['precision'] = '0';
+  $handler->display->display_options['fields']['answernumber']['link_to_entity'] = 0;
   /* Field: Indexed Answer: Questionnaire */
   $handler->display->display_options['fields']['questionnaire_id']['id'] = 'questionnaire_id';
   $handler->display->display_options['fields']['questionnaire_id']['table'] = 'search_api_index_answers';
@@ -276,12 +307,79 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['date_format'] = 'date_only';
   $handler->display->display_options['fields']['created']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Date changed */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['date_format'] = 'export_only';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'date_only';
+  $handler->display->display_options['fields']['changed']['link_to_entity'] = 0;
   /* Field: Indexed Answer: Question */
   $handler->display->display_options['fields']['question']['id'] = 'question';
   $handler->display->display_options['fields']['question']['table'] = 'search_api_index_answers';
   $handler->display->display_options['fields']['question']['field'] = 'question';
   $handler->display->display_options['fields']['question']['exclude'] = TRUE;
   $handler->display->display_options['fields']['question']['link_to_entity'] = 0;
+  /* Field: Node: UUID */
+  $handler->display->display_options['fields']['uuid_3']['id'] = 'uuid_3';
+  $handler->display->display_options['fields']['uuid_3']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['uuid_3']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_3']['relationship'] = 'question';
+  $handler->display->display_options['fields']['uuid_3']['label'] = 'Question UUID';
+  $handler->display->display_options['fields']['uuid_3']['link_to_entity'] = 0;
+  /* Field: Node: UUID */
+  $handler->display->display_options['fields']['uuid_1']['id'] = 'uuid_1';
+  $handler->display->display_options['fields']['uuid_1']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['uuid_1']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_1']['relationship'] = 'questionnaire_id';
+  $handler->display->display_options['fields']['uuid_1']['label'] = 'Questionnaire UUID';
+  $handler->display->display_options['fields']['uuid_1']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Context_id */
+  $handler->display->display_options['fields']['context_id']['id'] = 'context_id';
+  $handler->display->display_options['fields']['context_id']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['context_id']['field'] = 'context_id';
+  $handler->display->display_options['fields']['context_id']['label'] = '';
+  $handler->display->display_options['fields']['context_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['context_id']['separator'] = '';
+  $handler->display->display_options['fields']['context_id']['link_to_entity'] = 0;
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view']['id'] = 'view';
+  $handler->display->display_options['fields']['view']['table'] = 'views';
+  $handler->display->display_options['fields']['view']['field'] = 'view';
+  $handler->display->display_options['fields']['view']['label'] = 'Context UUID';
+  $handler->display->display_options['fields']['view']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view']['view'] = 'devtrac_nodes';
+  $handler->display->display_options['fields']['view']['display'] = 'views_data_export_1';
+  $handler->display->display_options['fields']['view']['arguments'] = '[!context_id]';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Context UUID';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[view]';
+  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = TRUE;
+  /* Field: Indexed Answer: Context_type */
+  $handler->display->display_options['fields']['context_type']['id'] = 'context_type';
+  $handler->display->display_options['fields']['context_type']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['context_type']['field'] = 'context_type';
+  $handler->display->display_options['fields']['context_type']['label'] = 'Context Type';
+  $handler->display->display_options['fields']['context_type']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Submission */
+  $handler->display->display_options['fields']['sid']['id'] = 'sid';
+  $handler->display->display_options['fields']['sid']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['sid']['field'] = 'sid';
+  $handler->display->display_options['fields']['sid']['label'] = 'Submission ID';
+  $handler->display->display_options['fields']['sid']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['sid']['bypass_access'] = 0;
+  /* Field: Submission: Uuid */
+  $handler->display->display_options['fields']['uuid_2']['id'] = 'uuid_2';
+  $handler->display->display_options['fields']['uuid_2']['table'] = 'entity_questionnaire_submission';
+  $handler->display->display_options['fields']['uuid_2']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_2']['relationship'] = 'sid';
+  $handler->display->display_options['fields']['uuid_2']['label'] = 'Submission GUID';
+  $handler->display->display_options['fields']['uuid_2']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'statistics/answers/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
@@ -531,6 +629,197 @@ function devtrac7_solr_search_answers_feature_views_default_views() {
   $handler->display->display_options['fields']['question']['label'] = 'Question ID';
   $handler->display->display_options['fields']['question']['exclude'] = TRUE;
   $handler->display->display_options['fields']['question']['link_to_entity'] = 0;
+
+  /* Display: CSV Fiedworker */
+  $handler = $view->new_display('views_data_export', 'CSV Fiedworker', 'views_data_export_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'CSV';
+  $handler->display->display_options['defaults']['access'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    5 => '5',
+  );
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
+  $handler->display->display_options['style_options']['provide_file'] = 1;
+  $handler->display->display_options['style_options']['parent_sort'] = 0;
+  $handler->display->display_options['style_options']['quote'] = 1;
+  $handler->display->display_options['style_options']['trim'] = 0;
+  $handler->display->display_options['style_options']['replace_newlines'] = 0;
+  $handler->display->display_options['style_options']['header'] = 1;
+  $handler->display->display_options['style_options']['keep_html'] = 0;
+  $handler->display->display_options['defaults']['header'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Indexed Answer: Submission */
+  $handler->display->display_options['relationships']['sid']['id'] = 'sid';
+  $handler->display->display_options['relationships']['sid']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['relationships']['sid']['field'] = 'sid';
+  /* Relationship: Indexed Answer: Question */
+  $handler->display->display_options['relationships']['question']['id'] = 'question';
+  $handler->display->display_options['relationships']['question']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['relationships']['question']['field'] = 'question';
+  /* Relationship: Indexed Answer: Questionnaire */
+  $handler->display->display_options['relationships']['questionnaire_id']['id'] = 'questionnaire_id';
+  $handler->display->display_options['relationships']['questionnaire_id']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['relationships']['questionnaire_id']['field'] = 'questionnaire_id';
+  /* Relationship: Submission: Author */
+  $handler->display->display_options['relationships']['recipient']['id'] = 'recipient';
+  $handler->display->display_options['relationships']['recipient']['table'] = 'entity_questionnaire_submission';
+  $handler->display->display_options['relationships']['recipient']['field'] = 'recipient';
+  $handler->display->display_options['relationships']['recipient']['relationship'] = 'sid';
+  $handler->display->display_options['relationships']['recipient']['label'] = 'Recipient';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed Answer: Uuid */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['label'] = 'Answer GUID';
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Answer ID */
+  $handler->display->display_options['fields']['id']['id'] = 'id';
+  $handler->display->display_options['fields']['id']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['id']['field'] = 'id';
+  $handler->display->display_options['fields']['id']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['id']['separator'] = '';
+  $handler->display->display_options['fields']['id']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Answer All */
+  $handler->display->display_options['fields']['answer']['id'] = 'answer';
+  $handler->display->display_options['fields']['answer']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['answer']['field'] = 'answer';
+  $handler->display->display_options['fields']['answer']['label'] = 'Answer';
+  $handler->display->display_options['fields']['answer']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Answer Text */
+  $handler->display->display_options['fields']['answertext']['id'] = 'answertext';
+  $handler->display->display_options['fields']['answertext']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['answertext']['field'] = 'answertext';
+  $handler->display->display_options['fields']['answertext']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Answer Number */
+  $handler->display->display_options['fields']['answernumber']['id'] = 'answernumber';
+  $handler->display->display_options['fields']['answernumber']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['answernumber']['field'] = 'answernumber';
+  $handler->display->display_options['fields']['answernumber']['precision'] = '0';
+  $handler->display->display_options['fields']['answernumber']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Questionnaire */
+  $handler->display->display_options['fields']['questionnaire_id']['id'] = 'questionnaire_id';
+  $handler->display->display_options['fields']['questionnaire_id']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['questionnaire_id']['field'] = 'questionnaire_id';
+  $handler->display->display_options['fields']['questionnaire_id']['label'] = 'Site report';
+  $handler->display->display_options['fields']['questionnaire_id']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['questionnaire_id']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['questionnaire_id']['bypass_access'] = 0;
+  /* Field: Indexed Answer: Location Type */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = 'Location Placetype';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['bypass_access'] = 0;
+  /* Field: Indexed Answer: Admin Unit */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['id'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['field'] = 'taxonomy_vocabulary_6';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['link_to_entity'] = 1;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_6']['view_mode'] = 'full';
+  /* Field: Indexed Answer: Date created */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'date_only';
+  $handler->display->display_options['fields']['created']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Date changed */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['date_format'] = 'export_only';
+  $handler->display->display_options['fields']['changed']['second_date_format'] = 'date_only';
+  $handler->display->display_options['fields']['changed']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Question */
+  $handler->display->display_options['fields']['question']['id'] = 'question';
+  $handler->display->display_options['fields']['question']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['question']['field'] = 'question';
+  $handler->display->display_options['fields']['question']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['question']['link_to_entity'] = 0;
+  /* Field: Node: UUID */
+  $handler->display->display_options['fields']['uuid_3']['id'] = 'uuid_3';
+  $handler->display->display_options['fields']['uuid_3']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['uuid_3']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_3']['relationship'] = 'question';
+  $handler->display->display_options['fields']['uuid_3']['label'] = 'Question UUID';
+  $handler->display->display_options['fields']['uuid_3']['link_to_entity'] = 0;
+  /* Field: Node: UUID */
+  $handler->display->display_options['fields']['uuid_1']['id'] = 'uuid_1';
+  $handler->display->display_options['fields']['uuid_1']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['uuid_1']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_1']['relationship'] = 'questionnaire_id';
+  $handler->display->display_options['fields']['uuid_1']['label'] = 'Questionnaire UUID';
+  $handler->display->display_options['fields']['uuid_1']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Context_id */
+  $handler->display->display_options['fields']['context_id']['id'] = 'context_id';
+  $handler->display->display_options['fields']['context_id']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['context_id']['field'] = 'context_id';
+  $handler->display->display_options['fields']['context_id']['label'] = '';
+  $handler->display->display_options['fields']['context_id']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['context_id']['separator'] = '';
+  $handler->display->display_options['fields']['context_id']['link_to_entity'] = 0;
+  /* Field: Global: View */
+  $handler->display->display_options['fields']['view']['id'] = 'view';
+  $handler->display->display_options['fields']['view']['table'] = 'views';
+  $handler->display->display_options['fields']['view']['field'] = 'view';
+  $handler->display->display_options['fields']['view']['label'] = 'Context UUID';
+  $handler->display->display_options['fields']['view']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['view']['view'] = 'devtrac_nodes';
+  $handler->display->display_options['fields']['view']['display'] = 'views_data_export_1';
+  $handler->display->display_options['fields']['view']['arguments'] = '[!context_id]';
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Context UUID';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[view]';
+  $handler->display->display_options['fields']['nothing']['alter']['trim_whitespace'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['nl2br'] = TRUE;
+  $handler->display->display_options['fields']['nothing']['alter']['strip_tags'] = TRUE;
+  /* Field: Indexed Answer: Context_type */
+  $handler->display->display_options['fields']['context_type']['id'] = 'context_type';
+  $handler->display->display_options['fields']['context_type']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['context_type']['field'] = 'context_type';
+  $handler->display->display_options['fields']['context_type']['label'] = 'Context Type';
+  $handler->display->display_options['fields']['context_type']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Submission */
+  $handler->display->display_options['fields']['sid']['id'] = 'sid';
+  $handler->display->display_options['fields']['sid']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['sid']['field'] = 'sid';
+  $handler->display->display_options['fields']['sid']['label'] = 'Submission ID';
+  $handler->display->display_options['fields']['sid']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['sid']['bypass_access'] = 0;
+  /* Field: Submission: Uuid */
+  $handler->display->display_options['fields']['uuid_2']['id'] = 'uuid_2';
+  $handler->display->display_options['fields']['uuid_2']['table'] = 'entity_questionnaire_submission';
+  $handler->display->display_options['fields']['uuid_2']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_2']['relationship'] = 'sid';
+  $handler->display->display_options['fields']['uuid_2']['label'] = 'Submission GUID';
+  $handler->display->display_options['fields']['uuid_2']['link_to_entity'] = 0;
+  /* Field: User: UUID */
+  $handler->display->display_options['fields']['uuid_4']['id'] = 'uuid_4';
+  $handler->display->display_options['fields']['uuid_4']['table'] = 'entity_user';
+  $handler->display->display_options['fields']['uuid_4']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_4']['relationship'] = 'recipient';
+  $handler->display->display_options['fields']['uuid_4']['label'] = 'Recepient UUID';
+  $handler->display->display_options['fields']['uuid_4']['link_to_entity'] = 0;
+  /* Field: Indexed Answer: Recipient Type */
+  $handler->display->display_options['fields']['recipient_type']['id'] = 'recipient_type';
+  $handler->display->display_options['fields']['recipient_type']['table'] = 'search_api_index_answers';
+  $handler->display->display_options['fields']['recipient_type']['field'] = 'recipient_type';
+  $handler->display->display_options['fields']['recipient_type']['link_to_entity'] = 0;
+  $handler->display->display_options['path'] = 'statistics/answers/analyse/csvfieldworker';
+  $handler->display->display_options['displays'] = array(
+    'default' => 'default',
+    'graphs' => 'graphs',
+  );
+  $handler->display->display_options['sitename_title'] = 0;
+  $handler->display->display_options['segment_size'] = '100';
   $export['devtrac_solr_view_answers'] = $view;
 
   return $export;
