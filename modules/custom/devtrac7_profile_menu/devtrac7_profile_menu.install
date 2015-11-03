@@ -1166,7 +1166,7 @@ function devtrac7_profile_menu_file_exports_menu_links($mlid) {
       ),
       'alter' => 1,
       'customized' => 1,
-      'identifier' => 'menu-my-profile_site-reports-analyse-csv:sitereportsanalysecsv',
+      'identifier' => 'menu-my-profile_site-reports-analyse-csv:sitereportsanalysecsvadmin',
     ),
     'module' => 'menu',
     'hidden' => 0,
@@ -1646,6 +1646,84 @@ function devtrac7_profile_menu_file_exports_menu_links($mlid) {
     'parent_identifier' => 'menu-my-profile_export:export',
   );
 
+  $menu_items['menu-my-profile_statistics-analyse-csv:statisticsanswersanalysecsvfieldworker'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'statistics/answers/analyse/csvfieldworker',
+    'router_path' => 'statistics/answers/analyse/csvfieldworker',
+    'link_title' => $title . 'to CSV',
+    'options' => array(
+      'attributes' => array(
+        'title' => $title . 'to CSV',
+        'orginal-title' => 'csv',
+        'class' => array('csv'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_statistics-analyse-csv:statisticsanswersanalysecsvfieldworker',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -39,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+
+  $menu_items['menu-my-profile_statistics-analyse-csv:statisticsanswersanalysesubmissionscsv'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'statistics/answers/analyse/submissions/csv',
+    'router_path' => 'statistics/answers/analyse/submissions/csv',
+    'link_title' => $title . 'Submissions to CSV',
+    'options' => array(
+      'attributes' => array(
+        'title' => $title . 'Submissions to CSV',
+        'orginal-title' => 'csv',
+        'class' => array('csv'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_statistics-analyse-csv:statisticsanswersanalysesubmissionscsv',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -38,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+
+  $menu_items['menu-my-profile_statistics-analyse-csv:statisticsanswersanalysesubmissionscsvfieldworker'] = array(
+    'menu_name' => 'menu-my-profile',
+    'link_path' => 'statistics/answers/analyse/submissions/csvfieldworker',
+    'router_path' => 'statistics/answers/analyse/submissions/csvfieldworker',
+    'link_title' => $title . 'Submissions to CSV',
+    'options' => array(
+      'attributes' => array(
+        'title' => $title . 'Submissions to CSV',
+        'orginal-title' => 'csv',
+        'class' => array('csv'),
+      ),
+      'alter' => 1,
+      'customized' => 1,
+      'identifier' => 'menu-my-profile_statistics-analyse-csv:statisticsanswersanalysesubmissionscsvfieldworker',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'weight' => -38,
+    'has_children' => 0,
+    'depth' => 1,
+    'expanded' => 0,
+    'customized' => 0,
+    'parent_identifier' => 'menu-my-profile_export:export',
+  );
+
   $menu_items['menu-my-profile_statistics-analyse-kml:statisticsanswersanalysekml'] = array(
     'menu_name' => 'menu-my-profile',
     'link_path' => 'statistics/answers/analyse/kml',
@@ -1664,7 +1742,7 @@ function devtrac7_profile_menu_file_exports_menu_links($mlid) {
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
-    'weight' => -38,
+    'weight' => -37,
     'has_children' => 0,
     'depth' => 1,
     'expanded' => 0,
@@ -1690,7 +1768,7 @@ function devtrac7_profile_menu_file_exports_menu_links($mlid) {
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
-    'weight' => -37,
+    'weight' => -36,
     'has_children' => 0,
     'depth' => 1,
     'expanded' => 0,
