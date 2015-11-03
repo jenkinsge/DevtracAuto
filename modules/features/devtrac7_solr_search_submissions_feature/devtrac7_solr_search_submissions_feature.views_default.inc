@@ -118,6 +118,10 @@ function devtrac7_solr_search_submissions_feature_views_default_views() {
   /* Display: Devtrac Submissions export */
   $handler = $view->new_display('views_data_export', 'Devtrac Submissions export', 'views_data_export_1');
   $handler->display->display_options['display_description'] = 'Export of all submissions to questionnaires in Devtrac.';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    1 => '1',
+  );
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
@@ -129,7 +133,7 @@ function devtrac7_solr_search_submissions_feature_views_default_views() {
   $handler->display->display_options['style_options']['newline_replacement'] = '';
   $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
-  $handler->display->display_options['path'] = 'statistics/submissions/analyse/csv';
+  $handler->display->display_options['path'] = 'statistics/answers/analyse/submissions/csv';
 
   /* Display: Devtrac Submissions export fieldworker */
   $handler = $view->new_display('views_data_export', 'Devtrac Submissions export fieldworker', 'views_data_export_2');
@@ -252,7 +256,7 @@ function devtrac7_solr_search_submissions_feature_views_default_views() {
   $handler->display->display_options['fields']['recipient_type_1']['table'] = 'search_api_index_devtrac_solr_submissions_index';
   $handler->display->display_options['fields']['recipient_type_1']['field'] = 'recipient_type';
   $handler->display->display_options['fields']['recipient_type_1']['link_to_entity'] = 0;
-  $handler->display->display_options['path'] = 'statistics/submissions/analyse/csvfieldworker';
+  $handler->display->display_options['path'] = 'statistics/answers/analyse/submissions/csvfieldworker';
   $export['devtrac_solr_submissions_view'] = $view;
 
   return $export;
