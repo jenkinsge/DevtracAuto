@@ -404,7 +404,6 @@ function devtrac7_solr_search_location_feature_views_default_views() {
     'json' => 0,
   );
   $handler->display->display_options['sitename_title'] = 0;
-  $handler->display->display_options['use_batch'] = 'batch';
   $handler->display->display_options['return_path'] = 'locations';
   $handler->display->display_options['segment_size'] = '100';
 
@@ -832,7 +831,6 @@ function devtrac7_solr_search_location_feature_views_default_views() {
     'json' => 0,
   );
   $handler->display->display_options['sitename_title'] = 0;
-  $handler->display->display_options['use_batch'] = 'batch';
   $handler->display->display_options['return_path'] = 'locations';
   $handler->display->display_options['segment_size'] = '100';
   $export['devtrac_solr_view_locations'] = $view;
