@@ -126,7 +126,7 @@ projects[features_override][version] = "2.0-rc3"
 projects[features_override][type] = "module"
 projects[features_override][subdir] = "contrib"
 
-projects[feeds][version] = "2.0-alpha9"
+projects[feeds][version] = "2.0-beta1"
 projects[feeds][type] = "module"
 projects[feeds][subdir] = "contrib"
 
@@ -388,6 +388,10 @@ projects[role_delegation][patch][] = "https://www.drupal.org/files/issues/role_d
 projects[rules][version] = "2.9"
 projects[rules][type] = "module"
 projects[rules][subdir] = "contrib"
+
+projects[securesite][version] = "2.0-beta3"
+projects[securesite][type] = "module"
+projects[securesite][subdir] = "contrib"
 
 projects[search_api][version] = "1.16"
 projects[search_api][type] = "module"
