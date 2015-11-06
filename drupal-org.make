@@ -129,6 +129,7 @@ projects[features_override][subdir] = "contrib"
 projects[feeds][version] = "2.0-beta1"
 projects[feeds][type] = "module"
 projects[feeds][subdir] = "contrib"
+projects[feeds][patch][] = "https://www.drupal.org/files/issues/feeds-fix_for_maximum-redirects-1.patch"
 
 projects[feeds_entityreference][version] = "1.x-dev"
 projects[feeds_entityreference][type] = "module"
