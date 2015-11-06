@@ -421,6 +421,71 @@ Disallow: /?q=statistics/answers';
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_digest_script';
+  $strongarm->value = 'sites/all/modules/securesite/digest_md5/digest_md5.php';
+  $export['securesite_digest_script'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_enabled';
+  $strongarm->value = '3';
+  $export['securesite_enabled'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_guest_name';
+  $strongarm->value = '';
+  $export['securesite_guest_name'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_guest_pass';
+  $strongarm->value = '';
+  $export['securesite_guest_pass'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_login_form';
+  $strongarm->value = 'Enter your user name and password:';
+  $export['securesite_login_form'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_password_script';
+  $strongarm->value = 'sites/all/modules/securesite/digest_md5/stored_passwords.php';
+  $export['securesite_password_script'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_realm';
+  $strongarm->value = 'Devtrac Test';
+  $export['securesite_realm'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_reset_form';
+  $strongarm->value = 'Enter your user name or e-mail address:';
+  $export['securesite_reset_form'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_type';
+  $strongarm->value = array(
+    0 => '2',
+  );
+  $export['securesite_type'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'special_menu_items_nolink_tag';
   $strongarm->value = '<a href="#">';
   $export['special_menu_items_nolink_tag'] = $strongarm;
