@@ -118,10 +118,6 @@ function devtrac7_solr_search_submissions_feature_views_default_views() {
   /* Display: Devtrac Submissions export */
   $handler = $view->new_display('views_data_export', 'Devtrac Submissions export', 'views_data_export_1');
   $handler->display->display_options['display_description'] = 'Export of all submissions to questionnaires in Devtrac.';
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    1 => '1',
-  );
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'views_data_export_csv';
