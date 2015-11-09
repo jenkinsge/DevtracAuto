@@ -15,3 +15,185 @@ function devtrac_to_devtrac_importer_apps_app_info() {
     'demo content module' => 'devtrac_to_devtrac_demodata',
   );
 }
+
+/**
+ * Implements of hook_menu()
+ */
+function devtrac_to_devtrac_importer_menu(){
+  $items['admin/devtrac7/devtrac_to_devtrac_site_importer'] = array(
+    'title' => 'Devtrac to Devtrac Site Importer',
+    'description' => 'Import content and users from one Devtrac website to another.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('devtrac_to_devtrac_importer_form'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_form().
+ */
+function devtrac_to_devtrac_importer_form($form, &$form_state) {
+  $form = array();
+  $form['source'] = array(
+    '#type' => 'textfield',
+    '#title' => t('URL'),
+    '#description' => t('Enter a Devtrac site URL. If you wish to import content from restricted pages as well, please enter the URL in the format http://username:password@example.com, otherwise http://example.com will suffice.'),
+    '#default_value' => variable_get('devtrac2devtracimporturl', 'http://username:password@example.com'),
+    '#maxlength' => NULL,
+    '#required' => TRUE,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Import'),
+  );
+  $form['delete'] = array(
+    '#type' => 'submit',
+    '#value' => t('Delete'),
+    '#submit' => array('devtrac_to_devtrac_http_fetch_clear'),
+  );
+  return $form;
+}
+
+/**
+ * Implements hook_form_validate().
+ */
+function devtrac_to_devtrac_importer_form_validate($form, &$form_state) {
+  $form_state['values']['source'] = trim($form_state['values']['source']);
+
+  // Keep a copy for error messages.
+  $original_url = $form_state['values']['source'];
+
+  $parts = parse_url($form_state['values']['source']);
+  if (empty($parts['scheme']) && $this->config['auto_scheme']) {
+    $form_state['values']['source'] = $this->config['auto_scheme'] . '://' . $form_state['values']['source'];
+  }
+
+  if (!feeds_valid_url($form_state['values']['source'], TRUE)) {
+    $form_key = 'feeds][' . get_class($this) . '][source';
+    form_set_error($form_key, t('The URL %source is invalid.', array('%source' => $original_url)));
+  }
+}
+
+/**
+ * Implements hook_form_submit().
+ */
+function devtrac_to_devtrac_importer_form_submit($form, &$form_state) {
+  $url = $form_state['values']['source'];
+  variable_set('devtrac2devtracimporturl', $url);
+  variable_set('devtrac2devtracimportusehttp', TRUE);
+  if (preg_match("/http:\/\/[\S]*:[\S]*@/", $url)) {
+    variable_set('devtrac2devtracimportloggedinuser', TRUE);
+  }
+  devtrac_to_devtrac_http_fetch_import();
+  node_access_rebuild();
+  drupal_set_message("All Data has been imported. It will take a little while before the data will appear on the overview pages.");
+}
+
+/**
+ * Helper function for importing.
+ */
+function devtrac_to_devtrac_http_fetch_import() {
+  if (variable_get('devtrac2devtracimportloggedinuser', FALSE)) {
+    $importers = array(
+      'devtrac_2_devtrac_user_import',
+      'devtrac_2_devtrac_location_import',
+      'devtrac_2_devtrac_field_trip_import',
+      'devtrac_2_devtrac_site_reports_import',
+      'devtrac_2_devtrac_action_item_import',
+      'devtrac_2_devtrac_question_import',
+      'devtrac_2_devtrac_questionnaire_submission',
+      'devtrac_2_devtrac_questionnaire_answer',
+    );
+  } else {
+    $importers = array(
+      'devtrac_2_devtrac_location_import',
+      'devtrac_2_devtrac_site_reports_import',
+      'devtrac_2_devtrac_question_import',
+      'devtrac_2_devtrac_questionnaire_submission',
+      'devtrac_2_devtrac_questionnaire_answer',
+    );
+  }
+  foreach ($importers as $importer) {
+    $myfeed = feeds_source($importer);
+    try {
+      $myfeed->startImport();
+    }
+    catch (Exception $exept) {
+      drupal_set_message("error", $except->getMessage(), "error");
+      break;
+    }
+  }
+}
+
+/**
+ * Implements hook_feeds_before_import().
+ */
+function devtrac_to_devtrac_importer_feeds_before_import(FeedsSource $source) {
+  // array of url extensions.
+  if (variable_get('devtrac2devtracimportloggedinuser', FALSE)) {
+    $extensions = array(
+      'devtrac_2_devtrac_user_import' => '/users/analyse/csv',
+      'devtrac_2_devtrac_location_import' => '/locations/analyse/csvfieldworker',
+      'devtrac_2_devtrac_field_trip_import' => '/fieldtrips/analyse/csv',
+      'devtrac_2_devtrac_site_reports_import' => '/sitereports/analyse/csvadmin',
+      'devtrac_2_devtrac_action_item_import' => '/actionitems/analyse/csv',
+      'devtrac_2_devtrac_question_import' => '/statistics/questions/csv',
+      'devtrac_2_devtrac_questionnaire_submission' => '/statistics/answers/analyse/submissions/csvfieldworker',
+      'devtrac_2_devtrac_questionnaire_answer' => '/statistics/answers/analyse/csvfieldworker',
+    );
+  } else {
+    $extensions = array(
+      'devtrac_2_devtrac_location_import' => '/locations/analyse/csv',
+      'devtrac_2_devtrac_site_reports_import' => '/sitereports/analyse/csv',
+      'devtrac_2_devtrac_question_import' => '/statistics/questions/csv',
+      'devtrac_2_devtrac_questionnaire_submission' => '/statistics/answers/analyse/submissions/csv',
+      'devtrac_2_devtrac_questionnaire_answer' => '/statistics/answers/analyse/csv',
+    );
+  }
+
+  if (array_key_exists($source->importer->id, $extensions) && variable_get('devtrac2devtracimportusehttp', FALSE)) {
+    $key = $source->importer->id;
+    $url = variable_get('devtrac2devtracimporturl');
+    $source->importer->setPlugin('FeedsHTTPFetcher');
+    $fconfig = array('auto_detect_feeds' => TRUE);
+    $source->importer->fetcher->setConfig($fconfig);
+    $config = array('FeedsHTTPFetcher' => array('source' => $url . $extensions[$key], 'enable_cookies' => TRUE));
+    $source->setConfig($config);
+  }
+}
+
+/**
+ * Implements hook_feeds_after_import().
+ */
+function devtrac_to_devtrac_importer_feeds_after_import(FeedsSource $source) {
+  if (($source->importer->id == 'devtrac_2_devtrac_questionnaire_answer') && variable_get('devtrac2devtracimportusehttp', FALSE)) {
+    variable_set('devtrac2devtracimportusehttp', FALSE);
+    variable_set('devtrac2devtracimportloggedinuser', FALSE);
+  }
+}
+
+/**
+ * Helper function for importing.
+ */
+function devtrac_to_devtrac_http_fetch_clear($form, &$form_state) {
+  $importers = array(
+    'devtrac_2_devtrac_user_import',
+    'devtrac_2_devtrac_location_import',
+    'devtrac_2_devtrac_field_trip_import',
+    'devtrac_2_devtrac_site_reports_import',
+    'devtrac_2_devtrac_action_item_import',
+    'devtrac_2_devtrac_question_import',
+    'devtrac_2_devtrac_questionnaire_submission',
+    'devtrac_2_devtrac_questionnaire_answer',
+  );
+  foreach ($importers as $importer) {
+    $myfeed = feeds_source($importer);
+    $myfeed->startClear();
+  }
+  $url = variable_get('devtrac2devtracimporturl');
+  drupal_set_message(t("Deleted all Imported data from $url."));
+}
