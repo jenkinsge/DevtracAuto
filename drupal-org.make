@@ -390,11 +390,9 @@ projects[rules][version] = "2.9"
 projects[rules][type] = "module"
 projects[rules][subdir] = "contrib"
 
-;projects[securesite][version] = "2.0-beta3"
+projects[securesite][version] = "2.0-beta3"
 projects[securesite][type] = "module"
 projects[securesite][subdir] = "contrib"
-projects[securesite][download][type] = git
-projects[securesite][download][branch] = 7.x-2.x
 
 projects[search_api][version] = "1.16"
 projects[search_api][type] = "module"
