@@ -61,4 +61,5 @@ features[variable][] = securesite_password_script
 features[variable][] = securesite_realm
 features[variable][] = securesite_reset_form
 features[variable][] = securesite_type
+features[variable][] = site_403
 features[variable][] = special_menu_items_nolink_tag
