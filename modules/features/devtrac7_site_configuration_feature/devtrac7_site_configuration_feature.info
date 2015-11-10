@@ -51,6 +51,7 @@ features[variable][] = piwik_trackfiles_extensions
 features[variable][] = piwik_visibility_pages
 features[variable][] = piwik_visibility_roles
 features[variable][] = robotstxt
+features[variable][] = securesite_403
 features[variable][] = securesite_digest_script
 features[variable][] = securesite_enabled
 features[variable][] = securesite_guest_name

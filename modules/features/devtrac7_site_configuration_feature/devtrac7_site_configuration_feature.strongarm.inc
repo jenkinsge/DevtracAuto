@@ -421,6 +421,13 @@ Disallow: /?q=statistics/answers';
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_403';
+  $strongarm->value = 'r4032login';
+  $export['securesite_403'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'securesite_digest_script';
   $strongarm->value = 'sites/all/modules/securesite/digest_md5/digest_md5.php';
   $export['securesite_digest_script'] = $strongarm;
