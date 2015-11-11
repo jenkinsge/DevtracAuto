@@ -238,7 +238,7 @@ projects[job_scheduler][version] = "2.0-alpha3"
 projects[job_scheduler][type] = "module"
 projects[job_scheduler][subdir] = "contrib"
 
-projects[jquery_update][version] = "2.6"
+projects[jquery_update][version] = "2.7"
 projects[jquery_update][type] = "module"
 projects[jquery_update][subdir] = "contrib"
 
