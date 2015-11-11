@@ -143,11 +143,11 @@ projects[field_collection_feeds][version] = "1.0-alpha3"
 projects[field_collection_feeds][type] = "module"
 projects[field_collection_feeds][subdir] = "contrib"
 
-projects[field_collection][version] = "1.0-beta8"
+projects[field_collection][version] = "1.0-beta10"
 projects[field_collection][type] = "module"
 projects[field_collection][subdir] = "contrib"
 
-projects[field_collection_table][version] = "1.0-beta2"
+projects[field_collection_table][version] = "1.0-beta3"
 projects[field_collection_table][type] = "module"
 projects[field_collection_table][subdir] = "contrib"
 
@@ -479,7 +479,7 @@ projects[views_charts][version] = "1.x-dev"
 projects[views_charts][type] = "module"
 projects[views_charts][subdir] = "contrib"
 
-projects[views_data_export][version] = "3.0-beta8"
+projects[views_data_export][version] = "3.0-beta9"
 projects[views_data_export][type] = "module"
 projects[views_data_export][subdir] = "contrib"
 ; We want to use the blockify module to display the feed icons in another region.
