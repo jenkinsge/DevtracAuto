@@ -377,6 +377,10 @@ projects[registry_autoload][version] = "1.3"
 projects[registry_autoload][type] = "module"
 projects[registry_autoload][subdir] = "contrib"
 
+projects[remote_stream_wrapper][version] = "1.0-rc1"
+projects[remote_stream_wrapper][type] = "module"
+projects[remote_stream_wrapper][subdir] = "contrib"
+
 projects[robotstxt][version] = "1.3"
 projects[robotstxt][type] = "module"
 projects[robotstxt][subdir] = "contrib"

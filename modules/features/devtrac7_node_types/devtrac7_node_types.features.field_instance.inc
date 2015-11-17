@@ -2571,11 +2571,12 @@ function devtrac7_node_types_field_default_field_instances() {
       'module' => 'media',
       'settings' => array(
         'allowed_schemes' => array(
-          0 => 'private',
-          1 => 'public',
+          'private' => 'private',
+          'http' => 'http',
+          'public' => 'public',
         ),
         'allowed_types' => array(
-          0 => 'image',
+          'image' => 'image',
         ),
         'browser_plugins' => array(),
         'maxlength_js_label' => 'Content limited to @limit characters, remaining: <strong>@remaining</strong>',
