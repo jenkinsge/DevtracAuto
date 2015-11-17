@@ -159,7 +159,7 @@ function devtrac_to_devtrac_importer_feeds_before_import(FeedsSource $source) {
     $key = $source->importer->id;
     $url = variable_get('devtrac2devtracimporturl');
     $source->importer->setPlugin('FeedsHTTPFetcher');
-    $fconfig = array('auto_detect_feeds' => TRUE);
+    $fconfig = array('auto_detect_feeds' => TRUE, 'request_timeout' => 999);
     $source->importer->fetcher->setConfig($fconfig);
     $config = array('FeedsHTTPFetcher' => array('source' => $url . $extensions[$key], 'enable_cookies' => TRUE));
     $source->setConfig($config);

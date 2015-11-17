@@ -32,6 +32,7 @@ dependencies[] = openlayers
 dependencies[] = openlayers_geosearch
 dependencies[] = openlayers_plus
 dependencies[] = options
+dependencies[] = remote_stream_wrapper
 dependencies[] = shs
 dependencies[] = strongarm
 dependencies[] = taxonomy

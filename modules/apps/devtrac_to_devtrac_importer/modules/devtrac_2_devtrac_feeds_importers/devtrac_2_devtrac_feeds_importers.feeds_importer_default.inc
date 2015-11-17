@@ -735,6 +735,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'term_search' => '0',
             'autocreate' => 1,
           ),
+          18 => array(
+            'source' => 'Image URL',
+            'target' => 'field_ftritem_images:uri',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',
