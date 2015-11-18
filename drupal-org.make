@@ -135,6 +135,10 @@ projects[feeds_entityreference][version] = "1.x-dev"
 projects[feeds_entityreference][type] = "module"
 projects[feeds_entityreference][subdir] = "contrib"
 
+projects[feeds_imagegrabber][version] = "1.0-alpha2"
+projects[feeds_imagegrabber][type] = "module"
+projects[feeds_imagegrabber][subdir] = "contrib"
+
 projects[feeds_tamper][version] = "1.1"
 projects[feeds_tamper][type] = "module"
 projects[feeds_tamper][subdir] = "contrib"
@@ -271,10 +275,6 @@ projects[maxlength][patch][] = "https://www.drupal.org/files/issues/maxlength-ex
 projects[me][version] = "1.2"
 projects[me][type] = "module"
 projects[me][subdir] = "contrib"
-
-projects[media_feeds][version] = "2.0-alpha1"
-projects[media_feeds][type] = "module"
-projects[media_feeds][subdir] = "contrib"
 
 projects[menu_token][version] = "1.0-beta5"
 projects[menu_token][type] = "module"
