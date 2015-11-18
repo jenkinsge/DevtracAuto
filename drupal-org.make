@@ -272,10 +272,6 @@ projects[me][version] = "1.2"
 projects[me][type] = "module"
 projects[me][subdir] = "contrib"
 
-projects[media_feeds][version] = "2.0-alpha1"
-projects[media_feeds][type] = "module"
-projects[media_feeds][subdir] = "contrib"
-
 projects[menu_token][version] = "1.0-beta5"
 projects[menu_token][type] = "module"
 projects[menu_token][subdir] = "contrib"
