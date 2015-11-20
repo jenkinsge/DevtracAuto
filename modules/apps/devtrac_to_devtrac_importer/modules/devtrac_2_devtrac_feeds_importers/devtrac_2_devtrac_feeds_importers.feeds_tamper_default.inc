@@ -246,6 +246,130 @@ function devtrac_2_devtrac_feeds_importers_feeds_tamper_default() {
   $feeds_tamper = new stdClass();
   $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
   $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_devtrac_image_importer-districts-explode';
+  $feeds_tamper->importer = 'devtrac_2_devtrac_image_importer';
+  $feeds_tamper->source = 'Districts';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',%s',
+    'limit' => '',
+    'real_separator' => ', ',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Explode';
+  $export['devtrac_2_devtrac_image_importer-districts-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_devtrac_image_importer-districts-trim';
+  $feeds_tamper->importer = 'devtrac_2_devtrac_image_importer';
+  $feeds_tamper->source = 'Districts';
+  $feeds_tamper->plugin_id = 'trim';
+  $feeds_tamper->settings = array(
+    'mask' => '',
+    'side' => 'trim',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Trim';
+  $export['devtrac_2_devtrac_image_importer-districts-trim'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_devtrac_image_importer-location_type-explode';
+  $feeds_tamper->importer = 'devtrac_2_devtrac_image_importer';
+  $feeds_tamper->source = 'Location Type';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',%s',
+    'limit' => '',
+    'real_separator' => ', ',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Explode';
+  $export['devtrac_2_devtrac_image_importer-location_type-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_devtrac_image_importer-location_type-trim';
+  $feeds_tamper->importer = 'devtrac_2_devtrac_image_importer';
+  $feeds_tamper->source = 'Location Type';
+  $feeds_tamper->plugin_id = 'trim';
+  $feeds_tamper->settings = array(
+    'mask' => '',
+    'side' => 'trim',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Trim';
+  $export['devtrac_2_devtrac_image_importer-location_type-trim'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_devtrac_image_importer-sectors-explode';
+  $feeds_tamper->importer = 'devtrac_2_devtrac_image_importer';
+  $feeds_tamper->source = 'Sectors';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',%s',
+    'limit' => '',
+    'real_separator' => ', ',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Explode';
+  $export['devtrac_2_devtrac_image_importer-sectors-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_devtrac_image_importer-sectors-trim';
+  $feeds_tamper->importer = 'devtrac_2_devtrac_image_importer';
+  $feeds_tamper->source = 'Sectors';
+  $feeds_tamper->plugin_id = 'trim';
+  $feeds_tamper->settings = array(
+    'mask' => '',
+    'side' => 'trim',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Trim';
+  $export['devtrac_2_devtrac_image_importer-sectors-trim'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_devtrac_image_importer-site_visit_uuid-explode';
+  $feeds_tamper->importer = 'devtrac_2_devtrac_image_importer';
+  $feeds_tamper->source = 'Site Visit UUID';
+  $feeds_tamper->plugin_id = 'explode';
+  $feeds_tamper->settings = array(
+    'separator' => ',%s',
+    'limit' => '',
+    'real_separator' => ', ',
+  );
+  $feeds_tamper->weight = 1;
+  $feeds_tamper->description = 'Explode';
+  $export['devtrac_2_devtrac_image_importer-site_visit_uuid-explode'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
+  $feeds_tamper->id = 'devtrac_2_devtrac_image_importer-site_visit_uuid-trim';
+  $feeds_tamper->importer = 'devtrac_2_devtrac_image_importer';
+  $feeds_tamper->source = 'Site Visit UUID';
+  $feeds_tamper->plugin_id = 'trim';
+  $feeds_tamper->settings = array(
+    'mask' => '',
+    'side' => 'trim',
+  );
+  $feeds_tamper->weight = 0;
+  $feeds_tamper->description = 'Trim';
+  $export['devtrac_2_devtrac_image_importer-site_visit_uuid-trim'] = $feeds_tamper;
+
+  $feeds_tamper = new stdClass();
+  $feeds_tamper->disabled = FALSE; /* Edit this to true to make a default feeds_tamper disabled initially */
+  $feeds_tamper->api_version = 2;
   $feeds_tamper->id = 'devtrac_2_devtrac_location_import-location_tags-explode';
   $feeds_tamper->importer = 'devtrac_2_devtrac_location_import';
   $feeds_tamper->source = 'Location Tags';

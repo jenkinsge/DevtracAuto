@@ -197,3 +197,35 @@ function devtrac_to_devtrac_http_fetch_clear($form, &$form_state) {
   $url = variable_get('devtrac2devtracimporturl');
   drupal_set_message(t("Deleted all Imported data from $url."));
 }
+
+/**
+ * Implements hook_feeds_plugins().
+ */
+function devtrac_to_devtrac_importer_feeds_plugins() {
+  $path = drupal_get_path('module', 'feeds_file') . '/plugins';
+
+  $info = array();
+
+	$info['DevtracFileProcessor'] = array(
+    'name' => 'Devtrac File processor',
+    'description' => 'Create and update file entities.',
+    'help' => 'Create and update file entities and their usage from parsed content.',
+    'handler' => array(
+      'parent' => 'FeedsProcessor',
+      'class' => 'DevtracFileProcessor',
+      'file' => 'DevtracFileProcessor.inc',
+      'path' => $path,
+    ),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_ctools_plugin_api().
+ */
+function devtrac_to_devtrac_importer_ctools_plugin_api($owner, $api) {
+  if ($owner == 'feeds' && $api == 'plugins') {
+    return array('version' => 1);
+  }
+}

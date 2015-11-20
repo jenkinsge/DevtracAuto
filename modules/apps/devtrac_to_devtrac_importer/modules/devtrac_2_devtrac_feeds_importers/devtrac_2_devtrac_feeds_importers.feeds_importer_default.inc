@@ -316,6 +316,122 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
   $feeds_importer = new stdClass();
   $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
   $feeds_importer->api_version = 1;
+  $feeds_importer->id = 'devtrac_2_devtrac_image_importer';
+  $feeds_importer->config = array(
+    'name' => 'Devtrac 2 Devtrac Image Importer',
+    'description' => 'Imports images from another Devtrac installation csv export',
+    'fetcher' => array(
+      'plugin_key' => 'FeedsFileFetcher',
+      'config' => array(
+        'allowed_extensions' => 'csv',
+        'direct' => 0,
+        'directory' => 'public://feeds',
+        'allowed_schemes' => array(
+          'public' => 'public',
+        ),
+      ),
+    ),
+    'parser' => array(
+      'plugin_key' => 'FeedsCSVParser',
+      'config' => array(
+        'delimiter' => ',',
+        'no_headers' => 0,
+      ),
+    ),
+    'processor' => array(
+      'plugin_key' => 'DevtracFileProcessor',
+      'config' => array(
+        'bundle' => 'image',
+        'author' => 0,
+        'authorize' => 1,
+        'debug' => array(
+          'newEntity' => 0,
+          'entityLoad' => 0,
+          'entitySave' => 0,
+          'setTargetElement' => 0,
+          'existingEntityId' => 0,
+        ),
+        'mappings' => array(
+          0 => array(
+            'source' => 'File UUID',
+            'target' => 'guid',
+            'unique' => 1,
+          ),
+          1 => array(
+            'source' => 'File Name',
+            'target' => 'filename',
+            'unique' => FALSE,
+          ),
+          2 => array(
+            'source' => 'Title',
+            'target' => 'field_file_image_title_text',
+            'unique' => FALSE,
+          ),
+          3 => array(
+            'source' => 'Alt Text',
+            'target' => 'field_file_image_alt_text',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'Site Visit UUID',
+            'target' => 'node_usage',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'Districts',
+            'target' => 'taxonomy_vocabulary_6',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'Sectors',
+            'target' => 'taxonomy_vocabulary_8',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'Date Visited',
+            'target' => 'field_ftritem_date_visited:start',
+            'unique' => FALSE,
+          ),
+          8 => array(
+            'source' => 'Lat-Long',
+            'target' => 'field_ftritem_lat_long:combined',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'Location Type',
+            'target' => 'taxonomy_vocabulary_1',
+            'unique' => FALSE,
+          ),
+          10 => array(
+            'source' => 'Owner',
+            'target' => 'user_name',
+            'unique' => FALSE,
+          ),
+          11 => array(
+            'source' => 'File URL',
+            'target' => 'uri',
+            'unique' => FALSE,
+          ),
+        ),
+        'update_existing' => '0',
+        'update_non_existent' => 'skip',
+        'input_format' => NULL,
+        'skip_hash_check' => 0,
+      ),
+    ),
+    'content_type' => '',
+    'update' => 0,
+    'import_period' => '-1',
+    'expire_period' => 3600,
+    'import_on_create' => 1,
+    'process_in_background' => 0,
+  );
+  $export['devtrac_2_devtrac_image_importer'] = $feeds_importer;
+
+
+  $feeds_importer = new stdClass();
+  $feeds_importer->disabled = FALSE; /* Edit this to true to make a default feeds_importer disabled initially */
+  $feeds_importer->api_version = 1;
   $feeds_importer->id = 'devtrac_2_devtrac_location_import';
   $feeds_importer->config = array(
     'name' => 'Devtrac 2 Devtrac Location Import',

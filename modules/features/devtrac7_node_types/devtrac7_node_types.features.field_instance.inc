@@ -2572,7 +2572,7 @@ function devtrac7_node_types_field_default_field_instances() {
       'settings' => array(
         'allowed_schemes' => array(
           'private' => 'private',
-          'http' => 'http',
+//          'http' => 'http',
           'public' => 'public',
         ),
         'allowed_types' => array(
