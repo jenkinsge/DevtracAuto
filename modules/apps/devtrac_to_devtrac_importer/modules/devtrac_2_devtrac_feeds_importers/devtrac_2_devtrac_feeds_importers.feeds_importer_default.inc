@@ -417,6 +417,8 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
         'update_non_existent' => 'skip',
         'input_format' => NULL,
         'skip_hash_check' => 0,
+        'allowed_extensions' => 'png, gif, jpg, jpeg',
+        'remote_schemes' => 'http, https',
       ),
     ),
     'content_type' => '',
@@ -852,7 +854,7 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'autocreate' => 1,
           ),
           18 => array(
-            'source' => 'Image URL',
+            'source' => 'Images',
             'target' => 'field_ftritem_images:uri',
             'unique' => FALSE,
           ),

@@ -620,6 +620,12 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed File: UUID */
+  $handler->display->display_options['fields']['uuid_1']['id'] = 'uuid_1';
+  $handler->display->display_options['fields']['uuid_1']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['fields']['uuid_1']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid_1']['label'] = 'File UUID';
+  $handler->display->display_options['fields']['uuid_1']['link_to_entity'] = 0;
   /* Field: Indexed File: File name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'search_api_index_devtrac_solr_image_index';
@@ -630,6 +636,10 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['field_file_image_title_text']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['field_file_image_title_text']['field'] = 'field_file_image_title_text';
   $handler->display->display_options['fields']['field_file_image_title_text']['label'] = 'Title';
+  /* Field: Indexed File: Alt Text */
+  $handler->display->display_options['fields']['field_file_image_alt_text']['id'] = 'field_file_image_alt_text';
+  $handler->display->display_options['fields']['field_file_image_alt_text']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['fields']['field_file_image_alt_text']['field'] = 'field_file_image_alt_text';
   /* Field: Indexed File: Districts */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6_1']['id'] = 'taxonomy_vocabulary_6_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6_1']['table'] = 'search_api_index_devtrac_solr_image_index';
@@ -658,12 +668,37 @@ function devtrac7_solr_search_image_feature_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
+  /* Field: Indexed File: Lat-Long */
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['id'] = 'field_ftritem_lat_long';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['field'] = 'field_ftritem_lat_long';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['type'] = 'geofield_latlon';
+  $handler->display->display_options['fields']['field_ftritem_lat_long']['settings'] = array(
+    'data' => 'full',
+    'format' => 'decimal_degrees',
+    'labels' => 1,
+  );
+  /* Field: Indexed File: Placetype */
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['id'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['field'] = 'taxonomy_vocabulary_1';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['label'] = 'Location Type';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['view_mode'] = 'full';
+  $handler->display->display_options['fields']['taxonomy_vocabulary_1']['bypass_access'] = 0;
   /* Field: Indexed File: Owner */
   $handler->display->display_options['fields']['owner']['id'] = 'owner';
   $handler->display->display_options['fields']['owner']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['owner']['field'] = 'owner';
   $handler->display->display_options['fields']['owner']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['owner']['view_mode'] = 'full';
+  /* Field: Indexed File: URL */
+  $handler->display->display_options['fields']['url']['id'] = 'url';
+  $handler->display->display_options['fields']['url']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['fields']['url']['field'] = 'url';
+  $handler->display->display_options['fields']['url']['label'] = 'File URL';
+  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
   /* Field: Node: UUID */
   $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
   $handler->display->display_options['fields']['uuid']['table'] = 'entity_node';

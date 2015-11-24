@@ -10,6 +10,20 @@
 class DevtracFileProcessor extends FeedsProcessor {
   protected $debug;
 
+   /**
+   * The default list of allowed extensions.
+   *
+   * @param string
+   */
+  protected $allowed_extensions = 'jpg, jpeg, gif, png, txt, doc, xls, csv, pdf, ppt, pps, odt, ods, odp';
+
+   /**
+   * The default list of remote schemes.
+   *
+   * @param string
+   */
+  protected $remote_schemes = 'http, https, ftp, ftps, smb, nfs';
+
   /**
    * Define entity type.
    */
@@ -83,7 +97,15 @@ class DevtracFileProcessor extends FeedsProcessor {
    *   If validation fails.
    */
   protected function entityValidate($entity) {
-
+    if (empty($entity->filename)) {
+      throw new FeedsValidationException(t('File name is missing.'));
+    }
+    if (empty($entity->uri)) {
+      throw new FeedsValidationException(t('File URI is missing.'));
+    }
+    if (empty($entity->filemime)) {
+      throw new FeedsValidationException(t('File MIME type is missing.'));
+    }
   }
 
   /**
@@ -221,6 +243,8 @@ class DevtracFileProcessor extends FeedsProcessor {
       'author' => 0,
       'authorize' => TRUE,
       'debug' => array(),
+      'allowed_extensions' => $this->allowed_extensions,
+      'remote_schemes' => $this->remote_schemes,
     ) + parent::configDefaults();
   }
 
@@ -232,6 +256,19 @@ class DevtracFileProcessor extends FeedsProcessor {
 
     // There is no body field on files.
     unset($form['input_format']);
+    $form['allowed_extensions'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Allowed Extensions'),
+      '#description' => t('Select which file extensions should be allowed when creating files.'),
+      '#default_value' => empty($this->config['allowed_extensions']) ?  $this->allowed_extensions : check_plain($this->config['allowed_extensions']),
+    );
+
+    $form['remote_schemes'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Remote Schemes'),
+      '#description' => t('Select which remote schemes should be allowed as sources when creating files.'),
+      '#default_value' => empty($this->config['remote_schemes']) ?  $this->remote_schemes : check_plain($this->config['remote_schemes']),
+    );
 
     $author = user_load($this->config['author']);
     $form['author'] = array(
@@ -340,6 +377,38 @@ class DevtracFileProcessor extends FeedsProcessor {
   }
 
   /**
+   * Downloads the content from the file URL.
+   *
+   * @param $uri
+   *   The URI of the file.
+   * @param $destination
+   *   The folder where the file shall be stored.
+   * @param $existing_files_option
+   *   The replace behavior when the destination file already exists
+   *
+   * @return string
+   *   The content of the referenced resource.
+   */
+  public function getFile($uri, $destination, $existing_files_option) {
+    $parsed_uri = parse_url($uri);
+    $remote_schemes = !empty($this->config['remote_schemes']) ?  $this->config['remote_schemes'] : $this->remote_schemes;
+
+    if (!in_array($parsed_url['scheme'], explode(', ', $remote_schemes), TRUE)) {
+      // This is a local file, just return the path.
+      return drupal_realpath($uri);
+    }
+
+    $local = $destination . drupal_basename($parsed_url['path']);
+
+    if (!file_exists($local) || update_delete_file_if_stale($local)) {
+      return system_retrieve_file($uri, $local, FALSE, $existing_files_option);
+    }
+    else {
+      return $local;
+    }
+  }
+
+  /**
    * Override setTargetElement to operate on a target item that is a file.
    */
   public function setTargetElement(FeedsSource $source, $target_file, $target_element, $value) {
@@ -347,23 +416,32 @@ class DevtracFileProcessor extends FeedsProcessor {
 
     switch ($target_element) {
       case 'uri':
-        $uri = NULL;
-        if (function_exists('media_parse_to_uri')) {
-          $uri = media_parse_to_uri($value);
-        }
+        try {
+          // First we extract the filename from the uri and check that it is
+          // among the allowed extensions.
+          $filename = rawurldecode(drupal_basename($value));
+          // Remove leading and trailing whitespace and periods.
+          $filename = trim($filename, " \t\n\r\0\x0B.");
+          if (strpos($filename, '.') === FALSE) {
+            $extension = FALSE;
+          }
+          else {
+            $extension = drupal_strtolower(substr($filename, strrpos($filename, '.') + 1));
+          }
+          $allowed_extensions = !empty($this->config['allowed_extensions']) ?  $this->config['allowed_extensions'] : $this->allowed_extensions;
+          if (!$extension || !in_array($extension, explode(', ', $allowed_extensions), TRUE)) {
+            throw new RuntimeException(t('The file @file has an invalid extension.', array('@file' => $filename)));
+          }
 
-        if (isset($uri)) {
-          // Get full file object. This will had a FID if the URI already exists.
-          $file = file_uri_to_object($uri);
-
-          $target_file->filename = $file->filename;
-          $target_file->uri = $file->uri;
-          $target_file->filemime = $file->filemime;
-          $target_file->filesize = $file->filesize;
-          $target_file->status = $file->status;
+          // Next we get the destination and try to get the file.
+          $destination = file_default_scheme() . '://';
+          if ($uri = $this->getFile($value, $destination, FILE_EXISTS_RENAME)) {
+            $target_file->uri = $uri;
+            $target_file->filemime = file_get_mimetype($target_file->uri);
+          }
         }
-        else {
-          $target_file->uri = $value;
+        catch (Exception $e) {
+          watchdog_exception('Feeds', $e, nl2br(check_plain($e)));
         }
         break;
       case 'user_name':
