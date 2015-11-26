@@ -24,6 +24,13 @@ class DevtracFileProcessor extends FeedsProcessor {
    */
   protected $remote_schemes = 'http, https, ftp, ftps, smb, nfs';
 
+   /**
+   * The default destination for imported files.
+   *
+   * @param string
+   */
+  protected $file_destination;
+
   /**
    * Define entity type.
    */
@@ -189,8 +196,36 @@ class DevtracFileProcessor extends FeedsProcessor {
       // file_default_scheme() . ':/'
     }
 
-
     file_save($entity);
+
+    // Add the file usage
+    if (!empty($entity->node_usage)) {
+      foreach ($entity->node_usage as $entity_id) {
+        $using_entity = node_load($entity_id);
+        $using_entity_instances = field_info_instances('node', $using_entity->type);
+        foreach($using_entity_instances as $field_name => $instance) {
+          $field_info = field_info_field($field_name);
+          if ($field_info['type'] == $entity->type) {
+            $using_entity->{$field_name}[LANGUAGE_NONE][] = (array)$entity;
+            // This will also call the file_usage_add() function.
+            node_save($using_entity);
+          }
+        }
+      }
+    }
+    if (!empty($entity->term_usage)) {
+      foreach ($entity->term_usage as $entity_id) {
+        $using_entity = taxonomy_term_load($entity_id);
+        $using_entity_instances = field_info_instances('taxonomy_term', $using_entity->type);
+        foreach($using_entity_instances as $field_name => $instance) {
+          $field_info = field_info_field($field_name);
+          if ($field_info['type'] == $entity->type) {
+            $using_entity->{$field_name}[LANGUAGE_NONE][] = (array)$entity;
+            taxonomy_term_save($using_entity);
+          }
+        }
+      }
+    }
   }
 
   protected function entityCopyLocal($entity) {
@@ -245,6 +280,7 @@ class DevtracFileProcessor extends FeedsProcessor {
       'debug' => array(),
       'allowed_extensions' => $this->allowed_extensions,
       'remote_schemes' => $this->remote_schemes,
+      'file_destination' => file_default_scheme() . '://',
     ) + parent::configDefaults();
   }
 
@@ -259,15 +295,22 @@ class DevtracFileProcessor extends FeedsProcessor {
     $form['allowed_extensions'] = array(
       '#type' => 'textfield',
       '#title' => t('Allowed Extensions'),
-      '#description' => t('Select which file extensions should be allowed when creating files.'),
+      '#description' => t('Indicate which file extensions should be allowed when creating files.'),
       '#default_value' => empty($this->config['allowed_extensions']) ?  $this->allowed_extensions : check_plain($this->config['allowed_extensions']),
     );
 
     $form['remote_schemes'] = array(
       '#type' => 'textfield',
       '#title' => t('Remote Schemes'),
-      '#description' => t('Select which remote schemes should be allowed as sources when creating files.'),
+      '#description' => t('Indicate which remote schemes should be allowed as sources when creating files.'),
       '#default_value' => empty($this->config['remote_schemes']) ?  $this->remote_schemes : check_plain($this->config['remote_schemes']),
+    );
+
+    $form['file_destination'] = array(
+      '#type' => 'textfield',
+      '#title' => t('File Destination'),
+      '#description' => t('Indicate where imported files should be stored.'),
+      '#default_value' => empty($this->config['file_destination']) ?  $this->file_destination : check_plain($this->config['file_destination']),
     );
 
     $author = user_load($this->config['author']);
@@ -393,12 +436,12 @@ class DevtracFileProcessor extends FeedsProcessor {
     $parsed_uri = parse_url($uri);
     $remote_schemes = !empty($this->config['remote_schemes']) ?  $this->config['remote_schemes'] : $this->remote_schemes;
 
-    if (!in_array($parsed_url['scheme'], explode(', ', $remote_schemes), TRUE)) {
+    if (!in_array($parsed_uri['scheme'], explode(', ', $remote_schemes), TRUE)) {
       // This is a local file, just return the path.
       return drupal_realpath($uri);
     }
 
-    $local = $destination . drupal_basename($parsed_url['path']);
+    $local = $destination . drupal_basename($parsed_uri['path']);
 
     if (!file_exists($local) || update_delete_file_if_stale($local)) {
       return system_retrieve_file($uri, $local, FALSE, $existing_files_option);
@@ -434,7 +477,7 @@ class DevtracFileProcessor extends FeedsProcessor {
           }
 
           // Next we get the destination and try to get the file.
-          $destination = file_default_scheme() . '://';
+          $destination = !empty($this->config['file_destination']) ?  $this->config['file_destination'] : $this->file_destination;
           if ($uri = $this->getFile($value, $destination, FILE_EXISTS_RENAME)) {
             $target_file->uri = $uri;
             $target_file->filemime = file_get_mimetype($target_file->uri);
@@ -458,15 +501,17 @@ class DevtracFileProcessor extends FeedsProcessor {
       case 'term_usage':
         $results = array();
         foreach ($value as $usage) {
-          // Get the entity using it's feeds guid, add it to the reuslts array.
+          // Get the entity using it's feeds guid, add it to the results array.
           $entity_id = db_select('feeds_item', 'fi')
               ->fields('fi', array('entity_id'))
               ->condition('guid', $usage,'=')
               ->execute()
               ->fetchField();
-          $results = array_merge($results, $entity_id);
+          if (!empty($entity_id)) {
+              array_push($results, $entity_id);
+          }
         }
-        $target_answer->$target_element= $results;
+        $target_file->$target_element= $results;
         break;
       default:
         parent::setTargetElement($source, $target_file, $target_element, $value);

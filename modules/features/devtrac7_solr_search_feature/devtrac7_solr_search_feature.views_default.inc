@@ -1390,13 +1390,6 @@ function devtrac7_solr_search_feature_views_default_views() {
   $handler->display->display_options['fields']['field_ftritem_tags']['field'] = 'field_ftritem_tags';
   $handler->display->display_options['fields']['field_ftritem_tags']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_ftritem_tags']['view_mode'] = 'full';
-  /* Field: File: URL */
-  $handler->display->display_options['fields']['url']['id'] = 'url';
-  $handler->display->display_options['fields']['url']['table'] = 'entity_file';
-  $handler->display->display_options['fields']['url']['field'] = 'url';
-  $handler->display->display_options['fields']['url']['relationship'] = 'field_ftritem_images_file';
-  $handler->display->display_options['fields']['url']['label'] = 'Image URL';
-  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
   $handler->display->display_options['path'] = 'sitereports/analyse/csvadmin';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
