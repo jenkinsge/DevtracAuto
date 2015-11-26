@@ -620,6 +620,12 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['style_options']['header'] = 1;
   $handler->display->display_options['style_options']['keep_html'] = 0;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Indexed File: URL */
+  $handler->display->display_options['fields']['url']['id'] = 'url';
+  $handler->display->display_options['fields']['url']['table'] = 'search_api_index_devtrac_solr_image_index';
+  $handler->display->display_options['fields']['url']['field'] = 'url';
+  $handler->display->display_options['fields']['url']['label'] = 'File URL';
+  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
   /* Field: Indexed File: UUID */
   $handler->display->display_options['fields']['uuid_1']['id'] = 'uuid_1';
   $handler->display->display_options['fields']['uuid_1']['table'] = 'search_api_index_devtrac_solr_image_index';
@@ -630,6 +636,7 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = 'File Name';
   $handler->display->display_options['fields']['name']['link_to_entity'] = 0;
   /* Field: Indexed File: Title Text */
   $handler->display->display_options['fields']['field_file_image_title_text']['id'] = 'field_file_image_title_text';
@@ -640,6 +647,14 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['field_file_image_alt_text']['id'] = 'field_file_image_alt_text';
   $handler->display->display_options['fields']['field_file_image_alt_text']['table'] = 'search_api_index_devtrac_solr_image_index';
   $handler->display->display_options['fields']['field_file_image_alt_text']['field'] = 'field_file_image_alt_text';
+  /* Field: Node: UUID */
+  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['table'] = 'entity_node';
+  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
+  $handler->display->display_options['fields']['uuid']['relationship'] = 'node_usage';
+  $handler->display->display_options['fields']['uuid']['label'] = 'Site Visit UUID';
+  $handler->display->display_options['fields']['uuid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
   /* Field: Indexed File: Districts */
   $handler->display->display_options['fields']['taxonomy_vocabulary_6_1']['id'] = 'taxonomy_vocabulary_6_1';
   $handler->display->display_options['fields']['taxonomy_vocabulary_6_1']['table'] = 'search_api_index_devtrac_solr_image_index';
@@ -693,19 +708,6 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler->display->display_options['fields']['owner']['field'] = 'owner';
   $handler->display->display_options['fields']['owner']['link_to_entity'] = 1;
   $handler->display->display_options['fields']['owner']['view_mode'] = 'full';
-  /* Field: Indexed File: URL */
-  $handler->display->display_options['fields']['url']['id'] = 'url';
-  $handler->display->display_options['fields']['url']['table'] = 'search_api_index_devtrac_solr_image_index';
-  $handler->display->display_options['fields']['url']['field'] = 'url';
-  $handler->display->display_options['fields']['url']['label'] = 'File URL';
-  $handler->display->display_options['fields']['url']['link_to_entity'] = 0;
-  /* Field: Node: UUID */
-  $handler->display->display_options['fields']['uuid']['id'] = 'uuid';
-  $handler->display->display_options['fields']['uuid']['table'] = 'entity_node';
-  $handler->display->display_options['fields']['uuid']['field'] = 'uuid';
-  $handler->display->display_options['fields']['uuid']['relationship'] = 'node_usage';
-  $handler->display->display_options['fields']['uuid']['link_to_entity'] = 0;
-  $handler->display->display_options['fields']['uuid']['exclude'] = TRUE;
   /* Field: Global: Site information */
   $handler->display->display_options['fields']['site_info']['id'] = 'site_info';
   $handler->display->display_options['fields']['site_info']['table'] = 'views';
