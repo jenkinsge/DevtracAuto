@@ -196,8 +196,54 @@ class DevtracFileProcessor extends FeedsProcessor {
       // file_default_scheme() . ':/'
     }
 
-    file_save($entity);
+    $file_uri_exists = FALSE;
+    try {
+      file_save($entity);
+    }
+    catch (Exception $e) {
+      $message = $e->getMessage();
+      // If the exception is because the current URI is already taken,
+      // then query the database for the file that is using this URI and add
+      // the current entity's file usage to that file.
+      if (preg_match("/SQLSTATE\[23000\]: Integrity constraint violation: 1062 Duplicate entry \'[a-zA-Z:\/._\-0-9]+\' for key \'uri\'/", $message) !== FALSE) {
+        $file_uri_exists = TRUE;
+      }
+    }
 
+    if ($file_uri_exists) {
+      // Query the database for the files uuid using the file's uri.
+      $file_uuid = db_select('file_managed', 'fm')
+        ->fields('fm', array('uuid'))
+        ->condition('uri', $entity->uri)
+        ->execute()->fetchField();
+      // Load the file and add this entity's file usage to it.
+      $file = entity_uuid_load('file', array($file_uuid));
+      $file = reset($file);
+      if (!empty($file->node_usage)) {
+        $file->node_usage = array_merge($file->node_usage, $entity->node_usage);
+      } else {
+        $file->node_usage = $entity->node_usage;
+      }
+      if (!empty($file->term_usage)) {
+        $file->term_usage = array_merge($file->term_usage, $entity->term_usage);
+      } else {
+        $file->term_usage = $entity->term_usage;
+      }
+      $this->entityAddUsage($file);
+    }
+    else {
+      $this->entityAddUsage($entity);
+    }
+
+  }
+
+  /**
+   * Adds file Usage data to database.
+   *
+   * @param $entity
+   *   Entity whose usage is to be saved.
+   */
+  public function entityAddUsage($entity) {
     // Add the file usage
     if (!empty($entity->node_usage)) {
       foreach ($entity->node_usage as $entity_id) {
