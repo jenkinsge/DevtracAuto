@@ -34,9 +34,10 @@ class DevtracImportsPlacetypeIcons extends XMLMigration   {
     // In the simplest case, just pass the media type.
     $this->destination = new MigrateDestinationMedia('image');
 
+    $devtrac_theme = drupal_get_path('theme', 'devtrac_classic');
     // The source images are in a local directory - specify the parent.
     $this->addFieldMapping('source_dir')
-         ->defaultValue(path_to_theme() . '/icons/locationtypes');
+         ->defaultValue($devtrac_theme . '/icons/locationtypes');
     // The 'value' of the media destination is mapped to the source field
     // representing the media itself - in this case, a filename relative to
     // source_dir.
