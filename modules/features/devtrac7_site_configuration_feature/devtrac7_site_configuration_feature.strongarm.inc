@@ -422,7 +422,7 @@ Disallow: /?q=statistics/answers';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'securesite_403';
-  $strongarm->value = 'r4032login';
+  $strongarm->value = 'securesite_403';
   $export['securesite_403'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -436,7 +436,7 @@ Disallow: /?q=statistics/answers';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'securesite_enabled';
-  $strongarm->value = '3';
+  $strongarm->value = '4';
   $export['securesite_enabled'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -466,6 +466,20 @@ Disallow: /?q=statistics/answers';
   $strongarm->name = 'securesite_password_script';
   $strongarm->value = 'sites/all/modules/securesite/digest_md5/stored_passwords.php';
   $export['securesite_password_script'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'securesite_paths';
+  $strongarm->value = '/users/analyse/csv
+/locations/analyse/csvfieldworker
+/fieldtrips/analyse/csv
+/sitereports/analyse/csvadmin
+/actionitems/analyse/csv
+/statistics/questions/csv
+/statistics/answers/analyse/submissions/csvfieldworker
+/statistics/answers/analyse/csvfieldworker';
+  $export['securesite_paths'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
