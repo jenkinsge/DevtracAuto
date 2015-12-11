@@ -565,12 +565,6 @@ projects[openlayers_blocks][type] = "module"
 projects[openlayers_blocks][subdir] = "contrib"
 
 ; Sandbox projects
-projects[cancel_button][type] = "module"
-projects[cancel_button][download][type] = "git"
-projects[cancel_button][download][url] = "http://git.drupal.org/sandbox/amuhebwa/2227951.git"
-projects[cancel_button][download][branch] = "master"
-projects[cancel_button][subdir] = "contrib"
-
 projects[commentblock][type] = "module"
 projects[commentblock][download][type] = "git"
 projects[commentblock][download][url] = "http://git.drupal.org/sandbox/bc/1447318.git"
