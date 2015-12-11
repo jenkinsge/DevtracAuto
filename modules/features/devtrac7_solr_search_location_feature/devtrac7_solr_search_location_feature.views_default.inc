@@ -397,6 +397,15 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['field_place_tags']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_place_tags']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_place_tags']['bypass_access'] = 0;
+  /* Field: Indexed Node: Lat-Long */
+  $handler->display->display_options['fields']['field_place_lat_long_2']['id'] = 'field_place_lat_long_2';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['field'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['label'] = 'Lat-Long (WKT)';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['settings'] = array(
+    'data' => 'full',
+  );
   $handler->display->display_options['path'] = 'locations/analyse/csv';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
@@ -824,6 +833,15 @@ function devtrac7_solr_search_location_feature_views_default_views() {
   $handler->display->display_options['fields']['field_place_tags']['link_to_entity'] = 0;
   $handler->display->display_options['fields']['field_place_tags']['view_mode'] = 'full';
   $handler->display->display_options['fields']['field_place_tags']['bypass_access'] = 0;
+  /* Field: Indexed Node: Lat-Long */
+  $handler->display->display_options['fields']['field_place_lat_long_2']['id'] = 'field_place_lat_long_2';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['table'] = 'search_api_index_devtrac_solr_locations_index';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['field'] = 'field_place_lat_long';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['label'] = 'Lat-Long (WKT)';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['click_sort_column'] = 'geom';
+  $handler->display->display_options['fields']['field_place_lat_long_2']['settings'] = array(
+    'data' => 'full',
+  );
   $handler->display->display_options['path'] = 'locations/analyse/csvfieldworker';
   $handler->display->display_options['displays'] = array(
     'default' => 'default',
