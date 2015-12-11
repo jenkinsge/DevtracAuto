@@ -481,30 +481,25 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'autocreate' => 1,
           ),
           3 => array(
-            'source' => 'Lat',
-            'target' => 'field_place_lat_long:lat',
-            'unique' => FALSE,
-          ),
-          4 => array(
-            'source' => 'Lon',
-            'target' => 'field_place_lat_long:lon',
-            'unique' => FALSE,
-          ),
-          5 => array(
             'source' => 'Author Email',
             'target' => 'user_mail',
             'unique' => FALSE,
           ),
-          6 => array(
+          4 => array(
             'source' => 'Description',
             'target' => 'body',
             'unique' => FALSE,
           ),
-          7 => array(
+          5 => array(
             'source' => 'Location Tags',
             'target' => 'field_place_tags',
             'term_search' => '0',
             'autocreate' => 1,
+          ),
+          6 => array(
+            'source' => 'Lat-Long (WKT)',
+            'target' => 'field_place_lat_long:wkt',
+            'unique' => FALSE,
           ),
         ),
         'update_existing' => '2',
