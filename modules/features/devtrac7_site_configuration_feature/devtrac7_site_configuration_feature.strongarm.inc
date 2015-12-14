@@ -471,14 +471,14 @@ Disallow: /?q=statistics/answers';
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'securesite_paths';
-  $strongarm->value = '/users/analyse/csv
-/locations/analyse/csvfieldworker
-/fieldtrips/analyse/csv
-/sitereports/analyse/csvadmin
-/actionitems/analyse/csv
-/statistics/questions/csv
-/statistics/answers/analyse/submissions/csvfieldworker
-/statistics/answers/analyse/csvfieldworker';
+  $strongarm->value = 'users/analyse/csv
+locations/analyse/csvfieldworker
+fieldtrips/analyse/csv
+sitereports/analyse/csvadmin
+actionitems/analyse/csv
+statistics/questions/csv
+statistics/answers/analyse/submissions/csvfieldworker
+statistics/answers/analyse/csvfieldworker';
   $export['securesite_paths'] = $strongarm;
 
   $strongarm = new stdClass();
