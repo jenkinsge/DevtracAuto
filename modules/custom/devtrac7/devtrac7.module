@@ -104,6 +104,15 @@ function devtrac7_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('devtrac7_settings_form'),
   );
+  $items['admin/devtrac7/fixes'] = array(
+    'title' => 'Devtrac Fixer',
+    'description' => 'General Devtrac Fixes.',
+    'position' => 'left',
+    'weight' => -3,
+    'access arguments' => array('access administration pages'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('devtrac7_fixes_form'),
+  );
   $items['devtrac/mycurrentfieldtrip'] = array(
     'title' => 'My Current Fieldtrip',
     'page callback' => 'devtrac7_gotofieldtrip',
@@ -293,6 +302,225 @@ function devtrac7_settings_form() {
     );
   $form['#submit'][] = 'devtrac7_node_access_rebuild';
   return $form;
+}
+
+/**
+ * Implements hook_settings_form().
+ */
+function devtrac7_fixes_form() {
+  $form = array();
+  $form['node_fix']['update_ftritems'] = array(
+    '#type' => 'submit',
+    '#value' => 'Update Site Reports',
+    '#submit' => array('devtrac7_update_site_reports'),
+  );
+  $form['node_fix']['update_fieldtrips'] = array(
+    '#type' => 'submit',
+    '#value' => 'Re-index Field Trips',
+    '#submit' => array('devtrac7_update_field_trips'),
+  );
+  $form['node_fix']['update_actionitems'] = array(
+    '#type' => 'submit',
+    '#value' => 'Update Action items',
+    '#submit' => array('devtrac7_update_action_items'),
+  );
+  return $form;
+}
+
+/**
+ * Clear and reindex the index with the search API index id $id.
+ */
+function devtrac7_searchapiindex_reindex($id) {
+  search_api_index_clear($id);
+  $index = search_api_index_load($id);
+  $status = search_api_index_status($index);
+  $remaining = $status['total'] - $status['indexed'];
+  $batch_size = empty($index->options['cron_limit']) ? SEARCH_API_DEFAULT_CRON_LIMIT : $index->options['cron_limit'];
+  _search_api_batch_indexing_create($index, $batch_size, -1, $remaining);
+}
+
+/**
+ * Triggers mass update of district on field trips and site reports.
+ */
+function devtrac7_update_site_reports($form, &$form_state) {
+  module_load_include('inc', 'node', 'node.admin');
+  $fnids = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('type', 'fieldtrip')
+    ->execute()
+    ->fetchCol();
+  node_mass_update($fnids, array('taxonomy_vocabulary_6' => array()));
+  $nids = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('type', 'ftritem')
+    ->execute()
+    ->fetchCol();
+  devtrac7_ftritem_mass_update($nids);
+  devtrac7_searchapiindex_reindex('devtrac_solr_site_visits_index');
+}
+
+/**
+ * Triggers re-index of field trips.
+ */
+function devtrac7_update_field_trips($form, &$form_state) {
+  devtrac7_searchapiindex_reindex('devtrac_solr_field_trip_index');
+}
+
+/**
+ * Triggers mass update of district on action items.
+ */
+function devtrac7_update_action_items($form, &$form_state) {
+  module_load_include('inc', 'node', 'node.admin');
+  $nids = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('type', 'actionitem')
+    ->execute()
+    ->fetchCol();
+  // We call node update twice. The first time to unset the admin unit/district.
+  // the second to reset it.
+//  node_mass_update($nids, array('taxonomy_vocabulary_6' => array()));
+//  node_mass_update($nids, array());
+  devtrac7_action_item_mass_update($nids);
+  devtrac7_searchapiindex_reindex('devtrac_solr_action_items_index');
+}
+
+function devtrac7_ftritem_mass_update($nodes) {
+  // We use batch processing to prevent timeout when updating a large number
+  // of nodes.
+  if (count($nodes) > 10) {
+    $batch = array(
+      'operations' => array(
+        array('_devtrac7_ftritem_mass_update_batch_process', array($nodes))
+      ),
+      'finished' => '_devtrac7_mass_update_batch_finished',
+      'title' => t('Processing'),
+      'progress_message' => 'Updating Site Reports',
+      'error_message' => t('The update has encountered an error.'),
+    );
+    batch_set($batch);
+  }
+  else {
+    foreach ($nodes as $nid) {
+      _devtrac7_ftritem_mass_update_helper($nid);
+    }
+    drupal_set_message(t('The update has been performed.'));
+  }
+}
+
+function _devtrac7_ftritem_mass_update_batch_process($nodes, &$context) {
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = count($nodes);
+    $context['sandbox']['nodes'] = $nodes;
+  }
+
+  // Process nodes by groups of 5.
+  $count = min(5, count($context['sandbox']['nodes']));
+  for ($i = 1; $i <= $count; $i++) {
+    // For each nid, load the node, reset the values, and save it.
+    $nid = array_shift($context['sandbox']['nodes']);
+    $node = _devtrac7_ftritem_mass_update_helper($nid);
+
+    // Store result for post-processing in the finished callback.
+    $context['results'][] = l($node->title, 'node/' . $node->nid);
+
+    // Update our progress information.
+    $context['sandbox']['progress']++;
+  }
+
+  // Inform the batch engine that we are not finished,
+  // and provide an estimation of the completion level we reached.
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+function _devtrac7_ftritem_mass_update_helper($nid) {
+  $node = node_load($nid, NULL, TRUE);
+  if (isset($node->field_ftritem_lat_long[$node->language]) && (count($node->field_ftritem_lat_long[$node->language]) > 0)) {
+    $place = node_load($node->field_ftritem_place[$node->language][0]['target_id'], NULL, TRUE);
+    unset($node->taxonomy_vocabulary_6);
+    unset($node->original->taxonomy_vocabulary_6);
+    $node->taxonomy_vocabulary_6 = $place->taxonomy_vocabulary_6;
+    $node->mass_update_flag = TRUE;
+  }
+  node_save($node);
+  watchdog('admin_feature', 'Copied Place District to Site Report: ' . $node->nid);
+  return $node;
+}
+
+
+function devtrac7_action_item_mass_update($nodes) {
+  // We use batch processing to prevent timeout when updating a large number
+  // of nodes.
+  if (count($nodes) > 10) {
+    $batch = array(
+      'operations' => array(
+        array('_devtrac7_action_item_mass_update_batch_process', array($nodes))
+      ),
+      'finished' => '_devtrac7_mass_update_batch_finished',
+      'title' => t('Processing'),
+      'progress_message' => 'Updating Action Items',
+      'error_message' => t('The update has encountered an error.'),
+    );
+    batch_set($batch);
+  }
+  else {
+    foreach ($nodes as $nid) {
+      _devtrac7_action_item_mass_update_helper($nid);
+    }
+    drupal_set_message(t('The update has been performed.'));
+  }
+}
+
+function _devtrac7_action_item_mass_update_batch_process($nodes, &$context) {
+  if (!isset($context['sandbox']['progress'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = count($nodes);
+    $context['sandbox']['nodes'] = $nodes;
+  }
+
+  // Process nodes by groups of 5.
+  $count = min(5, count($context['sandbox']['nodes']));
+  for ($i = 1; $i <= $count; $i++) {
+    // For each nid, load the node, reset the values, and save it.
+    $nid = array_shift($context['sandbox']['nodes']);
+    $node = _devtrac7_action_item_mass_update_helper($nid);
+
+    // Store result for post-processing in the finished callback.
+    $context['results'][] = l($node->title, 'node/' . $node->nid);
+
+    // Update our progress information.
+    $context['sandbox']['progress']++;
+  }
+
+  // Inform the batch engine that we are not finished,
+  // and provide an estimation of the completion level we reached.
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+function _devtrac7_action_item_mass_update_helper($nid) {
+  $node = node_load($nid, NULL, TRUE);
+  unset($node->taxonomy_vocabulary_6);
+  $place = node_load($node->field_actionitem_resp_place[$node->language][0]['target_id']);
+  $node->taxonomy_vocabulary_6 = $place->taxonomy_vocabulary_6;
+  node_save($node);
+  watchdog('admin_feature', 'Updated District on Action Item: ' . $node->nid);
+  return $node;
+}
+
+function _devtrac7_mass_update_batch_finished($success, $results, $operations) {
+  if ($success) {
+    drupal_set_message(t('The update has been performed.'));
+  }
+  else {
+    drupal_set_message(t('An error occurred and processing did not complete.'), 'error');
+    $message = format_plural(count($results), '1 item successfully processed:', '@count items successfully processed:');
+    $message .= theme('item_list', array('items' => $results));
+    drupal_set_message($message);
+  }
 }
 
 /**

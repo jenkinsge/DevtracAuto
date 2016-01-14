@@ -31,12 +31,18 @@ function devtrac7_ftritem_addplacetofieldtrip($node) {
        */
       if ($node->field_ftritem_place == $node->original->field_ftritem_place) {
         /*
-         * Location attached to the Site Report did not change.
-         * However, something on the Site Report changed.
+         * If performing a mass update of Districts on ftritems, just reset the
+         * districts on the fieldtrips. This flag is only set in one place.
          */
-        if ($node->taxonomy_vocabulary_6 == $node->original->taxonomy_vocabulary_6) {
-          // The Admin Unit did not change.
-          return TRUE;
+        if (!isset($node->mass_update_flag)) {
+          /*
+           * Location attached to the Site Report did not change.
+           * However, something on the Site Report changed.
+           */
+          if ($node->taxonomy_vocabulary_6 == $node->original->taxonomy_vocabulary_6) {
+            // The Admin Unit did not change.
+            return TRUE;
+          }
         }
         // The Admin Unit changed.
         // Mitigate the change to the Fieldtrip.
