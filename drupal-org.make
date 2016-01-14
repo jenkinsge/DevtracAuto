@@ -156,7 +156,7 @@ projects[field_extrawidgets][type] = "module"
 projects[field_extrawidgets][subdir] = "contrib"
 projects[field_extrawidgets][patch][] = "https://www.drupal.org/files/issues/field_extrawidgets_notice_string_offset_cast-2097901-3.patch"
 
-projects[field_group][version] = "1.4"
+projects[field_group][version] = "1.5"
 projects[field_group][type] = "module"
 projects[field_group][subdir] = "contrib"
 
