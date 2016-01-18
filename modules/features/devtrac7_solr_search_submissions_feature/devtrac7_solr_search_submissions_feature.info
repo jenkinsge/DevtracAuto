@@ -8,6 +8,7 @@ dependencies[] = views_data_export
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:2
 features[search_api_index][] = devtrac_solr_submissions_index
+features[views_view][] = devtrac_nodes
 features[views_view][] = devtrac_solr_submissions_view
 features_exclude[dependencies][ctools] = ctools
 features_exclude[dependencies][entity] = entity
