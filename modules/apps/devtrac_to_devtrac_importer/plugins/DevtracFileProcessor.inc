@@ -537,6 +537,9 @@ class DevtracFileProcessor extends FeedsProcessor {
         if ($user = user_load_by_name($value)) {
           $target_file->uid = $user->uid;
         }
+        else if ($user = $this->user_load_by_realname($value)) {
+          $target_file->uid = $user->uid;
+        }
         break;
       case 'user_mail':
         if ($user = user_load_by_mail($value)) {
@@ -637,6 +640,18 @@ class DevtracFileProcessor extends FeedsProcessor {
       }
       $o .= '</ul>';
       drupal_set_message($source . ':' . $o);
+    }
+  }
+
+  protected function user_load_by_realname($realname) {
+    if (module_exists('realname')) {
+      $query = db_select('users', 'u');
+      $query->leftJoin('realname', 'r', 'u.uid = r.uid');
+      $query->fields('u', array('uid'));
+      $query->condition('r.realname', $realname);
+      $uid = $query->execute()->fetchField();
+      $user = user_load($uid);
+      return $user;
     }
   }
 }
