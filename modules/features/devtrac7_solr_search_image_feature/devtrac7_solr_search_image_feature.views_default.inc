@@ -312,9 +312,10 @@ function devtrac7_solr_search_image_feature_views_default_views() {
   $handler = $view->new_display('mode', 'Grid', 'grid');
   $handler->display->display_options['display_description'] = 'Grid mode';
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '36';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'masonry_views';
   $handler->display->display_options['style_options']['masonry_gutter_width'] = '5';
