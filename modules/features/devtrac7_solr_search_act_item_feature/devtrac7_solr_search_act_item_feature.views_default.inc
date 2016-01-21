@@ -885,6 +885,13 @@ function devtrac7_solr_search_act_item_feature_views_default_views() {
   $handler->display->display_options['fields']['field_actionitem_severity']['id'] = 'field_actionitem_severity';
   $handler->display->display_options['fields']['field_actionitem_severity']['table'] = 'search_api_index_devtrac_solr_action_items_index';
   $handler->display->display_options['fields']['field_actionitem_severity']['field'] = 'field_actionitem_severity';
+  /* Field: Indexed Node: Date created */
+  $handler->display->display_options['fields']['created']['id'] = 'created';
+  $handler->display->display_options['fields']['created']['table'] = 'search_api_index_devtrac_solr_action_items_index';
+  $handler->display->display_options['fields']['created']['field'] = 'created';
+  $handler->display->display_options['fields']['created']['date_format'] = 'export_only';
+  $handler->display->display_options['fields']['created']['second_date_format'] = 'date_only';
+  $handler->display->display_options['fields']['created']['link_to_entity'] = 0;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Indexed Node: Status */
   $handler->display->display_options['sorts']['field_actionitem_status']['id'] = 'field_actionitem_status';
