@@ -184,6 +184,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'target' => 'field_actionitem_severity',
             'unique' => FALSE,
           ),
+          12 => array(
+            'source' => 'Date created',
+            'target' => 'created',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '0',
         'input_format' => 'plain_text',

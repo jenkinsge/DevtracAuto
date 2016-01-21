@@ -200,6 +200,7 @@ projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-merg
 projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-sql-error-1965484-18.patch"
 ; projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-wkb-exception-1924206-11.patch"
 projects[geofield][patch][] = https://www.drupal.org/files/issues/add_titles_to_editingtoolbar_buttons.patch
+projects[geofield][patch][] = "https://www.drupal.org/files/issues/geofield-feeds_import_not_saving-2534822-17.patch"
 
 projects[geonames][version] = "1.1"
 projects[geonames][type] = "module"
