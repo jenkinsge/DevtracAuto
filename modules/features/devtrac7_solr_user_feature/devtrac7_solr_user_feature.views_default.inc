@@ -370,6 +370,12 @@ function devtrac7_solr_user_feature_views_default_views() {
   $handler->display->display_options['fields']['field_user_superior_uuid']['field'] = 'field_user_superior_uuid';
   $handler->display->display_options['fields']['field_user_superior_uuid']['label'] = 'Manager UUID';
   $handler->display->display_options['fields']['field_user_superior_uuid']['link_to_entity'] = 0;
+  /* Field: Indexed User: Status */
+  $handler->display->display_options['fields']['status']['id'] = 'status';
+  $handler->display->display_options['fields']['status']['table'] = 'search_api_index_devtrac7_user_index';
+  $handler->display->display_options['fields']['status']['field'] = 'status';
+  $handler->display->display_options['fields']['status']['link_to_entity'] = 0;
+  $handler->display->display_options['fields']['status']['format_name'] = 0;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Indexed User: User roles */
