@@ -978,6 +978,11 @@ function devtrac_2_devtrac_feeds_importers_feeds_importer_default() {
             'target' => 'field_user_superior',
             'unique' => FALSE,
           ),
+          13 => array(
+            'source' => 'Status',
+            'target' => 'status',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '2',
         'input_format' => 'plain_text',
