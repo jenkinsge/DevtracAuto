@@ -5,6 +5,12 @@
 		<placetype>
 			<name>Primary School</name>
 			<placetype>
+				<name>Primary Community School</name>
+			</placetype>
+			<placetype>
+				<name>Primary Government School</name>
+			</placetype>
+			<placetype>
 				<name>Primary Private School</name>
 			</placetype>
 			<placetype>
