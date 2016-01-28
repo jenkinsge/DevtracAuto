@@ -1380,7 +1380,7 @@ function devtrac7_solr_user_feature_facetapi_default_facet_settings() {
     'graphsy_step' => '',
     'graphsy_legend' => '',
     'graphsbackground_colour' => '#fff',
-    'graphsseries_colours' => '',
+    'graphsseries_colours' => '#ffccff,#7d57a3,#f5cd81,#ffe8c2,#ececec',
     'graphsshowlegend' => 1,
     'graphsflot' => 'pie',
     'empty_text' => array(

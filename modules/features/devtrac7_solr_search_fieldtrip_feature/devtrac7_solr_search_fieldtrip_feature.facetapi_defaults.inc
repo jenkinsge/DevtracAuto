@@ -1088,7 +1088,7 @@ function devtrac7_solr_search_fieldtrip_feature_facetapi_default_facet_settings(
     'graphs_comboy_step' => '',
     'graphs_comboy_legend' => '',
     'graphs_combobackground_colour' => '#fff',
-    'graphs_comboseries_colours' => '',
+    'graphs_comboseries_colours' => '#ffccff,#7d57a3,#f5cd81,#ffe8c2,#ececec',
     'graphs_comboshowlegend' => 1,
     'yfacet' => 'field_fieldtrip_status',
     'soft_limit' => '20',
